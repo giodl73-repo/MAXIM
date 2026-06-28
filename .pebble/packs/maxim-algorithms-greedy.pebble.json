@@ -1,0 +1,825 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-algorithms-greedy",
+  "source": "../../algorithms",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "05-GREEDY.md#000",
+      "path": [
+        "05-GREEDY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:05-greedy, git-history:algorithms:05-greedy]",
+        "canonical_path": "algorithms/05-GREEDY.md",
+        "concepts": "[greedy algorithms, exchange argument, matroid, huffman coding, activity selection, scheduling]",
+        "current_path": "algorithms/05-GREEDY.md",
+        "id": "maxim:algorithms:greedy",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greedy algorithms]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Greedy Algorithms",
+        "updated": "null"
+      },
+      "text": "# Greedy Algorithms"
+    },
+    {
+      "id": "05-GREEDY.md#001",
+      "path": [
+        "05-GREEDY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:05-greedy, git-history:algorithms:05-greedy]",
+        "canonical_path": "algorithms/05-GREEDY.md",
+        "concepts": "[greedy algorithms, exchange argument, matroid, huffman coding, activity selection, scheduling]",
+        "current_path": "algorithms/05-GREEDY.md",
+        "id": "maxim:algorithms:greedy",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greedy algorithms]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Greedy Algorithms",
+        "updated": "null"
+      },
+      "text": "A greedy algorithm makes the locally optimal choice at each step and never\nreconsiders. It is the cheapest paradigm — no subproblem table, no backtracking —\nbut it owes a **proof** that local optimality implies global optimality, because the\nclaim is false for most problems. The two proof techniques are the *exchange\nargument* (greedy stays ahead of any optimal solution) and *matroid theory* (the\nstructural characterization of exactly when greedy is guaranteed optimal). Knowing\nwhich problems have that structure is the entire skill."
+    },
+    {
+      "id": "05-GREEDY.md#002",
+      "path": [
+        "05-GREEDY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:05-greedy, git-history:algorithms:05-greedy]",
+        "canonical_path": "algorithms/05-GREEDY.md",
+        "concepts": "[greedy algorithms, exchange argument, matroid, huffman coding, activity selection, scheduling]",
+        "current_path": "algorithms/05-GREEDY.md",
+        "id": "maxim:algorithms:greedy",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greedy algorithms]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Greedy Algorithms",
+        "updated": "null"
+      },
+      "text": "```\n  GREEDY: one irrevocable locally-best choice per step, never backtrack\n  ====================================================================================="
+    },
+    {
+      "id": "05-GREEDY.md#003",
+      "path": [
+        "05-GREEDY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:05-greedy, git-history:algorithms:05-greedy]",
+        "canonical_path": "algorithms/05-GREEDY.md",
+        "concepts": "[greedy algorithms, exchange argument, matroid, huffman coding, activity selection, scheduling]",
+        "current_path": "algorithms/05-GREEDY.md",
+        "id": "maxim:algorithms:greedy",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greedy algorithms]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Greedy Algorithms",
+        "updated": "null"
+      },
+      "text": "+-----------------------------------------------------------------+\n        | At each step: choose the option that looks best RIGHT NOW.      |\n        | Commit. Never reconsider. -> O(n log n) typical (sort + scan).  |\n        +-----------------------------------------------------------------+\n                 |                                    |\n        WHEN IT WORKS (provably optimal)     WHEN IT FAILS (only a heuristic)\n        ----------------------------         --------------------------------\n        activity selection                   0/1 knapsack (use DP, 04)\n        fractional knapsack                  general TSP (NP-hard, 09 / graph-alg/07)\n        Huffman coding                       longest path, set cover (only approx)\n        MST: Kruskal, Prim (graph-alg/04)    coin change (non-canonical coin systems)\n        Dijkstra (graph-alg/03)\n        scheduling to minimize lateness\n                 |\n                 v\n        WHY: two structural certificates\n        +--------------------------+    +-------------------------------+\n        | EXCHANGE ARGUMENT        |    | MATROID                       |\n        | transform any optimal    |    | (E, I) with hereditary +      |\n        | solution into the greedy |    | exchange property             |\n        | one without worsening it |    | => greedy on weights is       |\n        +--------------------------+    | OPTIMAL (Rado-Edmonds thm)    |\n                                        +-------------------------------+\n```"
+    },
+    {
+      "id": "05-GREEDY.md#004",
+      "path": [
+        "05-GREEDY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:05-greedy, git-history:algorithms:05-greedy]",
+        "canonical_path": "algorithms/05-GREEDY.md",
+        "concepts": "[greedy algorithms, exchange argument, matroid, huffman coding, activity selection, scheduling]",
+        "current_path": "algorithms/05-GREEDY.md",
+        "id": "maxim:algorithms:greedy",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greedy algorithms]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Greedy Algorithms",
+        "updated": "null"
+      },
+      "text": "**The discipline**: greedy is trivial to *write* and treacherous to *trust*. Never\nship a greedy algorithm for an optimization problem without an exchange argument or a\nmatroid certificate — otherwise it is a heuristic, and you must say so."
+    },
+    {
+      "id": "05-GREEDY.md#005",
+      "path": [
+        "05-GREEDY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:05-greedy, git-history:algorithms:05-greedy]",
+        "canonical_path": "algorithms/05-GREEDY.md",
+        "concepts": "[greedy algorithms, exchange argument, matroid, huffman coding, activity selection, scheduling]",
+        "current_path": "algorithms/05-GREEDY.md",
+        "id": "maxim:algorithms:greedy",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greedy algorithms]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Greedy Algorithms",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-GREEDY.md#006",
+      "path": [
+        "05-GREEDY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:05-greedy, git-history:algorithms:05-greedy]",
+        "canonical_path": "algorithms/05-GREEDY.md",
+        "concepts": "[greedy algorithms, exchange argument, matroid, huffman coding, activity selection, scheduling]",
+        "current_path": "algorithms/05-GREEDY.md",
+        "id": "maxim:algorithms:greedy",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greedy algorithms]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Greedy Algorithms",
+        "updated": "null"
+      },
+      "text": "## Layer 1: The Anatomy of a Greedy Algorithm"
+    },
+    {
+      "id": "05-GREEDY.md#007",
+      "path": [
+        "05-GREEDY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:05-greedy, git-history:algorithms:05-greedy]",
+        "canonical_path": "algorithms/05-GREEDY.md",
+        "concepts": "[greedy algorithms, exchange argument, matroid, huffman coding, activity selection, scheduling]",
+        "current_path": "algorithms/05-GREEDY.md",
+        "id": "maxim:algorithms:greedy",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greedy algorithms]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Greedy Algorithms",
+        "updated": "null"
+      },
+      "text": "```\n   greedy(items):\n      sort items by some KEY                # the greedy criterion — choosing this is the design\n      solution = empty\n      for item in sorted order:\n         if item is FEASIBLE with solution:  # respects the constraint\n            add item to solution             # COMMIT — never undo\n      return solution\n```"
+    },
+    {
+      "id": "05-GREEDY.md#008",
+      "path": [
+        "05-GREEDY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:05-greedy, git-history:algorithms:05-greedy]",
+        "canonical_path": "algorithms/05-GREEDY.md",
+        "concepts": "[greedy algorithms, exchange argument, matroid, huffman coding, activity selection, scheduling]",
+        "current_path": "algorithms/05-GREEDY.md",
+        "id": "maxim:algorithms:greedy",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greedy algorithms]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Greedy Algorithms",
+        "updated": "null"
+      },
+      "text": "Two ingredients define a greedy algorithm and both must be justified:"
+    },
+    {
+      "id": "05-GREEDY.md#009",
+      "path": [
+        "05-GREEDY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:05-greedy, git-history:algorithms:05-greedy]",
+        "canonical_path": "algorithms/05-GREEDY.md",
+        "concepts": "[greedy algorithms, exchange argument, matroid, huffman coding, activity selection, scheduling]",
+        "current_path": "algorithms/05-GREEDY.md",
+        "id": "maxim:algorithms:greedy",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greedy algorithms]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Greedy Algorithms",
+        "updated": "null"
+      },
+      "text": "- **Greedy-choice property**: a globally optimal solution can be reached by a\n  sequence of locally optimal (greedy) choices. *This is what you must prove.*\n- **Optimal substructure**: after the greedy choice, the remaining subproblem is of\n  the same kind and an optimal solution to it combines with the greedy choice. (Same\n  property DP needs, `04` — greedy is the case where you also get greedy-choice, so\n  you skip the table.)"
+    },
+    {
+      "id": "05-GREEDY.md#010",
+      "path": [
+        "05-GREEDY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:05-greedy, git-history:algorithms:05-greedy]",
+        "canonical_path": "algorithms/05-GREEDY.md",
+        "concepts": "[greedy algorithms, exchange argument, matroid, huffman coding, activity selection, scheduling]",
+        "current_path": "algorithms/05-GREEDY.md",
+        "id": "maxim:algorithms:greedy",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greedy algorithms]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Greedy Algorithms",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-GREEDY.md#011",
+      "path": [
+        "05-GREEDY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:05-greedy, git-history:algorithms:05-greedy]",
+        "canonical_path": "algorithms/05-GREEDY.md",
+        "concepts": "[greedy algorithms, exchange argument, matroid, huffman coding, activity selection, scheduling]",
+        "current_path": "algorithms/05-GREEDY.md",
+        "id": "maxim:algorithms:greedy",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greedy algorithms]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Greedy Algorithms",
+        "updated": "null"
+      },
+      "text": "## Layer 2: The Exchange Argument (the universal proof)"
+    },
+    {
+      "id": "05-GREEDY.md#012",
+      "path": [
+        "05-GREEDY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:05-greedy, git-history:algorithms:05-greedy]",
+        "canonical_path": "algorithms/05-GREEDY.md",
+        "concepts": "[greedy algorithms, exchange argument, matroid, huffman coding, activity selection, scheduling]",
+        "current_path": "algorithms/05-GREEDY.md",
+        "id": "maxim:algorithms:greedy",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greedy algorithms]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Greedy Algorithms",
+        "updated": "null"
+      },
+      "text": "The exchange argument proves greedy optimal by showing **any** optimal solution can\nbe transformed, step by step, into the greedy one without ever getting worse."
+    },
+    {
+      "id": "05-GREEDY.md#013",
+      "path": [
+        "05-GREEDY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:05-greedy, git-history:algorithms:05-greedy]",
+        "canonical_path": "algorithms/05-GREEDY.md",
+        "concepts": "[greedy algorithms, exchange argument, matroid, huffman coding, activity selection, scheduling]",
+        "current_path": "algorithms/05-GREEDY.md",
+        "id": "maxim:algorithms:greedy",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greedy algorithms]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Greedy Algorithms",
+        "updated": "null"
+      },
+      "text": "### Activity selection — maximize non-overlapping intervals"
+    },
+    {
+      "id": "05-GREEDY.md#014",
+      "path": [
+        "05-GREEDY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:05-greedy, git-history:algorithms:05-greedy]",
+        "canonical_path": "algorithms/05-GREEDY.md",
+        "concepts": "[greedy algorithms, exchange argument, matroid, huffman coding, activity selection, scheduling]",
+        "current_path": "algorithms/05-GREEDY.md",
+        "id": "maxim:algorithms:greedy",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greedy algorithms]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Greedy Algorithms",
+        "updated": "null"
+      },
+      "text": "```\n   GREEDY CRITERION: always pick the activity that FINISHES EARLIEST among compatible ones."
+    },
+    {
+      "id": "05-GREEDY.md#015",
+      "path": [
+        "05-GREEDY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:05-greedy, git-history:algorithms:05-greedy]",
+        "canonical_path": "algorithms/05-GREEDY.md",
+        "concepts": "[greedy algorithms, exchange argument, matroid, huffman coding, activity selection, scheduling]",
+        "current_path": "algorithms/05-GREEDY.md",
+        "id": "maxim:algorithms:greedy",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greedy algorithms]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Greedy Algorithms",
+        "updated": "null"
+      },
+      "text": "activities (start,finish):\n      a1(1,4) a2(3,5) a3(0,6) a4(5,7) a5(3,9) a6(5,9) a7(6,10) a8(8,11) a9(8,12) a10(2,14) a11(12,16)\n   sort by finish time:  4,5,6,7,9,9,10,11,12,14,16\n   pick a1(.,4) -> next compatible start>=4: a4(5,7) -> next start>=7: a8(8,11) -> a11(12,16)\n   SELECTED: a1, a4, a8, a11  (4 activities — optimal)"
+    },
+    {
+      "id": "05-GREEDY.md#016",
+      "path": [
+        "05-GREEDY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:05-greedy, git-history:algorithms:05-greedy]",
+        "canonical_path": "algorithms/05-GREEDY.md",
+        "concepts": "[greedy algorithms, exchange argument, matroid, huffman coding, activity selection, scheduling]",
+        "current_path": "algorithms/05-GREEDY.md",
+        "id": "maxim:algorithms:greedy",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greedy algorithms]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Greedy Algorithms",
+        "updated": "null"
+      },
+      "text": "timeline:  [a1==]   [a4=]    [a8==]      [a11==]\n              1   4   5  7     8    11     12    16\n```"
+    },
+    {
+      "id": "05-GREEDY.md#017",
+      "path": [
+        "05-GREEDY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:05-greedy, git-history:algorithms:05-greedy]",
+        "canonical_path": "algorithms/05-GREEDY.md",
+        "concepts": "[greedy algorithms, exchange argument, matroid, huffman coding, activity selection, scheduling]",
+        "current_path": "algorithms/05-GREEDY.md",
+        "id": "maxim:algorithms:greedy",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greedy algorithms]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Greedy Algorithms",
+        "updated": "null"
+      },
+      "text": "**Exchange proof sketch**: let O be any optimal solution and g the\nearliest-finishing activity. If O does not contain g, swap O's first activity for g\n— g finishes no later, so it cannot conflict with anything O scheduled after, and\n|O| is unchanged. Repeat. So a greedy solution is as large as any optimal one. ∎"
+    },
+    {
+      "id": "05-GREEDY.md#018",
+      "path": [
+        "05-GREEDY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:05-greedy, git-history:algorithms:05-greedy]",
+        "canonical_path": "algorithms/05-GREEDY.md",
+        "concepts": "[greedy algorithms, exchange argument, matroid, huffman coding, activity selection, scheduling]",
+        "current_path": "algorithms/05-GREEDY.md",
+        "id": "maxim:algorithms:greedy",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greedy algorithms]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Greedy Algorithms",
+        "updated": "null"
+      },
+      "text": "### Scheduling to minimize maximum lateness"
+    },
+    {
+      "id": "05-GREEDY.md#019",
+      "path": [
+        "05-GREEDY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:05-greedy, git-history:algorithms:05-greedy]",
+        "canonical_path": "algorithms/05-GREEDY.md",
+        "concepts": "[greedy algorithms, exchange argument, matroid, huffman coding, activity selection, scheduling]",
+        "current_path": "algorithms/05-GREEDY.md",
+        "id": "maxim:algorithms:greedy",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greedy algorithms]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Greedy Algorithms",
+        "updated": "null"
+      },
+      "text": "```\n   GREEDY CRITERION: earliest deadline first (EDF).\n   Exchange proof: any inversion (a later-deadline job before an earlier-deadline job)\n   can be swapped without increasing max lateness. Removing all inversions yields the\n   EDF schedule, so EDF is optimal.  -> classic exchange argument.\n```"
+    },
+    {
+      "id": "05-GREEDY.md#020",
+      "path": [
+        "05-GREEDY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:05-greedy, git-history:algorithms:05-greedy]",
+        "canonical_path": "algorithms/05-GREEDY.md",
+        "concepts": "[greedy algorithms, exchange argument, matroid, huffman coding, activity selection, scheduling]",
+        "current_path": "algorithms/05-GREEDY.md",
+        "id": "maxim:algorithms:greedy",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greedy algorithms]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Greedy Algorithms",
+        "updated": "null"
+      },
+      "text": "The exchange argument template: *assume an optimal solution differs from greedy at\nthe first choice; swap to match greedy; show it did not get worse; induct.*"
+    },
+    {
+      "id": "05-GREEDY.md#021",
+      "path": [
+        "05-GREEDY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:05-greedy, git-history:algorithms:05-greedy]",
+        "canonical_path": "algorithms/05-GREEDY.md",
+        "concepts": "[greedy algorithms, exchange argument, matroid, huffman coding, activity selection, scheduling]",
+        "current_path": "algorithms/05-GREEDY.md",
+        "id": "maxim:algorithms:greedy",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greedy algorithms]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Greedy Algorithms",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-GREEDY.md#022",
+      "path": [
+        "05-GREEDY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:05-greedy, git-history:algorithms:05-greedy]",
+        "canonical_path": "algorithms/05-GREEDY.md",
+        "concepts": "[greedy algorithms, exchange argument, matroid, huffman coding, activity selection, scheduling]",
+        "current_path": "algorithms/05-GREEDY.md",
+        "id": "maxim:algorithms:greedy",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greedy algorithms]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Greedy Algorithms",
+        "updated": "null"
+      },
+      "text": "## Layer 3: Huffman Coding (greedy that builds a tree)"
+    },
+    {
+      "id": "05-GREEDY.md#023",
+      "path": [
+        "05-GREEDY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:05-greedy, git-history:algorithms:05-greedy]",
+        "canonical_path": "algorithms/05-GREEDY.md",
+        "concepts": "[greedy algorithms, exchange argument, matroid, huffman coding, activity selection, scheduling]",
+        "current_path": "algorithms/05-GREEDY.md",
+        "id": "maxim:algorithms:greedy",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greedy algorithms]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Greedy Algorithms",
+        "updated": "null"
+      },
+      "text": "Huffman builds an optimal prefix-free code by greedily merging the two\nlowest-frequency symbols."
+    },
+    {
+      "id": "05-GREEDY.md#024",
+      "path": [
+        "05-GREEDY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:05-greedy, git-history:algorithms:05-greedy]",
+        "canonical_path": "algorithms/05-GREEDY.md",
+        "concepts": "[greedy algorithms, exchange argument, matroid, huffman coding, activity selection, scheduling]",
+        "current_path": "algorithms/05-GREEDY.md",
+        "id": "maxim:algorithms:greedy",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greedy algorithms]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Greedy Algorithms",
+        "updated": "null"
+      },
+      "text": "```\n   frequencies: A:45  B:13  C:12  D:16  E:9  F:5\n   repeatedly merge the two smallest into a subtree (a min-heap of weights, see 06):"
+    },
+    {
+      "id": "05-GREEDY.md#025",
+      "path": [
+        "05-GREEDY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:05-greedy, git-history:algorithms:05-greedy]",
+        "canonical_path": "algorithms/05-GREEDY.md",
+        "concepts": "[greedy algorithms, exchange argument, matroid, huffman coding, activity selection, scheduling]",
+        "current_path": "algorithms/05-GREEDY.md",
+        "id": "maxim:algorithms:greedy",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greedy algorithms]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Greedy Algorithms",
+        "updated": "null"
+      },
+      "text": "merge E(9)+F(5)=14         heap: A45 B13 C12 D16 [14]\n   merge C(12)+B(13)=25       heap: A45 D16 [14] [25]\n   merge [14]+D(16)=30        heap: A45 [25] [30]\n   merge [25]+[30]=55         heap: A45 [55]\n   merge A(45)+[55]=100       -> ROOT"
+    },
+    {
+      "id": "05-GREEDY.md#026",
+      "path": [
+        "05-GREEDY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:05-greedy, git-history:algorithms:05-greedy]",
+        "canonical_path": "algorithms/05-GREEDY.md",
+        "concepts": "[greedy algorithms, exchange argument, matroid, huffman coding, activity selection, scheduling]",
+        "current_path": "algorithms/05-GREEDY.md",
+        "id": "maxim:algorithms:greedy",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greedy algorithms]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Greedy Algorithms",
+        "updated": "null"
+      },
+      "text": "(100)\n                   /     \\\n                A:45      (55)\n                         /    \\\n                      (25)    (30)\n                      /  \\    /   \\\n                   C:12 B:13 (14) D:16\n                            /  \\\n                         F:5   E:9"
+    },
+    {
+      "id": "05-GREEDY.md#027",
+      "path": [
+        "05-GREEDY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:05-greedy, git-history:algorithms:05-greedy]",
+        "canonical_path": "algorithms/05-GREEDY.md",
+        "concepts": "[greedy algorithms, exchange argument, matroid, huffman coding, activity selection, scheduling]",
+        "current_path": "algorithms/05-GREEDY.md",
+        "id": "maxim:algorithms:greedy",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greedy algorithms]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Greedy Algorithms",
+        "updated": "null"
+      },
+      "text": "codes (left=0,right=1): A=0  C=100 B=101 F=1100 E=1101 D=111\n   avg bits/symbol = sum(freq*depth)/100 = (45*1 + 13*3 + 12*3 + 16*3 + 9*4 + 5*4)/100\n                   = (45+39+36+48+36+20)/100 = 224/100 = 2.24 bits   (optimal prefix code)\n```"
+    },
+    {
+      "id": "05-GREEDY.md#028",
+      "path": [
+        "05-GREEDY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:05-greedy, git-history:algorithms:05-greedy]",
+        "canonical_path": "algorithms/05-GREEDY.md",
+        "concepts": "[greedy algorithms, exchange argument, matroid, huffman coding, activity selection, scheduling]",
+        "current_path": "algorithms/05-GREEDY.md",
+        "id": "maxim:algorithms:greedy",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[greedy algorithms]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Greedy Algorithms",
+        "updated": "null"
+      },
+      "text": "**Why greedy is optimal here (exchange)**: in an optimal prefix tree the two\nlowest-frequency symbols must be siblings at maximum depth — if not, swapping them\ndown does not increase the weighted path length. So merging them first is safe, and\ninduction on the reduced alphabet finishes the proof. Huffman is the optimality\nbackbone of entropy coding — cross-ref `information-theory/` (Shannon's source-coding\nbound) and `computing/`/`cryptography/` for the compression and encoding context."
+    }
+  ],
+  "refs": [
+    "05-GREEDY.md"
+  ]
+}

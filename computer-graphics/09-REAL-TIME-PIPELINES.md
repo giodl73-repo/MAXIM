@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # Real-Time Pipelines
 
 ## The Big Picture: Architecting a Frame Under a Budget
@@ -31,8 +30,8 @@ mathematical machinery of the prior guides is assembled into a shipping system.
 +--------------------------------------------------------------------------------------+
 |                      A MODERN REAL-TIME FRAME (one ~16ms budget)                     |
 |                                                                                      |
-|  SHADOW         GEOMETRY        LIGHTING        TRANSPARENCY     POST-PROCESS    UI   |
-|  PASSES         PASS            PASS                                                  |
+|  SHADOW         GEOMETRY        LIGHTING        TRANSPARENCY     POST-PROCESS    UI  |
+|  PASSES         PASS            PASS                                                 |
 |                                                                                      |
 |  render depth-> rasterize    -> shade lit      -> blend OIT  -> tonemap, AA,  -> HUD |
 |  from each      scene (fwd     pixels (fwd        / sorted       bloom, DoF,         |
@@ -41,7 +40,7 @@ mathematical machinery of the prior guides is assembled into a shipping system.
 |                                                                                      |
 |   [L3 shadows]  [L1 fwd/def]   [L1 fwd/def]      [transp]       [L4 post]   [L4 UI]  |
 |                                                                                      |
-|   Driven over an EXPLICIT API (Vulkan/D3D12/Metal) with command buffers [L5]        |
+|   Driven over an EXPLICIT API (Vulkan/D3D12/Metal) with command buffers [L5]         |
 +--------------------------------------------------------------------------------------+
 ```
 

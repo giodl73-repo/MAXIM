@@ -31,29 +31,29 @@ fast-but-greedy linear scan that JITs use.
 
 ```
 +--------------------------------------------------------------------------+
-|                     REGISTER ALLOCATION                                 |
+|                     REGISTER ALLOCATION                                  |
 |                                                                          |
 |   IR with unlimited virtual regs (v1, v2, v3, ...)                       |
 |        |                                                                 |
-|        |  LIVENESS analysis (guide 05) -> live ranges/intervals         |
+|        |  LIVENESS analysis (guide 05) -> live ranges/intervals          |
 |        v                                                                 |
 |   +----------------------------------------------------------------+     |
 |   |  INTERFERENCE: two values interfere if their live ranges       |     |
 |   |  OVERLAP -> they cannot share a register.                      |     |
 |   +----------------------------------------------------------------+     |
-|        |                                                                 |
+|   |    |                                                           |     |
 |        +-----------------------------+----------------------------+      |
 |        v                             v                            v      |
-|  GRAPH COLORING               LINEAR SCAN                  SSA-BASED      |
-|  (Chaitin-Briggs)             (Poletto-Sarkar)            (chordal graph)|
+|  GRAPH COLORING               LINEAR SCAN                  SSA-BASED     |
+|  (Chaitin-Briggs)            (Poletto-Sarkar)            (chordal graph) |
 |  build interference graph,    sort live intervals by      color in       |
-|  K-color it (K = #regs),      start, sweep, assign        polynomial time |
-|  spill if can't color.        reg or spill greedily.      (SSA interf.    |
-|  Quality: high. Slow.         Quality: ok. Very fast.      graphs are     |
-|  Used: gcc, LLVM -O2+.        Used: JITs, RyuJIT (LSRA).   chordal)       |
-|        |                             |                            |       |
-|        +--------------- assign physical regs + insert -------------+      |
-|                          SPILL loads/stores for overflow                 |
+|  K-color it (K = #regs),     start, sweep, assign        polynomial time |
+|  spill if can't color.        reg or spill greedily.      (SSA interf.   |
+|  Quality: high. Slow.         Quality: ok. Very fast.      graphs are    |
+|  Used: gcc, LLVM -O2+.        Used: JITs, RyuJIT (LSRA).   chordal)      |
+|        |                             |                            |      |
+|        +--------------- assign physical regs & insert -------------+     |
+|        |                 SPILL loads/stores for overflow           |     |
 +--------------------------------------------------------------------------+
 ```
 

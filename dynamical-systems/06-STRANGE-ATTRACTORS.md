@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dynamical-systems:strange-attractors
+kind: guide
+module: dynamical-systems
+section: dynamical-systems
+title: Strange Attractors
+status: source-custody
+source_custody: partial
+current_path: dynamical-systems/06-STRANGE-ATTRACTORS.md
+canonical_path: dynamical-systems/06-STRANGE-ATTRACTORS.md
+backsource_ids: [proof-backfill:dynamical-systems:06-strange-attractors, git-history:dynamical-systems:06-strange-attractors]
+concepts: [strange, attractors]
+root_concepts: [strange, attractors]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Strange Attractors
 
 A strange attractor is the geometric home of chaos in a continuous flow: a **bounded, invariant,

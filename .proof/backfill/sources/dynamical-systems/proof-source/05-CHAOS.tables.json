@@ -1,0 +1,80 @@
+{
+  "schema_version": "1",
+  "source_markdown": "dynamical-systems\\05-CHAOS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 80,
+      "heading_context": "## The Three Defining Properties (Devaney's definition)",
+      "headers": [
+        "You already know",
+        "Chaos framing"
+      ],
+      "rows": [
+        [
+          "Floating-point roundoff amplified in an ill-conditioned loop",
+          "SDIC: tiny perturbations grow exponentially (`numerical-methods/01` conditioning)"
+        ],
+        [
+          "Pseudo-random number generators",
+          "Chaotic maps *are* deterministic \"randomness\" — same rule, unpredictable output"
+        ],
+        [
+          "Loss of significant digits per iteration",
+          "One bit of precision lost per `λ` (in bits) per step — the predictability horizon"
+        ],
+        [
+          "Turbulence onset in a flow",
+          "A route to chaos (period-doubling / quasi-periodic) — `fluid-dynamics/`, Lorenz (Ch. 06)"
+        ],
+        [
+          "Training instability / loss spikes in deep nets",
+          "Discrete-map dynamics with a positive multiplier (Ch. 09)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 259,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Answer / tool"
+      ],
+      "rows": [
+        [
+          "Is this system chaotic?",
+          "Compute largest Lyapunov exponent; `λ₁ > 0` ⇒ chaos"
+        ],
+        [
+          "How far can I predict?",
+          "`t_horizon ≈ (1/λ₁) ln(Δ/δ₀)` — grows only *logarithmically* in precision"
+        ],
+        [
+          "What route to chaos is this?",
+          "Period-doubling (δ=4.669), quasi-periodic (tori), or intermittency"
+        ],
+        [
+          "Does period-3 tell me anything?",
+          "Yes — period-3 ⇒ chaos (Sharkovskii/Li–Yorke), every period exists"
+        ],
+        [
+          "Is the attractor dissipative?",
+          "Sum of Lyapunov exponents `< 0` (volume contracts)"
+        ],
+        [
+          "Will my numerical trajectory be right?",
+          "Only until `t_horizon`; thereafter trust statistics, not the path (shadowing)"
+        ],
+        [
+          "Why does my map show 4.669 scaling?",
+          "Quadratic-max universality — independent of the specific map"
+        ],
+        [
+          "Distinguish chaos from noise",
+          "Chaos: deterministic, low-dim, positive `λ`, fractal attractor (Ch. 06)"
+        ]
+      ]
+    }
+  ]
+}

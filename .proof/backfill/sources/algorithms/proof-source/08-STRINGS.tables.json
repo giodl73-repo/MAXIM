@@ -1,0 +1,111 @@
+{
+  "schema_version": "1",
+  "source_markdown": "algorithms\\08-STRINGS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 223,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "The string-algorithm concept"
+      ],
+      "rows": [
+        [
+          "`String.IndexOf` / `str.find`",
+          "Naive O(nm) or a Boyer-Moore-style sublinear scan under the hood"
+        ],
+        [
+          "`grep` / `ripgrep` literal search",
+          "KMP/Boyer-Moore (single) or a DFA/automaton for multi-pattern"
+        ],
+        [
+          "A multi-keyword content filter / IDS",
+          "Aho-Corasick — all patterns in one linear pass"
+        ],
+        [
+          "Regex matching",
+          "NFA/DFA simulation — DP over (position × state), `computing/21-AUTOMATA.md`"
+        ],
+        [
+          "\"This regex hangs on weird input\"",
+          "Catastrophic backtracking vs linear automaton matching — model choice matters"
+        ],
+        [
+          "Genome alignment / full-text index",
+          "Suffix array/tree (`genomics/`)"
+        ],
+        [
+          "`bzip2` compression",
+          "BWT = a suffix-array sort (`information-theory/`)"
+        ],
+        [
+          "Content-defined chunking / dedup",
+          "Rolling (Rabin) hash — same primitive as Rabin-Karp"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 243,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I need to...",
+        "Use",
+        "Bound"
+      ],
+      "rows": [
+        [
+          "Find one known pattern, worst-case linear",
+          "KMP or Z-algorithm",
+          "O(n+m) worst"
+        ],
+        [
+          "Find one pattern, expected linear, simple",
+          "Rabin-Karp",
+          "O(n+m) expected"
+        ],
+        [
+          "Find *many* patterns in one pass",
+          "Aho-Corasick",
+          "O(n + Σ\\|P\\| + matches)"
+        ],
+        [
+          "Sublinear average matching",
+          "Boyer-Moore",
+          "O(n/m) best, fast in practice"
+        ],
+        [
+          "Prefix lookups / autocomplete",
+          "trie",
+          "O(\\|word\\|) per op"
+        ],
+        [
+          "Substring search on a fixed text, repeatedly",
+          "suffix array",
+          "O(m log n) query"
+        ],
+        [
+          "Longest repeated / common substring",
+          "suffix tree / automaton",
+          "O(n) build"
+        ],
+        [
+          "Count distinct substrings",
+          "suffix automaton",
+          "O(n)"
+        ],
+        [
+          "Fingerprint windows / dedup",
+          "rolling hash",
+          "O(1) per slide"
+        ],
+        [
+          "Match a regex without backtracking blowup",
+          "DFA/NFA automaton",
+          "O(n) — `computing/21-AUTOMATA.md`"
+        ]
+      ]
+    }
+  ]
+}

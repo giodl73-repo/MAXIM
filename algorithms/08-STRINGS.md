@@ -244,9 +244,9 @@ string toolkit is what stays linear.
 |---|---|---|
 | Find one known pattern, worst-case linear | KMP or Z-algorithm | O(n+m) worst |
 | Find one pattern, expected linear, simple | Rabin-Karp | O(n+m) expected |
-| Find *many* patterns in one pass | Aho-Corasick | O(n + Σ|P| + matches) |
+| Find *many* patterns in one pass | Aho-Corasick | O(n + Σ\|P\| + matches) |
 | Sublinear average matching | Boyer-Moore | O(n/m) best, fast in practice |
-| Prefix lookups / autocomplete | trie | O(|word|) per op |
+| Prefix lookups / autocomplete | trie | O(\|word\|) per op |
 | Substring search on a fixed text, repeatedly | suffix array | O(m log n) query |
 | Longest repeated / common substring | suffix tree / automaton | O(n) build |
 | Count distinct substrings | suffix automaton | O(n) |

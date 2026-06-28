@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # GPU and Shaders
 
 ## The Big Picture: A Throughput Machine Running Tiny Programs in Lockstep
@@ -30,12 +29,12 @@ execution model (SIMT) and its memory hierarchy, both of which differ sharply fr
 +--------------------------------------------------------------------------------------+
 |                        THE PROGRAMMABLE GPU PIPELINE                                 |
 |                                                                                      |
-|  INPUT          VERTEX        [TESS]      [GEOM]      RASTER       FRAGMENT     OUT   |
-|  ASSEMBLY       SHADER         opt.        opt.       (fixed)      SHADER       MERGE |
+|  INPUT          VERTEX        [TESS]      [GEOM]      RASTER       FRAGMENT     OUT  |
+|  ASSEMBLY       SHADER         opt.        opt.       (fixed)      SHADER      MERGE |
 |                                                                                      |
-|  vertices  -->  per-vertex --> subdivide-> per-prim-> triangle--> per-pixel  --> blend|
-|  + indices      transform      patches     emit       coverage     shade       z-test|
-|                 (PROG)         (PROG)      (PROG)      (FIXED)      (PROG)      (FIXED)|
+|  vertices  --> per-vertex --> subdivide-> per-prim-> triangle--> per-pixel --> blend |
+|  + indices      transform      patches     emit       coverage     shade      z-test |
+|                 (PROG)        (PROG)      (PROG)      (FIXED)     (PROG)     (FIXED) |
 |                                                                                      |
 |  --------------------------- alongside ------------------------------------------    |
 |  COMPUTE SHADER: general-purpose data-parallel kernels (no fixed pipeline)           |

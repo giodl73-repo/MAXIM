@@ -1,0 +1,97 @@
+{
+  "schema_version": "1",
+  "source_markdown": "algorithms\\04-DYNAMIC-PROGRAMMING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 245,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "The DP concept"
+      ],
+      "rows": [
+        [
+          "A build system topologically ordering targets",
+          "DP is a DAG of subproblems filled in topological (dependency) order"
+        ],
+        [
+          "`git diff` / three-way merge",
+          "LCS / edit-distance DP over the two file versions"
+        ],
+        [
+          "A query planner choosing join order",
+          "Matrix-chain DP over relation cardinalities"
+        ],
+        [
+          "Spreadsheet recalculation order",
+          "Topological evaluation of a dependency DAG — same shape as a DP table fill"
+        ],
+        [
+          "Memoizing an expensive pure function",
+          "Top-down DP: cache by argument tuple = the state"
+        ],
+        [
+          "Viterbi decoding / HMM inference",
+          "DP over a trellis (state × time grid) — `machine-learning-theory/`"
+        ],
+        [
+          "Regex/automaton matching",
+          "DP over (input position × NFA state) — `08`, `computing/21-AUTOMATA.md`"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 263,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Problem shape",
+        "DP design",
+        "Complexity"
+      ],
+      "rows": [
+        [
+          "Sequence, value-ending-here",
+          "dp[i] from dp[<i] (LIS)",
+          "O(n²) (or O(n log n))"
+        ],
+        [
+          "Two sequences aligned",
+          "grid dp[i][j] (edit dist, LCS)",
+          "O(mn)"
+        ],
+        [
+          "Subset under a budget",
+          "dp[i][w] (knapsack)",
+          "O(nW) **pseudo-poly**"
+        ],
+        [
+          "Best split of an interval",
+          "dp[i][j] over split k (matrix chain)",
+          "O(n³)"
+        ],
+        [
+          "Optimum over a tree",
+          "f(v) from children, post-order",
+          "O(n)"
+        ],
+        [
+          "Path/count on a grid",
+          "dp[i][j] from up/left neighbors",
+          "O(mn)"
+        ],
+        [
+          "Subproblems *don't* overlap",
+          "use divide-and-conquer instead",
+          "go to `03`"
+        ],
+        [
+          "Greedy choice provably optimal",
+          "use greedy instead (cheaper)",
+          "go to `05`"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "algorithms\\04-DYNAMIC-PROGRAMMING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 30,
+      "heading_context": "# Dynamic Programming",
+      "confidence": "candidate",
+      "text": "  DYNAMIC PROGRAMMING = (a DAG of subproblems)\n  =====================================================================================\n\n   WHY DP (vs plain recursion)?  the recursion tree has REPEATED nodes:\n\n        fib(5)                              -> the SAME subproblem fib(2), fib(3)...\n       /      \\                                appears many times. Naive = exponential.\n    fib(4)    fib(3)                           Memoize -> each computed ONCE.\n    /   \\      /   \\\n  fib(3) fib(2) fib(2) fib(1)              COLLAPSE the tree into a DAG:\n  /  \\    ...     ...\n ...                                          fib(5) -> fib(4) -> fib(3) -> fib(2) -> fib(1)\n                                                         \\-------> fib(3) (reused)\n   TWO PRECONDITIONS:\n   1. OPTIMAL SUBSTRUCTURE  optimum of P built from optima of subproblems\n   2. OVERLAPPING SUBPROBLEMS  same subproblems recur (else it's just D&C, see 03)\n\n   TWO IMPLEMENTATIONS:                  COMPLEXITY:\n   - TOP-DOWN (memoization): recurse +     time  = #states  x  work/state\n     cache; natural, lazy, only touches    space = #states  (often reducible by\n     reachable states                              keeping only last row/layer)\n   - BOTTOM-UP (tabulation): fill table\n     in dependency (topological) order",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 64,
+      "heading_context": "## Layer 1: The Two Preconditions and the DAG Framing",
+      "confidence": "candidate",
+      "text": "   OPTIMAL SUBSTRUCTURE                     OVERLAPPING SUBPROBLEMS\n   --------------------                     -----------------------\n   The optimal solution to P contains       The recursion re-encounters the SAME\n   optimal solutions to subproblems.        subproblem many times.\n\n   shortest path: a shortest s->t path      fib(n): fib(n-2) computed by both\n   that goes through v is (shortest s->v)    fib(n) and fib(n-1) -> exponential\n   + (shortest v->t).                        re-solves without a cache.\n\n   FAILS for LONGEST simple path             If subproblems DON'T overlap, you have\n   (subpaths needn't be simple) -> NP-hard.  divide & conquer (03), not DP.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 97,
+      "heading_context": "### Fibonacci — the minimal example of the collapse",
+      "confidence": "candidate",
+      "text": "   naive: T(n)=T(n-1)+T(n-2) = Theta(phi^n)  EXPONENTIAL (re-solves overlap)\n   memoized / tabulated: each fib(k) once -> Theta(n) time, Theta(1) space (keep 2 values)\n\n   table:  k:    0 1 2 3 4 5 6 7\n           f(k): 0 1 1 2 3 5 8 13      each = sum of previous two",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 153,
+      "heading_context": "### Longest Common Subsequence (LCS)",
+      "confidence": "candidate",
+      "text": "   STATE: dp[i][j] = LCS length of A[1..i], B[1..j].\n   TRANS: A[i]==B[j] -> dp[i-1][j-1]+1   else max(dp[i-1][j], dp[i][j-1]).\n\n   A=\"ABCBDAB\" B=\"BDCABA\"  ->  LCS length 4 (e.g. \"BCBA\" or \"BDAB\")\n   time O(mn).  Backtrack through the table to recover the actual subsequence.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 164,
+      "heading_context": "### Longest Common Subsequence (LCS)",
+      "confidence": "candidate",
+      "text": "### 0/1 Knapsack — and why greedy FAILS here",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 192,
+      "heading_context": "### Matrix-chain multiplication — interval DP, O(n³)",
+      "confidence": "candidate",
+      "text": "   STATE: dp[i][j] = min cost to multiply A_i..A_j.\n   TRANS: dp[i][j] = min over split k in [i,j-1]:\n              dp[i][k] + dp[k+1][j] + p[i-1]*p[k]*p[j]    (p = dimension array)\n   BASE:  dp[i][i] = 0.\n   Fill by increasing chain length.  #states O(n^2), work O(n) each -> O(n^3).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 235,
+      "heading_context": "## Layer 5: Memoization vs Tabulation, and Space Reduction",
+      "confidence": "candidate",
+      "text": "   WHICH IMPLEMENTATION?\n   memoization  -> sparse reachable state space; recurrence is natural; few states touched\n   tabulation   -> dense state space; want space reduction / no recursion limit; cache locality",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 285,
+      "heading_context": "### \"DP is just recursion with a cache\"",
+      "confidence": "candidate",
+      "text": "### \"0/1 knapsack is O(nW), so it's polynomial\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

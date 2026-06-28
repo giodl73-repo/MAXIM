@@ -1,0 +1,100 @@
+{
+  "schema_version": "1",
+  "source_markdown": "compilers\\08-CODE-GENERATION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 238,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You know",
+        "Maps to"
+      ],
+      "rows": [
+        [
+          "Reading x64 disassembly (windbg/VS)",
+          "The output of instruction selection + allocation — addressing modes are selected tiles"
+        ],
+        [
+          "Windows x64 calling convention (RCX/RDX/R8/R9, shadow space)",
+          "The ABI the codegen must honor; differs from SysV — same code, different target table"
+        ],
+        [
+          "P/Invoke / `DllImport` marshaling",
+          "The ABI seam — you are manually matching calling conventions across the boundary"
+        ],
+        [
+          "`[StructLayout]` / `Pack` in C#",
+          "ABI struct layout and alignment rules made explicit"
+        ],
+        [
+          "Stack traces / unwinding",
+          "Driven by frame layout + unwind tables the prologue/epilogue and ABI define"
+        ],
+        [
+          "RyuJIT emitting native code at runtime",
+          "A JIT backend doing exactly this pipeline — selection, LSRA, ABI — at load time"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 257,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Map IR ops to machine instructions",
+          "Instruction selection (tiling)"
+        ],
+        [
+          "Get optimal tiling of an expression tree",
+          "BURS / DP tree covering (iburg-style)"
+        ],
+        [
+          "Select fast in a JIT",
+          "Maximal munch or LLVM GlobalISel"
+        ],
+        [
+          "Exploit complex addressing (`base+idx*scale`)",
+          "Larger tiles that cover multiple IR nodes"
+        ],
+        [
+          "Hide load/ALU latencies",
+          "Instruction scheduling (list scheduling)"
+        ],
+        [
+          "Order instructions on an in-order core",
+          "Pre-RA + post-RA list scheduling"
+        ],
+        [
+          "Pass arguments correctly",
+          "Follow the target ABI (SysV vs Win64 vs AAPCS)"
+        ],
+        [
+          "Decide which registers to preserve",
+          "Caller-saved vs callee-saved per the ABI"
+        ],
+        [
+          "Lay out a stack frame",
+          "Prologue/epilogue + spill slots + saved regs"
+        ],
+        [
+          "Free up a register",
+          "Omit the frame pointer (rely on unwind tables)"
+        ],
+        [
+          "Clean up final code",
+          "Peephole optimization"
+        ],
+        [
+          "Call native code from managed",
+          "Match the calling convention (P/Invoke marshaling)"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-graphics\\08-COLOR-AND-PERCEPTION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 323,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "Here it is"
+      ],
+      "rows": [
+        [
+          "Change of basis",
+          "Color-space conversion through CIE XYZ (3×3 matrices)"
+        ],
+        [
+          "Linearity required for superposition",
+          "Lighting math valid only in linear light"
+        ],
+        [
+          "Log-scale to match perceived magnitude",
+          "Gamma encoding matches the eye's response"
+        ],
+        [
+          "Fixed-point precision allocation",
+          "Gamma spreads 8-bit codes to where the eye is sensitive"
+        ],
+        [
+          "Range compression / companding",
+          "Tone mapping: unbounded HDR → display range"
+        ],
+        [
+          "sRGB/gamma in `colors/09-DIGITAL-COLOR`",
+          "Same curve, here as a render-pipeline boundary"
+        ],
+        [
+          "Normalization vs raw data",
+          "sRGB color (decode) vs linear data maps (don't)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 337,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Choice"
+      ],
+      "rows": [
+        [
+          "Sampling an albedo/photo texture",
+          "sRGB sampler — decode to linear"
+        ],
+        [
+          "Sampling normal/roughness/metal/AO",
+          "Linear sampler — no decode"
+        ],
+        [
+          "Doing lighting / blending / filtering",
+          "In linear light, always"
+        ],
+        [
+          "8-bit storage of a color",
+          "Encode to sRGB (gamma) for code efficiency"
+        ],
+        [
+          "Output to a normal monitor (SDR)",
+          "Tone-map → encode sRGB `[0,1]`"
+        ],
+        [
+          "Output to an HDR display",
+          "Tone-map to peak nits → encode PQ/HLG, Rec.2020"
+        ],
+        [
+          "Compressing bright HDR highlights",
+          "ACES/filmic tone-map curve (not clamp)"
+        ],
+        [
+          "Wide-gamut authoring (film)",
+          "Work in ACEScg / Display-P3"
+        ],
+        [
+          "Edges/mips look dirty or dark",
+          "You're averaging in gamma space — switch to linear"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-graphics\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture: Scene to Pixels",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                       THE RENDERING PIPELINE (scene -> pixels)               |\n|                                                                              |\n|  SCENE            GEOMETRY          VISIBILITY        SHADING        DISPLAY |\n|  -----            --------          ----------        -------        ------- |\n|                                                                              |\n| +---------+     +-----------+     +-----------+     +----------+   +-------+ |\n| | meshes  | --> | transform | --> | which     | --> | what     |-->| frame | |\n| | lights  |     | to clip   |     | surface   |     | color is |   | buffer| |\n| | camera  |     | space     |     | is seen   |     | it?      |   | -> sRGB| |\n| | materials|    | (M·V·P)   |     | per pixel?|     | (BRDF +  |   | -> mon | |\n| +---------+     +-----------+     +-----------+     |  lights) |   +-------+ |\n|     |                |                 |             +----------+      |     |\n|  [07,08]          [01]            [02 raster]          [04]        [08,09]   |\n|                                  [03 ray-trace]                              |\n|                                                                              |\n|  GPU executes transform + visibility + shading in parallel  [06]            |\n|  Textures feed material data into shading                   [05]            |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 63,
+      "heading_context": "## The Two Grand Strategies",
+      "confidence": "candidate",
+      "text": "            THE SAME QUESTION, TWO OPPOSITE LOOPS\n\n  RASTERIZATION                          RAY TRACING\n  -------------                          -----------\n  \"For each triangle,                    \"For each pixel,\n   which pixels does it cover?\"           which surface does its ray hit?\"\n\n  for triangle in scene:                 for pixel in image:\n      project to screen                      ray = camera -> pixel\n      for pixel in bbox:                     hit = closest_intersection(ray, scene)\n          if inside triangle:                color = shade(hit)\n              if closer (z-buffer):\n                  shade + write\n\n  Object order (scatter)                 Image order (gather)\n  Cheap, parallel, hardware-native       Expensive, but physically natural\n  Hard to do shadows/reflections         Shadows/reflections/GI are trivial\n  Dominates real-time (games, UI)        Dominates film, offline, RTX hybrids",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 106,
+      "heading_context": "## Layer 1: The Scene — What We Render",
+      "confidence": "candidate",
+      "text": "+-------------------------------------------------------------------+\n|                          THE SCENE                                |\n|                                                                   |\n|  GEOMETRY            MATERIALS         LIGHTS         CAMERA      |\n|  --------            ---------         ------         ------      |\n|  triangle meshes     BRDF params       point          position    |\n|  curves / NURBS      albedo            directional    orientation |\n|  subdivision         roughness         area            FOV / lens |\n|  point clouds        metalness         environment     near/far   |\n|  volumes             normal/disp maps  (IBL/HDRI)      proj type  |\n|                                                                   |\n|  [07-GEOMETRY]       [04][05]          [04-LIGHTING]   [01-PROJ]  |\n+-------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 142,
+      "heading_context": "## Layer 2: Geometry — Getting Into the Camera's Frame",
+      "confidence": "candidate",
+      "text": "  OBJECT          WORLD           CAMERA          CLIP            SCREEN\n  SPACE           SPACE           SPACE           SPACE           SPACE\n  (local)         (shared)        (eye at origin) (cube)          (pixels)\n\n  vertex  --M-->  vertex  --V-->  vertex  --P-->  vertex  --/w--> vertex\n          model           view            proj            persp\n          matrix          matrix          matrix          divide\n\n  MVP = P · V · M   (applied right-to-left to a column vector)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 249,
+      "heading_context": "## Layer 5: The GPU — Where It Runs",
+      "confidence": "candidate",
+      "text": "  CPU  (latency-optimized)            GPU  (throughput-optimized)\n  -----------------------             ---------------------------\n  few fat cores                       thousands of thin lanes\n  deep caches, branch prediction      SIMT: 32-lane warps in lockstep\n  MIMD (each core does its own thing) one instruction, many data\n  good at: control flow, serial work  good at: data-parallel, arithmetic\n\n       FIXED + PROGRAMMABLE PIPELINE\n   vertices -> [VERTEX SHADER] -> primitive assembly -> [RASTERIZER]\n            -> fragments -> [FRAGMENT SHADER] -> blend -> framebuffer\n   (also: tessellation, geometry, and general-purpose COMPUTE shaders)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 341,
+      "heading_context": "### \"Is graphics rasterization OR ray tracing?\"",
+      "confidence": "candidate",
+      "text": "### \"Why homogeneous coordinates? Aren't 3 numbers enough for a 3D point?\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

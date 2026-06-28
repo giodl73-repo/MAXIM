@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # Ray Tracing
 
 ## The Big Picture: Follow the Light Backwards
@@ -34,7 +33,7 @@ eye. Reflections, refractions, and shadows fall out by *recursively shooting mor
 |  RAY GEN         ACCEL STRUCT     PRIMITIVE        HIT POINT       (spawn rays)      |
 |                                                                                      |
 |  eye -> pixel -> descend BVH  -> ray vs triangle -> evaluate   -> shadow rays  -> +  |
-|  build ray      skip empty/      (Moller-          BRDF + lights    reflection      |
+|  build ray      skip empty/      (Moller-          BRDF + lights    reflection       |
 |  (o, d)         far boxes         Trumbore)         at hit point     refraction      |
 |                                                                      bounce ray      |
 |                                                                                      |

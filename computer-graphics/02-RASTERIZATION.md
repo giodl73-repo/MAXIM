@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # Rasterization
 
 ## The Big Picture: From Triangle to Lit Pixels
@@ -30,15 +29,15 @@ workhorse of all real-time graphics.
 +-------------------------------------------------------------------------------------+
 |                        THE RASTERIZATION STAGE (per triangle)                       |
 |                                                                                     |
-|  CLIP-SPACE      CLIP +        TRIANGLE        COVERAGE       INTERP +      OUTPUT   |
-|  TRIANGLE        VIEWPORT      SETUP           TEST           DEPTH TEST    MERGE    |
+|  CLIP-SPACE      CLIP +        TRIANGLE        COVERAGE       INTERP +      OUTPUT  |
+|  TRIANGLE        VIEWPORT      SETUP           TEST           DEPTH TEST    MERGE   |
 |                                                                                     |
 | 3 vertices --> clip to     --> edge        --> for px in   --> baryc.   --> z-test  |
 | (x,y,z,w)      frustum,        functions       bbox:           interp       + blend |
 |                ÷w, map to      + bbox          inside all      attrs        write   |
 |                pixels                          3 edges?        + 1/w        color   |
 |                                                                                     |
-|   [from 01]    [clip]          [setup]         [E(p)>=0]       [persp-corr] [z-buf]  |
+|   [from 01]    [clip]          [setup]         [E(p)>=0]       [persp-corr] [z-buf] |
 +-------------------------------------------------------------------------------------+
 ```
 
@@ -290,13 +289,13 @@ area = `½·|4·4| = 8`. Sub-areas for `P=(1,1)`:
 ```
     area(P,B,C) = ½ |(4-1)(4-1) - (0-1)(0-1)| ... use the ratio directly:
 
-    α (weight of A) = area(P,B,C)/area = 6/8 = 0.75
-    β (weight of B) = area(A,P,C)/area = 1/8 = 0.125
-    γ (weight of C) = area(A,B,P)/area = 1/8 = 0.125
-    check: 0.75 + 0.125 + 0.125 = 1.0   ✓
+    α (weight of A) = area(P,B,C)/area = 4/8 = 0.5
+    β (weight of B) = area(A,P,C)/area = 2/8 = 0.25
+    γ (weight of C) = area(A,B,P)/area = 2/8 = 0.25
+    check: 0.5 + 0.25 + 0.25 = 1.0   ✓
 
   Interpolated red (screen-linear, ignoring perspective for a flat triangle):
-    r(P) = 0.75·0 + 0.125·255 + 0.125·0 = 31.9  ->  32
+    r(P) = 0.5·0 + 0.25·255 + 0.25·0 = 63.75  ->  64
 ```
 
 For a perspective triangle you would instead interpolate `r/w` and `1/w`, then divide — at

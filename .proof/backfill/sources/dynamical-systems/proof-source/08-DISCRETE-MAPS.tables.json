@@ -1,0 +1,88 @@
+{
+  "schema_version": "1",
+  "source_markdown": "dynamical-systems\\08-DISCRETE-MAPS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 84,
+      "heading_context": "## Fixed Points, Cobwebs, and Stability of Maps",
+      "headers": [
+        "You already know",
+        "Map framing"
+      ],
+      "rows": [
+        [
+          "Newton's method `x_{n+1} = x_n − f/f'`",
+          "A map; its fixed points are roots, superstable (`F'=0`) → quadratic convergence (`numerical-methods/`)"
+        ],
+        [
+          "Fixed-point iteration `x = g(x)`",
+          "Converges iff `|g'(x*)| < 1` — the map stability rule, exactly (`numerical-methods/02`)"
+        ],
+        [
+          "A digital filter / IIR recurrence",
+          "A linear map; stability ⇔ poles inside the unit circle (`signal-processing/`)"
+        ],
+        [
+          "Power iteration for eigenvalues",
+          "A map on projective space converging to the dominant eigenvector"
+        ],
+        [
+          "Gradient descent `θ_{n+1}=θ_n−η∇L`",
+          "A nonlinear map; `|1−ηλ|<1` per Hessian eigenvalue sets the step limit (Ch. 09)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 238,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Goal",
+        "Tool"
+      ],
+      "rows": [
+        [
+          "Stability of a map fixed point",
+          "Multiplier `\\|F'(x*)\\| < 1` (inside unit circle for matrices: `ρ(J)<1`)"
+        ],
+        [
+          "Visualize 1D map iteration",
+          "Cobweb diagram (bounce between `F` and `y=x`)"
+        ],
+        [
+          "Predict period-doubling",
+          "Multiplier crosses `−1` (flip bifurcation)"
+        ],
+        [
+          "Predict fold/tangent bifurcation",
+          "Multiplier crosses `+1` (two fixed points collide)"
+        ],
+        [
+          "Prove a map is chaotic",
+          "Conjugacy to the shift / find a horseshoe"
+        ],
+        [
+          "Measure orbit complexity",
+          "Topological entropy = `log` growth of admissible blocks"
+        ],
+        [
+          "Reduce a flow to a map",
+          "Poincaré section (Ch. 06)"
+        ],
+        [
+          "Get a strange attractor from a 2D map",
+          "Hénon (dissipative, invertible, stretch-and-fold)"
+        ],
+        [
+          "Certify chaos from one observed period",
+          "Sharkovskii — especially period 3"
+        ],
+        [
+          "Connect to numerical iteration",
+          "Each integrator step is a map; `\\|g'\\|<1` ⇔ convergence (`numerical-methods/`)"
+        ]
+      ]
+    }
+  ]
+}

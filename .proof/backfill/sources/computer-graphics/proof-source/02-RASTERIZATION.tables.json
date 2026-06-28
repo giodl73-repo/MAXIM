@@ -1,0 +1,130 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-graphics\\02-RASTERIZATION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 179,
+      "heading_context": "## Layer 4: The Z-Buffer (Depth Test)",
+      "headers": [
+        "",
+        "Painter's",
+        "Z-buffer"
+      ],
+      "rows": [
+        [
+          "Sort needed",
+          "Yes, `O(n log n)`, every frame",
+          "No"
+        ],
+        [
+          "Intersecting geometry",
+          "Breaks",
+          "Correct"
+        ],
+        [
+          "Cyclic occlusion",
+          "Impossible",
+          "Correct"
+        ],
+        [
+          "Per-pixel cost",
+          "Overdraw all layers",
+          "One compare"
+        ],
+        [
+          "Memory",
+          "None extra",
+          "One depth buffer"
+        ],
+        [
+          "Transparency",
+          "Natural",
+          "Needs separate sorted pass"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 310,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "Here it is"
+      ],
+      "rows": [
+        [
+          "2D cross product / signed area",
+          "The edge function — coverage *and* barycentrics in one"
+        ],
+        [
+          "Incremental evaluation of an affine function",
+          "The rasterizer's inner loop: `E += dE/dx`"
+        ],
+        [
+          "Convex combination / weighted average",
+          "Barycentric interpolation across a triangle"
+        ],
+        [
+          "Parallel `min`-reduction vs serial sort",
+          "Z-buffer vs painter's algorithm"
+        ],
+        [
+          "Short-circuit / early-out in a loop",
+          "Early-Z: kill occluded fragments before shading"
+        ],
+        [
+          "Bounds checking / clamping",
+          "Frustum clipping (Sutherland-Hodgman)"
+        ],
+        [
+          "`INSERT … ON CONFLICT` last-writer-wins",
+          "Why painter's is order-dependent and z-buffer isn't"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 324,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Choice"
+      ],
+      "rows": [
+        [
+          "Resolve opaque visibility",
+          "Z-buffer (always)"
+        ],
+        [
+          "Interpolate UVs/normals/colors",
+          "Perspective-correct (interp `/w`, then divide)"
+        ],
+        [
+          "Interpolate depth",
+          "Linear in screen space — no `/w` needed"
+        ],
+        [
+          "Reduce wasted shading",
+          "Sort opaque front-to-back; rely on early-Z"
+        ],
+        [
+          "Render transparency",
+          "Separate, back-to-front, blended pass after opaque"
+        ],
+        [
+          "Triangle crosses the eye plane",
+          "Near-plane clip in clip space, pre-divide"
+        ],
+        [
+          "Coverage + interpolation weights",
+          "Edge functions give both"
+        ],
+        [
+          "Defeats of early-Z",
+          "Shader writes depth or uses `discard`"
+        ]
+      ]
+    }
+  ]
+}

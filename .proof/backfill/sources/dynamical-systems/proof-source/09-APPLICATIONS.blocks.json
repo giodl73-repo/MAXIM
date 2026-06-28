@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "dynamical-systems\\09-APPLICATIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "# Applications",
+      "confidence": "candidate",
+      "text": "            DYNAMICAL SYSTEMS, APPLIED\n            ==========================\n\n   SYNCHRONIZATION        NETWORK DYNAMICS       GRADIENT FLOWS (ML)\n   coupled oscillators    x_i' = f(x_i)          theta' = -grad L(theta)\n   -> phase locking       + sum A_ij g(x_j)      gradient descent =\n   (Kuramoto)             -> stability from       discretized gradient flow\n        |                  graph Laplacian             |\n        v                  eigenvalues                 v\n   Hopf + limit cycles    (Ch. 02-03)            fixed pts = critical pts of L;\n   (Ch. 03-04)                 |                 saddles, Hessian eigenvalues,\n                               v                 training instability = |1-eta*lam|>1\n                         CONTROL OF CHAOS\n                         stabilize an unstable periodic orbit\n                         INSIDE a strange attractor (OGY, Pyragas)\n                         -- chaos as a feature, not a bug (Ch. 05-06)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 56,
+      "heading_context": "## Synchronization: the Kuramoto Model",
+      "confidence": "candidate",
+      "text": "   N phase oscillators, natural frequencies omega_i, coupling K:\n\n        theta_i' = omega_i + (K/N) SUM_j sin(theta_j - theta_i)\n\n   ORDER PARAMETER (mean field):  r e^{i psi} = (1/N) SUM_j e^{i theta_j}\n        r = 0 : phases scattered (incoherent)\n        r = 1 : all in phase (fully synchronized)\n\n   Mean-field rewrite:  theta_i' = omega_i + K r sin(psi - theta_i)\n   -> each oscillator is pulled toward the mean phase with strength K*r.\n\n   PHASE TRANSITION as coupling K rises (frequencies spread g(omega)):\n\n   r ^                       Below K_c: r = 0 (incoherent), the only\n     |               ____    stable state.\n     |            __/        At K_c = 2 / (pi g(0)): a SUPERCRITICAL\n     |          _/           PITCHFORK-like bifurcation (Ch. 03) -> a\n     |        _/             synchronized branch r > 0 appears and grows\n   0 +------+-----------> K  as r ~ sqrt(K - K_c).\n            K_c",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 105,
+      "heading_context": "## Network Dynamics: Stability from the Graph Laplacian",
+      "confidence": "candidate",
+      "text": "   N identical nodes, state x_i, coupled via adjacency A (Laplacian L = D - A):\n\n        x_i' = f(x_i) - sigma SUM_j L_ij  h(x_j)      sigma = coupling strength\n\n   SYNCHRONIZED state x_i(t) = s(t) for all i. Perturb: linearize the\n   transverse modes. The variational equation DIAGONALIZES in the\n   eigenbasis of L: for each Laplacian eigenvalue mu_k,\n\n        xi_k' = [ Df(s) - sigma mu_k Dh(s) ] xi_k\n\n   => stability of the WHOLE network reduces to a SINGLE parametrized\n   equation evaluated at each graph eigenvalue sigma*mu_k.\n\n   MASTER STABILITY FUNCTION (MSF) Lambda(alpha): the largest transverse\n   Lyapunov exponent as a function of the coupling parameter alpha = sigma*mu_k.\n   Network is sync-stable  <=>  Lambda(sigma*mu_k) < 0 for ALL k >= 2.\n\n        Lambda ^               Sync window: alpha in (a1, a2) where Lambda<0.\n        (transv |   __         Need sigma*mu_2 > a1 AND sigma*mu_N < a2:\n         Lyap)  |  /  \\           => mu_N / mu_2 < a2/a1.\n              0 +-/----\\----> alpha   The eigenratio mu_N/mu_2 of the Laplacian\n        --------/      \\-----        alone decides SYNCHRONIZABILITY.\n               a1      a2            Small ratio (expander graphs) -> easy sync.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 147,
+      "heading_context": "## Gradient Flows: Machine Learning as a Dynamical System",
+      "confidence": "candidate",
+      "text": "   GRADIENT FLOW (continuous):   theta'(t) = - grad L(theta)\n   GRADIENT DESCENT (discrete):  theta_{n+1} = theta_n - eta grad L(theta_n)\n                                 = forward-Euler step, dt = learning rate eta.\n\n   PROPERTIES (read straight off earlier chapters):\n   - FIXED POINTS = critical points of L (grad L = 0): minima, maxima, SADDLES.\n   - L is a LYAPUNOV FUNCTION (Ch. 02): dL/dt = grad L . theta' = -|grad L|^2 <= 0.\n     => the flow monotonically decreases L; converges to a critical point.\n   - LOCAL STABILITY = Hessian H = D^2 L:  the flow's Jacobian is -H.\n        eigenvalue of H > 0 (convex dir) -> flow eigenvalue < 0 -> STABLE (descends)\n        eigenvalue of H < 0 (concave)    -> flow eigenvalue > 0 -> UNSTABLE (escapes)\n     => minima are stable fixed points; SADDLES are unstable -> the flow leaves\n        them (why gradient descent escapes saddles, slowly, along negative-curvature\n        directions = the unstable manifold, Ch. 02).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 167,
+      "heading_context": "## Gradient Flows: Machine Learning as a Dynamical System",
+      "confidence": "candidate",
+      "text": "   Near a minimum, descent is the LINEAR MAP  theta_{n+1} = (I - eta H) theta_n.\n   Multiplier along Hessian eigenvalue lam:  m = 1 - eta lam.\n        |1 - eta lam| < 1   <=>   0 < eta < 2 / lam.\n   STABILITY across all directions requires  eta < 2 / lam_max(H).\n        eta too large -> |m| > 1 -> training DIVERGES / oscillates (loss spikes).\n        eta = 1/lam   -> superstable in that direction (fastest).\n   Conditioning lam_max/lam_min sets convergence rate -> WHY we precondition\n   (Adam, momentum), batch-norm, and tune learning-rate schedules.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 178,
+      "heading_context": "## Gradient Flows: Machine Learning as a Dynamical System",
+      "confidence": "candidate",
+      "text": "   THE ML <-> DYNAMICAL-SYSTEMS DICTIONARY\n   ---------------------------------------\n   loss landscape L         <->  potential / energy function\n   gradient descent         <->  forward-Euler on a gradient flow\n   learning rate eta        <->  integration step size dt (stability-limited, eta<2/lam_max)\n   minimum / saddle         <->  stable / unstable fixed point (Ch. 02)\n   Hessian eigenvalues      <->  Jacobian spectrum (curvature = stability)\n   loss spikes / divergence <->  |1 - eta*lam| > 1 (map instability, Ch. 08)\n   momentum / Nesterov      <->  DAMPED 2nd-order flow (heavy-ball ODE, oscillatory)\n   \"edge of stability\"      <->  operating at eta ~ 2/lam_max (marginal, Ch. 02)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 217,
+      "heading_context": "## Control of Chaos: Turning a Bug into a Feature",
+      "confidence": "candidate",
+      "text": "   OGY METHOD (Ott-Grebogi-Yorke, 1990): stabilize a UPO with TINY pokes.\n\n   1. Work on the Poincare section (Ch. 06). The target UPO is a saddle\n      fixed point of the return map, with stable W^s and unstable W^u\n      directions (Ch. 02).\n   2. Wait: chaos (ergodicity) carries the orbit NEAR the saddle on its own.\n   3. When close, nudge an accessible parameter p by a small dp so the next\n      iterate lands on the STABLE manifold W^s -> it then falls into the\n      saddle along W^s.  Repeat to hold it there.\n\n        W^u (escape)            Control kicks the point onto W^s each\n            \\   o--.  natural    return; the unstable direction is\n             \\ /    drift        continually canceled. Control effort -> 0\n        ------X------ W^s        because you only fight the LINEARIZED\n             / \\    saddle UPO   instability near the saddle. \"Small control,\n            /   \\                big effect\" = leverage from SDIC.\n\n   PYRAGAS (time-delayed feedback): u(t) = -k[ x(t) - x(t - T) ],\n     T = period of target UPO. Vanishes ON the orbit (x(t)=x(t-T)) -> NON-\n     invasive: stabilizes the UPO without changing it. No model needed.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

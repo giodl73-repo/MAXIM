@@ -1,0 +1,146 @@
+{
+  "schema_version": "1",
+  "source_markdown": "compilers\\09-RUNTIME-AND-GC.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 192,
+      "heading_context": "## Garbage Collection — Finding the Live Set",
+      "headers": [
+        "Collector",
+        "Strategy",
+        "Pause profile"
+      ],
+      "rows": [
+        [
+          "Mark-sweep",
+          "trace + freelist",
+          "stop-the-world, fragmenting"
+        ],
+        [
+          "Copying (Cheney)",
+          "semispace, compacting",
+          "stop-the-world, fast young gen"
+        ],
+        [
+          "Generational",
+          "young copying + old mark-compact",
+          "short young pauses, rare full GC"
+        ],
+        [
+          ".NET GC",
+          "generational, background (concurrent) gen2",
+          "workstation/server modes"
+        ],
+        [
+          "G1 (JVM)",
+          "region-based, incremental, mostly concurrent",
+          "predictable pause targets"
+        ],
+        [
+          "ZGC / Shenandoah",
+          "concurrent, load/read-barrier, colored ptrs",
+          "sub-ms, heap-size-independent"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 287,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You know",
+        "Maps to"
+      ],
+      "rows": [
+        [
+          ".NET GC generations (gen0/1/2)",
+          "Textbook generational GC — gen0 nursery (copying), gen2 mark-compact"
+        ],
+        [
+          "GC modes (workstation vs server, background GC)",
+          "Stop-the-world vs concurrent/background tri-color collection"
+        ],
+        [
+          "LOH (Large Object Heap)",
+          "A separate, non-compacting region for big allocations — a real-GC engineering detail"
+        ],
+        [
+          "RyuJIT + tiered compilation / Dynamic PGO",
+          "The tiered JIT + profile-guided speculation described here"
+        ],
+        [
+          "`GCHandle`, pinning, `fixed`",
+          "Telling the GC \"don't move this\" — defeats compaction so native code can hold a raw pointer"
+        ],
+        [
+          "Crashes from bad P/Invoke pointers",
+          "The stack-map / precise-GC contract broken at the managed/native seam"
+        ],
+        [
+          "`Span<T>` / `stackalloc`",
+          "Stack allocation / escape avoidance — keep data off the GC heap"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 307,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Find live objects",
+          "Trace from roots (stack maps + globals)"
+        ],
+        [
+          "Reclaim with stable pointers",
+          "Mark-sweep (accepts fragmentation)"
+        ],
+        [
+          "Compact + fast allocation",
+          "Copying (Cheney) or mark-compact"
+        ],
+        [
+          "Exploit \"most objects die young\"",
+          "Generational GC + write barrier + remembered set"
+        ],
+        [
+          "Minimize pause times",
+          "Concurrent tri-color GC (G1/ZGC/Shenandoah/.NET background)"
+        ],
+        [
+          "Keep correctness while collecting concurrently",
+          "The tri-color invariant + Dijkstra/Yuasa write barriers"
+        ],
+        [
+          "Keep an object off the GC heap",
+          "Escape analysis → stack allocation / scalar replacement"
+        ],
+        [
+          "Optimize hot code with real data",
+          "Tiered JIT + profile-guided speculation"
+        ],
+        [
+          "Make speculation safe",
+          "Guards + deoptimization (deopt maps)"
+        ],
+        [
+          "Let the GC pause threads safely",
+          "Safepoints + stack maps"
+        ],
+        [
+          "Start instantly, no warmup",
+          "AOT (NativeAOT / GraalVM) — give up runtime speculation"
+        ],
+        [
+          "Pin memory for native interop",
+          "`fixed`/`GCHandle` — but it defeats compaction"
+        ]
+      ]
+    }
+  ]
+}

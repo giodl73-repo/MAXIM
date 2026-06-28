@@ -1,0 +1,164 @@
+{
+  "schema_version": "1",
+  "source_markdown": "compilers\\01-LEXING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 131,
+      "heading_context": "## From Tokens to a Recognizer",
+      "headers": [
+        "Stage",
+        "Algorithm",
+        "Cost",
+        "Determinism"
+      ],
+      "rows": [
+        [
+          "regex → NFA",
+          "Thompson",
+          "O(r) states",
+          "nondeterministic, ε-moves"
+        ],
+        [
+          "NFA → DFA",
+          "subset/powerset",
+          "up to 2^n states",
+          "deterministic"
+        ],
+        [
+          "DFA → min DFA",
+          "Hopcroft",
+          "O(n log n)",
+          "deterministic, minimal"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 243,
+      "heading_context": "## Lexer Generators — and Why Many Modern Lexers Are Hand-Written",
+      "headers": [
+        "Tool",
+        "Lang",
+        "Form",
+        "Notable user"
+      ],
+      "rows": [
+        [
+          "lex / flex",
+          "C",
+          "generated DFA table",
+          "classic Unix toolchain"
+        ],
+        [
+          "re2c",
+          "C/C++",
+          "inline DFA, no runtime",
+          "git, PHP, ninja"
+        ],
+        [
+          "ragel",
+          "many",
+          "state machine compiler",
+          "Mongrel, Sphinx"
+        ],
+        [
+          "ANTLR (lexer)",
+          "Java/many",
+          "generated, integrated with parser",
+          "many DSLs"
+        ],
+        [
+          "Logos",
+          "Rust",
+          "derive macro → DFA",
+          "many Rust frontends"
+        ],
+        [
+          "tree-sitter",
+          "C",
+          "incremental, error-tolerant",
+          "editors / IDEs"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 288,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You know",
+        "Maps to"
+      ],
+      "rows": [
+        [
+          ".NET `Regex` (backtracking NFA engine)",
+          "A *lexer* uses a DFA — no backtracking, linear time, but no captures/backrefs. Different trade-off: throughput over expressiveness."
+        ],
+        [
+          "`System.Text.RegularExpressions` catastrophic backtracking",
+          "Cannot happen in a DFA lexer — DFA is O(n) in input length, guaranteed. RE2 / re2c chose DFA precisely to kill ReDoS."
+        ],
+        [
+          "Roslyn `SyntaxToken` with leading/trailing trivia",
+          "The hand-written lexer attaches whitespace/comments as trivia so the parser sees clean tokens but the formatter keeps everything."
+        ],
+        [
+          "A `switch` statement over characters",
+          "That *is* a hand-coded DFA — each `case` is a state transition. Most hand-written lexers are exactly this."
+        ],
+        [
+          "Tokenizing in a `StringTokenizer`",
+          "Same job, no token classes/positions — a lexer additionally classifies and tracks source spans for diagnostics."
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 330,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Recognize a token class",
+          "A regex → DFA (one DFA per language, all classes merged)"
+        ],
+        [
+          "Carve the next token from input",
+          "Maximal munch (longest match, remember last accept, rewind)"
+        ],
+        [
+          "Recognize keywords",
+          "Lex as IDENT, then hash-lookup against the keyword set"
+        ],
+        [
+          "Guarantee linear-time lexing (no ReDoS)",
+          "A DFA lexer (re2c / RE2-style), never a backtracking engine"
+        ],
+        [
+          "Generate a lexer declaratively",
+          "flex / re2c / Logos / ANTLR lexer"
+        ],
+        [
+          "Build a compiler-grade lexer",
+          "Hand-write it — error positions, speed, trivia, incremental relex"
+        ],
+        [
+          "Handle Python indentation",
+          "Indent stack emitting synthetic INDENT/DEDENT tokens"
+        ],
+        [
+          "Handle string interpolation",
+          "Lexer modes / a mode stack"
+        ],
+        [
+          "Relex on every keystroke (IDE)",
+          "Incremental, error-tolerant lexer (tree-sitter)"
+        ]
+      ]
+    }
+  ]
+}

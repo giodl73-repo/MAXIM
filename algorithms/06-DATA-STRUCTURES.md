@@ -39,8 +39,8 @@ worst-case.
    |  treap, B-tree)   | | expected O(logn)|    | O(1) AMORTIZED EXPECTED     |
    | O(log n) WORST    | |                 |    | O(n) worst-case (collisions)|
    | search/ins/del    | |                 |    | NO order, NO range queries  |
-   | + range/successor | |                 |    +-----------------------------+
-   +-------------------+ +-----------------+
+   | + range/successor | |                 |    |                             |
+   +-------------------+ +-----------------+    +-----------------------------+
             |  comparison-based -> Omega(log n) per op (decision-tree, see 02)
             v
    PRIORITY (partial order on one key)        RANGE / PREFIX AGGREGATES
@@ -50,8 +50,8 @@ worst-case.
    | binary: insert,   |                       |   point update / prefix qry |
    | extract O(log n); |                       |   O(log n), tiny constant   |
    | peek O(1)         |                       | SEGMENT TREE  any assoc op  |
-   | Fibonacci: O(1)   |                       |   range query + range update|
-   | decrease-key amrt |                       |   O(log n), lazy propagation|
+   | Fibonacci: O(1)   |                       |  range query + range update |
+   | decrease-key amrt |                       |  O(log n), lazy propagation |
    +-------------------+                       +-----------------------------+
 
    THE BOUNDS YOU MUST NOT MISQUOTE:
@@ -112,11 +112,12 @@ data → linked list). Balanced BSTs maintain an invariant guaranteeing O(log n)
 **worst-case** height.
 
 ```
-   THE FAMILY (all O(log n) worst-case search/insert/delete + ordered ops)
+   THE FAMILY (ordered ops; O(log n) search/insert/delete — worst-case for
+   AVL/Red-Black/B-tree, expected for Treap, amortized for Splay)
    +-----------------------------------------------------------------------------+
    | Structure   | Balance invariant                  | Notes                    |
    |-------------|------------------------------------|--------------------------|
-   | AVL         | |height(L)-height(R)| <= 1          | strictest; faster lookup |
+   | AVL         | |height(L)-height(R)| <= 1         | strictest; faster lookup |
    | Red-Black   | no red-red; equal black-height     | fewer rotations on write |
    | Treap       | BST on key + heap on random prio   | simple, expected O(log n)|
    | B-tree      | high fan-out, all leaves same depth| disk/SSD: minimize I/Os  |

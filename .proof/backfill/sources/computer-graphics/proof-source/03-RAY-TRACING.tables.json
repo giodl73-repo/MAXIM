@@ -1,0 +1,130 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-graphics\\03-RAY-TRACING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 255,
+      "heading_context": "## Layer 4: Recursive Tracing — Whitted to Path Tracing",
+      "headers": [
+        "",
+        "Whitted (1980)",
+        "Path tracing (1986)"
+      ],
+      "rows": [
+        [
+          "Secondary rays",
+          "Deterministic (mirror, refract, shadow)",
+          "Random hemisphere samples"
+        ],
+        [
+          "Solves",
+          "A subset of effects",
+          "Full rendering equation"
+        ],
+        [
+          "Soft shadows / GI",
+          "No",
+          "Yes"
+        ],
+        [
+          "Error type",
+          "Bias (missing effects)",
+          "Variance (noise), unbiased"
+        ],
+        [
+          "Convergence",
+          "One pass",
+          "`1/√N` — many samples"
+        ],
+        [
+          "Use",
+          "Early ray tracers",
+          "Modern film & offline rendering"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 318,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "Here it is"
+      ],
+      "rows": [
+        [
+          "B-tree / R-tree spatial index",
+          "BVH / kd-tree — prune subtrees by bounding box"
+        ],
+        [
+          "Query planner choosing a good index",
+          "SAH (Surface Area Heuristic) choosing BVH splits"
+        ],
+        [
+          "Recursion with a depth bound",
+          "Whitted tracing — bounce rays, capped depth"
+        ],
+        [
+          "Monte Carlo integration / quadrature",
+          "Path tracing the hemisphere integral"
+        ],
+        [
+          "Variance reduction in MC simulation",
+          "Importance sampling, MIS in path tracing"
+        ],
+        [
+          "Two-level page table / handle table",
+          "TLAS over BLAS (instances over geometry)"
+        ],
+        [
+          "Caching a denoised expensive estimate",
+          "Real-time RT: few samples + neural denoiser"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 332,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Choice"
+      ],
+      "rows": [
+        [
+          "Photoreal film, offline, GI/caustics",
+          "Path tracing"
+        ],
+        [
+          "Crisp mirror/glass, point lights (classic)",
+          "Whitted recursion"
+        ],
+        [
+          "Real-time with some ray-traced effects",
+          "Hybrid: rasterize primary + RT shadows/reflections + denoise"
+        ],
+        [
+          "Triangle intersection kernel",
+          "Möller–Trumbore (also yields barycentrics)"
+        ],
+        [
+          "Speeding up \"ray vs many triangles\"",
+          "BVH (default today) or kd-tree"
+        ],
+        [
+          "Animated scene acceleration",
+          "Refit/rebuild a BVH; TLAS per frame, BLAS reused"
+        ],
+        [
+          "Killing path-tracer noise",
+          "More samples, importance sampling, MIS, denoiser"
+        ],
+        [
+          "Terminating recursion fairly",
+          "Russian roulette (unbiased)"
+        ]
+      ]
+    }
+  ]
+}

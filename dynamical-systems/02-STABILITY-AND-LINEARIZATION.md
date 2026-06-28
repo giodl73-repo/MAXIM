@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dynamical-systems:stability-and-linearization
+kind: guide
+module: dynamical-systems
+section: dynamical-systems
+title: Stability and Linearization
+status: source-custody
+source_custody: partial
+current_path: dynamical-systems/02-STABILITY-AND-LINEARIZATION.md
+canonical_path: dynamical-systems/02-STABILITY-AND-LINEARIZATION.md
+backsource_ids: [proof-backfill:dynamical-systems:02-stability-and-linearization, git-history:dynamical-systems:02-stability-and-linearization]
+concepts: [stability, and, linearization]
+root_concepts: [stability, and]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Stability and Linearization
 
 The central engine of the whole subject: to decide whether a fixed point is stable, **linearize**

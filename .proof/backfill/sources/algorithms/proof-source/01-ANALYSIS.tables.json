@@ -1,0 +1,98 @@
+{
+  "schema_version": "1",
+  "source_markdown": "algorithms\\01-ANALYSIS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 292,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "The analysis concept"
+      ],
+      "rows": [
+        [
+          "\"`List.Add` is basically free\"",
+          "O(1) **amortized** via geometric doubling; one resize is Θ(n)"
+        ],
+        [
+          "Profiling shows p99 spikes on resize",
+          "The amortized average hides the worst single op — measure tails too"
+        ],
+        [
+          "A query optimizer's cost model",
+          "Recurrence/closed-form cost estimate over an execution plan"
+        ],
+        [
+          "\"It's fast in practice but worst-case bad\"",
+          "Smoothed analysis (e.g. simplex) — adversarial input + small perturbation"
+        ],
+        [
+          "Cache-friendly vs cache-hostile loops",
+          "The constant factor / memory model the O(·) hides — Θ same, wall-clock differs"
+        ],
+        [
+          "Retry-with-backoff total cost",
+          "An aggregate amortized argument over the retry sequence"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 309,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Use",
+        "Result form"
+      ],
+      "rows": [
+        [
+          "Solve `aT(n/b)+f(n)`, clean split",
+          "Master theorem",
+          "one of 3 cases"
+        ],
+        [
+          "Uneven split (`T(n/5)+T(7n/10)+n`)",
+          "Akra-Bazzi / recursion tree",
+          "find p, integrate"
+        ],
+        [
+          "Verify a Master-theorem edge case",
+          "recursion tree",
+          "sum per level"
+        ],
+        [
+          "Cost of a *sequence* of ops",
+          "amortized (potential)",
+          "total/#ops, no luck"
+        ],
+        [
+          "One op type, quick total",
+          "aggregate method",
+          "total/m"
+        ],
+        [
+          "State-dependent op costs (heap/splay)",
+          "potential method",
+          "Φ + ΔΦ"
+        ],
+        [
+          "Cost on *random input*",
+          "average-case (indicator RVs)",
+          "E[·] over inputs"
+        ],
+        [
+          "Cost with random *internal* choices",
+          "randomized analysis",
+          "E[·] over coins, any input"
+        ],
+        [
+          "\"Worst-case bad, practice good\"",
+          "smoothed analysis",
+          "E over perturbations"
+        ]
+      ]
+    }
+  ]
+}

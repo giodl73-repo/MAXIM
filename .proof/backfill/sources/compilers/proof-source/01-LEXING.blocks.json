@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "compilers\\01-LEXING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------------+\n|                      THE LEXER CONSTRUCTION CHAIN                        |\n|                                                                          |\n|   token specs (regexes)                                                  |\n|        |                                                                 |\n|        |  Thompson's construction (linear)                               |\n|        v                                                                 |\n|   +---------+        epsilon-moves, nondeterministic                     |\n|   |   NFA   |        O(r) states for                                     |\n|   +---------+        regex of size r                                     |\n|        |                                                                 |\n|        |  subset construction (powerset)                                 |\n|        v                                                                 |\n|   +---------+        deterministic, no epsilon, one move per char        |\n|   |   DFA   |        worst case 2^n states                               |\n|   +---------+        (rare in practice)                                  |\n|        |                                                                 |\n|        |  Hopcroft minimization  O(n log n)                              |\n|        v                                                                 |\n|   +-----------+      fewest states recognizing                           |\n|   | min DFA   |      the same language                                   |\n|   +-----------+                                                          |\n|        |                                                                 |\n|        |  drive with input + MAXIMAL MUNCH + token actions               |\n|        v                                                                 |\n|   +-----------------------------------------------------------+          |\n|   |  TOKEN STREAM:  IDENT(\"foo\") LPAREN INT(42) RPAREN SEMI   |          |\n|   +-----------------------------------------------------------+          |\n+--------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 86,
+      "heading_context": "### Thompson's construction (regex → NFA)",
+      "confidence": "candidate",
+      "text": "            eps         +--> b -->+\n   ->(0)--a-->(1)--eps->(2)       (3)--eps-->((5))   accept\n                         ^   +--> c -->+   |\n                         |              v   |\n                         +------- eps -----+\n                    (the (b|c) loop: enter, choose b or c, loop back or exit)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 105,
+      "heading_context": "### Subset construction (NFA → DFA)",
+      "confidence": "candidate",
+      "text": "  DFA state = subset of NFA states (after epsilon-closure)\n\n  start  = eps-closure({0})\n  move(S, c) = eps-closure( { t : s in S, s --c--> t } )\n\n  Worked (for a(b|c)*):\n    A = closure({0})              = {0}\n    move(A,'a') = closure({1})    = {1,2,3,4? ...}  -> B    (entered the loop)\n    move(B,'b') = closure(...)    -> B'  (accepting, can loop)\n    move(B,'c') = closure(...)    -> B'' (accepting, can loop)\n    B', B'' accept; b/c keep you in accepting states.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 145,
+      "heading_context": "## Maximal Munch — The Rule That Makes Lexing Work",
+      "confidence": "candidate",
+      "text": "  Input:  \"if x>=10\"\n\n  Naive (shortest match) would stop at the first accepting state:\n     \"i\" -> IDENT? but DFA can keep going...\n\n  Maximal munch: keep consuming while a transition exists; remember the\n  LAST accepting state seen; when stuck, emit the token for that state and\n  rewind input to just after it.\n\n  position ->  i  f     x     >  =     1  0\n               ^^                ^^^^         ^^^^\n               \"if\" is a keyword (longest match beats IDENT \"i\",\"if\")\n                                 \">=\"  beats \">\" then \"=\"\n                                              \"10\" is one INT, not \"1\",\"0\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 200,
+      "heading_context": "## Keywords vs Identifiers — The Standard Trick",
+      "confidence": "candidate",
+      "text": "  +----------------+      lex with IDENT regex      +------------------+\n  | char stream    | -----------------------------> | lexeme \"return\"  |\n  +----------------+                                 +--------+--------+\n                                                              |\n                                              hash-table lookup in keyword set\n                                                              |\n                                         +--------------------+-------------+\n                                         |                                  |\n                                   in keyword set?                    not found\n                                         |                                  |\n                                         v                                  v\n                                 emit KW_RETURN                       emit IDENT(\"foo\")",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 224,
+      "heading_context": "## Lexer Generators — and Why Many Modern Lexers Are Hand-Written",
+      "confidence": "candidate",
+      "text": "   GENERATED                                 HAND-WRITTEN\n   =========                                 ============\n   You write token regexes;                  You write the state machine\n   a tool emits the DFA table + driver.      (or just a switch loop) directly.\n\n   +----------+   +--------+   +---------+    +---------------------------+\n   | lex/flex |   | re2c   |   | Logos   |    | clang, Roslyn, V8, rustc  |\n   | (C)      |   | (C/C++)|   | (Rust   |    | hand-written lexers       |\n   |          |   | inline |   |  proc-  |    |                           |\n   |          |   |  DFA)  |   |  macro) |    | Why: error messages,      |\n   +----------+   +--------+   +---------+    | speed, incremental relex, |\n                                              | weird context-sensitive   |\n   Pros: declarative, correct by             | rules, trivia (comments/  |\n     construction, fast to change.           | whitespace) attachment.   |\n   Cons: generic error messages, awkward                                  |\n     for context-sensitive tokens.          +---------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 265,
+      "heading_context": "## Beyond Pure Regular: Where Lexers Cheat",
+      "confidence": "candidate",
+      "text": "  Python indentation (off-side rule):\n     The lexer keeps an INDENT STACK and emits synthetic INDENT/DEDENT\n     tokens. A pure DFA has no stack -> this is the lexer doing a tiny\n     bit of the parser's job.\n\n  String interpolation  \"$\"+expr+\"\":\n     Lexer modes / a mode stack. Entering ${ switches to \"expression mode\";\n     the matching } pops back to \"string mode\".\n\n  Nested comments  /* ... /* ... */ ... */ :\n     Requires a counter -> not regular (matched nesting is context-free).\n     Lexers special-case it with a depth counter.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 305,
+      "heading_context": "## The Token Stream — What Sema and the Parser Receive",
+      "confidence": "candidate",
+      "text": "  source:  return x + 1;\n\n  +---------------------------------------------------------------+\n  | KW_RETURN  span=[0,6)                                         |\n  | IDENT \"x\"  span=[7,8)                                         |\n  | PLUS       span=[9,10)                                        |\n  | INT 1      span=[11,12)   value=1                             |\n  | SEMI       span=[12,13)                                       |\n  | EOF                                                           |\n  +---------------------------------------------------------------+\n       ^                ^                       ^\n       kind             lexeme/value            source span (for errors)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

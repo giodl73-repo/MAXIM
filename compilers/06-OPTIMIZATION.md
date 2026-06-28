@@ -34,22 +34,22 @@ precisely.
 |                     OPTIMIZATION BY SCOPE                                |
 |                                                                          |
 |   LOCAL (one basic block)                                                |
-|     constant folding, local CSE, local DCE, peephole, algebraic         |
-|     simplification, local copy/constant propagation                     |
+|     constant folding, local CSE, local DCE, peephole, algebraic          |
+|     simplification, local copy/constant propagation                      |
 |        |                                                                 |
 |        v                                                                 |
-|   GLOBAL / INTRAPROCEDURAL (one function's CFG, needs dataflow)         |
-|     global constant propagation (SCCP), GVN, global DCE,                |
-|     LICM, loop unrolling/fusion, strength reduction, vectorization,     |
-|     jump threading, tail-call elimination                               |
+|   GLOBAL / INTRAPROCEDURAL (one function's CFG, needs dataflow)          |
+|     global constant propagation (SCCP), GVN, global DCE,                 |
+|     LICM, loop unrolling/fusion, strength reduction, vectorization,      |
+|     jump threading, tail-call elimination                                |
 |        |                                                                 |
 |        v                                                                 |
-|   INTERPROCEDURAL (across functions / whole program)                    |
-|     inlining, interprocedural constant propagation,                     |
-|     devirtualization, escape analysis, whole-program DCE,               |
+|   INTERPROCEDURAL (across functions / whole program)                     |
+|     inlining, interprocedural constant propagation,                      |
+|     devirtualization, escape analysis, whole-program DCE,                |
 |     Link-Time Optimization (LTO)                                         |
 |                                                                          |
-|   All wired into a PASS PIPELINE: ordered, often run to a fixpoint,     |
+|   All wired into a PASS PIPELINE: ordered, often run to a fixpoint,      |
 |   gated by -O0/-O1/-O2/-O3/-Os.                                          |
 +--------------------------------------------------------------------------+
 ```

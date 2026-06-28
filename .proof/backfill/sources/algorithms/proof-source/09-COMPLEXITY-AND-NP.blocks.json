@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "algorithms\\09-COMPLEXITY-AND-NP.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "# Complexity and NP",
+      "confidence": "candidate",
+      "text": "  THE COMPLEXITY LANDSCAPE\n  =====================================================================================\n\n   +-----------------------------------------------------------------------------+\n   |                              PSPACE                                         |\n   |   +-------------------------------------------------------------------+     |\n   |   |                        NP            co-NP                        |      |\n   |   |   +---------------------------+   +---------------------------+   |      |\n   |   |   |          NP-complete      |   |       co-NP-complete      |   |      |\n   |   |   |   SAT, 3-SAT, CLIQUE,     |   |   TAUTOLOGY, UNSAT        |   |      |\n   |   |   |   VERTEX-COVER, HAM-CYCLE,|   |                           |   |      |\n   |   |   |   TSP(dec), SUBSET-SUM,   |   |                           |   |      |\n   |   |   |   3-COLORING, KNAPSACK    |   |                           |   |      |\n   |   |   +---------------------------+   +---------------------------+   |      |\n   |   |               \\           +-----+           /                    |      |\n   |   |                \\          |  P  |          /                     |      |\n   |   |                 \\         |     |         /                      |      |\n   |   |   NP-intermediate?\\       | sort| (poly)/   if P=NP this all     |      |\n   |   |   (factoring, GI) +-------|  MST|------+    collapses to P       |      |\n   |   |                           |  LP |                                |      |\n   |   |                           +-----+                                |      |\n   |   +-------------------------------------------------------------------+     |\n   +-----------------------------------------------------------------------------+\n\n   P        solvable in poly time            (decision problems)\n   NP       VERIFIABLE in poly time (given a certificate)        P subset NP\n   co-NP    complement is in NP (verify a NO)\n   NP-hard  everything in NP reduces to it (>= as hard as all of NP)\n   NP-COMPLETE  in NP AND NP-hard  (the hardest problems IN NP)\n   PSPACE   poly MEMORY (QBF is PSPACE-complete) ; NP subset PSPACE\n\n   OPEN: P =? NP  (and NP =? co-NP).  Conjectured P != NP.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 120,
+      "heading_context": "## Layer 2: Reductions (the load-bearing tool)",
+      "confidence": "candidate",
+      "text": "### Worked reduction: 3-SAT ≤_p INDEPENDENT-SET",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 122,
+      "heading_context": "### Worked reduction: 3-SAT ≤_p INDEPENDENT-SET",
+      "confidence": "candidate",
+      "text": "   Given 3-SAT formula  (x1 OR ~x2 OR x3) AND (~x1 OR x2 OR x3) ...  (k clauses):\n   BUILD a graph:\n     - one TRIANGLE per clause (3 vertices = the 3 literals; edges within the triangle)\n     - connect a literal to its NEGATION across clauses (x1 -- ~x1 edges)\n   CLAIM: formula is satisfiable  <=>  graph has an independent set of size k.\n     pick one TRUE literal per clause -> k vertices, no two adjacent (triangle edges\n     forbid two-in-a-clause; negation edges forbid x and ~x both true). <=> consistent\n     satisfying assignment.\n   poly-time, equivalence holds  => INDEPENDENT-SET is NP-hard (and in NP) => NP-complete.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 139,
+      "heading_context": "### Worked reduction: 3-SAT ≤_p INDEPENDENT-SET",
+      "confidence": "candidate",
+      "text": "   THE CLASSIC REDUCTION WEB (Karp's 21):\n     SAT -> 3-SAT -> { CLIQUE, INDEPENDENT-SET, VERTEX-COVER } (graph-algorithms/07)\n                  -> 3-COLORING -> ...\n                  -> SUBSET-SUM -> KNAPSACK(dec) (04)\n                  -> HAMILTONIAN-CYCLE -> TSP(dec)\n   Build a NEW hardness proof by reducing the closest of these to your problem.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 156,
+      "heading_context": "## Layer 3: Weak vs Strong NP-Hardness (and pseudo-polynomial)",
+      "confidence": "candidate",
+      "text": "   SUBSET-SUM / 0/1 KNAPSACK have a DP in O(n * W)  (see 04).\n   Is that polynomial?  W is a VALUE; its ENCODING is log W bits.\n   => O(nW) is EXPONENTIAL in input SIZE -> \"PSEUDO-polynomial\".\n\n   WEAKLY NP-hard:   has a pseudo-poly algorithm (poly in the numeric values).\n                     KNAPSACK, SUBSET-SUM.  -> tractable when numbers are small.\n   STRONGLY NP-hard: NP-hard even when all numbers are poly-bounded -> NO pseudo-poly\n                     algorithm unless P=NP.  TSP, 3-PARTITION, BIN-PACKING.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 178,
+      "heading_context": "## Layer 4: Escape Route 1 — Approximation Algorithms",
+      "confidence": "candidate",
+      "text": "   APPROXIMATION RATIO rho: ALG <= rho * OPT (minimization) for ALL inputs.\n\n   VERTEX COVER  2-approximation (greedy on edges):\n     repeatedly pick any uncovered edge (u,v), add BOTH u,v to the cover, remove\n     incident edges.  The chosen edges form a matching M; OPT must cover each,\n     using >= |M| vertices; ALG uses 2|M|  => ALG <= 2*OPT.   (graph-algorithms/07)\n\n   METRIC TSP  1.5-approximation (Christofides): MST + min-weight matching on\n     odd-degree vertices + shortcut an Euler tour.  (graph-algorithms/04,06)\n\n   SET COVER  ln(n)-approximation (greedy: take the set covering the most new elements)\n     and this is TIGHT -- no poly algorithm does better unless P=NP.\n\n   PTAS / FPTAS:\n     PTAS  : (1+eps)-approx in time poly(n) for each fixed eps (eps in the exponent ok).\n     FPTAS : (1+eps)-approx in time poly(n, 1/eps).  KNAPSACK has an FPTAS.\n   INAPPROXIMABILITY: some problems (general TSP, MAX-CLIQUE) cannot be approximated\n     within ANY constant unless P=NP (PCP theorem).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 211,
+      "heading_context": "## Layer 5: Escape Route 2 — Randomized Algorithms",
+      "confidence": "candidate",
+      "text": "   RANDOMIZED COMPLEXITY CLASSES\n   -----------------------------\n   RP   poly time; YES -> accepts w.p. >= 1/2; NO -> always rejects   (one-sided error)\n   co-RP mirror: NO -> rejects w.p. >= 1/2; YES -> always accepts\n   ZPP  = RP intersect co-RP; LAS VEGAS: always correct, expected poly time\n   BPP  poly time; bounded TWO-sided error <= 1/3 (amplifiable to 2^-k by repetition)\n\n   P subset ZPP subset RP subset NP ;  RP subset BPP.   BPP vs P: conjectured BPP = P\n     (derandomization; strong evidence from circuit lower bounds).\n\n   MONTE CARLO  vs  LAS VEGAS\n   may be wrong,      always correct,\n   fixed runtime      runtime is random (expected poly)\n   e.g. Miller-Rabin  e.g. randomized quicksort, treaps\n        primality (RP-style)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 323,
+      "heading_context": "### \"NP-hard and NP-complete are the same\"",
+      "confidence": "candidate",
+      "text": "### \"0/1 knapsack's O(nW) DP means knapsack is in P\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 330,
+      "heading_context": "### \"0/1 knapsack's O(nW) DP means knapsack is in P\"",
+      "confidence": "candidate",
+      "text": "### \"A 2-approximation guarantees within 2x on average\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

@@ -39,12 +39,12 @@ toy compiler from clang, RyuJIT, V8, or HotSpot.
 |                          THE COMPILER PIPELINE                             |
 |                                                                            |
 |   FRONTEND            |        MIDDLE-END         |       BACKEND          |
-|   (language-specific) |   (language + target      |   (target-specific)   |
-|                       |     independent)          |                       |
-|                       |                           |                       |
-|  source text          |                           |                       |
-|     |                 |                           |                       |
-|     v                 |                           |                       |
+|   (language-specific) |   (language + target      |   (target-specific)    |
+|                       |     independent)          |                        |
+|                       |                           |                        |
+|  source text          |                           |                        |
+|     |                 |                           |                        |
+|     v                 |                           |                        |
 |  +--------+   tokens   |                           |                       |
 |  | LEXER  |---------+  |                           |                       |
 |  | (DFA)  |   [01]  |  |                           |                       |
@@ -56,7 +56,7 @@ toy compiler from clang, RyuJIT, V8, or HotSpot.
 |                              +-------------+ typed |                       |
 |                              |  SEMANTIC   | AST   |                       |
 |                              |  ANALYSIS   |-----+ |                       |
-|                              | (types,scope|[03]| |                       |
+|                              | (types,scope|[03]| |                        |
 |                              +-------------+     v |                       |
 |                                         +-----------------+                |
 |                                         |  IR / SSA / CFG |  [04]          |
@@ -175,20 +175,25 @@ has.
    +-------------------+                   +-------------------+
    | full pipeline     |                   | interpreter       |
    | -> native binary  |                   |   (collects type  |
-   +-------------------+                   |    + branch profile)|
+   +-------------------+                   |   + branch        |
+                                           |     profile)      |
                                            +---------+---------+
+
    Sees: static program text                         | hot threshold
    Cannot see: actual inputs                         v
+
                                            +-------------------+
    Examples:                               | optimizing JIT    |
      gcc, clang, rustc, Go,                | (speculates using |
      GraalVM Native Image,                 |  real profile)    |
      .NET Native / NativeAOT               +---------+---------+
+
                                                      | assumption broken
    Wins: startup, no warmup,                         v
+
          predictable, smaller RSS          +-------------------+
-                                           | DEOPTIMIZE -> back |
-                                           | to interpreter     |
+                                           |DEOPTIMIZE -> back |
+                                           |to interpreter     |
                                            +-------------------+
                                            Examples: V8, HotSpot,
                                              RyuJIT, SpiderMonkey

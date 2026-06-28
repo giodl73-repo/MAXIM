@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # Color and Perception
 
 ## The Big Picture: Light Is Linear, Displays and Eyes Are Not
@@ -32,13 +31,13 @@ exactly what a renderer must get right.
 +--------------------------------------------------------------------------------------+
 |                  THE COLOR PIPELINE (where linear vs encoded matters)                |
 |                                                                                      |
-|  DECODE          SHADE              EXPOSURE/         TONE MAP        ENCODE          |
-|                  (linear)           HDR                                               |
+|  DECODE          SHADE              EXPOSURE/         TONE MAP        ENCODE         |
+|                  (linear)           HDR                                              |
 |                                                                                      |
-|  sRGB texture --> linear lighting --> HDR radiance --> map HDR -> --> sRGB / PQ       |
+|  sRGB texture --> linear lighting --> HDR radiance --> map HDR -> --> sRGB / PQ      |
 |  -> LINEAR       (BRDF, sum lights,   (values may      LDR        encode for         |
 |  light           blend, filter --     exceed 1.0)      [0,1]      the display        |
-|                  ALL in linear!)                                                      |
+|                  ALL in linear!)                                                     |
 |                                                                                      |
 |   [L2 decode]    [L1 linear math]    [L3 HDR]         [L4 tonemap]  [L2 encode]      |
 +--------------------------------------------------------------------------------------+

@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "compilers\\02-PARSING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------------+\n|                       THE PARSING LANDSCAPE                              |\n|                                                                          |\n|                     all context-free grammars                            |\n|   +------------------------------------------------------------------+   |\n|   |  ambiguous grammars (no deterministic parser)                    |   |\n|   |  +------------------------------------------------------------+  |   |\n|   |  |          unambiguous CFG                                   |  |   |\n|   |  |   +---------------------------------------------------+    |  |   |\n|   |  |   |   LR(1)   (canonical -- most powerful 1-LA det.)  |    |  |   |\n|   |  |   |  +---------------------------------------------+  |    |  |   |\n|   |  |   |  |  LALR(1) (yacc/bison -- merged LR(1) states)|  |    |  |   |\n|   |  |   |  |  +---------------------------------------+  |  |    |  |   |\n|   |  |   |  |  |  SLR(1)                              |  |  |    |  |   |\n|   |  |   |  |  |  +-------------------------------+   |  |  |    |  |   |\n|   |  |   |  |  |  |  LR(0)                        |   |  |  |    |  |   |\n|   |  |   |  |  |  +-------------------------------+   |  |  |    |  |   |\n|   |  |   |  |  +---------------------------------------+  |  |    |  |   |\n|   |  |   |  +---------------------------------------------+  |    |  |   |\n|   |  |   +---------------------------------------------------+    |  |   |\n|   |  |   |                                                   |    |  |   |\n|   |  |   +---------------------------------------------------+    |  |   |\n|   |  |   |   LL(k)   (top-down; LL(1) subset shown)          |    |  |   |\n|   |  |   |   - cannot do LEFT RECURSION                      |    |  |   |\n|   |  |   |   - LL(1) is a PROPER SUBSET of LR(1)             |    |  |   |\n|   |  |   +---------------------------------------------------+    |  |   |\n|   |  +------------------------------------------------------------+  |   |\n|   +------------------------------------------------------------------+   |\n\n|   GLR / Earley: handle ALL CFGs (incl. ambiguous), at higher cost        |\n+--------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 74,
+      "heading_context": "## Two Strategies: Predict (LL) vs Recognize (LR)",
+      "confidence": "candidate",
+      "text": "   TOP-DOWN (LL)                          BOTTOM-UP (LR)\n   =============                          ==============\n   Start at the start symbol.             Start at the leaves (tokens).\n   At each step, look at the next         Shift tokens onto a stack; when\n   token(s) and PREDICT which             the top of the stack matches a\n   production to expand.                  rule's RHS, REDUCE it to the LHS.\n\n       S                                       ... e + e\n      / \\   \"I'll expand E next\"               reduce E -> e + e\n     E   ...                                       /|\\\n    /|\\    grow the tree DOWNWARD              build the tree UPWARD\n                                              toward the start symbol\n\n   Leftmost derivation, read L-to-R.       Rightmost derivation in REVERSE.\n   LL(k): k tokens of lookahead.           LR(k): k tokens, but tracks more\n                                            left context in the stack/states.\n   Natural as recursive functions.         Natural as a table-driven automaton.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 108,
+      "heading_context": "## Top-Down: Recursive Descent and LL(k)",
+      "confidence": "candidate",
+      "text": "  Grammar (LL(1)):\n    expr   -> term expr'\n    expr'  -> + term expr' | epsilon\n    term   -> factor term'\n    term'  -> * factor term' | epsilon\n    factor -> ( expr ) | NUM\n\n  Parser (sketch):\n    parse_expr():  parse_term(); parse_expr_rest()\n    parse_expr_rest():\n        if peek() == '+': eat('+'); parse_term(); parse_expr_rest()\n        else: return                         # epsilon",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 125,
+      "heading_context": "### The two LL killers",
+      "confidence": "candidate",
+      "text": "  1. LEFT RECURSION  (infinite loop in top-down):\n       expr -> expr + term      # parse_expr() calls parse_expr() forever\n     FIX: rewrite to right recursion (the expr' form above), OR use a\n          bottom-up parser (LR handles left recursion natively).\n\n  2. INSUFFICIENT LOOKAHEAD (can't predict the production):\n       stmt -> ID = expr\n       stmt -> ID ( args )      # both start with ID -- LL(1) can't choose\n     FIX: LEFT-FACTOR:\n       stmt    -> ID stmt_tail\n       stmt_tail -> = expr | ( args )",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 166,
+      "heading_context": "## Bottom-Up: The LR Family",
+      "confidence": "candidate",
+      "text": "  Item: a production with a dot.   E -> E . + T   means\n        \"we've parsed E, expect to see + T next.\"\n\n  The LR(0) automaton's states are sets of items (closures).\n  Parsing = shift tokens / reduce by a rule, driven by ACTION + GOTO tables.\n\n         stack of states          ACTION table        GOTO table\n         +----+----+----+         (terminal x state    (nonterminal x\n         | s0 | s4 | s7 |    +     -> shift/reduce/      state -> next state)\n         +----+----+----+    |      accept/error)\n              ^ top          |\n                             +-> the parser's whole \"decision\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 181,
+      "heading_context": "## Bottom-Up: The LR Family",
+      "confidence": "candidate",
+      "text": "### What separates LR(0) / SLR / LALR(1) / LR(1)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 185,
+      "heading_context": "### What separates LR(0) / SLR / LALR(1) / LR(1)",
+      "confidence": "candidate",
+      "text": "  LR(0):    Reduce whenever a state contains a completed item (dot at end),\n            with NO lookahead. Conflicts the moment a state has both a\n            completed item and a shiftable item, or two completed items.\n            Almost no real grammar is LR(0).\n\n  SLR(1):   Reduce by A->w only when the next token is in FOLLOW(A).\n            Cheap lookahead (global FOLLOW set). Resolves many LR(0)\n            conflicts, but FOLLOW is too coarse -- it ignores WHICH state\n            you're in, so it still rejects grammars LALR accepts.\n\n  LR(1):    Items carry an explicit lookahead token: [A -> w . , a].\n            Reduce by A->w only when the next token is exactly `a`,\n            computed per-state (context-sensitive). Most powerful 1-token\n            class. COST: huge number of states (lookahead splits states).\n\n  LALR(1):  Build the LR(1) automaton, then MERGE states that have the\n            same core (same items ignoring lookahead), unioning their\n            lookaheads. Same state count as LR(0)/SLR, almost the power of\n            LR(1). This is what yacc and bison generate.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 221,
+      "heading_context": "### The LALR conflict — what merging costs you",
+      "confidence": "candidate",
+      "text": "  Two LR(1) states with the same CORE but different lookaheads:\n\n    State P:  [A -> w . , {a}]      [B -> w . , {b}]    (no conflict: a != b)\n    State Q:  [A -> w . , {b}]      [B -> w . , {a}]    (no conflict: b != a)\n\n  LALR merges P and Q (same core), UNIONING lookaheads:\n\n    Merged:   [A -> w . , {a,b}]    [B -> w . , {a,b}]\n                                    ^^^^^^^^^^^^^^^^^^^\n              On `a`: reduce by A? or by B?  REDUCE-REDUCE CONFLICT.\n              Neither original state was ambiguous; the merge created it.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 254,
+      "heading_context": "## Parser Generators",
+      "confidence": "candidate",
+      "text": "   LALR(1) generators                  LL / PEG / GLR generators\n   ==================                  =========================\n   +--------+  +--------+              +--------+  +-----------+\n   | yacc   |  | bison  |              | ANTLR  |  | tree-     |\n   | (1975) |  | (GNU)  |              | (LL*)  |  | sitter    |\n   +--------+  +--------+              +--------+  | (GLR-ish, |\n   +--------+                          +--------+  |  incrmntl)|\n   | menhir |  (LR(1)/LALR, OCaml)     | PEG.js |  +-----------+\n   +--------+                          | / pest |  +-----------+\n   Used by: GCC (historically),        | (PEG)  |  | Earley    |\n   many C compilers, SQL parsers.      +--------+  | (any CFG) |\n                                                   +-----------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 290,
+      "heading_context": "## Error Recovery — The Hard Part of Real Parsers",
+      "confidence": "candidate",
+      "text": "  PANIC-MODE recovery (most common):\n    On error, SKIP tokens until you hit a \"synchronizing\" token\n    (`;`, `}`, `end`), then resume. Crude but robust.\n\n       int x = = 5 ;  void f() ...\n              ^ error here; skip to `;`, resume at `void`.\n\n  PHRASE-LEVEL: insert/delete/replace a single token to repair locally\n    (\"inserted missing ';'\"). Good messages, can cascade if wrong.\n\n  ERROR PRODUCTIONS: add grammar rules for COMMON mistakes\n    stmt -> error ;          # bison's `error` token\n    Lets the grammar \"expect\" malformed input and recover gracefully.\n\n  GLR / tree-sitter: keep MULTIPLE parse possibilities alive; on error,\n    the surviving parse is often the intended one. This is why IDEs use\n    tree-sitter -- a single typo doesn't blank the whole syntax tree.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

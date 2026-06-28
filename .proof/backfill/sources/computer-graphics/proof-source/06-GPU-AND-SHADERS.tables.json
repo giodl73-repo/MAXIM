@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-graphics\\06-GPU-AND-SHADERS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 144,
+      "heading_context": "## Layer 2: SIMT — The Execution Model",
+      "headers": [
+        "",
+        "CPU (latency-optimized)",
+        "GPU (throughput-optimized)"
+      ],
+      "rows": [
+        [
+          "Cores",
+          "Few fat cores",
+          "Thousands of thin lanes"
+        ],
+        [
+          "Model",
+          "MIMD (independent)",
+          "SIMT (warps in lockstep)"
+        ],
+        [
+          "Branching",
+          "Cheap (predictors)",
+          "Divergence serializes a warp"
+        ],
+        [
+          "Latency hiding",
+          "Big caches, OOO, prefetch",
+          "Massive warp oversubscription"
+        ],
+        [
+          "Wins at",
+          "Control flow, serial work",
+          "Data-parallel arithmetic"
+        ],
+        [
+          "Hurts at",
+          "Throughput per watt",
+          "Divergent/irregular control flow"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 323,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "Here it is"
+      ],
+      "rows": [
+        [
+          "`map` over a large dataset",
+          "A fragment/compute shader kernel over pixels/elements"
+        ],
+        [
+          "SIMD vector intrinsics",
+          "SIMT warps — wider, per-lane masking & registers"
+        ],
+        [
+          "Hyperthreading (2 threads/core)",
+          "Warp oversubscription (dozens/scheduler) for latency hiding"
+        ],
+        [
+          "Cache blocking / tiling",
+          "Shared-memory staging within a thread group"
+        ],
+        [
+          "Coalesced vs random memory access",
+          "Memory coalescing across a warp's 32 lanes"
+        ],
+        [
+          "Branch misprediction cost",
+          "Branch divergence cost (worse — serializes the warp)"
+        ],
+        [
+          "Managed runtime vs manual memory",
+          "OpenGL/D3D11 vs Vulkan/D3D12 explicit APIs"
+        ],
+        [
+          "Bytecode + JIT (CIL, JVM)",
+          "SPIR-V shader bytecode compiled to vendor ISA"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 338,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Choice"
+      ],
+      "rows": [
+        [
+          "Transform geometry to clip space",
+          "Vertex shader"
+        ],
+        [
+          "Per-pixel color / lighting",
+          "Fragment shader (usual bottleneck)"
+        ],
+        [
+          "GPU subdivision / displacement",
+          "Tessellation (or mesh shaders)"
+        ],
+        [
+          "General data-parallel work (post, physics, ML)",
+          "Compute shader"
+        ],
+        [
+          "Avoid stalls",
+          "Maximize occupancy; coalesce memory; minimize divergence"
+        ],
+        [
+          "Branch where lanes disagree a lot",
+          "Bucket/sort work, or use `select`/`mix` over `if`"
+        ],
+        [
+          "Low CPU overhead, multi-thread submission",
+          "Explicit API (Vulkan / D3D12 / Metal)"
+        ],
+        [
+          "Quick portable rendering, less control",
+          "Managed API (OpenGL / D3D11 / WebGPU-ish)"
+        ],
+        [
+          "Reuse data across a thread group",
+          "Shared memory (manual tiling)"
+        ]
+      ]
+    }
+  ]
+}

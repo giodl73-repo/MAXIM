@@ -1,0 +1,84 @@
+{
+  "schema_version": "1",
+  "source_markdown": "dynamical-systems\\09-APPLICATIONS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 201,
+      "heading_context": "## Gradient Flows: Machine Learning as a Dynamical System",
+      "headers": [
+        "You already know",
+        "Dynamical framing"
+      ],
+      "rows": [
+        [
+          "Tuning a learning rate to stop divergence",
+          "Keeping the map multiplier `\\|1−ηλ\\|<1` (Ch. 08 stability)"
+        ],
+        [
+          "A control loop that hunts/oscillates",
+          "Hopf-born limit cycle; too-high gain crosses into the RHP (Ch. 03)"
+        ],
+        [
+          "Consensus / leader election convergence",
+          "Linear consensus `ẋ=−Lx`, stable iff graph connected (`μ₂>0`)"
+        ],
+        [
+          "Retry/backoff settling to steady throughput",
+          "Approach to a stable fixed point through its basin"
+        ],
+        [
+          "Simulated annealing escaping local minima",
+          "Noise-perturbed gradient flow (Langevin dynamics) crossing saddles"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 252,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Problem",
+        "Tool / chapter"
+      ],
+      "rows": [
+        [
+          "Will coupled oscillators synchronize?",
+          "Kuramoto; sync onset at `K_c` (bifurcation, Ch. 03)"
+        ],
+        [
+          "Will a network of identical units stay synced?",
+          "Master stability function + Laplacian eigenratio `μ_N/μ₂`"
+        ],
+        [
+          "Will linear consensus converge?",
+          "`ẋ=−Lx` stable iff graph connected (`μ₂ > 0`)"
+        ],
+        [
+          "Why does training diverge at high LR?",
+          "Map multiplier `\\|1−ηλ_max(H)\\|<1` violated (Ch. 08)"
+        ],
+        [
+          "Why does my optimizer oscillate?",
+          "Momentum = underdamped 2nd-order flow (Ch. 01)"
+        ],
+        [
+          "Why do saddles slow training?",
+          "Unstable fixed points; escape along negative-curvature manifold (Ch. 02)"
+        ],
+        [
+          "Stabilize a chaotic system cheaply",
+          "OGY (parameter nudge) or Pyragas (delayed feedback)"
+        ],
+        [
+          "Synchronize two chaotic systems",
+          "Pecora–Carroll; need negative conditional Lyapunov exponents"
+        ],
+        [
+          "Set a safe learning-rate ceiling",
+          "`η < 2/λ_max(Hessian)` — same as ODE step-size limit (`numerical-methods/06`)"
+        ]
+      ]
+    }
+  ]
+}

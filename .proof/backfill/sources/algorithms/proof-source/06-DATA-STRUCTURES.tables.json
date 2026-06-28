@@ -1,0 +1,112 @@
+{
+  "schema_version": "1",
+  "source_markdown": "algorithms\\06-DATA-STRUCTURES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 270,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "The data structure"
+      ],
+      "rows": [
+        [
+          "`Dictionary<K,V>` / `HashMap` \"is O(1)\"",
+          "Hash table — O(1) **amortized expected**, O(n) worst (collisions)"
+        ],
+        [
+          "`SortedDictionary` / `TreeMap`",
+          "Balanced BST (red-black) — O(log n) worst, ordered iteration"
+        ],
+        [
+          "A clustered/B-tree database index",
+          "B-tree/B+-tree — high fan-out to minimize disk/SSD I/Os"
+        ],
+        [
+          "A `PriorityQueue` / task scheduler",
+          "Binary heap — O(log n) insert/extract, O(1) peek"
+        ],
+        [
+          "Redis sorted set (ZSET)",
+          "Skip list — expected O(log n), concurrency-friendly"
+        ],
+        [
+          "Range/prefix aggregate in OLAP",
+          "Fenwick/segment tree — O(log n) update + range query"
+        ],
+        [
+          "Hash-flood DoS mitigation",
+          "Keyed/randomized hashing (SipHash) — see `cryptography/`, `09`"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 288,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I need...",
+        "Use",
+        "Bound"
+      ],
+      "rows": [
+        [
+          "Fastest exact-match by key, no order",
+          "hash table",
+          "O(1) amortized expected"
+        ],
+        [
+          "Worst-case lookup guarantee + ordering",
+          "balanced BST (red-black)",
+          "O(log n) worst"
+        ],
+        [
+          "Ordered iteration / range / successor",
+          "balanced BST or B-tree",
+          "O(log n) worst"
+        ],
+        [
+          "Disk/SSD-resident ordered index",
+          "B-tree / B+-tree",
+          "O(log_B n), few I/Os"
+        ],
+        [
+          "Dynamic min/max (priority queue)",
+          "binary heap",
+          "O(log n) ins/extract"
+        ],
+        [
+          "Many decrease-key ops (Dijkstra/Prim)",
+          "Fibonacci/pairing heap",
+          "O(1) amortized decrease-key"
+        ],
+        [
+          "Prefix sums + point updates",
+          "Fenwick (BIT)",
+          "O(log n), tiny constant"
+        ],
+        [
+          "Range query + range update, any assoc op",
+          "segment tree + lazy",
+          "O(log n)"
+        ],
+        [
+          "Static range aggregates (no updates)",
+          "prefix-sum array / sparse table",
+          "O(1) query"
+        ],
+        [
+          "Ordered structure, concurrency-friendly",
+          "skip list",
+          "O(log n) expected"
+        ],
+        [
+          "Defend against hash-collision DoS",
+          "keyed hash (SipHash)",
+          "restores expected O(1)"
+        ]
+      ]
+    }
+  ]
+}

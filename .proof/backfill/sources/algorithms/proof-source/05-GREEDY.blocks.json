@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "algorithms\\05-GREEDY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "# Greedy Algorithms",
+      "confidence": "candidate",
+      "text": "  GREEDY: one irrevocable locally-best choice per step, never backtrack\n  =====================================================================================\n\n        +-----------------------------------------------------------------+\n        | At each step: choose the option that looks best RIGHT NOW.      |\n        | Commit. Never reconsider. -> O(n log n) typical (sort + scan).  |\n        +-----------------------------------------------------------------+\n                 |                                    |\n        WHEN IT WORKS (provably optimal)     WHEN IT FAILS (only a heuristic)\n        ----------------------------         --------------------------------\n        activity selection                   0/1 knapsack (use DP, 04)\n        fractional knapsack                  general TSP (NP-hard, 09 / graph-alg/07)\n        Huffman coding                       longest path, set cover (only approx)\n        MST: Kruskal, Prim (graph-alg/04)    coin change (non-canonical coin systems)\n        Dijkstra (graph-alg/03)\n        scheduling to minimize lateness\n                 |\n                 v\n        WHY: two structural certificates\n        +--------------------------+    +-------------------------------+\n        | EXCHANGE ARGUMENT        |    | MATROID                       |\n        | transform any optimal    |    | (E, I) with hereditary +      |\n        | solution into the greedy |    | exchange property             |\n        | one without worsening it |    | => greedy on weights is       |\n        +--------------------------+    | OPTIMAL (Rado-Edmonds thm)    |\n                                        +-------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 95,
+      "heading_context": "### Activity selection — maximize non-overlapping intervals",
+      "confidence": "candidate",
+      "text": "   GREEDY CRITERION: always pick the activity that FINISHES EARLIEST among compatible ones.\n\n   activities (start,finish):\n      a1(1,4) a2(3,5) a3(0,6) a4(5,7) a5(3,9) a6(5,9) a7(6,10) a8(8,11) a9(8,12) a10(2,14) a11(12,16)\n   sort by finish time:  4,5,6,7,9,9,10,11,12,14,16\n   pick a1(.,4) -> next compatible start>=4: a4(5,7) -> next start>=7: a8(8,11) -> a11(12,16)\n   SELECTED: a1, a4, a8, a11  (4 activities — optimal)\n\n   timeline:  [a1==]   [a4=]    [a8==]      [a11==]\n              1   4   5  7     8    11     12    16",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 132,
+      "heading_context": "## Layer 3: Huffman Coding (greedy that builds a tree)",
+      "confidence": "candidate",
+      "text": "   frequencies: A:45  B:13  C:12  D:16  E:9  F:5\n   repeatedly merge the two smallest into a subtree (a min-heap of weights, see 06):\n\n   merge E(9)+F(5)=14         heap: A45 B13 C12 D16 [14]\n   merge C(12)+B(13)=25       heap: A45 D16 [14] [25]\n   merge [14]+D(16)=30        heap: A45 [25] [30]\n   merge [25]+[30]=55         heap: A45 [55]\n   merge A(45)+[55]=100       -> ROOT\n\n                    (100)\n                   /     \\\n                A:45      (55)\n                         /    \\\n                      (25)    (30)\n                      /  \\    /   \\\n                   C:12 B:13 (14) D:16\n                            /  \\\n                         F:5   E:9\n\n   codes (left=0,right=1): A=0  C=100 B=101 F=1100 E=1101 D=111\n   avg bits/symbol = sum(freq*depth)/100 = (45*1 + 13*3 + 12*3 + 16*3 + 9*4 + 5*4)/100\n                   = (45+39+36+48+36+20)/100 = 224/100 = 2.24 bits   (optimal prefix code)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 171,
+      "heading_context": "## Layer 4: Matroids — the Structural Certificate",
+      "confidence": "candidate",
+      "text": "   A matroid M = (E, I): a ground set E and a family I of \"independent\" subsets with\n     1. HEREDITARY:   A in I and B subset A  =>  B in I\n     2. EXCHANGE:     A,B in I, |A|<|B|      =>  exists x in B\\A with A+{x} in I\n\n   RADO-EDMONDS THEOREM:\n     For ANY weight function on E, the greedy algorithm\n       (sort elements by weight desc; add each if it keeps the set independent)\n     finds a MAXIMUM-WEIGHT independent set.\n   <=> greedy is optimal for EVERY weighting   IFF   the structure is a matroid.\n\n   EXAMPLES that ARE matroids:\n     - graphic matroid: E = edges, independent = acyclic (forests)\n       => greedy = KRUSKAL'S MST algorithm (graph-algorithms/04).  Optimal by Rado-Edmonds.\n     - uniform / partition matroids: scheduling with deadlines.\n   NOT a matroid:\n     - knapsack feasibility (weight <= W) violates exchange  => greedy NOT optimal (use DP).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 194,
+      "heading_context": "## Layer 4: Matroids — the Structural Certificate",
+      "confidence": "candidate",
+      "text": "   GREEDY OPTIMALITY DECISION\n   feasible sets form a matroid?       -> greedy optimal for all weights (Rado-Edmonds)\n   exchange argument goes through?     -> greedy optimal for this problem\n   neither?                            -> greedy is a HEURISTIC; bound it (09) or use DP (04)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 205,
+      "heading_context": "## Layer 5: Where Greedy Fails (and what to do instead)",
+      "confidence": "candidate",
+      "text": "   PROBLEM                 GREEDY DOES                       CORRECT APPROACH\n   -------                 -----------                       ----------------\n   0/1 knapsack            ratio-greedy -> suboptimal         DP O(nW) (04)\n   fractional knapsack     ratio-greedy -> OPTIMAL            greedy (matroid-like)\n   coin change (canonical) largest-coin -> optimal (US coins) greedy works\n   coin change (arbitrary) largest-coin -> can fail           DP\n   general TSP             nearest-neighbor -> arbitrarily bad  approx / DP / B&B (09)\n   set cover               most-coverage -> H(n)-approx        no better unless P=NP (09)\n   vertex cover            -> 2-approximation via greedy       approximation (graph-alg/07)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 222,
+      "heading_context": "## Layer 5: Where Greedy Fails (and what to do instead)",
+      "confidence": "candidate",
+      "text": "### Worked failure: 0/1 knapsack defeats ratio-greedy",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

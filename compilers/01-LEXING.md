@@ -34,28 +34,28 @@ million-tokens-per-second throughput a language server needs."
 |                                                                          |
 |   token specs (regexes)                                                  |
 |        |                                                                 |
-|        |  Thompson's construction (linear)                              |
+|        |  Thompson's construction (linear)                               |
 |        v                                                                 |
 |   +---------+        epsilon-moves, nondeterministic                     |
-|   |   NFA   |        O(r) states for regex of size r                     |
-|   +---------+                                                            |
+|   |   NFA   |        O(r) states for                                     |
+|   +---------+        regex of size r                                     |
 |        |                                                                 |
-|        |  subset construction (powerset)                                |
+|        |  subset construction (powerset)                                 |
 |        v                                                                 |
 |   +---------+        deterministic, no epsilon, one move per char        |
-|   |   DFA   |        worst case 2^n states (rare in practice)            |
-|   +---------+                                                            |
+|   |   DFA   |        worst case 2^n states                               |
+|   +---------+        (rare in practice)                                  |
 |        |                                                                 |
-|        |  Hopcroft minimization  O(n log n)                             |
+|        |  Hopcroft minimization  O(n log n)                              |
 |        v                                                                 |
-|   +-----------+      fewest states recognizing the same language        |
-|   | min DFA   |                                                          |
+|   +-----------+      fewest states recognizing                           |
+|   | min DFA   |      the same language                                   |
 |   +-----------+                                                          |
 |        |                                                                 |
-|        |  drive with input + MAXIMAL MUNCH + token actions              |
+|        |  drive with input + MAXIMAL MUNCH + token actions               |
 |        v                                                                 |
 |   +-----------------------------------------------------------+          |
-|   |  TOKEN STREAM:  IDENT("foo") LPAREN INT(42) RPAREN SEMI    |          |
+|   |  TOKEN STREAM:  IDENT("foo") LPAREN INT(42) RPAREN SEMI   |          |
 |   +-----------------------------------------------------------+          |
 +--------------------------------------------------------------------------+
 ```
@@ -200,7 +200,7 @@ identifiers, so you lex an identifier and then look it up.
 ```
   +----------------+      lex with IDENT regex      +------------------+
   | char stream    | -----------------------------> | lexeme "return"  |
-  +----------------+                                 +--------+---------+
+  +----------------+                                 +--------+--------+
                                                               |
                                               hash-table lookup in keyword set
                                                               |
@@ -306,12 +306,12 @@ because Google needed the DFA guarantee at scale.
   source:  return x + 1;
 
   +---------------------------------------------------------------+
-  | KW_RETURN  span=[0,6)                                          |
-  | IDENT "x"  span=[7,8)                                          |
-  | PLUS       span=[9,10)                                         |
-  | INT 1      span=[11,12)   value=1                              |
-  | SEMI       span=[12,13)                                        |
-  | EOF                                                            |
+  | KW_RETURN  span=[0,6)                                         |
+  | IDENT "x"  span=[7,8)                                         |
+  | PLUS       span=[9,10)                                        |
+  | INT 1      span=[11,12)   value=1                             |
+  | SEMI       span=[12,13)                                       |
+  | EOF                                                           |
   +---------------------------------------------------------------+
        ^                ^                       ^
        kind             lexeme/value            source span (for errors)

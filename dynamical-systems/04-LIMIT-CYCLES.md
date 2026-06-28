@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dynamical-systems:limit-cycles
+kind: guide
+module: dynamical-systems
+section: dynamical-systems
+title: Limit Cycles
+status: source-custody
+source_custody: partial
+current_path: dynamical-systems/04-LIMIT-CYCLES.md
+canonical_path: dynamical-systems/04-LIMIT-CYCLES.md
+backsource_ids: [proof-backfill:dynamical-systems:04-limit-cycles, git-history:dynamical-systems:04-limit-cycles]
+concepts: [limit, cycles]
+root_concepts: [limit, cycles]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Limit Cycles
 
 A **limit cycle** is an isolated closed orbit: a periodic trajectory that nearby trajectories

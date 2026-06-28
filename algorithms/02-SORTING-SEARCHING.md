@@ -100,7 +100,7 @@ strong as the model it is stated in.
 ## Layer 2: The Comparison Sorts (the property matrix)
 
 ```
-  +-------------------------------------------------------------------------------+
+  +--------------------------------------------------------------------------------+
   | Sort       | Best       | Average    | Worst      | Space   | Stable | In-place|
   |------------|------------|------------|------------|---------|--------|---------|
   | Insertion  | O(n)       | O(n^2)     | O(n^2)     | O(1)    | YES    | yes     |
@@ -110,7 +110,7 @@ strong as the model it is stated in.
   | Heapsort   | O(n log n) | O(n log n) | O(n log n) | O(1)    | no     | yes     |
   | Quicksort  | O(n log n) | O(n log n) | O(n^2)     | O(log n)| no     | yes     |
   | Timsort    | O(n)       | O(n log n) | O(n log n) | O(n)    | YES    | no      |
-  +-------------------------------------------------------------------------------+
+  +--------------------------------------------------------------------------------+
    "Stable" = equal keys keep their original relative order.
    Quicksort space O(log n) = recursion stack depth (with tail-recursion on the smaller side).
 ```

@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "algorithms\\08-STRINGS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "# String Algorithms",
+      "confidence": "candidate",
+      "text": "  STRING ALGORITHMS LANDSCAPE\n  =====================================================================================\n\n   SINGLE-PATTERN MATCH (pattern P in text T)        MULTI-PATTERN / INDEXING\n   ----------------------------------------          ------------------------\n   naive            O(nm) worst                       TRIE          O(sum |P|) build\n   KMP              O(n+m) worst, prefix function      AHO-CORASICK  O(n + sum|P| + matches)\n   Z-algorithm      O(n+m) worst, Z-array             SUFFIX ARRAY  O(n log n)/O(n) build\n   Rabin-Karp       O(n+m) EXPECTED (hashing)                       O(m log n) query\n                    O(nm) worst (hash collisions)     SUFFIX TREE   O(n) build (Ukkonen)\n   Boyer-Moore      O(n/m) best, sublinear in practice SUFFIX AUTOM. O(n) build, DAWG\n                                                       (smallest substring index)\n\n   THE KEY IDEA (KMP/Z): on a mismatch, the naive scan restarts from scratch (O(nm)).\n   These algorithms PRECOMPUTE the pattern's self-overlap so the text pointer NEVER\n   backs up -> each text char examined O(1) amortized -> O(n+m).\n\n   THE KEY IDEA (suffix structures): index EVERY suffix of T once, then any substring\n   query is a prefix lookup in that index.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 61,
+      "heading_context": "## Layer 1: Why Naive Matching Is O(nm), and the Fix",
+      "confidence": "candidate",
+      "text": "   NAIVE: try every alignment, compare up to m chars each -> O(nm) worst.\n   WORST CASE: T = \"aaaaaaaaab\", P = \"aaaab\"\n     at each of ~n alignments, compare ~m chars before the final mismatch.\n\n   T: a a a a a a a a a b\n   P: a a a a b              mismatch at pos 4 -> naive restarts P at T[1] (BACKS UP)\n      . a a a a b            ...and again, and again -> O(nm)\n\n   INSIGHT: when \"aaaa\" matched then 'b' mismatched, we ALREADY KNOW the next 3 chars\n   of T are \"aaa\" -- so we should resume P at its longest proper prefix that is also a\n   suffix of what matched, WITHOUT re-reading T. That's the KMP prefix function.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 123,
+      "heading_context": "## Layer 3: Rabin-Karp — Hashing (expected linear, multi-pattern friendly)",
+      "confidence": "candidate",
+      "text": "   ROLLING (polynomial) HASH, base b mod prime q:\n     h(s) = (s[0]*b^{m-1} + s[1]*b^{m-2} + ... + s[m-1]) mod q\n     slide by one: new = ( (old - s[i]*b^{m-1})*b + s[i+m] ) mod q     -- O(1) update\n\n   match P=\"abc\" in T=\"zabcx\":\n     hash(\"zab\"), roll -> hash(\"abc\") == hash(P)?  yes -> VERIFY chars (guard collision)\n   EXPECTED O(n+m) with a good random prime.  WORST O(nm) if every window collides\n     (an adversary who knows q can force this -> use a random q, see cryptography/).\n\n   STRENGTH: hashing k patterns of equal length is O(n + k) expected -- store pattern\n   hashes in a set and check membership per window. (Naive/KMP would be O(k(n+m)).)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 149,
+      "heading_context": "### Trie — prefix tree",
+      "confidence": "candidate",
+      "text": "   store {\"cat\",\"car\",\"card\",\"dog\"}:        each edge = a character; a path = a string.\n            (root)\n           /      \\\n         c          d\n         |          |\n         a          o\n        / \\         |\n       t   r        g*       * = end-of-word marker\n      *   /|\\\n         '' d        (\"car\" is a word; \"card\" extends it)\n            *\n   lookup/insert \"word\": O(|word|).  space O(total chars).  prefix queries: free.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 187,
+      "heading_context": "## Layer 5: Suffix Structures (index every substring of one text)",
+      "confidence": "candidate",
+      "text": "   text T = \"banana$\"   ( $ = unique sentinel )\n   all suffixes:        suffix array SA = sorted suffix START indices:\n     0 banana$            $        -> 6\n     1 anana$             a$       -> 5      SA = [6, 5, 3, 1, 0, 4, 2]\n     2 nana$              ana$     -> 3      (suffixes in lexicographic order)\n     3 ana$               anana$   -> 1\n     4 na$                banana$  -> 0\n     5 a$                 na$      -> 4\n     6 $                  nana$    -> 2\n\n   SUFFIX ARRAY: SA[] + LCP[] (longest-common-prefix of adjacent suffixes).\n     build O(n log n) (or O(n) with SA-IS/DC3); substring query O(m log n) by binary\n     search on SA (O(m + log n) with LCP). Compact: just integers.\n   SUFFIX TREE: compressed trie of all suffixes; build O(n) (Ukkonen). Richer queries\n     (longest repeated substring, LCA-based LCP) but ~larger constant/memory.\n   SUFFIX AUTOMATON (DAWG): smallest automaton recognizing all substrings of T;\n     build O(n); O(n) states; counts distinct substrings, online construction.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 207,
+      "heading_context": "## Layer 5: Suffix Structures (index every substring of one text)",
+      "confidence": "candidate",
+      "text": "   WHICH SUFFIX STRUCTURE?\n   suffix array     -> memory-tight, simplest, O(n log n)/O(n) build; the practical default\n   suffix tree      -> need O(n) build + rich tree queries (longest repeat, matching stats)\n   suffix automaton -> count/enumerate distinct substrings, online, smallest substring index\n   all three: substring search, # occurrences, longest common substring of two texts.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

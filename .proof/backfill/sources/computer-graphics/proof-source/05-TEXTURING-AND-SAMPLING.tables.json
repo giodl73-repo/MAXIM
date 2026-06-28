@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-graphics\\05-TEXTURING-AND-SAMPLING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 261,
+      "heading_context": "## Layer 5: Antialiasing — Edges and Everything Else",
+      "headers": [
+        "Method",
+        "What it samples",
+        "Cost",
+        "Catches",
+        "Misses"
+      ],
+      "rows": [
+        [
+          "**SSAA**",
+          "Everything, N×N",
+          "Very high (N² shading)",
+          "All aliasing",
+          "Nothing (just expensive)"
+        ],
+        [
+          "**MSAA**",
+          "Coverage/depth ×K, shade ×1",
+          "Moderate",
+          "Geometric edges",
+          "Shader/specular/alpha aliasing"
+        ],
+        [
+          "**FXAA/SMAA**",
+          "Final image edges",
+          "Very low",
+          "Visible edges",
+          "Sub-pixel detail; blurs"
+        ],
+        [
+          "**TAA**",
+          "Jittered samples over time",
+          "Low",
+          "Edges + shader aliasing",
+          "Stable scenes only; ghosting"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 307,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "Here it is"
+      ],
+      "rows": [
+        [
+          "Nyquist sampling theorem (DSP)",
+          "Texture/edge aliasing — *the same theorem*, in 2D"
+        ],
+        [
+          "Anti-alias filter before an ADC",
+          "Mipmaps: band-limit before sampling"
+        ],
+        [
+          "A mip pyramid = a Gaussian/box pyramid",
+          "Image pyramid, precomputed per texture"
+        ],
+        [
+          "Oversampling an ADC",
+          "SSAA — sample above Nyquist, then decimate"
+        ],
+        [
+          "Decimation filter after oversampling",
+          "The downsample step of SSAA / mip generation"
+        ],
+        [
+          "Temporal accumulation / running average",
+          "TAA — supersample across frames via reprojection"
+        ],
+        [
+          "Lerp / bilinear interpolation",
+          "Texture magnification filtering"
+        ],
+        [
+          "Linear vs gamma-encoded data",
+          "sRGB color maps vs linear normal/roughness maps (`08`)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 322,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Choice"
+      ],
+      "rows": [
+        [
+          "Texture too small for the screen",
+          "Bilinear magnification"
+        ],
+        [
+          "Texture minified (distant surface)",
+          "Mipmaps + trilinear"
+        ],
+        [
+          "Surfaces at grazing angles (floors, roads)",
+          "Anisotropic filtering"
+        ],
+        [
+          "Jagged geometric edges, cheap budget",
+          "MSAA (or FXAA if very tight)"
+        ],
+        [
+          "Reference-quality, cost no object",
+          "SSAA"
+        ],
+        [
+          "Modern real-time, want shader AA too",
+          "TAA (basis of DLSS/FSR)"
+        ],
+        [
+          "Color/albedo texture",
+          "sRGB sampler (decode to linear)"
+        ],
+        [
+          "Normal/roughness/AO texture",
+          "Linear sampler (no decode)"
+        ],
+        [
+          "Specular/foliage still shimmers under MSAA",
+          "Need TAA/SSAA or shader-side prefiltering"
+        ]
+      ]
+    }
+  ]
+}

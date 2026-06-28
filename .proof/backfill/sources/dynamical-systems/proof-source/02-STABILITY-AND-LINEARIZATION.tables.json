@@ -1,0 +1,88 @@
+{
+  "schema_version": "1",
+  "source_markdown": "dynamical-systems\\02-STABILITY-AND-LINEARIZATION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 91,
+      "heading_context": "## The Jacobian and the Linearization Theorem",
+      "headers": [
+        "You already know",
+        "Stability framing"
+      ],
+      "rows": [
+        [
+          "Char. polynomial roots of `x'' + cx' + kx = 0`",
+          "Eigenvalues of the companion Jacobian; `Re < 0` ⇔ damping `c > 0`"
+        ],
+        [
+          "Routh–Hurwitz / pole locations (`control-theory/01`)",
+          "Identical criterion: closed-loop poles = eigenvalues; LHP ⇔ stable"
+        ],
+        [
+          "`e^{At}` matrix exponential",
+          "The linearized flow *is* `e^{Jt}`; eigenvalues are its decay rates"
+        ],
+        [
+          "Spectral radius `ρ(A) < 1` for a stable map",
+          "The **discrete** analogue: `|λ| < 1` (inside unit circle) — Ch. 08"
+        ],
+        [
+          "Gershgorin disks bounding eigenvalues",
+          "A quick stability screen without solving the characteristic polynomial"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 294,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Tool / verdict"
+      ],
+      "rows": [
+        [
+          "`n`-D fixed point, want local stability",
+          "Eigenvalues of Jacobian `J`; stable ⇔ all `Re(λ) < 0`"
+        ],
+        [
+          "Any single `Re(λ) > 0`",
+          "Unstable — stop, no need to check the rest"
+        ],
+        [
+          "2D fixed point, classify type",
+          "Trace–determinant plane (`τ = tr J`, `Δ = det J`)"
+        ],
+        [
+          "`Δ < 0` (2D)",
+          "Saddle — always unstable"
+        ],
+        [
+          "`Re(λ) = 0` for some eigenvalue",
+          "Linearization fails — use Lyapunov or go to Ch. 03 (bifurcation)"
+        ],
+        [
+          "Want global / nonlinear guarantee",
+          "Lyapunov function `V`, check `V̇ ≤ 0`"
+        ],
+        [
+          "`V̇ = 0` on a set, not just `x*`",
+          "LaSalle invariance principle"
+        ],
+        [
+          "Linear `x' = Ax`, need `V`",
+          "Solve Lyapunov equation `AᵀP + PA = −Q`, `Q > 0`"
+        ],
+        [
+          "Discrete map fixed point",
+          "`|λ| < 1` (inside unit circle), not `Re(λ) < 0`"
+        ],
+        [
+          "Find basin boundaries",
+          "Stable manifolds `W^s` of saddles"
+        ]
+      ]
+    }
+  ]
+}

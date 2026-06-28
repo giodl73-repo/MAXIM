@@ -1,0 +1,141 @@
+{
+  "schema_version": "1",
+  "source_markdown": "algorithms\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 203,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "In this directory it is"
+      ],
+      "rows": [
+        [
+          "A `Dictionary<K,V>` / hash map \"is O(1)\"",
+          "O(1) **amortized expected**; worst-case O(n) under collisions — see `06`"
+        ],
+        [
+          "`List<T>.Add` is \"basically free\"",
+          "O(1) **amortized** via geometric doubling; one resize is O(n) — see `01`"
+        ],
+        [
+          "A query planner choosing a join order",
+          "Matrix-chain / DP optimization over an associativity tree — see `04`"
+        ],
+        [
+          "A build system topologically ordering targets",
+          "A DAG of subproblems — the same shape DP fills in dependency order — see `04`"
+        ],
+        [
+          "`OrderBy` / a B-tree index keeping data sorted",
+          "Balanced BST / comparison sort; the Ω(n log n) floor applies — see `02`,`06`"
+        ],
+        [
+          "A priority queue / scheduler",
+          "Binary or Fibonacci heap; decrease-key cost drives Dijkstra — see `06`"
+        ],
+        [
+          "\"This regex is slow on adversarial input\"",
+          "Catastrophic backtracking vs linear automaton matching — see `08`"
+        ],
+        [
+          "\"We can only approximate this NP-hard thing\"",
+          "Approximation ratio + LP relaxation, formalized — see `09`"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 273,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I need to...",
+        "Go to",
+        "Key result"
+      ],
+      "rows": [
+        [
+          "Solve a divide-and-conquer recurrence",
+          "`01`",
+          "Master theorem / Akra-Bazzi"
+        ],
+        [
+          "Tell amortized from average-case",
+          "`01`",
+          "sequence-guarantee vs input-expectation"
+        ],
+        [
+          "Pick a sort with a stability guarantee",
+          "`02`",
+          "mergesort/Timsort stable; heap/quick not"
+        ],
+        [
+          "Beat O(n log n) sorting",
+          "`02`",
+          "only via non-comparison (counting/radix), needs integer keys"
+        ],
+        [
+          "Find the k-th smallest in O(n)",
+          "`02`",
+          "quickselect (avg) / median-of-medians (worst)"
+        ],
+        [
+          "Multiply huge integers / polynomials fast",
+          "`03`",
+          "Karatsuba O(n^1.585) / FFT O(n log n)"
+        ],
+        [
+          "Decide D&C vs DP",
+          "`00`,`04`",
+          "subproblems disjoint → D&C; overlapping → DP"
+        ],
+        [
+          "Optimize over a sequence/interval/tree",
+          "`04`",
+          "optimal substructure + memo/table"
+        ],
+        [
+          "Prove a greedy choice is optimal",
+          "`05`",
+          "exchange argument or matroid"
+        ],
+        [
+          "Keep a dynamic min/max + decrease-key",
+          "`06`",
+          "binary heap; Fibonacci for O(1) decrease-key"
+        ],
+        [
+          "Range query + point update in O(log n)",
+          "`06`",
+          "Fenwick (prefix) / segment tree (general)"
+        ],
+        [
+          "Maintain disjoint sets near-constant time",
+          "`07`",
+          "union by rank + path compression → α(n)"
+        ],
+        [
+          "Match a pattern in O(n+m)",
+          "`08`",
+          "KMP / Z-algorithm (linear, no backtracking)"
+        ],
+        [
+          "Index all substrings of a text",
+          "`08`",
+          "suffix array (O(n log n)) / suffix automaton (O(n))"
+        ],
+        [
+          "Decide if a problem is hopeless exactly",
+          "`09`",
+          "reduce a known NP-complete problem to it"
+        ],
+        [
+          "Get a provable bound on an approximation",
+          "`09`",
+          "approximation ratio / LP relaxation"
+        ]
+      ]
+    }
+  ]
+}

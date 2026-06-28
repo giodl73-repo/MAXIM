@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "compilers\\09-RUNTIME-AND-GC.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 32,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------------+\n|                          THE RUNTIME                                     |\n|                                                                          |\n|   +----------------------------------------------------------------+     |\n|   |  EXECUTION ENGINE                                              |     |\n|   |    interpreter (bytecode) <--> JIT (tiered, speculative)       |     |\n|   |    deoptimization on broken assumptions                       |     |\n|   +----------------------------------------------------------------+     |\n|   +----------------------------------------------------------------+     |\n|   |  MEMORY MANAGER                                               |     |\n|   |    stack frames (guide 08)  |  heap + allocator               |     |\n|   |    GARBAGE COLLECTOR: find live objects from ROOTS, reclaim   |     |\n|   |    the rest (mark-sweep / copying / generational / concurrent)|     |\n|   +----------------------------------------------------------------+     |\n|   +----------------------------------------------------------------+     |\n|   |  METADATA & SUPPORT                                           |     |\n|   |    object layout / type info, stack maps + safepoints,        |     |\n|   |    exception unwinding, threads, the OS boundary (mmap)       |     |\n|   +----------------------------------------------------------------+     |\n+--------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 63,
+      "heading_context": "## The Memory Model and Object Layout",
+      "confidence": "candidate",
+      "text": "  STACK                          HEAP\n  =====                          ====\n  per-thread, LIFO frames        shared, dynamically allocated\n  fast (bump the SP)             allocator-managed, GC-collected (managed langs)\n  locals, spill slots, return    objects whose lifetime escapes a frame\n  addr (guide 08)\n  auto-reclaimed on return       reclaimed by GC or manual free()\n\n  A managed object's layout (typical):\n     +----------------+\n     | header / mark  |\n     +----------------+\n     | field 0        |\n     | field 1        |\n     | ...            |\n     +----------------+\n\n  header / mark  = type pointer, GC mark bits, hash, lock word\n  field 0..n     = references to other heap objects = the OBJECT GRAPH\n                   (the edges the GC traces)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 98,
+      "heading_context": "## Garbage Collection — Finding the Live Set",
+      "confidence": "candidate",
+      "text": "  ROOTS  ->  object graph  ->  reachable = LIVE, unreachable = GARBAGE\n\n     root (a stack local) --> A --> B\n                              |      \\--> C\n                              +----> D            E   F      (E,F unreachable\n                                                              -> collect them)\n\n  The GC needs to know WHERE the pointers are:\n     STACK MAPS (from the JIT, per safepoint) say which stack slots/registers\n     hold object references at this exact point. Without them the GC can't\n     distinguish a pointer from an integer (precise GC) -- or it must scan\n     conservatively (Boehm GC: treat anything that looks like a pointer as one).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 131,
+      "heading_context": "### The GC Algorithm Family",
+      "confidence": "candidate",
+      "text": "  MARK-COMPACT\n  ============\n  Mark like mark-sweep, then SLIDE live objects to one end -> compaction\n  without doubling memory. Slower than copying but no 2x space.\n  (The .NET GC compacts gen2 this way.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 144,
+      "heading_context": "### Generational GC — the Practical Default",
+      "confidence": "candidate",
+      "text": "  +-----------------+     promote survivors     +------------------+\n  |  YOUNG GEN      | ------------------------> |  OLD GEN         |\n  |  (nursery/gen0) |                           |  (gen2)          |\n  | collected OFTEN |                           | collected RARELY |\n  |  copying GC,    |                           |  mark-compact    |\n  |  cheap (few     |                           |  (big, mostly    |\n  |   survivors)    |                           |   long-lived)    |\n  +-----------------+                           +------------------+\n\n  THE WRITE BARRIER -- the key mechanism:\n     A young-gen collection must treat OLD->YOUNG pointers as roots (an old\n     object may be the only thing keeping a young object alive). Scanning all\n     of old gen would defeat the purpose. So the compiler emits a WRITE\n     BARRIER on every pointer store that records old->young references in a\n     REMEMBERED SET (or card table). Young-gen GC scans only the remembered\n     set, not all of old gen.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 212,
+      "heading_context": "## The JIT — Speculation and Deoptimization",
+      "confidence": "candidate",
+      "text": "  TIERED EXECUTION:\n     Tier 0  interpreter / quick JIT   -- start fast, COLLECT PROFILE\n        | method gets hot (call/loop counters cross a threshold)\n        v\n     Tier 1  optimizing JIT            -- inline, devirtualize, vectorize using\n                                          the PROFILE (which types/branches occurred)\n\n  SPECULATION example:\n     virtual call site that has ONLY EVER seen type Foo:\n        emit:  if (recv.type == Foo) { <inlined Foo.m()> }   // fast path\n               else { DEOPTIMIZE }                            // bail out\n     -> a guarded, inlined, devirtualized call -- provably impossible for a\n        static AOT compiler, which must handle every possible type.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 230,
+      "heading_context": "### Deoptimization — making speculation safe",
+      "confidence": "candidate",
+      "text": "  When a guard fails (a never-before-seen type arrives, an assumption breaks),\n  the JIT cannot just \"be wrong.\" It DEOPTIMIZES:\n     1. stop at a safe point in the optimized code,\n     2. RECONSTRUCT the interpreter's state (locals, stack) from the\n        optimized frame using a DEOPT MAP recorded at compile time,\n     3. resume execution in the interpreter (tier 0) at the equivalent point.\n\n  This is why speculation is sound: the fast path is an OPTIMISTIC BET with a\n  guaranteed correct fallback. Deopt is normal operation, not an error.\n  (A pathological optimize<->deopt loop is a perf bug, but rare.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 245,
+      "heading_context": "### Safepoints and Stack Maps — the GC/JIT contract",
+      "confidence": "candidate",
+      "text": "  The GC must find all roots, which means the program must be at a point where\n  the JIT can describe the stack precisely. SAFEPOINTS are those points\n  (loop back-edges, call sites, allocation sites) where threads can be paused\n  and a STACK MAP describes which registers/slots hold live references.\n\n  GC requests a collection -> all mutator threads roll forward to the next\n  safepoint -> GC reads the stack maps -> traces -> resumes threads.\n\n  This ties three guides together:\n     guide 07 (allocation) decided WHERE values live (regs vs spill slots),\n     guide 08 (codegen) emitted the safepoints + write barriers,\n     guide 09 (here) consumes the stack maps to trace precisely.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 264,
+      "heading_context": "## AOT vs JIT, Revisited at the Runtime Level",
+      "confidence": "candidate",
+      "text": "  JIT runtime (HotSpot, V8, RyuJIT/CLR):\n     + speculative optimization on real profiles, adaptive\n     - warmup cost, memory for the compiler, less predictable latency\n\n  AOT runtime (Go, Rust, .NET NativeAOT, GraalVM Native Image):\n     + instant startup, no warmup, smaller/predictable footprint\n     - no runtime profile -> can't speculate (PGO closes part of the gap);\n       often a \"closed world\" (no dynamic class/code loading)\n\n  Both still need a RUNTIME for GC (if managed), exception handling, threads,\n  and stack maps -- AOT just doesn't include a compiler in it. NativeAOT ships\n  the .NET GC and type system without RyuJIT; Go ships its GC and scheduler.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

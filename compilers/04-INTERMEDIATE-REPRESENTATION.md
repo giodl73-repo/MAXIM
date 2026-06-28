@@ -30,37 +30,52 @@ builds the IR ladder and the SSA construction algorithm — dominance frontiers 
 all.
 
 ```
-+--------------------------------------------------------------------------+
-|                          THE IR LADDER                                  |
-|                                                                          |
-|   typed AST (tree, control flow implicit)                                |
-|        |  flatten: introduce temporaries, sequence operations           |
-|        v                                                                 |
-|   +-------------------------+   THREE-ADDRESS CODE                       |
-|   |  t1 = a + b             |   each op: x = y <op> z                    |
-|   |  t2 = t1 * c            |   (at most one operator, ~3 operands)      |
-|   +-------------------------+                                            |
-|        |  split at branch targets / branches                            |
-|        v                                                                 |
-|   +-------------------------+   BASIC BLOCKS                             |
-|   |  straight-line runs;    |   one entry, one exit, no internal jumps   |
-|   |  edges = control flow   |                                            |
-|   +-------------------------+                                            |
-|        |  connect blocks by branch edges                                |
-|        v                                                                 |
-|   +-------------------------+   CONTROL-FLOW GRAPH (CFG)                 |
-|   |   B0 -> B1 -> B3        |   nodes = blocks, edges = possible jumps   |
-|   |    \-> B2 ->/           |                                            |
-|   +-------------------------+                                            |
-|        |  rename each def uniquely; phi at merges                       |
-|        v                                                                 |
-|   +-------------------------+   SSA FORM                                 |
-|   |  x1 = ...   x2 = ...    |   every variable assigned EXACTLY ONCE     |
-|   |  x3 = phi(x1, x2)       |   phi selects by predecessor at merges     |
-|   +-------------------------+                                            |
-|        |                                                                 |
-|        v   to dataflow (05) + optimization (06)                         |
-+--------------------------------------------------------------------------+
+                            THE IR LADDER
+
+    typed AST (tree, control flow implicit)
+
+         |  flatten: introduce temporaries, sequence operations
+         v
+
+    THREE-ADDRESS CODE   (each op: x = y <op> z;
+                          at most one operator, ~3 operands)
+    +-------------------------+
+    |  t1 = a + b             |
+    |  t2 = t1 * c            |
+    +-------------------------+
+
+         |  split at branch targets / branches
+         v
+
+    BASIC BLOCKS   (one entry, one exit, no internal jumps;
+                    edges = control flow)
+    +-------------------------+
+    |  straight-line runs;    |
+    |  edges = control flow   |
+    +-------------------------+
+
+         |  connect blocks by branch edges
+         v
+
+    CONTROL-FLOW GRAPH (CFG)   (nodes = blocks,
+                                edges = possible jumps)
+    +-------------------------+
+    |   B0 -> B1 -> B3        |
+    |    \-> B2 ->/           |
+    +-------------------------+
+
+         |  rename each def uniquely; phi at merges
+         v
+
+    SSA FORM   (every variable assigned EXACTLY ONCE;
+                phi selects by predecessor at merges)
+    +-------------------------+
+    |  x1 = ...   x2 = ...    |
+    |  x3 = phi(x1, x2)       |
+    +-------------------------+
+
+         |
+         v   to dataflow (05) + optimization (06)
 ```
 
 Read top-down: the tree flattens to a linear instruction sequence, the sequence
@@ -127,11 +142,13 @@ top and leaves only at the bottom. You find them by marking *leaders*.
                                      +--+--+
    B1: r = n * fact(n-1)          F  /     \  T
        goto B3                      v       v
+
                                  +-----+ +-----+
    B2: r = 1                     | B1  | | B2  |
                                  +--+--+ +--+--+
    B3: return r                     \       /
                                      v     v
+
                                      +-----+
                                      | B3  |
                                      +-----+

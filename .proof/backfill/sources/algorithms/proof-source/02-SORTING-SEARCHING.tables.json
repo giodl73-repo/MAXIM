@@ -1,0 +1,113 @@
+{
+  "schema_version": "1",
+  "source_markdown": "algorithms\\02-SORTING-SEARCHING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 289,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "The sorting/searching concept"
+      ],
+      "rows": [
+        [
+          "`OrderBy` is a *stable* sort",
+          "LINQ/`OrderBy` guarantees stability — mergesort/Timsort property, not heapsort/quicksort"
+        ],
+        [
+          "`Array.Sort` \"just sorts\"",
+          "It is **introsort**: quicksort + heapsort fallback to cap worst case at O(n log n)"
+        ],
+        [
+          "A clustered index keeps rows sorted",
+          "The Ω(n log n) build cost / O(log n) seek of a sorted B-tree (`06`)"
+        ],
+        [
+          "Bucketing rows by hash for a hash join",
+          "Bucket sort's distribute-then-combine, same idea"
+        ],
+        [
+          "\"Find the p99 latency\"",
+          "A selection (k-th order statistic) — O(n) quickselect, no full sort needed"
+        ],
+        [
+          "Feature flag rollout by `id % N`",
+          "Counting/radix-style bucketing by integer key"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 306,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I need to...",
+        "Use",
+        "Why"
+      ],
+      "rows": [
+        [
+          "General-purpose in-place sort",
+          "quicksort / introsort",
+          "fast, small constants, O(n log n) capped"
+        ],
+        [
+          "Stable sort (preserve tie order)",
+          "mergesort / Timsort",
+          "stability guaranteed"
+        ],
+        [
+          "Worst-case O(n log n), O(1) space",
+          "heapsort",
+          "no bad inputs, in-place (not stable)"
+        ],
+        [
+          "Sort small integers, k = O(n)",
+          "counting sort",
+          "O(n+k), stable, escapes the bound"
+        ],
+        [
+          "Sort fixed-width int/string keys",
+          "radix sort",
+          "O(d(n+k)), stable per digit"
+        ],
+        [
+          "Sort ~uniform floats in [0,1)",
+          "bucket sort",
+          "O(n) average"
+        ],
+        [
+          "Nearly-sorted data",
+          "insertion / Timsort",
+          "O(n + inversions), adaptive"
+        ],
+        [
+          "k-th smallest, expected linear",
+          "quickselect",
+          "O(n) avg, simple"
+        ],
+        [
+          "k-th smallest, worst-case linear",
+          "median-of-medians",
+          "O(n) worst (proof in `01`)"
+        ],
+        [
+          "Search a sorted array",
+          "binary search",
+          "O(log n), watch overflow & off-by-one"
+        ],
+        [
+          "Search \"smallest x with f(x) true\"",
+          "binary search on predicate",
+          "monotonicity is the only requirement"
+        ],
+        [
+          "Exact-match by key",
+          "hash table (`06`)",
+          "O(1) expected (not worst)"
+        ]
+      ]
+    }
+  ]
+}

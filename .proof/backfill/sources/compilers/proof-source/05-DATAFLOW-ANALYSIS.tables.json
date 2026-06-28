@@ -1,0 +1,137 @@
+{
+  "schema_version": "1",
+  "source_markdown": "compilers\\05-DATAFLOW-ANALYSIS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 126,
+      "heading_context": "## The Generic Iterative Algorithm",
+      "headers": [
+        "Analysis",
+        "Direction",
+        "Meet",
+        "\"GEN\"",
+        "Question answered"
+      ],
+      "rows": [
+        [
+          "Reaching definitions",
+          "forward",
+          "union (may)",
+          "defs in block",
+          "which defs might reach here?"
+        ],
+        [
+          "Live variables",
+          "backward",
+          "union (may)",
+          "uses before defs",
+          "is this value needed later?"
+        ],
+        [
+          "Available expressions",
+          "forward",
+          "intersection (must)",
+          "exprs computed, not killed",
+          "is `a+b` already computed on all paths?"
+        ],
+        [
+          "Very busy / anticipated",
+          "backward",
+          "intersection (must)",
+          "exprs used before redef",
+          "will this expr be used on all paths?"
+        ],
+        [
+          "Constant propagation",
+          "forward",
+          "constant lattice meet",
+          "const evals",
+          "is this a known constant here?"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 300,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You know",
+        "Maps to"
+      ],
+      "rows": [
+        [
+          "\"Definite assignment\" errors in C#",
+          "A forward dataflow analysis — the compiler proves every local is assigned before use"
+        ],
+        [
+          "Nullable reference analysis (C# 8 `?`)",
+          "Dataflow tracking null-state through the CFG; the lattice is {not-null, maybe-null, null}"
+        ],
+        [
+          "Roslyn `ControlFlowAnalysis` / `DataFlowAnalysis` APIs",
+          "These literally expose reaching-defs/liveness results over a method's CFG"
+        ],
+        [
+          "Reachability warnings (\"unreachable code\")",
+          "CFG reachability — a degenerate dataflow over the control graph"
+        ],
+        [
+          "Escape analysis (JIT) you've read about",
+          "A dataflow/points-to analysis deciding if an object outlives its frame"
+        ],
+        [
+          "Knaster-Tarski / lattice fixpoints (MIT)",
+          "The exact termination guarantee — finite-height lattice + monotone transfer"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 319,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Frame any analysis",
+          "Lattice + direction + meet + transfer (GEN/KILL)"
+        ],
+        [
+          "Guarantee termination",
+          "Finite-height lattice + monotone transfer functions"
+        ],
+        [
+          "Combine facts at a join",
+          "Meet: union for \"may\", intersection for \"must\""
+        ],
+        [
+          "Find which defs reach a use",
+          "Reaching definitions (forward, union)"
+        ],
+        [
+          "Find which values are needed later",
+          "Liveness (backward, union)"
+        ],
+        [
+          "Reuse already-computed expressions",
+          "Available expressions (forward, intersection) → CSE"
+        ],
+        [
+          "Compute dominance",
+          "Forward intersection dataflow, or Lengauer-Tarjan for the tree"
+        ],
+        [
+          "Iterate efficiently",
+          "Worklist + reverse-postorder (forward) / postorder (backward)"
+        ],
+        [
+          "Skip the dense iteration",
+          "SSA-based sparse analysis (propagate along def-use edges)"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,202 @@
+{
+  "schema_version": "1",
+  "source_markdown": "compilers\\02-PARSING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 145,
+      "heading_context": "## Top-Down: Recursive Descent and LL(k)",
+      "headers": [
+        "Class",
+        "Lookahead",
+        "Handles left recursion?",
+        "Typical form"
+      ],
+      "rows": [
+        [
+          "LL(1)",
+          "1 token",
+          "No",
+          "hand recursive descent, FIRST/FOLLOW"
+        ],
+        [
+          "LL(k)",
+          "k tokens",
+          "No",
+          "ANTLR3-style, larger predict tables"
+        ],
+        [
+          "LL(*) / ALL(*)",
+          "unbounded (adaptive)",
+          "No (still needs elimination)",
+          "ANTLR4"
+        ],
+        [
+          "Pratt / precedence climbing",
+          "operator-driven",
+          "handled by precedence",
+          "expression parsing inside recursive descent"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 240,
+      "heading_context": "## Bottom-Up: The LR Family",
+      "headers": [
+        "Conflict",
+        "LR(0)",
+        "SLR",
+        "LALR",
+        "LR(1)",
+        "Caused by"
+      ],
+      "rows": [
+        [
+          "shift/reduce",
+          "common",
+          "reduced",
+          "reduced",
+          "reduced",
+          "completed item + shiftable item in one state (e.g. dangling else)"
+        ],
+        [
+          "reduce/reduce",
+          "possible",
+          "possible",
+          "possible (from merge)",
+          "rarest",
+          "two completed items reducible on the same lookahead"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 269,
+      "heading_context": "## Parser Generators",
+      "headers": [
+        "Generator",
+        "Class",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "yacc / bison",
+          "LALR(1) (bison adds GLR)",
+          "the workhorses; emit ACTION/GOTO tables"
+        ],
+        [
+          "menhir",
+          "LR(1)/LALR(1)",
+          "OCaml; better conflict explanations"
+        ],
+        [
+          "ANTLR4",
+          "ALL(*) (adaptive LL)",
+          "hand-grammar-friendly, good error messages"
+        ],
+        [
+          "tree-sitter",
+          "GLR, incremental, error-tolerant",
+          "editors/IDEs — reparses on keystroke"
+        ],
+        [
+          "PEG (pest, PEG.js)",
+          "parsing expression grammars",
+          "ordered choice, no ambiguity, but `*` is greedy/committed"
+        ],
+        [
+          "Earley",
+          "all CFGs incl. ambiguous",
+          "O(n³) worst, O(n²) unambiguous, O(n) deterministic; NLP, research"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 320,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You know",
+        "Maps to"
+      ],
+      "rows": [
+        [
+          "Hand-written recursive descent (you've read C compiler source)",
+          "Still the dominant production technique — clang/Roslyn/rustc/V8/tsc all do it"
+        ],
+        [
+          "yacc/bison `.y` grammar files",
+          "LALR(1) generators — the ACTION/GOTO tables are the LR automaton compiled to data"
+        ],
+        [
+          "`System.Linq.Expressions` / expression trees",
+          "A parsed AST is the same idea: a tree you walk; the parser is what builds it"
+        ],
+        [
+          "Roslyn `SyntaxTree`, red-green nodes",
+          "The output of an error-tolerant, incremental recursive-descent parser"
+        ],
+        [
+          "Operator precedence in a calculator",
+          "Pratt parsing / precedence climbing — binding powers replace one-function-per-level"
+        ],
+        [
+          "Regex (regular) vs grammar (context-free)",
+          "Lexer = regular = no nesting; parser = context-free = matched brackets, recursion"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 338,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Parse a real programming language frontend",
+          "Hand-written recursive descent + Pratt for expressions"
+        ],
+        [
+          "Parse expressions with many precedence levels",
+          "Pratt parsing / precedence climbing"
+        ],
+        [
+          "Generate a parser for a stable DSL / SQL / config",
+          "bison (LALR), ANTLR4, or a PEG tool"
+        ],
+        [
+          "Handle a grammar with left recursion",
+          "LR family (LALR/LR(1)) — it's native; LL needs rewriting"
+        ],
+        [
+          "Get maximum 1-lookahead power with small tables",
+          "LALR(1) (yacc/bison)"
+        ],
+        [
+          "Need true LR(1) power (LALR rejects your grammar)",
+          "menhir / canonical LR(1), or refactor the grammar"
+        ],
+        [
+          "Parse ambiguous or natural-language-ish grammar",
+          "GLR or Earley"
+        ],
+        [
+          "Reparse on every keystroke in an editor",
+          "tree-sitter (incremental, error-tolerant, GLR)"
+        ],
+        [
+          "Resolve dangling-else",
+          "Shift (bind to nearest), the standard default"
+        ],
+        [
+          "Report many errors, not just the first",
+          "Panic-mode sync tokens + error productions, or tree-sitter"
+        ]
+      ]
+    }
+  ]
+}

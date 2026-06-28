@@ -31,7 +31,7 @@ environment all the earlier stages target. The two big algorithmic stories are t
 
 ```
 +--------------------------------------------------------------------------+
-|                          THE RUNTIME                                    |
+|                          THE RUNTIME                                     |
 |                                                                          |
 |   +----------------------------------------------------------------+     |
 |   |  EXECUTION ENGINE                                              |     |
@@ -71,12 +71,16 @@ the JIT's stack maps to find pointers; the JIT needs safepoints to let the GC ru
 
   A managed object's layout (typical):
      +----------------+
-     | header / mark  |  type pointer, GC mark bits, hash, lock word
+     | header / mark  |
      +----------------+
      | field 0        |
-     | field 1        |  references to other heap objects = the OBJECT GRAPH
-     | ...            |  edges the GC traces
+     | field 1        |
+     | ...            |
      +----------------+
+
+  header / mark  = type pointer, GC mark bits, hash, lock word
+  field 0..n     = references to other heap objects = the OBJECT GRAPH
+                   (the edges the GC traces)
 ```
 
 Escape analysis (a JIT optimization, guide 06) decides whether an object can be
@@ -139,13 +143,13 @@ collect the young generation often (cheap) and the old generation rarely.
 
 ```
   +-----------------+     promote survivors     +------------------+
-  |  YOUNG GEN      |  ------------------------> |  OLD GEN         |
-  |  (nursery/gen0) |                            |  (gen2)          |
-  |  collected OFTEN|                            |  collected RARELY|
-  |  copying GC,    |                            |  mark-compact    |
-  |  cheap (few     |                            |  (big, mostly    |
-  |   survivors)    |                            |   long-lived)    |
-  +-----------------+                            +------------------+
+  |  YOUNG GEN      | ------------------------> |  OLD GEN         |
+  |  (nursery/gen0) |                           |  (gen2)          |
+  | collected OFTEN |                           | collected RARELY |
+  |  copying GC,    |                           |  mark-compact    |
+  |  cheap (few     |                           |  (big, mostly    |
+  |   survivors)    |                           |   long-lived)    |
+  +-----------------+                           +------------------+
 
   THE WRITE BARRIER -- the key mechanism:
      A young-gen collection must treat OLD->YOUNG pointers as roots (an old

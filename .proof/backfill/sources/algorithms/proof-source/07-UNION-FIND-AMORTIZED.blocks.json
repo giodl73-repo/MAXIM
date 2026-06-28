@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "algorithms\\07-UNION-FIND-AMORTIZED.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 30,
+      "heading_context": "# Union-Find and Amortized Analysis",
+      "confidence": "candidate",
+      "text": "  UNION-FIND: a partition under find + union, near-constant per operation\n  =====================================================================================\n\n   FOREST REPRESENTATION: each set = a rooted tree; the ROOT is the set's representative.\n\n      {1,2,3}   {4,5}      arrays:  parent: [.,1,1,1,4,4]   (1 and 4 are roots)\n        1         4                 rank:   [.,1,0,0,1,0]\n       / \\        |\n      2   3       5\n     find(3) = climb to root = 1.    union(3,5): make root 4 point to root 1 (by rank).\n\n   TWO HEURISTICS (both needed for the bound):\n     UNION BY RANK   attach the shorter tree under the taller (rank ~ height upper bound)\n                     -> keeps trees O(log n) tall by itself\n     PATH COMPRESSION on find, point every node on the path DIRECTLY at the root\n                     -> flattens the tree for future finds\n\n   THE BOUNDS (state them exactly):\n     by rank ALONE OR compression alone:  O(log n) amortized per op\n     by rank AND path compression:        O(alpha(n)) amortized per op   [Tarjan]\n       alpha(n) = inverse Ackermann <= 4 for n up to ~2^65536  -> effectively O(1)\n     a SINGLE find can still be O(log n); the bound is AMORTIZED over the sequence.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 103,
+      "heading_context": "## Layer 3: Path Compression",
+      "confidence": "candidate",
+      "text": "   find(x) with compression:\n     if parent[x] != x: parent[x] = find(parent[x])   # recurse, then flatten\n     return parent[x]\n\n   BEFORE find(7):          AFTER find(7) compresses the path 7->5->3->1:\n        1                        1\n        |                       /|\\ \\\n        3                      3 5 7 (and 2,4,6 flattened too)\n        |\n        5\n        |\n        7\n   every node on the find path now points STRAIGHT at the root.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 130,
+      "heading_context": "## Layer 4: The α(n) Bound and the Potential Method",
+      "confidence": "candidate",
+      "text": "   THE INVERSE ACKERMANN FUNCTION alpha(n):\n     Ackermann A(m,n) grows astronomically; alpha is its (very slow) inverse.\n       alpha(n) <= 1  for n <= 2\n       alpha(n) <= 2  for n <= 4\n       alpha(n) <= 3  for n <= 16\n       alpha(n) <= 4  for n <= 2^2^2^16  (a number with ~19729 digits)\n     => for ANY n that fits in this universe, alpha(n) <= 4. Effectively constant, but\n        NOT a true constant -- the bound is genuinely O(m alpha(n)), and that is TIGHT\n        (Fredman-Saks lower bound: you cannot do better in the cell-probe model).\n\n   POTENTIAL-METHOD SKETCH (why it works):\n     Assign each non-root node a POTENTIAL based on the rank gap to its parent\n     (a \"level\" derived from the Ackermann hierarchy).\n     - union: O(1) actual, bounded potential change.\n     - find:  each node whose parent-rank jumps a \"level\" is charged O(1) to the\n       operation; nodes that don't are paid by their DECREASING potential.\n     Amortized cost per op = actual + dPhi = O(alpha(n)).\n   This is the SAME machinery as 01's dynamic-array proof, applied to a far subtler\n   potential function.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 218,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "### \"Union-find is O(1) per operation\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

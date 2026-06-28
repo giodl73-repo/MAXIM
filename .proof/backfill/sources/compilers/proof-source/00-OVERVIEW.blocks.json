@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "compilers\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 37,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------------+\n|                          THE COMPILER PIPELINE                             |\n|                                                                            |\n|   FRONTEND            |        MIDDLE-END         |       BACKEND          |\n|   (language-specific) |   (language + target      |   (target-specific)    |\n|                       |     independent)          |                        |\n|                       |                           |                        |\n|  source text          |                           |                        |\n|     |                 |                           |                        |\n|     v                 |                           |                        |\n|  +--------+   tokens   |                           |                       |\n|  | LEXER  |---------+  |                           |                       |\n|  | (DFA)  |   [01]  |  |                           |                       |\n|  +--------+         v  |                           |                       |\n|                  +--------+    AST                 |                       |\n|                  | PARSER |----------+             |                       |\n|                  | (LL/LR)|   [02]   |             |                       |\n|                  +--------+          v             |                       |\n|                              +-------------+ typed |                       |\n|                              |  SEMANTIC   | AST   |                       |\n|                              |  ANALYSIS   |-----+ |                       |\n|                              | (types,scope|[03]| |                        |\n|                              +-------------+     v |                       |\n|                                         +-----------------+                |\n|                                         |  IR / SSA / CFG |  [04]          |\n|                                         +--------+--------+                |\n|                                                  |                         |\n|                                   +--------------+--------------+          |\n|                                   |   DATAFLOW ANALYSIS  [05]   |          |\n|                                   |   OPTIMIZATION       [06]   |          |\n|                                   |   (iterate to fixpoint)     |          |\n|                                   +--------------+--------------+          |\n|                                                  | optimized IR            |\n|                                                  v                         |\n|                       |                  +---------------+  [08]           |\n|                       |                  | INSTRUCTION   |                 |\n|                       |                  | SELECTION +   |                 |\n|                       |                  | SCHEDULING    |                 |\n|                       |                  +-------+-------+                 |\n|                       |                          v                         |\n|                       |                  +---------------+  [07]           |\n|                       |                  | REGISTER      |                 |\n|                       |                  | ALLOCATION    |                 |\n|                       |                  +-------+-------+                 |\n|                       |                          v                         |\n|                       |                  +---------------+                 |\n|                       |                  | EMIT: asm /   |                 |\n|                       |                  | machine code  |                 |\n|                       |                  +-------+-------+                 |\n|                       |                          v                         |\n|                       |              +-----------------------+  [09]       |\n|                       |              | RUNTIME: loader, GC,  |             |\n|                       |              | stack maps, JIT, ABI  |             |\n|                       |              +-----------------------+             |\n+----------------------------------------------------------------------------+\n   [NN] = the guide in this directory that covers that stage in depth",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 109,
+      "heading_context": "## The Three-Phase Split — Why It Exists",
+      "confidence": "candidate",
+      "text": "  +-------------+        +-------------+        +-------------+\n  |  FRONTEND   |        | MIDDLE-END  |        |   BACKEND   |\n  +-------------+        +-------------+        +-------------+\n  Changes when the      Changes when you       Changes when you\n  SOURCE LANGUAGE       improve OPTIMIZATION    add a new TARGET\n  changes               (new pass, better       (x86, ARM, RISC-V,\n  (new syntax, new      alias analysis)         WASM)\n   type rule)\n        |                      |                      |\n        v                      v                      v\n   N languages            1 optimizer            M targets\n        \\                      |                      /\n         \\                     |                     /\n          +----- IR is the narrow waist ------------+\n\n  Without a shared IR:  N x M compilers to build and maintain.\n  With a shared IR:     N frontends + M backends. The classic\n                        \"narrow waist\" architecture.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 169,
+      "heading_context": "## AOT vs JIT — The Spectrum, Not a Binary",
+      "confidence": "candidate",
+      "text": "   AHEAD-OF-TIME                            JUST-IN-TIME\n   =============                            ============\n   Run the whole pipeline once,            Interpret first, compile hot code\n   before the program ships.               while the program runs.\n\n   +-------------------+                   +-------------------+\n   | full pipeline     |                   | interpreter       |\n   | -> native binary  |                   |   (collects type  |\n   +-------------------+                   |   + branch        |\n                                           |     profile)      |\n                                           +---------+---------+\n\n   Sees: static program text                         | hot threshold\n   Cannot see: actual inputs                         v\n\n                                           +-------------------+\n   Examples:                               | optimizing JIT    |\n     gcc, clang, rustc, Go,                | (speculates using |\n     GraalVM Native Image,                 |  real profile)    |\n     .NET Native / NativeAOT               +---------+---------+\n\n                                                     | assumption broken\n   Wins: startup, no warmup,                         v\n\n         predictable, smaller RSS          +-------------------+\n                                           |DEOPTIMIZE -> back |\n                                           |to interpreter     |\n                                           +-------------------+\n                                           Examples: V8, HotSpot,\n                                             RyuJIT, SpiderMonkey\n\n   Key asymmetry:\n     AOT must be correct for ALL inputs.\n     JIT has SEEN the inputs -> it can speculate (assume `x` is always\n       an int, inline the one observed call target) and fall back if wrong.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 222,
+      "heading_context": "## A Single Statement, Through the Whole Pipeline",
+      "confidence": "candidate",
+      "text": "  LEX [01]        IDENT(x) EQ LPAREN IDENT(a) PLUS IDENT(b) RPAREN\n                  STAR LPAREN IDENT(a) PLUS IDENT(b) RPAREN SEMI\n\n  PARSE [02]              =\n                        /   \\\n                       x     *\n                            / \\\n                          +     +\n                         / \\   / \\\n                        a   b a   b\n\n  SEMA [03]       resolve a,b,x to symbols; check all are `int`;\n                  annotate every node with type `int`. Result type ok.\n\n  IR (TAC) [04]   t1 = a + b\n                  t2 = a + b\n                  t3 = t1 * t2\n                  x  = t3\n\n  SSA [04]        t1 = a + b           (each name assigned once)\n                  t2 = a + b\n                  t3 = t1 * t2\n                  x1 = t3\n\n  OPTIMIZE [06]   GVN sees t1 and t2 compute the same value:\n                  t1 = a + b\n                  x1 = t1 * t1         (t2, t3 folded away)\n\n  CODEGEN [08]    mov  eax, [a]        ; instruction selection\n                  add  eax, [b]\n                  imul eax, eax\n                  mov  [x], eax\n\n  REGALLOC [07]   t1 lives only across two uses -> EAX, no spill needed\n\n  RUNTIME [09]    `x`, `a`, `b` are slots in this frame's stack map;\n                  if `x` were a heap pointer, the GC would find it here.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 306,
+      "heading_context": "## Cross-References",
+      "confidence": "candidate",
+      "text": "  compilers/  (this directory — IMPLEMENTATION depth)\n       |\n       +-- computing/22-COMPILERS.md   ecosystem survey (LLVM/V8/rustc/tsc),\n       |                               the JIT spectrum at product level\n       |\n       +-- programming-language-theory/  the MEANING layer:\n       |     01-LAMBDA-CALCULUS, 02-TYPE-THEORY (inference -> guide 03 here),\n       |     03-OPERATIONAL-SEM, 08-COMPILER-SEMANTICS (SSA/CPS semantics)\n       |\n       +-- computer-architecture/      pipelines, caches, ISAs, hazards\n       |                               (what codegen + scheduling target)\n       |\n       +-- os/                         loaders, virtual memory, the\n       |                               runtime/OS boundary (mmap, threads)\n       |\n       +-- formal-methods/06-PROGRAM-ANALYSIS.md\n                                       abstract interpretation, the lattice\n                                       framework (the theory under dataflow),\n                                       translation validation (Alive2/CompCert)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

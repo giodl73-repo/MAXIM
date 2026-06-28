@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dynamical-systems:applications
+kind: guide
+module: dynamical-systems
+section: dynamical-systems
+title: Applications
+status: source-custody
+source_custody: partial
+current_path: dynamical-systems/09-APPLICATIONS.md
+canonical_path: dynamical-systems/09-APPLICATIONS.md
+backsource_ids: [proof-backfill:dynamical-systems:09-applications, git-history:dynamical-systems:09-applications]
+concepts: [applications]
+root_concepts: [applications]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Applications
 
 The theory pays off when the abstractions — fixed points, Jacobian eigenvalues, Hopf bifurcations,

@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # Geometry and Meshes
 
 ## The Big Picture: How Shape Is Stored
@@ -38,7 +37,7 @@ fast to render). Authoring tends to live at the smooth end; rendering at the tri
 |  NURBS               Loop                + attributes          per distance          |
 |  (exact, compact,    (smooth from a       (universal, GPU-     point clouds,         |
 |   CAD/fonts)          coarse cage)         native, flat        SDFs, voxels          |
-|                                            triangles)                                 |
+|                                            triangles)                                |
 |                                                                                      |
 |        <------------------ TESSELLATION converts smooth -> triangles ----------->    |
 |   [L2 curves]        [L3 subdiv]          [L1 meshes]          [L4 LOD]              |

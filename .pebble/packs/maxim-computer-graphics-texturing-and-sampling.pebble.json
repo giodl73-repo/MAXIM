@@ -1,0 +1,1385 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-computer-graphics-texturing-and-sampling",
+  "source": "../../computer-graphics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#000",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "# Texturing and Sampling"
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#001",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "## The Big Picture: Painting Detail, Then Fighting Aliasing"
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#002",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "Textures store per-point surface data (color, normals, roughness) in an image, mapped onto\ngeometry via UV coordinates. The moment you sample a texture — or rasterize an edge — you\nare doing *signal sampling*, and the sampling theorem governs everything that follows. Half\nthis guide is mapping data on; the other half is preventing the aliasing that sampling\ncauses."
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#003",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "```\n+--------------------------------------------------------------------------------------+\n|                     TEXTURING + SAMPLING PIPELINE                                    |\n|                                                                                      |\n|  AUTHOR          MAP             SAMPLE          FILTER           ANTIALIAS          |\n|                                                                                      |\n|  texture     --> UV coords   --> fetch texels --> magnify /    --> edge AA (MSAA)    |\n|  image          per vertex       at (u,v)        minify          + texture AA        |\n|  (color/        (unwrap)         per fragment     - bilinear      (mipmaps)          |\n|   normal/                                         - trilinear     + temporal (TAA)   |\n|   PBR maps)                                       - anisotropic                      |\n|                                                                                      |\n|   [L1]           [L1 UV]         [L2 fetch]       [L3 filter]     [L4 mip] [L5 AA]   |\n+--------------------------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#004",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "The throughline is the **sampling theorem** (`signal-processing/`): a signal must be\nband-limited to below half the sampling rate (Nyquist) or high frequencies *alias* into low\nones. Textures viewed at a distance, and geometric edges, are full of frequencies above\nNyquist — so we either pre-filter (mipmaps) or supersample (MSAA/SSAA)."
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#005",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#006",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "## Layer 1: UV Mapping — Geometry to Texture Space"
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#007",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "Each vertex carries a 2D **texture coordinate** `(u, v)` in `[0, 1]²`. The rasterizer\ninterpolates UVs across the triangle (perspective-correct, `02`), and the fragment shader\nfetches the texel there."
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#008",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "```\n   3D MESH SURFACE                TEXTURE SPACE (UV)\n   ---------------                ------------------\n        /\\                         (0,1) +--------+ (1,1)\n       /  \\   each vertex                |  the   |\n      /    \\  -> a (u,v)                 | unwrap |\n     /______\\                            |  image |\n                                   (0,0) +--------+ (1,0)"
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#009",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "\"UV unwrapping\" = flattening the 3D surface onto the 2D image without too much\n   distortion (like peeling an orange flat). Seams are unavoidable on closed surfaces.\n```"
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#010",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "UVs aren't only for color. The same mechanism delivers a *stack* of maps that drive PBR\nshading (`04`):"
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#011",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "```\n  ALBEDO / BASE COLOR   the diffuse color           (sRGB-encoded -> decode to linear!)\n  NORMAL MAP            per-texel surface normal     (tangent space; linear data)\n  ROUGHNESS / METAL     microfacet params for PBR    (linear data)\n  HEIGHT / DISPLACEMENT geometric detail             (parallax or real displacement)\n  AO MAP                baked ambient occlusion       (linear)\n```"
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#012",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "A subtlety that matters for correctness: **color maps are sRGB-encoded** and must be\ndecoded to linear before lighting math; **data maps (normal/roughness/AO) are linear** and\nmust *not* be gamma-decoded. Mixing this up is a pervasive bug — see `08`."
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#013",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#014",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "## Layer 2: The Sampling Problem"
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#015",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "A texture is a discrete grid of texels; the screen is a discrete grid of pixels; they\nrarely line up. Two regimes:"
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#016",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "```\n  MAGNIFICATION  (texture too small for screen area: one texel -> many pixels)\n     problem: blocky / blurry. fix: interpolate between texels (bilinear)."
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#017",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "MINIFICATION   (texture too big: many texels -> one pixel)   <-- the dangerous one\n     problem: ALIASING. one pixel covers many texels but samples only one\n              -> shimmering, moiré, crawling patterns as the camera moves.\n```"
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#018",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "```\n  WHY MINIFICATION ALIASES (the sampling theorem):"
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#019",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "far-away textured surface -> high spatial frequency at the pixel grid\n  one sample per pixel -> sampling rate fixed\n  frequencies above NYQUIST (half the pixel rate) fold back as FALSE low frequencies"
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#020",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "true signal  /\\/\\/\\/\\/\\/\\   (high freq, e.g. a fine grid receding to horizon)\n     sampled at   .   .   .   .  (too coarse)\n     reconstructed ~~~~~~~        (a bogus low-freq pattern = MOIRÉ / shimmer)"
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#021",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "Fix options: (a) raise the sampling rate (supersample), or\n               (b) BAND-LIMIT the signal first (pre-blur) -> mipmaps.\n```"
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#022",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "This is identical to the aliasing in audio/DSP (`signal-processing/`): the cure is the same\ntwo choices — sample faster, or low-pass filter before sampling."
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#023",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#024",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "## Layer 3: Texture Filtering"
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#025",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "How to compute a texel value when the sample point lands between texels (magnification) or\nspans many texels (minification)."
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#026",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "```\n  NEAREST       pick closest texel             blocky; cheapest\n  BILINEAR      weighted avg of 4 texels       smooth magnification; 1 mip level\n  TRILINEAR     bilinear on 2 mip levels +     smooth across mip transitions\n                interpolate between them        (no visible mip \"banding\")\n  ANISOTROPIC   sample along the projected      sharp textures at GRAZING angles\n                footprint (multiple taps)        (roads, floors viewed edge-on)\n```"
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#027",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "```\n  WHY ANISOTROPIC FILTERING EXISTS:"
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#028",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "A pixel's footprint on a surface viewed at a grazing angle is a long, thin ellipse,\n  not a square. Trilinear assumes a square footprint -> picks a blurry high mip ->\n  the floor goes mushy in the distance. Anisotropic takes several samples ALONG the\n  long axis of the footprint, keeping it sharp."
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#029",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "pixel footprint on a floor seen edge-on:   [=================]  (long ellipse)\n     trilinear samples: one blurry square        [###]  -> over-blurred\n     anisotropic: many taps along the ellipse    [=][=][=][=][=]    -> sharp\n```"
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#030",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#031",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "### Wrap Modes and Beyond Color"
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#032",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "A `(u, v)` outside `[0, 1]` needs an addressing rule, and textures carry far more than color."
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#033",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "```\n  WRAP / ADDRESS MODES (what happens outside [0,1]):\n     REPEAT     tile the texture (u mod 1) — for surfaces with repeating detail\n     CLAMP      hold the edge texel — avoids seams on a decal/gradient\n     MIRROR     reflect each tile — hides the repeat seam\n     BORDER     a fixed border color outside the range"
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#034",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "TEXTURE DIMENSIONS:\n     2D         the common case (surfaces)\n     CUBE MAP   6 faces of a cube — environment maps, reflections, point-light shadows\n     3D         a volume (u,v,w) — clouds, LUTs (a 3D color-grading lookup, 08), noise\n     ARRAY      a stack of 2D layers indexed by an integer — material atlases, CSM cascades\n```"
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#035",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "The cube map deserves note: it samples by a *direction* vector (not a 2D coordinate),\npicking the face and texel a ray would hit on a surrounding cube — exactly what reflection\nand image-based lighting (`04`) need to look up \"what's in this direction.\" A 3D texture is\nhow a color grade ships as a single LUT (`08`) the GPU samples per pixel."
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#036",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "## Layer 4: Mipmaps — Pre-Filtering for Minification"
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#037",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "A **mipmap** is a precomputed pyramid of the texture at successively halved resolutions,\neach level a band-limited (averaged-down) version of the one above. At render time the GPU\npicks the level whose texels roughly match the pixel footprint — sampling a *pre-blurred*\nimage instead of undersampling a sharp one."
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#038",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "```\n   MIP PYRAMID (each level = previous averaged 2x2 -> 1)"
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#039",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "level 0:  512 x 512   (full detail; used up close)\n     level 1:  256 x 256\n     level 2:  128 x 128\n     ...                    GPU computes the right level from the UV\n     level 9:    1 x 1      derivatives (du/dx, dv/dx) across the pixel quad\n                            -> \"how fast are UVs changing per pixel?\" = footprint size"
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#040",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "Memory cost: +1/3 of the base texture (geometric series 1 + 1/4 + 1/16 + ... = 4/3).\n```"
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#041",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "The level-of-detail `λ` is chosen from the **UV derivatives** the GPU computes per 2×2 pixel\nquad: faster-changing UVs (surface receding, minified) → higher (blurrier) mip. This is the\n*band-limiting* option (b) from Layer 2: instead of sampling a high-frequency signal too\ncoarsely, sample a pre-low-passed version at the matching rate. Mipmapping is why distant\ntextures shimmer *without* it and sit calm *with* it. Trilinear filtering then blends\nadjacent mip levels to hide the jump between them."
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#042",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#043",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "### Texture Compression and Memory"
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#044",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "Textures dominate a renderer's memory and bandwidth, so GPUs sample from **block-compressed**\nformats decoded in hardware on the fly — unlike PNG/JPEG, these allow random per-texel access."
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#045",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "```\n  BLOCK COMPRESSION (BCn / DXT / ASTC): fixed-ratio, GPU-decodable per 4x4 block."
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#046",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "BC1 (DXT1)  4x4 block -> 2 endpoint colors + 2-bit indices  -> 8:1, no/1-bit alpha\n     BC3 (DXT5)  + compressed alpha block                        -> 4:1, RGBA\n     BC5         two channels (great for NORMAL maps: store X,Y, reconstruct Z)\n     BC6H        HDR (float) textures\n     BC7 / ASTC  high-quality, variable block size (ASTC)        -> 4:1..8:1"
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#047",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "Why not JPEG? GPUs need O(1) random access to any texel during filtering. Block\n  schemes decode one tiny block independently; JPEG/PNG require sequential decode.\n```"
+    },
+    {
+      "id": "05-TEXTURING-AND-SAMPLING.md#048",
+      "path": [
+        "05-TEXTURING-AND-SAMPLING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:05-texturing, git-history:computer-graphics:05-texturing]",
+        "canonical_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "concepts": "[UV mapping, texture filtering, mipmaps, aliasing, antialiasing, sampling theorem, MSAA, SSAA]",
+        "current_path": "computer-graphics/05-TEXTURING-AND-SAMPLING.md",
+        "id": "maxim:computer-graphics:texturing-and-sampling",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[texturing, sampling]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Texturing and Sampling",
+        "updated": "null"
+      },
+      "text": "The mip chain is *also* compressed, so the +1/3 memory cost is on top of an already-\ncompressed base. Choosing the right format (BC5 for normals, BC7 for albedo, BC6H for HDR\nenvironment maps) is a real bandwidth lever — and getting it wrong (e.g. BC1 on a normal map)\nintroduces visible block artifacts in shading."
+    }
+  ],
+  "refs": [
+    "05-TEXTURING-AND-SAMPLING.md"
+  ]
+}

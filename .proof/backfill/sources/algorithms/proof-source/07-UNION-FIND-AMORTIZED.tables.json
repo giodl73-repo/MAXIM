@@ -1,0 +1,88 @@
+{
+  "schema_version": "1",
+  "source_markdown": "algorithms\\07-UNION-FIND-AMORTIZED.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 187,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "The union-find / amortized concept"
+      ],
+      "rows": [
+        [
+          "\"Are these two nodes in the same cluster?\"",
+          "`find(u) == find(v)` — O(α(n)) amortized membership test"
+        ],
+        [
+          "Kruskal's MST cycle check",
+          "union-find is the structure that makes it fast (`graph-alg/04`)"
+        ],
+        [
+          "Type unification in a type checker",
+          "`union`/`find` over type variables (`programming-language-theory/`)"
+        ],
+        [
+          "Incremental graph connectivity in a tool",
+          "union-only DSU; deletions need link-cut trees"
+        ],
+        [
+          "Dynamic-array \"O(1) push\" amortized",
+          "Same potential-method reasoning, simpler Φ (`01`)"
+        ],
+        [
+          "\"It's O(1) for all practical purposes\"",
+          "α(n) ≤ 4 — true operationally, but *provably* not constant"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 204,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I need...",
+        "Use",
+        "Bound"
+      ],
+      "rows": [
+        [
+          "Incremental connectivity / merge sets",
+          "union-find (rank + compression)",
+          "O(α(n)) amortized"
+        ],
+        [
+          "Kruskal MST cycle test",
+          "union-find",
+          "O(α(n)) per edge"
+        ],
+        [
+          "Connected components offline",
+          "union-find",
+          "O((V+E)·α(V))"
+        ],
+        [
+          "Type/term unification",
+          "union-find over variables",
+          "O(α(n)) amortized"
+        ],
+        [
+          "Connectivity with *deletions*",
+          "link-cut / Euler-tour trees",
+          "O(log n) — not DSU"
+        ],
+        [
+          "Prove a sequence amortized bound",
+          "potential method (`01`)",
+          "Φ + ΔΦ"
+        ],
+        [
+          "Just union by rank, simpler",
+          "rank only",
+          "O(log n) amortized"
+        ]
+      ]
+    }
+  ]
+}

@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # Computer Graphics — Overview
 
 ## The Big Picture: Scene to Pixels
@@ -30,7 +29,7 @@ is a stage in answering it.
 +------------------------------------------------------------------------------+
 |                       THE RENDERING PIPELINE (scene -> pixels)               |
 |                                                                              |
-|  SCENE            GEOMETRY          VISIBILITY        SHADING        DISPLAY  |
+|  SCENE            GEOMETRY          VISIBILITY        SHADING        DISPLAY |
 |  -----            --------          ----------        -------        ------- |
 |                                                                              |
 | +---------+     +-----------+     +-----------+     +----------+   +-------+ |
@@ -105,19 +104,19 @@ units onto a rasterizing pipeline so renderers can use each where it is stronges
 Before anything moves, the world must be described. Four ingredients:
 
 ```
-+----------------------------------------------------------------+
-|                          THE SCENE                            |
-|                                                                |
-|  GEOMETRY            MATERIALS         LIGHTS         CAMERA   |
-|  --------            ---------         ------         ------   |
-|  triangle meshes     BRDF params       point          position |
-|  curves / NURBS      albedo            directional     orientation|
-|  subdivision         roughness         area            FOV / lens|
-|  point clouds        metalness         environment     near/far  |
++-------------------------------------------------------------------+
+|                          THE SCENE                                |
+|                                                                   |
+|  GEOMETRY            MATERIALS         LIGHTS         CAMERA      |
+|  --------            ---------         ------         ------      |
+|  triangle meshes     BRDF params       point          position    |
+|  curves / NURBS      albedo            directional    orientation |
+|  subdivision         roughness         area            FOV / lens |
+|  point clouds        metalness         environment     near/far   |
 |  volumes             normal/disp maps  (IBL/HDRI)      proj type  |
-|                                                                |
-|  [07-GEOMETRY]       [04][05]          [04-LIGHTING]   [01-PROJ] |
-+----------------------------------------------------------------+
+|                                                                   |
+|  [07-GEOMETRY]       [04][05]          [04-LIGHTING]   [01-PROJ]  |
++-------------------------------------------------------------------+
 ```
 
 - **Geometry** is overwhelmingly **triangle meshes** — a triangle is the simplest planar

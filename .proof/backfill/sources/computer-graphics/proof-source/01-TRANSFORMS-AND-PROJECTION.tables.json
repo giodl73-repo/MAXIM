@@ -1,0 +1,92 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-graphics\\01-TRANSFORMS-AND-PROJECTION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 326,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "Here it is"
+      ],
+      "rows": [
+        [
+          "Affine map = linear part + translation",
+          "The homogeneous 4×4 packs both into one matrix"
+        ],
+        [
+          "Change of basis matrix",
+          "The view matrix — rebasing world into camera frame"
+        ],
+        [
+          "Inverse of an orthonormal matrix is its transpose",
+          "Why the view matrix rows are the camera axes"
+        ],
+        [
+          "Non-commutative matrix products",
+          "`T·R ≠ R·T` — transform order changes the result"
+        ],
+        [
+          "Projective geometry / points at infinity",
+          "`w = 0` directions; perspective as a projective map"
+        ],
+        [
+          "Inverse-transpose for dual vectors",
+          "Normals transform by the inverse transpose of the 3×3"
+        ],
+        [
+          "Floating-point precision near zero",
+          "Reversed-Z depth buffer exploits exactly this"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 340,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Choice"
+      ],
+      "rows": [
+        [
+          "Human-eye 3D look (games, viz)",
+          "Perspective projection"
+        ],
+        [
+          "CAD, 2D UI, isometric, shadow maps",
+          "Orthographic projection"
+        ],
+        [
+          "Transforming a position",
+          "Multiply by full matrix, `w = 1`"
+        ],
+        [
+          "Transforming a direction / ray",
+          "`w = 0` (immune to translation)"
+        ],
+        [
+          "Transforming a normal under non-uniform scale",
+          "Inverse transpose of the upper-left 3×3"
+        ],
+        [
+          "Object should spin in place then move",
+          "`M = T · R · S`"
+        ],
+        [
+          "Z-fighting on distant geometry",
+          "Push near plane out; float depth; reversed-Z"
+        ],
+        [
+          "Mixing two libraries' matrices",
+          "Confirm row vs column convention first"
+        ],
+        [
+          "Building a camera from eye/center/up",
+          "`lookAt` → view matrix"
+        ]
+      ]
+    }
+  ]
+}

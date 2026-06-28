@@ -29,36 +29,41 @@ this guide is about the data structures and algorithms a frontend uses to *decid
 them at scale, and how Hindley-Milner inference actually runs.
 
 ```
-+--------------------------------------------------------------------------+
-|                       SEMANTIC ANALYSIS PIPELINE                         |
-|                                                                          |
-|   parse tree (concrete)                                                  |
-|        |  build/lower                                                    |
-|        v                                                                 |
-|   +----------+        AST: desugared, names not yet resolved             |
-|   |   AST    |                                                           |
-|   +----------+                                                           |
-|        |                                                                 |
-|        |  PASS 1: build symbol tables (declarations -> scopes)           |
-|        v                                                                 |
-|   +-------------------+   scope tree:  global -> module -> fn -> block   |
-|   |  SYMBOL TABLES    |   each entry: name, kind, type-slot, source span |
-|   +-------------------+                                                  |
-|        |                                                                 |
-|        |  PASS 2: NAME RESOLUTION (every use -> its declaration)         |
-|        v                                                                 |
-|   +-------------------+   each IDENT node now points at a Symbol         |
-|   |  RESOLVED AST     |                                                  |
-|   +-------------------+                                                  |
-|        |                                                                 |
-|        |  PASS 3: TYPE CHECKING / INFERENCE (annotate every node)        |
-|        v                                                                 |
-|   +-------------------+   each expr node now carries a Type;             |
-|   |  TYPED AST        |   type errors emitted with spans                 |
-|   +-------------------+                                                  |
-|        |                                                                 |
-|        v  hand to IR generation (guide 04)                               |
-+--------------------------------------------------------------------------+
+                       SEMANTIC ANALYSIS PIPELINE
+
+   parse tree (concrete)
+        |  build/lower
+        v
+   +----------+        AST: desugared, names not yet resolved
+   |   AST    |
+   +----------+
+
+        |
+        |  PASS 1: build symbol tables (declarations -> scopes)
+        v
+
+   +-------------------+   scope tree:  global -> module -> fn -> block
+   |  SYMBOL TABLES    |   each entry: name, kind, type-slot, source span
+   +-------------------+
+
+        |
+        |  PASS 2: NAME RESOLUTION (every use -> its declaration)
+        v
+
+   +-------------------+   each IDENT node now points at a Symbol
+   |  RESOLVED AST     |
+   +-------------------+
+
+        |
+        |  PASS 3: TYPE CHECKING / INFERENCE (annotate every node)
+        v
+
+   +-------------------+   each expr node now carries a Type;
+   |  TYPED AST        |   type errors emitted with spans
+   +-------------------+
+
+        |
+        v  hand to IR generation (guide 04)
 ```
 
 Read top-down: the tree is built, names are bound to declarations, and types are
@@ -113,17 +118,20 @@ A symbol table maps names to declarations. Because of nested scopes, it is reall
 ```
    SCOPE CHAIN (lexical scoping)
 
-   +----------------------------------+  global scope
+   global scope:
+   +----------------------------------+
    |  printf, main, MAX               |
    +----------------------------------+
               ^
               | parent
-   +----------------------------------+  function main()
+   function main():
+   +----------------------------------+
    |  argc, argv, i                   |
    +----------------------------------+
               ^
               | parent
-   +----------------------------------+  block { ... }
+   block { ... }:
+   +----------------------------------+
    |  i  (SHADOWS outer i), tmp       |
    +----------------------------------+
 

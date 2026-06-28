@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dynamical-systems:flows-and-fixed-points
+kind: guide
+module: dynamical-systems
+section: dynamical-systems
+title: Flows and Fixed Points
+status: source-custody
+source_custody: partial
+current_path: dynamical-systems/01-FLOWS-AND-FIXED-POINTS.md
+canonical_path: dynamical-systems/01-FLOWS-AND-FIXED-POINTS.md
+backsource_ids: [proof-backfill:dynamical-systems:01-flows-and-fixed-points, git-history:dynamical-systems:01-flows-and-fixed-points]
+concepts: [flows, and, fixed, points]
+root_concepts: [flows, and]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Flows and Fixed Points
 
 Everything starts with a **vector field**: at each point of phase space, an arrow telling the

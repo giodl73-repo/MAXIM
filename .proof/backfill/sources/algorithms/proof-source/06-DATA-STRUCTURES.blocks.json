@@ -1,0 +1,149 @@
+{
+  "schema_version": "1",
+  "source_markdown": "algorithms\\06-DATA-STRUCTURES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "# Data Structures — Heaps, Balanced BSTs, Hash Tables, Segment/Fenwick",
+      "confidence": "candidate",
+      "text": "  DATA STRUCTURES BY THE OPERATION CONTRACT THEY OFFER\n  =====================================================================================\n\n   ORDERED (comparisons; keep keys sorted)     UNORDERED (hashing; no order)\n   ---------------------------------------     -----------------------------\n   +-------------------+ +-----------------+    +-----------------------------+\n   | BALANCED BST      | | SKIP LIST       |    | HASH TABLE                  |\n   | (red-black,AVL,   | | randomized,     |    | chaining / open addressing  |\n   |  treap, B-tree)   | | expected O(logn)|    | O(1) AMORTIZED EXPECTED     |\n   | O(log n) WORST    | |                 |    | O(n) worst-case (collisions)|\n   | search/ins/del    | |                 |    | NO order, NO range queries  |\n   | + range/successor | |                 |    |                             |\n   +-------------------+ +-----------------+    +-----------------------------+\n            |  comparison-based -> Omega(log n) per op (decision-tree, see 02)\n            v\n   PRIORITY (partial order on one key)        RANGE / PREFIX AGGREGATES\n   ----------------------------------         -------------------------\n   +-------------------+                       +-----------------------------+\n   | HEAP              |                       | FENWICK (BIT)  prefix sums  |\n   | binary: insert,   |                       |   point update / prefix qry |\n   | extract O(log n); |                       |   O(log n), tiny constant   |\n   | peek O(1)         |                       | SEGMENT TREE  any assoc op  |\n   | Fibonacci: O(1)   |                       |  range query + range update |\n   | decrease-key amrt |                       |  O(log n), lazy propagation |\n   +-------------------+                       +-----------------------------+\n\n   THE BOUNDS YOU MUST NOT MISQUOTE:\n     balanced BST: O(log n) WORST-CASE (a guarantee)\n     hash table:   O(1) AMORTIZED EXPECTED (collisions/resize; adversary -> O(n))\n     binary heap:  O(log n) insert/extract; decrease-key O(log n)\n     Fibonacci heap: decrease-key O(1) AMORTIZED (the Dijkstra speedup)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 75,
+      "heading_context": "## Layer 1: Heaps (the priority-queue engine)",
+      "confidence": "candidate",
+      "text": "   ARRAY-EMBEDDED BINARY HEAP (min-heap):  node i -> children 2i+1, 2i+2; parent (i-1)/2\n\n   array: [1, 3, 6, 5, 9, 8]            tree:        1\n   index:  0  1  2  3  4  5                        /   \\\n                                                  3     6\n                                                 / \\   /\n                                                5   9 8\n\n   insert(2): place at end, SIFT UP        extract-min: remove root, move last to root,\n     [1,3,6,5,9,8,2] -> swap 2 with 6         SIFT DOWN.  [8,3,6,5,9] -> sift 8 down:\n     [1,3,2,5,9,8,6]  (2<6, stops at parent 1)   swap with min child 3 -> [3,8,6,5,9]\n                                                 -> swap 8 with min(5) -> [3,5,6,8,9]\n\n   OPERATION       BINARY HEAP   FIBONACCI HEAP (amortized)\n   insert          O(log n)      O(1)\n   peek-min        O(1)          O(1)\n   extract-min     O(log n)      O(log n) amortized\n   decrease-key    O(log n)      O(1) amortized   <-- the Dijkstra/Prim speedup\n   build (heapify)  O(n)          O(n)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 114,
+      "heading_context": "## Layer 2: Balanced Binary Search Trees",
+      "confidence": "candidate",
+      "text": "   THE FAMILY (ordered ops; O(log n) search/insert/delete — worst-case for\n   AVL/Red-Black/B-tree, expected for Treap, amortized for Splay)\n   +-----------------------------------------------------------------------------+\n   | Structure   | Balance invariant                  | Notes                    |\n   |-------------|------------------------------------|--------------------------|\n   | AVL         | |height(L)-height(R)| <= 1         | strictest; faster lookup |\n   | Red-Black   | no red-red; equal black-height     | fewer rotations on write |\n   | Treap       | BST on key + heap on random prio   | simple, expected O(log n)|\n   | B-tree      | high fan-out, all leaves same depth| disk/SSD: minimize I/Os  |\n   | Splay       | move-to-root on access             | amortized O(log n)       |\n   +-----------------------------------------------------------------------------+\n   beyond search: SUCCESSOR/PREDECESSOR, RANGE QUERY, ORDERED ITERATION, rank/select.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 129,
+      "heading_context": "## Layer 2: Balanced Binary Search Trees",
+      "confidence": "candidate",
+      "text": "   ROTATION (the rebalancing primitive — preserves BST order):\n\n        y                          x\n       / \\      right-rotate(y)   / \\\n      x   C    ------------->    A   y\n     / \\       <-------------       / \\\n    A   B       left-rotate(x)     B   C\n   in-order: A x B y C   ==   A x B y C    (order preserved, heights rebalanced)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 140,
+      "heading_context": "## Layer 2: Balanced Binary Search Trees",
+      "confidence": "candidate",
+      "text": "   AVL vs RED-BLACK trade-off:\n     AVL: tighter balance -> shallower -> FASTER LOOKUPS, but MORE rotations on insert/delete\n     RB:  looser balance  -> deeper      -> fewer write-time rotations -> better for write-heavy\n   This is why language standard libraries (std::map, TreeMap) use red-black:\n     amortized fewer structural changes under mixed workloads.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 160,
+      "heading_context": "## Layer 3: Hash Tables (the O(1)-expected engine)",
+      "confidence": "candidate",
+      "text": "   CHAINING                              OPEN ADDRESSING\n   --------                              ---------------\n   each bucket = a linked list           store directly in the array; on collision,\n   collisions appended                   PROBE for the next slot (linear/quadratic/double)\n   load factor alpha = n/m can exceed 1  alpha < 1 required; resize before full\n   simple deletion                       deletion needs tombstones\n\n   buckets:  0: ->                        slots (linear probe, h(k)=k mod 7):\n             1: -> [8] -> [15]             insert 8: slot 1; insert 15: slot 1 taken -> slot 2\n             2: -> [23]                    insert 23: slot 2 taken -> slot 3 ...\n             3: ->\n   EXPECTED chain length = alpha = n/m   -> O(1) per op when alpha is bounded.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 175,
+      "heading_context": "## Layer 3: Hash Tables (the O(1)-expected engine)",
+      "confidence": "candidate",
+      "text": "   THE EXACT BOUNDS:\n     search/insert/delete:  O(1 + alpha) EXPECTED  -> O(1) when alpha = O(1)\n     resize (rehash all):   O(n) once, amortized O(1) per op (geometric growth, see 01)\n     WORST CASE:            O(n)  (all keys collide into one bucket)\n   => the correct phrasing is \"O(1) AMORTIZED EXPECTED\", never \"O(1) worst-case\".",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 189,
+      "heading_context": "## Layer 3: Hash Tables (the O(1)-expected engine)",
+      "confidence": "candidate",
+      "text": "   OPEN-ADDRESSING PROBING (and clustering):\n     linear probing:    h(k)+i        -> primary clustering (long runs)\n     quadratic probing: h(k)+i^2      -> reduces clustering\n     double hashing:    h1(k)+i*h2(k) -> best distribution\n   Keep alpha well below 1 (e.g. <= 0.7) and resize early to keep probes short.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 206,
+      "heading_context": "### Fenwick tree (Binary Indexed Tree) — prefix sums",
+      "confidence": "candidate",
+      "text": "   Supports: point-update + prefix-sum query, both O(log n). Tiny constants, array of size n.\n   Each index i is responsible for a range of length (i & -i) (its lowest set bit).\n\n   query(prefix sum up to i):  walk i -> i - (i & -i)  until 0   (sum the responsible ranges)\n   update(point i, delta):     walk i -> i + (i & -i)  until > n (update all covering nodes)\n\n   range sum [l..r] = prefix(r) - prefix(l-1).\n   O(log n) per op, ~2x faster constant than a segment tree, but only invertible ops (sum/xor).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 219,
+      "heading_context": "### Segment tree — any associative operation, with lazy propagation",
+      "confidence": "candidate",
+      "text": "   Supports ANY associative op (sum, min, max, gcd) over ranges. Range query + RANGE update.\n\n   array [2, 5, 1, 4, 9, 3] -> segment tree storing range-mins (or sums):\n\n                    [0..5] min=1\n                  /              \\\n          [0..2] min=1         [3..5] min=3\n          /     \\               /      \\\n      [0..1]m=2  [2]=1      [3..4]m=4  [5]=3\n      /    \\                 /   \\\n   [0]=2  [1]=5           [3]=4  [4]=9\n\n   query min over [1..4]: combine [1], [2], [3..4] = min(5,1,4) = 1   -> O(log n) nodes touched\n   LAZY PROPAGATION: defer range-updates as a pending tag, push down only when needed\n     -> range-update + range-query both O(log n).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 237,
+      "heading_context": "### Segment tree — any associative operation, with lazy propagation",
+      "confidence": "candidate",
+      "text": "   FENWICK vs SEGMENT TREE\n   Fenwick   -> prefix/range of INVERTIBLE ops (sum, xor); smallest/fastest; point update\n   Segment   -> ANY associative op (min/max/gcd); range update via lazy propagation; more memory\n   neither   -> if static (no updates), a prefix-sum array is O(1) query, O(n) build",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 252,
+      "heading_context": "## Layer 5: Skip Lists (randomized ordered structure)",
+      "confidence": "candidate",
+      "text": "   level 3:  HEAD ----------------------------------> 9 -> NULL\n   level 2:  HEAD --------> 3 ---------------------> 9 -> NULL\n   level 1:  HEAD --> 1 --> 3 --------> 6 --------> 9 -> NULL\n   level 0:  HEAD --> 1 --> 3 --> 4 --> 6 --> 8 --> 9 -> NULL\n\n   each node promoted to the next level with prob 1/2  -> expected height O(log n)\n   search 8: drop down from the top, advancing while next <= target  -> expected O(log n).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "chart_like",
+      "line": 306,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "### \"Hash tables are O(1)\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

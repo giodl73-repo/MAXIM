@@ -1,0 +1,88 @@
+{
+  "schema_version": "1",
+  "source_markdown": "compilers\\04-INTERMEDIATE-REPRESENTATION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 342,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You know",
+        "Maps to"
+      ],
+      "rows": [
+        [
+          "MSIL / CIL bytecode",
+          "A *stack-based* IR; RyuJIT imports it, builds a CFG, and converts to its own SSA-ish IR for optimization"
+        ],
+        [
+          "`Expression` trees (LINQ)",
+          "An AST-level IR — tree-shaped, not yet linearized to TAC"
+        ],
+        [
+          "Reading disassembly with basic blocks (windbg)",
+          "The CFG made concrete — leaders are the jump targets you see"
+        ],
+        [
+          ".NET `RyuJIT` phases",
+          "Importer → morph → SSA-based optimizations → LSRA → codegen; SSA sits in the middle exactly as here"
+        ],
+        [
+          "GIMPLE (if you've seen GCC dumps)",
+          "GCC's three-address SSA IR — same ladder, different syntax"
+        ],
+        [
+          "Profiler \"hot path\" overlays",
+          "Edges/blocks of the CFG annotated with execution counts"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 361,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Make redundant computations visible",
+          "Three-address code (flatten the AST)"
+        ],
+        [
+          "Make control flow explicit",
+          "Basic blocks + the CFG"
+        ],
+        [
+          "Find basic blocks",
+          "Mark leaders (targets, post-jumps, first instr)"
+        ],
+        [
+          "Detect loops",
+          "Back edges (target dominates source) in the CFG"
+        ],
+        [
+          "Make use-def chains trivial",
+          "SSA form"
+        ],
+        [
+          "Decide where φ-functions go",
+          "Iterated dominance frontier of the defs"
+        ],
+        [
+          "Compute dominance fast",
+          "Lengauer-Tarjan or Cooper-Harvey-Kennedy"
+        ],
+        [
+          "Get out of SSA before codegen",
+          "φ elimination with critical-edge splitting + parallel copies"
+        ],
+        [
+          "Optimize CIL/JVM bytecode",
+          "Import → CFG → SSA, then optimize (don't optimize the stack form)"
+        ]
+      ]
+    }
+  ]
+}

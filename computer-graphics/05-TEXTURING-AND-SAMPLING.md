@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # Texturing and Sampling
 
 ## The Big Picture: Painting Detail, Then Fighting Aliasing

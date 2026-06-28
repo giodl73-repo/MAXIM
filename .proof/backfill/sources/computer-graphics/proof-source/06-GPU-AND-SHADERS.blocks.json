@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-graphics\\06-GPU-AND-SHADERS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture: A Throughput Machine Running Tiny Programs in Lockstep",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------------------------+\n|                        THE PROGRAMMABLE GPU PIPELINE                                 |\n|                                                                                      |\n|  INPUT          VERTEX        [TESS]      [GEOM]      RASTER       FRAGMENT     OUT  |\n|  ASSEMBLY       SHADER         opt.        opt.       (fixed)      SHADER      MERGE |\n|                                                                                      |\n|  vertices  --> per-vertex --> subdivide-> per-prim-> triangle--> per-pixel --> blend |\n|  + indices      transform      patches     emit       coverage     shade      z-test |\n|                 (PROG)        (PROG)      (PROG)      (FIXED)     (PROG)     (FIXED) |\n|                                                                                      |\n|  --------------------------- alongside ------------------------------------------    |\n|  COMPUTE SHADER: general-purpose data-parallel kernels (no fixed pipeline)           |\n|  -> physics, culling, post-processing, simulation, ML, hybrid RT (03)                |\n+--------------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 56,
+      "heading_context": "## Layer 1: The Programmable Stages",
+      "confidence": "candidate",
+      "text": "  VERTEX SHADER       runs once PER VERTEX\n                      job: object-space vertex -> clip-space (apply MVP, 01)\n                      outputs: clip position + interpolants (UV, normal, ...)\n\n  TESSELLATION        runs on patches; subdivides into more triangles on the GPU\n  (hull + domain)     -> displacement, adaptive detail, smooth surfaces (07)\n\n  GEOMETRY SHADER     runs per primitive; can emit/discard primitives\n                      -> rarely used now (slow); compute/mesh shaders replaced it\n\n  RASTERIZER (fixed)  clip-space triangles -> covered fragments + interpolated attrs (02)\n\n  FRAGMENT SHADER     runs once PER FRAGMENT (candidate pixel)\n                      job: compute the output color (sample textures, evaluate BRDF, 04/05)\n                      this is where the per-pixel cost lives -> the usual bottleneck\n\n  OUTPUT MERGER (fixed) depth test, stencil, blend -> framebuffer (02)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 76,
+      "heading_context": "## Layer 1: The Programmable Stages",
+      "confidence": "candidate",
+      "text": "  MESH SHADERS (2018+, modern alternative front-end):\n\n    classic:  index buffer -> input assembly -> vertex shader -> ...\n    mesh:     [TASK shader] -> [MESH shader emits \"meshlets\"] -> rasterizer\n\n  Replaces the fixed vertex-fetch + geometry stages with two flexible compute-like\n  stages -> better culling and scaling for huge geometry.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 136,
+      "heading_context": "### Latency Hiding by Oversubscription",
+      "confidence": "candidate",
+      "text": "  warp A issues a memory load (hundreds of cycles latency)\n     -> scheduler instantly runs warp B, then C, then D ...\n     -> by the time A's data arrives, A is rescheduled\n  \"Occupancy\" = how many warps are resident. High occupancy -> latency fully hidden.\n  Limited by registers/shared-memory per thread (more usage -> fewer resident warps).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 164,
+      "heading_context": "## Layer 3: The GPU Memory Hierarchy",
+      "confidence": "candidate",
+      "text": "  REGISTERS         per-thread, fastest, scarce (more regs/thread -> lower occupancy)\n     |\n  SHARED MEMORY     per thread-GROUP scratchpad, software-managed, ~L1 speed\n  / L1              (key tool: stage data here for reuse across a group)\n     |\n  L2 CACHE          shared across the whole GPU\n     |\n  VRAM (GDDR/HBM)   huge, high BANDWIDTH but high LATENCY (hundreds of cycles)\n\n  MEMORY COALESCING: when the 32 lanes of a warp read CONSECUTIVE addresses, the\n  hardware merges them into a few wide transactions.\n     coalesced:    lane i reads addr base + i      -> 1-2 transactions  (fast)\n     scattered:    lane i reads random addr        -> up to 32 transactions (slow)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 199,
+      "heading_context": "### Derivatives and the Pixel Quad",
+      "confidence": "candidate",
+      "text": "  GPUs shade pixels in 2x2 QUADS. Within a quad the hardware can take finite differences:\n\n     ddx(v) = v(right pixel)  - v(this pixel)      (rate of change in screen x)\n     ddy(v) = v(below pixel)  - v(this pixel)      (rate of change in screen y)\n\n  -> the texture unit uses ddx/ddy of the UV to pick the mip LOD (05) for free.\n\n  COST: a triangle covering 1 pixel still shades a full quad -> the other 3 lanes are\n  \"helper\" pixels (computed for derivatives, then discarded). Thin slivers and dense\n  micro-triangles waste up to 75% of shading on helpers — a key reason sub-pixel\n  geometry is expensive and why LOD (07) and Nanite's pixel-sized clusters matter.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 251,
+      "heading_context": "### Specialized Units: Texture, RT, and Tensor Cores",
+      "confidence": "candidate",
+      "text": "  TEXTURE UNITS   address calc + filtering (bilinear/trilinear/aniso) + 2D-locality\n                  cache + format decode (BCn) — all in hardware (05). A texture fetch\n                  is a single instruction that hides a lot of work.\n\n  RT CORES        BVH traversal + ray-triangle/box intersection (03). The shader issues\n                  a TraceRay; the RT core does the tree walk and hands back the hit.\n\n  TENSOR CORES    small dense matrix-multiply-accumulate (e.g. 4x4) at very high rate.\n                  Built for deep learning; in graphics they power DLSS and ML denoisers (09).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 270,
+      "heading_context": "## Layer 5: Shading Languages and APIs",
+      "confidence": "candidate",
+      "text": "  SHADING LANGUAGES (what you write a shader in)\n     HLSL   Direct3D (also DXR ray tracing); Microsoft\n     GLSL   OpenGL / Vulkan (Vulkan via SPIR-V bytecode)\n     MSL    Metal (Apple)\n     WGSL   WebGPU (the browser's modern GPU language)\n     -> all compile to a hardware-specific ISA (e.g. SPIR-V -> vendor microcode)\n\n  GRAPHICS APIs (how the CPU drives the GPU)\n     OLD (implicit):  OpenGL, Direct3D 11   -- driver manages state/sync for you\n     NEW (explicit):  Vulkan, Direct3D 12, Metal, WebGPU\n                      -- you manage command buffers, memory, synchronization,\n                         pipeline state objects -> less driver overhead, more control",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 297,
+      "heading_context": "## Worked Example: Why a Divergent Loop Tanks",
+      "confidence": "candidate",
+      "text": "  for (i = 0; i < iterations[pixel]; i++) { ... }    // iterations differs per lane\n\n  A warp covers 32 neighboring pixels. Suppose in one warp:\n     31 lanes finish at i = 10\n      1 lane  needs  i = 200\n\n  SIMT runs the loop until the LAST lane is done -> all 32 lanes step to i=200,\n  with 31 lanes masked off (idle) for iterations 11..200.\n\n  Useful work:    sum of per-lane iterations ~ 31*10 + 200 = 510 lane-iterations\n  Work performed: 32 lanes * 200 steps      = 6400 lane-iterations\n  Efficiency:     510 / 6400 ~ 8%      <- the warp ran at ~8% of peak.\n\n  Fix: bin pixels by expected iteration count so each warp's lanes finish together,\n       or cap/early-out coherently. Coherence, not raw FLOPs, set the speed.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

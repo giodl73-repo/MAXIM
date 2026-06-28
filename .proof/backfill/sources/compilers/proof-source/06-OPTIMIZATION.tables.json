@@ -1,0 +1,142 @@
+{
+  "schema_version": "1",
+  "source_markdown": "compilers\\06-OPTIMIZATION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 270,
+      "heading_context": "## The Pass Pipeline — Ordering Matters",
+      "headers": [
+        "Level",
+        "Intent",
+        "Typical contents"
+      ],
+      "rows": [
+        [
+          "-O0",
+          "no opt, fast build, debuggable",
+          "just mem2reg maybe; 1:1 with source"
+        ],
+        [
+          "-O1",
+          "cheap wins",
+          "DCE, const-fold, simple inline, simplifycfg"
+        ],
+        [
+          "-O2",
+          "the default for release",
+          "full scalar + loop opts, inlining, vectorize"
+        ],
+        [
+          "-O3",
+          "aggressive",
+          "higher inline/unroll thresholds, more IPO; often only marginal over -O2"
+        ],
+        [
+          "-Os/-Oz",
+          "size",
+          "disable unroll/vectorize; favor small code"
+        ],
+        [
+          "PGO",
+          "profile-driven",
+          "use real branch/hotness data to guide inline + layout"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 283,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You know",
+        "Maps to"
+      ],
+      "rows": [
+        [
+          "`/O2`, `/Ox` in MSVC",
+          "A pass pipeline preset — a named, ordered list of IR rewrites"
+        ],
+        [
+          "RyuJIT \"minopts\" vs \"fullopts\"",
+          "The JIT's -O0-like vs -O2-like pipelines, chosen by tiering"
+        ],
+        [
+          ".NET tiered compilation (Tier0→Tier1)",
+          "Tier0 = fast/minimal opt; Tier1 re-JITs hot methods with the full pipeline"
+        ],
+        [
+          "`[MethodImpl(AggressiveInlining)]`",
+          "A hint nudging the inliner's cost heuristic"
+        ],
+        [
+          "PGO in Visual Studio / `dotnet` Dynamic PGO",
+          "Profile-guided inlining + block layout — JITs do it online now"
+        ],
+        [
+          "ReadyToRun / crossgen",
+          "AOT codegen with a (usually) -O2-ish pipeline baked at publish time"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 302,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Evaluate `2+3` at compile time",
+          "Constant folding (local)"
+        ],
+        [
+          "Replace `x*4` with `x<<2`",
+          "Strength reduction (local)"
+        ],
+        [
+          "Remove a value with no uses",
+          "Dead code elimination (local + global)"
+        ],
+        [
+          "Reuse a value computed elsewhere in the function",
+          "GVN (global, across blocks)"
+        ],
+        [
+          "Propagate constants and prune dead branches together",
+          "SCCP"
+        ],
+        [
+          "Hoist invariant work out of a loop",
+          "LICM (with a preheader)"
+        ],
+        [
+          "Turn a scalar loop into SIMD",
+          "Auto-vectorization (no loop-carried deps)"
+        ],
+        [
+          "Cut call overhead and enable cross-call opts",
+          "Inlining (tuned by the cost heuristic)"
+        ],
+        [
+          "Turn a virtual call direct",
+          "Devirtualization (proven/guarded type)"
+        ],
+        [
+          "Optimize across modules",
+          "LTO / ThinLTO"
+        ],
+        [
+          "Use real runtime behavior",
+          "PGO / JIT Dynamic PGO"
+        ],
+        [
+          "Get the most from -O",
+          "-O2 (–O3 rarely beats it meaningfully)"
+        ]
+      ]
+    }
+  ]
+}

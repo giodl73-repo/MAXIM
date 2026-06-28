@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "dynamical-systems\\08-DISCRETE-MAPS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "# Discrete Maps",
+      "confidence": "candidate",
+      "text": "              FLOW vs MAP: STABILITY LIVES ON DIFFERENT CURVES\n              ================================================\n        FLOWS x' = f(x)              MAPS x_{n+1} = F(x_n)\n        eigenvalue lambda            multiplier lambda = F'(x*)\n\n           Im                              Im\n            |  UNSTABLE                      | unstable (outside)\n            |                          .-----+-----.\n   ---------+--------> Re             /  |STABLE|   \\\n            |  STABLE                |   |  o   |    |  <- unit circle\n            | (Re < 0)                \\  |unit  |   /   |lambda| < 1 stable\n            |                          '--+--disk+--'\n   stable <=> LEFT half-plane         stable <=> INSIDE unit circle\n   marginal: Re = 0                   marginal: |lambda| = 1\n                                      (lambda=+1 fold, lambda=-1 flip/doubling)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 55,
+      "heading_context": "## Fixed Points, Cobwebs, and Stability of Maps",
+      "confidence": "candidate",
+      "text": "   FIXED POINT:  F(x*) = x*  (an intersection of y=F(x) with the diagonal y=x).\n   STABILITY (multiplier m = F'(x*)):\n        |m| < 1 -> STABLE   (orbits converge)        |m| = 0 superstable\n        |m| > 1 -> UNSTABLE (orbits diverge)         |m| = 1 marginal\n        m > 0   -> monotone approach                 m < 0 -> ALTERNATING\n                                                     (sets up period-doubling)\n\n   COBWEB DIAGRAM (graphical iteration):  bounce between F and the diagonal.\n\n      y |        y=x  /          Read x_{n+1}=F(x_n): go UP to the curve F,\n        |          / .--F(x)      then ACROSS to the diagonal y=x to copy\n        |        /  /|            x_{n+1} onto the x-axis, repeat.\n        |       /  / |            Staircase IN  -> stable fixed point.\n        |      /__/  |            Staircase OUT -> unstable.\n        |     /| *   |            Square spiral -> oscillatory (m < 0).\n        +----/-+-----+----> x\n            x0  x*",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 103,
+      "heading_context": "## Symbolic Dynamics: Maps as Languages",
+      "confidence": "candidate",
+      "text": "   PARTITION the state space into labeled regions {A, B, ...}. Record which\n   region the orbit visits at each step -> an itinerary, e.g.  A B B A B A ...\n\n   THE SHIFT MAP sigma on sequences:  sigma(s0 s1 s2 ...) = (s1 s2 s3 ...)\n   (drop the first symbol). One step of F = one shift of the itinerary.\n\n       F on state space     <--conjugate-->    sigma on {A,B}^N (sequences)\n       (geometry, hard)                         (combinatorics, easy)\n\n   FULL SHIFT on 2 symbols = ALL infinite binary strings. Its dynamics:\n     - periodic orbits  <-> periodic strings (ABAB..., AABAAB..., ...)\n       => COUNTABLY infinitely many, DENSE.\n     - a sequence listing every finite block exists -> TRANSITIVITY (mixing).\n     - the shift has SDIC: differ in symbol n -> separate after n shifts.\n   => the full 2-shift is provably CHAOTIC (Devaney, Ch. 05) -- and it's\n      pure combinatorics. This is the cleanest model of chaos that exists.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 150,
+      "heading_context": "## The Hénon Map: the 2D Strange Attractor",
+      "confidence": "candidate",
+      "text": "   x_{n+1} = 1 - a x_n^2 + y_n            a = 1.4, b = 0.3  (standard chaos)\n   y_{n+1} = b x_n\n\n   JACOBIAN det = -b (constant) -> uniform area CONTRACTION by |b| = 0.3\n   each step (dissipative -> attractor exists). The fold-and-stretch:\n        x-update STRETCHES (quadratic) ; y=bx FOLDS the band back.\n\n   THE ATTRACTOR (a boomerang of nested curves):\n        y |        ___,,,,---'''       Looks like a few smooth arcs, but\n          |    ,-''   ____,,---        ZOOMING IN reveals each \"curve\" is a\n          |  ,'   ,-''                 Cantor set of infinitely many parallel\n          | /  ,-'    (self-similar    strands transverse to the fold.\n          |/ ,'        Cantor layering) Fractal dimension ~ 1.26.\n          +-------------------> x       Locally = (smooth curve) x (Cantor set).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 180,
+      "heading_context": "## The Smale Horseshoe: the Geometry of Chaos",
+      "confidence": "candidate",
+      "text": "   ONE STEP OF THE HORSESHOE MAP H:\n        [    square    ]   --stretch-->  [=== long thin strip ===]\n                                              |  --fold-->\n        +-----+   the intersection         +--+ +--+\n        | === |   of the square with        |  | |  |   two vertical\n        | === |   its image = TWO            |  | |  |   strips survive\n        +-----+   horizontal strips          +--+ +--+\n\n   THE INVARIANT SET (points that stay in the square FOREVER, forward AND\n   backward) = a CANTOR SET x CANTOR SET.  Label the two strips 0 and 1.\n   Each point's full itinerary (...s_{-2} s_{-1} . s_0 s_1 s_2...) is a\n   bi-infinite binary string, and H acts as the SHIFT.\n\n   => H restricted to its invariant set is CONJUGATE to the full 2-shift\n      => provably chaotic: dense periodic orbits, transitivity, SDIC.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 213,
+      "heading_context": "## Sharkovskii and \"Period 3 Implies Chaos\"",
+      "confidence": "candidate",
+      "text": "   SHARKOVSKII'S ORDERING of the naturals (for periods of a continuous\n   1D map; rightmost forces everything to its right):\n\n     3 > 5 > 7 > ... (odds) > 2.3 > 2.5 > ... > 4.3 > 4.5 > ...\n       ... > 2^3 > 2^2 > 2 > 1\n\n   THEOREM: if a continuous map f: R -> R has a periodic point of period p,\n   it has periodic points of EVERY period q with p > q in this ordering.\n\n   CONSEQUENCE (Li-Yorke): period 3 is FIRST -> a period-3 orbit forces\n   orbits of EVERY period, plus an uncountable \"scrambled set\".\n   \"Period three implies chaos.\"  (The period-3 window of the logistic map,\n   Ch. 05, therefore certifies chaos directly.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 262,
+      "heading_context": "### \"Maps are just discretized flows — less powerful\"",
+      "confidence": "candidate",
+      "text": "### \"`F'(x*) < 1` for stability — same as flows?\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 277,
+      "heading_context": "### \"Symbolic dynamics is just notation\"",
+      "confidence": "candidate",
+      "text": "### \"Period 3 implies chaos — for any system?\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

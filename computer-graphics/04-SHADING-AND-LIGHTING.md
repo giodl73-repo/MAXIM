@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # Shading and Lighting
 
 ## The Big Picture: One Equation, Many Approximations
@@ -36,11 +35,12 @@ it ever more faithfully.
 |                                                                                      |
 |   crude <------------------- fidelity -------------------> physically correct        |
 |                                                                                      |
-|  +----------+   +-----------+   +-----------+   +-----------+   +-----------------+   |
-|  | Lambert  |-> | Phong /   |-> | PBR BRDF  |-> | direct +  |-> | full GI: path   |   |
-|  | (diffuse)|   | Blinn     |   | (Cook-    |   | image-    |   | tracing solves  |   |
-|  |          |   | (1973-77) |   | Torrance) |   | based lit |   | the integral    |   |
-|  +----------+   +-----------+   +-----------+   +-----------+   +-----------------+   |
+|  +----------+   +-----------+   +-----------+   +-----------+   +-----------------+  |
+|  | Lambert  |-> | Phong /   |-> | PBR BRDF  |-> | direct +  |-> | full GI: path   |  |
+|  | (diffuse)|   | Blinn     |   | (Cook-    |   | image-    |   | tracing solves  |  |
+|  |          |   | (1973-77) |   | Torrance) |   | based lit |   | the integral    |  |
+|  +----------+   +-----------+   +-----------+   +-----------+   +-----------------+  |
+
 |   [L1]           [L2]            [L3 BRDF]       [L4 IBL]        [L5 GI / 03]        |
 +--------------------------------------------------------------------------------------+
 ```
@@ -58,12 +58,12 @@ attempts the recursive integral. The equation itself is the spec.
                                  f_r(x, wi, wo) · Li(x, wi) · (n · wi) dwi
 
    ┌──────────┬──────────────────────────────────────────────────────────┐
-   │ Lo(x,wo) │ RADIANCE leaving point x toward viewing direction wo      │
-   │ Le(x,wo) │ radiance the surface EMITS itself (0 unless it's a light) │
-   │ f_r(...) │ the BRDF: fraction of light from wi redirected toward wo  │
-   │ Li(x,wi) │ radiance ARRIVING at x from incoming direction wi         │
-   │ (n · wi) │ Lambert cosine: grazing light spreads over more area      │
-   │ ∫ dwi    │ sum over EVERY incoming direction on the hemisphere       │
+   │ Lo(x,wo) │ RADIANCE leaving point x toward viewing direction wo     │
+   │ Le(x,wo) │ radiance the surface EMITS itself (0 unless it's a light)│
+   │ f_r(...) │ the BRDF: fraction of light from wi redirected toward wo │
+   │ Li(x,wi) │ radiance ARRIVING at x from incoming direction wi        │
+   │ (n · wi) │ Lambert cosine: grazing light spreads over more area     │
+   │ ∫ dwi    │ sum over EVERY incoming direction on the hemisphere      │
    └──────────┴──────────────────────────────────────────────────────────┘
 ```
 

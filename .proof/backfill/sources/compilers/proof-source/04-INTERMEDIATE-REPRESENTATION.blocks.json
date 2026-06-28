@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "compilers\\04-INTERMEDIATE-REPRESENTATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 32,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "                            THE IR LADDER\n\n    typed AST (tree, control flow implicit)\n\n         |  flatten: introduce temporaries, sequence operations\n         v\n\n    THREE-ADDRESS CODE   (each op: x = y <op> z;\n                          at most one operator, ~3 operands)\n    +-------------------------+\n    |  t1 = a + b             |\n    |  t2 = t1 * c            |\n    +-------------------------+\n\n         |  split at branch targets / branches\n         v\n\n    BASIC BLOCKS   (one entry, one exit, no internal jumps;\n                    edges = control flow)\n    +-------------------------+\n    |  straight-line runs;    |\n    |  edges = control flow   |\n    +-------------------------+\n\n         |  connect blocks by branch edges\n         v\n\n    CONTROL-FLOW GRAPH (CFG)   (nodes = blocks,\n                                edges = possible jumps)\n    +-------------------------+\n    |   B0 -> B1 -> B3        |\n    |    \\-> B2 ->/           |\n    +-------------------------+\n\n         |  rename each def uniquely; phi at merges\n         v\n\n    SSA FORM   (every variable assigned EXACTLY ONCE;\n                phi selects by predecessor at merges)\n    +-------------------------+\n    |  x1 = ...   x2 = ...    |\n    |  x3 = phi(x1, x2)       |\n    +-------------------------+\n\n         |\n         v   to dataflow (05) + optimization (06)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 138,
+      "heading_context": "## Basic Blocks and the CFG",
+      "confidence": "candidate",
+      "text": "  TAC with labels:                 CFG:\n   B0: t = n                         +-----+\n       if t <= 1 goto B2             | B0  |  if t<=1\n                                     +--+--+\n   B1: r = n * fact(n-1)          F  /     \\  T\n       goto B3                      v       v\n\n                                 +-----+ +-----+\n   B2: r = 1                     | B1  | | B2  |\n                                 +--+--+ +--+--+\n   B3: return r                     \\       /\n                                     v     v\n\n                                     +-----+\n                                     | B3  |\n                                     +-----+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 157,
+      "heading_context": "## Basic Blocks and the CFG",
+      "confidence": "candidate",
+      "text": "  CFG vocabulary you'll use constantly:\n    predecessors / successors of a block\n    entry block (no predecessors except itself)\n    back edge (target dominates source) -> marks a LOOP\n    critical edge (from a block with >1 successor to a block with >1\n       predecessor) -> often SPLIT before SSA destruction / phi lowering\n    reducible CFG (loops have single entry headers) -> the well-behaved\n       case structured languages produce; irreducible CFGs (from goto\n       spaghetti) need extra care",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 239,
+      "heading_context": "### Dominance",
+      "confidence": "candidate",
+      "text": "  CFG:                  Dominator tree:\n     entry                 entry\n       |                     |\n       B0                    B0\n      /  \\                  /|\\\n    B1    B2              B1 B2 B3\n      \\  /                       (B3's idom is B0, NOT B1 or B2 --\n       B3                         neither B1 nor B2 is on EVERY path\n       |                          to B3, but B0 is)\n       B4                   B4 hangs under B3",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 266,
+      "heading_context": "### Dominance Frontier — exactly where phis go",
+      "confidence": "candidate",
+      "text": "  PHI PLACEMENT (iterated dominance frontier):\n    For each variable v:\n      Workset = { blocks that DEFINE v }\n      For each block A in the worklist:\n        for each B in DF(A):\n          if B has no phi for v yet:\n            insert  v = phi(...)  at the top of B\n            if B did not already define v, add B to the worklist\n              (a phi is itself a definition -> may trigger more phis)\n    => the ITERATED dominance frontier of the definition set.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 279,
+      "heading_context": "### Dominance Frontier — exactly where phis go",
+      "confidence": "candidate",
+      "text": "  Worked example -- variable x defined in B1 and B2:\n\n     B0: (entry, branches to B1 or B2)\n     B1: x = 1   ;  goto B3\n     B2: x = 2   ;  goto B3\n     B3: use x\n\n     DF(B1) = {B3}   (B1 dominates its own only-pred-of-B3? B1 is a pred of\n                      B3, and B1 does not strictly dominate B3 -> B3 in DF(B1))\n     DF(B2) = {B3}   (same reasoning)\n     => insert  x3 = phi(x1, x2)  at the top of B3.  Correct: B3 is the merge.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

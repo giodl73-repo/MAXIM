@@ -31,33 +31,34 @@ machine-facing half of the pipeline.
 
 ```
 +--------------------------------------------------------------------------+
-|                          CODE GENERATION                                |
+|                          CODE GENERATION                                 |
 |                                                                          |
 |   optimized IR (target-independent, SSA, virtual regs)                   |
 |        |                                                                 |
 |        v                                                                 |
-|   +-------------------------+   INSTRUCTION SELECTION                    |
-|   |  tile the IR/DAG with   |   IR ops -> machine instructions           |
-|   |  machine instructions   |   (maximal munch / BURS / DAG covering)    |
-|   +-------------------------+                                            |
+|   INSTRUCTION SELECTION                                                  |
+|     tile the IR/DAG with machine instructions                            |
+|     IR ops -> machine instructions                                       |
+|     (maximal munch / BURS / DAG covering)                                |
 |        |                                                                 |
 |        v                                                                 |
-|   +-------------------------+   INSTRUCTION SCHEDULING                   |
-|   |  reorder to hide        |   list scheduling over the dependence DAG  |
-|   |  latencies / hazards    |   (respect data deps, fill pipeline slots) |
-|   +-------------------------+                                            |
+|   INSTRUCTION SCHEDULING                                                 |
+|     reorder to hide latencies / hazards                                  |
+|     list scheduling over the dependence DAG                              |
+|     (respect data deps, fill pipeline slots)                             |
 |        |                                                                 |
 |        v                                                                 |
-|   +-------------------------+   REGISTER ALLOCATION (guide 07)           |
-|   |  virtual -> physical    |   coloring / linear scan + spills          |
-|   +-------------------------+                                            |
+|   REGISTER ALLOCATION (guide 07)                                         |
+|     virtual -> physical                                                  |
+|     coloring / linear scan + spills                                      |
 |        |                                                                 |
 |        v                                                                 |
-|   +-------------------------+   ABI: prologue/epilogue, arg passing,     |
-|   |  CALLING CONVENTION     |   stack frame, callee/caller-saved regs    |
-|   +-------------------------+                                            |
+|   CALLING CONVENTION                                                     |
+|     ABI: prologue/epilogue, arg passing,                                 |
+|     stack frame, callee/caller-saved regs                                |
 |        |                                                                 |
-|        v   PEEPHOLE cleanup -> emit assembly / object code -> linker     |
+|        v                                                                 |
+|   PEEPHOLE cleanup -> emit assembly / object code -> linker              |
 +--------------------------------------------------------------------------+
 ```
 
@@ -161,21 +162,21 @@ is laid out, how values are returned. Get it wrong and code cannot interoperate.
   THE STACK FRAME (x86-64, grows DOWN):
 
      higher addresses
-     +------------------------+
-     |  caller's frame        |
-     +------------------------+
-     |  argument 7, 8, ...    |  <- args beyond register count, pushed by caller
-     +------------------------+
-     |  return address        |  <- pushed by CALL
-     +------------------------+  <- frame base (RBP, if used)
-     |  saved RBP             |
-     +------------------------+
-     |  callee-saved regs     |  <- prologue saves the ones it will use
-     +------------------------+
-     |  local variables /     |
-     |  spill slots           |  <- register allocator's overflow lives here
-     +------------------------+  <- RSP (stack pointer)
-     lower addresses
+     +------------------------+----------------------------------------+
+     |  caller's frame        |                                        |
+     +------------------------+----------------------------------------+
+     |  argument 7, 8, ...    |  args beyond register count, by caller |
+     +------------------------+----------------------------------------+
+     |  return address        |  pushed by CALL                        |
+     +------------------------+----------------------------------------+
+     |  saved RBP             |  frame base = RBP (if used)            |
+     +------------------------+----------------------------------------+
+     |  callee-saved regs     |  prologue saves the ones it will use   |
+     +------------------------+----------------------------------------+
+     |  local variables /     |                                        |
+     |  spill slots           |  register allocator's overflow here    |
+     +------------------------+----------------------------------------+
+     lower addresses  <- RSP (stack pointer)
 ```
 
 ```

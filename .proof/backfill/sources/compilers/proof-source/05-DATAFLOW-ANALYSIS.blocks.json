@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "compilers\\05-DATAFLOW-ANALYSIS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 33,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------------+\n|                    THE DATAFLOW FRAMEWORK                                |\n|                                                                          |\n|   A lattice L of \"facts\"      +  a CFG  +  transfer functions            |\n|        TOP  (most optimistic /                                           |\n|             \"no info yet\")                                               |\n|         |                                                                |\n|       .....    (lattice of facts, ordered by information)                |\n|         |                                                                |\n|       BOTTOM (most conservative / \"anything possible\")                   |\n|                                                                          |\n|   For each block B:                                                      |\n|     IN[B]  = MEET over predecessors of OUT[p]   (forward analysis)       |\n|     OUT[B] = transfer_B( IN[B] )  =  GEN[B] U (IN[B] - KILL[B])          |\n|                                                                          |\n|   Iterate until IN/OUT stop changing  =>  FIXPOINT.                      |\n|   Monotone transfer + finite-height lattice  =>  guaranteed to halt.     |\n|                                                                          |\n|   Direction:  forward (reaching defs) | backward (liveness)              |\n|   Meet:       union (may) | intersection (must)                          |\n+--------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 68,
+      "heading_context": "## The Lattice — Facts Ordered by Information",
+      "confidence": "candidate",
+      "text": "  Constant-propagation lattice for one variable:\n\n                TOP   (no information yet -- \"could be anything,\n                 |     start optimistic\")\n        +--------+--------+----- ...\n        |        |        |      ...\n       ...0      1        2  ...   (each known constant)\n        +--------+--------+----- ...\n                 |\n               BOTTOM  (NOT a constant -- \"overdefined\", conservative)\n\n    MEET rules:\n       meet(TOP, x)   = x          (TOP is identity -- defers to any fact)\n       meet(c, c)     = c          (same constant -> still that constant)\n       meet(c1, c2)   = BOTTOM     (c1 != c2 -> not constant on all paths)\n       meet(BOTTOM,x) = BOTTOM     (already overdefined)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 145,
+      "heading_context": "## Worked: Reaching Definitions",
+      "confidence": "candidate",
+      "text": "  d1: x = 1          B0\n      if p goto B2\n  ------------------------\n  d2: x = 2          B1\n      goto B3\n  ------------------------\n  (B2): y = x        B2     <- uses x\n      goto B3\n  ------------------------\n  (B3): z = x        B3     <- uses x, a MERGE of B1 and B0->B2\n\n  GEN/KILL for x's defs {d1,d2}:\n    B0: GEN={d1}, KILL={d2}     OUT[B0] = {d1}\n    B1: GEN={d2}, KILL={d1}     OUT[B1] = {d2}\n    B2: GEN={},   KILL={}       IN[B2]=OUT[B0]={d1} -> use of x sees d1\n    B3: IN[B3] = OUT[B1] U OUT[B2] = {d2} U {d1} = {d1,d2}\n        -> the use of x in B3 may be reached by EITHER def. (union = may)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 177,
+      "heading_context": "## Worked: Liveness",
+      "confidence": "candidate",
+      "text": "  A variable is LIVE at a point if there is a path from that point to a USE\n  of it, with no intervening redefinition.\n\n  Backward transfer:\n     IN[B]  = use[B] U (OUT[B] - def[B])\n     OUT[B] = UNION over successors s of IN[s]\n\n  Example:\n     B1: a = 1                 def {a}\n         b = 2                 def {b}\n         if a goto B3\n     B2: c = a + b   ; use a,b\n     B3: return b    ; use b\n\n     Liveness (backward):\n       IN[B3] = {b}                       (b used)\n       IN[B2] = {a,b}                     (a,b used)\n       OUT[B1] = IN[B2] U IN[B3] = {a,b}\n       IN[B1]  = {} U (OUT[B1] - {a,b}) = {}   (a,b defined in B1)\n\n     Reading the result: across the branch, a and b are both live (needed by\n     B2 or B3) -> they must occupy registers there. After B2 uses them, a may\n     die. These LIVE RANGES are the input to register allocation.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 210,
+      "heading_context": "## Worked: Available Expressions (a MUST analysis)",
+      "confidence": "candidate",
+      "text": "     B1: t = a + b          GEN {a+b}\n         if p goto B3\n     B2: u = a + b          GEN {a+b}\n         goto B4\n     B3: a = 9              KILL anything mentioning a  (a+b no longer valid)\n         goto B4\n     B4: v = a + b          <- is a+b available?\n\n     IN[B4] = OUT[B2] INTERSECT OUT[B3]\n            = {a+b}  INTERSECT  {}   (B3 killed a+b)\n            = {}      -> a+b NOT available on all paths -> cannot reuse.\n\n     If B3 did not redefine a, the intersection would keep {a+b} and CSE\n     could replace `v = a + b` with `v = t` (or `v = u`). The intersection\n     (MUST) is what makes this safe -- a union would wrongly reuse a value\n     that one path invalidated.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 239,
+      "heading_context": "## Dominators as a Dataflow Problem",
+      "confidence": "candidate",
+      "text": "  DOM[B] = {B} UNION ( INTERSECT over predecessors p of DOM[p] )\n  DOM[entry] = {entry}\n\n  Iterate to fixpoint:\n     \"A dominates B\" means A is in DOM[B].\n     A block is dominated by itself and by everything that dominates ALL\n     its predecessors (intersection -> every path) .\n\n  CFG:  entry -> B0 -> {B1,B2} -> B3\n     DOM[entry] = {entry}\n     DOM[B0]    = {entry,B0}\n     DOM[B1]    = {entry,B0,B1}\n     DOM[B2]    = {entry,B0,B2}\n     DOM[B3]    = {B3} U (DOM[B1] INTERSECT DOM[B2])\n                = {B3} U ({entry,B0,B1} INTERSECT {entry,B0,B2})\n                = {B3,entry,B0}        (B1,B2 drop out -- not on every path)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 270,
+      "heading_context": "## Worklist Algorithms and Iteration Order",
+      "confidence": "candidate",
+      "text": "  worklist = all blocks\n  while worklist not empty:\n     B = pop()\n     recompute OUT[B] (or IN[B] for backward)\n     if it changed:\n        push B's successors (forward) / predecessors (backward)\n\n  ITERATION ORDER MATTERS for speed (not correctness):\n     forward analysis  -> REVERSE POSTORDER (process a block after its preds)\n     backward analysis -> POSTORDER\n     Good order: a reducible CFG converges in (loop-nesting-depth + 2) passes.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "dynamical-systems\\03-BIFURCATIONS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 72,
+      "heading_context": "## Why Normal Forms Exist (the deep license)",
+      "headers": [
+        "You already know",
+        "Bifurcation framing"
+      ],
+      "rows": [
+        [
+          "A control gain that destabilizes a closed loop",
+          "A pole crosses into the RHP → bifurcation; if complex, a **Hopf** (limit-cycle oscillation) — `control-theory/01`"
+        ],
+        [
+          "Buckling of a loaded column (Euler)",
+          "**Pitchfork**: straight state loses stability, two bent states appear"
+        ],
+        [
+          "Phase transition / spontaneous symmetry breaking",
+          "Pitchfork of an order-parameter ODE; `μ` ↔ (T_c − T) — `statistical-mechanics/`"
+        ],
+        [
+          "Onset of oscillation in an op-amp / laser",
+          "**Hopf** bifurcation creating a stable limit cycle"
+        ],
+        [
+          "Hysteresis / Schmitt-trigger latching",
+          "**Saddle-node** pair bounding a bistable region"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 275,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Observed change as `μ` varies",
+        "Bifurcation",
+        "Normal form"
+      ],
+      "rows": [
+        [
+          "Two fixed points appear/vanish from nothing",
+          "Saddle-node (fold)",
+          "`ẋ = μ − x²`"
+        ],
+        [
+          "Two fixed points cross and swap stability",
+          "Transcritical",
+          "`ẋ = μx − x²`"
+        ],
+        [
+          "One symmetric point → two symmetric stable ones",
+          "Supercritical pitchfork",
+          "`ẋ = μx − x³`"
+        ],
+        [
+          "Symmetric point destabilizes, no nearby stable state",
+          "Subcritical pitchfork",
+          "`ẋ = μx + x³`"
+        ],
+        [
+          "Spiral flips stability, smooth oscillation grows",
+          "Supercritical Hopf",
+          "`ṙ = μr − r³`"
+        ],
+        [
+          "Oscillation appears abruptly at finite amplitude",
+          "Subcritical Hopf",
+          "`ṙ = μr + r³`"
+        ],
+        [
+          "Bistability + jumps + hysteresis",
+          "Cusp (codim 2)",
+          "`ẋ = μ₁ + μ₂x − x³`"
+        ],
+        [
+          "A *real* eigenvalue crosses 0",
+          "One of the first three (symmetry decides which)",
+          "—"
+        ],
+        [
+          "A *complex pair* crosses imaginary axis",
+          "Hopf",
+          "—"
+        ]
+      ]
+    }
+  ]
+}

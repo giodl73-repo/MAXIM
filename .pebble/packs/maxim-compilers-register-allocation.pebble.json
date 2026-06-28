@@ -1,0 +1,97 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-compilers-register-allocation",
+  "source": "../../compilers",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "07-REGISTER-ALLOCATION.md#000",
+      "path": [
+        "07-REGISTER-ALLOCATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:07-register-allocation, git-history:compilers:07-register-allocation]",
+        "canonical_path": "compilers/07-REGISTER-ALLOCATION.md",
+        "concepts": "[register allocation, interference graph, graph coloring, Chaitin, linear scan, spilling, coalescing]",
+        "current_path": "compilers/07-REGISTER-ALLOCATION.md",
+        "id": "maxim:compilers:register-allocation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[register allocation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Register Allocation - Graph Coloring vs Linear Scan, Spilling",
+        "updated": "null"
+      },
+      "text": "# Register Allocation — Coloring vs Linear Scan"
+    },
+    {
+      "id": "07-REGISTER-ALLOCATION.md#001",
+      "path": [
+        "07-REGISTER-ALLOCATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:07-register-allocation, git-history:compilers:07-register-allocation]",
+        "canonical_path": "compilers/07-REGISTER-ALLOCATION.md",
+        "concepts": "[register allocation, interference graph, graph coloring, Chaitin, linear scan, spilling, coalescing]",
+        "current_path": "compilers/07-REGISTER-ALLOCATION.md",
+        "id": "maxim:compilers:register-allocation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[register allocation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Register Allocation - Graph Coloring vs Linear Scan, Spilling",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "07-REGISTER-ALLOCATION.md#002",
+      "path": [
+        "07-REGISTER-ALLOCATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:07-register-allocation, git-history:compilers:07-register-allocation]",
+        "canonical_path": "compilers/07-REGISTER-ALLOCATION.md",
+        "concepts": "[register allocation, interference graph, graph coloring, Chaitin, linear scan, spilling, coalescing]",
+        "current_path": "compilers/07-REGISTER-ALLOCATION.md",
+        "id": "maxim:compilers:register-allocation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[register allocation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Register Allocation - Graph Coloring vs Linear Scan, Spilling",
+        "updated": "null"
+      },
+      "text": "The IR has unlimited virtual registers; the machine has, say, 16. Register\nallocation maps the infinitely many virtual registers (the SSA values from guide 04)\nonto the finite physical register file, spilling the overflow to the stack. Two\nvalues can share a register iff they are never *live at the same time* — so the\nproblem is graph coloring of an interference graph, which is NP-complete, and the\nwhole field is the trade-off between near-optimal coloring (Chaitin-Briggs) and the\nfast-but-greedy linear scan that JITs use."
+    }
+  ],
+  "refs": [
+    "07-REGISTER-ALLOCATION.md"
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "schema_version": "1",
+  "source_markdown": "algorithms\\09-COMPLEXITY-AND-NP.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 265,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "The complexity concept"
+      ],
+      "rows": [
+        [
+          "\"This scheduling/packing feature is NP-hard\"",
+          "A reduction from a Karp problem places it; ship an approximation"
+        ],
+        [
+          "A solver/SAT-based config validator",
+          "SAT is NP-complete; modern SAT solvers are the practical workhorse"
+        ],
+        [
+          "\"We can only get within X% of optimal\"",
+          "Approximation ratio ρ with a proof — FPTAS/PTAS/constant/log hierarchy"
+        ],
+        [
+          "LP relaxation in an optimizer",
+          "The standard route to approximation ratios (`operations-research/`)"
+        ],
+        [
+          "Miller-Rabin in key generation",
+          "Randomized (RP-style) primality; RSA rests on factoring hardness (`cryptography/`)"
+        ],
+        [
+          "\"Retry until it works\" Monte Carlo job",
+          "Amplification: error drops exponentially with repetition"
+        ],
+        [
+          "Hash-flood / ReDoS defense",
+          "Randomized hashing / linear automata defeat adversarial worst cases (`06`,`08`)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 285,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Move",
+        "Reference"
+      ],
+      "rows": [
+        [
+          "Prove my problem B is NP-hard",
+          "reduce a known NP-hard A **to** B (A ≤_p B)",
+          "Layer 2"
+        ],
+        [
+          "Suspect B is easy",
+          "reduce B to a known poly problem",
+          "Layer 2"
+        ],
+        [
+          "NP-hard but numbers are small",
+          "pseudo-poly DP (weakly NP-hard)",
+          "`04`, Layer 3"
+        ],
+        [
+          "NP-hard, numbers large",
+          "approximation / heuristic / solver",
+          "Layers 4–5"
+        ],
+        [
+          "Need a quality guarantee",
+          "approximation algorithm with ratio ρ",
+          "Layer 4"
+        ],
+        [
+          "Want (1+ε) and it's knapsack-like",
+          "FPTAS",
+          "Layer 4"
+        ],
+        [
+          "Constant-factor impossible?",
+          "check PCP-based inapproximability",
+          "Layer 4"
+        ],
+        [
+          "Simpler/faster algorithm acceptable with tiny error",
+          "randomized (BPP/RP) + amplify",
+          "Layer 5"
+        ],
+        [
+          "Need always-correct + expected-fast",
+          "Las Vegas (ZPP)",
+          "Layer 5"
+        ],
+        [
+          "Adversarial worst-case inputs",
+          "randomize pivots/hash seeds",
+          "`02`,`06`,`08`"
+        ],
+        [
+          "Counting solutions, not deciding",
+          "#P — expect it to be harder",
+          "Layer 6"
+        ],
+        [
+          "Game / quantified problem",
+          "likely PSPACE-complete",
+          "Layer 6"
+        ]
+      ]
+    }
+  ]
+}

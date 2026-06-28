@@ -30,22 +30,22 @@ reducing `a` (fewer subproblems) so the leaves stop dominating.
   DIVIDE & CONQUER: T(n) = a T(n/b) + f(n)        (a subproblems, size n/b, combine f)
   ===================================================================================
 
-                         +----------------+
+                         +-----------------+
                          |  PROBLEM size n |
-                         +----------------+
+                         +-----------------+
                                 |  DIVIDE into a pieces of size n/b
-              +-----------------+-----------------+
-              v                 v                 v
+        +-----------------+-----------------+----------+
+        v                 v                 v
         +----------+      +----------+      +----------+
         | size n/b |      | size n/b |  ... | size n/b |     (a of them)
         +----------+      +----------+      +----------+
-              |  CONQUER (recurse)                |
-              +-----------------+-----------------+
+        |     CONQUER (recurse)                        |
+        +-----------------+-----------------+----------+
                                 |  COMBINE in f(n)
                                 v
-                         +----------------+
+                         +-----------------+
                          |   SOLUTION      |
-                         +----------------+
+                         +-----------------+
 
    The lever:  watershed exponent c = log_b(a)  (= log of #leaves)
      a small (few subproblems) -> combine f(n) dominates  -> T = Theta(f)
@@ -159,14 +159,20 @@ n-digit numbers) in O(n log n) — the asymptotic limit of the Karatsuba idea.
    T(n) = 2 T(n/2) + O(n)   ->   Theta(n log n)     [Master case 2, mergesort recurrence]
 
    USE (fast convolution / multiplication):
-   +------+   FFT   +-------+
-   | a, b | -----> | A, B  | (point-value form)
-   +------+         +-------+
-                       |  pointwise multiply  C[k] = A[k]*B[k]   (O(n))
-                       v
-                    +-------+  inverse FFT   +----------+
-                    |  C    | ------------> | a (*) b  | (convolution / product)
-                    +-------+                +----------+
+
+       +------+   FFT    +-------+
+       | a, b | ------>  | A, B  |
+       +------+          +-------+
+                         A, B in point-value form
+
+                         |  pointwise multiply  C[k] = A[k]*B[k]   (O(n))
+                         v
+
+       +-------+  inverse FFT    +----------+
+       |  C    | ------------>   | a (*) b  |
+       +-------+                 +----------+
+                                 a (*) b = convolution / product
+
    Total: O(n log n) — beats Karatsuba's n^1.585 and schoolbook n^2.
 ```
 

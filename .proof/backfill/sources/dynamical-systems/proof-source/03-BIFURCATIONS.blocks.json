@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "dynamical-systems\\03-BIFURCATIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "# Bifurcations",
+      "confidence": "candidate",
+      "text": "                THE FOUR LOCAL BIFURCATIONS (1-PARAMETER)\n                =========================================\n\n   parameter mu sweeps left -> right; x* = fixed-point location (vertical)\n\n   SADDLE-NODE             TRANSCRITICAL          PITCHFORK (super)\n   x* ^   stable           x* ^  \\   /            x* ^      stable\n      |  ___                  |   \\ /                 |  ___/  branches\n      | /                     |    X  exchange        | /\n   ---+------> mu          ---+---/-\\----> mu      ---+----*----> mu\n      | \\___ unstable         |   /   \\                | \\___\n      |     (two collide      |  /     \\               |     \\  (symmetric;\n      |      & vanish)        stable unstable          unstable middle)\n\n   HOPF (super): a fixed point spits out a LIMIT CYCLE\n        amplitude ^        _____ stable cycle (radius ~ sqrt(mu))\n                  |     ___/\n                  |  __/        fixed point: stable for mu<0,\n               ---+--*--------> mu   unstable for mu>0, ringed by\n                  |               a growing periodic orbit",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 87,
+      "heading_context": "## Saddle-Node (Fold / Blue-Sky)",
+      "confidence": "candidate",
+      "text": "   NORMAL FORM:   x' = mu - x^2\n\n   Fixed points: x* = +- sqrt(mu).\n\n     mu < 0:  NO real fixed points.  x' = mu - x^2 < 0 always -> x runs off.\n     mu = 0:  ONE half-stable point at x*=0 (the bifurcation).\n     mu > 0:  TWO fixed points.  x*=+sqrt(mu) stable (f'=-2x<0),\n                                 x*=-sqrt(mu) unstable (f'=-2x>0).\n\n   BIFURCATION DIAGRAM:\n        x*  ^\n            |       ___ stable (+sqrt mu)\n            |    __/\n        ----+---*------------> mu          \"out of the blue sky\" two fixed\n            |    \\__           points appear as mu increases through 0.\n            |       \\___ unstable (-sqrt mu)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 117,
+      "heading_context": "## Transcritical",
+      "confidence": "candidate",
+      "text": "   NORMAL FORM:   x' = mu*x - x^2 = x(mu - x)\n\n   Fixed points: x* = 0  (always)  and  x* = mu.\n\n     mu < 0:  x*=0 STABLE  (f'(0)=mu<0),   x*=mu unstable.\n     mu = 0:  the two merge.\n     mu > 0:  x*=0 UNSTABLE (f'(0)=mu>0),   x*=mu STABLE.\n\n   BIFURCATION DIAGRAM:\n        x*  ^        x*=mu (stable for mu>0)\n            |       /\n            |      /                  The two lines CROSS and swap\n        ----+-----X---------> mu      stability. x=0 persists but\n            |    / (exchange)          loses stability to x=mu.\n            |   /  x=0 (stable mu<0)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 148,
+      "heading_context": "## Pitchfork (the symmetry breaker)",
+      "confidence": "candidate",
+      "text": "   SUPERCRITICAL:  x' = mu*x - x^3            SUBCRITICAL:  x' = mu*x + x^3\n   (soft, safe)                               (hard, dangerous)\n\n   Fixed pts: x*=0 and x*=+-sqrt(mu)          Fixed pts: x*=0 and x*=+-sqrt(-mu)\n              (exist for mu>0)                           (exist for mu<0, UNSTABLE)\n\n     x* ^                                       x* ^   unstable branches\n        |    __/ stable +sqrt mu                   |  \\  (mu<0)\n        |   /                                      |   \\\n     ---+--*-------> mu                         ---+----*-------> mu\n        |   \\___                                   |   /  |\n        |       \\_ stable -sqrt mu                 |  /   x=0 stable for mu<0,\n        x=0 stable mu<0, unstable mu>0             unstable for mu>0 -> JUMPS",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 164,
+      "heading_context": "## Pitchfork (the symmetry breaker)",
+      "confidence": "candidate",
+      "text": "   SUPERCRITICAL                        SUBCRITICAL\n   - new branches are STABLE            - new branches are UNSTABLE, exist BEFORE\n   - continuous, reversible             - x=0 destabilizes with NO nearby stable\n   - \"second-order\" transition            state -> system JUMPS far away\n   - column buckling, magnetization     - HYSTERESIS, \"first-order\" transition,\n     above Curie temperature              subcritical Hopf in fluid turbulence",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 186,
+      "heading_context": "## Hopf (birth of oscillation)",
+      "confidence": "candidate",
+      "text": "   EIGENVALUE CROSSING:                NORMAL FORM (polar, r = amplitude):\n        Im                                 r' = mu*r - r^3   (supercritical)\n         ^   lambda(mu)                    theta' = omega + ...\n         |  o-->|-->o   as mu increases\n   ------+------|------> Re             Fixed pt r=0 ringed by a limit cycle\n         |  o-->|-->o                   at r* = sqrt(mu) when mu > 0.\n         |     mu=0 (cross axis)\n                                        Compare: this is the PITCHFORK normal\n   pair moves from LHP (stable spiral)  form in the RADIUS r -- a \"rotating\n   to RHP (unstable spiral)             pitchfork.\" Amplitude ~ sqrt(mu).\n\n   SUPERCRITICAL HOPF:                  SUBCRITICAL HOPF:\n        amplitude                            amplitude\n          | ___ stable cycle (~sqrt mu)        |\\  unstable cycle (mu<0)\n          |/                                   | \\   then JUMP to far cycle\n       ---*------> mu  (soft onset)         ---*----> mu  (hard onset, hysteresis)\n        stable->unstable fixed pt            dangerous: oscillation appears\n                                             with finite amplitude abruptly",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 254,
+      "heading_context": "## Worked Example: Classifying a Bifurcation",
+      "confidence": "candidate",
+      "text": "   x' = mu - x - e^{-x}                 (a 1D system, parameter mu)\n\n   1. Fixed points: mu = x + e^{-x}.  Let g(x) = x + e^{-x}; g'(x) = 1 - e^{-x}.\n      g has a MINIMUM at x=0 where g(0)=1, g'(0)=0.  So:\n        mu < 1:  no solution (line mu below the min) -> NO fixed points.\n        mu = 1:  tangency at x=0 -> ONE fixed point.\n        mu > 1:  TWO fixed points (one on each side of x=0).\n\n   2. Two fixed points born from nothing as mu increases through 1\n      => SADDLE-NODE bifurcation at (mu, x) = (1, 0).\n\n   3. Confirm with the normal form: near x=0, e^{-x} ~ 1 - x + x^2/2, so\n        x' ~ mu - x - (1 - x + x^2/2) = (mu - 1) - x^2/2.\n      Let nu = mu - 1:  x' = nu - x^2/2  -- the saddle-node normal form. QED.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

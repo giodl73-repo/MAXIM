@@ -1,0 +1,143 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-graphics\\04-SHADING-AND-LIGHTING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 213,
+      "heading_context": "## Layer 3: Physically Based Rendering (PBR) and BRDFs",
+      "headers": [
+        "",
+        "Phong / Blinn-Phong",
+        "PBR (microfacet)"
+      ],
+      "rows": [
+        [
+          "Basis",
+          "Tuned formula",
+          "Physics (microfacet + Fresnel)"
+        ],
+        [
+          "Energy conservation",
+          "No",
+          "Yes (enforced)"
+        ],
+        [
+          "Reciprocity",
+          "Approximate",
+          "Yes"
+        ],
+        [
+          "Parameters",
+          "`k_a,k_d,k_s,α` (unitless fudges)",
+          "albedo, roughness, metalness (physical)"
+        ],
+        [
+          "Transfers across lighting",
+          "No",
+          "Yes"
+        ],
+        [
+          "Fresnel (grazing reflectance)",
+          "Missing",
+          "Built in"
+        ],
+        [
+          "Era",
+          "1973–~2010",
+          "~2012– (UE4, Disney \"principled\")"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 316,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "Here it is"
+      ],
+      "rows": [
+        [
+          "Fredholm integral equation of the 2nd kind",
+          "The rendering equation — unknown inside and outside the integral"
+        ],
+        [
+          "Neumann series `(I−T)⁻¹ = Σ Tⁿ`",
+          "Light transport as a sum over bounce counts"
+        ],
+        [
+          "Conservation laws as hard constraints",
+          "Energy conservation forces valid BRDFs"
+        ],
+        [
+          "Reciprocity / symmetry of an operator",
+          "Helmholtz reciprocity `f_r(wi,wo)=f_r(wo,wi)`"
+        ],
+        [
+          "Precomputed lookup tables",
+          "IBL irradiance maps, prefiltered specular, BRDF LUT"
+        ],
+        [
+          "Importance sampling in Monte Carlo",
+          "Sampling the BRDF lobe in path tracing"
+        ],
+        [
+          "Inverse-square field (gravity, Coulomb)",
+          "Point-light falloff `1/d²`"
+        ],
+        [
+          "Replacing magic constants with units",
+          "Phong's fudges → PBR's physical parameters"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 331,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Choice"
+      ],
+      "rows": [
+        [
+          "Believable materials under any lighting",
+          "PBR (microfacet, metalness/roughness)"
+        ],
+        [
+          "Cheap legacy / stylized look",
+          "Blinn-Phong"
+        ],
+        [
+          "Smooth surface highlights",
+          "Per-pixel (Phong-frequency) normal interpolation"
+        ],
+        [
+          "Soft, realistic shadows",
+          "Area lights (penumbra)"
+        ],
+        [
+          "Reflections of the environment",
+          "Image-based lighting (HDRI + split-sum)"
+        ],
+        [
+          "Color bleeding / realistic ambient",
+          "Global illumination (path tracing / probes)"
+        ],
+        [
+          "Real-time indirect light",
+          "Probes / SH / DDGI / ray-traced GI + denoise"
+        ],
+        [
+          "Caustics (focused light through glass)",
+          "Photon mapping or bidirectional path tracing"
+        ],
+        [
+          "Diagnosing materials that \"glow\"",
+          "Check energy conservation: diffuse+spec ≤ 1"
+        ]
+      ]
+    }
+  ]
+}

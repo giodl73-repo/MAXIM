@@ -1,0 +1,151 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-graphics\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 90,
+      "heading_context": "## The Two Grand Strategies",
+      "headers": [
+        "Axis",
+        "Rasterization",
+        "Ray Tracing"
+      ],
+      "rows": [
+        [
+          "Loop order",
+          "Per-primitive (object order)",
+          "Per-pixel (image order)"
+        ],
+        [
+          "Visibility",
+          "Z-buffer depth test",
+          "Closest-hit search along ray"
+        ],
+        [
+          "Cost model",
+          "O(triangles × covered pixels)",
+          "O(pixels × log(scene)) with BVH"
+        ],
+        [
+          "Global effects",
+          "Faked (shadow maps, SSR, probes)",
+          "Native (recurse the ray)"
+        ],
+        [
+          "Acceleration",
+          "Tiling, early-Z, hierarchical Z",
+          "BVH / kd-tree spatial structures"
+        ],
+        [
+          "Home turf",
+          "Real-time, interactive",
+          "Film, photoreal, offline"
+        ],
+        [
+          "Guide",
+          "`02-RASTERIZATION.md`",
+          "`03-RAY-TRACING.md`"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 300,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "Graphics analogue"
+      ],
+      "rows": [
+        [
+          "A linear transform `Ax`",
+          "A vertex transform — but in *homogeneous* coords so translation is also a matrix"
+        ],
+        [
+          "Change of basis",
+          "The view matrix: rebasing the world into the camera's frame"
+        ],
+        [
+          "Depth-first traversal of a tree",
+          "Scene-graph traversal; BVH descent during ray tracing"
+        ],
+        [
+          "A hash/spatial index for fast lookup",
+          "BVH / kd-tree: spatial acceleration so a ray skips most triangles"
+        ],
+        [
+          "SIMD intrinsics on a CPU",
+          "SIMT warps on a GPU — wider, with hardware-managed divergence"
+        ],
+        [
+          "MapReduce: map over a huge dataset",
+          "A fragment shader: the same kernel over every pixel"
+        ],
+        [
+          "Nyquist sampling in DSP",
+          "Texture sampling and antialiasing — the *same* theorem (`signal-processing/`)"
+        ],
+        [
+          "Numerical integration (quadrature)",
+          "Monte Carlo estimation of the rendering equation's hemisphere integral"
+        ],
+        [
+          "sRGB / gamma in image files",
+          "Linear-light shading vs display-encoded output (`08`, `colors/`)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 316,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Look at"
+      ],
+      "rows": [
+        [
+          "Understand 3D-to-2D math (matrices, projection)",
+          "`01-TRANSFORMS-AND-PROJECTION.md`"
+        ],
+        [
+          "Know how triangles become pixels (z-buffer, interpolation)",
+          "`02-RASTERIZATION.md`"
+        ],
+        [
+          "Render photorealistic reflections/shadows/GI",
+          "`03-RAY-TRACING.md`"
+        ],
+        [
+          "Get materials physically right (BRDF, energy conservation)",
+          "`04-SHADING-AND-LIGHTING.md`"
+        ],
+        [
+          "Stop textures from shimmering (mipmaps, filtering, AA)",
+          "`05-TEXTURING-AND-SAMPLING.md`"
+        ],
+        [
+          "Write shaders / understand SIMT and GPU parallelism",
+          "`06-GPU-AND-SHADERS.md`"
+        ],
+        [
+          "Represent meshes, curves, LOD",
+          "`07-GEOMETRY-AND-MESHES.md`"
+        ],
+        [
+          "Get color/gamma/HDR/tone mapping correct",
+          "`08-COLOR-AND-PERCEPTION.md`"
+        ],
+        [
+          "Architect a real-time renderer (deferred, shadows, post)",
+          "`09-REAL-TIME-PIPELINES.md`"
+        ],
+        [
+          "Pick rasterization vs ray tracing",
+          "This file — the Two Grand Strategies table"
+        ]
+      ]
+    }
+  ]
+}

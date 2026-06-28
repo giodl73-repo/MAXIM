@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "dynamical-systems\\06-STRANGE-ATTRACTORS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 30,
+      "heading_context": "# Strange Attractors",
+      "confidence": "candidate",
+      "text": "                  THE LORENZ ATTRACTOR (the butterfly)\n                  ====================================\n   sigma=10, b=8/3, rho=28           projection onto the (x,z) plane:\n\n        z |          .-:::::-.        _.-:::::-._\n          |        .:'       ':.    .:'        ':.       Two \"wings\":\n          |       ::    LEFT    ::  ::   RIGHT    ::      the orbit loops\n          |       ::    LOBE    :: x ::   LOBE    ::      around one unstable\n          |        ':.       .:'  '  ':.       .:'        spiral, jumps to\n          |          '-:::::-'        '-:::::-'           the other, jumps\n          |               \\           /                    back -- never\n          |                \\_________/                     periodically.\n          +-------------------------------------> x\n                       chaotic switching between lobes;\n            volume CONTRACTS onto a zero-volume fractal sheet.\n       Lyapunov spectrum (+, 0, -):  stretch, flow, strong contraction.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 94,
+      "heading_context": "## The Lorenz System",
+      "confidence": "candidate",
+      "text": "   x' = sigma (y - x)              sigma = Prandtl number   (=10)\n   y' = x (rho - z) - y            rho   = Rayleigh number  (=28, the knob)\n   z' = x y - b z                  b     = geometry factor  (=8/3)\n\n   x ~ convection roll intensity, y,z ~ temperature differences.\n\n   FIXED POINTS:\n     origin (0,0,0): always.  Stable for rho < 1, then a PITCHFORK at rho=1.\n     C+- = (+-sqrt(b(rho-1)), +-sqrt(b(rho-1)), rho-1):  the two lobe centers.\n       stable for 1 < rho < rho_H ~ 24.74; lose stability via a SUBCRITICAL\n       HOPF at rho_H. Beyond it: NO stable fixed point, NO stable cycle ->\n       the trajectory is forced onto the STRANGE ATTRACTOR.\n\n   DISSIPATION:  div f = -sigma - 1 - b = -(10 + 1 + 8/3) = -13.67 < 0.\n     Volume contracts by e^{-13.67 t}: any blob collapses onto a\n     zero-volume set -- yet chaos keeps it from becoming a point or curve.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 126,
+      "heading_context": "## The Rössler System (the minimal cartoon)",
+      "confidence": "candidate",
+      "text": "   x' = -y - z\n   y' = x + a y                    a=0.2, b=0.2, c=5.7  (standard chaotic values)\n   z' = b + z(x - c)               <- the ONLY nonlinearity (one product x*z)\n\n   GEOMETRY: a single spiraling sheet (\"funnel\") + one fold.\n\n        z |            fold lifts the\n          |            orbit up and       The x-y motion spirals OUTWARD\n          |        ___ folds it back ___  (stretching); when it gets large\n          |       /   \\              /     enough the z-equation fires, lifting\n          |      | spiral outward    |     the orbit OUT of plane and folding\n          |      |  (stretch) -->     |    it back to the center (folding).\n          |       \\___ fold back ____/     One band, one fold -> a Mobius-like\n          +-----------------------------> x  sheet. Simpler than Lorenz's two lobes.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 154,
+      "heading_context": "## Poincaré Sections: Reducing a Flow to a Map",
+      "confidence": "candidate",
+      "text": "   Place a surface Sigma transverse to the flow. Record successive\n   crossings (in ONE direction) P0, P1, P2, ...  The map\n        P : Sigma -> Sigma,   P_n -> P_{n+1}\n   is the POINCARE (first-return) MAP.  A 3D flow becomes a 2D map;\n   if the attractor is thin, effectively a 1D map.\n\n        flow ~~~> crosses Sigma at P0\n                  \\      ~~~~> P1\n        +----------+----------+----- Sigma (the section)\n                  P0    P1   P2        Periodic orbit  <-> fixed point of P.\n                                       2-cycle of flow  <-> 2-cycle of P.\n                                       Strange attractor <-> fractal Cantor\n                                       set on Sigma.\n\n   LORENZ: plotting successive maxima z_n of z(t) gives the famous\n   \"Lorenz map\" z_{n+1} = M(z_n) -- a tent-like 1D unimodal map. THIS is\n   why Lorenz is chaotic: its return map is essentially the chaotic tent\n   map (Ch. 05). The 3D flow's chaos is a 1D map's chaos in disguise.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 186,
+      "heading_context": "## Fractal Dimension of the Attractor",
+      "confidence": "candidate",
+      "text": "   BOX-COUNTING (capacity) D0:  N(eps) ~ eps^{-D0}   (Ch. 07)\n   CORRELATION DIMENSION D2 (Grassberger-Procaccia): cheap from data --\n        C(eps) = fraction of point-pairs closer than eps ~ eps^{D2}.\n        Estimate D2 = slope of log C(eps) vs log eps.  Practical for\n        experimental time series; D2 <= D1 <= D0.\n\n   KAPLAN-YORKE (Lyapunov) DIMENSION -- dimension straight from dynamics:\n        order lambda_1 >= lambda_2 >= ...; let k = largest index with\n        lambda_1 + ... + lambda_k >= 0.  Then\n                                lambda_1 + ... + lambda_k\n        D_KY = k + ----------------------------------------\n                              |lambda_{k+1}|\n\n   LORENZ:  lambda ~ (+0.906, 0, -14.572).  k=2 (0.906+0 >= 0).\n        D_KY = 2 + 0.906 / 14.572 ~ 2.06.   \"A surface with fractal dust.\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 222,
+      "heading_context": "## Attractor Reconstruction: Takens Embedding",
+      "confidence": "candidate",
+      "text": "   ONE scalar signal s(t)  -->  delay vectors in R^m  -->  reconstructed\n                                                            attractor\n        s(t)                       v_n = (s_n, s_{n+tau}, s_{n+2tau})\n        /\\  /\\    /\\                       |\n       /  \\/  \\  /  \\      embed           v  (a geometric copy of the\n      /        \\/    \\    ------>           true attractor, up to smooth\n                                            deformation)\n\n   Choose tau: first zero of autocorrelation or first min of mutual info.\n   Choose m: false-nearest-neighbors test (m > 2d suffices).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 275,
+      "heading_context": "### \"The Lorenz attractor has zero volume but positive dimension — contradiction?\"",
+      "confidence": "candidate",
+      "text": "### \"I plotted a trajectory and it looks like a 2D ribbon — so it's 2D?\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

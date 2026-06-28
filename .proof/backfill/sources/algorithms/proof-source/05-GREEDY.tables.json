@@ -1,0 +1,114 @@
+{
+  "schema_version": "1",
+  "source_markdown": "algorithms\\05-GREEDY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 235,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "The greedy concept"
+      ],
+      "rows": [
+        [
+          "MST in a network designer (Kruskal/Prim)",
+          "Greedy on the *graphic matroid* — optimal by Rado-Edmonds (`graph-algorithms/04`)"
+        ],
+        [
+          "Dijkstra in a routing layer",
+          "Greedy: always finalize the closest unsettled node (`graph-algorithms/03`)"
+        ],
+        [
+          "A scheduler picking next-deadline jobs",
+          "Earliest-deadline-first, optimal by exchange argument"
+        ],
+        [
+          "`gzip`/Huffman in a compressor",
+          "Greedy prefix-code construction, optimal entropy code (`information-theory/`)"
+        ],
+        [
+          "LRU/cache eviction heuristics",
+          "Greedy heuristics — *not* always optimal (Belady's optimal is offline)"
+        ],
+        [
+          "A load balancer's greedy bin-packing",
+          "Greedy bin-packing is a bounded *approximation*, not optimal (`09`)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 252,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Problem",
+        "Greedy criterion",
+        "Optimal?",
+        "Proof / else"
+      ],
+      "rows": [
+        [
+          "Activity selection",
+          "earliest finish time",
+          "yes",
+          "exchange argument"
+        ],
+        [
+          "Minimize max lateness",
+          "earliest deadline first",
+          "yes",
+          "exchange (swap inversions)"
+        ],
+        [
+          "Huffman / prefix code",
+          "merge two least-frequent",
+          "yes",
+          "exchange on tree depth"
+        ],
+        [
+          "MST",
+          "lightest safe edge",
+          "yes",
+          "graphic matroid (`graph-alg/04`)"
+        ],
+        [
+          "Fractional knapsack",
+          "highest value/weight",
+          "yes",
+          "matroid-like exchange"
+        ],
+        [
+          "Coin change (canonical)",
+          "largest coin first",
+          "yes (US/euro)",
+          "system-dependent"
+        ],
+        [
+          "0/1 knapsack",
+          "value/weight ratio",
+          "**no**",
+          "use DP (`04`)"
+        ],
+        [
+          "General TSP",
+          "nearest neighbor",
+          "**no**",
+          "NP-hard; approx (`09`)"
+        ],
+        [
+          "Set cover",
+          "max new coverage",
+          "**no**",
+          "best poly approx ln n (`09`)"
+        ],
+        [
+          "Any weighting, feasible sets = matroid",
+          "by weight",
+          "**yes**",
+          "Rado-Edmonds"
+        ]
+      ]
+    }
+  ]
+}

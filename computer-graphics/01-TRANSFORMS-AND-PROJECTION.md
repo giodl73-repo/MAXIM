@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # Transforms and Projection
 
 ## The Big Picture: One Vertex's Journey Through Five Spaces
@@ -35,12 +34,12 @@ nonlinear divide at the end).
 |  (local)      (shared)     (eye=origin)   (4D cube)     (cube /w)    (pixels)        |
 |                                                                                      |
 |    v   --M-->   v   --V-->   v    --P-->   v_clip --÷w-->  v_ndc --vp--> v_screen    |
-|        model        view          proj          perspective    viewport             |
+|        model        view          proj          perspective    viewport              |
 |        matrix       matrix        matrix         divide         transform            |
 |                                                                                      |
-|     [x,y,z,1]      [x,y,z,1]     [x,y,z,1]    [x,y,z,w]    [x/w,y/w,z/w,1]  [px,py,d] |
+|     [x,y,z,1]      [x,y,z,1]     [x,y,z,1]    [x,y,z,w]    [x/w,y/w,z/w,1] [px,py,d] |
 |                                                                                      |
-|   MVP = P · V · M     (column-vector convention: v' = M·v, applied right-to-left)   |
+|   MVP = P · V · M     (column-vector convention: v' = M·v, applied right-to-left)    |
 +--------------------------------------------------------------------------------------+
 ```
 
@@ -217,11 +216,13 @@ and the depth test are uniform. Two kinds.
   no foreshortening (size = const)      farther = smaller (foreshortening)
   view volume is a BOX                  view volume is a FRUSTUM (truncated pyramid)
 
-     +--------+                              /----\
-     |        |   camera                    /      \    camera
-     |        |   at infinity              /        \   at apex (eye)
-     +--------+                           +----------+
-                                          near      far
+  +--------------------------------------------------------------------------+
+  |    .--------.                              /----\                        |
+  |    |        |   camera                    /      \    camera             |
+  |    |        |   at infinity              /        \   at apex (eye)      |
+  |    '--------'                           .----------.                     |
+  |                                         near      far                    |
+  +--------------------------------------------------------------------------+
 
   Use: CAD, 2D UI, shadow maps,          Use: anything that should look 3D
        isometric games                        to a human eye

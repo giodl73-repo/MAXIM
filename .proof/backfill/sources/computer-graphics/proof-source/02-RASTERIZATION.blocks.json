@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-graphics\\02-RASTERIZATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture: From Triangle to Lit Pixels",
+      "confidence": "candidate",
+      "text": "+-------------------------------------------------------------------------------------+\n|                        THE RASTERIZATION STAGE (per triangle)                       |\n|                                                                                     |\n|  CLIP-SPACE      CLIP +        TRIANGLE        COVERAGE       INTERP +      OUTPUT  |\n|  TRIANGLE        VIEWPORT      SETUP           TEST           DEPTH TEST    MERGE   |\n|                                                                                     |\n| 3 vertices --> clip to     --> edge        --> for px in   --> baryc.   --> z-test  |\n| (x,y,z,w)      frustum,        functions       bbox:           interp       + blend |\n|                ÷w, map to      + bbox          inside all      attrs        write   |\n|                pixels                          3 edges?        + 1/w        color   |\n|                                                                                     |\n|   [from 01]    [clip]          [setup]         [E(p)>=0]       [persp-corr] [z-buf] |\n+-------------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 163,
+      "heading_context": "### Z-Buffer vs Painter's Algorithm",
+      "confidence": "candidate",
+      "text": "  PAINTER'S ALGORITHM                   Z-BUFFER\n  -------------------                   --------\n  sort polygons back-to-front,          per-pixel depth compare\n  draw far first, near overpaints       no global sort needed\n\n  +------+                              Handles ANY overlap, including:\n  | A    +---+                            - mutual interpenetration\n  +---+--| B |   A behind B               - cyclic occlusion (A over B\n      |  +---+                              over C over A) -- which has\n      +------+                              NO valid sort order at all\n\n  FAILS on intersecting / cyclic        Cost: one depth value per pixel.\n  geometry (no valid sort exists).      This is why it WON.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 209,
+      "heading_context": "### Winding Order and Back-Face Culling",
+      "confidence": "candidate",
+      "text": "  Signed area of the screen-space triangle (= half the summed edge functions):\n\n     A > 0  -> counter-clockwise winding  -> typically FRONT-facing\n     A < 0  -> clockwise winding          -> typically BACK-facing  -> CULL it\n\n       front face (CCW)         back face (CW, culled)\n          V0                        V0\n         /  \\  area > 0            /  \\  area < 0\n        V2--V1                    V1--V2\n\n  Back-face culling discards ~half the triangles of a closed mesh for free,\n  BEFORE shading. (Convention CCW=front is OpenGL's default; configurable.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 234,
+      "heading_context": "### The Stencil Buffer",
+      "confidence": "candidate",
+      "text": "  STENCIL TEST (runs with the depth test):\n     compare (stencil[x,y] & mask) against a ref value; pass/fail -> keep/discard\n     on pass/fail/depth-fail: keep / replace / increment / decrement the stencil\n\n  Uses: portals/mirrors (mask the portal region), shadow volumes (Carmack's reverse),\n        decals, outline rendering, constructive masking, UI clipping.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 253,
+      "heading_context": "## Layer 5: Clipping",
+      "confidence": "candidate",
+      "text": "  Clip in CLIP SPACE, BEFORE the perspective divide, against:\n\n      -w <= x <= w,   -w <= y <= w,   -w <= z <= w   (or 0 <= z <= w in D3D/Vulkan)\n\n  SUTHERLAND-HODGMAN: clip the polygon against each plane in turn.\n\n      triangle crossing near plane          after near-clip\n          *  (in front)                          *\n         / \\                                     / \\\n        /   \\                                  /     \\\n   -----X---X-----  near plane     ----->    *---------*   (new vertices on plane,\n       /     \\                                            triangle may become a quad\n      *       *  (behind eye, w<=0)                       -> re-triangulated)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 281,
+      "heading_context": "## Worked Example: Inside Test + Interpolation",
+      "confidence": "candidate",
+      "text": "  Edge functions (CCW winding A->B->C):\n    E_AB(P) = (1-0)(0-0) - (1-0)(4-0) = 0 - 4 = -4    ... sign convention check",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 289,
+      "heading_context": "## Worked Example: Inside Test + Interpolation",
+      "confidence": "candidate",
+      "text": "    area(P,B,C) = ½ |(4-1)(4-1) - (0-1)(0-1)| ... use the ratio directly:\n\n    α (weight of A) = area(P,B,C)/area = 4/8 = 0.5\n    β (weight of B) = area(A,P,C)/area = 2/8 = 0.25\n    γ (weight of C) = area(A,B,P)/area = 2/8 = 0.25\n    check: 0.5 + 0.25 + 0.25 = 1.0   ✓\n\n  Interpolated red (screen-linear, ignoring perspective for a flat triangle):\n    r(P) = 0.5·0 + 0.25·255 + 0.25·0 = 63.75  ->  64",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

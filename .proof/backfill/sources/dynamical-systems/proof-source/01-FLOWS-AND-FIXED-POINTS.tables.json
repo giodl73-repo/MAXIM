@@ -1,0 +1,84 @@
+{
+  "schema_version": "1",
+  "source_markdown": "dynamical-systems\\01-FLOWS-AND-FIXED-POINTS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 104,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "Flow framing"
+      ],
+      "rows": [
+        [
+          "RC circuit `V' = (V_in − V)/RC`",
+          "1D linear flow; single stable fixed point `V = V_in`, rate `1/RC`"
+        ],
+        [
+          "Newton's law `m x'' = F(x)`",
+          "2nd-order ODE → 2D **first-order system** `(x, v)`, `v = x'`"
+        ],
+        [
+          "Logistic growth `N' = rN(1 − N/K)`",
+          "1D flow; fixed points `0` (unstable) and `K` (stable carrying capacity)"
+        ],
+        [
+          "Markov chain `p_{n+1} = P p_n`",
+          "Discrete linear *map*; the flow analogue is the master equation `p' = Q p`"
+        ],
+        [
+          "State-space plant `x' = Ax + Bu`",
+          "Vector field with an input; setting `u=0` gives the open-loop flow (`control-theory/02`)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 260,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Do this"
+      ],
+      "rows": [
+        [
+          "Find fixed points",
+          "Solve `f(x) = 0` (intersect nullclines in 2D)"
+        ],
+        [
+          "Classify 1D fixed point",
+          "Sign of `f'(x*)`: `< 0` stable, `> 0` unstable"
+        ],
+        [
+          "Sketch a 1D system",
+          "Plot `f(x)`; arrows right where `f>0`, left where `f<0`"
+        ],
+        [
+          "Sketch a 2D portrait",
+          "Draw both nullclines; mark flow direction in each region"
+        ],
+        [
+          "Handle a 2nd-order ODE",
+          "Introduce `v = x'` → first-order system in `R²`"
+        ],
+        [
+          "Know where trajectories live long-term",
+          "Find ω-limit sets (fixed points / cycles / attractors)"
+        ],
+        [
+          "Check if a quantity is conserved",
+          "Compute `dH/dt = ∇H · f`; if `0`, trajectories lie on `H = const`"
+        ],
+        [
+          "Tell conservative from dissipative",
+          "`div f = 0` → conservative; `div f < 0` → dissipative"
+        ],
+        [
+          "Prove stability rigorously",
+          "Move to Ch. 02 (Jacobian eigenvalues / Lyapunov)"
+        ]
+      ]
+    }
+  ]
+}

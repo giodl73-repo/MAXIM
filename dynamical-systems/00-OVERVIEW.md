@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dynamical-systems:overview
+kind: guide
+module: dynamical-systems
+section: dynamical-systems
+title: Dynamical Systems - The Landscape
+status: source-custody
+source_custody: partial
+current_path: dynamical-systems/00-OVERVIEW.md
+canonical_path: dynamical-systems/00-OVERVIEW.md
+backsource_ids: [proof-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Dynamical Systems — The Landscape
 
 A dynamical system is a rule for evolving a **state** forward in time. That is all. The state
@@ -22,11 +41,11 @@ rule, **without** demanding a closed-form solution.
    |   x' = Ax                   x' = f(x)               sensitive to    |
    |   solvable in closed        no closed form;         initial conds   |
    |   form; eigenvalues         linearize near          (positive       |
-   |   of A decide              fixed points             Lyapunov exp.)   |
+   |   of A decide              fixed points             Lyapunov exp.)  |
    |   everything                                                        |
-   |     |                          |                        |          |
-   |     v                          v                        v          |
-   |  fixed points              fixed pts + limit       strange         |
+   |     |                          |                        |           |
+   |     v                          v                        v           |
+   |  fixed points              fixed pts + limit       strange          |
    |  (nodes/spirals/           cycles + bifurca-       attractors,      |
    |  saddles/centers)          tions + manifolds       fractal sets     |
    +---------------------------------------------------------------------+
@@ -96,7 +115,7 @@ The defining move of dynamical systems is **qualitative analysis**: answer the q
 
 ```
    +--------------------------------------------------------------+
-   |  THE CENTRAL QUESTIONS                                        |
+   |  THE CENTRAL QUESTIONS                                       |
    |                                                              |
    |  1. WHERE does the system settle?                            |
    |     fixed points, limit cycles, tori, strange attractors     |
@@ -105,7 +124,7 @@ The defining move of dynamical systems is **qualitative analysis**: answer the q
    |     linearize -> Jacobian eigenvalues -> Re(lambda) signs    |
    |                                                              |
    |  3. How does the answer CHANGE as a parameter varies?        |
-   |     bifurcations: saddle-node, transcritical, pitchfork, Hopf|
+   |    bifurcations: saddle-node, transcritical, pitchfork, Hopf |
    |                                                              |
    |  4. Can the system be CHAOTIC?                               |
    |     positive Lyapunov exponent, SDIC, fractal attractor      |

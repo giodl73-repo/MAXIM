@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-graphics\\01-TRANSFORMS-AND-PROJECTION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture: One Vertex's Journey Through Five Spaces",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------------------------+\n|                       THE COORDINATE PIPELINE (one vertex)                           |\n|                                                                                      |\n|  OBJECT       WORLD        CAMERA/EYE     CLIP          NDC          SCREEN/WINDOW   |\n|  SPACE        SPACE        SPACE          SPACE         SPACE        SPACE           |\n|  (local)      (shared)     (eye=origin)   (4D cube)     (cube /w)    (pixels)        |\n|                                                                                      |\n|    v   --M-->   v   --V-->   v    --P-->   v_clip --÷w-->  v_ndc --vp--> v_screen    |\n|        model        view          proj          perspective    viewport              |\n|        matrix       matrix        matrix         divide         transform            |\n|                                                                                      |\n|     [x,y,z,1]      [x,y,z,1]     [x,y,z,1]    [x,y,z,w]    [x/w,y/w,z/w,1] [px,py,d] |\n|                                                                                      |\n|   MVP = P · V · M     (column-vector convention: v' = M·v, applied right-to-left)    |\n+--------------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 65,
+      "heading_context": "## Layer 1: Why Homogeneous Coordinates",
+      "confidence": "candidate",
+      "text": "  3D point  (x, y, z)   ->   homogeneous  (x, y, z, w),  with w = 1 for points\n\n  Translation as a 4x4 matrix:        A 3x3 linear map CANNOT do this:\n\n  | 1  0  0  tx |   | x |   | x+tx |       | a b c | | x |   no column\n  | 0  1  0  ty | · | y | = | y+ty |       | d e f |·| y |   adds a constant\n  | 0  0  1  tz |   | z |   | z+tz |       | g h i | | z |   -> origin fixed\n  | 0  0  0  1  |   | 1 |   |  1   |\n\n  The translation lives in the 4th COLUMN.\n  Because w=1, that column is added verbatim.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 81,
+      "heading_context": "## Layer 1: Why Homogeneous Coordinates",
+      "confidence": "candidate",
+      "text": "  POINT      w = 1   ->  affected by translation (the 4th column adds)\n  DIRECTION  w = 0   ->  IMMUNE to translation (0 · tx = 0)  [normals, ray dirs]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 110,
+      "heading_context": "## Layer 2: The Model Matrix (object → world)",
+      "confidence": "candidate",
+      "text": "   T·R  (rotate, then translate)        R·T  (translate, then rotate)\n   --------------------------------     --------------------------------\n   object spins in place, then          object pushed out, then the whole\n   slides to its position               thing swept around world origin\n        +                                      .  <-- orbits this point\n       /|\\  spin here                          |\n      / | \\                                  +---+\n     +--+--+ ---> slide                       \\ | /  big arc\n                                               \\|/\n   THESE ARE DIFFERENT. T·R != R·T.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 132,
+      "heading_context": "### Representing Rotation: Matrix vs Euler vs Quaternion",
+      "confidence": "candidate",
+      "text": "  ROTATION MATRIX (3x3, orthonormal, det = +1)\n     pros: composes by multiplication; applies directly to vectors\n     cons: 9 numbers for 3 DOF; drifts off SO(3) under repeated float ops\n           (must re-orthonormalize); awkward to interpolate\n\n  EULER ANGLES (yaw, pitch, roll — 3 numbers)\n     pros: human-readable, compact\n     cons: GIMBAL LOCK — at pitch = ±90°, yaw and roll axes align and one DOF is lost;\n           order-dependent (XYZ vs ZYX differ); bad to interpolate through\n\n  QUATERNION (unit q = w + xi + yj + zk on the 4-sphere, 4 numbers, 3 DOF)\n     pros: no gimbal lock; cheap to compose; SLERP gives constant-speed shortest-arc\n           interpolation; renormalize by one divide; numerically stable\n     cons: not directly multiplicable with a position vector (convert to matrix, or\n           use q·v·q^-1); double-cover (q and -q are the same rotation)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 150,
+      "heading_context": "### Representing Rotation: Matrix vs Euler vs Quaternion",
+      "confidence": "candidate",
+      "text": "  GIMBAL LOCK (why Euler angles fail):\n\n     pitch 0°:   yaw axis  _|_  roll axis      (3 independent DOF)\n     pitch 90°:  yaw axis  ||   roll axis      (they coincide -> only 2 DOF left)\n\n  -> a smooth path through pitch=90° snaps/spins. Apollo's IMU hit this in 1969.\n  Quaternions have no such singularity because they parametrize SO(3) without\n  a coordinate chart that degenerates.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 181,
+      "heading_context": "## Layer 3: The View Matrix (world → camera)",
+      "confidence": "candidate",
+      "text": "  Camera placed in world by:  C = T_cam · R_cam\n  View matrix:                V = C^-1 = R_cam^-1 · T_cam^-1\n\n  A \"look-at\" view is built from three vectors:\n     eye    : camera position\n     center : point being looked at\n     up     : approximate world-up (e.g. +y)\n\n     f = normalize(center - eye)      forward\n     r = normalize(cross(f, up))      right\n     u = cross(r, f)                  true up (re-orthogonalized)\n\n           |  r.x  r.y  r.z  -dot(r,eye) |\n     V  =  |  u.x  u.y  u.z  -dot(u,eye) |\n           | -f.x -f.y -f.z   dot(f,eye) |\n           |  0    0    0     1          |",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 212,
+      "heading_context": "## Layer 4: Projection — Orthographic vs Perspective",
+      "confidence": "candidate",
+      "text": "  ORTHOGRAPHIC                          PERSPECTIVE\n  ------------                          -----------\n  parallel lines stay parallel          parallel lines converge (vanishing pts)\n  no foreshortening (size = const)      farther = smaller (foreshortening)\n  view volume is a BOX                  view volume is a FRUSTUM (truncated pyramid)\n\n  +--------------------------------------------------------------------------+\n  |    .--------.                              /----\\                        |\n  |    |        |   camera                    /      \\    camera             |\n  |    |        |   at infinity              /        \\   at apex (eye)      |\n  |    '--------'                           .----------.                     |\n  |                                         near      far                    |\n  +--------------------------------------------------------------------------+\n\n  Use: CAD, 2D UI, shadow maps,          Use: anything that should look 3D\n       isometric games                        to a human eye",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 237,
+      "heading_context": "### Perspective Projection Matrix",
+      "confidence": "candidate",
+      "text": "        let  t = 1 / tan(fovy / 2)\n\n        |  t/a   0      0              0          |\n   P =  |  0     t      0              0          |\n        |  0     0   -(f+n)/(f-n)  -2fn/(f-n)     |\n        |  0     0     -1              0          |   <-- bottom row puts -z into w\n\n   Apply to (x, y, z, 1):   w_clip = -z      <-- the magic",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 250,
+      "heading_context": "### Perspective Projection Matrix",
+      "confidence": "candidate",
+      "text": "  x_ndc = (t/a)·x / (-z)      <-- x shrinks as |z| grows  => foreshortening\n  y_ndc =  t·y   / (-z)\n  z_ndc = [-(f+n)z - 2fn] / [(f-n)(-z)]      <-- nonlinear in z",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 271,
+      "heading_context": "## Layer 5: The Perspective Divide and Depth Nonlinearity",
+      "confidence": "candidate",
+      "text": "  Z-FIGHTING and precision:\n\n  eye-space z:   n |---------|---------|---------|---------| f\n  NDC depth:       0    0.5      0.75    0.875    ...     1     (bunched up far away)\n\n  => far surfaces compete for the same depth bits  -> flickering (\"z-fighting\")\n\n  Fixes: push the near plane out (biggest lever), use a 32-bit/float depth buffer,\n         or a REVERSED-Z buffer (map near->1, far->0) which pairs float mantissa\n         precision with where the nonlinearity needs it. Reversed-Z is now standard.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "chart_like",
+      "line": 384,
+      "heading_context": "### \"Why does z come out nonlinear when x and y are 'linear'?\"",
+      "confidence": "candidate",
+      "text": "### \"OpenGL says NDC z is [-1,1] but Vulkan/D3D say [0,1] — who's right?\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

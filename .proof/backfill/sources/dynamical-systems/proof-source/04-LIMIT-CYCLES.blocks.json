@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "dynamical-systems\\04-LIMIT-CYCLES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 30,
+      "heading_context": "# Limit Cycles",
+      "confidence": "candidate",
+      "text": "              CENTER (conservative)         LIMIT CYCLE (dissipative)\n              =====================         =========================\n                   ___                          ___\n                  /   \\  nested closed         /   \\   ONE isolated orbit;\n                 / ___ \\  orbits, a            |  ->-|  outside spirals IN,\n                | / * \\ |  CONTINUUM           |  *  |  inside spirals OUT.\n                 \\ \\_/ /  (fragile)            |->---|  Amplitude is\n                  \\___/                         \\___/   SELF-SELECTED.\n              amplitude set by initial         amplitude set by the\n              condition; no attraction          system; attracting.\n\n       A limit cycle is to a center what a stable spiral is to a stable node:\n       the structurally stable, dissipative, \"real engineering\" version.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 50,
+      "heading_context": "## What Makes a Cycle a *Limit* Cycle",
+      "confidence": "candidate",
+      "text": "   ISOLATED:    in a neighborhood of the cycle Gamma, there is NO other\n                closed orbit. (Centers fail this -- they come in families.)\n\n   ATTRACTING (stable) limit cycle:\n        trajectories from both inside and outside spiral ONTO Gamma.\n        => omega-limit set of a whole annulus is Gamma itself.\n\n   STABILITY via the FLOQUET / characteristic multiplier:\n        Linearize the Poincare return map about the cycle.\n        multiplier |m| < 1  -> stable cycle   (analogue of |lambda|<1 for maps)\n        multiplier |m| > 1  -> unstable cycle\n        One multiplier is always 1 (motion ALONG the cycle is neutral).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 91,
+      "heading_context": "## Poincaré–Bendixson: Why the Plane Can't Be Chaotic",
+      "confidence": "candidate",
+      "text": "   THE TRAPPING-REGION ARGUMENT (the standard recipe):\n\n   1. Build an annulus R (a ring) such that the flow points INWARD on\n      BOTH boundaries -> trajectories enter and cannot escape.\n\n           outer boundary: flow points IN\n              ___________\n             /  _______  \\           No fixed point inside the ring.\n            /  / inflow \\  \\          => by Poincare-Bendixson, R must\n           |  | --> O <-- |  |        contain a LIMIT CYCLE.  The\n            \\  \\ inflow  /  /          trajectory has nowhere else to go:\n             \\  \\______ /  /           can't hit a fixed point, can't\n              \\__________ /            leave, can't cross itself.\n           inner boundary: flow points OUT (e.g. an unstable fixed point)\n\n   2. Verify no fixed points in R.\n   3. Conclude a periodic orbit exists.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 126,
+      "heading_context": "## Ruling Cycles *Out*: Negative Criteria",
+      "confidence": "candidate",
+      "text": "   BENDIXSON'S CRITERION:\n     If div f = df1/dx + df2/dy has ONE SIGN (never zero) on a simply\n     connected region D, then NO closed orbit lies entirely in D.\n     (A cycle would enclose zero net area-change; impossible if div f != 0.)\n\n   DULAC'S REFINEMENT:\n     Same, but for div(g*f) for some chosen weight g(x,y) > 0.\n     Choosing a clever g rules out cycles when plain div f changes sign.\n\n   INDEX THEORY (topological count):\n     index of a simple closed curve = how many times the vector field\n     winds as you traverse it.\n       node/spiral/center: index +1     saddle: index -1\n     A closed orbit has index +1 and must ENCLOSE fixed points whose\n     indices SUM to +1.  => a cycle must surround at least one fixed point,\n     and cannot surround only saddles.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 157,
+      "heading_context": "## The van der Pol Oscillator (the canonical limit cycle)",
+      "confidence": "candidate",
+      "text": "   x'' - mu(1 - x^2) x' + x = 0      mu > 0 controls nonlinearity\n\n   Damping term: -mu(1 - x^2) x'\n     |x| < 1:  (1 - x^2) > 0  -> NEGATIVE damping  -> amplitude GROWS\n     |x| > 1:  (1 - x^2) < 0  -> POSITIVE damping  -> amplitude SHRINKS\n   => a unique stable limit cycle where the two effects balance.\n\n   As a first-order system (Lienard form, y = x' /mu + ... ):\n        x' = mu (y - x^3/3 + x)\n        y' = -x/mu\n\n   PHASE PORTRAIT (small mu ~ near-circular | large mu ~ relaxation):\n\n      small mu:  __          large mu:   ___________\n                /  \\  nearly             |          |  fast jumps\n               | -> |  harmonic          |    ___   |  (horizontal),\n                \\__/   limit cycle       |   |   |--+  slow crawls\n                                         +--|   |      (vertical)\n                                            |___|      = RELAXATION",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 192,
+      "heading_context": "## Relaxation Oscillations (the large-`μ` regime)",
+      "confidence": "candidate",
+      "text": "   The trajectory hugs the slow CUBIC NULLCLINE y = x^3/3 - x,\n   crawling along its stable branches, then JUMPS at the folds:\n\n        y |    fold .                    SLOW (crawl down the\n          |       \\  .                   left branch)         |\n          |  jump  \\  \\___ slow             |  FAST jump      v\n          |  <----  \\      \\  branch     ---+--->  (across)\n          |          \\___   \\                ^\n          |    slow       \\   fold          |  SLOW (crawl up\n          |    branch      \\  / jump         |  the right branch)\n          +-------------------------> x\n\n   Period scales as  T ~ mu * (3 - 2 ln 2)  for large mu  (set by the SLOW\n   crawls, not the jumps). Two timescales: O(1/mu) jumps, O(mu) crawls.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 219,
+      "heading_context": "## Where Limit Cycles Come From, Where They Go",
+      "confidence": "candidate",
+      "text": "   BIRTH of a limit cycle:                 DEATH of a limit cycle:\n   - HOPF bifurcation (Ch. 03): a fixed     - HOMOCLINIC bifurcation: cycle grows\n     point sheds a small cycle, r~sqrt(mu)    until it collides with a saddle and\n   - SADDLE-NODE of cycles: a stable +        is destroyed (infinite period).\n     unstable cycle appear together         - INVERSE Hopf: shrinks back into a\n   - GLOBAL/SNIC: cycle born on a saddle-     fixed point.\n     node on an invariant circle            - PERIOD-DOUBLING: cycle -> 2x period\n     (excitable -> oscillatory, neurons)      cycle -> ... -> CHAOS (Ch. 05).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 239,
+      "heading_context": "## Worked Example: A Guaranteed Limit Cycle",
+      "confidence": "candidate",
+      "text": "   In polar coordinates:   r' = r(1 - r^2),   theta' = 1.\n\n   theta' = 1 > 0: pure rotation, the angle always advances.\n   r' = r(1 - r^2):  fixed radii at r=0 and r=1.\n        r < 1:  r' > 0  -> r grows toward 1.\n        r > 1:  r' < 0  -> r shrinks toward 1.\n   => r = 1 is an attracting closed orbit:  a STABLE LIMIT CYCLE\n      (a unit circle traversed at unit angular speed).\n\n   Cross-check by Poincare-Bendixson: the annulus 1/2 <= r <= 2 is a\n   trapping region (flow inward on both edges) with no fixed point inside.\n   Theorem guarantees the cycle that we found explicitly. Consistent.\n\n   Origin r=0 is an unstable spiral (linearize: lambda = 1 +- i) feeding\n   the cycle from inside; this whole picture is a supercritical Hopf in\n   disguise if we replace 1 by a parameter mu.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 286,
+      "heading_context": "### \"Limit cycle vs center — both are closed orbits\"",
+      "confidence": "candidate",
+      "text": "### \"Poincaré–Bendixson means no oscillations in 2D\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 292,
+      "heading_context": "### \"Poincaré–Bendixson means no oscillations in 2D\"",
+      "confidence": "candidate",
+      "text": "### \"My 2D model is chaotic\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

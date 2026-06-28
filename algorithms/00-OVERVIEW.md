@@ -35,34 +35,45 @@ problems) lives in `graph-algorithms/` and is referenced here, never re-derived.
 
    THE TWO AXES                         THE THREE PARADIGMS (03,04,05)
    +---------------------------+        +-----------------------------------------+
-   | overlap?  subproblems     |        | 03 DIVIDE & CONQUER                      |
+   | overlap?  subproblems     |        | 03 DIVIDE & CONQUER                     |
    |   none  -> D&C            |        |    disjoint subproblems, combine        |
-   |   reuse -> DP            |        |    T(n)=aT(n/b)+f(n)  (Master thm)      |
-   |                           |        | 04 DYNAMIC PROGRAMMING                   |
+   |   reuse -> DP             |        |    T(n)=aT(n/b)+f(n)  (Master thm)      |
+   |                           |        | 04 DYNAMIC PROGRAMMING                  |
    | assembly? build optimum   |  -->   |    overlapping subproblems, memo/table  |
-   |   one shot -> greedy     |        |    DAG of subproblems, optimal substr.  |
-   |   all subs -> DP         |        | 05 GREEDY                                |
-   |   recurse  -> D&C        |        |    one locally-best choice, no backtrack|
-   +---------------------------+        |    proof: exchange argument / matroid   |
-            |                           +-----------------------------------------+
+   |   one shot -> greedy      |        |    DAG of subproblems, optimal substr.  |
+   |   all subs -> DP          |        | 05 GREEDY                               |
+   |   recurse  -> D&C         |        |    one locally-best choice no backtrack |
+   |                           |        |    proof: exchange argument / matroid   |
+   +---------------------------+        +-----------------------------------------+
+            |                                          |
             v                                          |
-   01 ANALYSIS  (the language every bound is read in)  | each paradigm needs
-   +---------------------------------------------+     | a fast substrate
-   | asymptotics | recurrences | amortized       |     v
-   | Master/Akra-Bazzi | average-case | random  | 06/07 DATA STRUCTURES
-   +---------------------------------------------+  +--------------------------------+
-            |                                       | 06 heaps, balanced BST, hash,  |
-            |  applied to concrete problems         |    segment/Fenwick, skip list  |
-            v                                       | 07 union-find: alpha(n) amort. |
-   02 SORTING & SEARCHING                           +--------------------------------+
-   +---------------------------------------------+              |
-   | comparison sorts: Omega(n log n) LOWER BOUND|              | special domain
-   | quicksort avg n log n / worst n^2           |              v
-   | heapsort n log n (NOT stable)               |     08 STRINGS
-   | counting/radix: NON-comparison, escape bound|     KMP, Z, Rabin-Karp, tries,
-   | selection: O(n) median-of-medians           |     suffix array/tree/automaton
-   +---------------------------------------------+              |
-            |                                                   |
+   01 ANALYSIS  (the language every bound is read in)
+   +---------------------------------------------+
+   | asymptotics | recurrences | amortized       |
+   | Master/Akra-Bazzi | average-case | random   |
+   +---------------------------------------------+
+            |
+            |  applied to concrete problems        each paradigm needs a fast
+            v                                       substrate -> 06/07 DATA STRUCTURES
+   02 SORTING & SEARCHING
+
+   +---------------------------------------------+
+   | comparison sorts: Omega(n log n) LOWER BOUND|
+   | quicksort avg n log n / worst n^2           |
+   | heapsort n log n (NOT stable)               |
+   | counting/radix: NON-comparison, escape bound|
+   | selection: O(n) median-of-medians           |
+   +---------------------------------------------+
+
+   +--------------------------------+
+   | 06 heaps, balanced BST, hash,  |
+   |    segment/Fenwick, skip list  |
+   | 07 union-find: alpha(n) amort. |
+   +--------------------------------+
+        | special domain -> 08 STRINGS: KMP, Z, Rabin-Karp,
+        v                               tries, suffix array/tree/automaton
+
+            |
             +-------------------- all the above is "what we can do" ----+
                                                                         v
                                                   09 COMPLEXITY & NP — "what we cannot"
@@ -100,7 +111,7 @@ same structural question.
   |              |              | (04)         |                 |              |
   | mergesort    |              | edit distance|                 | Huffman      |
   | quicksort    |              | knapsack     |                 | activity sel.|
-  | FFT, Karatsuba|             | matrix chain |                 | Kruskal/Prim*|
+  |FFT, Karatsuba|              | matrix chain |                 | Kruskal/Prim*|
   | Strassen     |              | LCS, LIS     |                 | Dijkstra*    |
   +--------------+              +--------------+                 +--------------+
         |                              |                                |

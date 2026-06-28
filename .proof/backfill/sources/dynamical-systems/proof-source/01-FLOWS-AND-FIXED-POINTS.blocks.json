@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "dynamical-systems\\01-FLOWS-AND-FIXED-POINTS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 27,
+      "heading_context": "# Flows and Fixed Points",
+      "confidence": "candidate",
+      "text": "            A VECTOR FIELD AND ITS FLOW  (the system x' = f(x))\n            ===================================================\n\n   phase space R^n, with an arrow f(x) attached at every point x:\n\n        ^   \\   \\   |   /   /   ^            Trajectories are curves\n        |    \\   \\  |  /   /    |            tangent to the arrows\n     x2 |     \\   \\ | /   /     |            everywhere.  They thread\n        | <----  o  *  o  ---->              between the arrows and\n        |     /   / | \\   \\     |            CANNOT cross each other\n        |    /   /  |  \\   \\    |            (uniqueness, Ch. 00).\n        v   /   /   |   \\   \\   v\n        +----------------------------->\n                     x1                       * = fixed point  (f = 0)\n                                              o = ordinary point (f != 0)\n\n   A FIXED POINT x* satisfies   f(x*) = 0   -- the arrow is zero, motion stops.\n   The flow phi_t(x0) slides x0 along the curve through it as t increases.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 59,
+      "heading_context": "## The 1D Case: Phase Lines",
+      "confidence": "candidate",
+      "text": "   x' = f(x)        Draw f(x).  Fixed points = zeros of f.\n                    Where f > 0, x increases (arrow right ->).\n                    Where f < 0, x decreases (arrow left  <-).\n\n   Example:  x' = x - x^3 = x(1 - x^2)     zeros at x = -1, 0, +1\n\n   f(x)\n    |        ___\n    |      /     \\                         PHASE LINE:\n    |     /       \\\n  --+----*----*----*----------- x        --->  *  <---  *  --->  *  <---\n    |  -1 \\   0   /+1                          -1       0        1\n    |      \\___ /                          stable  unstable  stable\n    |                                       (sink)   (source)  (sink)\n\n   Read the arrows: just LEFT of x=0, f>0 so arrow ->; just RIGHT, f<0 so arrow <-.\n   Arrows point AWAY from 0  => x=0 is UNSTABLE (source/repeller).\n   Arrows point TOWARD +-1   => x=+-1 are STABLE (sinks/attractors).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 82,
+      "heading_context": "## The 1D Case: Phase Lines",
+      "confidence": "candidate",
+      "text": "   f'(x*) < 0   ->  STABLE   (graph of f crosses zero going DOWN; arrows converge)\n   f'(x*) > 0   ->  UNSTABLE (graph crosses zero going UP;   arrows diverge)\n   f'(x*) = 0   ->  marginal; higher-order terms decide (a bifurcation, Ch. 03)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 91,
+      "heading_context": "## The 1D Case: Phase Lines",
+      "confidence": "candidate",
+      "text": "### The crucial 1D theorem (why 1D flows are boring)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 140,
+      "heading_context": "## 2D Phase Portraits: the Real Geometry",
+      "confidence": "candidate",
+      "text": "   System:  x' = f(x, y)        x-nullcline:  f(x,y) = 0  (vertical motion only)\n            y' = g(x, y)        y-nullcline:  g(x,y) = 0  (horizontal motion only)\n\n   FIXED POINTS = intersections of x-nullcline and y-nullcline (both zero).\n\n        y |        x-nullcline (x'=0): arrows cross it VERTICALLY  ||\n          |      .  .  .  .\n          |    .              .                  Intersections of the\n          |  .     * <- fixed   .                two nullclines are the\n          | .       point         .  y-nullcline fixed points. Nullclines\n          |.         =====================  (y'=0) carve the plane into\n          +-------------------------------> x  regions of fixed flow\n                                               direction (sign of x', y').",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 165,
+      "heading_context": "## Invariant Sets: the Vocabulary of \"Where Trajectories Live\"",
+      "confidence": "candidate",
+      "text": "   +------------------------------------------------------------------+\n   |  INVARIANT SET S: if x in S then phi_t(x) in S for all t.        |\n   |  (Once you're in it, you never leave. The flow \"respects\" it.)   |\n   +------------------------------------------------------------------+\n        |\n        +-- FIXED POINT      a single invariant point, f(x*)=0\n        |\n        +-- PERIODIC ORBIT   a closed loop, phi_T(x)=x  (limit cycle, Ch. 04)\n        |\n        +-- INVARIANT MANIFOLD  stable W^s / unstable W^u of a saddle (Ch. 02)\n        |\n        +-- ATTRACTOR        invariant + attracts a neighborhood + minimal\n        |                    (point, cycle, torus, or STRANGE — Ch. 06)\n        |\n        +-- BASIN OF ATTRACTION  the set of initial conditions whose\n                                 trajectories end up on a given attractor",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 186,
+      "heading_context": "## Invariant Sets: the Vocabulary of \"Where Trajectories Live\"",
+      "confidence": "candidate",
+      "text": "   omega-limit set  w(x):  where the trajectory from x goes as t -> +infinity\n   alpha-limit set  a(x):  where it came from as t -> -infinity\n\n   For a stable fixed point x*, w(x) = {x*} for every x in its basin.\n   For a stable limit cycle Gamma,   w(x) = Gamma for every x in its basin.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 206,
+      "heading_context": "## Conservative Flows and First Integrals",
+      "confidence": "candidate",
+      "text": "   Undamped pendulum:  theta'' + sin(theta) = 0\n   As a system:        theta' = v,   v' = -sin(theta)\n   Conserved energy:   H(theta,v) = (1/2) v^2 - cos(theta)\n\n   Phase portrait = level curves of H:\n\n        v |     ____           ____\n          |   /      \\   ___  /      \\         CLOSED loops near (0,0):\n          |  |  CENTER |/SEP \\| CENTER |       oscillation (libration).\n        --+--*--------X-------*-------->  theta SEPARATRIX (X): the orbit\n          |  |        |\\     /|        |       through the SADDLE points\n          |   \\______/   ---  \\______/        (+-pi, 0) -- threshold between\n          |                                    swinging and going over the top.\n        centers at theta=0,+-2pi (stable, but NOT asymptotically -- no friction)\n        saddles at theta=+-pi   (unstable)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

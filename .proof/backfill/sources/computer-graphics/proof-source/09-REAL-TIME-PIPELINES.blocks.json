@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-graphics\\09-REAL-TIME-PIPELINES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture: Architecting a Frame Under a Budget",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------------------------+\n|                      A MODERN REAL-TIME FRAME (one ~16ms budget)                     |\n|                                                                                      |\n|  SHADOW         GEOMETRY        LIGHTING        TRANSPARENCY     POST-PROCESS    UI  |\n|  PASSES         PASS            PASS                                                 |\n|                                                                                      |\n|  render depth-> rasterize    -> shade lit      -> blend OIT  -> tonemap, AA,  -> HUD |\n|  from each      scene (fwd     pixels (fwd        / sorted       bloom, DoF,         |\n|  light          or G-buffer    inline OR          alpha          motion blur,        |\n|  (shadow maps)  for deferred)  deferred pass)                    color grade         |\n|                                                                                      |\n|   [L3 shadows]  [L1 fwd/def]   [L1 fwd/def]      [transp]       [L4 post]   [L4 UI]  |\n|                                                                                      |\n|   Driven over an EXPLICIT API (Vulkan/D3D12/Metal) with command buffers [L5]         |\n+--------------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 60,
+      "heading_context": "## Layer 1: Forward vs Deferred Shading",
+      "confidence": "candidate",
+      "text": "  FORWARD                                DEFERRED\n  -------                                --------\n  for each object:                       PASS 1 (geometry): rasterize scene ->\n     for each light: shade               G-buffer (albedo, normal, depth, rough...)\n  -> cost ~ objects x lights             PASS 2 (lighting): for each light, shade the\n  -> overdraw shades hidden pixels          G-buffer pixels it touches\n                                         -> cost ~ pixels x lights (geometry decoupled\n                                            from lighting; no overdraw shading)\n\n      [obj]-->shade(all lights)           [scene]-->[ G-BUFFER ]-->[ shade per pixel ]\n                                                      normal|albedo\n                                                      depth |rough",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 84,
+      "heading_context": "## Layer 1: Forward vs Deferred Shading",
+      "confidence": "candidate",
+      "text": "  THE MODERN ANSWER: hybrids that keep deferred's many-lights win without its costs.\n\n  TILED / CLUSTERED forward (Forward+):  split the screen into tiles (and depth\n     slices = clusters); cull lights per tile; forward-shade against only the lights\n     that touch each tile. -> many lights + easy transparency + MSAA + material variety.\n\n  VISIBILITY BUFFER: store only triangle/instance IDs per pixel; fetch material and\n     shade in a deferred-like pass -> tiny G-buffer, scales to huge geometry (Nanite).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 105,
+      "heading_context": "## Layer 2: The Frame Budget",
+      "confidence": "candidate",
+      "text": "  FRAME BUDGET (the hard constraint everything bends to):\n\n     60 Hz  -> 16.6 ms / frame      120 Hz -> 8.3 ms      90 Hz (VR) -> 11.1 ms\n\n     a frame is split across:  shadow passes + geometry + lighting + transparency\n                               + post + UI + CPU submission, all overlapping GPU/CPU.\n\n  CPU and GPU run PIPELINED: while the GPU renders frame N, the CPU prepares frame N+1.\n     -> latency = ~2-3 frames; throughput = bounded by the slower of CPU/GPU per frame.\n\n  \"GPU-bound\" vs \"CPU-bound\": profile to find which stage blows the budget;\n     optimize that one. (Amdahl applies -- speeding up a non-bottleneck buys nothing.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 134,
+      "heading_context": "## Layer 3: Shadows",
+      "confidence": "candidate",
+      "text": "  SHADOW MAPPING (two passes):\n\n   PASS 1: render the scene depth FROM THE LIGHT -> shadow map (a depth texture)\n   PASS 2: when shading point P, transform P into light space; compare its depth to\n           the shadow map. farther than stored depth? -> in shadow.\n\n      light                                  shade point P:\n        \\                                       project P to light space\n         \\  shadow map (depth from light)        depthP vs shadowmap[P.xy]\n          \\____________                          depthP >  stored -> SHADOWED\n           |   |    |  |                          depthP <= stored -> LIT\n        occluder  receiver\n\n   ARTIFACTS + FIXES:\n     \"shadow acne\" (self-shadowing)  -> depth BIAS / normal-offset / slope-scaled bias\n     hard jagged edges (aliasing)    -> PCF (percentage-closer filtering: average\n                                         several depth comparisons -> soft edge)\n     coarse near, wasteful far       -> CASCADED shadow maps (CSM): several maps at\n                                         different resolutions by distance (like LOD)\n     contact-hardening soft shadows  -> PCSS / variance/moment shadow maps",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 169,
+      "heading_context": "### Ambient Occlusion in Screen Space (SSAO)",
+      "confidence": "candidate",
+      "text": "  SSAO: darken creases and contact points by sampling nearby DEPTH.\n\n    at pixel P (with depth + normal from the G-buffer / depth buffer):\n      sample N points in a hemisphere around P (oriented by the normal)\n      for each sample: is its depth OCCLUDED by the depth buffer? (something nearer?)\n      occlusion = fraction of samples blocked  ->  darken P by (1 - occlusion)\n\n       open surface: few samples blocked -> bright\n       inside a crease: many blocked      -> darkened (the contact-shadow look)\n\n    HBAO / GTAO are refined variants (horizon-based / ground-truth) with better falloff.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 195,
+      "heading_context": "## Layer 4: Post-Processing",
+      "confidence": "candidate",
+      "text": "  POST CHAIN (each pass reads the previous target, writes a new one):\n\n   HDR scene -> | bloom |  bright-pass + blur, add back -> glow around highlights\n             -> | SSAO  |  screen-space ambient occlusion -> contact darkening (fakes GI)\n             -> | SSR   |  screen-space reflections -> cheap reflections from the depth+\n                            color buffers (misses off-screen geometry)\n             -> | motion blur | from per-pixel velocity (motion vectors)\n             -> | depth of field | blur by circle-of-confusion from depth\n             -> | TAA / upscale | temporal AA resolve; DLSS/FSR upscaling      [05]\n             -> | tone map + color grade | HDR -> display range; LUT grade       [08]\n             -> | encode sRGB / PQ |  for the display                            [08]\n\n  SCREEN-SPACE methods are cheap because they reuse buffers already rendered (depth,\n  normal, color, velocity) -- but they only \"see\" what's on screen (SSR/SSAO miss\n  off-screen occluders/reflectors). That's the trade for fitting the frame budget.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 225,
+      "heading_context": "### Frame Pacing, V-Sync, and Variable Refresh",
+      "confidence": "candidate",
+      "text": "  V-SYNC OFF      present immediately -> TEARING (a frame swap mid-scan shows two frames'\n                  halves stitched at the tear line)\n  V-SYNC ON       wait for the display's vblank -> no tearing, but if you miss a refresh\n                  you drop to the next one: 60 -> 30 -> 20 fps cliffs + input latency\n  TRIPLE BUFFER   render ahead into a 3rd buffer -> hides small stalls, adds latency\n  VRR (G-Sync /   the DISPLAY waits for the GPU: refresh rate tracks frame rate within a\n  FreeSync /      range -> no tearing AND no 60->30 cliff. The modern answer.\n  Adaptive Sync)\n\n  FRAME PACING: 60 fps with one 33 ms hitch reads as a STUTTER even though the average\n  is fine. Even frame times > high-but-jittery average. Profile the 99th percentile,\n  not just the mean.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 249,
+      "heading_context": "## Layer 5: Modern Explicit APIs",
+      "confidence": "candidate",
+      "text": "  IMPLICIT (OpenGL, D3D11)            EXPLICIT (Vulkan, D3D12, Metal, WebGPU)\n  ----------------------              ---------------------------------------\n  driver tracks state, hazards,       YOU build command buffers, manage memory,\n  memory, synchronization             insert barriers, own pipeline-state objects\n  one thread submits draws            many threads record command buffers in parallel\n  high per-draw CPU overhead          low overhead; predictable; explicit sync\n\n      app -> GL calls -> [DRIVER       app threads -> record cmd buffers -> queue submit\n                          guesses]                    -> GPU",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 261,
+      "heading_context": "## Layer 5: Modern Explicit APIs",
+      "confidence": "candidate",
+      "text": "  KEY EXPLICIT-API CONCEPTS:\n     COMMAND BUFFER     pre-recorded list of GPU work (record on many threads, submit once)\n     PIPELINE STATE OBJ all fixed-function + shader state baked into one immutable object\n                        -> no costly mid-frame state changes; compile cost paid up front\n     EXPLICIT BARRIERS  you declare resource transitions/dependencies (read-after-write etc.)\n     DESCRIPTOR SETS    how shaders bind to resources (textures/buffers) in bulk\n     SWAPCHAIN          the set of framebuffers presented to the display (double/triple buffer)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 285,
+      "heading_context": "## Worked Example: Budgeting a 60 Hz Frame",
+      "confidence": "candidate",
+      "text": "  measured GPU times:\n     shadow passes (4 cascades) .... 3.5 ms\n     G-buffer (geometry) ........... 4.0 ms\n     lighting (clustered) .......... 5.0 ms\n     transparency + particles ...... 1.5 ms\n     post (bloom, SSAO, TAA, tonemap) 3.5 ms\n     ----------------------------------------\n     total ......................... 17.5 ms   -> 0.9 ms OVER budget (would drop to ~57 fps)\n\n  PROFILE says lighting is the largest term. Options, cheapest first:\n     - tighten clustered light culling (fewer lights per cluster)         -> ~1 ms\n     - drop a shadow cascade resolution at distance                       -> ~0.7 ms\n     - lower G-buffer precision / fewer channels                          -> ~0.5 ms\n     - DLSS/FSR: render at 67% resolution, upscale -> cuts lighting+post  -> several ms\n\n  Pick ONE that closes the 0.9 ms gap (Amdahl: optimize the bottleneck, not the\n  3.5 ms shadow pass that's already comfortable). Re-profile; budgets shift as you cut.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

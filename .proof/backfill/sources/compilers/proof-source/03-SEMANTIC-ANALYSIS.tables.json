@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "compilers\\03-SEMANTIC-ANALYSIS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 148,
+      "heading_context": "## Symbol Tables and Scope",
+      "headers": [
+        "Implementation",
+        "Lookup",
+        "Scope entry/exit",
+        "Used by"
+      ],
+      "rows": [
+        [
+          "stack of hash maps",
+          "O(1) avg per level, O(depth) chain",
+          "push/pop a map",
+          "many classic compilers"
+        ],
+        [
+          "single hash map + scope marks",
+          "O(1), undo on exit",
+          "push markers, pop entries",
+          "fast, cache-friendly"
+        ],
+        [
+          "persistent/immutable map",
+          "O(log n)",
+          "structural sharing, no undo",
+          "functional compilers, IDEs (snapshot per edit)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 331,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You know",
+        "Maps to"
+      ],
+      "rows": [
+        [
+          "Roslyn `SemanticModel` / `ISymbol`",
+          "The output of name resolution: every syntax node bound to a symbol"
+        ],
+        [
+          "Roslyn *binder* phase",
+          "The name-resolution pass building/walking symbol tables"
+        ],
+        [
+          "C# `var` and `out var`",
+          "Local type inference — a constrained HM (no let-generalization across statements)"
+        ],
+        [
+          "C# overload resolution",
+          "A constraint-solving search over candidate signatures, ranked by conversions"
+        ],
+        [
+          "`dynamic` in C#",
+          "Deferring type checking to runtime — opting out of static semantic analysis"
+        ],
+        [
+          "Generic constraints (`where T : IComparable`)",
+          "Bounded quantification — the checker verifies the bound at instantiation"
+        ],
+        [
+          "TypeScript structural typing",
+          "Subtyping by shape; the checker compares members, not names (vs C#'s nominal)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 373,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Bind every name to its declaration",
+          "Symbol tables + scope-chain name resolution"
+        ],
+        [
+          "Handle shadowing",
+          "Innermost scope wins on lookup"
+        ],
+        [
+          "Handle forward references / mutual recursion",
+          "Two passes: collect declarations, then resolve uses"
+        ],
+        [
+          "Verify fully-annotated code",
+          "Type checking — syntax-directed, one walk"
+        ],
+        [
+          "Reconstruct missing types",
+          "Type inference — Hindley-Milner / Algorithm W"
+        ],
+        [
+          "Solve type equalities",
+          "Unification (with the occurs check)"
+        ],
+        [
+          "Localize inference + good errors",
+          "Bidirectional checking (check vs synthesize)"
+        ],
+        [
+          "Get C#-style `var`",
+          "HM without let-generalization"
+        ],
+        [
+          "Reason about one-pass vs fixpoint",
+          "Attribute-grammar view (synthesized vs inherited)"
+        ],
+        [
+          "Compare TS-style shapes",
+          "Structural subtyping (members, not names)"
+        ]
+      ]
+    }
+  ]
+}

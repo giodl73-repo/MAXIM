@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dynamical-systems:bifurcations
+kind: guide
+module: dynamical-systems
+section: dynamical-systems
+title: Bifurcations
+status: source-custody
+source_custody: partial
+current_path: dynamical-systems/03-BIFURCATIONS.md
+canonical_path: dynamical-systems/03-BIFURCATIONS.md
+backsource_ids: [proof-backfill:dynamical-systems:03-bifurcations, git-history:dynamical-systems:03-bifurcations]
+concepts: [bifurcations]
+root_concepts: [bifurcations]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Bifurcations
 
 A bifurcation is a **qualitative change in the phase portrait** as a parameter crosses a critical

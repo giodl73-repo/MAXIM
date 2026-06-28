@@ -1,0 +1,171 @@
+{
+  "schema_version": "1",
+  "source_markdown": "algorithms\\01-ANALYSIS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "# Algorithm Analysis — Asymptotics, Recurrences, Amortized",
+      "confidence": "candidate",
+      "text": "  THE FOUR ANALYSIS WORLDS — pick the right one, they answer different questions\n  ==================================================================================\n\n   WORST-CASE             AVERAGE-CASE            AMORTIZED              SMOOTHED\n   ----------             ------------            ---------             --------\n   adversary picks        random input,           ANY op sequence,      random PERTURBATION\n   the single worst       expectation over        total cost / #ops     of an adversarial\n   input                  a distribution                                input\n        |                      |                       |                     |\n        v                      v                       v                     v\n   \"guaranteed ceiling\"   \"typical run\"          \"contract over a      \"why simplex is\n                          (can be unlucky)        sequence, no luck\"     fast in practice\"\n\n   quicksort O(n^2)       quicksort O(n log n)   array push O(1)        simplex poly\n                          (random pivot)          amortized             (Spielman-Teng)\n\n   T E C H N I Q U E S\n   -------------------\n   recurrences:           indicator RVs +        aggregate /            (research-level;\n   - recursion tree       linearity of           accounting /            noted for context)\n   - Master theorem       expectation            potential method\n   - Akra-Bazzi\n   - substitution",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 98,
+      "heading_context": "## Layer 2: Solving Recurrences",
+      "confidence": "candidate",
+      "text": "### Tool 1: The Recursion Tree (always works, builds intuition)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 102,
+      "heading_context": "### Tool 1: The Recursion Tree (always works, builds intuition)",
+      "confidence": "candidate",
+      "text": "   T(n) = 2 T(n/2) + n          (mergesort)\n\n   level 0:                 n                       work = n\n                          /     \\\n   level 1:          n/2         n/2                work = n\n                    /   \\       /   \\\n   level 2:      n/4   n/4   n/4   n/4              work = n\n                  ...                               ...\n   level log2(n): 1 1 1 ... 1   (n leaves)          work = n\n\n   #levels = log2(n) + 1 , each level does n work\n   => T(n) = n * (log2 n + 1) = Theta(n log n)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 117,
+      "heading_context": "#levels = log2(n) + 1 , each level does n work",
+      "confidence": "candidate",
+      "text": "   T(n) = 2 T(n/2) + 1          (e.g. tree size)\n\n   per-level work: 1, 2, 4, ..., n   (DOUBLES each level — leaf-dominated)\n   total = 1 + 2 + 4 + ... + n = 2n - 1 = Theta(n)\n   => the LEAVES dominate, not the levels",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 125,
+      "heading_context": "#levels = log2(n) + 1 , each level does n work",
+      "confidence": "candidate",
+      "text": "### Tool 2: The Master Theorem (the fast path for `aT(n/b)+f(n)`)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 130,
+      "heading_context": "### Tool 2: The Master Theorem (the fast path for `aT(n/b)+f(n)`)",
+      "confidence": "candidate",
+      "text": "  Let c_crit = log_b(a).   Compare f(n) to n^c_crit:\n\n  CASE 1  f(n) = O(n^(c_crit - eps))     leaves win    => T(n) = Theta(n^c_crit)\n  CASE 2  f(n) = Theta(n^c_crit log^k n) balanced      => T(n) = Theta(n^c_crit log^(k+1) n)\n  CASE 3  f(n) = Omega(n^(c_crit + eps)) root wins*     => T(n) = Theta(f(n))\n          (*plus a regularity condition: a f(n/b) <= c f(n), c<1)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 141,
+      "heading_context": "### Tool 2: The Master Theorem (the fast path for `aT(n/b)+f(n)`)",
+      "confidence": "candidate",
+      "text": "  T = 2T(n/2) + n        a=2,b=2 -> c_crit=1, f=n=n^1   CASE 2 (k=0) -> Theta(n log n)   [mergesort]\n  T = 2T(n/2) + 1        a=2,b=2 -> c_crit=1, f=1<n^1   CASE 1       -> Theta(n)          [tree walk]\n  T = T(n/2) + 1         a=1,b=2 -> c_crit=0, f=1=n^0   CASE 2 (k=0) -> Theta(log n)      [binary search]\n  T = 7T(n/2) + n^2      a=7,b=2 -> c_crit=log2 7~2.807 CASE 1 (f<n^2.807) -> Theta(n^2.807) [Strassen]\n  T = 3T(n/2) + n        a=3,b=2 -> c_crit=log2 3~1.585 CASE 1 (f=n<n^1.585) -> Theta(n^1.585) [Karatsuba]\n  T = 2T(n/2) + n log n  a=2,b=2 -> c_crit=1, f=n log n CASE 2 (k=1) -> Theta(n log^2 n)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 154,
+      "heading_context": "### Tool 2: The Master Theorem (the fast path for `aT(n/b)+f(n)`)",
+      "confidence": "candidate",
+      "text": "### Tool 3: Akra-Bazzi (uneven splits the Master theorem can't touch)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 159,
+      "heading_context": "### Tool 3: Akra-Bazzi (uneven splits the Master theorem can't touch)",
+      "confidence": "candidate",
+      "text": "  Median-of-medians selection:  T(n) = T(n/5) + T(7n/10) + O(n)\n  Solve  (1/5)^p + (7/10)^p = 1  at  p = 1  ->  (1/5)+(7/10) = 0.9 < 1\n  so p < 1 and the f(n)=n term dominates  =>  T(n) = Theta(n)     [linear-time select! see 02]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 204,
+      "heading_context": "### Technique B — Accounting (banker's) method",
+      "confidence": "candidate",
+      "text": "  Dynamic array, charge $3 per push:\n    $1 pays for inserting this element.\n    $1 saved on the element ITSELF (to pay for copying it at next resize).\n    $1 saved on an OLD element (to pay for copying it at next resize).\n  At a resize, every element has $1 banked to fund its copy. Balance stays >= 0.\n  => amortized $3 = O(1) per push.   (Same answer, per-op view.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 219,
+      "heading_context": "### Technique C — Potential method (the heavy-duty one)",
+      "confidence": "candidate",
+      "text": "  amortized_i = actual_i + Phi(D_i) - Phi(D_{i-1})\n  sum of amortized = sum of actual + Phi(D_m) - Phi(D_0)\n                   >= sum of actual    (if Phi_0 <= Phi_m, and Phi >= 0)\n\n  Dynamic array: Phi = 2*size - capacity.\n    Non-resize push:   actual=1, capacity fixed, size+1 -> dPhi = +2, amortized = 3.\n    Resizing push:     actual = size+1 (copy size, insert 1); capacity doubles.\n      Before: Phi = 2n - n = n.  After: size n+1, cap 2n -> Phi = 2(n+1)-2n = 2.\n      dPhi = 2 - n.  amortized = (n+1) + (2 - n) = 3.   Both cases -> 3 = O(1).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 234,
+      "heading_context": "### Technique C — Potential method (the heavy-duty one)",
+      "confidence": "candidate",
+      "text": "  WHICH AMORTIZED TECHNIQUE?\n  aggregate   -> one op type, want a quick total\n  accounting  -> intuitive per-op story, easy invariants\n  potential   -> multiple op types, state-dependent costs (heaps, splay, union-find)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 251,
+      "heading_context": "### Worked: expected comparisons in randomized quicksort",
+      "confidence": "candidate",
+      "text": "  Let X_ij = 1 if elements of rank i and j are ever compared, else 0.\n  Two elements are compared <=> one of them is the FIRST pivot chosen from the\n  range [i..j].  That range has (j - i + 1) elements, all equally likely first.\n    => Pr[X_ij = 1] = 2 / (j - i + 1)\n  E[total comparisons] = sum_{i<j} 2/(j-i+1)\n                       = sum_i sum_{k=1}^{n-i} 2/(k+1)  ~ 2n * H_n ~ 2n ln n\n                       = Theta(n log n)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 266,
+      "heading_context": "### Worked: expected comparisons in randomized quicksort",
+      "confidence": "candidate",
+      "text": "  RANDOMIZED ALGORITHM            vs   AVERAGE-CASE ANALYSIS\n  randomness inside the algorithm      randomness in the input\n  guarantee holds for ANY input        guarantee holds for TYPICAL input\n  randomized quicksort, hashing        deterministic quicksort on random data\n  -> see 09 for RP/BPP/ZPP classes",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "ascii_table_candidate",
+      "line": 338,
+      "heading_context": "### \"The Master theorem solves every divide-and-conquer recurrence\"",
+      "confidence": "candidate",
+      "text": "(`T(n/5)+T(7n/10)+n`) are out of scope entirely — use Akra-Bazzi or a recursion",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

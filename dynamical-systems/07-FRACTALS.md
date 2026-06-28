@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dynamical-systems:fractals
+kind: guide
+module: dynamical-systems
+section: dynamical-systems
+title: Fractals
+status: source-custody
+source_custody: partial
+current_path: dynamical-systems/07-FRACTALS.md
+canonical_path: dynamical-systems/07-FRACTALS.md
+backsource_ids: [proof-backfill:dynamical-systems:07-fractals, git-history:dynamical-systems:07-fractals]
+concepts: [fractals]
+root_concepts: [fractals]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Fractals
 
 A fractal is a set with **detail at every scale** and a **non-integer dimension**. The two ideas are

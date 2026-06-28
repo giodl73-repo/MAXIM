@@ -1,0 +1,1133 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-algorithms-complexity-and-np",
+  "source": "../../algorithms",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#000",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "# Complexity and NP"
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#001",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "This is the boundary of the directory: which problems the preceding paradigms can\nsolve efficiently, and which are provably (or conjecturally) beyond *exact efficient*\nsolution. You know the definitions of P, NP, and reductions; this guide is about\n*using* them — building reductions to prove hardness, and the three escape routes\nwhen a problem is NP-hard: approximation algorithms with proven ratios, randomization,\nand parameterization. Every class and reduction direction below is stated precisely,\nbecause the entire field turns on getting the direction of a reduction right."
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#002",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "```\n  THE COMPLEXITY LANDSCAPE\n  ====================================================================================="
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#003",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "+-----------------------------------------------------------------------------+\n   |                              PSPACE                                         |\n   |   +-------------------------------------------------------------------+     |\n   |   |                        NP            co-NP                        |      |\n   |   |   +---------------------------+   +---------------------------+   |      |\n   |   |   |          NP-complete      |   |       co-NP-complete      |   |      |\n   |   |   |   SAT, 3-SAT, CLIQUE,     |   |   TAUTOLOGY, UNSAT        |   |      |\n   |   |   |   VERTEX-COVER, HAM-CYCLE,|   |                           |   |      |\n   |   |   |   TSP(dec), SUBSET-SUM,   |   |                           |   |      |\n   |   |   |   3-COLORING, KNAPSACK    |   |                           |   |      |\n   |   |   +---------------------------+   +---------------------------+   |      |\n   |   |               \\           +-----+           /                    |      |\n   |   |                \\          |  P  |          /                     |      |\n   |   |                 \\         |     |         /                      |      |\n   |   |   NP-intermediate?\\       | sort| (poly)/   if P=NP this all     |      |\n   |   |   (factoring, GI) +-------|  MST|------+    collapses to P       |      |\n   |   |                           |  LP |                                |      |\n   |   |                           +-----+                                |      |\n   |   +-------------------------------------------------------------------+     |\n   +-----------------------------------------------------------------------------+"
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#004",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "P        solvable in poly time            (decision problems)\n   NP       VERIFIABLE in poly time (given a certificate)        P subset NP\n   co-NP    complement is in NP (verify a NO)\n   NP-hard  everything in NP reduces to it (>= as hard as all of NP)\n   NP-COMPLETE  in NP AND NP-hard  (the hardest problems IN NP)\n   PSPACE   poly MEMORY (QBF is PSPACE-complete) ; NP subset PSPACE"
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#005",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "OPEN: P =? NP  (and NP =? co-NP).  Conjectured P != NP.\n```"
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#006",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "**Read this as a map of what's reachable**: P is what the rest of this directory\nreaches; NP-complete problems have no known poly algorithm and one would collapse all\nof them; the escape routes (approximation, randomization, parameterization) are how\nyou *engineer around* an NP-hard problem you actually have to ship."
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#007",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#008",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "## Layer 1: The Classes, Precisely"
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#009",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "```\n   P        a DETERMINISTIC poly-time algorithm decides it.\n            e.g. sorting, shortest path, MST, linear programming (Khachiyan), primality (AKS)."
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#010",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "NP       a poly-size CERTIFICATE for YES instances, checkable in poly time.\n            SAT: the certificate is a satisfying assignment; verify by evaluating.\n            Equivalent: solvable by a nondeterministic TM in poly time."
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#011",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "co-NP    YES/NO swapped: poly-checkable certificate for NO instances.\n            UNSAT (no satisfying assignment), TAUTOLOGY."
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#012",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "P subset (NP intersect co-NP).   P=NP is open.   NP=co-NP is open (and would be\n   surprising; e.g. it would put a poly certificate on UNSAT).\n```"
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#013",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "The MIT-level subtleties worth pinning down:"
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#014",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "- **NP is about verification, not \"nondeterministic-polynomial-as-in-slow.\"** A YES\n  instance has a short proof you can check fast; you needn't be able to *find* it fast.\n- **NP-hard ⊋ NP-complete.** NP-hard means \"at least as hard as everything in NP\" but\n  need not be *in* NP (e.g. the *optimization* TSP, or the halting problem, are NP-hard\n  but not in NP). NP-complete = NP-hard **and** in NP.\n- **co-NP ≠ \"not NP.\"** It is the class of complements. SAT ∈ NP; UNSAT ∈ co-NP. If any\n  NP-complete problem is in co-NP, then NP = co-NP."
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#015",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#016",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "## Layer 2: Reductions (the load-bearing tool)"
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#017",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "A reduction transforms problem `A` into problem `B` so that an algorithm for `B`\nsolves `A`. **The direction is everything** — get it backwards and you've proved\nnothing."
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#018",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "```\n   A  <=_p  B     \"A poly-time reduces to B\"     (A is NO HARDER than B)\n   ----------------------------------------------------------------------\n   To prove B is NP-HARD: reduce a KNOWN NP-hard problem A *to* B  (A <=_p B).\n     \"B is at least as hard as A, which is already hard.\"\n   To prove B is EASY: reduce B to a known EASY problem."
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#019",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "THE #1 MISTAKE: reducing B to a known-hard problem proves NOTHING about B's hardness.\n     (showing your problem is no harder than SAT doesn't make it hard.)"
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#020",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "reduction must be: (1) poly-time computable, (2) YES(A) <=> YES(B).\n```"
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#021",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "### Worked reduction: 3-SAT ≤_p INDEPENDENT-SET"
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#022",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "```\n   Given 3-SAT formula  (x1 OR ~x2 OR x3) AND (~x1 OR x2 OR x3) ...  (k clauses):\n   BUILD a graph:\n     - one TRIANGLE per clause (3 vertices = the 3 literals; edges within the triangle)\n     - connect a literal to its NEGATION across clauses (x1 -- ~x1 edges)\n   CLAIM: formula is satisfiable  <=>  graph has an independent set of size k.\n     pick one TRUE literal per clause -> k vertices, no two adjacent (triangle edges\n     forbid two-in-a-clause; negation edges forbid x and ~x both true). <=> consistent\n     satisfying assignment.\n   poly-time, equivalence holds  => INDEPENDENT-SET is NP-hard (and in NP) => NP-complete.\n```"
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#023",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "This is the template: encode the source problem's logic in the target's structure so a\nsolution maps back and forth. **Cook-Levin** seeded the whole web by proving SAT is\nNP-complete *from the definition of NP* (a TM computation encoded as a formula);\neverything else is a reduction chain from SAT."
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#024",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "```\n   THE CLASSIC REDUCTION WEB (Karp's 21):\n     SAT -> 3-SAT -> { CLIQUE, INDEPENDENT-SET, VERTEX-COVER } (graph-algorithms/07)\n                  -> 3-COLORING -> ...\n                  -> SUBSET-SUM -> KNAPSACK(dec) (04)\n                  -> HAMILTONIAN-CYCLE -> TSP(dec)\n   Build a NEW hardness proof by reducing the closest of these to your problem.\n```"
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#025",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "The NP-hard *graph* problems (CLIQUE, VERTEX-COVER, COLORING, HAM-CYCLE, TSP) get full\ntreatment in `graph-algorithms/07`; this guide gives the classification machinery that\nplaces them."
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#026",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#027",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "## Layer 3: Weak vs Strong NP-Hardness (and pseudo-polynomial)"
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#028",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "```\n   SUBSET-SUM / 0/1 KNAPSACK have a DP in O(n * W)  (see 04).\n   Is that polynomial?  W is a VALUE; its ENCODING is log W bits.\n   => O(nW) is EXPONENTIAL in input SIZE -> \"PSEUDO-polynomial\"."
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#029",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "WEAKLY NP-hard:   has a pseudo-poly algorithm (poly in the numeric values).\n                     KNAPSACK, SUBSET-SUM.  -> tractable when numbers are small.\n   STRONGLY NP-hard: NP-hard even when all numbers are poly-bounded -> NO pseudo-poly\n                     algorithm unless P=NP.  TSP, 3-PARTITION, BIN-PACKING.\n```"
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#030",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "This is exactly the distinction `04` flagged for knapsack: O(nW) feels polynomial but\nis exponential in the bit-length of `W`. It tells you *when* the DP escape works (small\nnumbers) and when it doesn't (strongly NP-hard)."
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#031",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#032",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "## Layer 4: Escape Route 1 — Approximation Algorithms"
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#033",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "If you can't solve it exactly and efficiently, get a solution provably within a factor\nof optimal."
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#034",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "```\n   APPROXIMATION RATIO rho: ALG <= rho * OPT (minimization) for ALL inputs."
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#035",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "VERTEX COVER  2-approximation (greedy on edges):\n     repeatedly pick any uncovered edge (u,v), add BOTH u,v to the cover, remove\n     incident edges.  The chosen edges form a matching M; OPT must cover each,\n     using >= |M| vertices; ALG uses 2|M|  => ALG <= 2*OPT.   (graph-algorithms/07)"
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#036",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "METRIC TSP  1.5-approximation (Christofides): MST + min-weight matching on\n     odd-degree vertices + shortcut an Euler tour.  (graph-algorithms/04,06)"
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#037",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "SET COVER  ln(n)-approximation (greedy: take the set covering the most new elements)\n     and this is TIGHT -- no poly algorithm does better unless P=NP."
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#038",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "PTAS / FPTAS:\n     PTAS  : (1+eps)-approx in time poly(n) for each fixed eps (eps in the exponent ok).\n     FPTAS : (1+eps)-approx in time poly(n, 1/eps).  KNAPSACK has an FPTAS.\n   INAPPROXIMABILITY: some problems (general TSP, MAX-CLIQUE) cannot be approximated\n     within ANY constant unless P=NP (PCP theorem).\n```"
+    },
+    {
+      "id": "09-COMPLEXITY-AND-NP.md#039",
+      "path": [
+        "09-COMPLEXITY-AND-NP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:algorithms:09-complexity-and-np, git-history:algorithms:09-complexity-and-np]",
+        "canonical_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "concepts": "[P, NP, co-NP, NP-completeness, reductions, approximation algorithms, randomized algorithms, PSPACE]",
+        "current_path": "algorithms/09-COMPLEXITY-AND-NP.md",
+        "id": "maxim:algorithms:complexity-and-np",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational complexity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Complexity and NP",
+        "updated": "null"
+      },
+      "text": "The approximation hierarchy (FPTAS ⊂ PTAS ⊂ constant-factor ⊂ log-factor ⊂\ninapproximable) is the precise vocabulary for \"how well can we do.\" LP relaxation +\nrounding (`operations-research/01`,`02`) is the systematic source of these ratios —\nthe LP-duality bridge to OR is direct."
+    }
+  ],
+  "refs": [
+    "09-COMPLEXITY-AND-NP.md"
+  ]
+}

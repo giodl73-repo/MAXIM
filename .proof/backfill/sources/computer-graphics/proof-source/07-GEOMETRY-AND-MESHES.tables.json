@@ -1,0 +1,139 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-graphics\\07-GEOMETRY-AND-MESHES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 165,
+      "heading_context": "## Layer 2: Parametric Curves and Surfaces",
+      "headers": [
+        "",
+        "Bézier",
+        "B-spline",
+        "NURBS"
+      ],
+      "rows": [
+        [
+          "Control",
+          "Global (per segment)",
+          "Local",
+          "Local"
+        ],
+        [
+          "Exact circles",
+          "No",
+          "No",
+          "**Yes** (rational)"
+        ],
+        [
+          "Knot vector",
+          "No",
+          "Yes",
+          "Yes"
+        ],
+        [
+          "Weights",
+          "No",
+          "No",
+          "Yes"
+        ],
+        [
+          "Home",
+          "Fonts, vector art",
+          "Smooth paths",
+          "CAD/engineering"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 319,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "Here it is"
+      ],
+      "rows": [
+        [
+          "Normalization / foreign keys",
+          "Indexed mesh — vertices stored once, referenced by index"
+        ],
+        [
+          "Adjacency list of a planar graph",
+          "Half-edge (DCEL) structure for O(1) neighbor queries"
+        ],
+        [
+          "Homogeneous coords / rational forms",
+          "NURBS weights — exact circles via the `w`-divide"
+        ],
+        [
+          "Polynomial basis / interpolation",
+          "Bernstein basis of Bézier curves"
+        ],
+        [
+          "Fixed-point / limit of an iterated map",
+          "Subdivision surface as the refinement limit"
+        ],
+        [
+          "Mipmaps band-limiting textures (`05`)",
+          "LOD band-limiting geometry by distance"
+        ],
+        [
+          "Greedy cost-minimizing simplification",
+          "Quadric error metric edge collapse"
+        ],
+        [
+          "Streaming/paging a working set",
+          "Nanite-style cluster LOD streaming"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 334,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Choice"
+      ],
+      "rows": [
+        [
+          "Render anything on a GPU",
+          "Indexed triangle mesh"
+        ],
+        [
+          "Edit topology / compute normals / subdivide",
+          "Half-edge structure"
+        ],
+        [
+          "Fonts, vector graphics, animation paths",
+          "Bézier curves"
+        ],
+        [
+          "Exact engineering surfaces, true circles",
+          "NURBS"
+        ],
+        [
+          "Smooth characters from an editable cage",
+          "Catmull-Clark (quads) / Loop (tris) subdivision"
+        ],
+        [
+          "Cut triangle count with distance",
+          "LOD (discrete, continuous, or Nanite-style)"
+        ],
+        [
+          "Hide LOD \"popping\"",
+          "Geomorphing / dither cross-fade"
+        ],
+        [
+          "Build LODs automatically",
+          "Quadric error metric simplification"
+        ],
+        [
+          "Smooth surface -> renderable triangles",
+          "Tessellation (adaptive de Casteljau)"
+        ]
+      ]
+    }
+  ]
+}

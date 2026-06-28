@@ -1,0 +1,100 @@
+{
+  "schema_version": "1",
+  "source_markdown": "dynamical-systems\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 100,
+      "heading_context": "## The Two Kinds of Time",
+      "headers": [
+        "You already know",
+        "Dynamical-systems framing"
+      ],
+      "rows": [
+        [
+          "Linear ODE `x' = Ax` solved by `e^{At}`",
+          "Eigenvalues of `A` *are* the stability classification (Ch. 02)"
+        ],
+        [
+          "State-space control `x' = Ax + Bu`",
+          "Same phase space; feedback `u = -Kx` moves eigenvalues = pole placement (`control-theory/02`)"
+        ],
+        [
+          "Lyapunov function `V` proving stability",
+          "Identical object here; LaSalle extends it (`control-theory/06`, Ch. 02)"
+        ],
+        [
+          "Gradient descent `θ_{n+1} = θ_n - η∇L`",
+          "A discrete map; its continuous limit `θ' = -∇L` is a **gradient flow** (Ch. 09)"
+        ],
+        [
+          "Eigenvalue stability of a numerical scheme",
+          "Same algebra; the integrator *is* a map and inherits its dynamics (`numerical-methods/06`)"
+        ],
+        [
+          "Phase transitions in stat-mech",
+          "Bifurcations of an order-parameter ODE; symmetry breaking = pitchfork (Ch. 03, `statistical-mechanics/`)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 256,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Tool / chapter"
+      ],
+      "rows": [
+        [
+          "Decide if a fixed point is stable",
+          "Jacobian eigenvalues, signs of `Re(λ)` — Ch. 02"
+        ],
+        [
+          "Classify a 2D fixed point",
+          "Trace–determinant plane — Ch. 02"
+        ],
+        [
+          "Prove stability when linearization is inconclusive",
+          "Lyapunov function — Ch. 02"
+        ],
+        [
+          "Understand how behavior flips as a knob turns",
+          "Bifurcation normal forms — Ch. 03"
+        ],
+        [
+          "Show a system oscillates persistently",
+          "Poincaré–Bendixson / van der Pol — Ch. 04"
+        ],
+        [
+          "Rule out chaos",
+          "Check `n ≤ 2` for flows (Poincaré–Bendixson) — Ch. 04"
+        ],
+        [
+          "Detect chaos",
+          "Positive largest Lyapunov exponent — Ch. 05"
+        ],
+        [
+          "Quantify a chaotic attractor's geometry",
+          "Box / correlation dimension — Ch. 06–07"
+        ],
+        [
+          "Model seasonal/iterated data",
+          "Discrete map, cobweb, symbolic dynamics — Ch. 08"
+        ],
+        [
+          "Connect to ML training dynamics",
+          "Gradient flow / discretized descent — Ch. 09"
+        ],
+        [
+          "Connect to feedback control",
+          "Lyapunov, Hopf, pole placement — `control-theory/`"
+        ],
+        [
+          "Actually integrate the ODE numerically",
+          "RK / stiff solvers — `numerical-methods/06`"
+        ]
+      ]
+    }
+  ]
+}

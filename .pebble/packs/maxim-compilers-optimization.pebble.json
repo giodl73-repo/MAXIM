@@ -1,0 +1,125 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-compilers-optimization",
+  "source": "../../compilers",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "06-OPTIMIZATION.md#000",
+      "path": [
+        "06-OPTIMIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:06-optimization, git-history:compilers:06-optimization]",
+        "canonical_path": "compilers/06-OPTIMIZATION.md",
+        "concepts": "[optimization, constant propagation, GVN, dead code elimination, LICM, inlining, loop optimization, pass pipeline]",
+        "current_path": "compilers/06-OPTIMIZATION.md",
+        "id": "maxim:compilers:optimization",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimization]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimization - Local, Global, Interprocedural Passes, GVN, LICM, Inlining",
+        "updated": "null"
+      },
+      "text": "# Optimization — From Peephole to Whole-Program"
+    },
+    {
+      "id": "06-OPTIMIZATION.md#001",
+      "path": [
+        "06-OPTIMIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:06-optimization, git-history:compilers:06-optimization]",
+        "canonical_path": "compilers/06-OPTIMIZATION.md",
+        "concepts": "[optimization, constant propagation, GVN, dead code elimination, LICM, inlining, loop optimization, pass pipeline]",
+        "current_path": "compilers/06-OPTIMIZATION.md",
+        "id": "maxim:compilers:optimization",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimization]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimization - Local, Global, Interprocedural Passes, GVN, LICM, Inlining",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "06-OPTIMIZATION.md#002",
+      "path": [
+        "06-OPTIMIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:06-optimization, git-history:compilers:06-optimization]",
+        "canonical_path": "compilers/06-OPTIMIZATION.md",
+        "concepts": "[optimization, constant propagation, GVN, dead code elimination, LICM, inlining, loop optimization, pass pipeline]",
+        "current_path": "compilers/06-OPTIMIZATION.md",
+        "id": "maxim:compilers:optimization",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimization]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimization - Local, Global, Interprocedural Passes, GVN, LICM, Inlining",
+        "updated": "null"
+      },
+      "text": "Optimization is a sequence of semantics-preserving IR-to-IR rewrites, each justified\nby a dataflow fact from guide 05. The passes are organized by *scope* — within a\nbasic block (local), across the CFG of one function (global), and across function\nboundaries (interprocedural) — and they run in a carefully ordered *pipeline* because\none pass exposes opportunities for the next. SSA (guide 04) makes most of them cheap.\nThis guide is the catalog and the ordering logic, with the classic algorithms stated\nprecisely."
+    },
+    {
+      "id": "06-OPTIMIZATION.md#003",
+      "path": [
+        "06-OPTIMIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:06-optimization, git-history:compilers:06-optimization]",
+        "canonical_path": "compilers/06-OPTIMIZATION.md",
+        "concepts": "[optimization, constant propagation, GVN, dead code elimination, LICM, inlining, loop optimization, pass pipeline]",
+        "current_path": "compilers/06-OPTIMIZATION.md",
+        "id": "maxim:compilers:optimization",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimization]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimization - Local, Global, Interprocedural Passes, GVN, LICM, Inlining",
+        "updated": "null"
+      },
+      "text": "```\n+--------------------------------------------------------------------------+\n|                     OPTIMIZATION BY SCOPE                                |\n|                                                                          |\n|   LOCAL (one basic block)                                                |\n|     constant folding, local CSE, local DCE, peephole, algebraic          |\n|     simplification, local copy/constant propagation                      |\n|        |                                                                 |\n|        v                                                                 |\n|   GLOBAL / INTRAPROCEDURAL (one function's CFG, needs dataflow)          |\n|     global constant propagation (SCCP), GVN, global DCE,                 |\n|     LICM, loop unrolling/fusion, strength reduction, vectorization,      |\n|     jump threading, tail-call elimination                                |\n|        |                                                                 |\n|        v                                                                 |\n|   INTERPROCEDURAL (across functions / whole program)                     |\n|     inlining, interprocedural constant propagation,                      |\n|     devirtualization, escape analysis, whole-program DCE,                |\n|     Link-Time Optimization (LTO)                                         |\n|                                                                          |\n|   All wired into a PASS PIPELINE: ordered, often run to a fixpoint,      |\n|   gated by -O0/-O1/-O2/-O3/-Os.                                          |\n+--------------------------------------------------------------------------+\n```"
+    }
+  ],
+  "refs": [
+    "06-OPTIMIZATION.md"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "compilers\\08-CODE-GENERATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 32,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------------+\n|                          CODE GENERATION                                 |\n|                                                                          |\n|   optimized IR (target-independent, SSA, virtual regs)                   |\n|        |                                                                 |\n|        v                                                                 |\n|   INSTRUCTION SELECTION                                                  |\n|     tile the IR/DAG with machine instructions                            |\n|     IR ops -> machine instructions                                       |\n|     (maximal munch / BURS / DAG covering)                                |\n|        |                                                                 |\n|        v                                                                 |\n|   INSTRUCTION SCHEDULING                                                 |\n|     reorder to hide latencies / hazards                                  |\n|     list scheduling over the dependence DAG                              |\n|     (respect data deps, fill pipeline slots)                             |\n|        |                                                                 |\n|        v                                                                 |\n|   REGISTER ALLOCATION (guide 07)                                         |\n|     virtual -> physical                                                  |\n|     coloring / linear scan + spills                                      |\n|        |                                                                 |\n|        v                                                                 |\n|   CALLING CONVENTION                                                     |\n|     ABI: prologue/epilogue, arg passing,                                 |\n|     stack frame, callee/caller-saved regs                                |\n|        |                                                                 |\n|        v                                                                 |\n|   PEEPHOLE cleanup -> emit assembly / object code -> linker              |\n+--------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 76,
+      "heading_context": "## Instruction Selection",
+      "confidence": "candidate",
+      "text": "  IR DAG for  t = a[i]   (i.e.  load(base + i*4)) :\n\n            load\n              |\n             add\n            /    \\\n         base    mul\n                /    \\\n               i      4\n\n  Naive (one instruction per node):        x86 covers it with ONE tile:\n     mul  r1, i, 4                            mov  rax, [base + rax*4]\n     add  r2, base, r1                        ; the addressing mode does\n     load r3, [r2]                            ; base + index*scale for free\n  3 instructions                             1 instruction -> pick this tiling",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 161,
+      "heading_context": "## Calling Conventions and the ABI",
+      "confidence": "candidate",
+      "text": "  THE STACK FRAME (x86-64, grows DOWN):\n\n     higher addresses\n     +------------------------+----------------------------------------+\n     |  caller's frame        |                                        |\n     +------------------------+----------------------------------------+\n     |  argument 7, 8, ...    |  args beyond register count, by caller |\n     +------------------------+----------------------------------------+\n     |  return address        |  pushed by CALL                        |\n     +------------------------+----------------------------------------+\n     |  saved RBP             |  frame base = RBP (if used)            |\n     +------------------------+----------------------------------------+\n     |  callee-saved regs     |  prologue saves the ones it will use   |\n     +------------------------+----------------------------------------+\n     |  local variables /     |                                        |\n     |  spill slots           |  register allocator's overflow here    |\n     +------------------------+----------------------------------------+\n     lower addresses  <- RSP (stack pointer)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 182,
+      "heading_context": "## Calling Conventions and the ABI",
+      "confidence": "candidate",
+      "text": "  ARGUMENT PASSING (registers first, then stack):\n    System V AMD64 (Linux/macOS):  int args -> RDI,RSI,RDX,RCX,R8,R9;\n                                   float -> XMM0..7; return in RAX (RDX:RAX)\n    Windows x64:                   int args -> RCX,RDX,R8,R9; float -> XMM0..3;\n                                   32-byte \"shadow space\" reserved by caller;\n                                   return in RAX\n    AArch64 (AAPCS):               X0..X7 for args, X0/X1 return\n\n  REGISTER PARTITION (who preserves what):\n    CALLER-SAVED (volatile): caller must save if it needs them across a call.\n    CALLEE-SAVED (non-volatile): callee must restore before returning.\n    -> this partition is exactly what constrained register allocation (07).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 222,
+      "heading_context": "## Peephole and Final Lowering",
+      "confidence": "candidate",
+      "text": "  redundant move        mov rax, rax        -> delete\n  store-then-load same  mov [x], rax        -> drop the load, keep rax\n                        mov rax, [x]\n  combine               add rax, 1 ; add rax, 1 -> add rax, 2\n  use addressing mode   mov r,[b]; add r,i  -> mov r,[b+i]\n  branch simplification jmp L; L:           -> fall through",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-graphics\\08-COLOR-AND-PERCEPTION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture: Light Is Linear, Displays and Eyes Are Not",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------------------------+\n|                  THE COLOR PIPELINE (where linear vs encoded matters)                |\n|                                                                                      |\n|  DECODE          SHADE              EXPOSURE/         TONE MAP        ENCODE         |\n|                  (linear)           HDR                                              |\n|                                                                                      |\n|  sRGB texture --> linear lighting --> HDR radiance --> map HDR -> --> sRGB / PQ      |\n|  -> LINEAR       (BRDF, sum lights,   (values may      LDR        encode for         |\n|  light           blend, filter --     exceed 1.0)      [0,1]      the display        |\n|                  ALL in linear!)                                                     |\n|                                                                                      |\n|   [L2 decode]    [L1 linear math]    [L3 HDR]         [L4 tonemap]  [L2 encode]      |\n+--------------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 58,
+      "heading_context": "## Layer 1: Why Lighting Must Be Linear",
+      "confidence": "candidate",
+      "text": "  LINEAR LIGHT:  intensity 0.5 means HALF the photons of 1.0.\n                 0.5 + 0.5 = 1.0    (two half-lights make a full light)  ✓\n\n  If you do that math on GAMMA-ENCODED values, it's WRONG:\n     encoded 0.5 represents ~0.21 linear (sRGB).\n     averaging two encoded 0.5s gives 0.5 (encoded) = 0.21 linear...\n     ...but the true average of the lights is 0.21 linear -> encode -> 0.5. (ok here)\n     The bug shows on MIXED values: average of black(0) and white(1):\n        in encoded space: (0 + 1)/2 = 0.5 encoded = 0.21 LINEAR  -> looks too DARK\n        correct (linear):  (0 + 1)/2 = 0.5 LINEAR  = 0.73 encoded -> proper mid-gray",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 71,
+      "heading_context": "## Layer 1: Why Lighting Must Be Linear",
+      "confidence": "candidate",
+      "text": "  THE CLASSIC BUG: dark fringes on antialiased edges / blurry mips\n\n     averaging a white and a black pixel IN GAMMA SPACE -> too-dark gray\n     -> AA edges look dirty, downsized images darken, alpha blends muddy\n     FIX: decode to linear, average, re-encode.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 90,
+      "heading_context": "## Layer 2: Gamma, sRGB, and the Encode/Decode Boundary",
+      "confidence": "candidate",
+      "text": "  GAMMA / sRGB ENCODING (approx, the real sRGB curve has a small linear toe):\n\n     encoded = linear ^ (1/2.2)      (store: brighten shadows -> more codes there)\n     linear  = encoded ^ 2.2         (display/decode: undo it)\n\n  WHY: with 8 bits, a pure-linear encoding would waste codes on highlights the eye\n  can't distinguish and BAND the shadows visibly. Gamma spreads the codes to match\n  perception -> smooth gradients in 8 bits.\n\n     linear:   |..............................| (codes bunched bright, banding dark)\n     sRGB:     |   .   .   .   .   .   .   .   | (codes spread to match the eye)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 104,
+      "heading_context": "## Layer 2: Gamma, sRGB, and the Encode/Decode Boundary",
+      "confidence": "candidate",
+      "text": "  WHERE TO DECODE / ENCODE (the rule):\n\n   sRGB COLOR data (albedo, photos)      -> DECODE to linear before use\n   LINEAR data (normals, roughness,      -> DO NOT decode (it was never encoded)\n     metalness, depth, AO)\n   final framebuffer for an SDR display  -> ENCODE to sRGB on write\n\n   Hardware \"sRGB texture/framebuffer formats\" do this automatically and CORRECTLY\n   (the decode happens BEFORE filtering, so mips/AA average in linear).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 126,
+      "heading_context": "### Why Three Channels: Trichromacy and Metamerism",
+      "confidence": "candidate",
+      "text": "  THE RETINA has 3 cone types, sensitive to LONG / MEDIUM / SHORT wavelengths (L,M,S).\n  Any spectrum is collapsed to just 3 numbers (the cone responses) before the brain.\n\n  -> METAMERISM: two PHYSICALLY DIFFERENT spectra that produce the same (L,M,S) look\n     IDENTICAL. This is the entire basis of color reproduction:\n        a display emits only 3 primaries (R,G,B), yet can MATCH a continuous spectrum\n        because it only needs to match the three cone responses, not the spectrum.\n\n     real rainbow spectrum  ─┐\n                              ├─> same (L,M,S) ─> same perceived color\n     R+G+B from a monitor   ─┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 181,
+      "heading_context": "### Bit Depth and Banding",
+      "confidence": "candidate",
+      "text": "   8-bit  (256 levels/channel)  sRGB-encoded -> just enough for SDR; banding in smooth\n                                gradients if you do linear math then re-quantize to 8-bit\n   10-bit (1024 levels)         HDR10 displays; far less banding; Rec.2020 + PQ\n   16-bit half-float            HDR RENDER targets (the linear working buffer; values >1)\n   32-bit float                 depth, accumulation, GPGPU\n\n   BANDING: too few codes across a gradient -> visible steps. Mitigate with DITHER\n   (add sub-LSB noise before quantizing) -> trades banding for imperceptible noise.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 204,
+      "heading_context": "## Layer 4: HDR and Tone Mapping",
+      "confidence": "candidate",
+      "text": "  HDR RENDERING:\n     shade in floating-point linear -> values can be 0 .. thousands (no clamping yet)\n\n  EXPOSURE:\n     scale by an exposure factor (like a camera's aperture/ISO) -> chooses what's\n     \"middle gray\" before compression (often auto-exposure from scene luminance)\n\n  TONE MAPPING:  map [0, inf) -> [0, 1] for the display (an S-curve, like film)\n\n     naive CLAMP:  min(x, 1)   -> highlights blow out to flat white (ugly)\n     Reinhard:     x / (1 + x) -> simple, desaturates highlights\n     filmic / ACES -> film-like S-curve; preserves highlight color & contrast (standard)\n\n     output       1 |        _____------  (ACES rolls off highlights gracefully)\n     (display)      |     _/\n                    |   /\n                  0 |_/______________ input radiance (linear, unbounded)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 244,
+      "heading_context": "### Chromatic Adaptation and White Balance",
+      "confidence": "candidate",
+      "text": "  WHITE POINT: the chromaticity the pipeline treats as \"neutral white\".\n     D65  (~6500 K)  the sRGB / Rec.709 / Rec.2020 standard white (daylight)\n     D50  (~5000 K)  print / graphic-arts standard\n\n  CHROMATIC ADAPTATION: convert colors from one white point to another so neutrals\n  stay neutral. The standard method (Bradford transform) is a 3x3 matrix applied in\n  a cone-response (\"LMS\") space:\n\n     XYZ --M_Bradford--> LMS --scale by (dest white / src white)--> LMS' --inverse--> XYZ'\n\n  This is the rendering analogue of CAMERA WHITE BALANCE: re-neutralize the dominant\n  illuminant so the scene reads correctly.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 266,
+      "heading_context": "## Layer 5: The Full Color-Correct Pipeline",
+      "confidence": "candidate",
+      "text": "  ASSET (sRGB albedo)  --decode-->  LINEAR\n  ASSET (normal/rough) --as is-->   LINEAR (never encoded)\n                                       |\n                        all lighting math (BRDF, sum lights,        [04]\n                        blend, filter, mipmap, AA) IN LINEAR        [05]\n                                       |\n                                   HDR radiance (floating-point, unbounded)\n                                       |\n                                   exposure  (scene -> usable range)\n                                       |\n                                   tone map  (HDR -> display range; ACES filmic)\n                                       |\n                          +------------+------------+\n                          |                         |\n                      SDR display               HDR display\n                      encode sRGB               encode PQ/HLG, Rec.2020\n                      [0,1], 8-bit              absolute nits, 10-bit+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 299,
+      "heading_context": "## Worked Example: The Gamma-Space Averaging Bug",
+      "confidence": "candidate",
+      "text": "  WRONG (average in encoded/sRGB space):\n     result = (1.0 + 0.0) / 2 = 0.5 (sRGB)\n     decode to check perceived linear: 0.5^2.2 ~ 0.218 linear\n     -> the eye sees a gray that is only ~22% of full brightness: TOO DARK.\n        Edges look like they have a dark halo.\n\n  RIGHT (decode -> average -> encode):\n     decode: white 1.0 -> 1.0 linear ; black 0.0 -> 0.0 linear\n     average: (1.0 + 0.0)/2 = 0.5 LINEAR     (genuinely half the light: correct)\n     encode for display: 0.5^(1/2.2) ~ 0.73 sRGB\n     -> stored value 0.73, which the display decodes back to 0.5 linear. Proper mid-gray.\n\n  Difference: 0.73 vs 0.50 stored -> a very visible error. This is exactly why\n  AA edges, downscaled images, and alpha blends look dirty without linear handling.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "chart_like",
+      "line": 360,
+      "heading_context": "### \"If I just store and display sRGB, why convert to linear at all?\"",
+      "confidence": "candidate",
+      "text": "### \"Gamma 2.2 vs sRGB — same thing?\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

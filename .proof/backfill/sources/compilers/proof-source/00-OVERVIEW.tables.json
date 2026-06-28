@@ -1,0 +1,172 @@
+{
+  "schema_version": "1",
+  "source_markdown": "compilers\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 135,
+      "heading_context": "## The Three-Phase Split — Why It Exists",
+      "headers": [
+        "Phase",
+        "Input",
+        "Output",
+        "Independent of"
+      ],
+      "rows": [
+        [
+          "Frontend",
+          "source text",
+          "typed AST",
+          "the target machine"
+        ],
+        [
+          "Middle-end",
+          "IR (SSA/CFG)",
+          "optimized IR",
+          "both source and target"
+        ],
+        [
+          "Backend",
+          "optimized IR",
+          "machine code",
+          "the source language"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 147,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You know (classical / .NET / MS)",
+        "Maps to (modern compiler engineering)"
+      ],
+      "rows": [
+        [
+          "The Dragon Book \"phases\" picture",
+          "The pipeline above — but the middle-end is now the center of gravity"
+        ],
+        [
+          "MSIL / CIL bytecode",
+          "A stack-based IR; RyuJIT lowers it to a register-based internal IR with SSA"
+        ],
+        [
+          "`csc` produces IL, the CLR JITs it",
+          "Two-stage: AOT to IL, then JIT to native — the JIT *is* a backend run at load time"
+        ],
+        [
+          "NGen / ReadyToRun (precompiled IL)",
+          "AOT compilation of bytecode — same idea as GraalVM Native Image"
+        ],
+        [
+          "Roslyn `SyntaxTree` + `SemanticModel`",
+          "The frontend: parser produces syntax, binder/checker produces semantics"
+        ],
+        [
+          "\"Optimizer settings\" (`/O2`)",
+          "A pass *pipeline* — an ordered list of IR-to-IR rewrites"
+        ],
+        [
+          "Profiler-guided optimization (PGO)",
+          "The runtime feeds real type/branch data back into a re-JIT (guide 09)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 290,
+      "heading_context": "## Where Each Stage Lives in This Directory",
+      "headers": [
+        "Stage",
+        "Guide",
+        "One-line scope"
+      ],
+      "rows": [
+        [
+          "Lexing",
+          "`01-LEXING.md`",
+          "regex → NFA → DFA → min; maximal munch; lexer generators"
+        ],
+        [
+          "Parsing",
+          "`02-PARSING.md`",
+          "LL(k) vs the LR family; LALR conflicts; error recovery"
+        ],
+        [
+          "Semantics",
+          "`03-SEMANTIC-ANALYSIS.md`",
+          "symbol tables, scope, type checking vs inference, AST"
+        ],
+        [
+          "IR",
+          "`04-INTERMEDIATE-REPRESENTATION.md`",
+          "TAC, basic blocks, CFG, SSA, φ placement"
+        ],
+        [
+          "Dataflow",
+          "`05-DATAFLOW-ANALYSIS.md`",
+          "lattices, meet, fixpoint, liveness, dominators"
+        ],
+        [
+          "Optimization",
+          "`06-OPTIMIZATION.md`",
+          "GVN, DCE, LICM, inlining, loop opts, the pipeline"
+        ],
+        [
+          "Reg alloc",
+          "`07-REGISTER-ALLOCATION.md`",
+          "graph coloring vs linear scan, spilling"
+        ],
+        [
+          "Codegen",
+          "`08-CODE-GENERATION.md`",
+          "instruction selection, scheduling, the ABI"
+        ],
+        [
+          "Runtime",
+          "`09-RUNTIME-AND-GC.md`",
+          "object layout, GC algorithms, JIT, deopt"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 332,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to understand...",
+        "Read"
+      ],
+      "rows": [
+        [
+          "Why compilers are split into three phases",
+          "The narrow-waist argument above"
+        ],
+        [
+          "Why one IR can serve C, Rust, and Swift",
+          "The shared middle-end / LLVM insight"
+        ],
+        [
+          "Why a JIT can beat an AOT compiler",
+          "The AOT/JIT asymmetry — speculation on real inputs"
+        ],
+        [
+          "How a single statement flows end-to-end",
+          "The worked trace above"
+        ],
+        [
+          "Which guide covers a given pipeline stage",
+          "The \"Where Each Stage Lives\" table"
+        ],
+        [
+          "The semantics behind SSA/CPS, not the algorithm",
+          "`programming-language-theory/08-COMPILER-SEMANTICS.md`"
+        ],
+        [
+          "Which real compiler uses what",
+          "`computing/22-COMPILERS.md`"
+        ]
+      ]
+    }
+  ]
+}

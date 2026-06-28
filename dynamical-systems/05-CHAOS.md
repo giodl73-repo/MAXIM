@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dynamical-systems:chaos
+kind: guide
+module: dynamical-systems
+section: dynamical-systems
+title: Chaos
+status: source-custody
+source_custody: partial
+current_path: dynamical-systems/05-CHAOS.md
+canonical_path: dynamical-systems/05-CHAOS.md
+backsource_ids: [proof-backfill:dynamical-systems:05-chaos, git-history:dynamical-systems:05-chaos]
+concepts: [chaos]
+root_concepts: [chaos]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Chaos
 
 Chaos is **deterministic** long-term aperiodic behavior with **sensitive dependence on initial

@@ -1,0 +1,102 @@
+{
+  "schema_version": "1",
+  "source_markdown": "algorithms\\03-DIVIDE-AND-CONQUER.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 240,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "The divide-and-conquer concept"
+      ],
+      "rows": [
+        [
+          "MapReduce / fork-join parallelism",
+          "Divide-and-conquer's independent subproblems map directly to parallel tasks"
+        ],
+        [
+          "A parallel `Sort` / PLINQ partitioning",
+          "Recursive split = the natural parallel decomposition (disjoint subproblems)"
+        ],
+        [
+          "Big-integer arithmetic in a crypto lib",
+          "Karatsuba/Toom/FFT multiplication under the hood (`cryptography/`)"
+        ],
+        [
+          "Signal/audio FFT in a DSP pipeline",
+          "The same O(n log n) DFT, used for convolution/filtering (`signal-processing/`)"
+        ],
+        [
+          "BLAS/GEMM tuned matrix multiply",
+          "Strassen as the asymptotic improvement over the Θ(n³) triple loop"
+        ],
+        [
+          "Recursive descent over a balanced tree",
+          "The recursion-tree cost model — depth × per-level work"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 258,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Problem",
+        "Algorithm",
+        "Bound",
+        "Lever"
+      ],
+      "rows": [
+        [
+          "Stable general sort",
+          "mergesort",
+          "Θ(n log n)",
+          "balanced split"
+        ],
+        [
+          "In-place fast sort",
+          "quicksort",
+          "avg Θ(n log n) / worst Θ(n²)",
+          "partition"
+        ],
+        [
+          "Multiply huge integers",
+          "Karatsuba → FFT",
+          "n^1.585 → n log n",
+          "reduce `a` (3 mults) → roots of unity"
+        ],
+        [
+          "Multiply large matrices",
+          "Strassen",
+          "n^2.807",
+          "7 not 8 block mults"
+        ],
+        [
+          "Polynomial mult / convolution",
+          "FFT",
+          "n log n",
+          "roots of unity"
+        ],
+        [
+          "Closest pair of points",
+          "D&C strip",
+          "n log n",
+          "O(n) combine via packing"
+        ],
+        [
+          "k-th order statistic, worst-case",
+          "median-of-medians",
+          "Θ(n)",
+          "uneven split, Akra-Bazzi (`01`)"
+        ],
+        [
+          "Subproblems *overlap*",
+          "— use DP instead",
+          "—",
+          "go to `04`"
+        ]
+      ]
+    }
+  ]
+}

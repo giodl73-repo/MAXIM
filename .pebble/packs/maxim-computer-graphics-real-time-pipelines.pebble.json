@@ -1,0 +1,853 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-computer-graphics-real-time-pipelines",
+  "source": "../../computer-graphics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "09-REAL-TIME-PIPELINES.md#000",
+      "path": [
+        "09-REAL-TIME-PIPELINES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:09-realtime, git-history:computer-graphics:09-realtime]",
+        "canonical_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "concepts": "[forward rendering, deferred shading, shadow mapping, post-processing, modern graphics APIs, frame budget]",
+        "current_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "id": "maxim:computer-graphics:real-time-pipelines",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[real-time rendering]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Real-Time Pipelines",
+        "updated": "null"
+      },
+      "text": "# Real-Time Pipelines"
+    },
+    {
+      "id": "09-REAL-TIME-PIPELINES.md#001",
+      "path": [
+        "09-REAL-TIME-PIPELINES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:09-realtime, git-history:computer-graphics:09-realtime]",
+        "canonical_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "concepts": "[forward rendering, deferred shading, shadow mapping, post-processing, modern graphics APIs, frame budget]",
+        "current_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "id": "maxim:computer-graphics:real-time-pipelines",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[real-time rendering]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Real-Time Pipelines",
+        "updated": "null"
+      },
+      "text": "## The Big Picture: Architecting a Frame Under a Budget"
+    },
+    {
+      "id": "09-REAL-TIME-PIPELINES.md#002",
+      "path": [
+        "09-REAL-TIME-PIPELINES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:09-realtime, git-history:computer-graphics:09-realtime]",
+        "canonical_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "concepts": "[forward rendering, deferred shading, shadow mapping, post-processing, modern graphics APIs, frame budget]",
+        "current_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "id": "maxim:computer-graphics:real-time-pipelines",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[real-time rendering]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Real-Time Pipelines",
+        "updated": "null"
+      },
+      "text": "A real-time renderer must produce a finished frame in milliseconds — about 16.6 ms at 60 Hz,\n8.3 ms at 120 Hz. Everything in this guide is about *architecture*: how to organize the\npasses (geometry, lighting, shadows, post) so the frame fits the budget. This is where the\nmathematical machinery of the prior guides is assembled into a shipping system."
+    },
+    {
+      "id": "09-REAL-TIME-PIPELINES.md#003",
+      "path": [
+        "09-REAL-TIME-PIPELINES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:09-realtime, git-history:computer-graphics:09-realtime]",
+        "canonical_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "concepts": "[forward rendering, deferred shading, shadow mapping, post-processing, modern graphics APIs, frame budget]",
+        "current_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "id": "maxim:computer-graphics:real-time-pipelines",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[real-time rendering]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Real-Time Pipelines",
+        "updated": "null"
+      },
+      "text": "```\n+--------------------------------------------------------------------------------------+\n|                      A MODERN REAL-TIME FRAME (one ~16ms budget)                     |\n|                                                                                      |\n|  SHADOW         GEOMETRY        LIGHTING        TRANSPARENCY     POST-PROCESS    UI  |\n|  PASSES         PASS            PASS                                                 |\n|                                                                                      |\n|  render depth-> rasterize    -> shade lit      -> blend OIT  -> tonemap, AA,  -> HUD |\n|  from each      scene (fwd     pixels (fwd        / sorted       bloom, DoF,         |\n|  light          or G-buffer    inline OR          alpha          motion blur,        |\n|  (shadow maps)  for deferred)  deferred pass)                    color grade         |\n|                                                                                      |\n|   [L3 shadows]  [L1 fwd/def]   [L1 fwd/def]      [transp]       [L4 post]   [L4 UI]  |\n|                                                                                      |\n|   Driven over an EXPLICIT API (Vulkan/D3D12/Metal) with command buffers [L5]         |\n+--------------------------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "09-REAL-TIME-PIPELINES.md#004",
+      "path": [
+        "09-REAL-TIME-PIPELINES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:09-realtime, git-history:computer-graphics:09-realtime]",
+        "canonical_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "concepts": "[forward rendering, deferred shading, shadow mapping, post-processing, modern graphics APIs, frame budget]",
+        "current_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "id": "maxim:computer-graphics:real-time-pipelines",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[real-time rendering]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Real-Time Pipelines",
+        "updated": "null"
+      },
+      "text": "The frame is a *graph of passes* writing and reading render targets. The big architectural\nfork is **forward vs deferred** (how lighting relates to geometry); shadows are their own\npre-passes; post-processing is a chain of full-screen compute/fragment passes; and the whole\nthing is choreographed over an explicit modern API."
+    },
+    {
+      "id": "09-REAL-TIME-PIPELINES.md#005",
+      "path": [
+        "09-REAL-TIME-PIPELINES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:09-realtime, git-history:computer-graphics:09-realtime]",
+        "canonical_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "concepts": "[forward rendering, deferred shading, shadow mapping, post-processing, modern graphics APIs, frame budget]",
+        "current_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "id": "maxim:computer-graphics:real-time-pipelines",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[real-time rendering]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Real-Time Pipelines",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-REAL-TIME-PIPELINES.md#006",
+      "path": [
+        "09-REAL-TIME-PIPELINES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:09-realtime, git-history:computer-graphics:09-realtime]",
+        "canonical_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "concepts": "[forward rendering, deferred shading, shadow mapping, post-processing, modern graphics APIs, frame budget]",
+        "current_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "id": "maxim:computer-graphics:real-time-pipelines",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[real-time rendering]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Real-Time Pipelines",
+        "updated": "null"
+      },
+      "text": "## Layer 1: Forward vs Deferred Shading"
+    },
+    {
+      "id": "09-REAL-TIME-PIPELINES.md#007",
+      "path": [
+        "09-REAL-TIME-PIPELINES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:09-realtime, git-history:computer-graphics:09-realtime]",
+        "canonical_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "concepts": "[forward rendering, deferred shading, shadow mapping, post-processing, modern graphics APIs, frame budget]",
+        "current_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "id": "maxim:computer-graphics:real-time-pipelines",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[real-time rendering]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Real-Time Pipelines",
+        "updated": "null"
+      },
+      "text": "The central architecture decision. *Forward* shades each object against all lights as it\nrasterizes. *Deferred* first writes surface data to a **G-buffer**, then shades once per\npixel in a separate pass."
+    },
+    {
+      "id": "09-REAL-TIME-PIPELINES.md#008",
+      "path": [
+        "09-REAL-TIME-PIPELINES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:09-realtime, git-history:computer-graphics:09-realtime]",
+        "canonical_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "concepts": "[forward rendering, deferred shading, shadow mapping, post-processing, modern graphics APIs, frame budget]",
+        "current_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "id": "maxim:computer-graphics:real-time-pipelines",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[real-time rendering]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Real-Time Pipelines",
+        "updated": "null"
+      },
+      "text": "```\n  FORWARD                                DEFERRED\n  -------                                --------\n  for each object:                       PASS 1 (geometry): rasterize scene ->\n     for each light: shade               G-buffer (albedo, normal, depth, rough...)\n  -> cost ~ objects x lights             PASS 2 (lighting): for each light, shade the\n  -> overdraw shades hidden pixels          G-buffer pixels it touches\n                                         -> cost ~ pixels x lights (geometry decoupled\n                                            from lighting; no overdraw shading)"
+    },
+    {
+      "id": "09-REAL-TIME-PIPELINES.md#009",
+      "path": [
+        "09-REAL-TIME-PIPELINES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:09-realtime, git-history:computer-graphics:09-realtime]",
+        "canonical_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "concepts": "[forward rendering, deferred shading, shadow mapping, post-processing, modern graphics APIs, frame budget]",
+        "current_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "id": "maxim:computer-graphics:real-time-pipelines",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[real-time rendering]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Real-Time Pipelines",
+        "updated": "null"
+      },
+      "text": "[obj]-->shade(all lights)           [scene]-->[ G-BUFFER ]-->[ shade per pixel ]\n                                                      normal|albedo\n                                                      depth |rough\n```"
+    },
+    {
+      "id": "09-REAL-TIME-PIPELINES.md#010",
+      "path": [
+        "09-REAL-TIME-PIPELINES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:09-realtime, git-history:computer-graphics:09-realtime]",
+        "canonical_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "concepts": "[forward rendering, deferred shading, shadow mapping, post-processing, modern graphics APIs, frame budget]",
+        "current_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "id": "maxim:computer-graphics:real-time-pipelines",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[real-time rendering]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Real-Time Pipelines",
+        "updated": "null"
+      },
+      "text": "| | Forward | Deferred |\n|---|---|---|\n| Lighting cost | objects × lights | pixels × lights (no overdraw) |\n| Many lights | Expensive | Cheap (its whole point) |\n| Transparency | Natural | Hard (G-buffer holds one layer) → forward pass for transparents |\n| MSAA | Works | Awkward/costly (subsample G-buffer) |\n| Material variety | Easy (any shader) | Constrained (G-buffer is fixed format) |\n| Memory bandwidth | Low | High (fat G-buffer read/write) |"
+    },
+    {
+      "id": "09-REAL-TIME-PIPELINES.md#011",
+      "path": [
+        "09-REAL-TIME-PIPELINES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:09-realtime, git-history:computer-graphics:09-realtime]",
+        "canonical_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "concepts": "[forward rendering, deferred shading, shadow mapping, post-processing, modern graphics APIs, frame budget]",
+        "current_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "id": "maxim:computer-graphics:real-time-pipelines",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[real-time rendering]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Real-Time Pipelines",
+        "updated": "null"
+      },
+      "text": "```\n  THE MODERN ANSWER: hybrids that keep deferred's many-lights win without its costs."
+    },
+    {
+      "id": "09-REAL-TIME-PIPELINES.md#012",
+      "path": [
+        "09-REAL-TIME-PIPELINES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:09-realtime, git-history:computer-graphics:09-realtime]",
+        "canonical_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "concepts": "[forward rendering, deferred shading, shadow mapping, post-processing, modern graphics APIs, frame budget]",
+        "current_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "id": "maxim:computer-graphics:real-time-pipelines",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[real-time rendering]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Real-Time Pipelines",
+        "updated": "null"
+      },
+      "text": "TILED / CLUSTERED forward (Forward+):  split the screen into tiles (and depth\n     slices = clusters); cull lights per tile; forward-shade against only the lights\n     that touch each tile. -> many lights + easy transparency + MSAA + material variety."
+    },
+    {
+      "id": "09-REAL-TIME-PIPELINES.md#013",
+      "path": [
+        "09-REAL-TIME-PIPELINES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:09-realtime, git-history:computer-graphics:09-realtime]",
+        "canonical_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "concepts": "[forward rendering, deferred shading, shadow mapping, post-processing, modern graphics APIs, frame budget]",
+        "current_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "id": "maxim:computer-graphics:real-time-pipelines",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[real-time rendering]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Real-Time Pipelines",
+        "updated": "null"
+      },
+      "text": "VISIBILITY BUFFER: store only triangle/instance IDs per pixel; fetch material and\n     shade in a deferred-like pass -> tiny G-buffer, scales to huge geometry (Nanite).\n```"
+    },
+    {
+      "id": "09-REAL-TIME-PIPELINES.md#014",
+      "path": [
+        "09-REAL-TIME-PIPELINES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:09-realtime, git-history:computer-graphics:09-realtime]",
+        "canonical_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "concepts": "[forward rendering, deferred shading, shadow mapping, post-processing, modern graphics APIs, frame budget]",
+        "current_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "id": "maxim:computer-graphics:real-time-pipelines",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[real-time rendering]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Real-Time Pipelines",
+        "updated": "null"
+      },
+      "text": "**Old world → new world.** Deferred shading is *decoupling*: separate \"what surface is here\"\n(geometry pass) from \"how is it lit\" (lighting pass), so lighting cost no longer multiplies\nby geometry/overdraw — the same decoupling instinct as splitting a fat request into a cheap\nindex pass plus a focused fetch. Clustered forward then re-couples them but with a *spatial\ncull* (per-tile light lists) so each pixel only pays for nearby lights."
+    },
+    {
+      "id": "09-REAL-TIME-PIPELINES.md#015",
+      "path": [
+        "09-REAL-TIME-PIPELINES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:09-realtime, git-history:computer-graphics:09-realtime]",
+        "canonical_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "concepts": "[forward rendering, deferred shading, shadow mapping, post-processing, modern graphics APIs, frame budget]",
+        "current_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "id": "maxim:computer-graphics:real-time-pipelines",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[real-time rendering]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Real-Time Pipelines",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-REAL-TIME-PIPELINES.md#016",
+      "path": [
+        "09-REAL-TIME-PIPELINES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:09-realtime, git-history:computer-graphics:09-realtime]",
+        "canonical_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "concepts": "[forward rendering, deferred shading, shadow mapping, post-processing, modern graphics APIs, frame budget]",
+        "current_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "id": "maxim:computer-graphics:real-time-pipelines",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[real-time rendering]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Real-Time Pipelines",
+        "updated": "null"
+      },
+      "text": "## Layer 2: The Frame Budget"
+    },
+    {
+      "id": "09-REAL-TIME-PIPELINES.md#017",
+      "path": [
+        "09-REAL-TIME-PIPELINES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:09-realtime, git-history:computer-graphics:09-realtime]",
+        "canonical_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "concepts": "[forward rendering, deferred shading, shadow mapping, post-processing, modern graphics APIs, frame budget]",
+        "current_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "id": "maxim:computer-graphics:real-time-pipelines",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[real-time rendering]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Real-Time Pipelines",
+        "updated": "null"
+      },
+      "text": "```\n  FRAME BUDGET (the hard constraint everything bends to):"
+    },
+    {
+      "id": "09-REAL-TIME-PIPELINES.md#018",
+      "path": [
+        "09-REAL-TIME-PIPELINES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:09-realtime, git-history:computer-graphics:09-realtime]",
+        "canonical_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "concepts": "[forward rendering, deferred shading, shadow mapping, post-processing, modern graphics APIs, frame budget]",
+        "current_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "id": "maxim:computer-graphics:real-time-pipelines",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[real-time rendering]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Real-Time Pipelines",
+        "updated": "null"
+      },
+      "text": "60 Hz  -> 16.6 ms / frame      120 Hz -> 8.3 ms      90 Hz (VR) -> 11.1 ms"
+    },
+    {
+      "id": "09-REAL-TIME-PIPELINES.md#019",
+      "path": [
+        "09-REAL-TIME-PIPELINES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:09-realtime, git-history:computer-graphics:09-realtime]",
+        "canonical_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "concepts": "[forward rendering, deferred shading, shadow mapping, post-processing, modern graphics APIs, frame budget]",
+        "current_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "id": "maxim:computer-graphics:real-time-pipelines",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[real-time rendering]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Real-Time Pipelines",
+        "updated": "null"
+      },
+      "text": "a frame is split across:  shadow passes + geometry + lighting + transparency\n                               + post + UI + CPU submission, all overlapping GPU/CPU."
+    },
+    {
+      "id": "09-REAL-TIME-PIPELINES.md#020",
+      "path": [
+        "09-REAL-TIME-PIPELINES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:09-realtime, git-history:computer-graphics:09-realtime]",
+        "canonical_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "concepts": "[forward rendering, deferred shading, shadow mapping, post-processing, modern graphics APIs, frame budget]",
+        "current_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "id": "maxim:computer-graphics:real-time-pipelines",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[real-time rendering]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Real-Time Pipelines",
+        "updated": "null"
+      },
+      "text": "CPU and GPU run PIPELINED: while the GPU renders frame N, the CPU prepares frame N+1.\n     -> latency = ~2-3 frames; throughput = bounded by the slower of CPU/GPU per frame."
+    },
+    {
+      "id": "09-REAL-TIME-PIPELINES.md#021",
+      "path": [
+        "09-REAL-TIME-PIPELINES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:09-realtime, git-history:computer-graphics:09-realtime]",
+        "canonical_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "concepts": "[forward rendering, deferred shading, shadow mapping, post-processing, modern graphics APIs, frame budget]",
+        "current_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "id": "maxim:computer-graphics:real-time-pipelines",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[real-time rendering]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Real-Time Pipelines",
+        "updated": "null"
+      },
+      "text": "\"GPU-bound\" vs \"CPU-bound\": profile to find which stage blows the budget;\n     optimize that one. (Amdahl applies -- speeding up a non-bottleneck buys nothing.)\n```"
+    },
+    {
+      "id": "09-REAL-TIME-PIPELINES.md#022",
+      "path": [
+        "09-REAL-TIME-PIPELINES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:09-realtime, git-history:computer-graphics:09-realtime]",
+        "canonical_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "concepts": "[forward rendering, deferred shading, shadow mapping, post-processing, modern graphics APIs, frame budget]",
+        "current_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "id": "maxim:computer-graphics:real-time-pipelines",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[real-time rendering]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Real-Time Pipelines",
+        "updated": "null"
+      },
+      "text": "The budget is why every prior technique exists in the form it does: LOD (`07`) and mipmaps\n(`05`) cut work to fit it; deferred/clustered shading fits many lights into it; MSAA over\nSSAA (`05`) is the cheaper-AA-that-fits choice. Real-time graphics is constrained\noptimization under a millisecond budget."
+    },
+    {
+      "id": "09-REAL-TIME-PIPELINES.md#023",
+      "path": [
+        "09-REAL-TIME-PIPELINES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:09-realtime, git-history:computer-graphics:09-realtime]",
+        "canonical_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "concepts": "[forward rendering, deferred shading, shadow mapping, post-processing, modern graphics APIs, frame budget]",
+        "current_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "id": "maxim:computer-graphics:real-time-pipelines",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[real-time rendering]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Real-Time Pipelines",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-REAL-TIME-PIPELINES.md#024",
+      "path": [
+        "09-REAL-TIME-PIPELINES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:09-realtime, git-history:computer-graphics:09-realtime]",
+        "canonical_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "concepts": "[forward rendering, deferred shading, shadow mapping, post-processing, modern graphics APIs, frame budget]",
+        "current_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "id": "maxim:computer-graphics:real-time-pipelines",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[real-time rendering]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Real-Time Pipelines",
+        "updated": "null"
+      },
+      "text": "## Layer 3: Shadows"
+    },
+    {
+      "id": "09-REAL-TIME-PIPELINES.md#025",
+      "path": [
+        "09-REAL-TIME-PIPELINES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:09-realtime, git-history:computer-graphics:09-realtime]",
+        "canonical_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "concepts": "[forward rendering, deferred shading, shadow mapping, post-processing, modern graphics APIs, frame budget]",
+        "current_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "id": "maxim:computer-graphics:real-time-pipelines",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[real-time rendering]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Real-Time Pipelines",
+        "updated": "null"
+      },
+      "text": "Shadows are *visibility from the light's point of view* — is the path from surface to light\nblocked? The dominant real-time technique is the **shadow map**: render scene depth *from the\nlight*, then at shading time check whether each surface point is farther than the recorded\ndepth (occluded → in shadow)."
+    },
+    {
+      "id": "09-REAL-TIME-PIPELINES.md#026",
+      "path": [
+        "09-REAL-TIME-PIPELINES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:09-realtime, git-history:computer-graphics:09-realtime]",
+        "canonical_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "concepts": "[forward rendering, deferred shading, shadow mapping, post-processing, modern graphics APIs, frame budget]",
+        "current_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "id": "maxim:computer-graphics:real-time-pipelines",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[real-time rendering]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Real-Time Pipelines",
+        "updated": "null"
+      },
+      "text": "```\n  SHADOW MAPPING (two passes):"
+    },
+    {
+      "id": "09-REAL-TIME-PIPELINES.md#027",
+      "path": [
+        "09-REAL-TIME-PIPELINES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:09-realtime, git-history:computer-graphics:09-realtime]",
+        "canonical_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "concepts": "[forward rendering, deferred shading, shadow mapping, post-processing, modern graphics APIs, frame budget]",
+        "current_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "id": "maxim:computer-graphics:real-time-pipelines",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[real-time rendering]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Real-Time Pipelines",
+        "updated": "null"
+      },
+      "text": "PASS 1: render the scene depth FROM THE LIGHT -> shadow map (a depth texture)\n   PASS 2: when shading point P, transform P into light space; compare its depth to\n           the shadow map. farther than stored depth? -> in shadow."
+    },
+    {
+      "id": "09-REAL-TIME-PIPELINES.md#028",
+      "path": [
+        "09-REAL-TIME-PIPELINES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:09-realtime, git-history:computer-graphics:09-realtime]",
+        "canonical_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "concepts": "[forward rendering, deferred shading, shadow mapping, post-processing, modern graphics APIs, frame budget]",
+        "current_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "id": "maxim:computer-graphics:real-time-pipelines",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[real-time rendering]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Real-Time Pipelines",
+        "updated": "null"
+      },
+      "text": "light                                  shade point P:\n        \\                                       project P to light space\n         \\  shadow map (depth from light)        depthP vs shadowmap[P.xy]\n          \\____________                          depthP >  stored -> SHADOWED\n           |   |    |  |                          depthP <= stored -> LIT\n        occluder  receiver"
+    },
+    {
+      "id": "09-REAL-TIME-PIPELINES.md#029",
+      "path": [
+        "09-REAL-TIME-PIPELINES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:09-realtime, git-history:computer-graphics:09-realtime]",
+        "canonical_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "concepts": "[forward rendering, deferred shading, shadow mapping, post-processing, modern graphics APIs, frame budget]",
+        "current_path": "computer-graphics/09-REAL-TIME-PIPELINES.md",
+        "id": "maxim:computer-graphics:real-time-pipelines",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[real-time rendering]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Real-Time Pipelines",
+        "updated": "null"
+      },
+      "text": "ARTIFACTS + FIXES:\n     \"shadow acne\" (self-shadowing)  -> depth BIAS / normal-offset / slope-scaled bias\n     hard jagged edges (aliasing)    -> PCF (percentage-closer filtering: average\n                                         several depth comparisons -> soft edge)\n     coarse near, wasteful far       -> CASCADED shadow maps (CSM): several maps at\n                                         different resolutions by distance (like LOD)\n     contact-hardening soft shadows  -> PCSS / variance/moment shadow maps\n```"
+    }
+  ],
+  "refs": [
+    "09-REAL-TIME-PIPELINES.md"
+  ]
+}

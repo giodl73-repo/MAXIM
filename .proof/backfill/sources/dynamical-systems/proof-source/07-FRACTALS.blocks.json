@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "dynamical-systems\\07-FRACTALS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 29,
+      "heading_context": "# Fractals",
+      "confidence": "candidate",
+      "text": "                     WHAT NON-INTEGER DIMENSION MEANS\n                     ================================\n   Scale a shape by factor s; count how many copies N tile the original:\n\n     LINE (1D):     halve length -> 2 copies.   N = s^1,  D = 1\n     SQUARE (2D):   halve side   -> 4 copies.   N = s^2,  D = 2\n     CUBE (3D):     halve edge   -> 8 copies.   N = s^3,  D = 3\n\n     CANTOR SET:    third length -> 2 copies.   N = s^D\n                    2 = 3^D  ->  D = ln2/ln3 ~ 0.6309   (BETWEEN 0 and 1)\n\n     KOCH CURVE:    third length -> 4 copies.   D = ln4/ln3 ~ 1.2619 (>1, <2)\n     SIERPINSKI:    half  side   -> 3 copies.   D = ln3/ln2 ~ 1.585\n\n                    log N(s)                     \"How does the amount of\n   DIMENSION  D = ----------     in general.      stuff scale when you\n                    log s                         zoom in?\" -- a number,\n                                                  possibly fractional.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 54,
+      "heading_context": "## Defining Dimension Rigorously",
+      "confidence": "candidate",
+      "text": "   BOX-COUNTING (capacity) DIMENSION  D0  -- the workhorse:\n        Cover the set with boxes of side eps. Let N(eps) = minimum number\n        of boxes needed.  As eps -> 0:   N(eps) ~ eps^{-D0}.\n\n                        ln N(eps)\n        D0 = lim       -----------       (slope of log-log plot)\n             eps->0    ln(1/eps)\n\n   HAUSDORFF DIMENSION  D_H  -- the mathematically fundamental one:\n        Built from coverings weighted by (diameter)^s; D_H is the unique\n        s where the s-dimensional Hausdorff measure jumps from inf to 0.\n        For \"nice\" self-similar sets D_H = D0; in general D_H <= D0.\n\n   INFORMATION (D1) and CORRELATION (D2) dimensions weight boxes by how\n   OFTEN the orbit visits them (the natural measure):\n        D2 <= D1 <= D0   (generalized \"Renyi\" dimension spectrum D_q).\n        Equality for uniform sets; STRICT inequality for MULTIFRACTALS.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 77,
+      "heading_context": "## Defining Dimension Rigorously",
+      "confidence": "candidate",
+      "text": "   N r^D = 1   =>   D = ln N / ln(1/r).\n\n   Cantor:     N=2, r=1/3 -> D = ln2/ln3 ~ 0.631\n   Koch:       N=4, r=1/3 -> D = ln4/ln3 ~ 1.262\n   Sierpinski: N=3, r=1/2 -> D = ln3/ln2 ~ 1.585\n   Menger:     N=20,r=1/3 -> D = ln20/ln3 ~ 2.727 (a \"sponge\", < 3)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 103,
+      "heading_context": "## Iterated Function Systems: Fractals as Fixed Points",
+      "confidence": "candidate",
+      "text": "   An IFS is a finite set of CONTRACTION maps {w1, ..., wk} on R^n\n   (each shrinks distances: |wi(x) - wi(y)| <= s|x-y|, s < 1).\n\n   Define the HUTCHINSON OPERATOR on sets:\n        W(S) = w1(S) U w2(S) U ... U wk(S)    (apply all, union the images)\n\n   THEOREM (Hutchinson): W is a contraction in the Hausdorff metric on\n   compact sets. By Banach's fixed-point theorem it has a UNIQUE fixed set\n   A* (the ATTRACTOR of the IFS) with W(A*) = A*, and W^n(S0) -> A* from\n   ANY starting set S0.\n\n   SIERPINSKI TRIANGLE as an IFS (3 maps, each scale 1/2 to a corner):\n        w1: shrink toward bottom-left    Start with ANY S0:\n        w2: shrink toward bottom-right        []  ->   /\\  ->  /\\/\\  -> ...\n        w3: shrink toward top                          --      ----\n                                          converges to the Sierpinski gasket\n                                          regardless of S0.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 172,
+      "heading_context": "## Multifractals: When One Dimension Isn't Enough",
+      "confidence": "candidate",
+      "text": "   GENERALIZED (RENYI) DIMENSIONS D_q weight boxes by visitation\n   probability p_i raised to the q:\n\n                1        ln SUM p_i^q\n        D_q = ----- lim  ------------         D_q is NON-INCREASING in q.\n              q-1  eps->0   ln eps\n\n        D_0 = box-counting (geometry only; ignores p_i)\n        D_1 = information dimension (entropy scaling; L'Hopital limit)\n        D_2 = correlation dimension (pair counting; Ch. 06)\n\n   MONOFRACTAL:  D_q = const for all q (uniform measure).\n   MULTIFRACTAL: D_q strictly decreasing -> a whole SPECTRUM f(alpha) of\n                 interwoven fractal subsets of differing local density.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

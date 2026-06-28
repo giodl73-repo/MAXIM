@@ -31,10 +31,10 @@ which problems have that structure is the entire skill.
   GREEDY: one irrevocable locally-best choice per step, never backtrack
   =====================================================================================
 
-        +----------------------------------------------------------------+
+        +-----------------------------------------------------------------+
         | At each step: choose the option that looks best RIGHT NOW.      |
         | Commit. Never reconsider. -> O(n log n) typical (sort + scan).  |
-        +----------------------------------------------------------------+
+        +-----------------------------------------------------------------+
                  |                                    |
         WHEN IT WORKS (provably optimal)     WHEN IT FAILS (only a heuristic)
         ----------------------------         --------------------------------

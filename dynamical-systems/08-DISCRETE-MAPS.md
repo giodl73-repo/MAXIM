@@ -1,3 +1,22 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:dynamical-systems:discrete-maps
+kind: guide
+module: dynamical-systems
+section: dynamical-systems
+title: Discrete Maps
+status: source-custody
+source_custody: partial
+current_path: dynamical-systems/08-DISCRETE-MAPS.md
+canonical_path: dynamical-systems/08-DISCRETE-MAPS.md
+backsource_ids: [proof-backfill:dynamical-systems:08-discrete-maps, git-history:dynamical-systems:08-discrete-maps]
+concepts: [discrete, maps]
+root_concepts: [discrete, maps]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
 # Discrete Maps
 
 A discrete map `x_{n+1} = F(x_n)` advances state in integer ticks rather than continuous time. Maps
@@ -104,7 +123,8 @@ For the MIT-TCS reader this is immediate: the shift on `{A,B}^ℕ` is a full-shi
 **subshifts of finite type** (forbidding certain symbol blocks) are exactly the languages accepted by
 a finite graph — chaos becomes the theory of a regular language on bi-infinite strings.
 **Topological entropy** `h = log(growth rate of admissible n-blocks)` measures the language's
-complexity and equals the sum of positive Lyapunov exponents (Pesin's formula). The grammar of the
+complexity; the metric (Kolmogorov–Sinai) entropy equals the sum of positive Lyapunov exponents
+(Pesin's formula), and topological entropy bounds it from above (variational principle). The grammar of the
 itineraries *is* the dynamics:
 
 ```

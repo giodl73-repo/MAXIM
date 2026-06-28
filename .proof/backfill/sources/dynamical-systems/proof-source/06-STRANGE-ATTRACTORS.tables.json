@@ -1,0 +1,84 @@
+{
+  "schema_version": "1",
+  "source_markdown": "dynamical-systems\\06-STRANGE-ATTRACTORS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 78,
+      "heading_context": "## What \"Strange\" and \"Attractor\" Each Mean",
+      "headers": [
+        "You already know",
+        "Strange-attractor framing"
+      ],
+      "rows": [
+        [
+          "A stable equilibrium / setpoint a controller drives to",
+          "The attractor for that loop; a strange attractor is the chaotic generalization"
+        ],
+        [
+          "Steady-state vs transient response",
+          "Transient = approach through the basin; steady state = motion *on* the attractor"
+        ],
+        [
+          "State-space trajectory of a plant",
+          "The attractor is the long-term invariant set in that same state space (`control-theory/02`)"
+        ],
+        [
+          "Rayleigh–Bénard convection rolls",
+          "Lorenz is a 3-mode truncation of exactly that PDE — `fluid-dynamics/`"
+        ],
+        [
+          "Reconstructing a signal's state from samples",
+          "Takens embedding: rebuild the attractor from one scalar time series"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 244,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Goal",
+        "Tool"
+      ],
+      "rows": [
+        [
+          "Confirm an attractor is *strange*",
+          "Positive largest Lyapunov exponent + fractal dimension"
+        ],
+        [
+          "Get attractor dimension from a model",
+          "Kaplan–Yorke formula from the Lyapunov spectrum"
+        ],
+        [
+          "Get dimension from experimental data",
+          "Correlation dimension `D₂` (Grassberger–Procaccia)"
+        ],
+        [
+          "Reduce a 3D flow to a map",
+          "Poincaré section / first-return map"
+        ],
+        [
+          "Reconstruct the attractor from one signal",
+          "Takens delay embedding (`m > 2d`)"
+        ],
+        [
+          "Confirm dissipation",
+          "`div f < 0` (volume contracts onto the attractor)"
+        ],
+        [
+          "Simplest strange attractor to build",
+          "Rössler (one nonlinearity, one fold)"
+        ],
+        [
+          "Tell chaos from noise in data",
+          "Low, saturating `D₂` ⇒ deterministic chaos; non-saturating ⇒ noise"
+        ],
+        [
+          "Connect to fluid turbulence",
+          "Lorenz = 3-mode truncation of Rayleigh–Bénard (`fluid-dynamics/`)"
+        ]
+      ]
+    }
+  ]
+}

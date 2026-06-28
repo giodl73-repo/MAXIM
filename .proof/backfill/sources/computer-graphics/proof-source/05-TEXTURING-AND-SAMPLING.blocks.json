@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-graphics\\05-TEXTURING-AND-SAMPLING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture: Painting Detail, Then Fighting Aliasing",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------------------------+\n|                     TEXTURING + SAMPLING PIPELINE                                    |\n|                                                                                      |\n|  AUTHOR          MAP             SAMPLE          FILTER           ANTIALIAS          |\n|                                                                                      |\n|  texture     --> UV coords   --> fetch texels --> magnify /    --> edge AA (MSAA)    |\n|  image          per vertex       at (u,v)        minify          + texture AA        |\n|  (color/        (unwrap)         per fragment     - bilinear      (mipmaps)          |\n|   normal/                                         - trilinear     + temporal (TAA)   |\n|   PBR maps)                                       - anisotropic                      |\n|                                                                                      |\n|   [L1]           [L1 UV]         [L2 fetch]       [L3 filter]     [L4 mip] [L5 AA]   |\n+--------------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 59,
+      "heading_context": "## Layer 1: UV Mapping — Geometry to Texture Space",
+      "confidence": "candidate",
+      "text": "   3D MESH SURFACE                TEXTURE SPACE (UV)\n   ---------------                ------------------\n        /\\                         (0,1) +--------+ (1,1)\n       /  \\   each vertex                |  the   |\n      /    \\  -> a (u,v)                 | unwrap |\n     /______\\                            |  image |\n                                   (0,0) +--------+ (1,0)\n\n   \"UV unwrapping\" = flattening the 3D surface onto the 2D image without too much\n   distortion (like peeling an orange flat). Seams are unavoidable on closed surfaces.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 75,
+      "heading_context": "## Layer 1: UV Mapping — Geometry to Texture Space",
+      "confidence": "candidate",
+      "text": "  ALBEDO / BASE COLOR   the diffuse color           (sRGB-encoded -> decode to linear!)\n  NORMAL MAP            per-texel surface normal     (tangent space; linear data)\n  ROUGHNESS / METAL     microfacet params for PBR    (linear data)\n  HEIGHT / DISPLACEMENT geometric detail             (parallax or real displacement)\n  AO MAP                baked ambient occlusion       (linear)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 94,
+      "heading_context": "## Layer 2: The Sampling Problem",
+      "confidence": "candidate",
+      "text": "  MAGNIFICATION  (texture too small for screen area: one texel -> many pixels)\n     problem: blocky / blurry. fix: interpolate between texels (bilinear).\n\n  MINIFICATION   (texture too big: many texels -> one pixel)   <-- the dangerous one\n     problem: ALIASING. one pixel covers many texels but samples only one\n              -> shimmering, moiré, crawling patterns as the camera moves.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 103,
+      "heading_context": "## Layer 2: The Sampling Problem",
+      "confidence": "candidate",
+      "text": "  WHY MINIFICATION ALIASES (the sampling theorem):\n\n  far-away textured surface -> high spatial frequency at the pixel grid\n  one sample per pixel -> sampling rate fixed\n  frequencies above NYQUIST (half the pixel rate) fold back as FALSE low frequencies\n\n     true signal  /\\/\\/\\/\\/\\/\\   (high freq, e.g. a fine grid receding to horizon)\n     sampled at   .   .   .   .  (too coarse)\n     reconstructed ~~~~~~~        (a bogus low-freq pattern = MOIRÉ / shimmer)\n\n  Fix options: (a) raise the sampling rate (supersample), or\n               (b) BAND-LIMIT the signal first (pre-blur) -> mipmaps.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 137,
+      "heading_context": "## Layer 3: Texture Filtering",
+      "confidence": "candidate",
+      "text": "  WHY ANISOTROPIC FILTERING EXISTS:\n\n  A pixel's footprint on a surface viewed at a grazing angle is a long, thin ellipse,\n  not a square. Trilinear assumes a square footprint -> picks a blurry high mip ->\n  the floor goes mushy in the distance. Anisotropic takes several samples ALONG the\n  long axis of the footprint, keeping it sharp.\n\n     pixel footprint on a floor seen edge-on:   [=================]  (long ellipse)\n     trilinear samples: one blurry square        [###]  -> over-blurred\n     anisotropic: many taps along the ellipse    [=][=][=][=][=]    -> sharp",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 182,
+      "heading_context": "## Layer 4: Mipmaps — Pre-Filtering for Minification",
+      "confidence": "candidate",
+      "text": "   MIP PYRAMID (each level = previous averaged 2x2 -> 1)\n\n     level 0:  512 x 512   (full detail; used up close)\n     level 1:  256 x 256\n     level 2:  128 x 128\n     ...                    GPU computes the right level from the UV\n     level 9:    1 x 1      derivatives (du/dx, dv/dx) across the pixel quad\n                            -> \"how fast are UVs changing per pixel?\" = footprint size\n\n   Memory cost: +1/3 of the base texture (geometric series 1 + 1/4 + 1/16 + ... = 4/3).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 209,
+      "heading_context": "### Texture Compression and Memory",
+      "confidence": "candidate",
+      "text": "  BLOCK COMPRESSION (BCn / DXT / ASTC): fixed-ratio, GPU-decodable per 4x4 block.\n\n     BC1 (DXT1)  4x4 block -> 2 endpoint colors + 2-bit indices  -> 8:1, no/1-bit alpha\n     BC3 (DXT5)  + compressed alpha block                        -> 4:1, RGBA\n     BC5         two channels (great for NORMAL maps: store X,Y, reconstruct Z)\n     BC6H        HDR (float) textures\n     BC7 / ASTC  high-quality, variable block size (ASTC)        -> 4:1..8:1\n\n  Why not JPEG? GPUs need O(1) random access to any texel during filtering. Block\n  schemes decode one tiny block independently; JPEG/PNG require sequential decode.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 281,
+      "heading_context": "## Worked Example: Choosing a Mip Level",
+      "confidence": "candidate",
+      "text": "  Footprint = 4 texels across.\n  Mip level halves resolution each step, so it DOUBLES the texels-per-texel coverage:\n\n     level 0: 1 texel  per base texel\n     level 1: covers 2-texel footprints\n     level 2: covers 4-texel footprints   <-- matches our 4-texel pixel footprint\n\n  LOD λ = log2(footprint) = log2(4) = 2.0   ->  sample mip level 2 (256x256).\n\n  Trilinear blends levels 2 and 3 if λ landed between them (e.g. λ = 2.3 ->\n  70% level 2 + 30% level 3).\n\n  If the surface tilts to a grazing angle so the footprint becomes 1 x 16 texels,\n  isotropic LOD would pick λ = log2(16) = 4 (very blurry). ANISOTROPIC instead keeps\n  λ near log2(1)=0 along the short axis and takes ~16 taps along the long axis -> stays\n  sharp where trilinear would smear.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

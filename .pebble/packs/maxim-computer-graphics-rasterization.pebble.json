@@ -1,0 +1,1245 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-computer-graphics-rasterization",
+  "source": "../../computer-graphics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "02-RASTERIZATION.md#000",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "# Rasterization"
+    },
+    {
+      "id": "02-RASTERIZATION.md#001",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "## The Big Picture: From Triangle to Lit Pixels"
+    },
+    {
+      "id": "02-RASTERIZATION.md#002",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "Rasterization is the object-order strategy: walk each triangle, find the pixels it covers,\nand for each covered pixel interpolate the vertex data, test depth, and shade. It is the\nworkhorse of all real-time graphics."
+    },
+    {
+      "id": "02-RASTERIZATION.md#003",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "```\n+-------------------------------------------------------------------------------------+\n|                        THE RASTERIZATION STAGE (per triangle)                       |\n|                                                                                     |\n|  CLIP-SPACE      CLIP +        TRIANGLE        COVERAGE       INTERP +      OUTPUT  |\n|  TRIANGLE        VIEWPORT      SETUP           TEST           DEPTH TEST    MERGE   |\n|                                                                                     |\n| 3 vertices --> clip to     --> edge        --> for px in   --> baryc.   --> z-test  |\n| (x,y,z,w)      frustum,        functions       bbox:           interp       + blend |\n|                ÷w, map to      + bbox          inside all      attrs        write   |\n|                pixels                          3 edges?        + 1/w        color   |\n|                                                                                     |\n|   [from 01]    [clip]          [setup]         [E(p)>=0]       [persp-corr] [z-buf] |\n+-------------------------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "02-RASTERIZATION.md#004",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "Read left to right: a clip-space triangle is clipped and mapped to screen pixels; the GPU\ncomputes three **edge functions**; for every candidate pixel it tests \"inside all three\nedges?\"; passing pixels get their attributes **barycentrically interpolated** (perspective-\ncorrected) and depth-tested against the z-buffer; survivors are shaded and merged."
+    },
+    {
+      "id": "02-RASTERIZATION.md#005",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-RASTERIZATION.md#006",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "## Layer 1: Triangle Setup and the Edge Function"
+    },
+    {
+      "id": "02-RASTERIZATION.md#007",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "The modern rasterizer does not \"scan-convert\" line by line; it evaluates, for each pixel,\nthree **edge functions** — signed distances to the triangle's three edges. A pixel is\ninside iff it is on the correct side of all three."
+    },
+    {
+      "id": "02-RASTERIZATION.md#008",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "```\n  Edge from V0=(x0,y0) to V1=(x1,y1), tested at point P=(px,py):"
+    },
+    {
+      "id": "02-RASTERIZATION.md#009",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "E01(P) = (px - x0)·(y1 - y0) - (py - y0)·(x1 - x0)"
+    },
+    {
+      "id": "02-RASTERIZATION.md#010",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "This is the 2D CROSS PRODUCT (signed area × 2) of (P - V0) and (V1 - V0)."
+    },
+    {
+      "id": "02-RASTERIZATION.md#011",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "E > 0   P is to the LEFT of the directed edge\n     E = 0   P is ON the edge\n     E < 0   P is to the RIGHT"
+    },
+    {
+      "id": "02-RASTERIZATION.md#012",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "V0\n         |\\\n         | \\  E01      A pixel is INSIDE the triangle\n         |  \\          iff E01 >= 0 AND E12 >= 0 AND E20 >= 0\n    E20  |   \\ V1      (with consistent winding). The three\n         |   /         edge functions also ARE the unnormalized\n         |  / E12      barycentric weights -- one computation,\n         | /           two payoffs.\n         V2\n```"
+    },
+    {
+      "id": "02-RASTERIZATION.md#013",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "The elegance: the edge function is **affine in pixel coordinates**, so it can be evaluated\nincrementally — `E(x+1, y) = E(x, y) + dE/dx` — making the inner loop a few adds. GPUs\nevaluate all candidate pixels of a tile in parallel. This is the Pineda (1988) algorithm,\nand it replaced the older scanline approach precisely because it parallelizes and\nincrementalizes cleanly."
+    },
+    {
+      "id": "02-RASTERIZATION.md#014",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-RASTERIZATION.md#015",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "## Layer 2: Barycentric Coordinates — The Interpolation Engine"
+    },
+    {
+      "id": "02-RASTERIZATION.md#016",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "Every per-vertex attribute (color, normal, texture UV, depth) is interpolated across the\ntriangle using **barycentric coordinates** `(α, β, γ)` — the normalized edge functions."
+    },
+    {
+      "id": "02-RASTERIZATION.md#017",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "```\n  Any point P inside triangle (A, B, C):"
+    },
+    {
+      "id": "02-RASTERIZATION.md#018",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "P = α·A + β·B + γ·C,    with  α + β + γ = 1,  all >= 0"
+    },
+    {
+      "id": "02-RASTERIZATION.md#019",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "α, β, γ are AREA RATIOS:"
+    },
+    {
+      "id": "02-RASTERIZATION.md#020",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "A                α = area(P,B,C) / area(A,B,C)\n         /|\\               β = area(A,P,C) / area(A,B,C)\n        / | \\              γ = area(A,B,P) / area(A,B,C)\n       /  P  \\\n      / /   \\ \\            At a vertex: that coord = 1, others = 0.\n     B---------C           On an edge: the opposite coord = 0."
+    },
+    {
+      "id": "02-RASTERIZATION.md#021",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "Interpolated attribute:  attr(P) = α·attr(A) + β·attr(B) + γ·attr(C)\n```"
+    },
+    {
+      "id": "02-RASTERIZATION.md#022",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "Because the unnormalized edge functions are already proportional to these sub-triangle\nareas, the rasterizer gets the barycentric weights *for free* from the coverage test —\ndivide each edge function by their sum and you have `(α, β, γ)`."
+    },
+    {
+      "id": "02-RASTERIZATION.md#023",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-RASTERIZATION.md#024",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "## Layer 3: The Perspective-Correct Catch"
+    },
+    {
+      "id": "02-RASTERIZATION.md#025",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "Naively interpolating attributes linearly **in screen space is wrong** for anything but\ndepth. Perspective foreshortening means equal steps on screen are *un*equal steps in 3D.\nA checkerboard floor interpolated linearly looks visibly warped near the horizon."
+    },
+    {
+      "id": "02-RASTERIZATION.md#026",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "```\n  WRONG: linear-in-screen          RIGHT: perspective-correct\n  -----------------------          --------------------------\n  attr(P) = α·a + β·b + γ·c         interpolate attr/w and 1/w linearly,\n                                    then divide:"
+    },
+    {
+      "id": "02-RASTERIZATION.md#027",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "(α·a/wa + β·b/wb + γ·c/wc)\n                                    attr =  -------------------------------\n                                        (α/wa + β/wb + γ/wc)"
+    },
+    {
+      "id": "02-RASTERIZATION.md#028",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "Why: the projection is a 1/z map, so the quantity that varies LINEARLY in\n  screen space is attr/w (and 1/w), not attr itself. Recover attr by dividing.\n```"
+    },
+    {
+      "id": "02-RASTERIZATION.md#029",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "This is why the rasterizer keeps `1/w` per vertex. **Depth `z_ndc` is the exception**: it\n*is* linear in screen space (the projection matrix was constructed so the divided `z` is\nscreen-linear), so the z-buffer interpolates it directly without the `/w` correction.\nEverything else — UVs, normals, colors — needs the perspective-correct division."
+    },
+    {
+      "id": "02-RASTERIZATION.md#030",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-RASTERIZATION.md#031",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "## Layer 4: The Z-Buffer (Depth Test)"
+    },
+    {
+      "id": "02-RASTERIZATION.md#032",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "Visibility is resolved per pixel by the depth buffer. Every fragment carries its\ninterpolated depth; the buffer keeps the nearest."
+    },
+    {
+      "id": "02-RASTERIZATION.md#033",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "```\n  Z-BUFFER algorithm:"
+    },
+    {
+      "id": "02-RASTERIZATION.md#034",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "initialize zbuffer[x,y] = +inf (far), framebuffer = clear color\n    for each triangle:\n        for each covered pixel (x,y):\n            z = interpolated depth\n            if z < zbuffer[x,y]:        <-- depth test (LESS)\n                zbuffer[x,y] = z         <-- depth write\n                framebuffer[x,y] = shade()"
+    },
+    {
+      "id": "02-RASTERIZATION.md#035",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "O(1) per fragment. ORDER-INDEPENDENT for opaque geometry.\n```"
+    },
+    {
+      "id": "02-RASTERIZATION.md#036",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "### Z-Buffer vs Painter's Algorithm"
+    },
+    {
+      "id": "02-RASTERIZATION.md#037",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "```\n  PAINTER'S ALGORITHM                   Z-BUFFER\n  -------------------                   --------\n  sort polygons back-to-front,          per-pixel depth compare\n  draw far first, near overpaints       no global sort needed"
+    },
+    {
+      "id": "02-RASTERIZATION.md#038",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "+------+                              Handles ANY overlap, including:\n  | A    +---+                            - mutual interpenetration\n  +---+--| B |   A behind B               - cyclic occlusion (A over B\n      |  +---+                              over C over A) -- which has\n      +------+                              NO valid sort order at all"
+    },
+    {
+      "id": "02-RASTERIZATION.md#039",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "FAILS on intersecting / cyclic        Cost: one depth value per pixel.\n  geometry (no valid sort exists).      This is why it WON.\n```"
+    },
+    {
+      "id": "02-RASTERIZATION.md#040",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "| | Painter's | Z-buffer |\n|---|---|---|\n| Sort needed | Yes, `O(n log n)`, every frame | No |\n| Intersecting geometry | Breaks | Correct |\n| Cyclic occlusion | Impossible | Correct |\n| Per-pixel cost | Overdraw all layers | One compare |\n| Memory | None extra | One depth buffer |\n| Transparency | Natural | Needs separate sorted pass |"
+    },
+    {
+      "id": "02-RASTERIZATION.md#041",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "**Old world → new world.** The painter's algorithm is a global sort + sequential\noverwrite — `O(n log n)` and order-dependent, like rendering by repeatedly `INSERT … ON\nCONFLICT OVERWRITE` in draw order. The z-buffer is a per-cell `min` reduction — local,\nparallel, order-independent. The shift from \"sort then write\" to \"compare locally\" is the\nsame idea that makes parallel reductions beat serial sorts."
+    },
+    {
+      "id": "02-RASTERIZATION.md#042",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "### Early-Z and the Overdraw Problem"
+    },
+    {
+      "id": "02-RASTERIZATION.md#043",
+      "path": [
+        "02-RASTERIZATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:02-rasterization, git-history:computer-graphics:02-rasterization]",
+        "canonical_path": "computer-graphics/02-RASTERIZATION.md",
+        "concepts": "[triangle setup, edge function, barycentric coordinates, z-buffer, perspective-correct interpolation, clipping]",
+        "current_path": "computer-graphics/02-RASTERIZATION.md",
+        "id": "maxim:computer-graphics:rasterization",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[rasterization]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Rasterization",
+        "updated": "null"
+      },
+      "text": "Shading a fragment that a later, nearer fragment will cover is wasted work (*overdraw*).\nGPUs run **early-Z**: do the depth test *before* the fragment shader when possible, so\noccluded fragments are killed cheaply. Sorting opaque geometry front-to-back maximizes\nearly-Z rejection. (Early-Z is disabled when the shader writes depth or uses `discard`,\nbecause then coverage isn't known until after shading.)"
+    }
+  ],
+  "refs": [
+    "02-RASTERIZATION.md"
+  ]
+}

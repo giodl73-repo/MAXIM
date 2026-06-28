@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "algorithms\\02-SORTING-SEARCHING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "# Sorting and Searching",
+      "confidence": "candidate",
+      "text": "  THE SORTING LANDSCAPE\n  =====================================================================================\n\n   COMPARISON SORTS  (only learn via \"a<b?\")        NON-COMPARISON  (read key bits)\n   bounded BELOW by Omega(n log n)                   can be O(n) — ESCAPE the bound\n   ------------------------------------              ----------------------------------\n   +----------------------------------+              +------------------------------+\n   | O(n^2) family    | O(n log n)    |              | counting   O(n+k)            |\n   |  insertion       |  mergesort *  |              | radix      O(d(n+k))         |\n   |  selection       |  heapsort     |              | bucket     O(n) avg          |\n   |  bubble          |  quicksort**  |              +------------------------------+\n   +----------------------------------+               precondition: integer/bounded keys\n     * stable          ** avg n log n / worst n^2\n                          NOT stable, in-place\n\n            |  the lower bound (decision tree):\n            v\n   n! orderings -> binary decision tree of height >= log2(n!) = Theta(n log n)\n   => NO comparison sort does better than Omega(n log n) in the worst case.\n\n   SEARCHING                          SELECTION (k-th smallest)\n   ---------                          -------------------------\n   unsorted: O(n) linear              quickselect   O(n) avg / O(n^2) worst\n   sorted:   O(log n) binary search   median-of-medians O(n) WORST (Akra-Bazzi, see 01)\n   sorted+indexed: O(log log n)\n     interpolation (uniform keys)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 69,
+      "heading_context": "## Layer 1: The Comparison-Sort Lower Bound",
+      "confidence": "candidate",
+      "text": "   A comparison sort's only window into the data is the question \"is a[i] < a[j]?\"\n   Its entire execution is a binary DECISION TREE:\n\n                        a < b ?\n                       /        \\\n                    yes          no\n                    /              \\\n                 b < c ?          a < c ?\n                 /   \\            /     \\\n            [a,b,c]  a<c?     [b,a,c]   b<c?\n                     / \\                / \\\n               [a,c,b][c,a,b]    [b,c,a][c,b,a]\n\n   - Each LEAF is one of the n! possible orderings (all must be reachable).\n   - The number of comparisons on an input = depth of its leaf.\n   - Worst case = tree HEIGHT.\n   - A binary tree with L leaves has height >= ceil(log2 L).\n   - L >= n!  =>  height >= log2(n!) = Theta(n log n)   [Stirling: log2(n!) ~ n log2 n]\n\n   THEOREM: every comparison sort makes Omega(n log n) comparisons in the worst case.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 102,
+      "heading_context": "## Layer 2: The Comparison Sorts (the property matrix)",
+      "confidence": "candidate",
+      "text": "  +--------------------------------------------------------------------------------+\n  | Sort       | Best       | Average    | Worst      | Space   | Stable | In-place|\n  |------------|------------|------------|------------|---------|--------|---------|\n  | Insertion  | O(n)       | O(n^2)     | O(n^2)     | O(1)    | YES    | yes     |\n  | Selection  | O(n^2)     | O(n^2)     | O(n^2)     | O(1)    | no     | yes     |\n  | Bubble     | O(n)       | O(n^2)     | O(n^2)     | O(1)    | YES    | yes     |\n  | Mergesort  | O(n log n) | O(n log n) | O(n log n) | O(n)    | YES    | no      |\n  | Heapsort   | O(n log n) | O(n log n) | O(n log n) | O(1)    | no     | yes     |\n  | Quicksort  | O(n log n) | O(n log n) | O(n^2)     | O(log n)| no     | yes     |\n  | Timsort    | O(n)       | O(n log n) | O(n log n) | O(n)    | YES    | no      |\n  +--------------------------------------------------------------------------------+\n   \"Stable\" = equal keys keep their original relative order.\n   Quicksort space O(log n) = recursion stack depth (with tail-recursion on the smaller side).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 136,
+      "heading_context": "### Mergesort — stable, O(n log n) worst-case, O(n) extra space",
+      "confidence": "candidate",
+      "text": "   split to singletons, then merge sorted runs (T(n)=2T(n/2)+n -> Theta(n log n), see 01):\n\n   [5 2 4 6 1 3]\n   -> [5 2 4] [6 1 3]\n   -> [5][2 4] [6][1 3]\n   -> [5][2][4] [6][1][3]\n   merge: [2 4][5] -> [2 4 5]   ;   [1 3][6] -> [1 3 6]\n   merge: [2 4 5] + [1 3 6]:\n          take min of fronts each step:\n          1<2 ->1 | 2<3 ->2 | 3<4 ->3 | 4<6 ->4 | 5<6 ->5 | 6\n   => [1 2 3 4 5 6]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 156,
+      "heading_context": "### Quicksort — avg O(n log n), **worst O(n²)**, not stable",
+      "confidence": "candidate",
+      "text": "   partition around a pivot (here last element = 3): elements < 3 left, >= 3 right.\n\n   [5 2 4 6 1 | 3]   pivot 3\n     scan: 5>=3 keep right, 2<3 swap-left, 4>=3, 6>=3, 1<3 swap-left\n     -> [2 1 | 3 | 5 6 4]      (3 in final position)\n   recurse left [2 1] -> [1 2] ; recurse right [5 6 4] -> [4 5 6]\n   => [1 2 3 4 5 6]\n\n   WORST CASE: pivot is always the min/max (e.g. already-sorted input + first-element pivot)\n     -> partitions of size n-1, 0  ->  T(n)=T(n-1)+n = Theta(n^2).\n   FIX: randomized pivot OR median-of-three -> O(n log n) EXPECTED for any input (see 01).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 188,
+      "heading_context": "## Layer 3: Non-Comparison Sorts (escaping Ω(n log n))",
+      "confidence": "candidate",
+      "text": "### Counting sort — O(n + k), stable, for keys in [0, k)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 190,
+      "heading_context": "### Counting sort — O(n + k), stable, for keys in [0, k)",
+      "confidence": "candidate",
+      "text": "   sort [2,5,2,0,3,2] with keys in [0,5]:\n   1) count occurrences:   value: 0 1 2 3 4 5\n                           count: 1 0 3 1 0 1\n   2) prefix-sum to positions: 1 1 4 5 5 6   (cumulative)\n   3) place each element (scanning RIGHT-to-LEFT keeps it STABLE):\n      => [0, 2, 2, 2, 3, 5]\n   cost: O(n + k).  Linear when k = O(n).  Needs O(k) extra space.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 224,
+      "heading_context": "### Bucket sort — O(n) average for uniform keys",
+      "confidence": "candidate",
+      "text": "  WHEN A NON-COMPARISON SORT WINS\n  counting  -> small integer key range k = O(n)\n  radix     -> fixed-width integer/string keys, large range\n  bucket    -> keys ~uniform over a known interval (e.g. floats in [0,1))\n  otherwise -> a comparison sort; you cannot beat Omega(n log n) generically",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 239,
+      "heading_context": "## Layer 4: Selection (the k-th smallest)",
+      "confidence": "candidate",
+      "text": "  QUICKSELECT (partition like quicksort, recurse into ONE side):\n    avg O(n):  n + n/2 + n/4 + ... = O(n)    worst O(n^2): bad pivots\n    median:    k = n/2\n\n  MEDIAN-OF-MEDIANS (deterministic pivot = median of group-of-5 medians):\n    T(n) = T(n/5) + T(7n/10) + O(n)  ->  Theta(n) WORST CASE  (Akra-Bazzi, see 01)\n    guarantees the pivot splits off at least 30% each side.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 257,
+      "heading_context": "## Layer 5: Searching",
+      "confidence": "candidate",
+      "text": "  +------------------------------------------------------------------------+\n  | Structure        | Search    | Notes / precondition                    |\n  |------------------|-----------|-----------------------------------------|\n  | unsorted array   | O(n)      | linear scan; no structure to exploit    |\n  | sorted array     | O(log n)  | binary search                           |\n  | sorted, uniform  | O(log log n)| interpolation search (uniform keys)   |\n  | hash table       | O(1) exp* | *amortized expected, NOT worst-case (06)|\n  | balanced BST     | O(log n)  | worst-case guarantee, ordered (06)      |\n  | B-tree           | O(log n)  | disk/SSD-friendly, high fan-out (06)    |\n  +------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 272,
+      "heading_context": "### Binary search — and the off-by-one that bites everyone",
+      "confidence": "candidate",
+      "text": "   find 23 in [4, 8, 15, 16, 23, 42]   (indices 0..5)\n   lo=0 hi=5  mid=2 -> 15 < 23 -> lo=3\n   lo=3 hi=5  mid=4 -> 23 == 23 -> FOUND at index 4\n\n   Invariant: target, if present, is always in [lo, hi].\n   Use mid = lo + (hi - lo)/2  (NOT (lo+hi)/2 — that can overflow for large indices).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -32,7 +32,7 @@ grammar classes each can and cannot accept.
 +--------------------------------------------------------------------------+
 |                       THE PARSING LANDSCAPE                              |
 |                                                                          |
-|                     all context-free grammars                           |
+|                     all context-free grammars                            |
 |   +------------------------------------------------------------------+   |
 |   |  ambiguous grammars (no deterministic parser)                    |   |
 |   |  +------------------------------------------------------------+  |   |
@@ -40,7 +40,7 @@ grammar classes each can and cannot accept.
 |   |  |   +---------------------------------------------------+    |  |   |
 |   |  |   |   LR(1)   (canonical -- most powerful 1-LA det.)  |    |  |   |
 |   |  |   |  +---------------------------------------------+  |    |  |   |
-|   |  |   |  |  LALR(1)  (yacc/bison -- merged LR(1) states)|  |    |  |   |
+|   |  |   |  |  LALR(1) (yacc/bison -- merged LR(1) states)|  |    |  |   |
 |   |  |   |  |  +---------------------------------------+  |  |    |  |   |
 |   |  |   |  |  |  SLR(1)                              |  |  |    |  |   |
 |   |  |   |  |  |  +-------------------------------+   |  |  |    |  |   |
@@ -49,16 +49,16 @@ grammar classes each can and cannot accept.
 |   |  |   |  |  +---------------------------------------+  |  |    |  |   |
 |   |  |   |  +---------------------------------------------+  |    |  |   |
 |   |  |   +---------------------------------------------------+    |  |   |
-|   |  |                                                            |  |   |
+|   |  |   |                                                   |    |  |   |
 |   |  |   +---------------------------------------------------+    |  |   |
 |   |  |   |   LL(k)   (top-down; LL(1) subset shown)          |    |  |   |
 |   |  |   |   - cannot do LEFT RECURSION                      |    |  |   |
-|   |  |   |   - LL(1) is a PROPER SUBSET of LALR(1)/LR(1)     |    |  |   |
+|   |  |   |   - LL(1) is a PROPER SUBSET of LR(1)             |    |  |   |
 |   |  |   +---------------------------------------------------+    |  |   |
 |   |  +------------------------------------------------------------+  |   |
 |   +------------------------------------------------------------------+   |
-|                                                                          |
-|   GLR / Earley: handle ALL CFGs (incl. ambiguous), at higher cost       |
+
+|   GLR / Earley: handle ALL CFGs (incl. ambiguous), at higher cost        |
 +--------------------------------------------------------------------------+
 ```
 
@@ -258,12 +258,12 @@ and emit a warning.
    | yacc   |  | bison  |              | ANTLR  |  | tree-     |
    | (1975) |  | (GNU)  |              | (LL*)  |  | sitter    |
    +--------+  +--------+              +--------+  | (GLR-ish, |
-   +--------+                         +--------+  |  incrmntl)|
-   | menhir |  (LR(1)/LALR, OCaml)    | PEG.js  |  +-----------+
-   +--------+                         | / pest  |  +-----------+
-   Used by: GCC (historically),       | (PEG)   |  | Earley    |
-   many C compilers, SQL parsers.     +--------+  | (any CFG) |
-                                                  +-----------+
+   +--------+                          +--------+  |  incrmntl)|
+   | menhir |  (LR(1)/LALR, OCaml)     | PEG.js |  +-----------+
+   +--------+                          | / pest |  +-----------+
+   Used by: GCC (historically),        | (PEG)  |  | Earley    |
+   many C compilers, SQL parsers.      +--------+  | (any CFG) |
+                                                   +-----------+
 ```
 
 | Generator | Class | Notes |
@@ -273,7 +273,7 @@ and emit a warning.
 | ANTLR4 | ALL(*) (adaptive LL) | hand-grammar-friendly, good error messages |
 | tree-sitter | GLR, incremental, error-tolerant | editors/IDEs — reparses on keystroke |
 | PEG (pest, PEG.js) | parsing expression grammars | ordered choice, no ambiguity, but `*` is greedy/committed |
-| Earley | all CFGs incl. ambiguous | O(n³) worst, O(n) on unambiguous; NLP, research |
+| Earley | all CFGs incl. ambiguous | O(n³) worst, O(n²) unambiguous, O(n) deterministic; NLP, research |
 
 **The industry reality**: despite generators, most *production language* compilers
 hand-write a recursive-descent parser. Generated parsers dominate for SQL, config
@@ -352,10 +352,10 @@ than a generated state table. Power loses to engineering ergonomics here.
 
 ## Common Confusion Points
 
-**LL and LR are not a strict hierarchy — but LL(1) ⊂ LALR(1).** Neither LL nor LR
+**LL and LR are not a strict hierarchy — but LL(1) ⊂ LR(1).** Neither LL nor LR
 contains the other in general (different `k`, different grammar shapes), but the
-common case LL(1) is a *proper subset* of LALR(1)/LR(1). Anything you can parse LL(1)
-you can parse LALR(1); the reverse fails (left recursion).
+common case LL(1) is a *proper subset* of LR(1) (and of LALR(1) for non-degenerate
+grammars). Anything you can parse LL(1) you can parse LR(1); the reverse fails (left recursion).
 
 **LALR conflicts come from state *merging*, not from the grammar being ambiguous.** A
 grammar can be unambiguous and LR(1) yet still throw a LALR reduce/reduce conflict

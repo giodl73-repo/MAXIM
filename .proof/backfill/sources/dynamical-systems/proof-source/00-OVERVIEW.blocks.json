@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "dynamical-systems\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "# Dynamical Systems — The Landscape",
+      "confidence": "candidate",
+      "text": "                         THE DYNAMICAL SYSTEMS LANDSCAPE\n                         ===============================\n\n   CONTINUOUS TIME (FLOWS)                       DISCRETE TIME (MAPS)\n   x' = f(x),  x in R^n                          x_{n+1} = F(x_n)\n        |                                              |\n        |  integrate / iterate                         |\n        v                                              v\n   +---------------------------------------------------------------------+\n   |                          PHASE SPACE  R^n                           |\n   |                                                                     |\n   |   LINEAR              -->   NONLINEAR          -->   CHAOTIC        |\n   |   x' = Ax                   x' = f(x)               sensitive to    |\n   |   solvable in closed        no closed form;         initial conds   |\n   |   form; eigenvalues         linearize near          (positive       |\n   |   of A decide              fixed points             Lyapunov exp.)  |\n   |   everything                                                        |\n   |     |                          |                        |           |\n   |     v                          v                        v           |\n   |  fixed points              fixed pts + limit       strange          |\n   |  (nodes/spirals/           cycles + bifurca-       attractors,      |\n   |  saddles/centers)          tions + manifolds       fractal sets     |\n   +---------------------------------------------------------------------+\n        |                          |                        |\n        v                          v                        v\n    EIGENVALUES               JACOBIAN +               LYAPUNOV EXPONENTS\n    Re(λ) signs               NORMAL FORMS             + FRACTAL DIM\n    (Ch. 02)                  (Ch. 02-03)              (Ch. 05-07)\n\n   DIMENSION GATES WHAT CAN HAPPEN (continuous flows):\n     n = 1:  only monotone approach to fixed points (no oscillation)\n     n = 2:  fixed points + limit cycles ONLY  (Poincare-Bendixson rules out chaos)\n     n >= 3: chaos becomes possible (Lorenz, Rossler)\n   Discrete maps escape this: even 1D maps (logistic) are chaotic.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 116,
+      "heading_context": "## What This Field Actually Asks",
+      "confidence": "candidate",
+      "text": "   +--------------------------------------------------------------+\n   |  THE CENTRAL QUESTIONS                                       |\n   |                                                              |\n   |  1. WHERE does the system settle?                            |\n   |     fixed points, limit cycles, tori, strange attractors     |\n   |                                                              |\n   |  2. Is that destination STABLE?                              |\n   |     linearize -> Jacobian eigenvalues -> Re(lambda) signs    |\n   |                                                              |\n   |  3. How does the answer CHANGE as a parameter varies?        |\n   |    bifurcations: saddle-node, transcritical, pitchfork, Hopf |\n   |                                                              |\n   |  4. Can the system be CHAOTIC?                               |\n   |     positive Lyapunov exponent, SDIC, fractal attractor      |\n   |                                                              |\n   |  5. What is the GEOMETRY of the attracting set?              |\n   |     fractal dimension, stable/unstable manifolds             |\n   +--------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 152,
+      "heading_context": "## Existence, Uniqueness, and the Flow",
+      "confidence": "candidate",
+      "text": "   CONSEQUENCE 1: trajectories cannot cross.\n     Two distinct trajectories never intersect in phase space.\n     (If they did, the crossing point would have two futures -> non-unique.)\n     => phase portraits are foliations; this is WHY 2D rules out chaos.\n\n   CONSEQUENCE 2: the flow phi_t is a one-parameter group.\n     phi_t(x_0) = state at time t starting from x_0\n     phi_0 = identity,   phi_{t+s} = phi_t o phi_s,   phi_{-t} = (phi_t)^{-1}\n     A smooth, invertible, time-shiftable family of maps.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 172,
+      "heading_context": "## The Dimension Hierarchy (the single most useful fact)",
+      "confidence": "candidate",
+      "text": "   FLOW DIMENSION   WHAT CAN HAPPEN                 WHY\n   --------------   ---------------                 ---\n   n = 1            monotone -> fixed point         x' = f(x) on a line;\n                    NO oscillation, NO overshoot    x can only move one way\n                                                    between zeros of f\n\n   n = 2            fixed points + LIMIT CYCLES     trajectories can't cross\n                    NO chaos                        (Poincare-Bendixson, Ch. 04)\n                                                    -> trapped orbits must be\n                                                    periodic\n\n   n >= 3           CHAOS possible                  enough room for trajectories\n                    strange attractors             to stretch + fold without\n                    (Lorenz needs exactly 3)       self-intersecting\n\n   DISCRETE MAPS    chaos at ANY dimension          F need not be invertible;\n                    1D logistic map is chaotic      no \"can't cross\" constraint",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 193,
+      "heading_context": "## The Dimension Hierarchy (the single most useful fact)",
+      "confidence": "candidate",
+      "text": "reason (Jordan curve theorem + no-crossing); only 3D+ flows and maps of any dimension can be",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 202,
+      "heading_context": "## Conservative vs Dissipative",
+      "confidence": "candidate",
+      "text": "   Take a blob of initial conditions. Track its volume V(t) under the flow.\n   Divergence theorem:  dV/dt = integral of (div f) over the blob.\n\n   div f = 0   everywhere   ->  CONSERVATIVE (volume-preserving)\n                                Hamiltonian systems, frictionless mechanics\n                                NO attractors; centers, tori, KAM\n                                Liouville's theorem (stat-mech!)\n\n   div f < 0   on average   ->  DISSIPATIVE (volume-contracting)\n                                friction, resistance, real engineering\n                                attractors EXIST; volume -> 0 onto them\n                                strange attractors live here (Lorenz: div f = -(sigma+1+b))",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 226,
+      "heading_context": "## How the Chapters Fit Together",
+      "confidence": "candidate",
+      "text": "   01 FLOWS & FIXED POINTS  -- the objects: vector fields, fixed pts, 1D lines\n        |\n        v\n   02 STABILITY             -- linearize: Jacobian eigenvalues, 2D zoo, Lyapunov\n        |\n        +--> 03 BIFURCATIONS -- how stability CHANGES with a parameter (normal forms)\n        |\n        v\n   04 LIMIT CYCLES          -- genuine nonlinear oscillation; Poincare-Bendixson caps 2D\n        |\n        v   (cross the dimension-3 threshold)\n   05 CHAOS                 -- logistic map, Feigenbaum, Lyapunov exponents, SDIC\n        |\n        +--> 06 STRANGE ATTRACTORS -- Lorenz, Rossler; the geometry of chaos\n        |         |\n        |         v\n        +--> 07 FRACTALS    -- the geometry itself: dimension, Mandelbrot, IFS\n        |\n        v\n   08 DISCRETE MAPS         -- the map theory in full: symbolic dynamics, Henon\n        |\n        v\n   09 APPLICATIONS          -- synchronization, networks, gradient flows (ML), chaos control",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 297,
+      "heading_context": "### \"Chaos = randomness?\"",
+      "confidence": "candidate",
+      "text": "### \"Can a 2D system be chaotic?\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

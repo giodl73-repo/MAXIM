@@ -1,0 +1,130 @@
+{
+  "schema_version": "1",
+  "source_markdown": "compilers\\07-REGISTER-ALLOCATION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 209,
+      "heading_context": "## Linear Scan — The JIT Allocator",
+      "headers": [
+        "",
+        "Graph coloring (Chaitin-Briggs)",
+        "Linear scan"
+      ],
+      "rows": [
+        [
+          "Model",
+          "interference graph, K-coloring",
+          "sorted live intervals, sweep"
+        ],
+        [
+          "Quality",
+          "high (near-optimal)",
+          "good, ~10% more spills typically"
+        ],
+        [
+          "Speed",
+          "slow (build graph, iterate)",
+          "fast, ~O(n log n)"
+        ],
+        [
+          "Live-range holes",
+          "precise",
+          "approximated (one interval)"
+        ],
+        [
+          "Used by",
+          "gcc, LLVM `-O2`+",
+          "early HotSpot client, V8 Crankshaft-era, **RyuJIT (LSRA)**"
+        ],
+        [
+          "Coalescing",
+          "first-class",
+          "limited / second pass"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 271,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You know",
+        "Maps to"
+      ],
+      "rows": [
+        [
+          "Watching RyuJIT assembly in a debugger",
+          "LSRA (Linear Scan Register Allocation) is RyuJIT's allocator — fast, JIT-suitable"
+        ],
+        [
+          "\"register pressure\" intuition from reading asm",
+          "Exactly MAXLIVE vs K — too many simultaneously-live values force spills"
+        ],
+        [
+          "Stack frame locals you've seen in disassembly",
+          "Spill slots — values the allocator couldn't keep in registers"
+        ],
+        [
+          "x64 calling convention (RCX/RDX/R8/R9, RAX)",
+          "The fixed/caller-saved/callee-saved partition the allocator must respect"
+        ],
+        [
+          "`[MethodImpl]` / perf of hot loops",
+          "Loop-depth spill weighting — spilling in a hot loop is the cardinal sin"
+        ],
+        [
+          "Why debug builds are slower",
+          "-O0/minopts skip coalescing and good allocation; every local goes to a stack slot"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 290,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Decide if two values can share a register",
+          "Do their live ranges interfere?"
+        ],
+        [
+          "Frame allocation formally",
+          "K-coloring the interference graph (K = #physical regs)"
+        ],
+        [
+          "Get near-optimal allocation (AOT)",
+          "Chaitin-Briggs coloring (simplify/select + optimistic)"
+        ],
+        [
+          "Allocate fast in a JIT",
+          "Linear scan over sorted live intervals"
+        ],
+        [
+          "Remove SSA-destruction copies",
+          "Coalescing (conservative: Briggs/George)"
+        ],
+        [
+          "Handle register overflow",
+          "Spilling, weighted by loop depth"
+        ],
+        [
+          "Pick what to spill",
+          "Lowest (use/def, loop-weighted) / degree"
+        ],
+        [
+          "Exploit SSA for poly-time coloring",
+          "SSA-based allocation (chordal interference graphs)"
+        ],
+        [
+          "Handle values live across a call",
+          "Callee-saved register or spill (ABI-driven interference)"
+        ]
+      ]
+    }
+  ]
+}

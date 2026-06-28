@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "compilers\\03-SEMANTIC-ANALYSIS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "                       SEMANTIC ANALYSIS PIPELINE\n\n   parse tree (concrete)\n        |  build/lower\n        v\n   +----------+        AST: desugared, names not yet resolved\n   |   AST    |\n   +----------+\n\n        |\n        |  PASS 1: build symbol tables (declarations -> scopes)\n        v\n\n   +-------------------+   scope tree:  global -> module -> fn -> block\n   |  SYMBOL TABLES    |   each entry: name, kind, type-slot, source span\n   +-------------------+\n\n        |\n        |  PASS 2: NAME RESOLUTION (every use -> its declaration)\n        v\n\n   +-------------------+   each IDENT node now points at a Symbol\n   |  RESOLVED AST     |\n   +-------------------+\n\n        |\n        |  PASS 3: TYPE CHECKING / INFERENCE (annotate every node)\n        v\n\n   +-------------------+   each expr node now carries a Type;\n   |  TYPED AST        |   type errors emitted with spans\n   +-------------------+\n\n        |\n        v  hand to IR generation (guide 04)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 81,
+      "heading_context": "## Parse Tree vs AST",
+      "confidence": "candidate",
+      "text": "  source:  -(1 + 2)\n\n  CONCRETE (parse) tree              ABSTRACT (AST)\n  =====================              ==============\n        unary                            Neg\n       /  |  \\                            |\n      -  expr ...                        Add\n         /|\\                            /   \\\n        ( expr )                     Int(1) Int(2)\n          /|\\\n       1  +  2\n   (records parens, the              (parens gone -- they only\n    expr->term->factor chain)         affected structure, not meaning;\n                                       no intermediate nonterminals)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 98,
+      "heading_context": "## Parse Tree vs AST",
+      "confidence": "candidate",
+      "text": "  AST drops:  parentheses, redundant nonterminals (expr->term->factor),\n              punctuation that only guided parsing.\n  AST keeps:  operators, operands, declarations, control structure --\n              everything with semantic content.\n  AST may add: desugaring (for-loop -> while; a += b -> a = a + b;\n              string interpolation -> concat calls).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 118,
+      "heading_context": "## Symbol Tables and Scope",
+      "confidence": "candidate",
+      "text": "   SCOPE CHAIN (lexical scoping)\n\n   global scope:\n   +----------------------------------+\n   |  printf, main, MAX               |\n   +----------------------------------+\n              ^\n              | parent\n   function main():\n   +----------------------------------+\n   |  argc, argv, i                   |\n   +----------------------------------+\n              ^\n              | parent\n   block { ... }:\n   +----------------------------------+\n   |  i  (SHADOWS outer i), tmp       |\n   +----------------------------------+\n\n   Lookup(\"i\") from the innermost block:\n     found in block scope -> the shadowing `i`. Stop.\n   Lookup(\"argc\"):\n     not in block, not... found in function scope. Stop.\n   Lookup(\"printf\"):\n     walk all the way to global. Found.\n   Lookup(\"nope\"):\n     reach root, not found -> UNRESOLVED NAME error.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 178,
+      "heading_context": "## Name Resolution",
+      "confidence": "candidate",
+      "text": "  Before resolution:        After resolution:\n  Call                      Call\n   |--callee: \"f\"            |--callee: -> Symbol#42 (fn f, defined at L3)\n   |--arg:    \"x\"            |--arg:    -> Symbol#17 (param x, defined at L1)\n\n  Resolution also catches:\n    - use of undeclared name\n    - duplicate declaration in one scope\n    - use-before-declaration (where the language forbids it)\n    - ambiguous overload / import collision",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 203,
+      "heading_context": "## Type Checking vs Type Inference",
+      "confidence": "candidate",
+      "text": "   TYPE CHECKING (e.g. Java, C, C#)        TYPE INFERENCE (e.g. ML, Haskell,\n   ==============================            Rust locals, C# var, TS)\n   int x = f(y);                           let x = f y           -- no annotations\n   - look up type of f: int -> int          - assign fresh type vars\n   - check y : int                          - generate equality CONSTRAINTS\n   - check result int assignable to int     - SOLVE by UNIFICATION\n   Local, syntax-directed, one walk.        - generalize remaining vars (forall)\n                                            Global-ish; the famous algorithm\n                                            is Hindley-Milner / Algorithm W.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 228,
+      "heading_context": "### Bidirectional checking — the modern default",
+      "confidence": "candidate",
+      "text": "  check(e, T):  \"does e have type T?\"      (type flows IN -- e.g. a lambda\n                                            argument whose type is known)\n  synth(e) -> T: \"what type does e have?\"  (type flows OUT -- e.g. a literal,\n                                            a variable, a function call result)\n\n  Rule of thumb:\n    annotations + function results -> synthesize\n    lambda bodies + container literals against expected -> check",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 247,
+      "heading_context": "## Hindley-Milner Inference, Worked",
+      "confidence": "candidate",
+      "text": "  Step 1 -- fresh vars and constraints for \\x -> x :\n     x : a            (fresh)\n     body x : a\n     so  \\x -> x : a -> a\n\n  Step 2 -- generalize at the `let`:\n     id : forall a. a -> a       (a is not free in the environment -> bind it)\n\n  Step 3 -- use `id id`. INSTANTIATE id twice with fresh vars:\n     left  id : b -> b\n     right id : c -> c\n     application (left right): require (b -> b) = (c -> c)'s argument type\n        unify  b   with  (c -> c)        =>  b := (c -> c)\n        result type:  b  = (c -> c)\n     so  id id : c -> c            (a function, the identity again)\n\n  Generalize:  id id : forall c. c -> c",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 272,
+      "heading_context": "### Unification — the engine",
+      "confidence": "candidate",
+      "text": "  unify(t1, t2):\n    if t1, t2 are the same type var          -> ok, no-op\n    if t1 is a var a                          -> bind a := t2  (OCCURS CHECK first!)\n    if t2 is a var a                          -> bind a := t1  (OCCURS CHECK first!)\n    if t1 = f(s1..sn), t2 = f(u1..un)         -> unify si with ui pairwise\n    if constructors differ (Int vs Bool, ->)  -> TYPE ERROR\n\n  OCCURS CHECK:  refusing to bind  a := (a -> a)  would create an infinite\n                 type. The occurs check rejects it -> \"cannot construct\n                 infinite type\" -- the error you see for  \\x -> x x.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 285,
+      "heading_context": "### Unification — the engine",
+      "confidence": "candidate",
+      "text": "  Example unify( (a -> Int),  (Bool -> b) ):\n     match the -> constructor, recurse:\n       unify(a, Bool)  -> a := Bool\n       unify(Int, b)   -> b := Int\n     result substitution: { a := Bool, b := Int }\n     both sides become  Bool -> Int.   Consistent.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 350,
+      "heading_context": "## Where the Errors Come From",
+      "confidence": "candidate",
+      "text": "  Lexical error:    bad character          (guide 01)\n  Syntax error:     ill-formed structure   (guide 02)\n  ----------------------------------------------------------------\n  SEMANTIC errors (this guide):\n     undeclared name             -> name resolution\n     duplicate declaration       -> symbol table insert\n     type mismatch               -> checking / failed unification\n     \"cannot infer type\"         -> ambiguous, under-constrained inference\n     \"cannot construct infinite type\" -> occurs check failure\n     wrong arity / bad overload  -> checking call sites\n     use before initialization   -> a dataflow check (borders on guide 05)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

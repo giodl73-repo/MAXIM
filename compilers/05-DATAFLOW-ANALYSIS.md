@@ -38,9 +38,9 @@ them as the optimizer's analysis engine.
 |        TOP  (most optimistic /                                           |
 |             "no info yet")                                               |
 |         |                                                                |
-|       .....    (lattice of facts, ordered by information)               |
+|       .....    (lattice of facts, ordered by information)                |
 |         |                                                                |
-|       BOTTOM (most conservative / "anything possible")                  |
+|       BOTTOM (most conservative / "anything possible")                   |
 |                                                                          |
 |   For each block B:                                                      |
 |     IN[B]  = MEET over predecessors of OUT[p]   (forward analysis)       |
@@ -49,8 +49,8 @@ them as the optimizer's analysis engine.
 |   Iterate until IN/OUT stop changing  =>  FIXPOINT.                      |
 |   Monotone transfer + finite-height lattice  =>  guaranteed to halt.     |
 |                                                                          |
-|   Direction:  forward (reaching defs) | backward (liveness)             |
-|   Meet:       union (may) | intersection (must)                         |
+|   Direction:  forward (reaching defs) | backward (liveness)              |
+|   Meet:       union (may) | intersection (must)                          |
 +--------------------------------------------------------------------------+
 ```
 
@@ -71,7 +71,7 @@ has a meet (greatest lower bound) and join (least upper bound). The order encode
                 TOP   (no information yet -- "could be anything,
                  |     start optimistic")
         +--------+--------+----- ...
-        |        |        |
+        |        |        |      ...
        ...0      1        2  ...   (each known constant)
         +--------+--------+----- ...
                  |

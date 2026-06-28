@@ -1,0 +1,349 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-computer-graphics-ray-tracing",
+  "source": "../../computer-graphics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "03-RAY-TRACING.md#000",
+      "path": [
+        "03-RAY-TRACING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:03-ray-tracing, git-history:computer-graphics:03-ray-tracing]",
+        "canonical_path": "computer-graphics/03-RAY-TRACING.md",
+        "concepts": "[ray-surface intersection, whitted ray tracing, path tracing, BVH, kd-tree, monte carlo]",
+        "current_path": "computer-graphics/03-RAY-TRACING.md",
+        "id": "maxim:computer-graphics:ray-tracing",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ray tracing]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ray Tracing",
+        "updated": "null"
+      },
+      "text": "# Ray Tracing"
+    },
+    {
+      "id": "03-RAY-TRACING.md#001",
+      "path": [
+        "03-RAY-TRACING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:03-ray-tracing, git-history:computer-graphics:03-ray-tracing]",
+        "canonical_path": "computer-graphics/03-RAY-TRACING.md",
+        "concepts": "[ray-surface intersection, whitted ray tracing, path tracing, BVH, kd-tree, monte carlo]",
+        "current_path": "computer-graphics/03-RAY-TRACING.md",
+        "id": "maxim:computer-graphics:ray-tracing",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ray tracing]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ray Tracing",
+        "updated": "null"
+      },
+      "text": "## The Big Picture: Follow the Light Backwards"
+    },
+    {
+      "id": "03-RAY-TRACING.md#002",
+      "path": [
+        "03-RAY-TRACING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:03-ray-tracing, git-history:computer-graphics:03-ray-tracing]",
+        "canonical_path": "computer-graphics/03-RAY-TRACING.md",
+        "concepts": "[ray-surface intersection, whitted ray tracing, path tracing, BVH, kd-tree, monte carlo]",
+        "current_path": "computer-graphics/03-RAY-TRACING.md",
+        "id": "maxim:computer-graphics:ray-tracing",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ray tracing]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ray Tracing",
+        "updated": "null"
+      },
+      "text": "Ray tracing is the image-order strategy: for each pixel, shoot a ray from the eye into the\nscene, find the nearest surface it hits, and ask what light leaves that surface toward the\neye. Reflections, refractions, and shadows fall out by *recursively shooting more rays*."
+    },
+    {
+      "id": "03-RAY-TRACING.md#003",
+      "path": [
+        "03-RAY-TRACING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:03-ray-tracing, git-history:computer-graphics:03-ray-tracing]",
+        "canonical_path": "computer-graphics/03-RAY-TRACING.md",
+        "concepts": "[ray-surface intersection, whitted ray tracing, path tracing, BVH, kd-tree, monte carlo]",
+        "current_path": "computer-graphics/03-RAY-TRACING.md",
+        "id": "maxim:computer-graphics:ray-tracing",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ray tracing]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ray Tracing",
+        "updated": "null"
+      },
+      "text": "```\n+--------------------------------------------------------------------------------------+\n|                         THE RAY TRACING LOOP (per pixel)                             |\n|                                                                                      |\n|  CAMERA          TRAVERSE         INTERSECT        SHADE           RECURSE           |\n|  RAY GEN         ACCEL STRUCT     PRIMITIVE        HIT POINT       (spawn rays)      |\n|                                                                                      |\n|  eye -> pixel -> descend BVH  -> ray vs triangle -> evaluate   -> shadow rays  -> +  |\n|  build ray      skip empty/      (Moller-          BRDF + lights    reflection       |\n|  (o, d)         far boxes         Trumbore)         at hit point     refraction      |\n|                                                                      bounce ray      |\n|                                                                                      |\n|   [ray gen]     [BVH/kd  L3]      [intersect L2]    [shade L1+04]   [recurse L4]     |\n+--------------------------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "03-RAY-TRACING.md#004",
+      "path": [
+        "03-RAY-TRACING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:03-ray-tracing, git-history:computer-graphics:03-ray-tracing]",
+        "canonical_path": "computer-graphics/03-RAY-TRACING.md",
+        "concepts": "[ray-surface intersection, whitted ray tracing, path tracing, BVH, kd-tree, monte carlo]",
+        "current_path": "computer-graphics/03-RAY-TRACING.md",
+        "id": "maxim:computer-graphics:ray-tracing",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ray tracing]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ray Tracing",
+        "updated": "null"
+      },
+      "text": "The naming convention is \"backward\" ray tracing — rays travel *from* the eye *into* the\nscene, the reverse of physical photons, because we only care about the light that actually\nreaches the camera. The whole field is built on one geometric primitive (ray-surface\nintersection) and one organizing principle (recursion)."
+    },
+    {
+      "id": "03-RAY-TRACING.md#005",
+      "path": [
+        "03-RAY-TRACING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:03-ray-tracing, git-history:computer-graphics:03-ray-tracing]",
+        "canonical_path": "computer-graphics/03-RAY-TRACING.md",
+        "concepts": "[ray-surface intersection, whitted ray tracing, path tracing, BVH, kd-tree, monte carlo]",
+        "current_path": "computer-graphics/03-RAY-TRACING.md",
+        "id": "maxim:computer-graphics:ray-tracing",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ray tracing]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ray Tracing",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-RAY-TRACING.md#006",
+      "path": [
+        "03-RAY-TRACING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:03-ray-tracing, git-history:computer-graphics:03-ray-tracing]",
+        "canonical_path": "computer-graphics/03-RAY-TRACING.md",
+        "concepts": "[ray-surface intersection, whitted ray tracing, path tracing, BVH, kd-tree, monte carlo]",
+        "current_path": "computer-graphics/03-RAY-TRACING.md",
+        "id": "maxim:computer-graphics:ray-tracing",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ray tracing]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ray Tracing",
+        "updated": "null"
+      },
+      "text": "## Layer 1: The Ray and Why We Go Backward"
+    },
+    {
+      "id": "03-RAY-TRACING.md#007",
+      "path": [
+        "03-RAY-TRACING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:03-ray-tracing, git-history:computer-graphics:03-ray-tracing]",
+        "canonical_path": "computer-graphics/03-RAY-TRACING.md",
+        "concepts": "[ray-surface intersection, whitted ray tracing, path tracing, BVH, kd-tree, monte carlo]",
+        "current_path": "computer-graphics/03-RAY-TRACING.md",
+        "id": "maxim:computer-graphics:ray-tracing",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ray tracing]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ray Tracing",
+        "updated": "null"
+      },
+      "text": "A ray is a parametric half-line."
+    },
+    {
+      "id": "03-RAY-TRACING.md#008",
+      "path": [
+        "03-RAY-TRACING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:03-ray-tracing, git-history:computer-graphics:03-ray-tracing]",
+        "canonical_path": "computer-graphics/03-RAY-TRACING.md",
+        "concepts": "[ray-surface intersection, whitted ray tracing, path tracing, BVH, kd-tree, monte carlo]",
+        "current_path": "computer-graphics/03-RAY-TRACING.md",
+        "id": "maxim:computer-graphics:ray-tracing",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ray tracing]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ray Tracing",
+        "updated": "null"
+      },
+      "text": "```\n   r(t) = o + t·d ,    t >= 0"
+    },
+    {
+      "id": "03-RAY-TRACING.md#009",
+      "path": [
+        "03-RAY-TRACING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:03-ray-tracing, git-history:computer-graphics:03-ray-tracing]",
+        "canonical_path": "computer-graphics/03-RAY-TRACING.md",
+        "concepts": "[ray-surface intersection, whitted ray tracing, path tracing, BVH, kd-tree, monte carlo]",
+        "current_path": "computer-graphics/03-RAY-TRACING.md",
+        "id": "maxim:computer-graphics:ray-tracing",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ray tracing]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ray Tracing",
+        "updated": "null"
+      },
+      "text": "o : origin (the eye, or a surface point for secondary rays)\n      d : direction (often normalized)\n      t : distance along the ray; the smallest positive t that hits = nearest surface"
+    },
+    {
+      "id": "03-RAY-TRACING.md#010",
+      "path": [
+        "03-RAY-TRACING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:03-ray-tracing, git-history:computer-graphics:03-ray-tracing]",
+        "canonical_path": "computer-graphics/03-RAY-TRACING.md",
+        "concepts": "[ray-surface intersection, whitted ray tracing, path tracing, BVH, kd-tree, monte carlo]",
+        "current_path": "computer-graphics/03-RAY-TRACING.md",
+        "id": "maxim:computer-graphics:ray-tracing",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ray tracing]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ray Tracing",
+        "updated": "null"
+      },
+      "text": "o •------------>------------> d\n                   t increases\n```"
+    },
+    {
+      "id": "03-RAY-TRACING.md#011",
+      "path": [
+        "03-RAY-TRACING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computer-graphics:03-ray-tracing, git-history:computer-graphics:03-ray-tracing]",
+        "canonical_path": "computer-graphics/03-RAY-TRACING.md",
+        "concepts": "[ray-surface intersection, whitted ray tracing, path tracing, BVH, kd-tree, monte carlo]",
+        "current_path": "computer-graphics/03-RAY-TRACING.md",
+        "id": "maxim:computer-graphics:ray-tracing",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ray tracing]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ray Tracing",
+        "updated": "null"
+      },
+      "text": "```\n  FORWARD (physical)                    BACKWARD (what we compute)\n  -----------------                     ---------------------------\n  light source emits photons            eye casts rays into scene\n  -> bounce around scene                -> find what each pixel sees\n  -> a few land in the camera           -> follow only paths that matter\n  WASTEFUL: most photons miss the eye   EFFICIENT: every ray is for a pixel"
+    }
+  ],
+  "refs": [
+    "03-RAY-TRACING.md"
+  ]
+}

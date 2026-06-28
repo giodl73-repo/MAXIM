@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "compilers\\06-OPTIMIZATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 32,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------------+\n|                     OPTIMIZATION BY SCOPE                                |\n|                                                                          |\n|   LOCAL (one basic block)                                                |\n|     constant folding, local CSE, local DCE, peephole, algebraic          |\n|     simplification, local copy/constant propagation                      |\n|        |                                                                 |\n|        v                                                                 |\n|   GLOBAL / INTRAPROCEDURAL (one function's CFG, needs dataflow)          |\n|     global constant propagation (SCCP), GVN, global DCE,                 |\n|     LICM, loop unrolling/fusion, strength reduction, vectorization,      |\n|     jump threading, tail-call elimination                                |\n|        |                                                                 |\n|        v                                                                 |\n|   INTERPROCEDURAL (across functions / whole program)                     |\n|     inlining, interprocedural constant propagation,                      |\n|     devirtualization, escape analysis, whole-program DCE,                |\n|     Link-Time Optimization (LTO)                                         |\n|                                                                          |\n|   All wired into a PASS PIPELINE: ordered, often run to a fixpoint,      |\n|   gated by -O0/-O1/-O2/-O3/-Os.                                          |\n+--------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 68,
+      "heading_context": "## Local Optimizations",
+      "confidence": "candidate",
+      "text": "  CONSTANT FOLDING        2 + 3        -> 5          (evaluate at compile time)\n  ALGEBRAIC SIMPLIFY      x * 1        -> x\n                          x + 0        -> x\n                          x & x        -> x\n  STRENGTH REDUCTION      x * 4        -> x << 2     (cheap op for expensive)\n                          x % 8        -> x & 7      (power-of-two)\n  LOCAL CSE               t1 = a+b; t2 = a+b  -> t1 = a+b; t2 = t1\n  COPY PROPAGATION        y = x; z = y+1 -> z = x+1\n  LOCAL DCE               t = a+b (t never used) -> delete\n  PEEPHOLE                mov eax,eax  -> delete; redundant load after store",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 98,
+      "heading_context": "### Sparse Conditional Constant Propagation (SCCP)",
+      "confidence": "candidate",
+      "text": "  SCCP lattice per SSA value:  TOP (unknown) > constant c > BOTTOM (varying)\n  Two worklists: SSA edges (value changes) and CFG edges (reachability).\n\n  if (x1 == 0)  where SCCP proved x1 = 0  -> the `else` edge is UNREACHABLE\n     -> code in the else block is dead (won't even be analyzed)\n     -> a phi merging that dead edge ignores it -> may become constant too\n\n  Why \"conditional\" beats plain constant propagation:\n     plain CP assumes all branches reachable -> a phi at a merge sees both\n        a constant and a dead value -> conservatively BOTTOM.\n     SCCP knows the dead edge can't contribute -> the phi stays constant.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 117,
+      "heading_context": "### Global Value Numbering (GVN)",
+      "confidence": "candidate",
+      "text": "  Hash each instruction on (operator, value-numbers-of-operands).\n  Identical hash = identical value = redundant.\n\n  In SSA this is clean because operand NAMES are their value identities:\n     a = x + y      VN(a) = h(+, VN(x), VN(y)) = #7\n     b = x + y      VN(b) = h(+, VN(x), VN(y)) = #7   -> b is redundant\n     replace uses of b with a.\n\n  GVN vs CSE:\n     local CSE: only within a block, syntactic match.\n     GVN: across the whole CFG, by computed value -- catches\n          a = x+y in B1 and b = x+y in B3 even with blocks between.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 150,
+      "heading_context": "### Loop-Invariant Code Motion (LICM)",
+      "confidence": "candidate",
+      "text": "  Move a computation OUT of the loop if its operands don't change in the loop.\n\n   before:                          after (hoist to PREHEADER):\n   for i in 0..n:                   t = a * b          # invariant -> hoisted\n       x = a * b                    for i in 0..n:\n       use(x, i)                        use(t, i)\n\n  Safety conditions:\n    - operands (a,b) are loop-invariant (defs dominate the loop, not redefined)\n    - the instruction is SAFE TO SPECULATE or DOMINATES all loop exits\n        (else you'd execute it when the loop runs zero times -- may fault\n         or have effects). LICM only hoists when it can't change behavior.\n    - a PREHEADER block exists (a single entry edge into the loop header to\n       hold the hoisted code) -- compilers insert one if absent.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 169,
+      "heading_context": "### Other Loop Transforms",
+      "confidence": "candidate",
+      "text": "  STRENGTH REDUCTION OF INDUCTION VARIABLES\n     for i: a[i*4]   ->   p = base; for i: *p ; p += 4\n     (replace multiply-by-stride with a running add -- the classic)\n\n  LOOP UNROLLING\n     replicate the body k times -> fewer branch/counter overheads, more ILP;\n     enables vectorization. Cost: code size, i-cache pressure.\n\n  VECTORIZATION (auto-SIMD)\n     for i: c[i] = a[i] + b[i]  ->  process 4/8/16 lanes per SIMD instruction\n     needs: no loop-carried dependence, known/aligned access, trip count.\n\n  LOOP FUSION / FISSION\n     fuse: merge two loops over the same range -> better locality, fewer\n       loop overheads. fission: split a loop -> isolate vectorizable part.\n\n  LOOP-INVARIANT + UNSWITCHING\n     hoist a loop-invariant branch OUT, duplicating the loop per branch:\n       for i: if cond {A} else {B}  ->  if cond { for i:A } else { for i:B }",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 200,
+      "heading_context": "### Inlining — the enabling optimization",
+      "confidence": "candidate",
+      "text": "  Replace a call with the callee's body.\n     int sq(int x){ return x*x; }   ...   y = sq(a+1);\n     ->  t = a+1;  y = t*t;\n\n  WHY it matters: not the call-overhead saving (small) but what it ENABLES --\n     constant propagation across the boundary, CSE, DCE, devirtualization.\n     Inlining is the gateway drug of interprocedural optimization.\n\n  THE HEURISTIC (the hard part, heavily tuned):\n     inline if  estimated_speedup > code_size_cost,\n       weighing: callee size, call-site hotness, whether args are constants,\n       whether it enables further opts, recursion depth.\n     Over-inlining -> code bloat -> i-cache misses -> SLOWER. The threshold\n       is one of the most empirically tuned numbers in any compiler.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 234,
+      "heading_context": "### Whole-Program / Link-Time Optimization (LTO)",
+      "confidence": "candidate",
+      "text": "  Classic: each translation unit compiled independently -> no cross-module\n     inlining, conservative about external functions.\n  LTO: emit IR (not machine code) per unit; at link time, optimize the WHOLE\n     program together -> cross-module inlining, whole-program DCE,\n     devirtualization with a closed world.\n\n  ThinLTO: per-module summaries + parallel optimization -> nearly LTO quality\n     at near-normal build times (the practical default for large C++/Rust).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 252,
+      "heading_context": "## The Pass Pipeline — Ordering Matters",
+      "confidence": "candidate",
+      "text": "  Why order matters (phase-ordering problem):\n     INLINE first      -> exposes constants across the call -> then CONST-PROP\n     CONST-PROP first  -> simplifies the body -> better INLINE size estimate\n     -> there is no globally optimal order; compilers use a tuned schedule\n        and re-run cheap passes (instcombine, simplifycfg, DCE) between\n        expensive ones.\n\n  A representative -O2 sketch (LLVM-ish):\n     mem2reg (build SSA)\n     -> SCCP -> instcombine -> GVN -> DCE\n     -> inliner (SCC bottom-up over the call graph)\n        -> [re-run SCCP, instcombine, GVN, DCE on newly inlined code]\n     -> loop pipeline: LICM -> indvars -> unroll -> vectorize\n     -> simplifycfg -> DCE\n     -> (codegen prep, then backend)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

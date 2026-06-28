@@ -1,0 +1,142 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-graphics\\09-REAL-TIME-PIPELINES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 75,
+      "heading_context": "## Layer 1: Forward vs Deferred Shading",
+      "headers": [
+        "",
+        "Forward",
+        "Deferred"
+      ],
+      "rows": [
+        [
+          "Lighting cost",
+          "objects × lights",
+          "pixels × lights (no overdraw)"
+        ],
+        [
+          "Many lights",
+          "Expensive",
+          "Cheap (its whole point)"
+        ],
+        [
+          "Transparency",
+          "Natural",
+          "Hard (G-buffer holds one layer) → forward pass for transparents"
+        ],
+        [
+          "MSAA",
+          "Works",
+          "Awkward/costly (subsample G-buffer)"
+        ],
+        [
+          "Material variety",
+          "Easy (any shader)",
+          "Constrained (G-buffer is fixed format)"
+        ],
+        [
+          "Memory bandwidth",
+          "Low",
+          "High (fat G-buffer read/write)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 313,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "Here it is"
+      ],
+      "rows": [
+        [
+          "Decoupling concerns into stages",
+          "Deferred shading: geometry pass vs lighting pass"
+        ],
+        [
+          "A pass/pipeline DAG of dependent stages",
+          "The frame graph (passes reading/writing targets)"
+        ],
+        [
+          "CPU/GPU pipelining (producer/consumer)",
+          "Frame N+1 on CPU while GPU renders frame N"
+        ],
+        [
+          "Amdahl's law / optimize the bottleneck",
+          "Profile the frame; cut the slowest pass only"
+        ],
+        [
+          "Caching/reusing computed buffers",
+          "Screen-space effects reuse depth/normal/velocity"
+        ],
+        [
+          "Managed runtime vs manual memory",
+          "Implicit (GL/D3D11) vs explicit (Vulkan/D3D12) APIs"
+        ],
+        [
+          "Spatial culling / indexing",
+          "Tiled/clustered light culling per screen tile"
+        ],
+        [
+          "LOD/mip band-limiting to fit budget (`05`,`07`)",
+          "Cascaded shadow maps: resolution by distance"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 328,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Choice"
+      ],
+      "rows": [
+        [
+          "Many dynamic lights",
+          "Deferred or clustered/tiled forward"
+        ],
+        [
+          "Heavy transparency, varied materials, MSAA",
+          "Forward (or clustered forward / Forward+)"
+        ],
+        [
+          "Massive geometry, tiny G-buffer",
+          "Visibility buffer (Nanite-style)"
+        ],
+        [
+          "Real-time shadows",
+          "Cascaded shadow maps + PCF (or ray-traced shadows)"
+        ],
+        [
+          "Soft area-light shadows, correct",
+          "Ray-traced shadows (hybrid)"
+        ],
+        [
+          "Cheap fake reflections/AO",
+          "SSR / SSAO (accept screen-edge artifacts)"
+        ],
+        [
+          "Antialiasing in a deferred renderer",
+          "TAA (MSAA is awkward on a G-buffer)"
+        ],
+        [
+          "Hit a higher resolution/framerate",
+          "DLSS / FSR upscaling"
+        ],
+        [
+          "Low CPU overhead, multi-threaded submit",
+          "Explicit API (Vulkan / D3D12 / Metal)"
+        ],
+        [
+          "Frame over budget",
+          "Profile → cut the bottleneck pass (Amdahl)"
+        ]
+      ]
+    }
+  ]
+}

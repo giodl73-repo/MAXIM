@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "dynamical-systems\\02-STABILITY-AND-LINEARIZATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "# Stability and Linearization",
+      "confidence": "candidate",
+      "text": "                LINEARIZE -> EIGENVALUES -> STABILITY\n                =====================================\n\n   Nonlinear flow            Linearize at x*           Eigenvalues of J\n   x' = f(x)        ----->    let u = x - x*    ----->  decide stability\n                              u' ≈ J u                  via signs of Re(lambda)\n                              J = Df(x*) (Jacobian)\n\n        Im(lambda)\n            ^\n            |     UNSTABLE half-plane\n            |   (any Re(lambda) > 0  =>  unstable)\n            |\n   ---------+---------> Re(lambda)\n            |\n            |     STABLE half-plane\n            |  (ALL Re(lambda) < 0  =>  asymptotically stable)\n            |\n   The imaginary axis Re(lambda)=0 is the MARGINAL boundary:\n   linearization is INCONCLUSIVE there (centers, bifurcations -> Ch. 03).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 74,
+      "heading_context": "## The Jacobian and the Linearization Theorem",
+      "confidence": "candidate",
+      "text": "   Re(lambda) < 0  ->  that mode DECAYS    (contributes to stability)\n   Re(lambda) > 0  ->  that mode GROWS      (one is enough for instability)\n   Re(lambda) = 0  ->  that mode is MARGINAL (neither; nonlinear terms decide)\n   Im(lambda) != 0 ->  that mode ROTATES   (oscillatory approach/departure)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 101,
+      "heading_context": "### Old world → new world bridges",
+      "confidence": "candidate",
+      "text": "   FLOWS (continuous):   stable  <=>  Re(lambda) < 0      (LEFT half-plane)\n   MAPS  (discrete):     stable  <=>  |lambda|   < 1      (INSIDE unit circle)\n\n   The map of a flow's time-T sampling sends lambda -> e^{lambda T},\n   which maps the left half-plane exactly onto the unit disk. Consistent.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 115,
+      "heading_context": "## The 2D Classification: Trace–Determinant Plane",
+      "confidence": "candidate",
+      "text": "   lambda^2 - tau*lambda + Delta = 0     =>   lambda = (tau +- sqrt(tau^2 - 4*Delta)) / 2\n\n   Discriminant  D = tau^2 - 4*Delta  decides real vs complex.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 123,
+      "heading_context": "## The 2D Classification: Trace–Determinant Plane",
+      "confidence": "candidate",
+      "text": "                    THE TRACE-DETERMINANT PLANE\n                    ===========================\n\n      Delta = det J\n         ^\n         |        \\  STABLE      |  UNSTABLE  /\n         |  STABLE \\  SPIRALS    |  SPIRALS  / UNSTABLE\n         |  NODES   \\  (Re<0,    | (Re>0,   /  NODES\n         |  (lam<0   \\ Im!=0)    | Im!=0)  /  (lam>0\n         |  both)     \\          |        /   both)\n         |             \\  parabola D=0:   /        parabola\n         |              \\  tau^2=4*Delta /         tau^2 = 4*Delta\n         |   - - - - - - +CENTERS+ - - - +        (real, repeated)\n         |              /  (tau=0,        \\\n         |             /    Delta>0)       \\\n         |            /                     \\\n   ------+-----------+----------------------+--------> tau = tr J\n         |          /      SADDLE POINTS     \\\n         |         /     (Delta < 0 always)   \\\n         |        /   one lam>0, one lam<0     \\\n         |       /     -> ALWAYS UNSTABLE       \\\n\n   READING IT:\n     Delta < 0           -> SADDLE        (unstable; has stable + unstable dirs)\n     Delta > 0, tau < 0  -> STABLE   node (D>0) or spiral (D<0)\n     Delta > 0, tau > 0  -> UNSTABLE node (D>0) or spiral (D<0)\n     Delta > 0, tau = 0  -> CENTER        (marginal; Re=0; pure imaginary lambda)\n     parabola tau^2=4Delta -> degenerate / star nodes (repeated eigenvalue)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 156,
+      "heading_context": "## The 2D Classification: Trace–Determinant Plane",
+      "confidence": "candidate",
+      "text": "   STABLE NODE (lam2 < lam1 < 0)        SADDLE (lam1 < 0 < lam2)\n      \\  |  /                              \\         /\n       \\ | /                                \\   ^   /   unstable\n   ------*------  all in                  ---*-->---  manifold W^u\n       / | \\      arrows IN                /   v   \\   stable\n      /  |  \\                             /         \\  manifold W^s\n\n   STABLE SPIRAL (Re<0, Im!=0)          CENTER (Re=0, Im!=0)\n       ___                                  ___\n      /   \\  spiraling                     /   \\   closed\n     | -> -*  inward                      |     *  orbits,\n      \\___/  (decaying                     \\___/   no decay\n             oscillation)                          (marginal)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 174,
+      "heading_context": "### Worked classification",
+      "confidence": "candidate",
+      "text": "   x' = -x + y\n   y' = -y - x^3          (note: nonlinear)\n\n   Fixed point at origin (0,0). Jacobian:\n        J = [ df1/dx  df1/dy ]   [ -1    1 ]\n            [ df2/dx  df2/dy ] = [ -3x^2 -1 ]   at (0,0) -> [ -1  1; 0 -1 ]\n\n   tau = tr J = -2,   Delta = det J = (-1)(-1) - (1)(0) = 1.\n   D = tau^2 - 4*Delta = 4 - 4 = 0  -> repeated eigenvalue lambda = -1 (twice).\n   tau < 0, Delta > 0  ->  STABLE (degenerate stable node).\n\n   Hyperbolic (Re = -1 != 0) -> Hartman-Grobman applies: the nonlinear -x^3\n   term does not change the local picture. Origin is asymptotically stable.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 196,
+      "heading_context": "## Stable and Unstable Manifolds",
+      "confidence": "candidate",
+      "text": "   +-------------------------------------------------------------------+\n   |  STABLE MANIFOLD   W^s(x*): trajectories -> x* as t -> +infinity  |\n   |                    tangent to eigenvectors with Re(lambda) < 0    |\n   |                                                                   |\n   |  UNSTABLE MANIFOLD W^u(x*): trajectories -> x* as t -> -infinity  |\n   |                    tangent to eigenvectors with Re(lambda) > 0    |\n   +-------------------------------------------------------------------+\n\n         W^s (incoming)\n              \\         /  W^u (outgoing)\n               \\       /\n                \\     /\n        ---------*---------     The stable manifold is the separatrix:\n                /     \\         it divides basins of attraction. A\n               /       \\        trajectory landing exactly on W^s reaches\n              /         \\       the saddle; one epsilon off shoots away\n            W^u         W^s     along W^u.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 261,
+      "heading_context": "## Lyapunov Functions: Stability Without Eigenvalues",
+      "confidence": "candidate",
+      "text": "### LaSalle's invariance principle (when `V̇ = 0` on a whole set)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 276,
+      "heading_context": "### Worked Lyapunov example",
+      "confidence": "candidate",
+      "text": "   x' = -x + 2 y^2\n   y' = -y - x y           Fixed point: origin. Try V = x^2 + 2 y^2 (pos. def.)\n\n   V-dot = 2x x' + 4y y'\n         = 2x(-x + 2y^2) + 4y(-y - xy)\n         = -2x^2 + 4x y^2 - 4y^2 - 4x y^2\n         = -2x^2 - 4y^2  <  0   for all (x,y) != (0,0).\n\n   => origin is asymptotically stable, and since V is radially unbounded,\n      GLOBALLY asymptotically stable. (The cross terms 4x y^2 canceled exactly\n      -- that cancellation is the art of choosing V.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

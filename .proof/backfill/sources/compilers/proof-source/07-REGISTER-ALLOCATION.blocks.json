@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "compilers\\07-REGISTER-ALLOCATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 32,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------------+\n|                     REGISTER ALLOCATION                                  |\n|                                                                          |\n|   IR with unlimited virtual regs (v1, v2, v3, ...)                       |\n|        |                                                                 |\n|        |  LIVENESS analysis (guide 05) -> live ranges/intervals          |\n|        v                                                                 |\n|   +----------------------------------------------------------------+     |\n|   |  INTERFERENCE: two values interfere if their live ranges       |     |\n|   |  OVERLAP -> they cannot share a register.                      |     |\n|   +----------------------------------------------------------------+     |\n|   |    |                                                           |     |\n|        +-----------------------------+----------------------------+      |\n|        v                             v                            v      |\n|  GRAPH COLORING               LINEAR SCAN                  SSA-BASED     |\n|  (Chaitin-Briggs)            (Poletto-Sarkar)            (chordal graph) |\n|  build interference graph,    sort live intervals by      color in       |\n|  K-color it (K = #regs),     start, sweep, assign        polynomial time |\n|  spill if can't color.        reg or spill greedily.      (SSA interf.   |\n|  Quality: high. Slow.         Quality: ok. Very fast.      graphs are    |\n|  Used: gcc, LLVM -O2+.        Used: JITs, RyuJIT (LSRA).   chordal)      |\n|        |                             |                            |      |\n|        +--------------- assign physical regs & insert -------------+     |\n|        |                 SPILL loads/stores for overflow           |     |\n+--------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 71,
+      "heading_context": "## Interference and the Graph",
+      "confidence": "candidate",
+      "text": "  v1 = ...        v1 live ----+\n  v2 = ...        v2 live --+ |\n  ... = v1        v1 dies   | |          v1 and v2 overlap -> INTERFERE\n  v3 = ...        v3 live   +-|--+       v1 and v3 do NOT overlap -> may share\n  ... = v2                    + |        v2 and v3 overlap -> INTERFERE\n  ... = v3                      +\n\n  INTERFERENCE GRAPH:           Coloring with K=2 registers (R0,R1):\n     v1 --- v2                    v1 -> R0\n            |                     v2 -> R1\n            v3                    v3 -> R0   (doesn't interfere with v1)\n                                  -> 2 colors suffice. No spill.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 98,
+      "heading_context": "## Graph Coloring — Chaitin-Briggs",
+      "confidence": "candidate",
+      "text": "  THE SIMPLIFY / SELECT ALGORITHM (Kempe's heuristic):\n\n  1. BUILD     interference graph from liveness.\n  2. SIMPLIFY  repeatedly remove any node with DEGREE < K and push it on a\n               stack. (Degree<K guarantees a color will be free when we\n               put it back -- its <K neighbors can't use up all K colors.)\n  3. SPILL     if only nodes of degree >= K remain, pick one as a POTENTIAL\n               spill (lowest spill-cost / highest degree), remove it,\n               push it -- mark it \"may spill\". Continue simplifying.\n  4. SELECT    pop nodes off the stack; assign each a color not used by its\n               (already-colored) neighbors.\n               - a degree<K node ALWAYS gets a color.\n               - a potential-spill node: BRIGGS'S OPTIMISM -- maybe its\n                 neighbors didn't use all K colors after all; try to color it.\n                 If a free color exists -> no actual spill. If not -> ACTUAL\n                 SPILL: rewrite to load/store, rebuild, restart.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 127,
+      "heading_context": "### Coalescing — removing copies",
+      "confidence": "candidate",
+      "text": "  After SSA destruction (guide 04) you have many copies  v2 = v1.\n  If v1 and v2 DON'T interfere, give them the SAME register -> the copy\n  becomes  mov R0, R0  -> deleted. This is COALESCING.\n\n  Aggressive coalescing can raise degree and FORCE spills, so use a\n  conservative rule:\n     BRIGGS: coalesce only if the merged node has < K neighbors of degree >= K.\n     GEORGE: coalesce a,b if every neighbor of a already interferes with b\n             or has degree < K.\n  Both guarantee coalescing never turns a colorable graph uncolorable.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 150,
+      "heading_context": "## Spilling",
+      "confidence": "candidate",
+      "text": "  Spill v:  every DEF of v -> store v to a stack slot\n            every USE of v -> load v from the stack slot into a temp register\n\n   before spill:                after spilling v (stack slot [v]):\n     v = a + b                    t1 = a + b ; store [v], t1\n     ...                          ...\n     x = v + c                    t2 = load [v] ; x = t2 + c\n\n  The loads/stores create SHORT new live ranges (t1, t2) -> rebuild the\n  interference graph and re-run. Spilling reduces register pressure but\n  adds memory traffic.\n\n  SPILL COST heuristic -- pick the cheapest value to spill:\n     cost(v)  ~  (def_count + use_count, weighted by LOOP DEPTH) / degree\n     -> NEVER spill a value used inside a hot loop if avoidable\n        (each loop iteration pays the load/store). Spill the long-lived,\n        rarely-used value with many interferences instead.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 181,
+      "heading_context": "## Linear Scan — The JIT Allocator",
+      "confidence": "candidate",
+      "text": "  Approximate each value's live range as ONE INTERVAL [start, end] over a\n  linearized instruction numbering (lose the holes -> slight imprecision).\n\n  Sort intervals by START point. Sweep left to right, keeping an ACTIVE set\n  of intervals currently holding a register:\n\n    for each interval I in start order:\n       EXPIRE from active any interval that ended before I.start\n                 -> free its register\n       if a free register exists:  assign it to I; add I to active\n       else:  SPILL the active interval with the FARTHEST end point\n              (it ties up a register longest) -- or spill I itself if I\n              ends even later.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 197,
+      "heading_context": "## Linear Scan — The JIT Allocator",
+      "confidence": "candidate",
+      "text": "  Picture:\n    v1 [==========]\n    v2    [====]\n    v3       [==========]\n    v4              [====]\n       time -------------->\n    With 2 registers: v1->R0, v2->R1; v2 expires -> R1 free -> v3->R1;\n    v1 still live when v4 starts and both regs busy -> spill the one ending\n    latest (v3) ... greedy, O(n) after the sort.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 230,
+      "heading_context": "## SSA-Based Register Allocation",
+      "confidence": "candidate",
+      "text": "  Insight (Hack/Brisk ~2005):\n     SSA interference graphs are chordal -> optimal coloring is POLYNOMIAL.\n     The hard part moves into SSA DESTRUCTION (phi -> copies) and spilling,\n     not the coloring itself.\n\n  Pipeline:\n     spill to satisfy register pressure (MAXLIVE <= K via a tree scan)\n     -> color the chordal SSA interference graph in poly time\n     -> destruct SSA, coalescing the phi copies",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 252,
+      "heading_context": "## Calling Conventions Constrain the Allocator",
+      "confidence": "candidate",
+      "text": "  CALLER-SAVED (volatile): a call may clobber them. If a value is live\n     ACROSS a call, the allocator must either put it in a callee-saved reg\n     or spill it around the call.\n  CALLEE-SAVED (non-volatile): the callee must preserve them -> using one\n     costs a save/restore in the prologue/epilogue.\n  FIXED registers: stack pointer, frame pointer, the ABI's argument and\n     return registers (e.g. RDI/RSI.. then RAX on SysV x86-64; RCX/RDX..\n     then RAX on Windows x64) are pre-committed at call sites.\n\n  -> a value live across a call interferes with all caller-saved registers.\n     This is encoded by adding interference edges, so the graph naturally\n     pushes long-lived values into callee-saved regs or onto the stack.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computer-graphics\\07-GEOMETRY-AND-MESHES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture: How Shape Is Stored",
+      "confidence": "candidate",
+      "text": "+--------------------------------------------------------------------------------------+\n|                    THE GEOMETRY SPECTRUM (smooth <-> discrete)                       |\n|                                                                                      |\n|  PARAMETRIC          SUBDIVISION         TRIANGLE MESH        LOD / POINT            |\n|  CURVES & SURFACES   SURFACES            (the workhorse)      CLOUDS / VOXELS        |\n|                                                                                      |\n|  Bezier / B-spline   Catmull-Clark   --> vertices + faces --> simplified meshes      |\n|  NURBS               Loop                + attributes          per distance          |\n|  (exact, compact,    (smooth from a       (universal, GPU-     point clouds,         |\n|   CAD/fonts)          coarse cage)         native, flat        SDFs, voxels          |\n|                                            triangles)                                |\n|                                                                                      |\n|        <------------------ TESSELLATION converts smooth -> triangles ----------->    |\n|   [L2 curves]        [L3 subdiv]          [L1 meshes]          [L4 LOD]              |\n+--------------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 60,
+      "heading_context": "## Layer 1: The Triangle Mesh",
+      "confidence": "candidate",
+      "text": "   VERTEX BUFFER                 INDEX BUFFER\n   pos        normal  uv         triangles (indices into vertex buffer)\n   v0 (...)   (...)   (...)      (0,1,2)\n   v1 (...)   (...)   (...)      (0,2,3)\n   v2 (...)   (...)   (...)      (2,4,3)\n   v3 (...)   (...)   (...)      ...\n   v4 (...)   (...)   (...)\n\n   Why INDEXED: a shared vertex is stored ONCE, referenced many times.\n     non-indexed cube: 12 triangles x 3 = 36 vertices\n     indexed cube:     8 vertices + 36 indices -> far less data, vertex-cache reuse",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 131,
+      "heading_context": "### Bézier Curves",
+      "confidence": "candidate",
+      "text": "  Cubic Bezier: 4 control points P0..P3, parameter t in [0,1]:\n\n     B(t) = (1-t)^3 P0 + 3(1-t)^2 t P1 + 3(1-t) t^2 P2 + t^3 P3\n            \\________________ Bernstein basis polynomials ________/\n\n         P1 ____ P2          - passes through P0 and P3 (endpoints)\n         /        \\          - P1, P2 pull the curve (tangent handles)\n        /          \\         - stays inside the CONVEX HULL of the control points\n      P0            P3       - de Casteljau's algorithm: repeated lerps -> evaluate + split",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 149,
+      "heading_context": "### B-splines and NURBS",
+      "confidence": "candidate",
+      "text": "  B-SPLINE   piecewise polynomial with LOCAL control (moving one control point\n             affects only a few segments) + a KNOT VECTOR setting segment boundaries.\n\n  NURBS      Non-Uniform Rational B-Spline = B-spline with per-control-point WEIGHTS\n             and a rational (w-divided) form.\n             -> the rational part can represent CONIC SECTIONS EXACTLY:\n                a true circle/ellipse, which polynomial Beziers only approximate.\n             -> the CAD industry standard (exact engineering surfaces).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 178,
+      "heading_context": "### Continuity: C⁰, C¹, C², G¹",
+      "confidence": "candidate",
+      "text": "  C⁰  positions match           the curve is connected (but may have a corner/kink)\n  C¹  + first derivatives match tangent is continuous (no kink), AND same speed\n  C²  + second derivatives      curvature is continuous (no sudden bend) -> looks \"fair\"\n  G¹  tangents POINT the same    geometric smoothness; direction matches but speed may not\n      direction (not same mag)   (weaker than C¹; usually what the eye actually needs)\n\n      C⁰ only:  __/\\__   (corner)        C¹/G¹:  __/‾‾   (smooth tangent)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 202,
+      "heading_context": "## Layer 3: Subdivision Surfaces",
+      "confidence": "candidate",
+      "text": "  CATMULL-CLARK (quad meshes; Pixar's workhorse):\n\n    each refinement step:\n      1. FACE point   = average of the face's vertices\n      2. EDGE point   = average of edge endpoints + adjacent face points\n      3. update VERTEX = weighted blend of itself, edge midpoints, face points\n      -> connectivity refines (each quad -> 4 quads); surface approaches a limit\n\n    cage (8 verts)  ->  step 1  ->  step 2  ->  ...  ->  smooth limit surface\n      [][]               finer       finer              (a bicubic B-spline\n                                                          away from irregular verts)\n\n  LOOP subdivision: the triangle-mesh analogue (different masks; for triangle cages).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 230,
+      "heading_context": "### Other Representations: Point Clouds, SDFs, Voxels",
+      "confidence": "candidate",
+      "text": "  POINT CLOUD     unconnected 3D points (+ attributes) — the raw output of LiDAR /\n                  photogrammetry. No surface yet; rendered as splats or reconstructed\n                  into a mesh (Poisson reconstruction). Gaussian Splatting (2023) renders\n                  them directly as anisotropic blobs for photoreal novel views.\n\n  SDF (signed     a function f(x) = signed distance to the nearest surface\n  distance field) (negative inside). Rendered by SPHERE TRACING (march along a ray in\n                  steps of |f(x)| — guaranteed not to overshoot). Exact smooth surfaces,\n                  cheap CSG (min/max combine shapes), soft shadows + AO almost free.\n                  The demoscene/Shadertoy staple; also used for font/decal rendering.\n\n  VOXELS          a 3D grid of cells. Natural for volumetric data (medical CT, clouds,\n                  fluids) and easy boolean edits; costly in memory (O(n³)) -> sparse\n                  voxel octrees (SVO) compress empty space.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 259,
+      "heading_context": "## Layer 4: Level of Detail (LOD)",
+      "confidence": "candidate",
+      "text": "  DISCRETE LOD       precompute LOD0 (full), LOD1, LOD2 ... ; pick by distance.\n                     risk: visible \"popping\" when switching -> cross-fade or dither.\n\n  CONTINUOUS LOD     simplify on the fly (edge collapse) to a target triangle budget.\n\n  GEOMORPHING        smoothly interpolate vertex positions between LODs to hide popping.\n\n  NANITE-style (UE5) cluster the mesh into hierarchical \"meshlets\"; stream and pick\n                     the right cluster LOD per-region per-frame -> ~pixel-sized triangles,\n                     virtually unlimited source detail.\n\n  MESH SIMPLIFICATION (building LODs):\n     QUADRIC ERROR METRICS (Garland-Heckbert): collapse the edge whose removal\n     introduces the least geometric error, measured by a per-vertex quadric.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 276,
+      "heading_context": "## Layer 4: Level of Detail (LOD)",
+      "confidence": "candidate",
+      "text": "   distance ->   close            mid             far\n   LOD       ->  LOD0 (50k tris)  LOD1 (5k tris)  LOD2 (500 tris)\n                  /\\/\\/\\/\\          /\\/\\            /\\\n   triangles roughly match the PIXELS they cover -> no wasted detail, no aliasing.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 294,
+      "heading_context": "## Worked Example: Subdividing a Bézier (de Casteljau)",
+      "confidence": "candidate",
+      "text": "  Level 1 (midpoints of consecutive control points):\n     A = (P0+P1)/2     B = (P1+P2)/2     C = (P2+P3)/2\n  Level 2:\n     D = (A+B)/2       E = (B+C)/2\n  Level 3:\n     F = (D+E)/2     <- the point ON the curve at t=0.5\n\n  The two halves of the original curve are:\n     left  curve: P0, A, D, F\n     right curve: F, E, C, P3\n\n  -> exact subdivision via only averages: numerically stable, and the basis for\n     adaptive tessellation (keep splitting until each piece is within a flatness\n     tolerance, then emit a triangle edge).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

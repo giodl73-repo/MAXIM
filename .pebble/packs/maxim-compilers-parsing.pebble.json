@@ -1,0 +1,1749 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-compilers-parsing",
+  "source": "../../compilers",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "02-PARSING.md#000",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "# Syntax Analysis — LL vs LR, LALR, and Error Recovery"
+    },
+    {
+      "id": "02-PARSING.md#001",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "02-PARSING.md#002",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "The parser turns the token stream into a tree. You know the theory: context-free\ngrammars, pushdown automata, the Chomsky hierarchy. The engineering question is\n*which subclass of CFGs* a given parsing technique can handle, because no practical\nparser handles all of CFG efficiently. The whole field is organized around two\nstrategies — predict from the top (LL) or recognize from the bottom (LR) — and the\ngrammar classes each can and cannot accept."
+    },
+    {
+      "id": "02-PARSING.md#003",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "```\n+--------------------------------------------------------------------------+\n|                       THE PARSING LANDSCAPE                              |\n|                                                                          |\n|                     all context-free grammars                            |\n|   +------------------------------------------------------------------+   |\n|   |  ambiguous grammars (no deterministic parser)                    |   |\n|   |  +------------------------------------------------------------+  |   |\n|   |  |          unambiguous CFG                                   |  |   |\n|   |  |   +---------------------------------------------------+    |  |   |\n|   |  |   |   LR(1)   (canonical -- most powerful 1-LA det.)  |    |  |   |\n|   |  |   |  +---------------------------------------------+  |    |  |   |\n|   |  |   |  |  LALR(1) (yacc/bison -- merged LR(1) states)|  |    |  |   |\n|   |  |   |  |  +---------------------------------------+  |  |    |  |   |\n|   |  |   |  |  |  SLR(1)                              |  |  |    |  |   |\n|   |  |   |  |  |  +-------------------------------+   |  |  |    |  |   |\n|   |  |   |  |  |  |  LR(0)                        |   |  |  |    |  |   |\n|   |  |   |  |  |  +-------------------------------+   |  |  |    |  |   |\n|   |  |   |  |  +---------------------------------------+  |  |    |  |   |\n|   |  |   |  +---------------------------------------------+  |    |  |   |\n|   |  |   +---------------------------------------------------+    |  |   |\n|   |  |   |                                                   |    |  |   |\n|   |  |   +---------------------------------------------------+    |  |   |\n|   |  |   |   LL(k)   (top-down; LL(1) subset shown)          |    |  |   |\n|   |  |   |   - cannot do LEFT RECURSION                      |    |  |   |\n|   |  |   |   - LL(1) is a PROPER SUBSET of LR(1)             |    |  |   |\n|   |  |   +---------------------------------------------------+    |  |   |\n|   |  +------------------------------------------------------------+  |   |\n|   +------------------------------------------------------------------+   |"
+    },
+    {
+      "id": "02-PARSING.md#004",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "|   GLR / Earley: handle ALL CFGs (incl. ambiguous), at higher cost        |\n+--------------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "02-PARSING.md#005",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "Read the nesting: `LR(0) ⊂ SLR(1) ⊂ LALR(1) ⊂ LR(1) ⊂ unambiguous CFG`. LL and LR\nare different shapes that overlap but neither contains the other; LL(1) sits inside\nLALR(1). The practical sweet spot — and the reason yacc/bison won the 1970s–2000s —\nis **LALR(1)**: nearly the power of LR(1) at a fraction of the table size."
+    },
+    {
+      "id": "02-PARSING.md#006",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-PARSING.md#007",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "## Two Strategies: Predict (LL) vs Recognize (LR)"
+    },
+    {
+      "id": "02-PARSING.md#008",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "```\n   TOP-DOWN (LL)                          BOTTOM-UP (LR)\n   =============                          ==============\n   Start at the start symbol.             Start at the leaves (tokens).\n   At each step, look at the next         Shift tokens onto a stack; when\n   token(s) and PREDICT which             the top of the stack matches a\n   production to expand.                  rule's RHS, REDUCE it to the LHS."
+    },
+    {
+      "id": "02-PARSING.md#009",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "S                                       ... e + e\n      / \\   \"I'll expand E next\"               reduce E -> e + e\n     E   ...                                       /|\\\n    /|\\    grow the tree DOWNWARD              build the tree UPWARD\n                                              toward the start symbol"
+    },
+    {
+      "id": "02-PARSING.md#010",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "Leftmost derivation, read L-to-R.       Rightmost derivation in REVERSE.\n   LL(k): k tokens of lookahead.           LR(k): k tokens, but tracks more\n                                            left context in the stack/states.\n   Natural as recursive functions.         Natural as a table-driven automaton.\n```"
+    },
+    {
+      "id": "02-PARSING.md#011",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "The key asymmetry: an LR parser **defers its decision** until it has seen the whole\nright-hand side plus lookahead, so it can use the entire left context encoded in its\nstate. An LL parser **must decide up front** which production to take from only `k`\nlookahead tokens. That is why LR is strictly more powerful for the same `k`, and why\nLR can handle left recursion that LL cannot."
+    },
+    {
+      "id": "02-PARSING.md#012",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-PARSING.md#013",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "## Top-Down: Recursive Descent and LL(k)"
+    },
+    {
+      "id": "02-PARSING.md#014",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "Recursive descent is the most-used parsing technique in production compilers\n(clang, Roslyn, V8, rustc, tsc are all hand-written recursive descent). One function\nper nonterminal; the call stack *is* the parse stack."
+    },
+    {
+      "id": "02-PARSING.md#015",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "```\n  Grammar (LL(1)):\n    expr   -> term expr'\n    expr'  -> + term expr' | epsilon\n    term   -> factor term'\n    term'  -> * factor term' | epsilon\n    factor -> ( expr ) | NUM"
+    },
+    {
+      "id": "02-PARSING.md#016",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "Parser (sketch):\n    parse_expr():  parse_term(); parse_expr_rest()\n    parse_expr_rest():\n        if peek() == '+': eat('+'); parse_term(); parse_expr_rest()\n        else: return                         # epsilon\n```"
+    },
+    {
+      "id": "02-PARSING.md#017",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "### The two LL killers"
+    },
+    {
+      "id": "02-PARSING.md#018",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "```\n  1. LEFT RECURSION  (infinite loop in top-down):\n       expr -> expr + term      # parse_expr() calls parse_expr() forever\n     FIX: rewrite to right recursion (the expr' form above), OR use a\n          bottom-up parser (LR handles left recursion natively)."
+    },
+    {
+      "id": "02-PARSING.md#019",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "2. INSUFFICIENT LOOKAHEAD (can't predict the production):\n       stmt -> ID = expr\n       stmt -> ID ( args )      # both start with ID -- LL(1) can't choose\n     FIX: LEFT-FACTOR:\n       stmt    -> ID stmt_tail\n       stmt_tail -> = expr | ( args )\n```"
+    },
+    {
+      "id": "02-PARSING.md#020",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "LL(1) decisions are driven by **FIRST** and **FOLLOW** sets: pick the production\nwhose FIRST set contains the lookahead token (or, for an epsilon-production, whose\nFOLLOW set does). A grammar is LL(1) iff for every nonterminal the candidate\nproductions have disjoint FIRST sets (and the epsilon case does not collide with\nFOLLOW)."
+    },
+    {
+      "id": "02-PARSING.md#021",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "| Class | Lookahead | Handles left recursion? | Typical form |\n|-------|-----------|--------------------------|--------------|\n| LL(1) | 1 token | No | hand recursive descent, FIRST/FOLLOW |\n| LL(k) | k tokens | No | ANTLR3-style, larger predict tables |\n| LL(*) / ALL(*) | unbounded (adaptive) | No (still needs elimination) | ANTLR4 |\n| Pratt / precedence climbing | operator-driven | handled by precedence | expression parsing inside recursive descent |"
+    },
+    {
+      "id": "02-PARSING.md#022",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "**Pratt parsing** (precedence climbing) deserves a callout: it is how hand-written\nrecursive-descent compilers parse expressions with many precedence levels *without*\nwriting one function per level. Each operator gets a binding power; the parser loops,\nconsuming operators while their binding power exceeds the current minimum. This is in\nclang, rustc, and most serious frontends."
+    },
+    {
+      "id": "02-PARSING.md#023",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-PARSING.md#024",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "## Bottom-Up: The LR Family"
+    },
+    {
+      "id": "02-PARSING.md#025",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "LR builds a DFA over **items** (a production with a dot marking progress), and runs\nit over a stack. The four classes differ only in *how they compute the lookahead\nthat decides when to reduce*."
+    },
+    {
+      "id": "02-PARSING.md#026",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "```\n  Item: a production with a dot.   E -> E . + T   means\n        \"we've parsed E, expect to see + T next.\""
+    },
+    {
+      "id": "02-PARSING.md#027",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "The LR(0) automaton's states are sets of items (closures).\n  Parsing = shift tokens / reduce by a rule, driven by ACTION + GOTO tables."
+    },
+    {
+      "id": "02-PARSING.md#028",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "stack of states          ACTION table        GOTO table\n         +----+----+----+         (terminal x state    (nonterminal x\n         | s0 | s4 | s7 |    +     -> shift/reduce/      state -> next state)\n         +----+----+----+    |      accept/error)\n              ^ top          |\n                             +-> the parser's whole \"decision\"\n```"
+    },
+    {
+      "id": "02-PARSING.md#029",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "### What separates LR(0) / SLR / LALR(1) / LR(1)"
+    },
+    {
+      "id": "02-PARSING.md#030",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "This is the precision core of the guide."
+    },
+    {
+      "id": "02-PARSING.md#031",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "```\n  LR(0):    Reduce whenever a state contains a completed item (dot at end),\n            with NO lookahead. Conflicts the moment a state has both a\n            completed item and a shiftable item, or two completed items.\n            Almost no real grammar is LR(0)."
+    },
+    {
+      "id": "02-PARSING.md#032",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "SLR(1):   Reduce by A->w only when the next token is in FOLLOW(A).\n            Cheap lookahead (global FOLLOW set). Resolves many LR(0)\n            conflicts, but FOLLOW is too coarse -- it ignores WHICH state\n            you're in, so it still rejects grammars LALR accepts."
+    },
+    {
+      "id": "02-PARSING.md#033",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "LR(1):    Items carry an explicit lookahead token: [A -> w . , a].\n            Reduce by A->w only when the next token is exactly `a`,\n            computed per-state (context-sensitive). Most powerful 1-token\n            class. COST: huge number of states (lookahead splits states)."
+    },
+    {
+      "id": "02-PARSING.md#034",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "LALR(1):  Build the LR(1) automaton, then MERGE states that have the\n            same core (same items ignoring lookahead), unioning their\n            lookaheads. Same state count as LR(0)/SLR, almost the power of\n            LR(1). This is what yacc and bison generate.\n```"
+    },
+    {
+      "id": "02-PARSING.md#035",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "```\n   Power (1 token):   LR(0)  <  SLR(1)  <  LALR(1)  <  LR(1)\n   State count:       small      small     small       LARGE\n                                            ^^^^^\n                               the sweet spot: LR(1) power-ish,\n                               LR(0) size\n```"
+    },
+    {
+      "id": "02-PARSING.md#036",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "### The LALR conflict — what merging costs you"
+    },
+    {
+      "id": "02-PARSING.md#037",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "Merging LR(1) states can create a conflict that neither the LR(1) automaton nor\neither pre-merge state had. This is the *only* power LALR loses versus LR(1), and it\nis a **reduce-reduce** conflict."
+    },
+    {
+      "id": "02-PARSING.md#038",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "```\n  Two LR(1) states with the same CORE but different lookaheads:"
+    },
+    {
+      "id": "02-PARSING.md#039",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "State P:  [A -> w . , {a}]      [B -> w . , {b}]    (no conflict: a != b)\n    State Q:  [A -> w . , {b}]      [B -> w . , {a}]    (no conflict: b != a)"
+    },
+    {
+      "id": "02-PARSING.md#040",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "LALR merges P and Q (same core), UNIONING lookaheads:"
+    },
+    {
+      "id": "02-PARSING.md#041",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "Merged:   [A -> w . , {a,b}]    [B -> w . , {a,b}]\n                                    ^^^^^^^^^^^^^^^^^^^\n              On `a`: reduce by A? or by B?  REDUCE-REDUCE CONFLICT.\n              Neither original state was ambiguous; the merge created it.\n```"
+    },
+    {
+      "id": "02-PARSING.md#042",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "Practical consequence: bison's infamous \"reduce/reduce conflict\" on grammars that\nare technically LR(1) but not LALR(1). The fix is to refactor the grammar to give the\ntwo rules distinguishable contexts, or to use an LR(1) generator (like `lalr1` vs\n`lr.type=canonical`, or menhir)."
+    },
+    {
+      "id": "02-PARSING.md#043",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "| Conflict | LR(0) | SLR | LALR | LR(1) | Caused by |\n|----------|-------|-----|------|-------|-----------|\n| shift/reduce | common | reduced | reduced | reduced | completed item + shiftable item in one state (e.g. dangling else) |\n| reduce/reduce | possible | possible | possible (from merge) | rarest | two completed items reducible on the same lookahead |"
+    },
+    {
+      "id": "02-PARSING.md#044",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "The classic **shift/reduce** example is the *dangling else*: `if E then if E then S\nelse S` — does `else` bind to the inner or outer `if`? yacc/bison default to\n**shift** (bind to nearest `if`), which happens to be the language-correct choice,\nand emit a warning."
+    },
+    {
+      "id": "02-PARSING.md#045",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-PARSING.md#046",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "## Parser Generators"
+    },
+    {
+      "id": "02-PARSING.md#047",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "```\n   LALR(1) generators                  LL / PEG / GLR generators\n   ==================                  =========================\n   +--------+  +--------+              +--------+  +-----------+\n   | yacc   |  | bison  |              | ANTLR  |  | tree-     |\n   | (1975) |  | (GNU)  |              | (LL*)  |  | sitter    |\n   +--------+  +--------+              +--------+  | (GLR-ish, |\n   +--------+                          +--------+  |  incrmntl)|\n   | menhir |  (LR(1)/LALR, OCaml)     | PEG.js |  +-----------+\n   +--------+                          | / pest |  +-----------+\n   Used by: GCC (historically),        | (PEG)  |  | Earley    |\n   many C compilers, SQL parsers.      +--------+  | (any CFG) |\n                                                   +-----------+\n```"
+    },
+    {
+      "id": "02-PARSING.md#048",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "| Generator | Class | Notes |\n|-----------|-------|-------|\n| yacc / bison | LALR(1) (bison adds GLR) | the workhorses; emit ACTION/GOTO tables |\n| menhir | LR(1)/LALR(1) | OCaml; better conflict explanations |\n| ANTLR4 | ALL(*) (adaptive LL) | hand-grammar-friendly, good error messages |\n| tree-sitter | GLR, incremental, error-tolerant | editors/IDEs — reparses on keystroke |\n| PEG (pest, PEG.js) | parsing expression grammars | ordered choice, no ambiguity, but `*` is greedy/committed |\n| Earley | all CFGs incl. ambiguous | O(n³) worst, O(n²) unambiguous, O(n) deterministic; NLP, research |"
+    },
+    {
+      "id": "02-PARSING.md#049",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "**The industry reality**: despite generators, most *production language* compilers\nhand-write a recursive-descent parser. Generated parsers dominate for SQL, config\nlanguages, protocol grammars, and one-off DSLs where the grammar is stable and error\nmessages matter less."
+    },
+    {
+      "id": "02-PARSING.md#050",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-PARSING.md#051",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "## Error Recovery — The Hard Part of Real Parsers"
+    },
+    {
+      "id": "02-PARSING.md#052",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "A theory parser stops at the first error. A real parser must recover and keep going\nso it can report *many* errors and feed an IDE a partial tree."
+    },
+    {
+      "id": "02-PARSING.md#053",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "```\n  PANIC-MODE recovery (most common):\n    On error, SKIP tokens until you hit a \"synchronizing\" token\n    (`;`, `}`, `end`), then resume. Crude but robust."
+    },
+    {
+      "id": "02-PARSING.md#054",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "int x = = 5 ;  void f() ...\n              ^ error here; skip to `;`, resume at `void`."
+    },
+    {
+      "id": "02-PARSING.md#055",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "PHRASE-LEVEL: insert/delete/replace a single token to repair locally\n    (\"inserted missing ';'\"). Good messages, can cascade if wrong."
+    },
+    {
+      "id": "02-PARSING.md#056",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "ERROR PRODUCTIONS: add grammar rules for COMMON mistakes\n    stmt -> error ;          # bison's `error` token\n    Lets the grammar \"expect\" malformed input and recover gracefully."
+    },
+    {
+      "id": "02-PARSING.md#057",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "GLR / tree-sitter: keep MULTIPLE parse possibilities alive; on error,\n    the surviving parse is often the intended one. This is why IDEs use\n    tree-sitter -- a single typo doesn't blank the whole syntax tree.\n```"
+    },
+    {
+      "id": "02-PARSING.md#058",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "The modern IDE bar is **error-tolerant, incremental** parsing: tree-sitter and the\nRoslyn parser both produce a *complete* tree even for broken code, with error nodes\nin place, and reparse only the edited region. Roslyn's parser inserts \"missing\"\ntokens (zero-width synthetic nodes) so the tree shape is always valid for downstream\ntooling."
+    },
+    {
+      "id": "02-PARSING.md#059",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-PARSING.md#060",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "## Old World → New World Bridges"
+    },
+    {
+      "id": "02-PARSING.md#061",
+      "path": [
+        "02-PARSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:compilers:02-parsing, git-history:compilers:02-parsing]",
+        "canonical_path": "compilers/02-PARSING.md",
+        "concepts": "[parsing, recursive descent, LL, LR, SLR, LALR, parser generators, error recovery]",
+        "current_path": "compilers/02-PARSING.md",
+        "id": "maxim:compilers:parsing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[syntax analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Syntax Analysis - LL vs LR, LALR, Parser Generators, Error Recovery",
+        "updated": "null"
+      },
+      "text": "| You know | Maps to |\n|----------|---------|\n| Hand-written recursive descent (you've read C compiler source) | Still the dominant production technique — clang/Roslyn/rustc/V8/tsc all do it |\n| yacc/bison `.y` grammar files | LALR(1) generators — the ACTION/GOTO tables are the LR automaton compiled to data |\n| `System.Linq.Expressions` / expression trees | A parsed AST is the same idea: a tree you walk; the parser is what builds it |\n| Roslyn `SyntaxTree`, red-green nodes | The output of an error-tolerant, incremental recursive-descent parser |\n| Operator precedence in a calculator | Pratt parsing / precedence climbing — binding powers replace one-function-per-level |\n| Regex (regular) vs grammar (context-free) | Lexer = regular = no nesting; parser = context-free = matched brackets, recursion |"
+    }
+  ],
+  "refs": [
+    "02-PARSING.md"
+  ]
+}
