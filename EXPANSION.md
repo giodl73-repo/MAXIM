@@ -195,6 +195,7 @@ Commit message format: `Add Batch {N}: {X} new reference directories, {Y} files`
 | 11 | 11A–11D | mathematicians-logicians, physicists-astronomers, chemists-naturalists, engineers-inventors, computing-pioneers, explorers, philosophers-thinkers, artists-architects, writers-poets, political-reformers, social-reformers, visionaries | ~132 | 2026-02 |
 | 12 | 12A–12F | dendrology, freshwater-biology, soil-science, coral-reefs, woodworking, leatherworking, masonry, rope-cordage, journalism, oral-tradition, epigraphy, digital-media, distributed-systems, security-engineering, cloud-architecture, nanotechnology, energy-storage, infrastructure-systems | ~198 | 2026-02 |
 | 13 | 13A–13C | remote-sensing, dyeing-fiber, historiography, philosophy-of-science, geotechnical-engineering, development-studies, programming-language-theory | ~77 | 2026-02 |
+| 14 | 14A–14E | networking, database-systems, graph-algorithms, operations-research, accounting | ~50 | 2026-06 |
 
 ---
 
