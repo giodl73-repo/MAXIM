@@ -69,9 +69,9 @@ COMBINATORIAL SCALING — WHY FLUCTUATIONS VANISH:
             = N × H_binary(m)    (binary entropy per particle)
 
   Entropy peaks at m = 0: S_max = Nk_B ln 2 (all microstates accessible).
-  Near the peak:  S(m) ≈ S_max − Nm²/4  (Gaussian in m).
+  Near the peak:  S(m) ≈ S_max − Nm²/2  (Gaussian in m).
 
-  So P(m) ∝ e^{S(m)/k_B} ∝ e^{-Nm²/4}:  Gaussian of width σ_m = √(2/N).
+  So P(m) ∝ e^{S(m)/k_B} ∝ e^{-Nm²/2}:  Gaussian of width σ_m = 1/√N.
 
   For N = 10²³:  σ_m ~ 10⁻¹¹·⁵.
   The macrostate with maximum Ω dominates so completely that fluctuations

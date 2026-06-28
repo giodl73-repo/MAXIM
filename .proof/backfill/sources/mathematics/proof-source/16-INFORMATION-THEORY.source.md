@@ -494,7 +494,7 @@ Y = X + Z,   Z ~ N(0, N₀/2),   E[X²] ≤ P
 C = ½ log₂(1 + P/(N₀/2))   (Shannon-Hartley theorem, bits per channel use)
 ```
 
-In bandwidth W Hz: C = W log₂(1 + SNR) bits per second. Every 3 dB increase in
+In bandwidth W Hz: C = W log₂(1 + SNR) bits per second. Every 6 dB increase in
 SNR adds one bit per symbol. The fundamental limit for any modulation scheme.
 
 ### Converse: Why Can't We Exceed Capacity?
@@ -829,9 +829,9 @@ Don't plug p = 0 into −log p = ∞.
 decomposition is I(X;Y,Z) = I(X;Y) + I(X;Z|Y) (chain rule for MI).
 
 **Forward vs. reverse KL in practice**:
-- D(P_data||Q_model): zero-forcing — model must not assign zero to anything P_data
+- D(P_data||Q_model): zero-avoiding — model must not assign zero to anything P_data
   assigns positive mass. Favors overdispersed Q. MLE = this direction.
-- D(Q_model||P_data): zero-avoiding — model avoids regions P_data avoids.
+- D(Q_model||P_data): zero-forcing — model avoids regions P_data avoids.
   Favors concentrated Q on one mode. VI = this direction, hence posterior collapse.
 
 **Shannon capacity is per channel use, not per second**: C bits/use × W uses/second

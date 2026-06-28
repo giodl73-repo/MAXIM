@@ -155,7 +155,7 @@ This is the **Sommerfeld expansion**. Applying to the total energy U of a Fermi 
 
 ```
 SOMMERFELD RESULT: C_V = γ T    (electronic heat capacity)
-  γ = π² N k_B² / (2 E_F)  = π² k_B²/(2) × g(E_F) × V
+  γ = π² N k_B² / (2 E_F)  = (π²/3) k_B² g(E_F)
 
   This LINEAR-IN-T heat capacity is the fingerprint of a Fermi gas.
   At very low T, it dominates over the Debye phonon contribution (T³).

@@ -269,7 +269,8 @@ A **symmetric space** is a Riemannian manifold M where every point p has a geode
 | SL(2,R) | 3 | Area-preserving | Hyperbolic geometry |
 | SU(3) | 8 | Unitary, det=1 | Strong force (QCD) |
 | O(n), SO(n) | n(n-1)/2 | n-D rotations | Grassmannians, fiber bundles |
-| U(n), SU(n) | n^2 | Unitary | Gauge theories |
+| U(n) | n^2 | Unitary | Gauge theories |
+| SU(n) | n^2-1 | Special unitary | Gauge theories |
 | Sym+(n) | n(n+1)/2 | Positive definite matrices | Covariance geometry |
 
 ---

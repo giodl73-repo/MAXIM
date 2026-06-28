@@ -560,7 +560,7 @@ These appear as building blocks across physics:
   lim(x→0) sin(x)/x = 1        (from sin x ≈ x)
   lim(x→0) (eˣ−1)/x = 1       (from eˣ ≈ 1+x)
   lim(x→0) ln(1+x)/x = 1      (from ln(1+x) ≈ x)
-  lim(x→∞) (1+x/n)ⁿ = eˣ      (definition of e as a limit)
+  lim(n→∞) (1+x/n)ⁿ = eˣ      (definition of e as a limit)
   lim(n→∞) (1+1/n)ⁿ = e        (classic e definition)
   lim(x→0) (1−cos x)/x² = 1/2  (from cos x ≈ 1 − x²/2)
 

@@ -436,7 +436,7 @@ The complete solution engine for linear PDEs:
   ┌────────────────────────────────────────────────────────────────────┐
   │  Operator L        │  Green's function G(r, r')                    │
   ├────────────────────────────────────────────────────────────────────┤
-  │  -d²/dx² on ℝ     │  |x-x'|/2                                   │
+  │  -d²/dx² on ℝ     │  -|x-x'|/2                                  │
   │  -∇² on ℝ³        │  1/(4π|r-r'|)  ← Coulomb's law potential!  │
   │  -∇² on ℝ²        │  -(1/2π)ln|r-r'|                            │
   │  ∂/∂t - α∂²/∂x²  │  (1/√(4παt))e^(-(x-x')²/4αt) ← Gaussian!  │
@@ -700,7 +700,7 @@ Every major equation from your physics modules decoded:
 
   r < 1:     xₙ → 0   (extinction)
   1 < r < 3: xₙ → fixed point x* = 1 - 1/r
-  r ≈ 3.45:  period-2 orbit (FIRST BIFURCATION)
+  r = 3:     period-2 orbit (FIRST BIFURCATION)
   r ≈ 3.54:  period-4 orbit
   r ≈ 3.56:  period-8 ...
   r ≈ 3.57:  chaos onset (Feigenbaum point)

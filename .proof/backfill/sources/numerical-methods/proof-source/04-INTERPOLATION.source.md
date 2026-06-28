@@ -133,7 +133,7 @@ A critical warning: high-degree polynomial interpolation on equally-spaced nodes
   Chebyshev nodes on [-1, 1]:
   x_k = cos((2k+1)pi / (2(n+1)))   for k = 0, 1, ..., n
 
-  These are the extrema of the Chebyshev polynomial T_{n+1}(x).
+  These are the roots (zeros) of the Chebyshev polynomial T_{n+1}(x).
   They cluster near +/-1 (denser sampling near endpoints where polynomials oscillate).
 
   Chebyshev error bound:

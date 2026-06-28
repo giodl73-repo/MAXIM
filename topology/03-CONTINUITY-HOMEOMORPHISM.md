@@ -211,13 +211,13 @@ DEFORMATION RETRACT: r: X → A ⊆ X with r|_A = id_A and r ≃ id_X.
 | Interval I   | 0       | Z  | 0       | 0   | 1  | Yes       Yes  |
 | Circle S¹    | Z       | Z  | Z       | 0   | 0  | Yes       Yes  |
 | Sphere S²    | 0       | Z  | 0       | Z   | 2  | Yes       Yes  |
-| Sphere S³    | 0       | Z  | 0       | 0   | 2  | Yes       Yes  |
+| Sphere S³    | 0       | Z  | 0       | 0   | 0  | Yes       Yes  |
 | Disk D²      | 0       | Z  | 0       | 0   | 1  | Yes       Yes  |
 | Torus T²     | Z×Z     | Z  | Z²      | Z   | 0  | Yes       Yes  |
 | Klein Bottle | <...>   | Z  | Z⊕Z/2   | 0   | 0  | Yes       No   |
 | RP²          | Z/2     | Z  | Z/2     | 0   | 1  | Yes       No   |
 | Rⁿ           | 0       | Z  | 0       | 0   | 1  | No        Yes  |
-| R\{0}        | Z       | Z  | Z       | 0   | 0  | No        Yes  |
+| R\{0}        | 0       | Z² | 0       | 0   | 2  | No        Yes  |
 | R²\{0}       | Z       | Z  | Z       | 0   | 0  | No        Yes  |
 | Figure 8     | F₂(free)| Z  | Z²      | 0   |−1  | No        N/A  |
 +--------------------------------------------------------------------+

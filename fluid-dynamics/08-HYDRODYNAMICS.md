@@ -177,7 +177,7 @@ At the interface between two fluids moving at different speeds, or two layers of
 
 **Kelvin-Helmholtz instability**: Derived by standard linear stability analysis — assume perturbations of the form e^{sigma*t + ikx} (normal modes), substitute into the linearized equations, and solve the resulting eigenvalue problem for sigma(k). Instability occurs when Re(sigma) > 0. Small perturbations grow when:
 
-    (ρ₁ + ρ₂)(U₁ − U₂)² > 4gk(ρ₁ − ρ₂) × tanh(kh₁) × tanh(kh₂)
+    (ρ₁ + ρ₂)(U₁ − U₂)² > 4(g/k)(ρ₁ − ρ₂) × tanh(kh₁) × tanh(kh₂)
 
 For equal-density fluids (ρ₁ = ρ₂): always unstable for any velocity difference.
 For stratified: gravity stabilizes short waves; instability at intermediate k.

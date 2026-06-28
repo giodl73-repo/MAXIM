@@ -79,7 +79,7 @@ IEEE 754 (1985, revised 2008) defines floating-point arithmetic for all modern h
 
 ```
   eps_mach = 2^{-p+1}  where p = bits in significand
-  = smallest eps such that fl(1 + eps) > 1
+  = unit roundoff u = eps_mach/2, the smallest eps with fl(1 + eps) > 1 under round-to-nearest
 
   Interpretation: fl(x) = x(1 + delta)  where |delta| <= eps_mach/2
   Every representable number has relative error at most eps_mach/2.

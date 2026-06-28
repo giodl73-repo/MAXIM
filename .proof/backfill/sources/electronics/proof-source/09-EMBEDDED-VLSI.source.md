@@ -285,8 +285,8 @@ overflows are silent corruption bugs in bare-metal contexts.
 
   Energy calculation: E = ∫ P(t) dt
   Typical IoT duty cycle:  sleep 9.9s at 2µA + wake 100ms at 20mA
-  Average I = (2µA × 9.9 + 20mA × 0.1) / 10 = 1.99µA + 200µA/10 = 21.99µA
-  At 3V with 1000mAh battery: ~3V × 1Ah = 3 Wh / (3V × 21.99µA) ≈ 4.5 years
+  Average I = (2µA × 9.9 + 20mA × 0.1) / 10 = 1.98µA + 200µA = 201.98µA ≈ 202µA
+  At 3V with 1000mAh battery: ~3V × 1Ah = 3 Wh / (3V × 202µA) ≈ 0.57 years
 ```
 
 ---

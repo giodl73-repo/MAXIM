@@ -100,7 +100,7 @@ Solving Ax = b is the most common operation in scientific computing. Every PDE s
   Solve Ax = b: Ly = Pb, then Ux = y.
 
   STABILITY: Backward stable with partial pivoting (Wilkinson's theorem).
-  Grows: |U_{ij}| <= 2^{n-1} |A_{ij}| in worst case (practically never an issue).
+  Growth factor bounded: max_{i,j}|U_{ij}| <= 2^{n-1} max_{i,j}|A_{ij}| in worst case (practically never an issue).
 
   COMPLETE PIVOTING: also permute columns. More expensive, rarely needed.
 ```

@@ -295,7 +295,7 @@ WHERE MANIFOLDS APPEAR IN ML / ENGINEERING:
 
   PARAMETER SPACES:
     Neural network weights with orthogonality constraint → Stiefel manifold St(k,n)
-    Rotation matrices → SO(3)   (6D → 3D manifold, smooth, compact)
+    Rotation matrices → SO(3)   (3D manifold inside R^9, smooth, compact)
     Positive definite matrices → SPD(n) = Sym+(n)   (open cone, non-compact)
     Probability simplices → open simplex Δⁿ  (or with Fisher metric: stat. manifold)
 

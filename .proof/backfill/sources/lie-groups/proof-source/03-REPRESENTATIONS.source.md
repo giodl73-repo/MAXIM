@@ -242,7 +242,7 @@ the highest weight and applying F repeatedly generates the entire irrep.
 - E, F are raising/lowering operators J_+, J_-
 - The (2j+1)-dimensional representation corresponds to spin-j particle
 - Electrons: j=1/2 (2 states: spin up, spin down)
-- Photons: j=1 (3 polarization states)
+- Photons: j=1 rep is 3-dim, but massless photons have only 2 physical polarizations
 - Gravitons: j=2 (5 states)
 - Scalar Higgs: j=0 (1 state)
 

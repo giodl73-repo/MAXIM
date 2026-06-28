@@ -107,7 +107,7 @@ This corresponds to steepest descent in the Riemannian manifold of distributions
 
     dθ/dt = −G(θ)⁻¹ ∇_θ L
 
-is a gradient flow in the Wasserstein metric on the space of distributions — connecting to optimal transport.
+is a gradient flow in the Fisher–Rao metric on the space of distributions — the information-geometry counterpart to optimal transport's Wasserstein geometry.
 
 ---
 
@@ -245,7 +245,7 @@ ELBO AS VARIATIONAL FREE ENERGY:
 
 ## Lagrangian Neural Networks
 
-**Greydanus et al. (2019)**: A neural network that learns the Lagrangian L(q, q̇) directly from trajectory data, then derives the equations of motion via Euler-Lagrange.
+**Cranmer et al. (2020)**: A neural network that learns the Lagrangian L(q, q̇) directly from trajectory data, then derives the equations of motion via Euler-Lagrange.
 
 **Structure**:
 1. Neural network L_θ(q, q̇) (unconstrained)

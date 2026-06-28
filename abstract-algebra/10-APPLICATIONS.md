@@ -87,7 +87,7 @@ MINIMUM DISTANCE of linear code = minimum Hamming weight of nonzero codeword.
 
 IMPORTANT LINEAR CODES:
   Hamming codes: [n, n-r, 3] for n=2^r-1. Perfect 1-error-correcting.
-  Reed-Muller codes: [2^m, C(m,r), 2^{m-r}]. Used in early space probes.
+  Reed-Muller codes: [2^m, Σ_{i=0}^{r} C(m,i), 2^{m-r}]. Used in early space probes.
   Golay codes: [23,12,7] and [24,12,8]. Perfect 3-error-correcting.
     Used in Voyager 1/2 deep space communication.
   BCH codes: cyclic codes with designed minimum distance. Used in flash storage.

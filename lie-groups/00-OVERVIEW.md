@@ -193,7 +193,7 @@ WHAT YOU NEED TO KNOW FIRST:
 | 1880s | Wilhelm Killing | Classification of complex simple Lie algebras |
 | 1894 | Élie Cartan | Corrected Killing's work, completed classification |
 | 1900s | Cartan | Exterior calculus, symmetric spaces |
-| 1913 | Weyl | Character formula for compact groups |
+| 1925 | Weyl | Character formula for compact groups |
 | 1920s | Weyl | Quantum mechanics + representation theory |
 | 1954 | Yang–Mills | Non-Abelian gauge theory: SU(2) in physics |
 | 1973 | Standard Model | SU(3)×SU(2)×U(1) established |

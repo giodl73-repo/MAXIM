@@ -298,7 +298,7 @@ but perceives it as a **thermal bath of photons** at temperature:
   T_U = ──────
          2πck_B
 
-  At a = 10²⁰ m/s²:  T_U ≈ 4 K  (microwave background temperature)
+  At a = 10²¹ m/s²:  T_U ≈ 4 K  (microwave background temperature)
   At a = g (Earth):  T_U ≈ 4 × 10⁻²⁰ K  (unmeasurable)
 ```
 

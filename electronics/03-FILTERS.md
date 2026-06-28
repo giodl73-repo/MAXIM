@@ -252,7 +252,7 @@ FILTER LANDSCAPE
     ω₀ = 1/√(R₁R₂C₁C₂)
     Q = √(R₁R₂C₁C₂) / (R₁C₁ + R₂C₁)
 
-  Butterworth: choose R₁=R₂=R, C₁=C, C₂=C/2 → Q=1/√2
+  Butterworth: choose R₁=R₂=R, C₁=C, C₂=2C → Q=1/√2
 
   Advantages: low component count, good sensitivity for moderate Q.
   Limitation: Q limited to ~10 (high Q requires tight component matching).

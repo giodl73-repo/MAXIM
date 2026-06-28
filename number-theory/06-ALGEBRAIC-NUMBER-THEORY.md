@@ -227,7 +227,7 @@ CLASS NUMBERS (imaginary quadratic Q(√-d)):
 The nine imaginary quadratic fields Q(√-d) with h=1 (Stark-Heegner theorem):
   d = 1, 2, 3, 7, 11, 19, 43, 67, 163
 
-GAUSS'S CONJECTURE (proved 1966-1967 by Baker and Stark):
+GAUSS'S CONJECTURE (general finiteness proved by Heilbronn 1934; class-number-one settled by Heegner/Baker/Stark 1966-1967):
   Only finitely many imaginary quadratic fields with any given class number.
   Explicitly determined for h=1,2,3,...
 ```

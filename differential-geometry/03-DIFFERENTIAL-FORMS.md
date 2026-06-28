@@ -124,7 +124,7 @@ The **exterior derivative** d: Lambda^k(M) -> Lambda^{k+1}(M) is the unique line
                    = gradient (as a 1-form)
 
   F = P dx + Q dy + R dz in Lambda^1:
-  dF = (partial_y P - partial_x Q) dx wedge dy + (...)   cyclically
+  dF = (partial_x Q - partial_y P) dx wedge dy + (...)   cyclically
      = curl of the vector field (P,Q,R)  (as a 2-form)
 
   G = P dy wedge dz + Q dz wedge dx + R dx wedge dy in Lambda^2:
@@ -244,7 +244,7 @@ Every exact form is closed (d^2 = 0 implies d(d eta) = 0). The converse is Poinc
   Every closed k-form on U is exact.
 
   GLOBAL OBSTRUCTION: A closed form may not be exact if M has topological holes.
-  Classic example: 1/r^2 force in R^2 - {0}:
+  Classic example: the angle form (1/r magnitude) on R^2 - {0}:
   omega = (-y dx + x dy) / (x^2 + y^2)  is closed but NOT exact.
   Integral around the origin = 2 pi  (non-zero integral -> not exact).
 ```

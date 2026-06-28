@@ -159,7 +159,7 @@ KEY METRICS (Quantinuum H2, 2024):
   Qubits: 56
   T₂: >10 s (spin echo)
   2Q gate fidelity: 99.9%
-  JAQCD score: best in industry
+  Quantum volume: record-setting (best in industry)
   Circuit depth: can run much deeper than SC
 ```
 
@@ -438,8 +438,8 @@ hard to simulate classically but useless for computation.
 
 **"Microsoft's topological qubits exist"** — as of 2025, no operational
 topological qubit has been demonstrated. The 2023 paper showed evidence
-of Majorana-like signatures, not operational qubits. The 2022 paper
-was retracted.
+of Majorana-like signatures, not operational qubits. The 2018 paper
+was retracted (in 2021).
 
 **"BQP ⊃ NP would solve P vs NP"** — would imply NP ⊆ BQP ⊆ PP and
 the polynomial hierarchy would collapse, but wouldn't directly resolve P vs NP.

@@ -505,7 +505,7 @@ THE LANDSCAPE
   (Introduced in 09-MANIFOLDS.md §10; connection to curvature here)
 
   Why curvature matters for optimization:
-  ├── Sectional curvature κ of Stiefel St(n,k): bounded, κ ∈ [-1, ¼]
+  ├── Sectional curvature κ of Stiefel St(n,k): bounded, κ ∈ [0, 5/4]
   ├── SPD manifold Sym⁺(n): non-positive sectional curvature (Hadamard space)
   │   → unique geodesics, convex optimization has unique global minimum
   └── Grassmannian Gr(n,k): positive curvature → geodesics can converge

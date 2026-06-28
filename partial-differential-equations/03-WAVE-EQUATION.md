@@ -34,7 +34,7 @@ field theories. Understanding it deeply gives you the template for all hyperboli
 |  3D: u_tt = c²∇²u = c²(u_xx+u_yy+u_zz)(sound, light in vacuum)        |
 |                                                                       |
 |  SCALAR → SYSTEMS                                                     |
-|  Maxwell (EM):   ε₀E_tt = c²∇×(∇×E)   6-component hyperbolic system   |
+|  Maxwell (EM): E_tt = −c²∇×(∇×E) = c²∇²E 6-component hyperbolic system |
 |  Elasticity:     ρu_tt = ∇·σ(u)        vector wave, two speeds        |
 |  MHD:            coupled magneto-hydro   more complex hyperbolic sys. |
 |                                                                       |
@@ -339,7 +339,7 @@ RELATIVISTIC WAVE EQUATIONS
 KLEIN-GORDON EQUATION (spin-0, massive relativistic particles):
   ∂²φ/∂t² − c²∇²φ + (mc²/ℏ)² φ = 0
 
-  Covariant form: (□ + m²c²/ℏ²) φ = 0   where □ = ∂²/∂t² − c²∇²
+  Covariant form: (□ + m²c⁴/ℏ²) φ = 0   where □ = ∂²/∂t² − c²∇²
 
   Dispersion: ω² = c²k² + (mc²/ℏ)²   ← massive → dispersive
   Massless limit (m=0): reduces to standard wave equation ω = c|k|

@@ -286,7 +286,7 @@ A map F: (M,g) -> (N,h) is an **isometry** if F*h = g (pullback of metric = metr
   For H^n hyperbolic:        Isom = O(n,1)  (Lorentz group!)
 ```
 
-**Homogeneous spaces**: M is homogeneous if Isom(M) acts transitively — you can move any point to any other point by an isometry. Homogeneous spaces have constant sectional curvature. They are of the form G/H where G is a Lie group and H is a closed subgroup.
+**Homogeneous spaces**: M is homogeneous if Isom(M) acts transitively — you can move any point to any other point by an isometry. Homogeneous spaces look geometrically identical at every point, but need not have constant sectional curvature (only the space forms Rⁿ, Sⁿ, Hⁿ do). They are of the form G/H where G is a Lie group and H is a closed subgroup.
 
 ## Information Geometry — Fisher Metric as Riemannian Geometry
 

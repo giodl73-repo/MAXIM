@@ -244,7 +244,7 @@ BURNSIDE'S LEMMA (Counting orbits):
 
   Application: Count necklaces with 4 beads, 2 colors (red/blue).
     G = Z/4Z acting by rotation; X = {R,B}^4.
-    Fix(r⁰) = 16 (all), Fix(r¹) = 2 (RRRR,BBBB), Fix(r²) = 4 (RRRR,BBRR,RBB,BBBB),
+    Fix(r⁰) = 16 (all), Fix(r¹) = 2 (RRRR,BBBB), Fix(r²) = 4 (RRRR,BBBB,RBRB,BRBR),
     Fix(r³) = 2.
     # orbits = (16+2+4+2)/4 = 6.
     The 6 necklaces: RRRR, RRRB, RRBB, RBRB, RBBB, BBBB. ✓
@@ -300,7 +300,7 @@ SUBGROUP LATTICE OF S_4:
   Order 8: D_4 (Sylow 2-subgroups, conjugate)
   Order 6: S_3 (Sylow 2 complement, not normal)
   Order 4: V_4 = {e,(12)(34),(13)(24),(14)(23)} (normal in both A_4 and S_4)
-           Z/4 (four 4-cyclic subgroups)
+           Z/4 (three cyclic subgroups of order 4)
   Order 3: A_3 ≅ Z/3 (Sylow 3-subgroups)
   Order 2: many transposition and double-transposition groups
   Order 1: {e}

@@ -49,7 +49,7 @@ the field, the field drives the fluid. They are inseparable.
 |                                                                        |
 |   KEY DIMENSIONLESS NUMBERS:                                           |
 |   Rm = μ₀σvL   (magnetic Reynolds — advection vs diffusion of B)       |
-|   Ha = BL√(σ/ν) (Hartmann — magnetic braking vs viscosity)             |
+|   Ha = BL√(σ/η) (Hartmann — magnetic braking vs viscosity)             |
 |   β  = 2μ₀p/B²  (plasma beta — thermal vs magnetic pressure)           |
 +------------------------------------------------------------------------+
 ```

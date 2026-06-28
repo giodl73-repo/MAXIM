@@ -106,10 +106,10 @@ Interpretation: H(X) = average number of bits needed to represent one sample fro
 | 1948 | Shannon | "A Mathematical Theory of Communication" — the paper |
 | 1949 | Shannon | "Communication Theory of Secrecy Systems" — crypto IT |
 | 1951 | Shannon | "Prediction and Entropy of Printed English" — 1 bit/letter |
-| 1954 | McMillan | Proof of Kraft inequality uniqueness |
-| 1957 | Huffman | Optimal prefix-free code construction algorithm |
+| 1956 | McMillan | Kraft inequality extended to uniquely-decodable codes |
+| 1952 | Huffman | Optimal prefix-free code construction algorithm |
 | 1977 | Ziv, Lempel | LZ77 (universal compression without knowing source) |
-| 1978 | Pinsker | D_KL lower bound on total variation distance |
+| 1960 | Pinsker | KL upper-bounds (squared) total variation distance |
 | 1990s | Gallager + others | LDPC codes rediscovered, turbo codes |
 | 2009 | Arıkan | Polar codes — first provably capacity-achieving with explicit construction |
 

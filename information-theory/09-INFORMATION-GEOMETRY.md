@@ -134,7 +134,7 @@ D_α(P‖Q) = (4/(1-α²)) [1 - ∫ p^{(1+α)/2} q^{(1-α)/2} dμ]    for α ≠
 Special cases:
   α = +1:   D₁(P‖Q)  = KL(P‖Q)            (e-connection / forward KL)
   α = −1:   D₋₁(P‖Q) = KL(Q‖P)            (m-connection / reverse KL)
-  α = 0:    D₀(P‖Q)  = 4/3 · Hellinger²   (Hellinger distance, squared × constant)
+  α = 0:    D₀(P‖Q)  = 4 · Hellinger²      (Hellinger distance, squared × constant)
 
   Hellinger²: H²(P,Q) = ½ ∫ (√p - √q)² dμ
               = 1 - ∫ √(pq) dμ    [Bhattacharyya coefficient subtracted from 1]
@@ -158,7 +158,7 @@ Special cases:
 
 ```
 Let M be an e-flat submanifold (closed under exponential mixture).
-Let q* = argmin_{q ∈ M} KL(p‖q)  [e-projection of p onto M]
+Let q* = argmin_{q ∈ M} KL(p‖q)  [m-projection of p onto M]
 
 Pythagorean theorem:
   KL(p‖r) = KL(p‖q*) + KL(q*‖r)    ∀r ∈ M

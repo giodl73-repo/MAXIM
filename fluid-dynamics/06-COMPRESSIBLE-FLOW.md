@@ -158,7 +158,7 @@ NORMAL SHOCK PROPERTIES:
 
 **Second law**: Normal shocks are irreversible. Total pressure always decreases (p₀₂ < p₀₁). The entropy jump is:
 
-    Δs = c_v ln(p₁/p₂ · (ρ₂/ρ₁)^γ) > 0    (2nd law satisfied)
+    Δs = c_v ln(p₂/p₁ · (ρ₁/ρ₂)^γ) > 0    (2nd law satisfied)
 
 The shock exists because supersonic flow cannot adjust smoothly to a boundary — the compression must occur as a discontinuity.
 

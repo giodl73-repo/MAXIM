@@ -41,7 +41,7 @@
       "line": 169,
       "heading_context": "### Data Processing Inequality",
       "confidence": "candidate",
-      "text": "    Applications:\n    1. Sufficient statistics: T(X) is sufficient for X iff I(θ;T(X)) = I(θ;X)\n       (no loss of information about parameter θ from compressing to T(X))\n    2. Bottleneck principle: any lossy representation T must satisfy I(T;Y) ≤ I(X;Y)\n       Can't recover lost information about Y from intermediate representation\n    3. Feature extraction: features F = f(X) must satisfy I(F;Y) ≤ I(X;Y)\n       → Upper bounds the achievable accuracy of any classifier using features F\n    4. Encryption: cipher C = enc(M,K) must satisfy I(C;M) ≥ I(M;M) = H(M)\n       if C is to allow recovery of M (by data processing on C→M)\n       Perfect secrecy: I(C;M) = 0 → OTP (key masks all information)",
+      "text": "    Applications:\n    1. Sufficient statistics: T(X) is sufficient for X iff I(θ;T(X)) = I(θ;X)\n       (no loss of information about parameter θ from compressing to T(X))\n    2. Bottleneck principle: any lossy representation T must satisfy I(T;Y) ≤ I(X;Y)\n       Can't recover lost information about Y from intermediate representation\n    3. Feature extraction: features F = f(X) must satisfy I(F;Y) ≤ I(X;Y)\n       → Upper bounds the achievable accuracy of any classifier using features F\n    4. Encryption: cipher C = enc(M,K) must satisfy I(C,K;M) ≥ I(M;M) = H(M)\n       if C is to allow recovery of M (by data processing on C→M)\n       Perfect secrecy: I(C;M) = 0 → OTP (key masks all information)",
       "notes": [
         "fenced visual/source block"
       ]
@@ -63,7 +63,7 @@
       "line": 222,
       "heading_context": "### Pinsker's Inequality",
       "confidence": "candidate",
-      "text": "    → If KL is small, distributions are close in TV distance\n    → TV controls probability of any event: |P(A) - Q(A)| ≤ ||P-Q||_TV\n    → Pinsker: small KL → can't distinguish P from Q by any statistical test\n    Constant 1/2 is tight; better constants: Bretagnole-Huber (1978): tighter for small KL",
+      "text": "    → If KL is small, distributions are close in TV distance\n    → TV controls probability of any event: |P(A) - Q(A)| ≤ ||P-Q||_TV\n    → Pinsker: small KL → can't distinguish P from Q by any statistical test\n    Constant 1/2 is tight; better constants: Bretagnolle-Huber (1978): tighter for large KL (where Pinsker is vacuous)",
       "notes": [
         "fenced visual/source block"
       ]

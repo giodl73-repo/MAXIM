@@ -97,7 +97,7 @@ Modern mathematics rests on the Zermelo-Fraenkel axioms with the Axiom of Choice
   → Every set has a total order under which every non-empty subset has a minimum.
 
   TYCHONOFF'S THEOREM: Arbitrary products of compact spaces are compact.
-  → The defining theorem of algebraic topology, equivalent to AC.
+  → A central theorem of general (point-set) topology, equivalent to AC.
 ```
 
 **Independence of AC from ZF**: Gödel (1938) showed that if ZF is consistent,
@@ -634,7 +634,7 @@ The algebraic structures in this file are the mathematical foundations of modern
 The deepest connection between symmetry and physics:
 
 ```
-  NOETHER'S THEOREM (1915):
+  NOETHER'S THEOREM (1918):
   Every continuous symmetry of the action ↔ a conserved quantity
 
   ┌────────────────────────────────────────────────────────────────────┐

@@ -244,7 +244,7 @@ SO(3) REPRESENTATIONS:
   This is why spin-1/2 requires a full 720° rotation to return to original state.
 
 CLEBSCH-GORDAN DECOMPOSITION:
-  V_m ⊗ V_n ≅ ⊕_{k=|m-n|/2}^{(m+n)/2} V_{2k+1}
+  V_m ⊗ V_n ≅ V_{m+n-1} ⊕ V_{m+n-3} ⊕ ... ⊕ V_{|m-n|+1}
   (using half-integer j notation: V^{j₁} ⊗ V^{j₂} ≅ ⊕_{j=|j₁-j₂|}^{j₁+j₂} V^j)
 
   Example: spin-1/2 ⊗ spin-1/2 = spin-0 ⊕ spin-1 (singlet + triplet).

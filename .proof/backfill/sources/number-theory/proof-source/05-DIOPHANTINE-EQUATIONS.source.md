@@ -281,7 +281,7 @@ DEFINITION: An elliptic curve over Q is
   E: y² = x³ + ax + b  (Weierstrass form)
   with discriminant Δ = -16(4a³+27b²) ≠ 0 (no repeated roots).
 
-MORDELL-WEIL THEOREM (1922):
+MORDELL-WEIL THEOREM (Mordell 1922; Weil 1928):
   The set of rational points E(Q) is a finitely generated abelian group:
   E(Q) ≅ Z^r ⊕ E_tors(Q)
   r = rank (can be any non-negative integer, possibly 0)

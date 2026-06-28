@@ -123,7 +123,7 @@ Problem: f: {0,1}^n → {0,1}^n, promised ∃ nonzero s such that
   f(x) = f(y) iff y = x or y = x ⊕ s
   (f is 2-to-1 with period s under XOR)
 
-Classical: O(2^n/2) queries (birthday paradox)
+Classical: Ω(2^(n/2)) queries (birthday paradox)
 Quantum:   O(n) queries
 
 Key step: QFT over ℤ₂ⁿ gives uniform superposition over {y : y·s = 0 mod 2}
@@ -189,7 +189,7 @@ Precision: t bits, probability > 1 - ε with t = n + ⌈log(2 + 1/2ε)⌉ qubits
 Gate count: O(t²) + cost of implementing controlled-U^(2^j)
 
 Used in:
-  Shor: φ is r/N (period/modulus) — extract r
+  Shor: φ ≈ s/r (a multiple of 1/period) — extract r via continued fractions
   HHL: φ encodes eigenvalue of matrix A
   Quantum chemistry: φ encodes molecular ground state energy
 ```

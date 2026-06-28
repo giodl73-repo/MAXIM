@@ -197,7 +197,7 @@ RS(n,k) over GF(q):   q = prime power (usually q = 2^8 for bytes)
 CORRECTION: Can correct up to t = (n-k)/2 symbol errors  (Berlekamp-Massey decoder)
 
 APPLICATIONS:
-  CD-ROM: RS(255,251) → corrects 2 symbol errors; with interleaving: corrects burst errors
+  CD-ROM: CD (CIRC): cross-interleaved RS(32,28) and RS(28,24) over GF(256); corrects burst errors
   DVD: RS + convolutional interleaving
   QR codes: RS over GF(256) with variable redundancy
   RAID 6: RS(n,n-2) over GF(2^8) → tolerates any 2 disk failures

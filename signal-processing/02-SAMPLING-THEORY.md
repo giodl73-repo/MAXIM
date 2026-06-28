@@ -162,7 +162,7 @@ After digital lowpass filter keeping [0, fs/2]:
 
 Noise in band = σ²_q / M
 
-SNR improvement = 10·log₁₀(M) dB ≈ 0.5 dB per doubling of sample rate
+SNR improvement = 10·log₁₀(M) dB ≈ 3 dB per doubling of sample rate
 (adding 1 effective bit requires 4× oversampling)
 ```
 

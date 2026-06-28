@@ -93,7 +93,7 @@ ORDER TOPOLOGY on a total order:
 
 PRODUCT TOPOLOGY on ∏_{α∈A} Xα:
   Base = {∏Uα : Uα open in Xα, Uα = Xα for all but finitely many α}.
-  (NOT: all products of open sets — that's the BOX topology, which is coarser.)
+  (NOT: all products of open sets — that's the BOX topology, which is finer.)
   Product topology is the "right" one for Tychonoff's theorem.
   Box topology: {(x₁,x₂,...) : xₙ ∈ Uₙ for all n}. Finer than product.
 ```

@@ -124,7 +124,7 @@ Preserves identity:    H_n(id_X) = id_{H_n(X)}.
 Why this is powerful:
   "Is there a continuous map f: Sⁿ → Sⁿ with no fixed point?"
   Answer: f gives H_n(f): ℤ → ℤ, which must be multiplication by deg(f).
-  Brouwer fixed-point theorem: deg(f) ≠ -1 → must have fixed point.
+  Brouwer fixed-point theorem: deg(f) ≠ (-1)^{n+1} → must have fixed point.
   Hard topology question → easy linear algebra.
 ```
 

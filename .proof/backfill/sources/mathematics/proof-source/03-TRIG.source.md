@@ -709,7 +709,7 @@ is the prototype for spectral theory of self-adjoint operators on Hilbert spaces
 Always use radians in calculus and physics. The derivative d/dx sin(x) = cos(x) is only true in radians. In degrees: d/dx sin(x°) = (π/180) cos(x°). The Taylor series and Euler's formula require radians.
 
 **"Why does cos differentiate to −sin but sin differentiates to +cos?"**
-Think geometrically. At θ=0, sin is at its minimum slope: cos(0) = 1 (rising). At θ=π/2, sin is at its peak — zero slope: cos(π/2) = 0. Cos at θ=0 is at its peak — zero slope: -sin(0) = 0. Cos starts decreasing: -sin(π/6) = -1/2 (negative, consistent with cos decreasing).
+Think geometrically. At θ=0, sin is at its maximum slope: cos(0) = 1 (rising). At θ=π/2, sin is at its peak — zero slope: cos(π/2) = 0. Cos at θ=0 is at its peak — zero slope: -sin(0) = 0. Cos starts decreasing: -sin(π/6) = -1/2 (negative, consistent with cos decreasing).
 
 **"Is arctan(y/x) the same as atan2(y, x)?"**
 No. arctan(y/x) loses quadrant information — it only returns (-π/2, π/2). atan2(y, x) returns the full (-π, π] range. In code: always use atan2. In physics: be careful about which quadrant your angle lives in.

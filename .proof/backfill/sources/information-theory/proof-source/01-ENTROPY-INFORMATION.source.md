@@ -180,7 +180,7 @@ Since X→Y→Z, X ⊥ Z | Y → I(X;Z|Y) = 0. Since I(X;Y|Z) ≥ 0, I(X;Z) ≤ 
        Can't recover lost information about Y from intermediate representation
     3. Feature extraction: features F = f(X) must satisfy I(F;Y) ≤ I(X;Y)
        → Upper bounds the achievable accuracy of any classifier using features F
-    4. Encryption: cipher C = enc(M,K) must satisfy I(C;M) ≥ I(M;M) = H(M)
+    4. Encryption: cipher C = enc(M,K) must satisfy I(C,K;M) ≥ I(M;M) = H(M)
        if C is to allow recovery of M (by data processing on C→M)
        Perfect secrecy: I(C;M) = 0 → OTP (key masks all information)
 ```
@@ -229,7 +229,7 @@ Total variation distance: $\|P-Q\|_{TV} = \frac{1}{2}\sum_x |p(x) - q(x)|$.
     → If KL is small, distributions are close in TV distance
     → TV controls probability of any event: |P(A) - Q(A)| ≤ ||P-Q||_TV
     → Pinsker: small KL → can't distinguish P from Q by any statistical test
-    Constant 1/2 is tight; better constants: Bretagnole-Huber (1978): tighter for small KL
+    Constant 1/2 is tight; better constants: Bretagnolle-Huber (1978): tighter for large KL (where Pinsker is vacuous)
 ```
 
 ---

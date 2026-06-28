@@ -199,7 +199,7 @@ DEGREE 3: x³ + px + q = 0 (depressed cubic via substitution x = t - b/3).
   Galois group ⊆ S₃ (order 6, solvable — derived series: S₃' = A₃ ≅ Z/3, then {e}).
   Cardano's formula (1545):
     Let D = -(4p³+27q²) (discriminant).
-    u = ∛(-q/2 + √(D/108)), v = ∛(-q/2 - √(D/108)) with uv = -p/3.
+    u = ∛(-q/2 + √(q²/4 + p³/27)), v = ∛(-q/2 - √(q²/4 + p³/27)) with uv = -p/3.
     Three roots: u+v, ωu+ω²v, ω²u+ωv  where ω = e^{2πi/3}.
   Requires: square root + two cube roots.
 
@@ -332,7 +332,7 @@ CLASSICAL IMPOSSIBILITIES (proved using Galois theory):
   Squaring the circle: π is transcendental (Lindemann 1882) → not constructible.
   Duplicating the cube: need ∛2, [Q(∛2):Q]=3, not a power of 2 → not constructible.
   Trisecting arbitrary angle: 60° angle requires constructing cos(20°).
-    Minimal poly of 2cos(20°) = 8x³-6x-1, irreducible of degree 3 over Q. → impossible.
+    Minimal poly of 2cos(20°) = x³-3x-1, irreducible of degree 3 over Q. → impossible.
 
 CONSTRUCTIBLE REGULAR POLYGONS (Gauss-Wantzel):
   n-gon is constructible iff φ(n) is a power of 2.

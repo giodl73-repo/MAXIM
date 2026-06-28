@@ -30,7 +30,7 @@
       "line": 177,
       "heading_context": "## Phase Estimation (QPE)",
       "confidence": "candidate",
-      "text": "Given: Unitary U and eigenstate |u⟩ with U|u⟩ = e^(2πiφ)|u⟩\nFind: φ ∈ [0,1) to t bits of precision\n\nCircuit:\n  |0⟩^⊗t   H^⊗t                        QFT†   M\n                     controlled-U^j\n  |u⟩                                   (eigenstate unchanged)\n\nAfter QFT†: |φ̃⟩ ≈ |⌊2^t φ⌉⟩   (closest t-bit approximation to φ)\n\nPrecision: t bits, probability > 1 - ε with t = n + ⌈log(2 + 1/2ε)⌉ qubits\nGate count: O(t²) + cost of implementing controlled-U^(2^j)\n\nUsed in:\n  Shor: φ is r/N (period/modulus) — extract r\n  HHL: φ encodes eigenvalue of matrix A\n  Quantum chemistry: φ encodes molecular ground state energy",
+      "text": "Given: Unitary U and eigenstate |u⟩ with U|u⟩ = e^(2πiφ)|u⟩\nFind: φ ∈ [0,1) to t bits of precision\n\nCircuit:\n  |0⟩^⊗t   H^⊗t                        QFT†   M\n                     controlled-U^j\n  |u⟩                                   (eigenstate unchanged)\n\nAfter QFT†: |φ̃⟩ ≈ |⌊2^t φ⌉⟩   (closest t-bit approximation to φ)\n\nPrecision: t bits, probability > 1 - ε with t = n + ⌈log(2 + 1/2ε)⌉ qubits\nGate count: O(t²) + cost of implementing controlled-U^(2^j)\n\nUsed in:\n  Shor: φ ≈ s/r (a multiple of 1/period) — extract r via continued fractions\n  HHL: φ encodes eigenvalue of matrix A\n  Quantum chemistry: φ encodes molecular ground state energy",
       "notes": [
         "fenced visual/source block"
       ]

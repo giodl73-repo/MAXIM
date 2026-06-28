@@ -137,7 +137,7 @@ GENERALIZED: m objects → n boxes ⟹ some box has ≥ ⌈m/n⌉ objects.
 
 NON-OBVIOUS APPLICATIONS:
   • Among any 5 points in a unit square, two are within √2/2 distance
-  • In any sequence of mn+1 reals, there's a monotone subsequence of length n+1
+  • In any sequence of mn+1 reals, there's an increasing subsequence of length m+1 or a decreasing subsequence of length n+1
     (Erdős-Szekeres theorem — uses pigeonhole on (LIS length, LDS length) pairs)
   • Among n+1 integers from {1,...,2n}, some divides another
   • Every sequence of n² + 1 distinct reals has monotone subsequence of length n+1
@@ -344,7 +344,7 @@ LAPLACIAN L = D − A:  D = degree diagonal matrix
 | Cₙ | Cycle | 2-regular, n edges |
 | Pₙ | Path | n-1 edges |
 | Qₙ | n-cube | 2ⁿ vertices, n-regular, bipartite |
-| Wₙ | Wheel | Cₙ + hub, planar if n ≤ 4 |
+| Wₙ | Wheel | Cₙ + hub, always planar, self-dual |
 | Petersen | Famous 3-regular | Non-Hamiltonian, non-planar, 10 vertices |
 
 ### 3.3 Connectivity

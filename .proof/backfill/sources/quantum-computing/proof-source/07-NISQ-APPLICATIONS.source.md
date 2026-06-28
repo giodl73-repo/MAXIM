@@ -355,7 +355,7 @@ CURRENT NISQ DEVICES: 50 – 1,127 noisy physical qubits
 ```
 2019: Google Sycamore "quantum supremacy" (sampling benchmark)
 2021: IBM Eagle (127 qubits), error mitigation papers proliferate
-2022: IBM Osprey (433 q), Quantinuum H2 (32 ion-trap qubits, 99.9% 2-qubit fidelity)
+2022: IBM Osprey (433 q), Quantinuum H1 (20 ion-trap qubits, 99.9% 2-qubit fidelity)
 2023: IBM Condor (1127 q), Heron (133 q, improved fidelity), error-corrected ops demos
 2024: IBM roadmap targets 100k+ qubit systems; Google Willow (105 q, below threshold demo)
 2025: Early fault-tolerant experiments — logical qubit demos, not yet useful computation

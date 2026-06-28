@@ -638,7 +638,7 @@ Before TDA, the algebraic machinery needs to be in place.
 
   TC(ℝⁿ) = 1  (trivial: go in a straight line — one global planner)
   TC(S¹) = 2   (circle: need two planners — the "antipodal" case requires separate handling)
-  TC(Sⁿ) = 2 for n odd, 1 for n even (connected to vector field problems)
+  TC(Sⁿ) = 2 for n odd, 3 for n even (connected to vector field problems)
   TC(T²) = 3  (torus — reflects non-commutativity of path composition)
 
   Related to Schwarz genus (sectional category) of the fibration:

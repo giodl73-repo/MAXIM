@@ -671,11 +671,11 @@ An FCC copper sample has σ_y = 200 MPa. G(Cu) = 48 GPa, b = 2.56 Å, α = 0.5.
     Assume σ_0 = 10 MPa (friction stress of annealed Cu)
     200 - 10 = 0.5 × 48×10⁹ × 2.56×10⁻¹⁰ × √ρ
     190 = 6.144 √ρ
-    √ρ = 30.9 m⁻¹
-    ρ = 955 m⁻² × 10² ≈ 9.6×10¹³ m⁻²
+    √ρ = 3.09×10⁷ m⁻¹
+    ρ ≈ 9.6×10¹⁴ m⁻²
 
     Compare annealed Cu: ρ ~ 10¹⁰ m⁻²
-    → Heavily cold worked (10,000× increase in dislocation density)
+    → Heavily cold worked (~100,000× increase in dislocation density)
 ```
 
 ---

@@ -123,7 +123,7 @@ RIEMANN SURFACE FOR √z (two sheets):
 
 ### General Algebraic Functions: w² = P(z)
 
-For w² = (z−a₁)(z−a₂)···(z−a_{2n}): a two-sheeted surface with branch points at a₁,...,a_{2n} and ∞ (if 2n is odd, ∞ is also a branch point). Topological genus = n−1.
+For w² = (z−a₁)(z−a₂)···(z−a_{2n}): a two-sheeted surface with branch points at a₁,...,a_{2n} (∞ is not a branch point since the degree 2n is even). Topological genus = n−1. (For an odd-degree polynomial, ∞ is also a branch point.)
 
 For the elliptic curve w² = (z−a₁)(z−a₂)(z−a₃)(z−a₄): genus 1 (a torus).
 

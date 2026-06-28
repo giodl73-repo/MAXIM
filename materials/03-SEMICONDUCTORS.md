@@ -302,8 +302,8 @@ $$\phi_F = \frac{kT}{q}\ln\frac{N_A}{n_i}, \quad C_{ox} = \frac{\varepsilon_{ox}
     For p-Si, N_A = 10¹⁷ cm⁻³, t_ox = 3 nm (SiO₂, ε_ox = 3.9ε₀):
     φ_F = 0.026 ln(10¹⁷/1.5×10¹⁰) = 0.42 V
     C_ox = 3.9×8.85×10⁻¹²/(3×10⁻⁹) = 11.5 mF/m² = 11.5 fF/μm²
-    Q_dep,max = √(2×11.7×8.85e-12×1.6e-19×10²³×0.84) = 1.65×10⁻² C/m²
-    V_T = V_FB + 0.84 + 1.65e-2/11.5e-3 = V_FB + 0.84 + 1.43 V
+    Q_dep,max = √(2×11.7×8.85e-12×1.6e-19×10²³×0.84) = 1.67×10⁻³ C/m²
+    V_T = V_FB + 0.84 + 1.67e-3/11.5e-3 = V_FB + 0.84 + 0.145 V
 
     Body effect: increasing V_SB (reverse body-source bias) increases V_T
     ΔV_T = -(γ/2φ_F)(√(2φ_F + V_SB) - √(2φ_F))

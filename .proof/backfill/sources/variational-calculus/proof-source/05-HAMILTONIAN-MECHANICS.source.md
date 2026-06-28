@@ -144,7 +144,7 @@ The equations of motion in phase space:
 
   LIOUVILLE'S EQUATION:
   ∂ρ/∂t + Σᵢ (∂ρ/∂qᵢ q̇ᵢ + ∂ρ/∂pᵢ ṗᵢ) = 0
-  ∂ρ/∂t + {H, ρ} = 0   (where {·,·} = Poisson bracket)
+  ∂ρ/∂t + {ρ, H} = 0   (where {·,·} = Poisson bracket)
 
   Or: dρ/dt = 0 (density constant along trajectories).
 

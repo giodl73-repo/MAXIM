@@ -307,7 +307,7 @@ This means the probability flux is zero for every pair — time-reversal symmetr
 
     J_{nm} = W_{nm} P_m − W_{mn} P_n ≠ 0
 
-Entropy is produced at rate dS/dt = (k_B/2) Σ_{mn} J_{nm} ln(J_{nm}/J_{mn}) ≥ 0.
+Entropy is produced at rate dS/dt = (k_B/2) Σ_{mn} (W_{nm}P_m − W_{mn}P_n) ln(W_{nm}P_m / W_{mn}P_n) ≥ 0.
 
 ---
 

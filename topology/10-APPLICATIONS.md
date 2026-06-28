@@ -402,7 +402,7 @@ EXAMPLES:
   TC(S¹) = 1: two rules (one can't plan without a decision point).
   TC(T²) = 2: three rules.
   TC(Sⁿ) = 1 for n odd; TC(Sⁿ) ≤ 2 for n even; TC(S²) = 2.
-  TC(RP^n) = n (proven using cohomology of RP^n).
+  TC(RP^n) equals the immersion dimension of RP^n (for n ≠ 1,3,7; Farber–Tabachnikov–Yuzvinsky), generally not n.
 
 BOUNDS ON TC:
   cat(X) - 1 ≤ TC(X) ≤ 2 cat(X) - 1

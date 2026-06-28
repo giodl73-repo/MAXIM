@@ -309,7 +309,7 @@ Fubini (integrable functions):
   Same iterated integral formula holds.
 
 Warning: Without integrability or non-negativity, iterated integrals may disagree.
-Example: f(x,y) = (x²-y²)/(x²+y²)². ∫₀¹∫₀¹f dx dy = 1, ∫₀¹∫₀¹f dy dx = -1.
+Example: f(x,y) = (x²-y²)/(x²+y²)². ∫₀¹∫₀¹f dx dy = π/4, ∫₀¹∫₀¹f dy dx = -π/4.
 Always check Tonelli/Fubini conditions before swapping integrals.
 ```
 

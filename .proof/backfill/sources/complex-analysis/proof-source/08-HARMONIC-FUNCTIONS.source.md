@@ -178,7 +178,7 @@ Green's function exists for any regular domain and provides the kernel for solvi
 
 where ∂/∂n is the outward normal derivative on ∂Ω.
 
-**Green's function for the disk**: G(z, z₀) = log|z − z₀| − log|1 − z̄₀ z| + log|z₀|
+**Green's function for the disk**: G(z, z₀) = log|z − z₀| − log|1 − z̄₀ z|
 
 (The second term uses the "Schwarz reflection" of z₀ through the unit circle.)
 

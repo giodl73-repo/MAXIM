@@ -1488,7 +1488,7 @@
         "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
         "updated": "null"
       },
-      "text": "Example: G(s) = 1/(s(s+2))  (DC motor-like plant)\n  Open-loop poles at 0 and -2; no zeros\n  Root locus: starts at 0 and -2, asymptotes at ±90°, centroid at -1\n  Breakaway point: at s = -1 (between poles)\n  As K increases: poles move toward jω axis, cross at s = ±j√2 when K=4\n  K > 4: closed-loop goes unstable\n```"
+      "text": "Example: G(s) = 1/(s(s+2))  (DC motor-like plant)\n  Open-loop poles at 0 and -2; no zeros\n  Root locus: starts at 0 and -2, asymptotes at ±90°, centroid at -1\n  Breakaway point: at s = -1 (between poles)\n  As K increases: the poles meet at the breakaway point s=-1 and move along the line Re(s)=-1; they never cross the jω axis\n  The closed loop remains stable for all K>0 (no finite gain-margin limit for this plant)\n```"
     },
     {
       "id": "01-PID-CLASSICAL.md#053",
@@ -1908,7 +1908,7 @@
         "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
         "updated": "null"
       },
-      "text": "EXAMPLE:\n  G(s) = 10/(s(s+1)(s+5))\n  ω_pc: solve ∠G(jω) = -180° → ω_pc ≈ 2.24 rad/s\n  |G(j·2.24)| ≈ 0.5 → GM = 1/0.5 = 2 = 6 dB  ← barely adequate\n  ω_gc: |G(jω)| = 1 → ω_gc ≈ 0.74 rad/s\n  ∠G(j·0.74) ≈ -132° → PM = 180-132 = 48°  ← acceptable\n```"
+      "text": "EXAMPLE:\n  G(s) = 10/(s(s+1)(s+5))\n  ω_pc: solve ∠G(jω) = -180° → ω_pc ≈ 2.24 rad/s\n  |G(j·2.24)| ≈ 0.33 → GM = 1/0.33 = 3 ≈ 9.5 dB\n  ω_gc: |G(jω)| = 1 → ω_gc ≈ 1.23 rad/s\n  ∠G(j·1.23) ≈ -155° → PM = 180-155 = 25°  ← marginal\n```"
     },
     {
       "id": "01-PID-CLASSICAL.md#068",
@@ -2300,7 +2300,7 @@
         "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
         "updated": "null"
       },
-      "text": "```\nLEAD COMPENSATOR: C(s) = Kc(s+z)/(s+p), where p > z (zero left of pole)\n  ─ Adds positive phase near ωgc → increases phase margin\n  ─ Increases bandwidth (faster response)\n  ─ Use when: PM too low, response too slow"
+      "text": "```\nLEAD COMPENSATOR: C(s) = Kc(s+z)/(s+p), where p > z (zero right of pole, closer to origin)\n  ─ Adds positive phase near ωgc → increases phase margin\n  ─ Increases bandwidth (faster response)\n  ─ Use when: PM too low, response too slow"
     },
     {
       "id": "01-PID-CLASSICAL.md#082",
@@ -2356,7 +2356,7 @@
         "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
         "updated": "null"
       },
-      "text": "LAG COMPENSATOR: C(s) = Kc(s+z)/(s+p), where z > p (zero right of pole)\n  ─ Reduces gain at high frequencies → shifts crossover to lower ω\n  ─ Increases steady-state accuracy (zero ≈ at origin)\n  ─ Use when: steady-state error too large, bandwidth high enough"
+      "text": "LAG COMPENSATOR: C(s) = Kc(s+z)/(s+p), where z > p (zero left of pole, farther from origin)\n  ─ Reduces gain at high frequencies → shifts crossover to lower ω\n  ─ Increases steady-state accuracy (zero ≈ at origin)\n  ─ Use when: steady-state error too large, bandwidth high enough"
     },
     {
       "id": "01-PID-CLASSICAL.md#084",

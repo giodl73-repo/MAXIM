@@ -206,7 +206,7 @@ A one-parameter family generalizing KL divergence:
   alpha = 3:  Chi-squared divergence (between p and q)
 
   The Fisher metric is recovered from all alpha-divergences:
-  D_alpha(p(theta) || p(theta + dtheta)) = (1/2)(1-alpha^2)/4 * dtheta^T I dtheta + O(||dtheta||^3)
+  D_alpha(p(theta) || p(theta + dtheta)) = (1/2) * dtheta^T I dtheta + O(||dtheta||^3)
 
   All alpha-divergences have the same second-order term!
   The Fisher metric is the universal local geometry.

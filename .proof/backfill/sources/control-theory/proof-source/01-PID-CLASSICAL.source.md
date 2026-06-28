@@ -248,8 +248,8 @@ Example: G(s) = 1/(s(s+2))  (DC motor-like plant)
   Open-loop poles at 0 and -2; no zeros
   Root locus: starts at 0 and -2, asymptotes at ±90°, centroid at -1
   Breakaway point: at s = -1 (between poles)
-  As K increases: poles move toward jω axis, cross at s = ±j√2 when K=4
-  K > 4: closed-loop goes unstable
+  As K increases: the poles meet at the breakaway point s=-1 and move along the line Re(s)=-1; they never cross the jω axis
+  The closed loop remains stable for all K>0 (no finite gain-margin limit for this plant)
 ```
 
 **Root locus tells you:** how to place closed-loop poles by selecting K. Adding lead/lag
@@ -313,9 +313,9 @@ BODE STABILITY CRITERION (minimum phase systems only):
 EXAMPLE:
   G(s) = 10/(s(s+1)(s+5))
   ω_pc: solve ∠G(jω) = -180° → ω_pc ≈ 2.24 rad/s
-  |G(j·2.24)| ≈ 0.5 → GM = 1/0.5 = 2 = 6 dB  ← barely adequate
-  ω_gc: |G(jω)| = 1 → ω_gc ≈ 0.74 rad/s
-  ∠G(j·0.74) ≈ -132° → PM = 180-132 = 48°  ← acceptable
+  |G(j·2.24)| ≈ 0.33 → GM = 1/0.33 = 3 ≈ 9.5 dB
+  ω_gc: |G(jω)| = 1 → ω_gc ≈ 1.23 rad/s
+  ∠G(j·1.23) ≈ -155° → PM = 180-155 = 25°  ← marginal
 ```
 
 ---
@@ -357,7 +357,7 @@ ADVANTAGE OVER BODE:
 When simple gain tuning is insufficient, add a dynamic compensator:
 
 ```
-LEAD COMPENSATOR: C(s) = Kc(s+z)/(s+p), where p > z (zero left of pole)
+LEAD COMPENSATOR: C(s) = Kc(s+z)/(s+p), where p > z (zero right of pole, closer to origin)
   ─ Adds positive phase near ωgc → increases phase margin
   ─ Increases bandwidth (faster response)
   ─ Use when: PM too low, response too slow
@@ -369,7 +369,7 @@ LEAD DESIGN PROCEDURE:
   4. Set ω_max = ω_gc_new (desired crossover)
   5. z = ω_max·√α, p = ω_max/√α
 
-LAG COMPENSATOR: C(s) = Kc(s+z)/(s+p), where z > p (zero right of pole)
+LAG COMPENSATOR: C(s) = Kc(s+z)/(s+p), where z > p (zero left of pole, farther from origin)
   ─ Reduces gain at high frequencies → shifts crossover to lower ω
   ─ Increases steady-state accuracy (zero ≈ at origin)
   ─ Use when: steady-state error too large, bandwidth high enough

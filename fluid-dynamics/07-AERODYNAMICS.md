@@ -232,7 +232,7 @@ where C_D0 = zero-lift drag (skin friction + pressure), e = Oswald efficiency (�
 
 **Maximum L/D** (best glide ratio):
 
-    (L/D)_max = 1/(2√(C_D0 πeAR))    at C_L = √(πeAR C_D0)
+    (L/D)_max = (1/2)√(πeAR/C_D0)    at C_L = √(πeAR C_D0)
 
 For a commercial airliner: L/D_max ≈ 18–20, meaning the aircraft glides ~18 km horizontally per km of altitude in engine-off flight.
 
@@ -283,7 +283,7 @@ As M increases above ~0.8, local flow over the upper wing surface becomes supers
 | Compute lift | L = ½ρV²SC_L = ρV∞Γ (per span) |
 | Compute induced drag | C_Di = C_L²/(πeAR) |
 | Minimize induced drag | Maximize AR; elliptic lift distribution |
-| Find maximum L/D | (L/D)_max = 1/(2√(C_D0 πeAR)) |
+| Find maximum L/D | (L/D)_max = (1/2)√(πeAR/C_D0) |
 | Increase C_Lmax | Flaps (camber), slats (delay stall) |
 | Deal with transonic drag rise | Sweep wing back; use supercritical airfoil |
 | Compute C_p distribution | C_p = 1 − (v/V∞)² (Bernoulli) |

@@ -35,7 +35,7 @@ updated: null
 |   ─────────────────────────────        (Exterior Calculus)             |
 |                                                                        |
 |   f: R³→R   ──── ∇  (gradient) ──>  F: R³→R³   ≡  d on 0-forms         |
-|   F: R³→R³  ──── ∇· (divergence) → f: R³→R     ≡  ★d★ on 2-forms       |
+|   F: R³→R³  ──── ∇· (divergence) → f: R³→R     ≡  ★d★ on 1-forms       |
 |   F: R³→R³  ──── ∇× (curl) ──────> F: R³→R³   ≡  ★d on 1-forms         |
 |   f: R³→R   ──── ∇² (Laplacian) → f: R³→R     ≡  ★d★d on 0-forms       |
 |                                                                        |

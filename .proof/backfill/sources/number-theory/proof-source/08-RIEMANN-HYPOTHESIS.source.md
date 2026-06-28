@@ -215,7 +215,7 @@ THE CRITICAL LINE THEOREM (Hardy, 1914):
 
 SELBERG'S THEOREM (1942):
   A positive proportion of all zeros lie on Re(s) = 1/2.
-  At least 1/3 (later improved to 40.7% by Conrey, 1989).
+  Levinson (1974): at least 1/3 (later improved to ~40% by Conrey, 1989).
 
 KNOWN:
   All zeros with |Im(s)| < T satisfy Re(s) = 1/2 for T ≤ T₀ (T₀ ~ 10^{22}).
