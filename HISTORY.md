@@ -2,7 +2,7 @@
 
 The MAXIM reference library was built across four days in February 2026. What started as three computing modules became 217 directories, 2,481 files, and 826,537 lines — a personal reference library covering the full scope of human knowledge, organized as a 52-card deck.
 
-Each phase of AI-assisted work claims one of the 52 archetype roles from the card deck. Over years of reviews, expansions, and refinements, all 52 will eventually be spoken for. These are the first twenty-nine.
+Each phase of AI-assisted work claims one of the 52 archetype roles from the card deck. Over years of reviews, expansions, and refinements, all 52 will eventually be spoken for. These are the first thirty.
 
 ---
 
@@ -40,8 +40,9 @@ Each phase of AI-assisted work claims one of the 52 archetype roles from the car
 | 27 | Feb 27 | The Timekeeper | 3♣ | Atlas SVG pipeline — Natural Earth coastlines, PhyloPic silhouettes, 8 maps, repo crash + recovery |
 | 28 | May 15 | The Humanist | A♥ | Gold reset + two new layers — Crosscut Atlas and Recovery Codex, proof-scrubbed for future readers |
 | 29 | May 16 | The Binder | 4♥ | Source corpus — 205 modules bound through PROOF, CROP, PEBBLE, and FLETCH |
+| 30 | Jun 28 | The Empiricist | 5♦ | Fact-check — 8 waves, ~524 corrections, every content directory tested against evidence |
 
-*23 roles remain unclaimed.*
+*22 roles remain unclaimed.*
 
 ---
 
@@ -80,8 +81,9 @@ Each phase adds a small poetic detail to its card's image concept — a mark lef
 | 27 | The Timekeeper | *...and at the base of the spiral, a crack — Hadean basalt split open by a script that ran too fast — and beside it, the same strata rebuilt from the river-bottom up, each layer traced not from memory but from the 110-meter coastline data, every polygon earned* |
 | 28 | The Humanist | *...and on the reading table, two new folios lie open beside the lamp — one a thirteen-lens atlas, one a thirteen-part recovery codex — their margins scrubbed clean by proof marks, left for the reader who may have no other library* |
 | 29 | The Binder | *...and between the laminate layers, 11,105 copper stitches pass through every sheet, each rivet tying a guide to its source record, view, pack, and cacheline* |
+| 30 | The Empiricist | *...and at the synaptic cleft, each signal is held before it crosses — five hundred and twenty-four false pulses caught and corrected across eight waves of testing, every claim measured against the world until it fired true* |
 
-*23 cards await their flair.*
+*22 cards await their flair.*
 
 ---
 
@@ -791,6 +793,32 @@ Then the rule was written down: future MAXIM edits happen in the numbered guide 
 
 ---
 
+# Phase 30: The Empiricist
+
+**Card**: 5♦ — Five of Diamonds
+**Date**: June 28, 2026
+**Commits**: `8f614306` → `576d61e7` (8 fact-check waves)
+**Image flair**: *...and at the synaptic cleft, each signal is held before it crosses — five hundred and twenty-four false pulses caught and corrected across eight waves of testing, every claim measured against the world until it fired true*
+
+A reference library's first debt is not to be complete, or beautiful, or cleverly bound. It is to be true. Every other virtue — the diagrams, the bridges, the card identities, the recovery codex — rests on the silent assumption that when the reader looks something up, the answer is right. The Empiricist is the archetype that refuses to take that assumption on faith. Knowledge does not become true by being written down in a serif typeface. It becomes trustworthy only by being tested against the evidence, claim by claim, and corrected where it fails.
+
+This phase ran that test across the entire library. Eight waves, section by section — Computing, then Mathematics & Physics, Life Sciences, Mechanics & Technology, Earth & Space and History, Social Sciences and Language, the four culture-and-people sections, and finally the newer expansion domains. Roughly forty-five read-only detection agents fanned out, each reading every numbered guide in its directories end to end and holding each checkable claim — a date, a constant, an attribution, a formula, a labeled diagram cell — against its own knowledge, flagging only what it was confident was wrong. The conservative bar mattered as much as the catch: a fact-check that cries wolf is worse than none. Each finding returned as a verbatim quote paired with a correction and a one-line reason. Curated into batches, the corrections were applied by constrained editor agents straight to the canonical source guides, validated against the strict ASCII linter, and the full derived corpus — PROOF, CROP, PEBBLE, FLETCH — was regenerated from source and round-trip checked, every wave, before it was committed.
+
+What the testing found is the texture of the phase. Oganesson's discovery reaction rebalanced to ²⁴⁹Cf + ⁴⁸Ca → ²⁹⁴Og + 3n. PVC corrected to ~57% chlorine by mass. Rayleigh resolution restored to 0.61·λ/NA. The 2003 blackout timeline put back in order. Mauna Loa named the largest volcano, the dodo returned to Mauritius alone, Joseph Aspdin given back his cement patent, Chadwick his ⁹Be. The Durkheim suicide typology, the Bernoulli sons, the Inca quipu encoding — internally contradictory ASCII tables rebuilt with their box widths preserved to the character. About five hundred and twenty-four corrections in all, across some 178 modules, every one applied to the source and propagated to the corpus. Whole clusters of the newer domains — algorithms, combinatorics, compilers, database systems, biochemistry, philosophy of science — came back clean, which is its own kind of result: a measurement that confirms is still a measurement. The Empiricist does not assume error and does not assume correctness. It tests, and it reports what the test returned. The library now reads true because it was made to prove it.
+
+**Key commits**:
+- `8f614306` Wave 2 — Mathematics & Physics (~90 corrections)
+- `dcd657d9` Wave 3 — Life Sciences (73)
+- `ec6485c3` Wave 4 — Mechanics & Technology (59)
+- `b09ab4ea` Wave 5 — Earth & Space + History & Ideas (51)
+- `607524f9` Wave 6 — Social Sciences + Language & Communication (34)
+- `60d54c1b` Wave 7 — Arts, Material Culture, Natural World, People (~129)
+- `576d61e7` Wave 8 — newer expansion domains (15)
+
+**Scale**: 8 fact-check waves; ~524 verified corrections across ~178 modules; every content directory tested against evidence; ~45 read-only detection agents + ~37 constrained apply agents; source-first with full PROOF/CROP/PEBBLE/FLETCH regeneration each wave; all waves round-trip clean; 17 newer domains verified clean on the final wave; TRACKER submodule pointer kept current throughout
+
+---
+
 ## Cumulative Scale
 
 | Metric | Count |
@@ -815,8 +843,8 @@ Then the rule was written down: future MAXIM edits happen in the numbered guide 
 | Repo crashes survived | 1 |
 | Safety Rules | 5 |
 | Design reviews | 5 (Tufte, Vignelli, Wurman, Fuller, cartographers) + 9 puzzle-hunt experts (2 rounds) |
-| Roles claimed | 29 of 52 |
-| Roles remaining | 23 |
+| Roles claimed | 30 of 52 |
+| Roles remaining | 22 |
 | Wave 1 agents deployed | 10 (archetype sharpening) |
 | Wave 2 agents deployed | 5 (style tightening) |
 | Wave 3 agents deployed | 5 (content expansion) |
@@ -840,3 +868,6 @@ Then the rule was written down: future MAXIM edits happen in the numbered guide 
 | Source-corpus guides bound | 2,180 |
 | Source-corpus structured blocks | 17,441 |
 | FLETCH source-corpus cachelines | 11,105 |
+| Fact-check waves | 8 |
+| Fact-check corrections applied | ~524 across ~178 modules |
+| Fact-check detection agents | ~45 (read-only) |
