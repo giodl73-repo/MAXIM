@@ -98,9 +98,9 @@ Dominance coefficient h: controls heterozygote fitness
   aa          1 - s
 
   h = 0:  A is fully dominant (aa selected against, Aa normal)
-  h = 1:  A is fully recessive (only aa has full fitness)
+  h = 1:  A is fully recessive (only AA has full fitness)
   h = 0.5: additive (heterozygote intermediate)
-  h > 1:  overdominance (heterozygote more fit than either homozygote)
+  h < 0:  overdominance (heterozygote more fit than either homozygote); h > 1: underdominance (heterozygote less fit)
 ```
 
 **Overdominance** = mechanism for balancing selection (sickle cell / malaria is the

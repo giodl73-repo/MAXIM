@@ -46,7 +46,7 @@ PLASMA EXAMPLES:
   Solar wind          10⁶–10⁷      10–50       10–50       Collisionless, hot
   Solar corona        10¹²–10¹³    100–200     0.001       Hot, tenuous
   Tokamak plasma      10¹⁹–10²⁰   10,000      10⁻⁴        Hot, magnetized
-  Glow discharge      10¹⁶         1–3         10⁻⁴        Cold, magnetized
+  Glow discharge      10¹⁶         1–3         10⁻⁴        Cold, unmagnetized
   Lightning bolt      10²⁰         ~1 eV       10⁻⁵        Dense, transient
   Laser-plasma        10²⁶–10²⁸   keV–MeV     10⁻⁹        Dense, hot
 
@@ -86,7 +86,7 @@ Debye length:
 
 Examples:
   Tokamak: T_e = 10 keV, n_e = 10²⁰ m⁻³  →  λ_D ~ 7 × 10⁻⁵ m = 70 µm
-  Solar wind: T_e = 10 eV, n_e = 10⁶ m⁻³  →  λ_D ~ 7 m
+  Solar wind: T_e = 10 eV, n_e = 10⁶ m⁻³  →  λ_D ~ 23 m
 ```
 
 ---

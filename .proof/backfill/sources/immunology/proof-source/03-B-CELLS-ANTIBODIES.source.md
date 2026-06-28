@@ -145,7 +145,7 @@ B CELLS AND ANTIBODIES: HUMORAL IMMUNITY
   │  Pentameric: 5 Y-shapes joined → 10 antigen-binding arms         │
   │  Excellent at complement activation (classical pathway)          │
   │  On B cell surface as monomer (BCR)                              │
-  │  Half-life: ~10 days                                             │
+  │  Half-life: ~5 days                                              │
   ├──────────────────────────────────────────────────────────────────┤
   │  IgG (4 subclasses: IgG1–4)                                     │
   │  ───────────────────────────                                     │
@@ -213,7 +213,7 @@ B CELLS AND ANTIBODIES: HUMORAL IMMUNITY
   CD21 CO-RECEPTOR COMPLEX (amplifies BCR signal):
   Complement-coated antigen: C3d tag on antigen
   CD21 (CR2) recognizes C3d → co-ligates BCR
-  CD21:CD19:CD81 complex → 1,000-1,000x signal amplification
+  CD21:CD19:CD81 complex → ~100–1,000x signal amplification
   → Lower antigen dose required for B cell activation
 
   T-DEPENDENT vs. T-INDEPENDENT ACTIVATION:

@@ -404,7 +404,7 @@ ASPIRIN:
 
 P2Y12 INHIBITORS (ADP receptor blocker):
   Clopidogrel: prodrug → CYP2C19 activation → irreversible P2Y12 blockade
-    CYP2C19 PMs (10–15% Caucasians, 50–60% Asian) → reduced activation → ↓ efficacy
+    CYP2C19 PMs (~2–5% Caucasians, ~15% Asian) → reduced activation → ↓ efficacy
     Class effect: no reversible antidote; hold 5 days before elective surgery
   Ticagrelor: NOT a prodrug; direct, reversible P2Y12 binding; no CYP dependence → predictable
     Hold 5 days before surgery (some guidelines 3 days)

@@ -88,7 +88,7 @@ Ebola)            standard container that the     the delivery mechanism, not
 │  POLYMERASE / REPLICATION                                                │
 │    Nucleoside/tide analogs: acyclovir (HSV TK-activated), ganciclovir   │
 │    HCV NS5B: sofosbuvir (-buvir)                                        │
-│    Influenza PB2: baloxavir                                             │
+│    Influenza PA endonuclease: baloxavir                                 │
 │    COVID-19 RdRp: remdesivir                                            │
 │                                                                          │
 │  NS5A PROTEIN (HCV replication complex)                                 │
@@ -164,7 +164,7 @@ Current standard (DHHS Guidelines):
 Resistance mutations:
   M184V: NRTI (emtricitabine/lamivudine resistance) → also ↑ susceptibility to TDF (advantageous)
   K103N: NNRTI class resistance (efavirenz)
-  T315I: "gatekeeper" mutation → INSTI + some other class resistance
+  Q148H/R, N155H: major INSTI resistance mutations (raltegravir/elvitegravir)
   High barrier drugs (DTG/BIC) require multiple mutations → rarely fail virologically
 
 U=U (Undetectable = Untransmittable):

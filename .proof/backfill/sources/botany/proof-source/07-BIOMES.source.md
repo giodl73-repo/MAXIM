@@ -344,7 +344,7 @@ CARBON DYNAMICS:
   Arctic warming: 3-4× faster than global average (Arctic amplification)
   Permafrost thaw → aerobic decomposition → CO₂ + CH₄ release
   → Positive feedback: warming → more thaw → more carbon → more warming
-  Methane (CH₄): 28× more potent per molecule than CO₂ (20-yr GWP)
+  Methane (CH₄): 28× more potent per molecule than CO₂ (100-yr GWP); ~80× over 20 yr
   Thermokarst: ground subsidence as ice melts → lake formation → more CH₄
 
 SPECIES EXAMPLES:

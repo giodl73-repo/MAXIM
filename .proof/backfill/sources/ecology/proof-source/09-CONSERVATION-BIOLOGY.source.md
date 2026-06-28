@@ -206,7 +206,7 @@ PROTECTED AREA COVERAGE (2024):
 ```
 
 **Key biogeographic reserve strategies:**
-- **Hotspots** (Myers 1988): ~36 regions with exceptional endemism + threat → concentrate resources
+- **Hotspots** (Myers 1988; refined by Myers et al. 2000): currently ~36 regions with exceptional endemism + threat → concentrate resources
 - **Wilderness areas**: Large intact areas with low human impact (boreal, Amazon, Congo)
 - **Important Bird Areas (IBAs)**: BirdLife criteria → pragmatic global network
 - **Indigenous protected areas**: Recognition that indigenous lands have better biodiversity outcomes in many regions

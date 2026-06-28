@@ -186,7 +186,7 @@ IODINE DEFICIENCY DISORDERS (IDD):
 
   IODIZED SALT:
     David Marine (1920s): first systematic iodine supplementation
-    Michigan trial (1924): goiter rate fell from 40% to <1% with iodized salt
+    Marine's Akron, Ohio trial (1917–1920): goiter incidence dramatically reduced with iodine prophylaxis
     Universal salt iodization (USI) campaign: 90% of world's salt now iodized
     Success: global cretinism near-eliminated; goiter rates dramatically reduced
     Still problematic: refugee camps, conflict zones, remote communities

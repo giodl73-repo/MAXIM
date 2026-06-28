@@ -31,7 +31,7 @@ updated: null
 | PROOF confidence | `high` |
 | Round trip | `passed` |
 | Structured extraction | `1` markdown tables, `13` visual/block candidates |
-| Git provenance | `578235d5`, `ab7e7c6b`, `c3d7a740`, `ddd24c0f`, `80bd2799`, `a75ffd9f`, `c445c3ea` |
+| Git provenance | `f9a591b0`, `578235d5`, `ab7e7c6b`, `c3d7a740`, `ddd24c0f`, `80bd2799`, `a75ffd9f`, `c445c3ea` |
 
 ## Custody note
 

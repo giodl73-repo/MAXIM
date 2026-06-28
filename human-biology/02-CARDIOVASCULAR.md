@@ -32,10 +32,10 @@ PULMONARY CIRCUIT                    SYSTEMIC CIRCUIT
   (O₂ rich)   (O₂ poor)             (O₂ rich)         (O₂ poor)
        |         |                           |              |
   ┌────┴─────────┴────┐              ┌───────┴──────────────┴───┐
-  │   LEFT HEART      │              │   RIGHT HEART            │
-  │   LA → LV         │              │   RA → RV                │
-  │   High pressure   │              │   Low pressure           │
-  │   ~120 mmHg sys   │              │   ~25 mmHg sys           │
+  │   RIGHT HEART     │              │   LEFT HEART             │
+  │   RA → RV         │              │   LA → LV                │
+  │   Low pressure    │              │   High pressure          │
+  │   ~25 mmHg sys    │              │   ~120 mmHg sys          │
   └────────┬──────────┘              └──────────────────────────┘
            │
            └──────────────────────→ Aorta → Arteries → Arterioles

@@ -286,8 +286,8 @@ ANTIMICROBIAL RESISTANCE: THE EVOLUTION CRISIS
   └────────────────────────────────────────────────────────────────┘
 
   AGRICULTURAL ANTIBIOTIC USE:
-  ─ ~73% of global antibiotic consumption: Animals (WHO 2017)
-  ─ Sub-therapeutic use (growth promotion): Banned in EU, US (since 2017)
+  ─ ~73% of all antimicrobials sold globally are used in animals (Van Boeckel et al. 2019)
+  ─ Sub-therapeutic use (growth promotion): Banned in EU (2006), restricted in US (2017)
     Still common in many countries
   ─ Veterinary therapeutics: Still major pressure
   ─ ESBL E. coli: Identical plasmids found in human clinical + poultry isolates

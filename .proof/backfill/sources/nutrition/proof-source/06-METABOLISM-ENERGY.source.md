@@ -150,7 +150,7 @@ METABOLIC ADAPTATION (Adaptive Thermogenesis):
   Component 1: reduced body mass → less tissue to maintain (expected)
   Component 2: additional 100–300 kcal/day suppression beyond mass prediction
   → Thyroid hormones drop (T3 especially); sympathetic tone decreases
-  → "The Biggest Loser study" (Rosenbaum 2016): 6yr follow-up
+  → "The Biggest Loser study" (Fothergill 2016): 6yr follow-up
     Contestants: BMR still 500 kcal/day BELOW predicted for their weight
     → Persistent metabolic adaptation; not transient
   → Implication: weight loss is harder to maintain than to achieve

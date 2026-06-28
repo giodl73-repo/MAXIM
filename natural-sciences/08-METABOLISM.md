@@ -354,7 +354,7 @@ Palmitate (C16:0) example:
   ATP: 8 × 10 (TCA/OxPhos per Acetyl-CoA) + 7 × 2.5 + 7 × 1.5 = 108 ATP
   Cost: 2 ATP (activation) → Net: 106 ATP per palmitate
 
-Vs glucose (C16 equiv ≈ 2.3 glucose): ~72 ATP → fat gives ~50% more ATP/carbon
+Vs glucose (C16 equiv ≈ 2.67 glucose): ~85 ATP → fat gives ~30% more ATP/carbon
 Fat: ~37 kJ/g stored energy vs carbohydrate/protein: ~17 kJ/g
 ```
 

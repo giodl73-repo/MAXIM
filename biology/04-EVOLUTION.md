@@ -343,7 +343,7 @@ CORE INSIGHT:
 
 HOX GENES:
   Master regulators of body axis patterning (segment identity)
-  Discovered in Drosophila (Lewis, McGinnis, Scott — Nobel 1995)
+  Discovered in Drosophila (Lewis, Nüsslein-Volhard, Wieschaus — Nobel 1995)
   Conservation: fly Hox genes can often substitute for mouse Hox genes
   Collinearity rule: order of genes on chromosome = order of expression along body axis
   Humans: 4 Hox clusters (HOXA-D), 39 genes total
@@ -375,7 +375,7 @@ MAJOR EVOLUTIONARY TRANSITIONS:
   Eukaryotic cell (endosymbiosis ~2 Gya)
   Multicellularity (multiple independent origins; plants, animals, fungi; ~600-800 Mya)
   Sexual reproduction (origins unclear, Mya in algae)
-  Land colonization (plants ~500 Mya, animals ~375 Mya)
+  Land colonization (plants ~470 Mya, animals ~425 Mya; tetrapods ~375 Mya)
   Vertebrate jaw (Silurian ~430 Mya; from pharyngeal arch remodeling)
   Amniotic egg (Carboniferous ~320 Mya — freed from water for reproduction)
   Flowering plants (Cretaceous ~130 Mya; co-evolution with pollinators)

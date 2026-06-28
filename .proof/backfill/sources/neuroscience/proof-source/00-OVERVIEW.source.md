@@ -133,7 +133,7 @@ updated: null
     ───────────┼───────────
     TEMPORAL   │ OCCIPITAL
     Primary auditory (Heschl's)     │ V1 (primary visual)
-    Superior temporal (Wernicke's,46)│ V2, V3, V4 (color, shape)
+    Superior temporal (Wernicke's,22)│ V2, V3, V4 (color, shape)
     Inferior temporal (object recog) │ V5/MT (motion)
     Fusiform face area (FFA)         │ Calcarine fissure
     Parahippocampal place area (PPA) │

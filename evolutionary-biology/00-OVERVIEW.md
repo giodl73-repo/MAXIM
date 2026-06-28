@@ -236,7 +236,7 @@ Coalescent theory             Time-reversal of Wright-Fisher Markov chain
 
 Phylogenetic inference (ML)   Maximum likelihood estimation with tree topology
                               as the latent discrete structure (combinatorial
-                              state space: (2n-3)!! trees for n taxa)
+                              state space: (2n-5)!! unrooted trees for n taxa)
 
 Bayesian MCMC phylogenetics   Posterior sampling on tree-topology × parameter space
   (MrBayes, BEAST)            Same Metropolis-Hastings framework as any PGM

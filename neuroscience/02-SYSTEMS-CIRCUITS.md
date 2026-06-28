@@ -381,7 +381,7 @@ This maps to: N runnable processes → scheduler selects highest-priority → ot
 
     GRID CELLS (Moser lab 2005 → Nobel 2014 with O'Keefe):
     Entorhinal cortex neurons fire at vertices of a regular hexagonal lattice
-    Grid spacing: 25 cm (MEC Layer II) to 10 m (MEC Layer III)
+    Grid spacing: ~30 cm (dorsal MEC) to several meters (ventral MEC)
     Grid = internal coordinate system (GPS-like)
     Grid + place: grid cells are the metric; place cells are the map
     Head direction cells (Taube): always fire when head faces a specific direction

@@ -377,7 +377,7 @@ Antagonists: naloxone (IV, short t½, reversal), naltrexone (PO, long t½, OUD/A
 | Tramadol | Weak μ-agonist + SNRI (weak 5-HT + NE reuptake inhibition); CYP2D6 activation to O-desmethyltramadol (active); lowers seizure threshold; serotonin syndrome risk with SSRIs; not interchangeable with pure opioids in opioid-tolerant patients |
 | Meperidine | Avoid: normeperidine (toxic metabolite) → seizures (CKD accumulation); serotonin syndrome with MAOIs; tachycardia (antimuscarinic) |
 | Methadone | Very long t½ (24–36h, variable 8–59h); NMDA antagonism; QTc prolongation; multiple drug interactions (CYP3A4/2D6/2C19); OUD MAT (clinic dispensed) |
-| Buprenorphine | Partial μ agonist + κ antagonist + NOP receptor activation; ceiling on respiratory depression; high receptor affinity (displaced by naloxone only at high naloxone dose); Suboxone (+ naloxone) for OUD outpatient; injectable (Brixelle) monthly; SUBLOCADE SQ monthly |
+| Buprenorphine | Partial μ agonist + κ antagonist + NOP receptor activation; ceiling on respiratory depression; high receptor affinity (displaced by naloxone only at high naloxone dose); Suboxone (+ naloxone) for OUD outpatient; injectable (Brixadi) weekly/monthly; SUBLOCADE SQ monthly |
 
 **Opioid adverse effects:**
 - **Respiratory depression:** Primary safety concern; dose-dependent; naloxone reversal

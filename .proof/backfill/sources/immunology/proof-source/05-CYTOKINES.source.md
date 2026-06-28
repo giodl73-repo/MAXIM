@@ -394,7 +394,7 @@ CYTOKINES: THE SIGNALING NETWORK OF IMMUNITY
   Maraviroc (CCR5 antagonist): HIV-1 entry blocker
   CCR5Δ32 homozygotes: Naturally resistant to R5-tropic HIV
   Berlin Patient (Timothy Ray Brown): Cured of HIV after receiving
-  CCR5Δ32 stem cell transplant (2008)
+  CCR5Δ32 stem cell transplant (2007)
 ```
 
 ---

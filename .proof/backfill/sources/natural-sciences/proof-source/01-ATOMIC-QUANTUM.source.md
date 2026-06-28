@@ -303,7 +303,7 @@ ELECTRON AFFINITY (energy released when anion formed: X + e⁻ → X⁻)
   Noble gases: EA ≈ 0 or positive (stable filled shells resist additional electron)
 
 ELECTRONEGATIVITY (Pauling scale)
-  Most electronegative: F (3.98) > O (3.44) > N (3.04) > Cl (3.16)
+  Most electronegative: F (3.98) > O (3.44) > Cl (3.16) > N (3.04)
   Least: Fr, Cs (~0.7-0.8)
   Trend: same as IE (high IE → high EN)
   Pauling definition: derived from bond dissociation energies

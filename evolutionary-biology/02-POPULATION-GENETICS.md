@@ -191,7 +191,7 @@ At equilibrium:
 
 Most disease alleles are maintained at equilibrium between mutation input and
 selection removal. For a fully recessive lethal (s=1, h=0) with μ ≈ 10⁻⁵:
-q_eq ≈ √(10⁻⁵) ≈ 0.003 → about 1 in 30 people are carriers.
+q_eq ≈ √(10⁻⁵) ≈ 0.003 → about 1 in 160 people are carriers (carrier freq ≈ 2q).
 This matches observed cystic fibrosis carrier frequency (~1/25 in Northern Europeans).
 
 ---

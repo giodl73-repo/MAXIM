@@ -212,7 +212,7 @@ TREATMENT TARGETS:
 |-------|--------|-------|-------------|
 | Aortic | Stenosis | Calcific (elderly), bicuspid AoV (younger), rheumatic | Angina + syncope + HF (SAD triad); systolic ejection murmur; low EF late sign |
 | Aortic | Regurgitation | Bicuspid AoV, endocarditis, Marfan's, aortic dilation | Widened pulse pressure, bounding "water-hammer" pulse; diastolic decrescendo murmur |
-| Mitral | Stenosis | Almost always rheumatic (M. pyogenes → immune-mediated) | Atrial fibrillation; pulmonary HTN; opening snap + mid-diastolic rumble |
+| Mitral | Stenosis | Almost always rheumatic (S. pyogenes → immune-mediated) | Atrial fibrillation; pulmonary HTN; opening snap + mid-diastolic rumble |
 | Mitral | Regurgitation | MVP (most common), ruptured papillary, dilated CM, endocarditis | Holosystolic murmur; LA/LV dilation; pulmonary congestion |
 | Tricuspid | Regurgitation | RV dilation (secondary), carcinoid, IV drug use endocarditis | Pulsatile liver; JVD; systolic murmur at left sternal border (increases with inspiration — Carvallo's sign) |
 

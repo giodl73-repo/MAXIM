@@ -211,7 +211,7 @@ Released 2021 (v1), expanded 2022 (v4):
   ~200 million protein structures
   Covers:
     - Human proteome: ~20,000 proteins
-    - UniProt: ~47 million proteins
+    - UniProt: ~200 million proteins (near-complete coverage)
     - Major model organisms
     - Predicted structures for proteins with no known homologs
 

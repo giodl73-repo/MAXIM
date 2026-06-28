@@ -407,7 +407,7 @@ Biological curvature generation:
 
 ```
   KcsA (bacterial): first channel crystal structure (MacKinnon, Nobel 2003)
-  → 2.0 Å resolution; revealed selectivity filter carbonyl caging of K⁺
+  → 3.2 Å resolution (1998); revealed selectivity filter carbonyl caging of K⁺ (a 2.0 Å structure followed in 2001)
   → 4 K⁺ sites; ions in S1-S2-S3-S4 positions
   → Concerted knock-on: ions jump 2 positions simultaneously
 

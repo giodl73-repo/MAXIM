@@ -349,7 +349,7 @@ AROMATICITY — HÜCKEL'S RULE
   Criteria: planar, fully conjugated ring, 4n+2 π electrons (n=0,1,2,...)
   n=0: 2 π e⁻  — cyclopropene cation
   n=1: 6 π e⁻  — benzene (the archetype), pyridine, pyrrole, furan, thiophene
-  n=2: 10 π e⁻ — naphthalene, azulene
+  n=2: 10 π e⁻ — [10]annulene (Hückel's rule applies strictly to monocyclic rings)
   Anti-aromatic: 4n π electrons (cyclobutadiene 4 π e⁻, cyclopentadienyl cation)
 
   Heterocycles:
@@ -622,7 +622,7 @@ INFRARED SPECTROSCOPY (IR)
 MASS SPECTROMETRY
   M⁺ (molecular ion): molecular weight
   M+1: ¹³C content (1.1% per C — counts carbons)
-  M+2: ³⁷Cl (33%), ⁷⁹Br (50%) — characteristic isotope patterns
+  M+2: ³⁷Cl (33%), ⁸¹Br (50%) — characteristic isotope patterns
   Common fragments:
     Loss of 15: -CH₃
     Loss of 17: -OH (from alcohol)

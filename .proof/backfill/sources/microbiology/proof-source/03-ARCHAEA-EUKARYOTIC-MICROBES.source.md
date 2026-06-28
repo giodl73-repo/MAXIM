@@ -90,7 +90,7 @@ THE FORGOTTEN DOMAINS: ARCHAEA AND MICROBIAL EUKARYOTES
   │   Grow at 55–115°C (!)                                           │
   │   Pyrococcus furiosus: Optimal 100°C; ferments sugars to H₂      │
   │   Sulfolobus solfataricus: Grows in volcanic sulfur springs      │
-  │   Thermus aquaticus: 70°C, hot springs (Yellowstone)             │
+  │   Methanopyrus kandleri: 122°C, hydrothermal vents               │
   │   Enzyme adaptation: Proteins with more disulfide bonds,         │
   │   ion pairs, hydrophobic cores for thermal stability             │
   │                                                                  │

@@ -327,7 +327,7 @@ an RNA intermediate (pregenomic RNA).
 | I | dsDNA | Latency, large genomes | Herpes, pox |
 | II | ssDNA | Small, need replicating cells | AAV, parvovirus |
 | III | dsRNA | Segmented, transcription in capsid | Rotavirus |
-| IV | +ssRNA | Largest class, genome = mRNA | Coronavirus, HIV |
+| IV | +ssRNA | Largest class, genome = mRNA | Coronavirus, Poliovirus |
 | V | -ssRNA | Must carry RdRp, segmented = reassortment | Influenza, Ebola |
 | VI | ssRNA-RT | Integration, latency, no cure | HIV |
 | VII | dsDNA-RT | cccDNA persistence | Hepatitis B |

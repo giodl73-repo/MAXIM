@@ -128,8 +128,8 @@ PREDIMED (Prevención con Dieta Mediterránea):
     = MI + stroke + cardiovascular death
 
   RESULTS (2013 NEJM → 2018 re-analysis after methodological critique):
-    EVOO arm: 30% relative risk reduction in MACE vs control (HR=0.69, 96% CI 0.53-0.91)
-    Nuts arm: 28% relative risk reduction (HR=0.72, 96% CI 0.54-0.96)
+    EVOO arm: 30% relative risk reduction in MACE vs control (HR=0.69, 95% CI 0.53-0.91)
+    Nuts arm: 28% relative risk reduction (HR=0.72, 95% CI 0.54-0.96)
 
   RETRACTION AND RE-PUBLICATION (2018):
     Original: some sites used cluster randomization improperly

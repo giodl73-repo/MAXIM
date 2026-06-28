@@ -93,7 +93,9 @@ IMMUNODEFICIENCY: WHEN IMMUNITY IS INSUFFICIENT
   │   Gene: ADA (adenosine deaminase)                              │
   │   Defect: Adenosine accumulates → toxic to lymphocytes         │
   │   Phenotype: T⁻B⁻NK⁻ (all lymphocytes absent)                  │
-  │   First gene therapy disease (1990; Kymriah era now CRISPR)    │
+  │   First gene therapy disease (1990 Ashanti DeSilva             │
+  │   trial; modern ADA-SCID gene therapy uses                     │
+  │   lentiviral vectors)                                          │
   │                                                                │
   │ RAG1/RAG2 SCID:                                                │
   │   Defect: VDJ recombination impossible → no lymphocytes        │
@@ -116,7 +118,8 @@ IMMUNODEFICIENCY: WHEN IMMUNITY IS INSUFFICIENT
   │   Correct mutation ex vivo (retrovirus or CRISPR)              │
   │   Reinfuse corrected cells                                     │
   │                                                                │
-  │   Libmeldy (OTL-101): EMA-approved for ADA-SCID (2021)         │
+  │   Strimvelis: EMA-approved ex vivo gene therapy for            │
+  │   ADA-SCID (2016)                                              │
   │   Lentiviral vector delivering ADA into HSCs                   │
   │                                                                │
   │   Risk: Insertional mutagenesis (retroviral, now mostly        │

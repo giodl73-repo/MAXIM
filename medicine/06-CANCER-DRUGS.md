@@ -445,7 +445,7 @@ Key ADCs:
   Brentuximab vedotin (Adcetris): anti-CD30 + MMAE; Hodgkin lymphoma, ALCL
   Enfortumab vedotin (Padcev): anti-Nectin-4 + MMAE; urothelial carcinoma
   Sacituzumab govitecan (Trodelvy): anti-TROP2 + SN-38 (irinotecan metabolite); TNBC, urothelial
-  Inotuzumab ozogamicin (Besylomib): anti-CD22 + calicheamicin; B-cell ALL
+  Inotuzumab ozogamicin (Besponsa): anti-CD22 + calicheamicin; B-cell ALL
 ```
 
 ---

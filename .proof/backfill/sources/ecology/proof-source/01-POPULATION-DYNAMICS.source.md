@@ -66,7 +66,7 @@ r = b - d  (per capita birth rate minus death rate)
 
 **Doubling time** = ln(2)/r ≈ 0.693/r
 
-Population doubles every 70/r% years (rule of 70 — same as finance compound interest).
+Population doubles every ~70/(100r) years — 70 divided by the percentage growth rate (rule of 70).
 
 ### Logistic Growth — Density Dependence
 

@@ -353,7 +353,7 @@ DEFICIENCY:
   WHO: iodine deficiency remains #1 preventable cause of brain damage globally
 
 IODIZED SALT: WHO/UNICEF intervention; reduced goiter dramatically
-  Morton Salt (US): 45 µg I per gram salt → 2,250 µg/day at 5g salt consumption
+  Morton Salt (US): 45 µg I per gram salt → 225 µg/day at 5g salt consumption
   Many regions: mandatory iodization has nearly eliminated endemic cretinism
 
 GOITROGENS: substances that interfere with thyroid iodine uptake
@@ -435,7 +435,7 @@ FUNCTIONS:
   Ceruloplasmin (ferroxidase):
     Plasma Cu-containing enzyme; oxidizes Fe²⁺ → Fe³⁺ → loads onto transferrin
     → Critical for iron export from liver and enterocytes
-    Wilson disease → Fe accumulates alongside Cu because export fails
+    Aceruloplasminemia → Fe accumulates because ferroxidase-dependent iron export fails
   Cu/Zn-SOD (superoxide dismutase 1):
     Cytoplasmic antioxidant; converts O₂•⁻ → H₂O₂ → catalase → H₂O
     Mn-SOD (SOD2): mitochondrial; requires Mn instead

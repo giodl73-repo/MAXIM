@@ -323,7 +323,7 @@ SCURVY (Vitamin C deficiency):
     • Poor wound healing
     • Joint pain (collagen in joints)
     • Fatigue (mitochondrial carnitine synthesis also requires C)
-  Historical: scurvy killed more sailors than combat; lemon juice prevented it (Cook, 1776)
+  Historical: scurvy killed more sailors than combat; lemon juice prevented it (James Lind, 1747)
   Latent period: 4–12 weeks of deprivation
   Modern: rare; seen in elderly, food insecurity, fad dieters (carnivore diet has some risk)
   RDA: 75–90 mg/day; UL: 2000 mg/day (GI upset at high doses)
@@ -349,7 +349,7 @@ PELLAGRA (Niacin B3 deficiency):
   GI: inflammation
   History: endemic in American South early 20th century (corn diet, low niacin)
            Goldberger proved dietary cause (rejected germ theory) 1915–1920
-           Corn niacin: bound as nialysin → not bioavailable without alkali processing
+           Corn niacin: bound as niacytin → not bioavailable without alkali processing
            Nixtamalization (lime treatment): traditional Mexican corn processing releases niacin
            → pellagra in European corn consumers, not in Mesoamerican populations
   Today: seen in alcoholism, Hartnup disease (tryptophan absorption defect)

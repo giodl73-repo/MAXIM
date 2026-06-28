@@ -84,7 +84,7 @@ thermodynamic minimum-energy packing arrangement.
            Example: Tomato bushy stunt virus
   T = 7:   12 pentamers + 60 hexamers = 420 subunits
            Example: Adenovirus, some phages
-  T = 13:  12 pentamers + 80 hexamers = 780 subunits
+  T = 13:  12 pentamers + 120 hexamers = 780 subunits
            Example: some phages, giant viruses
 
   Larger T → larger capsid → can accommodate larger genome
@@ -100,7 +100,7 @@ is determined by the genome length.
 ```
   TOBACCO MOSAIC VIRUS (TMV) — the paradigm:
   ───────────────────────────────────────────
-  17.4 protein subunits per helical turn
+  16.3 protein subunits per helical turn
   2040 identical coat protein subunits total
   ssRNA 6.4 kb: lies in a groove on the inner surface of the helix
   Diameter: 18 nm, Length: 300 nm (proportional to genome)

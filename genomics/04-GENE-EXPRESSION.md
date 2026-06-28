@@ -312,7 +312,7 @@ FROM DNA TO EXPRESSION MEASUREMENT
 
   STEP 2: NORMALIZATION + LOG TRANSFORM
   ┌─────────────────────────────────────────────────────┐
-  │ Normalize each cell to 10,000 total counts (CPM)    │
+  │ Normalize each cell to 10,000 total counts (CP10K)  │
   │ Log1p transform: log(counts + 1)                    │
   │ Select highly variable genes (HVGs): top 2,000–3,000│
   └─────────────────────────────────────────────────────┘

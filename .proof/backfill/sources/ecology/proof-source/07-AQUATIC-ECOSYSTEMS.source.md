@@ -279,7 +279,7 @@ HYDROTHERMAL VENTS (discovered 1977, Galápagos Rift):
 CHEMOSYNTHESIS (base of vent food web):
   No sunlight → no photosynthesis
   Chemoautotrophic bacteria: oxidize H₂S → CO₂ + organic carbon
-    H₂S + CO₂ + O₂ → organic carbon + H₂SO₄
+    CO₂ + 4H₂S + O₂ → CH₂O + 4S + 3H₂O (sulfur-oxidizing chemosynthesis)
   Bacteria either free-living or endosymbiotic in tube worms, clams, mussels
 
 ECOLOGICAL STRUCTURE:

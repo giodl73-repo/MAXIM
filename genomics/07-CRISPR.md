@@ -27,7 +27,7 @@ CRISPR: PROGRAMMABLE GENOME EDITING
 
   ORIGIN: Discovered as a bacterial immune memory system
   Bacteria use it to remember and destroy viral DNA
-  Jennifer Doudna + Emmanuelle Charpentier repurposed it (2012 Nobel, 2020)
+  Jennifer Doudna + Emmanuelle Charpentier repurposed it (2012 paper; 2020 Nobel)
   (→ microbiology/08-MICROBIAL-GENETICS.md for the natural system)
 
   CONCEPTUAL FRAMING:

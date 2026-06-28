@@ -131,8 +131,8 @@ VOLUME OF DISTRIBUTION (Vd)
   Vd = 3-5 L:     Plasma only (large proteins, heparin)
   Vd = 15 L:      Extracellular fluid (aminoglycosides)
   Vd = 40 L:      Total body water (ethanol)
-  Vd = 200 L:     Extensive tissue binding (digoxin: 600 L/kg)
-  Vd = 3,500 L:   Amiodarone (60 L/kg × 70 kg body weight)
+  Vd ≈ 500 L:     Extensive tissue binding (digoxin: ~7 L/kg)
+  Vd ≈ 4,200 L:   Amiodarone (60 L/kg × 70 kg body weight)
 
 PROTEIN BINDING
 ────────────────

@@ -112,7 +112,7 @@ BEFORE 1956                          AFTER 1956
 
 | Date | Event | Significance |
 |------|-------|-------------|
-| April 1956 | Dartmouth AI Conference | "Artificial intelligence" coined; Newell+Simon present Logic Theorist |
+| Summer 1956 | Dartmouth AI Conference | "Artificial intelligence" coined; Newell+Simon present Logic Theorist |
 | September 1956 | MIT Symposium on Information Theory | Miller presents "The Magical Number Seven"; Chomsky presents critique of finite-state grammars |
 | 1957 | Chomsky's review of Skinner's "Verbal Behavior" | Demolished behaviorist account of language; showed grammar requires internal structure |
 

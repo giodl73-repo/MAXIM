@@ -144,7 +144,7 @@ SPERM-EGG MEMBRANE FUSION
 
 FAST BLOCK TO POLYSPERMY (immediate, seconds)
   Sperm entry → depolarization of egg plasma membrane
-  Resting potential: ~-70 mV → +20 mV briefly
+  Resting potential: ~-70 mV → +20 mV briefly (fast electrical block in sea urchins/amphibians; mammals rely on the slow cortical/zona block)
   Positive membrane potential prevents additional sperm fusion
   Duration: minutes; transient
 

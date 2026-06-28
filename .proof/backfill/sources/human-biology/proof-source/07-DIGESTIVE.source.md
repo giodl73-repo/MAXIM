@@ -132,7 +132,7 @@ Surface area amplification (~600× relative to bare tube):
   Plicae circulares (circular folds) — entire wall fold → 3× area
   Villi — finger-like projections → 10× area
   Microvilli (brush border) — apical membrane projections → 20× area
-  Total: ~250 m² (doubles a standard tennis court)
+  Total: ~250 m² (roughly a singles tennis court)
 ```
 
 ### Duodenum: Digestion Hub

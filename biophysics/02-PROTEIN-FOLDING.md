@@ -37,7 +37,7 @@ updated: null
 │  LEVINTHAL'S PARADOX                                                     │
 │  ──────────────────                                                      │
 │  100-residue protein: 3¹⁰⁰ ≈ 10⁴⁸ conformations                          │
-│  At 1 ns/conformation: 10³⁹ years to search exhaustively                 │
+│  At 1 ns/conformation: ~10³¹ years to search exhaustively                │
 │  Actual folding time: microseconds to seconds                            │
 │  Resolution: proteins do NOT do exhaustive search — they fold via        │
 │  energy funnels, biasing toward lower-energy conformations               │

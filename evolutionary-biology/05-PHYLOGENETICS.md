@@ -171,7 +171,7 @@ MAXIMUM LIKELIHOOD PHYLOGENETICS:
     Time complexity: O(n · L · k²) where n = taxa, L = sites, k = states (4)
     The tree's topology is the latent structure (discrete, combinatorial)
 
-  Tree topology space: (2n-3)!! unrooted binary trees for n taxa
+  Tree topology space: (2n-5)!! unrooted binary trees for n taxa
     n=10:  2,027,025 trees
     n=50:  3 × 10⁷⁴ trees (vastly larger than state spaces of most search problems)
   Search: heuristic (NNI, SPR, TBR branch swapping) — same as local search in

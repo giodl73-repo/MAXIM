@@ -67,7 +67,7 @@ updated: null
   INDUSTRIAL APPLICATIONS:
     Plasma etching (chips).
     Sputtering deposition.
-    Ion thrusters (SpaceX, Dawn).
+    Ion thrusters (Dawn, Deep Space 1).
     Arc furnaces.
 
 Reading path: equilibrium → what breaks it (instabilities) →

@@ -244,7 +244,7 @@ CFTR (cystic fibrosis transmembrane conductance regulator)
   Most common lethal AR disease in European populations (~1/3200)
   Carrier frequency: ~1/25 in Northern European
 
-ΔF508 mutation (deletion of Phe508, exon 10):
+ΔF508 mutation (deletion of Phe508, exon 11):
   Class II mutation: protein misfolded → retained in ER → ↑ proteasomal degradation
   Other mutation classes:
     Class I: no protein (nonsense/splice) — e.g., G542X

@@ -91,7 +91,7 @@ Fault types:
 
 Seismic moment: M₀ = μ · A · D
   μ = shear modulus (~3 × 10¹⁰ Pa), A = fault area, D = average slip
-  Moment magnitude: Mw = (2/3) log₁₀(M₀) − 6.0
+  Moment magnitude: Mw = (2/3) log₁₀(M₀) − 10.7
   Each unit increase: 31.6× more energy, 10× more ground motion amplitude
 ```
 

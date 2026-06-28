@@ -111,7 +111,7 @@ NITROGEN CYCLE:
         | N-fixation: N₂ → NH₄⁺ (ammonium)
         | (requires nitrogenase enzyme + low O₂)
         | Biological: Rhizobium (legumes), cyanobacteria, free-living
-        | Industrial: Haber-Bosch (N₂ + H₂ → NH₃; 400°C, 200 atm)
+        | Industrial: Haber-Bosch (N₂ + 3H₂ → 2NH₃; ~400–450°C, ~150–300 atm)
         ↓
    AMMONIUM (NH₄⁺) in soil/water
         |

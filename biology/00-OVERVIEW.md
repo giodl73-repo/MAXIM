@@ -248,7 +248,7 @@ Evolution:
 2003: Human Genome Project complete
 2006: Fire, Mello — RNAi mechanism (Nobel 2006)
 2006: Yamanaka — iPSCs (induced pluripotent stem cells — reprogramming, Nobel 2012)
-2007-: Next-generation sequencing revolution (Illumina) — $1B → $100 → $200 per genome
+2007-: Next-generation sequencing revolution (Illumina) — $1M → $1,000 → $200 per genome
 2012: Doudna, Charpentier — CRISPR-Cas9 as programmable editor (Nobel 2020)
 2016: Single-cell RNA-seq: every cell's transcriptome independently
 2020: mRNA vaccines BNT162b2 + mRNA-1273 against SARS-CoV-2 → 95% efficacy

@@ -155,7 +155,7 @@ peptides. Viruses that can hide from CTLs can establish persistent infections.
   ICP47 binds TAP with very high affinity (Kd ~100 nM for human TAP)
   → Blocks peptide transport into ER → empty MHC-I molecules unstable
   → MHC-I does not reach cell surface
-  Murine ICP47 is much weaker — HSV TAP block is human-specific
+  ICP47 blocks human TAP strongly but mouse TAP weakly — the TAP block is largely human-specific
 ```
 
 ### NK Cell Escape and the "Missing Self" Problem

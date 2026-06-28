@@ -135,7 +135,7 @@ NO₃⁻ has three equivalent resonance structures:
    ‖         ‖         |
 O-N-O⁻  ↔  O-N-O  ↔  O=N-O
 
-Reality: bonds are equivalent (1.33 Å, between single 1.41 Å and double 1.22 Å)
+Reality: bonds are equivalent (~1.26 Å, between single 1.41 Å and double 1.22 Å)
 Resonance = electron delocalization — NOT rapid switching between structures
 ```
 
@@ -244,7 +244,7 @@ Antibonding MO: ψ_a = (1/√2)(ψ_A − ψ_B)    higher energy, nodal plane bet
   The 2p AOs of each oxygen atom feed into the π* / π / σ MOs.
   The 2s AOs of each oxygen atom feed into the σ*2s and σ2s MOs.
 
-Fill 16 electrons (2×8): σ2s² σ*2s² σ2p² π2p⁴ π*2p²
+Fill 12 valence electrons: σ2s² σ*2s² σ2p² π2p⁴ π*2p²
 
 Bond order = (bonding e⁻ − antibonding e⁻) / 2
            = (8 − 4) / 2 = 2  ✓ (O=O double bond)

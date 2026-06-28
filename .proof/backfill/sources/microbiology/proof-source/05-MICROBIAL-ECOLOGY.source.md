@@ -274,7 +274,7 @@ MICROBIAL ECOLOGY: MICROBES AS ECOSYSTEM ENGINEERS
   ─ → Instead of carbon flowing up food chain, it re-enters dissolved pool
   ─ → Stimulates bacterial production; short-circuits biological pump
   ─ SAR11 virophages: Constant arms race; major evolutionary pressure
-  ─ Giant viruses (Mimivirus, Pandoravirus): Discovered in marine sediments
+  ─ Giant viruses: Mimivirus found in amoebae from a cooling tower; Pandoravirus from aquatic sediments
     Genome >1 Mb; larger than some bacteria; contain own tRNA genes
 
   TARA OCEANS (2009–2012):

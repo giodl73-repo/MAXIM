@@ -116,7 +116,7 @@ HOX genes implement a positional address bus. Chromosome position encodes spatia
 ## The Discovery: Homeotic Transformations
 
 ```
-LEWIS EXPERIMENT (Drosophila, 1978) — Nobel Prize 1995
+LEWIS BITHORAX EXPERIMENTS (Drosophila, 1978) — Nobel Prize 1995 (shared with Nüsslein-Volhard and Wieschaus)
 ────────────────────────────────────────────────────────
   Homeotic mutation: One body part transformed into the identity
   of another body part.

@@ -232,7 +232,7 @@ Partial agonist: activates but submaximal Emax (buprenorphine at μ)
   In presence of full agonist: acts as functional antagonist (competitive partial agonist)
 Inverse agonist: reduces constitutive activity below baseline (some antihistamines)
 Competitive antagonist: blocks receptor, reversible — shifts dose-response right
-  (Km ↑, Emax unchanged with enough agonist)
+  (EC50 ↑, Emax unchanged with enough agonist)
 Non-competitive antagonist: reduces Emax (irreversible or allosteric binding)
 Allosteric modulator: changes receptor conformation without binding orthosteric site
   Positive: BZDs at GABA-A (↑ Cl⁻ flux frequency)
@@ -267,7 +267,7 @@ Synergy: combined effect > sum of individual effects
 
 Antagonism: combined effect < sum
   Naloxone reverses opioid → functional antagonism
-  Vitamin K reverses warfarin at level of GC receptor (PD antagonism)
+  Vitamin K reverses warfarin by restoring γ-carboxylation of clotting factors (functional antagonism)
 ```
 
 ---

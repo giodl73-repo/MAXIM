@@ -194,7 +194,7 @@ STRUCTURE:
 
 ELECTRON TRANSPORT CHAIN (ETC):
   Complex I (NADH dehydrogenase): NADH → NAD⁺, pumps 4H⁺
-  Complex II (succinate dehydrogenase): FADH₂ → FAD⁺ (no pumping)
+  Complex II (succinate dehydrogenase): FADH₂ → FAD (no pumping)
   Ubiquinone (CoQ): mobile electron carrier between I/II and III
   Complex III (cytochrome bc1): pumps 4H⁺ per 2 electrons
   Cytochrome c: mobile electron carrier between III and IV

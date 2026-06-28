@@ -228,7 +228,7 @@ The Genome Analysis Toolkit (GATK) from the Broad Institute is the field standar
   │   pLI > 0.9 = gene likely lethal to lose one copy       │
   │   Used for: assessing deleteriousness of LoF variants   │
   │                                                         │
-  │ Z-score (missense constraint): negative = constrained   │
+  │ Z-score (missense constraint): positive = constrained   │
   │   High Z = gene under strong purifying selection        │
   └─────────────────────────────────────────────────────────┘
 ```

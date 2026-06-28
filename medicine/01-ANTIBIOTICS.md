@@ -133,7 +133,7 @@ Mechanisms:
 
 β-lactamase inhibitors (BLIs):
   Clavulanic acid: suicide substrate; paired with amoxicillin (Augmentin) or ticarcillin
-  Sulbactam: piperacillin not needed; paired with ampicillin; also direct Acinetobacter activity
+  Sulbactam: paired with ampicillin (Unasyn); also has direct Acinetobacter activity
   Tazobactam: paired with piperacillin
   Avibactam: non-β-lactam BLI; active vs KPC/OXA-48 but NOT NDM
   Relebactam: paired with imipenem/cilastatin (Recarbrio)

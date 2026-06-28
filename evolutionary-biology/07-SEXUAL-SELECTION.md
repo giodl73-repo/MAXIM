@@ -258,7 +258,7 @@ Hamilton (1964): altruistic behavior can evolve if it benefits genetic relatives
   Examples:
   ──────────
   Worker bees are sisters: r = 0.75 in haplodiploids
-  (queens are diploid; workers are haploid; full sisters share 3/4 of genes)
+  (queens and workers are diploid; males are haploid; full sisters share 3/4 of genes)
   → kin selection favored eusociality in Hymenoptera
   But eusociality also evolved in termites (diploid) and mole rats → not required
 

@@ -205,7 +205,7 @@ REVERSAL:
     Limitation: cannot reliably reverse deep block; fails if TOF < 10%
   Sugammadex:
     Modified cyclodextrin; encapsulates rocuronium/vecuronium in plasma → removes from NMJ
-    Works at ANY depth of block; 16 mg/kg reverses profound succinylcholine-like block within 3 minutes
+    Works at ANY depth of block; 16 mg/kg reverses profound rocuronium block within 3 minutes
     No muscarinic effects → no atropine needed
     Limitations: expensive; rocuronium/vecuronium only; not aminosteroidal competition — encapsulation
     Reversal of severe anaphylaxis to rocuronium: sugammadex works (fascinating mechanism)
