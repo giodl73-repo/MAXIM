@@ -1,11 +1,11 @@
 {
   "schema_version": "1",
-  "source_markdown": "C:\\src\\maxim\\computing\\06-RENDERING.md",
+  "source_markdown": "computing\\06-RENDERING.md",
   "blocks": [
     {
       "id": "block-1",
       "kind": "ascii_table_candidate",
-      "line": 27,
+      "line": 26,
       "heading_context": "## The Big Picture",
       "confidence": "candidate",
       "text": "+------------------------------------------------------------------+\n|              THE RENDERING STRATEGY SPECTRUM                     |\n|                                                                  |\n|  ←— more server work                      more client work —→    |\n|                                                                  |\n|  Traditional   SSG        ISR        SSR        SPA/CSR          |\n|  MVC/Razor   (build)  (build+bg)  (request)   (browser)          |\n|    |            |         |           |            |             |\n|    v            v         v           v            v             |\n|  HTML on      HTML at   HTML at    HTML per     Empty HTML +     |\n|  every        build     build,     request      JS bundle        |\n|  request      time      refresh    on server    Renders in       |\n|               once      in bg                   browser          |\n|                                                                  |\n|  NEW: React Server Components (RSC) — granular server/client     |\n|       split at the component level, not the page level           |\n+------------------------------------------------------------------+\n\n  NO ONE STRATEGY WINS. Every application mixes them.\n  The skill is knowing which page/route needs which strategy.",
@@ -16,7 +16,7 @@
     {
       "id": "block-2",
       "kind": "ascii_table_candidate",
-      "line": 54,
+      "line": 53,
       "heading_context": "### Rendering Pipeline — Where HTML Originates, When JS Runs, When Interactive",
       "confidence": "candidate",
       "text": "MODE       WHERE HTML           BROWSER RECEIVES        JS EXECUTES        TTI\n------     ----------------     -------------------     -----------        ---\nSPA/CSR    Client (browser)     Empty shell + bundle    On load (heavy)    Slow\n                                                         After API fetch\n           Timeline:\n           0ms    Request\n           50ms   Empty HTML arrives (FCP = nothing yet)\n           300ms  JS bundle downloads\n           400ms  React initializes, starts API fetch\n           700ms  API responds, React renders\n           750ms  User sees content AND can interact   ← FCP = TTI here\n\nSSR        Server (per          Full HTML with data     After HTML         Medium\n           request)             + JS bundle for         arrives (hydration)\n                                hydration\n           Timeline:\n           0ms    Request\n           150ms  Server fetches DB + renders HTML\n           150ms  Full HTML arrives → FCP (fast, user sees content)\n           450ms  JS bundle downloads + hydrates\n           450ms  TTI ← 300ms gap where page is visible but not interactive\n\nSSG        Build step (once)    Pre-built HTML          After HTML         Fast\n           served from CDN      from CDN + JS           (hydration,        (near SSR)\n                                bundle                  but fast CDN)\n           Timeline:\n           0ms    Request hits CDN edge\n           20ms   Pre-built HTML arrives → FCP (extremely fast)\n           320ms  JS bundle downloads + hydrates → TTI\n\nISR        Build step + bg      Stale-or-fresh HTML     After HTML         Fast\n           regeneration         from CDN + JS bundle    (hydration)        (near SSG)\n           (stale-while-\n           revalidate)\n\nRSC        Server (component-   Full HTML (server       Only \"use client\"  Fast\n           level split)         components) + small     components         (minimal JS)\n                                JS bundle (client       hydrate; server\n                                components only)        components never\n                                                        send JS at all\n\n+--------------------------------------------------------------------+\n| KEY TRADEOFFS                                                      |\n|                                                                    |\n| Mode  | TTFB      | FCP   | TTI   | Fresh data | SEO | Hosting     |\n|-------|-----------|-------|-------|------------|-----|-------------|\n| CSR   | Fast(CDN) | Slow  | Slow  | Always     | Low | CDN only    |\n| SSR   | Med-slow  | Fast  | Med   | Always     | Yes | Server req  |\n| SSG   | Fast(CDN) | Fast  | Med   | Build-time | Yes | CDN only    |\n| ISR   | Fast(CDN) | Fast  | Med   | ~Window    | Yes | Server+CDN  |\n| RSC   | Med       | Fast  | Fast  | Always     | Yes | Server req  |\n+--------------------------------------------------------------------+",
@@ -27,7 +27,7 @@
     {
       "id": "block-3",
       "kind": "ascii_table_candidate",
-      "line": 133,
+      "line": 132,
       "heading_context": "## Performance Vocabulary",
       "confidence": "candidate",
       "text": "  TTFB   Time to First Byte\n         How long before the browser gets ANY response.\n         Server work happens here. CDN-cached = near zero.\n\n  FCP    First Contentful Paint\n         First pixel of content the user sees.\n         Matters for perceived performance.\n\n  LCP    Largest Contentful Paint\n         When the main content (hero image, text) is visible.\n         Google Core Web Vital. Affects SEO ranking.\n\n  TTI    Time to Interactive\n         When the user can actually click things.\n         JS must be downloaded, parsed, executed, hydrated.\n\n  CLS    Cumulative Layout Shift\n         How much layout jumps around as content loads.\n         Google Core Web Vital. Affects SEO ranking.\n\n  The gap between FCP and TTI is the \"uncanny valley\":\n  User sees content but clicks don't work. Frustrating.\n\n  FCP                    TTI\n   |                      |\n   v                      v\n  [Page visible]---gap---[Page interactive]\n                    ^\n                    Hydration happening here",
@@ -38,7 +38,7 @@
     {
       "id": "block-4",
       "kind": "diagram_like",
-      "line": 171,
+      "line": 170,
       "heading_context": "## Traditional Server Rendering (The Baseline)",
       "confidence": "candidate",
       "text": "  REQUEST → SERVER PROCESSING → FULL HTML RESPONSE\n\n  Browser          Server (ASP.NET MVC / Node.js)\n  -------          ---------------------------\n  GET /users  -->  Load controller\n                   Query database\n                   Render Razor template with data\n              <--  Full HTML page\n\n  Then for the next page:\n  GET /users/1 --> Full cycle again. Full page reload.\n\n  Characteristics:\n  + SEO: search engines get full HTML immediately\n  + TTFB: depends on server/DB speed\n  + TTI: immediate — no JS hydration needed\n  + Always fresh data\n  - Full page reload on every navigation\n  - Server must be running (can't be static CDN-only)\n  - No rich client-side interactivity without bolted-on JS",
@@ -49,7 +49,7 @@
     {
       "id": "block-5",
       "kind": "diagram_like",
-      "line": 204,
+      "line": 203,
       "heading_context": "## SPA / CSR — Client-Side Rendering",
       "confidence": "candidate",
       "text": "  REQUEST → SERVER → EMPTY SHELL → BROWSER RENDERS EVERYTHING\n\n  Browser              CDN / Server\n  -------              ------------\n  GET /              → index.html (nearly empty)\n  GET /app.abc123.js → JS bundle (large)\n  GET /vendor.js     → Framework + deps\n\n  [Browser executes JS]\n  [React renders components]\n  [Components call API]\n  GET /api/users     → JSON data\n  [React renders list]\n  [User sees content] ← this is slow\n\n  index.html looks like:\n  <html>\n    <body>\n      <div id=\"root\"></div>  <!-- empty -->\n      <script src=\"/app.abc123.js\"></script>\n    </body>\n  </html>",
@@ -60,7 +60,7 @@
     {
       "id": "block-6",
       "kind": "diagram_like",
-      "line": 229,
+      "line": 228,
       "heading_context": "## SPA / CSR — Client-Side Rendering",
       "confidence": "candidate",
       "text": "  TIMELINE:\n  0ms    Request made\n  50ms   HTML received (empty shell)\n  300ms  JS bundle downloaded\n  400ms  JS parsed + executed, React initialized\n  450ms  API fetch starts\n  700ms  API responds\n  750ms  Page rendered → user sees content (FCP = 750ms)\n  750ms  Page interactive (TTI = 750ms, same as FCP here)\n\n  PROBLEMS:\n  - Slow initial load (especially on mobile/slow connections)\n  - SEO: search bots see empty HTML (mostly fixed now, but complex)\n  - No content without JS (accessibility, resilience)\n\n  ADVANTAGES:\n  - Rich interactivity after load\n  - Subsequent navigation is instant (client-side routing)\n  - Simple deployment (just static files on CDN)\n  - Great DX with Vite",
@@ -71,7 +71,7 @@
     {
       "id": "block-7",
       "kind": "diagram_like",
-      "line": 260,
+      "line": 259,
       "heading_context": "## SSR — Server-Side Rendering",
       "confidence": "candidate",
       "text": "  REQUEST → SERVER RENDERS REACT → FULL HTML → HYDRATION\n\n  Browser              Next.js Server\n  -------              --------------\n  GET /users      -->  Run React components on server\n                       Fetch data (DB direct or API)\n                       Render component tree to HTML string\n                  <--  Full HTML (user sees content immediately)\n\n  [Browser receives HTML — FCP is fast]\n  GET /app.js     -->  Download React bundle\n                  <--  JS bundle\n  [React \"hydrates\" — attaches event listeners to existing DOM]\n  [Now interactive — TTI]\n\n  TIMELINE:\n  0ms    Request made\n  150ms  Server fetched DB + rendered HTML\n  150ms  HTML received → FCP (fast — user sees content)\n  450ms  JS bundle downloaded + hydrated → TTI\n  FCP–TTI gap: 300ms (page visible but not yet interactive)",
@@ -82,7 +82,7 @@
     {
       "id": "block-8",
       "kind": "ascii_table_candidate",
-      "line": 405,
+      "line": 404,
       "heading_context": "## Streaming SSR",
       "confidence": "candidate",
       "text": "  TRADITIONAL SSR:\n  Wait for ALL data → render ALL HTML → send all at once\n\n  +-----------+\n  | Server    |\n  +-----------+\n    fetchUser()   — 50ms\n    fetchPosts()  — 200ms  ← blocks everything\n    fetchAds()    — 100ms\n    All done: send HTML at 200ms\n\n  STREAMING SSR (React 18 / Next.js App Router):\n  Send HTML in chunks as each piece is ready.\n\n  +-----------+\n  | Server    |\n  +-----------+\n    Send <html><head>... immediately\n    fetchUser() done (50ms)  → stream <header>\n    fetchAds() done (100ms)  → stream <sidebar>\n    fetchPosts() done (200ms) → stream <main>\n\n  User sees the page filling in progressively.\n  FCP is at 50ms, not 200ms.\n  Implemented with React's <Suspense> boundaries:\n\n  <Suspense fallback={<HeaderSkeleton />}>\n    <Header />       {/* streams when ready */}\n  </Suspense>\n  <Suspense fallback={<PostsSkeleton />}>\n    <PostList />     {/* streams when ready */}\n  </Suspense>",
@@ -93,7 +93,7 @@
     {
       "id": "block-9",
       "kind": "ascii_table_candidate",
-      "line": 446,
+      "line": 445,
       "heading_context": "## React Server Components (RSC)",
       "confidence": "candidate",
       "text": "  TRADITIONAL SSR / HYDRATION COST:\n  All components → rendered on server → sent as HTML\n  All components → also sent as JS → hydrated in browser\n\n  You pay the hydration cost for EVERYTHING,\n  even components that are purely static.\n\n  RSC MODEL:\n  Some components → Server Components (render on server only)\n                    NEVER sent as JS to browser\n                    Can be async, access DB directly\n                    Zero hydration cost\n\n  Other components → Client Components (\"use client\" directive)\n                     Sent as JS, hydrated normally\n                     Can use useState, useEffect, events\n\n  +-----------+     +-----------+     +-----------+\n  |  Page     |     | UserList  |     | LikeButton|\n  | (server)  |     | (server)  |     | (client)  |\n  | async,    |     | async,    |     | useState  |\n  | DB access |     | DB access |     | onClick   |\n  | no JS sent|     | no JS sent|     | JS sent   |\n  +-----------+     +-----------+     +-----------+\n\n  // Server Component (default in Next.js App Router)\n  async function UserList() {\n    const users = await db.query('SELECT * FROM users')  // direct DB!\n    return (\n      <ul>\n        {users.map(u => (\n          <li key={u.id}>\n            {u.name}\n            <LikeButton userId={u.id} />  {/* client component nested */}\n          </li>\n        ))}\n      </ul>\n    )\n  }\n\n  // Client Component\n  \"use client\"\n  function LikeButton({ userId }: { userId: number }) {\n    const [liked, setLiked] = useState(false)\n    return <button onClick={() => setLiked(!liked)}>...</button>\n  }",
@@ -104,7 +104,7 @@
     {
       "id": "block-10",
       "kind": "ascii_table_candidate",
-      "line": 505,
+      "line": 504,
       "heading_context": "## Islands Architecture",
       "confidence": "candidate",
       "text": "  ISLANDS ARCHITECTURE:\n  Most of the page is static HTML.\n  Only specific \"islands\" of interactivity are hydrated.\n\n  STATIC HTML (no JS) wraps interactive islands:\n\n      +----------+   +---------------------------+\n      | ISLAND   |   | ISLAND                    |\n      | Search   |   | Shopping Cart             |\n      | (React)  |   | (React)                   |\n      | hydrated |   | hydrated lazily           |\n      +----------+   +---------------------------+\n\n  Static HTML continues around the islands.\n\n  // Astro component\n  ---\n  import SearchBar from './SearchBar.jsx'\n  import Cart from './Cart.jsx'\n  const posts = await fetchPosts()\n  ---\n  <html>\n    <body>\n      <h1>My Blog</h1>          <!-- static, zero JS -->\n      <SearchBar client:load /> <!-- hydrated immediately -->\n      <Cart client:visible />   <!-- hydrated when visible -->\n      {posts.map(p => <p>{p.title}</p>)} <!-- static, zero JS -->\n    </body>\n  </html>\n\n  hydration directives:\n  client:load      hydrate immediately\n  client:idle      hydrate when browser is idle\n  client:visible   hydrate when scrolled into view\n  client:media     hydrate when media query matches",
@@ -115,7 +115,7 @@
     {
       "id": "block-11",
       "kind": "diagram_like",
-      "line": 549,
+      "line": 548,
       "heading_context": "## Next.js — All Patterns in One Framework",
       "confidence": "candidate",
       "text": "  NEXT.JS APP ROUTER (Next.js 13+)\n  app/\n    layout.tsx           Root layout (server component)\n    page.tsx             Home page (server component by default)\n    loading.tsx          Suspense fallback for this route\n    error.tsx            Error boundary for this route\n\n    blog/\n      page.tsx           → SSG by default if no dynamic data\n      [slug]/\n        page.tsx         → SSR if uses params, SSG if generateStaticParams\n\n    dashboard/\n      page.tsx           → SSR (dynamic, auth-gated)\n\n    products/\n      [id]/\n        page.tsx         → ISR with revalidate\n\n  HOW NEXT.JS DECIDES:\n  No dynamic data         → SSG (build-time)\n  revalidate: N           → ISR (build + background regen)\n  dynamic = 'force-dynamic'  → SSR (per-request)\n  cookies() / headers()  → SSR (implies request-time data)\n  \"use client\"            → client component (hydrated)",
@@ -126,7 +126,7 @@
     {
       "id": "block-12",
       "kind": "diagram_like",
-      "line": 577,
+      "line": 576,
       "heading_context": "## Next.js — All Patterns in One Framework",
       "confidence": "candidate",
       "text": "  // SSG: no params, no dynamic data\n  export default async function BlogIndex() {\n    const posts = await fetchPosts()   // runs at build time\n    return <PostList posts={posts} />\n  }\n\n  // ISR: revalidate every 60s\n  export const revalidate = 60\n  export default async function ProductPage({ params }) {\n    const product = await fetchProduct(params.id)\n    return <ProductDetail product={product} />\n  }\n\n  // SSG with known paths\n  export async function generateStaticParams() {\n    const products = await fetchAllProducts()\n    return products.map(p => ({ id: p.id.toString() }))\n  }\n\n  // SSR: force dynamic (per-request)\n  export const dynamic = 'force-dynamic'\n  export default async function Dashboard() {\n    const user = await getCurrentUser()   // needs request context\n    return <DashboardPage user={user} />\n  }",
@@ -137,7 +137,7 @@
     {
       "id": "block-13",
       "kind": "ascii_table_candidate",
-      "line": 609,
+      "line": 608,
       "heading_context": "## Pattern Comparison",
       "confidence": "candidate",
       "text": "  +----------+--------+--------+---------+---------+--------+\n  |          | Trad.  |  CSR   |   SSR   |   SSG   |  ISR   |\n  |          |  MVC   |  SPA   |         |         |        |\n  +----------+--------+--------+---------+---------+--------+\n  | TTFB     | Medium | Fast   | Slow-   | Fast    | Fast   |\n  |          |        | (CDN)  | Medium  | (CDN)   | (CDN)  |\n  +----------+--------+--------+---------+---------+--------+\n  | FCP      | Medium | Slow   | Fast    | Fast    | Fast   |\n  +----------+--------+--------+---------+---------+--------+\n  | TTI      | Fast   | Slow   | Medium  | Medium  | Medium |\n  +----------+--------+--------+---------+---------+--------+\n  | SEO      | Yes    | Warn   | Yes     | Yes     | Yes    |\n  +----------+--------+--------+---------+---------+--------+\n  | Fresh    | Yes    | Yes    | Yes     | No      | Warn   |\n  | data     |        |        |         | build   | window |\n  +----------+--------+--------+---------+---------+--------+\n  | Hosting  | Server | CDN    | Server  | CDN     | Server |\n  +----------+--------+--------+---------+---------+--------+\n  | Interac- | Full   | Full   | Full    | Full    | Full   |\n  | tivity   | reload |        |         |         |        |\n  +----------+--------+--------+---------+---------+--------+",
@@ -148,7 +148,7 @@
     {
       "id": "block-14",
       "kind": "diagram_like",
-      "line": 675,
+      "line": 674,
       "heading_context": "### \"What's the difference between Next.js pages/ and app/?\"",
       "confidence": "candidate",
       "text": "  PAGES ROUTER (Next.js ≤12, still supported)\n  pages/\n    index.tsx          getStaticProps → SSG\n                       getServerSideProps → SSR\n                       (no data fn) → SSG\n    blog/[slug].tsx    getStaticPaths → SSG with params\n\n  APP ROUTER (Next.js 13+, current)\n  app/\n    page.tsx           Server component by default\n                       async/await for data fetching\n                       export revalidate → ISR\n                       export dynamic → SSR\n                       \"use client\" → client component\n\n  App Router is the future. Pages Router is legacy but stable.\n  New projects: use App Router.\n  Migrating: Pages Router still works, migrate incrementally.",
@@ -159,7 +159,7 @@
     {
       "id": "block-15",
       "kind": "diagram_like",
-      "line": 698,
+      "line": 697,
       "heading_context": "### \"When does hydration fail / cause errors?\"",
       "confidence": "candidate",
       "text": "  Hydration mismatch: server-rendered HTML doesn't match\n  what React would render on the client.\n\n  Common causes:\n  - Using Date.now() or Math.random() in render\n    (different values server vs client)\n  - Checking window or localStorage during render\n    (doesn't exist on server)\n  - Browser extensions that modify DOM before React hydrates\n\n  Error: \"Hydration failed because the initial UI does not\n  match what was rendered on the server.\"\n\n  Fix:\n  // Use useEffect for browser-only code\n  const [mounted, setMounted] = useState(false)\n  useEffect(() => setMounted(true), [])\n  if (!mounted) return null  // skip server render of this part",

@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # Frontend Frameworks — A Layered Guide
 
 ## The Big Picture

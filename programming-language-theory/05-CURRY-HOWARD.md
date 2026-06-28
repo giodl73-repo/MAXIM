@@ -290,7 +290,7 @@ LINEAR LOGIC CONNECTIVES:
   TENSOR PRODUCT:      A ⊗ B  (have BOTH A and B, each usable once)
     Compare product:   A × B  (can project out either A or B multiple times)
 
-  PAR (additive or):   A ⅋ B
+  PAR (multiplicative or): A ⅋ B
   PLUS (additive or):  A ⊕ B  (have exactly one of A or B)
   OF COURSE:           !A    (A is a classical resource = can use multiple times)
   WHY NOT:             ?A    (A can be discarded, duplicated)

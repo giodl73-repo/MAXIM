@@ -151,7 +151,7 @@ updated: null
   GPT-4V token cost (approximate):
     Low detail:   85 tokens per image (fixed)
     High detail:  Image tiled into 512×512 tiles
-                  Each tile = 170 tokens + 85 base = 255/tile
+                  Each tile = 170 tokens; 85 base added ONCE per image (not per tile)
                   A 1024×1024 image: 4 tiles → 4×255 + 85 = 1105 tokens
                   A 2048×2048 image: 16 tiles → 16×255 + 85 = 4165 tokens
 

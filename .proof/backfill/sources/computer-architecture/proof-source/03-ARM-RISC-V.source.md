@@ -234,8 +234,8 @@ RISC-V is an open ISA developed at UC Berkeley starting 2010. "Open" means anyon
   x15 a5      Argument 5                      Caller
   x16 a6      Argument 6                      Caller
   x17 a7      Argument 7 / syscall number     Caller
-  x18 s2–s11  Saved registers                 Callee
-  x28 t3–t6   Temporaries                     Caller
+  x18–x27 s2–s11  Saved registers             Callee
+  x28–x31 t3–t6   Temporaries                 Caller
 
   FP registers: f0–f31 (with D extension, all 64-bit)
   fa0–fa7: float arguments / return values

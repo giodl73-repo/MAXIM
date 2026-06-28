@@ -77,7 +77,7 @@ KEY GENERATION:
   Public key: (n, e);  Private key: (n, d) or (p, q, d, dp, dq, qInv)
 
   Why e=65537? Small; odd; exactly 17 bits (efficient square-and-multiply); large enough
-    not to be broken by small-exponent attacks; standard since RFC 4870
+    not to be broken by small-exponent attacks; the long-standing F4 convention
 
 ENCRYPTION / DECRYPTION (textbook RSA):
   Encrypt: c = mᵉ mod n
@@ -559,7 +559,7 @@ CLASSICAL → PQC TRANSITION TABLE (see 05-POST-QUANTUM.md for full detail):
     Signature: Ed25519 sig = 64B → FALCON-512 sig = 666B  (+10×; if complexity acceptable)
 
   Hybrid strategy (transition period):
-    KEM:  X25519Kyber768 (RFC 9496 / TLS draft) — Chrome + Firefox shipping now
+    KEM:  X25519Kyber768 / X25519MLKEM768 (IETF TLS hybrid draft) — Chrome + Firefox shipping now
     Sig:  dual-sign (both classical + PQC); verify either is sufficient
     Timeline: remove classical component ~2030+ when confidence in PQC is established
 ```

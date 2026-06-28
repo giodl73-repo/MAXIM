@@ -1376,7 +1376,7 @@
         "title": "Microservices at Scale: AKS, Service Mesh, API Management, Event Grid",
         "updated": "null"
       },
-      "text": "```\nEVENT GRID (reactive routing):\n  Publisher → Topic → Subscriptions → Subscriber endpoints\n  At-most-once delivery (retries for up to 24h, then drops)\n  Event size: up to 1MB\n  Source events: Azure resource changes (VM created, Blob uploaded),\n                 custom publishers\n  Subscriber endpoints: Azure Functions, Logic Apps, webhooks, Event Hubs, Service Bus\n  Schema: EventGrid schema or CloudEvents 1.0\n  Pricing: per million events\n  USE: \"Something happened in Azure → trigger a reaction\"\n       Blob uploaded → trigger processing function\n       Resource created → update CMDB\n       Custom application events → fan out to multiple handlers"
+      "text": "```\nEVENT GRID (reactive routing):\n  Publisher → Topic → Subscriptions → Subscriber endpoints\n  At-least-once delivery (retries up to 24h, then dead-letters; handlers must be idempotent)\n  Event size: up to 1MB\n  Source events: Azure resource changes (VM created, Blob uploaded),\n                 custom publishers\n  Subscriber endpoints: Azure Functions, Logic Apps, webhooks, Event Hubs, Service Bus\n  Schema: EventGrid schema or CloudEvents 1.0\n  Pricing: per million events\n  USE: \"Something happened in Azure → trigger a reaction\"\n       Blob uploaded → trigger processing function\n       Resource created → update CMDB\n       Custom application events → fan out to multiple handlers"
     },
     {
       "id": "05-MICROSERVICES.md#049",

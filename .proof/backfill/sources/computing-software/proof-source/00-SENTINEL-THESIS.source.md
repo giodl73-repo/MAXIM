@@ -23,7 +23,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # The Sentinel — Volume Thesis
 
 **K-Spade C-IV: Distributed Systems / Security Engineering / Cloud Architecture**

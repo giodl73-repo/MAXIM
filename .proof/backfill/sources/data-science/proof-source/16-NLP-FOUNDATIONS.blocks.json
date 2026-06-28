@@ -41,7 +41,7 @@
       "line": 159,
       "heading_context": "## 3. Word2Vec",
       "confidence": "candidate",
-      "text": "  Predict context words from center word:\n    Maximize: Σ_t Σ_{-c≤j≤c, j≠0} log P(wₜ₊ⱼ | wₜ)\n\n    P(o | c) = exp(uₒᵀ vᵢ) / Σ_{w∈V} exp(uₙᵀ vᵢ)   ← softmax\n\n  Two matrices: input embeddings V (word as center) and output embeddings U (word as context)\n  Full softmax over |V|=10⁵⁻⁶ words → too expensive",
+      "text": "  Predict context words from center word:\n    Maximize: Σ_t Σ_{-c≤j≤c, j≠0} log P(wₜ₊ⱼ | wₜ)\n\n    P(o | c) = exp(uₒᵀ vᵢ) / Σ_{w∈V} exp(u_wᵀ vᵢ)   ← softmax\n\n  Two matrices: input embeddings V (word as center) and output embeddings U (word as context)\n  Full softmax over |V|=10⁵⁻⁶ words → too expensive",
       "notes": [
         "fenced visual/source block"
       ]

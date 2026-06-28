@@ -149,7 +149,7 @@ Branch 2 — Unix/POSIX shell lineage
   Thompson shell — /bin/sh (1971, Ken Thompson, V1 Unix)
        │  Basic I/O redirection, pipes, sequential execution
        │
-       ├─→  Bourne sh (1979, Steve Bourne, Unix V7)
+       ├─→  Bourne sh (1979, Stephen Bourne, Unix V7)
        │        ├── Variables, control flow, functions
        │        ├── The definitive POSIX ancestor
        │        └─→  POSIX.1 sh standard (1988, IEEE Std 1003.1)
@@ -206,7 +206,7 @@ Branch 3 — Text-processing DSLs
                 ├── "Practical Extraction and Report Language"
                 ├── Superset of AWK + sed + sh concepts
                 ├── Full language: OOP, refs, closures, modules (CPAN)
-                ├── Compiled to bytecode, interpreted by perlc
+                ├── Compiled to an op-tree, interpreted by perl
                 ├── Sigil-based scalar/array/hash distinction
                 └── The dominant text/sysadmin language before Python
 

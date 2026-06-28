@@ -192,7 +192,7 @@ Kotlin, Scala, Swift       OCaml object types       F# interfaces,       (some b
                                                      Scala givens/implicits than others)
 ```
 
-**C# = Nominal subtyping + generics.** The class/interface hierarchy is the primary polymorphism mechanism. C# generics are reified at runtime (unlike Java type erasure), which is closer to C++ templates in one sense but without monomorphization.
+**C# = Nominal subtyping + generics.** The class/interface hierarchy is the primary polymorphism mechanism. C# generics are reified at runtime (unlike Java type erasure), which is closer to C++ templates; value-type instantiations are specialized (monomorphized) while reference types share one canonical instantiation.
 
 ### Axis 6: Memory Model
 

@@ -319,7 +319,7 @@ SPECTRALLY NORMALIZED DEEP NETS (Bartlett et al. 2017)
 ───────────────────────────────────────────────────────
 For an L-layer network with activation function ρ (Lipschitz-1):
 
-  R_m(F_W) ≤ O( (∏ⱼ ||Wⱼ||_F) · (Σⱼ (||Wⱼ||_F/||Wⱼ||₂)^(2/3))^(3/2) )
+  R_m(F_W) ≤ O( (∏ⱼ ||Wⱼ||₂) · (Σⱼ (||Wⱼ||_F/||Wⱼ||₂)^(2/3))^(3/2) )
                  ────────────────────────────────────────────────────
                  Depends on Frobenius and spectral norms of weight matrices
 

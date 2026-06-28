@@ -318,7 +318,7 @@ sub(/pattern/, "replacement", $2)  # replace in specific field
 gsub(/pattern/, "replacement")     # replace ALL matches in $0
 gsub(/pattern/, "replacement", $2) # replace all in field
 
-match("hello", /l+/)    # -> 4 (position of match; sets RSTART, RLENGTH)
+match("hello", /l+/)    # -> 3 (position of match; sets RSTART=3, RLENGTH=2)
 RSTART                   # start position of last match()
 RLENGTH                  # length of last match() (-1 if no match)
 
@@ -778,7 +778,7 @@ awk 'BEGIN{print PROCINFO["version"]}'  # gawk version check
 | `print` vs `printf` | `print` adds OFS/ORS; `printf` adds nothing | Use `printf` for precise formatting |
 | `$2=""` rebuilding | Deleting a field leaves extra OFS | `$1=$1; print` forces rebuild with OFS |
 | macOS old awk | `/usr/bin/awk` on macOS is Brian Kernighan's nawk (not gawk) | `brew install gawk` for gawk features |
-| Regex in `-F` | `-F '\|'` is regex OR — matches any of the chars | Escape: `-F '\|'` or `FS="[|]"` |
+| Regex in `-F` | `-F '|'` is treated as a regex (alternation) | Escape: `-F '\|'` or `FS="[|]"` |
 | Pipe stays open | `print \| "sort"` accumulates all output, then flushes on close | `close("sort")` to flush mid-program |
 
 ---

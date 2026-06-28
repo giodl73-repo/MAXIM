@@ -203,7 +203,7 @@ Mechanism      Windows                  Linux                macOS
 ─────────────────────────────────────────────────────────────────────
 Pipes          Named pipes (\\.\pipe\)  Named + anonymous    Named pipes
                AnonymousPipe            FIFO (mkfifo)        FIFO
-Sockets        Winsock (IANA compat)    POSIX sockets        POSIX sockets
+Sockets        Winsock (BSD-sockets compatible)    POSIX sockets        POSIX sockets
                Unix domain sockets      Unix domain sockets  Unix domain sockets
 Shared mem     CreateFileMapping        shm_open / mmap      shm_open / mmap
                MapViewOfFile            shmget (SysV)        Mach shared memory

@@ -1,11 +1,11 @@
 {
   "schema_version": "1",
-  "source_markdown": "C:\\src\\maxim\\computing\\03-JS-TS.md",
+  "source_markdown": "computing\\03-JS-TS.md",
   "blocks": [
     {
       "id": "block-1",
       "kind": "ascii_table_candidate",
-      "line": 27,
+      "line": 26,
       "heading_context": "## The Big Picture",
       "confidence": "candidate",
       "text": "+------------------------------------------------------------------+\n|                    THE JS/TS STACK                               |\n|                                                                  |\n|  YOU WRITE          YOU BUILD            RUNTIME EXECUTES        |\n|  ----------         ----------           -----------------       |\n|  TypeScript   -->   TypeScript   -->     JavaScript              |\n|  (.ts, .tsx)        Compiler             (.js)                   |\n|                     (tsc / esbuild                               |\n|                      / babel)            Browser (V8/SpiderMnky) |\n|                                          Node.js (V8)            |\n|                     Strips all           Deno (V8)               |\n|                     type annotations     Bun (JavaScriptCore)    |\n|                     Emits plain JS                               |\n|                                                                  |\n|  TypeScript types NEVER exist at runtime. They are erased.       |\n+------------------------------------------------------------------+",
@@ -16,7 +16,7 @@
     {
       "id": "block-2",
       "kind": "ascii_table_candidate",
-      "line": 58,
+      "line": 57,
       "heading_context": "### The Language vs the Engine vs the Environment",
       "confidence": "candidate",
       "text": "  LANGUAGE SPEC (ECMAScript)\n  +-------------------------------------------------+\n  | Defines: syntax, semantics, built-in objects    |\n  | Who sets it: TC39 committee (annual releases)   |\n  | ES2015 (ES6), ES2016... ES2024, ES2025...       |\n  +-------------------------------------------------+\n             |\n             | implemented by\n             v\n  ENGINE (executes the JS)\n  +-------------------------------------------------+\n  | V8          -- Chrome, Node.js, Deno, Edge      |\n  | SpiderMonkey -- Firefox                         |\n  | JavaScriptCore -- Safari, Bun                   |\n  | Each engine implements the ECMAScript spec.     |\n  +-------------------------------------------------+\n             |\n             | runs inside\n             v\n  ENVIRONMENT (provides the APIs)\n  +-----------------------------+ +-----------------------------+\n  | BROWSER                     | | NODE.JS / DENO / BUN        |\n  | - window, document, DOM     | | - fs, path, os (file I/O)   |\n  | - fetch, XHR                | | - http, net (servers)       |\n  | - localStorage, cookies     | | - process, Buffer           |\n  | - Web Workers               | | - require() / import()      |\n  +-----------------------------+ +-----------------------------+\n\n  JS the language is the same. The environment gives you different APIs.\n  fetch() exists in both browser and Node 18+. DOM does not exist in Node.",
@@ -27,7 +27,7 @@
     {
       "id": "block-3",
       "kind": "ascii_table_candidate",
-      "line": 120,
+      "line": 119,
       "heading_context": "### How We Got Here",
       "confidence": "candidate",
       "text": "  ORIGINAL JAVASCRIPT (1995-2009)\n  No module system at all. One big global scope.\n  <script src=\"jquery.js\"></script>  -- jQuery attaches to window.$\n  <script src=\"app.js\"></script>     -- app.js reads window.$\n  Namespacing was manual: window.MyApp = window.MyApp || {}\n\n          |\n          | Node.js arrives (2009)\n          v\n\n  COMMONJS (CJS) — Node's solution\n  +-----------------------------------------------+\n  | const express = require('express')            |\n  | const { readFile } = require('fs')            |\n  |                                               |\n  | module.exports = { myFunction }               |\n  | module.exports.name = 'value'                 |\n  +-----------------------------------------------+\n  Synchronous. Works great on the server (disk is local).\n  NOT the browser's native system.\n  .js files in Node default to CJS.\n\n          |\n          | TC39 standardizes modules in ES2015\n          v\n\n  ES MODULES (ESM) — the standard\n  +-----------------------------------------------+\n  | import express from 'express'                 |\n  | import { readFile } from 'fs/promises'        |\n  |                                               |\n  | export function myFunction() {}               |\n  | export default class MyClass {}               |\n  +-----------------------------------------------+\n  Asynchronous. Works in browsers natively.\n  Statically analyzable (bundlers can tree-shake).\n  .mjs extension OR \"type\": \"module\" in package.json.",
@@ -38,7 +38,7 @@
     {
       "id": "block-4",
       "kind": "ascii_table_candidate",
-      "line": 162,
+      "line": 161,
       "heading_context": "### CJS vs ESM — Key Differences",
       "confidence": "candidate",
       "text": "  +---------------------------+---------------------------+\n  |  CommonJS (CJS)           |  ES Modules (ESM)         |\n  +---------------------------+---------------------------+\n  | require()                 | import                    |\n  | module.exports            | export                    |\n  | Synchronous               | Asynchronous              |\n  | Dynamic (require anywhere)| Static (top of file)      |\n  | .js (Node default)        | .mjs or \"type\":\"module\"   |\n  | exports resolved at       | imports hoisted and        |\n  | runtime                   | resolved before execution |\n  | No tree-shaking           | Tree-shakeable            |\n  | Works in Node             | Works in browser + Node   |\n  +---------------------------+---------------------------+\n\n  CJS can require() CJS.\n  ESM can import ESM.\n  ESM can import CJS (with limitations).\n  CJS CANNOT require() ESM (synchronous vs async mismatch).",
@@ -49,7 +49,7 @@
     {
       "id": "block-5",
       "kind": "diagram_like",
-      "line": 267,
+      "line": 266,
       "heading_context": "### Module Resolution Algorithm",
       "confidence": "candidate",
       "text": "  import './utils'             ->  try ./utils.ts, ./utils.js,\n                                   ./utils/index.ts, ./utils/index.js\n                                   (extension/index resolution)\n\n  import './utils.js'          ->  exact file — required by Node ESM\n                                   (TypeScript still writes .js even for .ts source;\n                                    the compiler resolves it to the .ts file)",
@@ -60,7 +60,7 @@
     {
       "id": "block-6",
       "kind": "diagram_like",
-      "line": 409,
+      "line": 408,
       "heading_context": "#### Generics",
       "confidence": "candidate",
       "text": "  // Generic function\n  function first<T>(arr: T[]): T | undefined {\n    return arr[0]\n  }\n  const n = first([1, 2, 3])   // T inferred as number\n  const s = first([\"a\", \"b\"])  // T inferred as string\n\n  // Generic interface\n  interface Repository<T> {\n    findById(id: number): Promise<T>\n    save(item: T): Promise<void>\n  }\n\n  // Constraint: T must have an id property\n  function getById<T extends { id: number }>(items: T[], id: number): T | undefined {\n    return items.find(item => item.id === id)\n  }",
@@ -71,7 +71,7 @@
     {
       "id": "block-7",
       "kind": "diagram_like",
-      "line": 505,
+      "line": 504,
       "heading_context": "### The target vs lib vs module Triangle",
       "confidence": "candidate",
       "text": "  target    What ECMAScript syntax the OUTPUT uses.\n            \"ES2017\" -> async/await emitted as-is (supported since 2017)\n            \"ES5\"    -> async/await compiled down to generators (verbose)\n\n  lib       What type definitions are available for your SOURCE code.\n            Affects what the type checker knows about.\n            \"DOM\" -> window, document, fetch are typed\n            \"ESNext\" -> latest built-ins are typed\n\n  module    What module FORMAT the output uses.\n            \"CommonJS\" -> require/module.exports (Node.js classic)\n            \"ESNext\"   -> import/export (bundlers, modern Node)\n            \"NodeNext\" -> Node.js 12+ native ESM with .js extensions\n\n  Typical combos:\n  Browser app (via bundler):  target:ES2020, lib:[ES2020,DOM], module:ESNext\n  Node.js app:                target:ES2022, lib:[ES2022],     module:NodeNext\n  Library (dual output):      Two tsconfig files, one per output format",
@@ -82,7 +82,7 @@
     {
       "id": "block-8",
       "kind": "ascii_table_candidate",
-      "line": 537,
+      "line": 536,
       "heading_context": "### `moduleResolution` Decision Table",
       "confidence": "candidate",
       "text": "  Which moduleResolution should I use?\n\n  Writing code that runs in Node.js natively (no bundler)?\n  +-- Node.js 12+?  --> \"NodeNext\"\n  +-- Very old Node? --> \"Node\" (legacy, accept the limitation)\n\n  Writing code for a browser/bundler project (Vite, webpack, etc.)?\n  --> \"Bundler\" (modern choice)\n  --> \"Node\" only if using Webpack 4 / very old toolchain\n\n  Writing a library that ships to npm?\n  --> \"NodeNext\" (most compatible; enforces .js extensions in your source)\n  --> If dual CJS+ESM: two tsconfig files, one per output format\n\n  Why Node16/NodeNext require .js extensions in source:\n  import { foo } from './utils'     // ERROR with NodeNext\n  import { foo } from './utils.js'  // OK  (TypeScript resolves to utils.ts)\n\n  The .js extension in the import = the extension that will exist at runtime.\n  TypeScript lets you write .js in source and resolves to the .ts file.\n  Bundler mode doesn't require this because the bundler handles the mapping.",
@@ -93,7 +93,7 @@
     {
       "id": "block-9",
       "kind": "diagram_like",
-      "line": 593,
+      "line": 592,
       "heading_context": "### Why Two Steps?",
       "confidence": "candidate",
       "text": "  Many modern projects split the work:\n\n  TYPE CHECKING          COMPILATION / BUNDLING\n  -----------            ----------------------\n  tsc --noEmit           esbuild / Vite / SWC\n  (just checks types,    (transforms fast, no type check)\n   no output)\n\n  Run in parallel in CI:\n  +-- tsc --noEmit   --> pass/fail (type errors)\n  +-- vite build     --> dist/ (your app bundle)\n\n  This is because esbuild is 10-100x faster than tsc for transformation.\n  You get fast builds AND type safety — just not from the same tool.",
@@ -104,7 +104,7 @@
     {
       "id": "block-10",
       "kind": "diagram_like",
-      "line": 645,
+      "line": 644,
       "heading_context": "### Async / Await",
       "confidence": "candidate",
       "text": "  // Promises (ES2015) — the foundation\n  fetchUser(id)\n    .then(user => fetchPosts(user.id))\n    .then(posts => render(posts))\n    .catch(err => console.error(err))\n\n  // async/await (ES2017) — syntactic sugar over Promises\n  async function loadUserPosts(id: number) {\n    try {\n      const user = await fetchUser(id)       // unwrap Promise<User>\n      const posts = await fetchPosts(user.id) // unwrap Promise<Post[]>\n      render(posts)\n    } catch (err) {\n      console.error(err)\n    }\n  }\n  // Same execution model. async functions return a Promise.\n  // await pauses the async function (not the thread).\n  // Node.js is single-threaded — await yields the event loop.\n\n  // Parallel fetches:\n  const [user, config] = await Promise.all([fetchUser(id), fetchConfig()])",
@@ -115,7 +115,7 @@
     {
       "id": "block-11",
       "kind": "diagram_like",
-      "line": 754,
+      "line": 753,
       "heading_context": "### \"TypeScript says it's fine but it crashes at runtime\"",
       "confidence": "candidate",
       "text": "  TypeScript checks types at compile time against the DECLARED types.\n  Runtime data (API responses, user input) is untyped.\n\n  interface User { name: string; age: number }\n  const data: User = await fetch('/api/user').then(r => r.json())\n  // TypeScript trusts your assertion. If the API returns { name: null },\n  // TypeScript won't catch it — the cast is yours to verify.\n\n  Solutions:\n  - Zod, Valibot — parse and validate at runtime with type inference\n  - Type guards — write runtime checks that TypeScript understands\n  function isUser(x: unknown): x is User {\n    return typeof x === 'object' && x !== null && 'name' in x\n  }",
@@ -126,7 +126,7 @@
     {
       "id": "block-12",
       "kind": "diagram_like",
-      "line": 827,
+      "line": 826,
       "heading_context": "### \"interface vs type — when to use which?\"",
       "confidence": "candidate",
       "text": "  interface:\n  - Best for object shapes (especially public API surfaces)\n  - Supports extends (inheritance)\n  - Supports declaration merging (libraries augment them)\n  - Familiar to OOP developers\n\n  type:\n  - Required for unions: type Result = Success | Failure\n  - Required for tuples: type Point = [number, number]\n  - Better for mapped/conditional types (advanced)\n  - More flexible for composition\n\n  Rule of thumb for 80% of cases:\n  - Objects/classes → interface\n  - Unions/aliases/complex → type\n  - Either works for simple objects — be consistent per codebase",

@@ -315,7 +315,7 @@ s.toInt()  s.toIntOrNull()    // toIntOrNull returns null instead of throwing
 
 // Char — UTF-16 code unit
 val c = 'A'
-c.code                         // 65 (Unicode code point)
+c.code                         // 65 (UTF-16 code-unit value)
 c.isLetter()  c.isDigit()  c.isUpperCase()
 ```
 

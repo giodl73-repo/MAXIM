@@ -89,10 +89,10 @@ updated: null
   Example: Llama-3-8B
     num_layers = 32, num_heads = 32, d_head = 128 (= 4096/32), FP16 = 2 bytes
     context_len = 8192 tokens
-    2 × 32 × 32 × 128 × 8192 × 2 = ~4.3 GB per sequence
+    2 × 32 × 8 × 128 × 8192 × 2 = ~1.1 GB per sequence (num_kv_heads = 8, GQA)
 
   For batched serving at context_len=8192, batch_size=16:
-    4.3 GB × 16 = ~69 GB — exceeds a single A100 80GB with model weights
+    1.1 GB × 16 = ~17 GB (GQA, 8 KV heads)
 
   This is why context length and batch size are the primary
   serving constraints, not raw compute.

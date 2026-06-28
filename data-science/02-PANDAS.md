@@ -53,8 +53,7 @@ updated: null
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-Pandas 2.0 (2023) switched the default backend from NumPy to Apache Arrow for
-many dtypes. Arrow uses a columnar memory format that is more efficient for
+Pandas 2.0 (2023) added an optional Apache Arrow backend (dtype_backend="pyarrow") for many dtypes, but the default backend remains NumPy. Arrow uses a columnar memory format that is more efficient for
 string columns, nullable integers, and large datasets. The API is unchanged.
 
 ---
@@ -197,7 +196,7 @@ df["count"] = df["count"].astype("Int64")   # nullable, can hold NA
 df["flag"] = df["flag"].astype("boolean")   # nullable bool
 
 # String types
-df["name"].dtype      # object_ in Pandas 1; ArrowDtype in Pandas 2
+df["name"].dtype      # object by default in both Pandas 1 and 2 (ArrowDtype only if opted in)
 df["name"] = df["name"].astype("string")    # StringDtype — better performance
 
 # Check memory usage

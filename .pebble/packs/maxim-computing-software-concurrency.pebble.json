@@ -1,0 +1,2225 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-computing-software-concurrency",
+  "source": "../../computing",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "28-CONCURRENCY.md#000",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "# Concurrency — Engineering Reference"
+    },
+    {
+      "id": "28-CONCURRENCY.md#001",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "28-CONCURRENCY.md#002",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "Concurrency correctness is hard because the interleaving of operations from multiple threads creates an exponential space of possible executions. This guide covers the formal foundations (Herlihy-Shavit territory), hardware memory models, practical synchronization primitives, and the modern concurrency abstractions used in production — from lock-free data structures to async/await."
+    },
+    {
+      "id": "28-CONCURRENCY.md#003",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "```\n┌─────────────────────────────────────────────────────────────────────────────┐\n│  CONCURRENCY LANDSCAPE                                                      │\n│                                                                             │\n│  Correctness Properties          Progress Properties                        │\n│  ───────────────────────────     ─────────────────────────────              │\n│  Safety: nothing bad happens     Deadlock-freedom: some thread progresses   │\n│  Linearizability: atomic ops     Starvation-freedom: every thread progresses│\n│  Sequential consistency          Lock-freedom: some op completes in O(steps)│\n│  Serializability (transactions)  Wait-freedom: every op completes O(steps)  │\n│                                                                             │\n│  Synchronization Models         Hardware Concerns                           │\n│  ───────────────────────────     ──────────────────────────────             │\n│  Mutex / monitors                Memory ordering (TSO, PSO, SC)             │\n│  Reader-writer locks             Cache coherence (MESI protocol)            │\n│  Lock-free (CAS, LL/SC)          False sharing, cache line contention       │\n│  Wait-free (universal construction) Memory barriers / fences                │\n│  STM (transactional memory)      ABA problem                                │\n│  Message passing (CSP, Actors)                                              │\n│  Async/await (cooperative)                                                  │\n└─────────────────────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "28-CONCURRENCY.md#004",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "28-CONCURRENCY.md#005",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "## 1. Correctness Properties"
+    },
+    {
+      "id": "28-CONCURRENCY.md#006",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "### Safety and Liveness"
+    },
+    {
+      "id": "28-CONCURRENCY.md#007",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "**Safety** (\"nothing bad ever happens\"): The concurrent history is equivalent to some valid sequential history. Examples: mutual exclusion (at most one thread in CS), deadlock-freedom."
+    },
+    {
+      "id": "28-CONCURRENCY.md#008",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "**Liveness** (\"something good eventually happens\"): Progress properties. Examples: some thread makes progress (deadlock-freedom), every thread eventually makes progress (starvation-freedom)."
+    },
+    {
+      "id": "28-CONCURRENCY.md#009",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "Formal models use **histories**: sequences of invocations and responses of operations on shared objects."
+    },
+    {
+      "id": "28-CONCURRENCY.md#010",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "### Linearizability"
+    },
+    {
+      "id": "28-CONCURRENCY.md#011",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "**Definition** (Herlihy-Wing 1990): A history H is linearizable if:\n1. It can be extended to a legal sequential history S by completing (or removing) pending operations.\n2. The real-time order of operations in H is preserved in S (if op A completes before op B invokes, then A is before B in S)."
+    },
+    {
+      "id": "28-CONCURRENCY.md#012",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "```\nIntuition: Each operation appears to take effect instantaneously at some point\n           between its invocation and response (the linearization point)."
+    },
+    {
+      "id": "28-CONCURRENCY.md#013",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "Non-linearizable example:\n  Thread 1: enqueue(1)  ─────────────────────────────\n  Thread 2: enqueue(2)       ────────────────────────\n  Thread 3: dequeue() returns 2, then dequeue() returns 1"
+    },
+    {
+      "id": "28-CONCURRENCY.md#014",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "If the queue is FIFO, and enqueue(1) starts before enqueue(2),\n  a linearizable queue cannot return 2 before 1.\n  This execution is NOT linearizable for a FIFO queue.\n```"
+    },
+    {
+      "id": "28-CONCURRENCY.md#015",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "**Compositionality** (Herlihy-Wing): If each object in a system is linearizable, the combined system is linearizable. This does NOT hold for sequential consistency — cannot compose sequentially consistent objects."
+    },
+    {
+      "id": "28-CONCURRENCY.md#016",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "### Sequential Consistency"
+    },
+    {
+      "id": "28-CONCURRENCY.md#017",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "Weaker than linearizability: operations within each thread must be ordered, but no real-time constraint between threads. Different threads may observe different operation orderings."
+    },
+    {
+      "id": "28-CONCURRENCY.md#018",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "**Java volatile** provides sequential consistency for accesses to volatile variables."
+    },
+    {
+      "id": "28-CONCURRENCY.md#019",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "### Serializability (transaction model)"
+    },
+    {
+      "id": "28-CONCURRENCY.md#020",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "A set of concurrent transactions is serializable if the result is equivalent to some serial execution. Does NOT require real-time order (unlike strict serializability = linearizability + serializability)."
+    },
+    {
+      "id": "28-CONCURRENCY.md#021",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "**Conflict serializability**: Check via conflict dependency graph. Schedule is conflict-serializable iff dependency graph is acyclic."
+    },
+    {
+      "id": "28-CONCURRENCY.md#022",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "28-CONCURRENCY.md#023",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "## 2. Hardware Memory Models"
+    },
+    {
+      "id": "28-CONCURRENCY.md#024",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "### The Cache Coherence Problem"
+    },
+    {
+      "id": "28-CONCURRENCY.md#025",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "```\nMulti-core CPU:"
+    },
+    {
+      "id": "28-CONCURRENCY.md#026",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "Core 0              Core 1              Core 2\n  ┌──────────┐        ┌──────────┐        ┌──────────┐\n  │ L1 cache │        │ L1 cache │        │ L1 cache │\n  └────┬─────┘        └────┬─────┘        └────┬─────┘\n       │                   │                   │\n  ┌──────────────────────────────────────────────────┐\n  │                  L3 cache (shared)               │\n  └──────────────────────────────────────────────────┘\n                             │\n                           DRAM"
+    },
+    {
+      "id": "28-CONCURRENCY.md#027",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "Problem: Core 0 writes to x. Core 1 has x in L1 cache.\n  Without coherence: Core 1 reads stale value.\n  With coherence: Core 1's copy is invalidated or updated.\n```"
+    },
+    {
+      "id": "28-CONCURRENCY.md#028",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "**MESI protocol** (Modified-Exclusive-Shared-Invalid):\n```\nStates per cache line:\n  M (Modified):  Only this cache has it; memory is stale; must write back.\n  E (Exclusive): Only this cache has it; clean (matches memory).\n  S (Shared):    Multiple caches have clean copies.\n  I (Invalid):   Cache line not valid."
+    },
+    {
+      "id": "28-CONCURRENCY.md#029",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "Transitions:\n  Core 0 reads x (not in cache) → fetches from memory → state E\n  Core 1 reads x (not in cache) → both Core 0 and Core 1 → state S for both\n  Core 0 writes x → broadcasts RFO (Request For Ownership) → Core 1 line → I\n                  → Core 0 line → M\n```"
+    },
+    {
+      "id": "28-CONCURRENCY.md#030",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "MESI ensures coherence (each cache line has consistent value). But MESI does NOT guarantee that operations on different cache lines are seen in the same order."
+    },
+    {
+      "id": "28-CONCURRENCY.md#031",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "### Memory Ordering — Why Compilers and CPUs Reorder"
+    },
+    {
+      "id": "28-CONCURRENCY.md#032",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "Modern CPUs and compilers aggressively reorder instructions for performance:\n- **Out-of-order execution**: CPUs issue instructions in dependency order, not program order\n- **Write buffers**: CPU writes go into a buffer before reaching cache; other cores don't see them immediately\n- **Compiler reordering**: Compilers move independent operations freely"
+    },
+    {
+      "id": "28-CONCURRENCY.md#033",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "```\nExample (Dekker's algorithm, broken on x86):"
+    },
+    {
+      "id": "28-CONCURRENCY.md#034",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "Thread 1:              Thread 2:\n  x = 1                  y = 1\n  r1 = y                 r2 = x\n  assert r1 == 1         assert r2 == 1"
+    },
+    {
+      "id": "28-CONCURRENCY.md#035",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "On x86 (TSO model): Both assertions can fail!\n  Thread 1's write to x may still be in the write buffer\n  when Thread 2 reads x, even though x=1 comes first in program order.\n```"
+    },
+    {
+      "id": "28-CONCURRENCY.md#036",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "### Memory Models by Architecture"
+    },
+    {
+      "id": "28-CONCURRENCY.md#037",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "| Architecture | Model | Store-Store reorder | Load-Load reorder | Store-Load reorder | Load-Store reorder |\n|--------------|-------|---------------------|-------------------|--------------------|-------------------|\n| x86/x86-64 | TSO (Total Store Order) | No | No | Yes | No |\n| ARM64 | Relaxed | Yes | Yes | Yes | Yes |\n| POWER | Relaxed | Yes | Yes | Yes | Yes |\n| RISC-V | RVWMO (relaxed) | Yes | Yes | Yes | Yes |\n| Intel Itanium | IA-64 | Yes | Yes | Yes | Yes |"
+    },
+    {
+      "id": "28-CONCURRENCY.md#038",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "**TSO (Total Store Order)**: x86 stores go into a FIFO write buffer. A store is visible to other cores only after leaving the buffer. A load that occurs after a store may read the old value if the store is still buffered."
+    },
+    {
+      "id": "28-CONCURRENCY.md#039",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "### Memory Barriers (Fences)"
+    },
+    {
+      "id": "28-CONCURRENCY.md#040",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "```\nTypes:\n  StoreStore barrier:  All stores before the barrier visible before any store after.\n  LoadLoad barrier:    All loads before the barrier complete before any load after.\n  LoadStore barrier:   All loads before the barrier complete before any store after.\n  StoreLoad barrier:   All stores before barrier visible before any load after.\n                       MFENCE on x86. Full barrier. Most expensive."
+    },
+    {
+      "id": "28-CONCURRENCY.md#041",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "x86 MFENCE use: between a store and a subsequent load to prevent reordering.\nARM DMB ISH: data memory barrier for inner shareable domain.\n```"
+    },
+    {
+      "id": "28-CONCURRENCY.md#042",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "**C++ memory_order** (C++11 atomics):\n```cpp\nmemory_order_relaxed:  No ordering guarantees; just atomicity.\nmemory_order_acquire:  No loads/stores in this thread can be reordered before this load.\nmemory_order_release:  No loads/stores in this thread can be reordered after this store.\nmemory_order_acq_rel:  Acquire + Release (for read-modify-write ops).\nmemory_order_seq_cst:  Sequential consistency. Full fence on x86."
+    },
+    {
+      "id": "28-CONCURRENCY.md#043",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "// Release-acquire pattern (most common for synchronization):\n// Producer:\nflag.store(true, std::memory_order_release);  // All prior writes visible before flag"
+    },
+    {
+      "id": "28-CONCURRENCY.md#044",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "// Consumer:\nwhile (!flag.load(std::memory_order_acquire));  // Sees all writes that preceded store\n// Now safe to read data written by producer.\n```"
+    },
+    {
+      "id": "28-CONCURRENCY.md#045",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "**Java Memory Model (JMM)**: Happens-before relation. `volatile` writes happen-before subsequent `volatile` reads. Synchronized block exit happens-before entry of anyone synchronizing on same monitor. `volatile` = seq_cst on all architectures."
+    },
+    {
+      "id": "28-CONCURRENCY.md#046",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "**.NET Memory Model**: Weaker than Java in documentation; in practice CLR on x86 matches JMM. `Volatile.Read()` = acquire; `Volatile.Write()` = release. `Thread.MemoryBarrier()` = full fence. `Interlocked.*` operations = sequentially consistent."
+    },
+    {
+      "id": "28-CONCURRENCY.md#047",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "28-CONCURRENCY.md#048",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "## 3. Lock-Based Concurrency"
+    },
+    {
+      "id": "28-CONCURRENCY.md#049",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "### Mutex Reference"
+    },
+    {
+      "id": "28-CONCURRENCY.md#050",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "| Algorithm / Primitive | What it demonstrates | Production use |\n|----------------------|---------------------|----------------|\n| Dekker's algorithm | First software mutex without hardware support; uses shared memory + turn variable | Never — requires memory barriers; hardware atomics are available |\n| Peterson's algorithm | Two-thread mutex with acquire/release semantics; clean correctness proof | Never — two-thread only; use OS mutex |\n| TAS (Test-and-Set) | Simplest spinlock; CAS on a single byte | Rarely — causes cache line invalidation storm under contention |\n| TTAS (Test-and-Test-and-Set) | Spin on regular read (MESI S state); attempt TAS only when lock looks free | Low-contention spinlocks; reduces coherence traffic vs TAS |\n| CLH / MCS queue lock | Fair queuing; each waiter spins on its own cache line | Linux kernel rwlock, Java AbstractQueuedSynchronizer (AQS) |\n| OS blocking mutex | Kernel-assisted sleep/wake; ~1–5 μs context switch | Standard choice for long critical sections |"
+    },
+    {
+      "id": "28-CONCURRENCY.md#051",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "### CLH / MCS Queue Locks"
+    },
+    {
+      "id": "28-CONCURRENCY.md#052",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "CLH (Craig-Landin-Hagersten) and MCS (Mellor-Crummey-Scott) are the production-grade fair queuing mutexes. The key insight: each thread spins on its own node's flag, not on a shared variable — so lock release doesn't broadcast a cache invalidation to all waiters simultaneously (the thundering herd problem with TAS/TTAS)."
+    },
+    {
+      "id": "28-CONCURRENCY.md#053",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "```\nMCS queue structure:\n  Each thread allocates a QNode: { volatile bool locked; QNode* next; }\n  Global tail pointer (atomic)."
+    },
+    {
+      "id": "28-CONCURRENCY.md#054",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "Acquire:\n    qnode.locked = true; qnode.next = null\n    prev = fetch_and_store(tail, qnode)    // atomic swap\n    if prev != null:\n      prev.next = qnode\n      while qnode.locked: spin            // spin on OWN node's field"
+    },
+    {
+      "id": "28-CONCURRENCY.md#055",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "Release:\n    if qnode.next == null:\n      if CAS(tail, qnode, null): return   // no waiters\n      while qnode.next == null: spin      // wait for enqueuing thread\n    qnode.next.locked = false             // hand lock to successor"
+    },
+    {
+      "id": "28-CONCURRENCY.md#056",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "Each waiter spins on its own cache line (private to that thread).\nLock release touches exactly ONE other cache line (the successor's).\nNo broadcast invalidation storm.\n```"
+    },
+    {
+      "id": "28-CONCURRENCY.md#057",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "CLH is the implicit version (predecessor's node, not own). Java's `AbstractQueuedSynchronizer` (the backing class for `ReentrantLock`, `Semaphore`, `CountDownLatch`) implements a CLH-variant. Linux kernel's `rwlock` uses MCS for the write path."
+    },
+    {
+      "id": "28-CONCURRENCY.md#058",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "### Monitors and Condition Variables"
+    },
+    {
+      "id": "28-CONCURRENCY.md#059",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "```\nMonitor = mutex + set of condition variables."
+    },
+    {
+      "id": "28-CONCURRENCY.md#060",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "Python threading.Condition, Java Object.wait/notify, C++ std::condition_variable:"
+    },
+    {
+      "id": "28-CONCURRENCY.md#061",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "Lock mutex\n  while (!condition): cv.wait(mutex)   // atomically release mutex and sleep\n  // condition is now true\n  // ... critical section ...\n  Unlock mutex"
+    },
+    {
+      "id": "28-CONCURRENCY.md#062",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "// Other thread:\n  Lock mutex\n  // change state to make condition true\n  cv.notify_all()\n  Unlock mutex\n```"
+    },
+    {
+      "id": "28-CONCURRENCY.md#063",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "**Spurious wakeups**: Threads can wake from `wait()` without `notify()`. Always check condition in a loop (`while`, not `if`)."
+    },
+    {
+      "id": "28-CONCURRENCY.md#064",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "**Mesa semantics** (Java, POSIX): `notify()` moves thread to ready queue; condition may change before it runs. Must re-check. **Hoare semantics** (original): Notified thread runs immediately; signaler suspends. Not used in practice (expensive)."
+    },
+    {
+      "id": "28-CONCURRENCY.md#065",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "### Reader-Writer Locks"
+    },
+    {
+      "id": "28-CONCURRENCY.md#066",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "```\nMultiple readers can hold lock simultaneously.\nWriter needs exclusive access."
+    },
+    {
+      "id": "28-CONCURRENCY.md#067",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "Implementations:\n  - Simple: counter for readers; writer waits for counter = 0.\n  - Writer-priority: waiting writer blocks new readers.\n  - Reader-priority: writer starves if steady stream of readers.\n  - Fair (FIFO): mix based on arrival order."
+    },
+    {
+      "id": "28-CONCURRENCY.md#068",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "std::shared_mutex (C++17), java.util.concurrent.locks.ReentrantReadWriteLock,\n.NET ReaderWriterLockSlim."
+    },
+    {
+      "id": "28-CONCURRENCY.md#069",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "Downgrade: hold write → acquire read → release write. Supported by some implementations.\nUpgrade: hold read → acquire write. Risks deadlock if two threads try simultaneously.\n```"
+    },
+    {
+      "id": "28-CONCURRENCY.md#070",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "### Deadlock"
+    },
+    {
+      "id": "28-CONCURRENCY.md#071",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "**Four Coffman conditions** — all must hold simultaneously for deadlock:"
+    },
+    {
+      "id": "28-CONCURRENCY.md#072",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "| Condition | Break it by |\n|-----------|-------------|\n| Mutual exclusion | Use lock-free data structures (atomics, MPSC queues) |\n| Hold and wait | Acquire all locks atomically (std::lock, Monitor.TryEnter with timeout) |\n| No preemption | Lock timeouts; tryLock patterns |\n| Circular wait | Global lock ordering — always acquire in consistent order |"
+    },
+    {
+      "id": "28-CONCURRENCY.md#073",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "**Lock ordering** (canonical production approach): Define a global total order on locks (by memory address, by assigned ID, by resource hierarchy). Every code path acquires locks in that order. Circular wait becomes impossible."
+    },
+    {
+      "id": "28-CONCURRENCY.md#074",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "```csharp\n// C# — acquire two locks without deadlock\n// std::lock equivalent: acquire both or neither, retry internally\nlock (LockOrderer.First(lockA, lockB))   // order by address or ID\n{\n    lock (LockOrderer.Second(lockA, lockB))\n    {\n        // safe\n    }\n}"
+    },
+    {
+      "id": "28-CONCURRENCY.md#075",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "// Or use Monitor.TryEnter with timeout:\nif (Monitor.TryEnter(lockA, TimeSpan.FromMilliseconds(100)))\n{\n    try {\n        if (Monitor.TryEnter(lockB, TimeSpan.FromMilliseconds(100)))\n        {\n            try { /* critical section */ }\n            finally { Monitor.Exit(lockB); }\n        }\n    }\n    finally { Monitor.Exit(lockA); }\n}\n```"
+    },
+    {
+      "id": "28-CONCURRENCY.md#076",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "**C++ std::lock**: Acquires multiple mutexes without deadlock using a deadlock-avoidance algorithm (tries, backs off, retries in different order). `std::scoped_lock(m1, m2)` in C++17."
+    },
+    {
+      "id": "28-CONCURRENCY.md#077",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "**Lock-free elimination**: The best deadlock prevention is removing the lock. Use `Interlocked.Increment` for counters, MPSC (multi-producer single-consumer) queues for work distribution — no lock, no deadlock."
+    },
+    {
+      "id": "28-CONCURRENCY.md#078",
+      "path": [
+        "28-CONCURRENCY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:28-concurrency, git-history:computing-software:28-concurrency]",
+        "canonical_path": "computing/28-CONCURRENCY.md",
+        "concepts": "[concurrency, parallelism, threads, async, locks]",
+        "current_path": "computing/28-CONCURRENCY.md",
+        "id": "maxim:computing-software:concurrency",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[concurrency, parallelism]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Concurrency - Engineering Reference",
+        "updated": "null"
+      },
+      "text": "**Banker's algorithm**: O(n²) per allocation decision; requires knowing maximum resource demands in advance. Textbook concept; unused in production OS or databases."
+    }
+  ],
+  "refs": [
+    "28-CONCURRENCY.md"
+  ]
+}

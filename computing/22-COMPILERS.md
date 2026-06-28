@@ -59,8 +59,8 @@ THE COMPILER ECOSYSTEM — WHO SHARES WHAT
   Standalone JIT (own backend, no LLVM)
   ┌────────────────────────────────────────────────────────────────┐
   │  V8 (JS):    Ignition (bytecode) → Maglev → Turbofan           │
-  │  SpiderMonkey: Warp JIT (replaces IonMonkey)                   │
-  │  JavaScriptCore: LLInt → Baseline → DFG → FTL (LLVM-based!)    │
+  │  SpiderMonkey: Warp front-end → IonMonkey                      │
+  │  JavaScriptCore: LLInt → Baseline → DFG → FTL (B3, ex-LLVM)    │
   └────────────────────────────────────────────────────────────────┘
 
   Transpilers (no native backend — source → source)

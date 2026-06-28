@@ -222,7 +222,7 @@ structure of the *original* series after removing that structure.
 
 **Information criteria for model selection**:
 ```
-  AIC = -2 log L̂ + 2(p+q+d+1)      ← penalizes complexity (prediction)
+  AIC = -2 log L̂ + 2(p+q+1)      ← penalizes complexity (prediction)
   BIC = -2 log L̂ + log(n)(p+q+d+1)  ← heavier penalty (model selection)
 ```
 

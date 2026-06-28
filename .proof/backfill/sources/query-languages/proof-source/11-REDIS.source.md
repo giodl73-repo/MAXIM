@@ -658,7 +658,7 @@ appendonly yes
 appendfilename "appendonly.aof"
 
 # fsync policy — the key durability/performance tradeoff:
-appendfsync always      # fsync after every write: max durability, highest latency (~1 write/ms)
+appendfsync always      # fsync after every write command: max durability, lowest throughput
 appendfsync everysec    # fsync once per second: default, lose at most 1 second of data
 appendfsync no          # let the OS decide (typically 30s): fastest, least durable
 ```

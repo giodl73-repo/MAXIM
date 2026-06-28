@@ -322,7 +322,7 @@ more powerful than fixed kernels on structured data.
     N_opt ∝ C^{0.5}
     D_opt ∝ C^{0.5}
 
-  Optimal allocation: N ≈ 20D (train for ~20 tokens per parameter)
+  Optimal allocation: D ≈ 20N (train for ~20 tokens per parameter)
 
   Example:
     GPT-3 (175B params, 300B tokens): undertrained by Chinchilla criteria

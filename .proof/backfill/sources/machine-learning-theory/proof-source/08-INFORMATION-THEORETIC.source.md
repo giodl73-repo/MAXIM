@@ -164,7 +164,7 @@ NUMERICAL EXAMPLE (MNIST-like setting)
 ## Mutual Information Bounds
 
 ```
-RUSSO-ZOU BOUND (2016)
+XU-RAGINSKY BOUND (2017)
 ───────────────────────
 Let A: Z^m → W be a learning algorithm.
 S = (Z₁,...,Zₘ) iid from D.

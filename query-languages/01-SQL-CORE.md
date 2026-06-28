@@ -270,9 +270,9 @@ SELECT
 FROM orders;
 -- T-SQL equivalent (no FILTER): SUM(CASE WHEN status = 'completed' THEN amount END)
 
--- STRING_AGG (SQL:2017 — replaces GROUP_CONCAT / FOR XML PATH)
+-- STRING_AGG (SQL:2016 — replaces GROUP_CONCAT / FOR XML PATH)
 SELECT customer_id,
-       STRING_AGG(product_name, ', ') ORDER BY product_name AS products
+       STRING_AGG(product_name, ', ' ORDER BY product_name) AS products
 FROM   order_items
 GROUP BY customer_id;
 -- T-SQL: STRING_AGG works in SQL Server 2017+
@@ -359,14 +359,14 @@ FROM   org_tree
 ORDER BY path;
 ```
 
-**T-SQL note**: SQL Server uses `WITH cte AS (...)` — same syntax. The `RECURSIVE` keyword is
-optional in T-SQL (recursion is always allowed in CTEs). PostgreSQL requires the keyword.
+**T-SQL note**: SQL Server uses `WITH cte AS (...)` — same syntax. T-SQL has no `RECURSIVE`
+keyword (recursion is implicit in any self-referencing CTE). PostgreSQL requires the keyword.
 
 **Materialization behavior** — matters for performance:
 ```
-PostgreSQL (pre-14):  CTEs are an optimization fence — always materialized
+PostgreSQL (pre-12):  CTEs are an optimization fence — always materialized
                       (query planner cannot push predicates through them)
-PostgreSQL 14+:       inline by default unless MATERIALIZED keyword used
+PostgreSQL 12+:       inline by default unless MATERIALIZED keyword used
 SQL Server:           always inline (treated as a view, not a temp table)
 Oracle:               inline by default; WITH ... AS MATERIALIZED forces mat.
 
@@ -1094,8 +1094,8 @@ HAVING COUNT(*) > 5
 ```
 
 **CTE materialization**
-CTEs are not always a performance barrier. PostgreSQL 14+ inlines them by default.
-SQL Server always inlines (treats as a view). Pre-14 PostgreSQL materializes (optimization fence).
+CTEs are not always a performance barrier. PostgreSQL 12+ inlines them by default.
+SQL Server always inlines (treats as a view). Pre-12 PostgreSQL materializes (optimization fence).
 A CTE is not a temp table — do not expect it to be physically stored unless explicitly materialized.
 
 **ROW_NUMBER vs RANK vs DENSE_RANK with ties**

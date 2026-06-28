@@ -281,7 +281,7 @@ SECURITY:
 ## 5. FALCON and SLH-DSA (SPHINCS+)
 
 ```
-FALCON (NIST FIPS 203 companion — FN-DSA):
+FALCON (FN-DSA — draft FIPS 206):
   Based on NTRU lattices (different from Module-LWE/SIS)
   NTRU: uses polynomial ring Z[x]/(x^n-1); special structure; very efficient
   Gaussian sampling: sample from discrete Gaussian conditioned on a lattice; "trapdoor"
@@ -364,7 +364,7 @@ MIGRATION TIMELINE DRIVERS:
 HYBRID SCHEMES (classical + PQC combined):
   Rationale: ML-KEM is new; may have undiscovered weaknesses; classical ECDH is well-studied
     Combine: if either component is secure → combined KEM is secure
-  IETF RFC 9496 (hybrid KEM): X25519 + ML-KEM-768 → shared secret = KDF(X25519_secret || ML-KEM_secret)
+  IETF draft-ietf-tls-hybrid-design: X25519 + ML-KEM-768 → shared secret = KDF(X25519_secret || ML-KEM_secret)
   TLS 1.3 key_share extension: clients send both X25519 AND ML-KEM key_share
     Google Chrome 2023: X25519Kyber768 (hybrid); Firefox 2024: similar
   SSH: OpenSSH 9.0+ supports mlkem768x25519 (hybrid KEM)
@@ -616,7 +616,7 @@ IETF PQC STANDARDS PIPELINE — PROTOCOL INTEGRATION MAP:
   └────────────────────────────────────────────────────────────────────────────────────────┘
 
   KEY DOCUMENTS TO FOLLOW:
-    RFC 9496:  HPKE with ML-KEM — the KEM integration for application-layer protocols
+    RFC 9180:  HPKE (ML-KEM integration via draft) — the KEM integration for application-layer protocols
     draft-ietf-tls-hybrid-design: TLS 1.3 hybrid KEM code points (defines X25519MLKEM768 group)
     draft-ietf-lamps-dilithium-x509: how to embed ML-DSA keys in X.509 certificates
     draft-ietf-openpgp-pqc: PQC extension for OpenPGP (email, software signing)

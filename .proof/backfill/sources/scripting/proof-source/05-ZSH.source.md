@@ -816,7 +816,7 @@ zsh -xvs 2>&1 | head -100    # trace mode; shows each line as executed
 | Startup file ordering | `.zshrc` not sourced for scripts | Use `.zshenv` for env vars needed in scripts |
 | `autoload` for builtins | `zmv`, `zcalc`, `zed` not available by default | `autoload -Uz zmv zcalc` in `.zshrc` |
 | Wrong shebang | `#!/bin/sh` invokes dash, not Zsh | `#!/usr/bin/env zsh` for Zsh features |
-| macOS ships old Zsh | `/bin/zsh` = 5.8.1 (2020, stuck on GPL v2) | `brew install zsh` + add to `/etc/shells` + `chsh` |
+| macOS ships old Zsh | `/bin/zsh` = 5.8.1 (2020; zsh uses an MIT-style license) | `brew install zsh` + add to `/etc/shells` + `chsh` |
 | Oh My Zsh startup time | Large plugin set → slow terminal open | `zprof` to profile; use lazy loading |
 | `SHARE_HISTORY` collisions | Fast typing can get wrong completions from another terminal | Expected behavior; use Ctrl-R to be precise |
 

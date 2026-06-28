@@ -157,7 +157,7 @@ FEATURE MAP
 INTERPRETATION
   • Smooth kernels: eigenvalues decay fast → effective finite dimension
   • Rough kernels: slow decay → many relevant directions
-  • RBF on [0,1]: eigenvalues decay as e^{-cj²} (extremely fast)
+  • RBF on [0,1]: eigenvalues decay as e^{-cj} (geometric/exponential — extremely fast)
 ```
 
 ---

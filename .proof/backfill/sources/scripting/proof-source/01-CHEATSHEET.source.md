@@ -1382,7 +1382,7 @@ typeset -f float=0.0   # float
 "$name interpolates"
 ${(U)name}             # uppercase (parameter expansion flag)
 ${(L)name}             # lowercase
-${(#)str}              # length  (or $#str)
+${#str}                # length  (or $#str)
 
 # Arrays — 1-INDEXED (unlike Bash 0-indexed)
 a=(one two three)

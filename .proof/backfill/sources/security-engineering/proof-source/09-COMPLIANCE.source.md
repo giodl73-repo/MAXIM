@@ -205,7 +205,7 @@ FedRAMP (Federal Risk and Authorization Management Program) is the US government
 FEDRAMP IMPACT LEVELS:
 
 LOW: Information with limited adverse effect if disclosed
-  72 controls (NIST SP 800-53 Rev 5 subset)
+  156 controls (NIST SP 800-53 Rev 5 subset)
   Example: public-facing informational websites
 
 MODERATE: Most federal systems (85% of federal use cases)

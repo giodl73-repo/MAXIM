@@ -118,7 +118,7 @@ bank of learned finite-impulse-response (FIR) filters applied in parallel.
 **Receptive field** grows with depth:
 ```
   Layer 1 (k=3): each output sees 3×3 input
-  Layer 2 (k=3): each output sees 5×5 input (3 + 2×1 dilation)
+  Layer 2 (k=3): each output sees 5×5 input (two stacked 3×3 convolutions)
   Layer L (k=3): each output sees (2L+1)×(2L+1) input
 
   Dilated convolution (atrous): skip pixels, k=3 with dilation d → effective k=2d+1

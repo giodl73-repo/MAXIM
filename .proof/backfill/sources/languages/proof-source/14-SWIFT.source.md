@@ -208,7 +208,7 @@ arr.filter { $0 > 1 }
 arr.map { $0 * 2 }
 arr.reduce(0, +)
 arr.sorted()  arr.sorted(by: >)
-arr[1...3]                  // ArraySlice (half-open: arr[1..<3])
+arr[1...3]                  // ArraySlice (closed/inclusive; half-open form is arr[1..<3])
 
 // Dictionary — value type (copies on write)
 var dict = ["key": 1, "k2": 2]     // [String: Int]

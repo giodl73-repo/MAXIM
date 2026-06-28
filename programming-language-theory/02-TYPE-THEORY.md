@@ -37,7 +37,7 @@ Type theory is lambda calculus + types. The progression STLC → System F → Hi
 |    ▼               ▼             ▼            ▼              ▼           |
 |  Fully         Type inf.      Fully        Inf. for       Undecidable   |
 |  inferrable    undecidable    inferrable   monomorphic    in general    |
-|               (Boehm 1985)   (Algorithm W) let; annot     (need         |
+|               (Wells 1994)   (Algorithm W) let; annot     (need         |
 |                               O(n·α(n))    for rank-2+    termination   |
 |                                                           checker)       |
 |                                                                          |
@@ -118,7 +118,7 @@ EXAMPLE — polymorphic composition:
   compose = Λα. Λβ. Λγ. λf:β→γ. λg:α→β. λx:α. f (g x)
 ```
 
-**Impredicativity of System F**: In ∀α.τ, α ranges over all types, including ∀α.τ itself. This is impredicative — the quantifier binds over a universe including itself. This is what makes type inference for full System F undecidable (Boehm 1985, Wells 1999).
+**Impredicativity of System F**: In ∀α.τ, α ranges over all types, including ∀α.τ itself. This is impredicative — the quantifier binds over a universe including itself. This is what makes type inference for full System F undecidable (Wells 1994).
 
 ```
 IMPREDICATIVITY EXAMPLE:
@@ -400,7 +400,7 @@ KNOWN UNSOUNDNESS HOLES (by design):
    class Cat extends Animal { makeSound(c: Cat): void }
    Cat.makeSound <: Animal.makeSound in TypeScript's system
    (Correct: Cat.makeSound should be contravariant in argument = NOT a subtype)
-   This is unsound. TypeScript chose soundness for usability.
+   This is unsound. TypeScript chose unsoundness for usability.
 
 2. TYPE ASSERTIONS (as):
    x as string  ← no runtime check; just type annotation

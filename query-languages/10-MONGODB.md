@@ -335,7 +335,7 @@ db.orders.aggregate([
 // $unwind — flatten array field to one document per array element
 // Like CROSS APPLY UNNEST or OPENJSON in T-SQL
 { $unwind: "$line_items" }
-{ $unwind: { path: "$tags", preserveNullAndEmpty: true } }  // keep docs with empty/null array
+{ $unwind: { path: "$tags", preserveNullAndEmptyArrays: true } }  // keep docs with empty/null array
 
 // $lookup — LEFT OUTER JOIN equivalent
 { $lookup: {
@@ -346,7 +346,7 @@ db.orders.aggregate([
 }}
 // Result: each order gets a 'customer' field = [{...customer doc...}]
 // Follow with $unwind to flatten to a single object:
-{ $unwind: { path: "$customer", preserveNullAndEmpty: true } }
+{ $unwind: { path: "$customer", preserveNullAndEmptyArrays: true } }
 ```
 
 **$lookup is not a SQL JOIN — performance model is fundamentally different.**
@@ -913,9 +913,9 @@ Cosmos DB Change Feed: Cosmos DB's native event log. Exposed to the MongoDB API 
 
 **`$elemMatch` vs direct array condition.** `{ scores: { $gt: 80, $lt: 90 } }` finds documents where any element > 80 AND (independently) any element < 90 — they can be different elements. `{ scores: { $elemMatch: { $gt: 80, $lt: 90 } } }` requires a single element to satisfy both conditions simultaneously.
 
-**`$lookup` output is always an array.** Even when the join should produce exactly one match, the `as` field is an array. Always follow with `{ $unwind: { path: "$field", preserveNullAndEmpty: true } }` to get a single document — or use `{ $arrayElemAt: ["$field", 0] }`.
+**`$lookup` output is always an array.** Even when the join should produce exactly one match, the `as` field is an array. Always follow with `{ $unwind: { path: "$field", preserveNullAndEmptyArrays: true } }` to get a single document — or use `{ $arrayElemAt: ["$field", 0] }`.
 
-**`$unwind` removes documents with empty arrays by default.** A document with `tags: []` or `tags: null` is dropped by `{ $unwind: "$tags" }`. Use `{ $unwind: { path: "$tags", preserveNullAndEmpty: true } }` to preserve them.
+**`$unwind` removes documents with empty arrays by default.** A document with `tags: []` or `tags: null` is dropped by `{ $unwind: "$tags" }`. Use `{ $unwind: { path: "$tags", preserveNullAndEmptyArrays: true } }` to preserve them.
 
 **Aggregation pipeline order is not commutative.** Put `$match` before `$group` and `$lookup` to filter early. A `$match` after a `$group` acts as `HAVING`. A `$sort` before `$limit` is the pattern for top-N.
 

@@ -114,7 +114,7 @@ var x = 5;                      // type inferred (Java 10+)
 // Primitives (no object overhead)
 byte  short  int  long          // 1, 2, 4, 8 bytes
 float  double                   // 4, 8 bytes
-boolean  char                   // 1 bit (stored as int), 2 bytes (UTF-16)
+boolean  char                   // boolean size JVM-unspecified (~1 byte), 2 bytes (UTF-16)
 
 // Boxed (nullable, work with generics)
 Byte  Short  Integer  Long

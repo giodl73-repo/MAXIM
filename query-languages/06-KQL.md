@@ -320,7 +320,7 @@ bin(timestamp, 15m)                      // every 15 minutes
 // Date/time extraction
 hourofday(timestamp)                     // 0–23
 dayofweek(timestamp)                     // 0=Sunday, 6=Saturday (timespan, not int)
-toint(dayofweek(timestamp))             // 0–6 as int
+toint(dayofweek(timestamp) / 1d)        // 0–6 as int
 dayofmonth(timestamp)                    // 1–31
 dayofyear(timestamp)                     // 1–366
 monthofyear(timestamp)                   // 1–12

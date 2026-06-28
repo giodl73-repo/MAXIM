@@ -180,7 +180,7 @@ Embedding models convert text (or images) into dense vectors. The geometry of th
   Structure: multi-layer proximity graph
 
   Layer 0 (densest):  ALL vectors, each connected to M nearest neighbors
-  Layer 1:           ~1/ef vectors (random subset)
+  Layer 1:           ~1/m_L of layer 0 (geometric decay, m_L ≈ 1/ln M)
   Layer 2:           ~1/ef² vectors (sparser)
   ...
   Top layer:         1-2 entry points

@@ -300,7 +300,7 @@ Decision tree "information gain":             Mutual information I(feature; clas
   ID3/C4.5 use exactly I(X;Y) as the           when feature X is revealed
   splitting criterion.
 
-Decision tree "Gini impurity":                ≈ (1 - H²(p)) / 2  — approximates entropy
+Decision tree "Gini impurity":                ≈ second-order Taylor approximation of entropy  — both measure class mixture
   1 - Σ pᵢ²                                   Both measure class mixture.
   Faster to compute than entropy; used by      Entropy is the information-theoretic ideal;
   sklearn by default.                          Gini is a fast approximation.
@@ -367,11 +367,11 @@ Feature selection: mutual information         sklearn: mutual_info_classif()
 
 ## 10. Common Confusion Points
 
-1. **"KL divergence is a distance"** — It's not: not symmetric, no triangle inequality. The symmetric version `½(D_KL(P‖Q) + D_KL(Q‖P))` is the Jensen-Shannon divergence, which is bounded and is a metric after taking square roots.
+1. **"KL divergence is a distance"** — It's not: not symmetric, no triangle inequality. The symmetric version `½(D_KL(P‖M) + D_KL(Q‖M))` with M=(P+Q)/2 is the Jensen-Shannon divergence, which is bounded and a metric after square root. (Note: ½(D_KL(P‖Q)+D_KL(Q‖P)) is instead the Jeffreys divergence, which is unbounded.)
 
 2. **"Cross-entropy loss = entropy"** — Cross-entropy H(P,Q) ≠ entropy H(P). Cross-entropy includes KL divergence: H(P,Q) = H(P) + D_KL(P‖Q). MLE minimizes cross-entropy, which minimizes KL since H(P_data) is constant.
 
-3. **"Mutual information is symmetric, so direction doesn't matter"** — I(X;Y) = I(Y;X) as a quantity, but conditioning can break symmetry: I(X;Y|Z) ≠ I(Y;X|Z) only when there's shared context. The data processing inequality I(X;Z) ≤ I(X;Y) for X→Y→Z has a specific direction.
+3. **"Mutual information is symmetric, so direction doesn't matter"** — I(X;Y) = I(Y;X) as a quantity, but conditioning can break symmetry: conditional MI is also symmetric: I(X;Y|Z) = I(Y;X|Z). The data processing inequality I(X;Z) ≤ I(X;Y) for X→Y→Z has a specific direction.
 
 4. **"High entropy = bad"** — Depends on context. In compression, high entropy = requires more bits. In RL (max entropy RL), high policy entropy is desirable for exploration. In calibration, entropy should match uncertainty.
 

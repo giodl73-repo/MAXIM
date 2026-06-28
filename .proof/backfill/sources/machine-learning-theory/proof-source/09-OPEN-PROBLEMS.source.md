@@ -179,7 +179,7 @@ THE FUNDAMENTAL DIFFICULTY
 THE PROBLEM
 ────────────
 We know:
-  (1) Depth-3 networks (3 threshold neurons) are NP-hard to learn [Blum-Rivest 1992]
+  (1) A 2-layer, 3-node network (2 hidden threshold neurons + 1 output) is NP-hard to train [Blum-Rivest 1992]
   (2) In practice, SGD trains networks with millions of neurons efficiently
 
 THE GAP

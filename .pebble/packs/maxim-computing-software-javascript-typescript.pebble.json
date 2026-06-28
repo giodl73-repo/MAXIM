@@ -1,0 +1,181 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-computing-software-javascript-typescript",
+  "source": "../../computing",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "03-JS-TS.md#000",
+      "path": [
+        "03-JS-TS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:03-js-ts, git-history:computing-software:03-js-ts]",
+        "canonical_path": "computing/03-JS-TS.md",
+        "concepts": "[javascript, typescript, ecmascript, module systems, commonjs, esm, tsconfig, runtime environments]",
+        "current_path": "computing/03-JS-TS.md",
+        "id": "maxim:computing-software:javascript-typescript",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[javascript, typescript]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "JavaScript & TypeScript - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "# JavaScript & TypeScript — A Layered Guide"
+    },
+    {
+      "id": "03-JS-TS.md#001",
+      "path": [
+        "03-JS-TS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:03-js-ts, git-history:computing-software:03-js-ts]",
+        "canonical_path": "computing/03-JS-TS.md",
+        "concepts": "[javascript, typescript, ecmascript, module systems, commonjs, esm, tsconfig, runtime environments]",
+        "current_path": "computing/03-JS-TS.md",
+        "id": "maxim:computing-software:javascript-typescript",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[javascript, typescript]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "JavaScript & TypeScript - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "03-JS-TS.md#002",
+      "path": [
+        "03-JS-TS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:03-js-ts, git-history:computing-software:03-js-ts]",
+        "canonical_path": "computing/03-JS-TS.md",
+        "concepts": "[javascript, typescript, ecmascript, module systems, commonjs, esm, tsconfig, runtime environments]",
+        "current_path": "computing/03-JS-TS.md",
+        "id": "maxim:computing-software:javascript-typescript",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[javascript, typescript]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "JavaScript & TypeScript - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "JavaScript is a runtime language. TypeScript is a compile-time layer on top of it. They are not alternatives — TypeScript *becomes* JavaScript."
+    },
+    {
+      "id": "03-JS-TS.md#003",
+      "path": [
+        "03-JS-TS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:03-js-ts, git-history:computing-software:03-js-ts]",
+        "canonical_path": "computing/03-JS-TS.md",
+        "concepts": "[javascript, typescript, ecmascript, module systems, commonjs, esm, tsconfig, runtime environments]",
+        "current_path": "computing/03-JS-TS.md",
+        "id": "maxim:computing-software:javascript-typescript",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[javascript, typescript]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "JavaScript & TypeScript - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|                    THE JS/TS STACK                               |\n|                                                                  |\n|  YOU WRITE          YOU BUILD            RUNTIME EXECUTES        |\n|  ----------         ----------           -----------------       |\n|  TypeScript   -->   TypeScript   -->     JavaScript              |\n|  (.ts, .tsx)        Compiler             (.js)                   |\n|                     (tsc / esbuild                               |\n|                      / babel)            Browser (V8/SpiderMnky) |\n|                                          Node.js (V8)            |\n|                     Strips all           Deno (V8)               |\n|                     type annotations     Bun (JavaScriptCore)    |\n|                     Emits plain JS                               |\n|                                                                  |\n|  TypeScript types NEVER exist at runtime. They are erased.       |\n+------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "03-JS-TS.md#004",
+      "path": [
+        "03-JS-TS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:03-js-ts, git-history:computing-software:03-js-ts]",
+        "canonical_path": "computing/03-JS-TS.md",
+        "concepts": "[javascript, typescript, ecmascript, module systems, commonjs, esm, tsconfig, runtime environments]",
+        "current_path": "computing/03-JS-TS.md",
+        "id": "maxim:computing-software:javascript-typescript",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[javascript, typescript]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "JavaScript & TypeScript - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "**The key insight**: TypeScript is a *static analysis tool* that happens to compile. The output is plain JavaScript. If you want to check a type at runtime, you do it yourself with `typeof` or `instanceof` — TypeScript can't help you there."
+    },
+    {
+      "id": "03-JS-TS.md#005",
+      "path": [
+        "03-JS-TS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:03-js-ts, git-history:computing-software:03-js-ts]",
+        "canonical_path": "computing/03-JS-TS.md",
+        "concepts": "[javascript, typescript, ecmascript, module systems, commonjs, esm, tsconfig, runtime environments]",
+        "current_path": "computing/03-JS-TS.md",
+        "id": "maxim:computing-software:javascript-typescript",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[javascript, typescript]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "JavaScript & TypeScript - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "> **Scope of this guide**: This guide covers the **toolchain and module system** — CJS vs ESM, module resolution algorithms, tsconfig compilation pipeline, declaration file discovery. For JS/TS language features (destructuring, optional chaining, async/await, classes, generics, utility types), see `languages/07-JAVASCRIPT.md` and `languages/08-TYPESCRIPT.md`. The language content below is retained for `target`/`lib` context; the toolchain sections are the primary focus."
+    }
+  ],
+  "refs": [
+    "03-JS-TS.md"
+  ]
+}

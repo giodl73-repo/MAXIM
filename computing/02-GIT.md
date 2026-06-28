@@ -17,7 +17,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # Git — Modern Version Control Workflows
 
 ## The Big Picture

@@ -340,7 +340,7 @@
         "title": "08 - Inference Optimization and Serving",
         "updated": "null"
       },
-      "text": "Example: Llama-3-8B\n    num_layers = 32, num_heads = 32, d_head = 128 (= 4096/32), FP16 = 2 bytes\n    context_len = 8192 tokens\n    2 × 32 × 32 × 128 × 8192 × 2 = ~4.3 GB per sequence"
+      "text": "Example: Llama-3-8B\n    num_layers = 32, num_heads = 32, d_head = 128 (= 4096/32), FP16 = 2 bytes\n    context_len = 8192 tokens\n    2 × 32 × 8 × 128 × 8192 × 2 = ~1.1 GB per sequence (num_kv_heads = 8, GQA)"
     },
     {
       "id": "08-INFERENCE-DEPLOYMENT.md#012",
@@ -368,7 +368,7 @@
         "title": "08 - Inference Optimization and Serving",
         "updated": "null"
       },
-      "text": "For batched serving at context_len=8192, batch_size=16:\n    4.3 GB × 16 = ~69 GB — exceeds a single A100 80GB with model weights"
+      "text": "For batched serving at context_len=8192, batch_size=16:\n    1.1 GB × 16 = ~17 GB (GQA, 8 KV heads)"
     },
     {
       "id": "08-INFERENCE-DEPLOYMENT.md#013",

@@ -167,7 +167,7 @@ DREAD is a risk scoring system for prioritizing identified threats. It has been 
 |--------|-------------|-------------|
 | **D**amage | How severe if exploited? (financial, reputational, regulatory) | 1–10 |
 | **R**eproducibility | How reliably can the attacker exploit it? | 1–10 |
-| **E**xploitability | How difficult to exploit? (skill required) | 1–10 |
+| **E**xploitability | How easy to exploit? (lower effort = higher score) | 1–10 |
 | **A**ffected users | How many users are impacted? | 1–10 |
 | **D**iscoverability | How likely is the attacker to find this? | 1–10 |
 

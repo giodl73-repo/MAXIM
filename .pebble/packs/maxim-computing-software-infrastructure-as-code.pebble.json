@@ -1,0 +1,3345 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-computing-software-infrastructure-as-code",
+  "source": "../../computing",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "14-IAC.md#000",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "# 14 — Infrastructure as Code"
+    },
+    {
+      "id": "14-IAC.md#001",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "14-IAC.md#002",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "```\nThe Problem IaC Solves\n======================="
+    },
+    {
+      "id": "14-IAC.md#003",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "Old World                            IaC World\n=========                            ========="
+    },
+    {
+      "id": "14-IAC.md#004",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "Azure Portal clickops               infrastructure defined in code\n  \"I'll just spin up a VM real quick\" tracked in git\n  Snowflake servers                   reviewed in PRs\n  \"Which settings did we use?\"        reproducible in any environment\n  Manual documentation                auditable history\n  Can't reproduce prod in staging     deploy → destroy → redeploy = identical"
+    },
+    {
+      "id": "14-IAC.md#005",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "Works fine for one person           Works for teams, at scale, across envs\n  Breaks at two                       Dev ≡ Staging ≡ Production\n```"
+    },
+    {
+      "id": "14-IAC.md#006",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "```\nIaC Tool Landscape\n==================="
+    },
+    {
+      "id": "14-IAC.md#007",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "Cloud-Agnostic                    Cloud-Native\n              ==============                    ============"
+    },
+    {
+      "id": "14-IAC.md#008",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "Declarative   Terraform (HCL)                 Bicep (Azure)\n                OpenTofu (OSS fork)             CloudFormation (AWS)\n                                                Deployment Manager (GCP)"
+    },
+    {
+      "id": "14-IAC.md#009",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "Imperative    Pulumi (TypeScript/Python/Go)   Azure SDK scripts\n  (real code)   CDK (TypeScript/Python)         AWS CDK"
+    },
+    {
+      "id": "14-IAC.md#010",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "Config Mgmt   Ansible (servers/config)        ─ (not really cloud-native)\n  (not infra)   Chef, Puppet"
+    },
+    {
+      "id": "14-IAC.md#011",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "┌──────────────────────────────────────────────────────────────┐\n  │  If you're Azure-first:   Bicep is the answer                │\n  │  If you're multi-cloud:   Terraform                          │\n  │  If you want real code:   Pulumi                             │\n  └──────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "14-IAC.md#012",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "14-IAC.md#013",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "## Core Concept: Declarative vs Imperative"
+    },
+    {
+      "id": "14-IAC.md#014",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "```\nImperative (scripts)               Declarative (IaC)\n====================               ================="
+    },
+    {
+      "id": "14-IAC.md#015",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "\"Do these steps:\"                  \"This is the desired state:\""
+    },
+    {
+      "id": "14-IAC.md#016",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "az group create ...                resource \"azurerm_resource_group\" \"rg\" {\n  az network vnet create ...           name     = \"myapp-rg\"\n  az vm create ...                     location = \"eastus\"\n  az vm extension set ...            }\n  ..."
+    },
+    {
+      "id": "14-IAC.md#017",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "Order matters                      Tool figures out the order\n  Not idempotent by default          Idempotent by design\n  Hard to know current state         State tracked explicitly\n  Drift is invisible                 Drift is detectable (plan)\n```"
+    },
+    {
+      "id": "14-IAC.md#018",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "**Idempotent**: run the same definition 10 times → same result. The tool diffs desired state against actual state and only makes the needed changes."
+    },
+    {
+      "id": "14-IAC.md#019",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "14-IAC.md#020",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "## Terraform"
+    },
+    {
+      "id": "14-IAC.md#021",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "The dominant multi-cloud IaC tool. HCL (HashiCorp Configuration Language) — structured, readable, not a full programming language."
+    },
+    {
+      "id": "14-IAC.md#022",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "> **ARM → Terraform bridge**\n>\n> You know ARM JSON: a JSON document sent to Azure Resource Manager describing desired end-state. Azure RP reconciles reality to match it. ARM state lives in Azure's control plane — you query the portal or `az resource show` to know what actually exists.\n>\n> Terraform HCL also declares desired state, and the provider reconciles. Key difference: **Terraform state lives in a file you own (`.tfstate`)**. You are responsible for it. It can drift.\n>\n> Same storage account in ARM vs HCL:\n>\n> ```json\n> // ARM JSON\n> {\n>   \"type\": \"Microsoft.Storage/storageAccounts\",\n>   \"apiVersion\": \"2023-01-01\",\n>   \"name\": \"[parameters('storageAccountName')]\",\n>   \"location\": \"[parameters('location')]\",\n>   \"sku\": { \"name\": \"Standard_LRS\" },\n>   \"kind\": \"StorageV2\"\n> }\n> ```\n>\n> ```hcl\n> # Terraform HCL\n> resource \"azurerm_storage_account\" \"sa\" {\n>   name                     = var.storage_account_name\n>   resource_group_name      = azurerm_resource_group.rg.name\n>   location                 = var.location\n>   account_tier             = \"Standard\"\n>   account_replication_type = \"LRS\"\n> }\n> ```\n>\n> ARM resource type strings map to Terraform provider resource names. The pattern is consistent but requires a lookup: `Microsoft.Storage/storageAccounts` → `azurerm_storage_account`, `Microsoft.Web/serverfarms` → `azurerm_service_plan`, `Microsoft.Sql/servers` → `azurerm_mssql_server`. Full mapping at [registry.terraform.io/providers/hashicorp/azurerm](https://registry.terraform.io/providers/hashicorp/azurerm)."
+    },
+    {
+      "id": "14-IAC.md#023",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "### How Terraform Works"
+    },
+    {
+      "id": "14-IAC.md#024",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "```\nWorkflow\n========="
+    },
+    {
+      "id": "14-IAC.md#025",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "Write .tf files        terraform init          terraform plan\n  ───────────────        ──────────────          ──────────────\n  Define resources       Download providers      Diff desired vs actual\n  in HCL                 (Azure, AWS, GCP,       Shows what will be\n                         K8s, GitHub, etc.)      created/changed/destroyed\n                                                 Review before applying"
+    },
+    {
+      "id": "14-IAC.md#026",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "terraform apply        terraform destroy\n  ───────────────        ─────────────────\n  Execute the plan       Tear everything down\n  Update state file      (careful in prod)\n```"
+    },
+    {
+      "id": "14-IAC.md#027",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "```\nState\n======"
+    },
+    {
+      "id": "14-IAC.md#028",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "terraform.tfstate — JSON file tracking what Terraform created"
+    },
+    {
+      "id": "14-IAC.md#029",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "local state:   fine for solo/learning, dangerous for teams\n  remote state:  store in Azure Blob Storage / S3 / Terraform Cloud\n                 enables locking (prevent concurrent applies)"
+    },
+    {
+      "id": "14-IAC.md#030",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "Never edit tfstate by hand.\n  Never commit tfstate with secrets to git.\n```"
+    },
+    {
+      "id": "14-IAC.md#031",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "> **ARM state model vs Terraform state model**\n>\n> ARM template deployment = idempotent apply against **Azure control plane as ground truth**. Azure always knows the real state; you can delete the template and `az resource list` still works.\n>\n> Terraform plan/apply = diff against **`.tfstate` file as ground truth**. The `.tfstate` file is Terraform's cached view of what it created. If someone changes infrastructure outside of Terraform (portal clickops, `az` CLI), the `.tfstate` file becomes stale — that's **state drift**. `terraform refresh` syncs the state file from reality; then `terraform plan` shows the true delta.\n>\n> This is the most important conceptual difference from ARM. With ARM, Azure is always the authoritative source. With Terraform, `.tfstate` is the authoritative source, and it can lie. Remote state with locking (Azure Blob + lease) restores ARM-like behavior: one writer at a time, shared across the team."
+    },
+    {
+      "id": "14-IAC.md#032",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "### HCL Syntax"
+    },
+    {
+      "id": "14-IAC.md#033",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "```hcl\n# Variables\nvariable \"location\" {\n  type        = string\n  default     = \"eastus\"\n  description = \"Azure region\"\n}"
+    },
+    {
+      "id": "14-IAC.md#034",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "variable \"app_name\" {\n  type = string                    # no default = required at apply time\n}"
+    },
+    {
+      "id": "14-IAC.md#035",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "# Resource\nresource \"azurerm_resource_group\" \"rg\" {\n  name     = \"${var.app_name}-rg\"  # string interpolation\n  location = var.location"
+    },
+    {
+      "id": "14-IAC.md#036",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "tags = {\n    environment = \"production\"\n    managed_by  = \"terraform\"\n  }\n}"
+    },
+    {
+      "id": "14-IAC.md#037",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "# Reference another resource's output\nresource \"azurerm_virtual_network\" \"vnet\" {\n  name                = \"${var.app_name}-vnet\"\n  resource_group_name = azurerm_resource_group.rg.name     # reference\n  location            = azurerm_resource_group.rg.location\n  address_space       = [\"10.0.0.0/16\"]\n}"
+    },
+    {
+      "id": "14-IAC.md#038",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "# Data source — read existing resource (not managed by this TF)\ndata \"azurerm_key_vault\" \"existing\" {\n  name                = \"myapp-kv\"\n  resource_group_name = \"shared-rg\"\n}"
+    },
+    {
+      "id": "14-IAC.md#039",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "# Output — expose values after apply\noutput \"resource_group_id\" {\n  value = azurerm_resource_group.rg.id\n}\n```"
+    },
+    {
+      "id": "14-IAC.md#040",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "### Complete Azure Example — App + DB"
+    },
+    {
+      "id": "14-IAC.md#041",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "```hcl\n# main.tf"
+    },
+    {
+      "id": "14-IAC.md#042",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "terraform {\n  required_providers {\n    azurerm = {\n      source  = \"hashicorp/azurerm\"\n      version = \"~> 3.0\"\n    }\n  }\n  # Remote state in Azure Blob\n  backend \"azurerm\" {\n    resource_group_name  = \"tfstate-rg\"\n    storage_account_name = \"tfstate12345\"\n    container_name       = \"tfstate\"\n    key                  = \"myapp.prod.tfstate\"\n  }\n}"
+    },
+    {
+      "id": "14-IAC.md#043",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "provider \"azurerm\" {\n  features {}\n}"
+    },
+    {
+      "id": "14-IAC.md#044",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "# Resource Group\nresource \"azurerm_resource_group\" \"rg\" {\n  name     = \"${var.app_name}-${var.env}-rg\"\n  location = var.location\n}"
+    },
+    {
+      "id": "14-IAC.md#045",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "# App Service Plan\nresource \"azurerm_service_plan\" \"plan\" {\n  name                = \"${var.app_name}-plan\"\n  resource_group_name = azurerm_resource_group.rg.name\n  location            = azurerm_resource_group.rg.location\n  os_type             = \"Linux\"\n  sku_name            = \"P1v3\"\n}"
+    },
+    {
+      "id": "14-IAC.md#046",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "# App Service (Web App)\nresource \"azurerm_linux_web_app\" \"app\" {\n  name                = \"${var.app_name}-${var.env}\"\n  resource_group_name = azurerm_resource_group.rg.name\n  location            = azurerm_resource_group.rg.location\n  service_plan_id     = azurerm_service_plan.plan.id"
+    },
+    {
+      "id": "14-IAC.md#047",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "site_config {\n    application_stack {\n      node_version = \"20-lts\"\n    }\n  }"
+    },
+    {
+      "id": "14-IAC.md#048",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "app_settings = {\n    DATABASE_URL = \"@Microsoft.KeyVault(SecretUri=${azurerm_key_vault_secret.db_url.id})\"\n    NODE_ENV     = var.env\n  }"
+    },
+    {
+      "id": "14-IAC.md#049",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "identity {\n    type = \"SystemAssigned\"          # Managed Identity for Key Vault access\n  }\n}"
+    },
+    {
+      "id": "14-IAC.md#050",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "# PostgreSQL Flexible Server\nresource \"azurerm_postgresql_flexible_server\" \"db\" {\n  name                   = \"${var.app_name}-${var.env}-db\"\n  resource_group_name    = azurerm_resource_group.rg.name\n  location               = azurerm_resource_group.rg.location\n  version                = \"16\"\n  administrator_login    = \"pgadmin\"\n  administrator_password = var.db_password    # from secrets, not hardcoded\n  sku_name               = \"B_Standard_B1ms\"\n  storage_mb             = 32768\n  zone                   = \"1\"\n}\n```"
+    },
+    {
+      "id": "14-IAC.md#051",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "### Modules"
+    },
+    {
+      "id": "14-IAC.md#052",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "Reusable, parameterized chunks of infrastructure. Like functions."
+    },
+    {
+      "id": "14-IAC.md#053",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "```hcl\n# Call a module\nmodule \"web_app\" {\n  source   = \"./modules/web-app\"        # local module\n  # source = \"Azure/webapp/azurerm\"     # Terraform Registry module"
+    },
+    {
+      "id": "14-IAC.md#054",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "app_name = var.app_name\n  location = var.location\n  env      = \"production\"\n}"
+    },
+    {
+      "id": "14-IAC.md#055",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "# modules/web-app/main.tf defines the resources\n# modules/web-app/variables.tf defines inputs\n# modules/web-app/outputs.tf exposes outputs\n```"
+    },
+    {
+      "id": "14-IAC.md#056",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "14-IAC.md#057",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "## Bicep"
+    },
+    {
+      "id": "14-IAC.md#058",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "Azure's native IaC language. Compiles to ARM JSON (think TypeScript → JavaScript). First-class Azure Portal and Azure CLI integration. The right choice if you're Azure-only."
+    },
+    {
+      "id": "14-IAC.md#059",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "```\nBicep vs ARM JSON\n=================="
+    },
+    {
+      "id": "14-IAC.md#060",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "ARM JSON (old)                     Bicep (new)\n==============                     ==========="
+    },
+    {
+      "id": "14-IAC.md#061",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "{                                  param appName string\n  \"$schema\": \"...\",                param location string = resourceGroup().location\n  \"contentVersion\": \"1.0.0.0\",\n  \"parameters\": {                  resource appPlan 'Microsoft.Web/serverfarms@2022-03-01' = {\n    \"appName\": {                     name: '${appName}-plan'\n      \"type\": \"string\"               location: location\n    }                                sku: {\n  },                                   name: 'P1v3'\n  \"resources\": [                       tier: 'PremiumV3'\n    {                                }\n      \"type\": \"Microsoft.Web/...   }\n      ...\n      (50 more lines of JSON)      // Same result. Much less noise.\n    }\n  ]\n}\n```"
+    },
+    {
+      "id": "14-IAC.md#062",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "### Bicep Syntax"
+    },
+    {
+      "id": "14-IAC.md#063",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "```bicep\n// Parameters\n@description('Environment name: dev, staging, prod')\n@allowed(['dev', 'staging', 'prod'])\nparam env string"
+    },
+    {
+      "id": "14-IAC.md#064",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "param appName string\nparam location string = resourceGroup().location"
+    },
+    {
+      "id": "14-IAC.md#065",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "// Variables\nvar planName = '${appName}-${env}-plan'\nvar webAppName = '${appName}-${env}'"
+    },
+    {
+      "id": "14-IAC.md#066",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "// Resource\nresource appPlan 'Microsoft.Web/serverfarms@2022-03-01' = {\n  name: planName\n  location: location\n  kind: 'linux'\n  sku: {\n    name: 'P1v3'\n    tier: 'PremiumV3'\n  }\n  properties: {\n    reserved: true    // required for Linux\n  }\n}"
+    },
+    {
+      "id": "14-IAC.md#067",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "resource webApp 'Microsoft.Web/sites@2022-03-01' = {\n  name: webAppName\n  location: location\n  properties: {\n    serverFarmId: appPlan.id    // reference: symbolic name, not string\n    siteConfig: {\n      linuxFxVersion: 'NODE|20-lts'\n      appSettings: [\n        {\n          name: 'NODE_ENV'\n          value: env\n        }\n      ]\n    }\n  }\n  identity: {\n    type: 'SystemAssigned'\n  }\n}"
+    },
+    {
+      "id": "14-IAC.md#068",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "// Output\noutput webAppUrl string = 'https://${webApp.properties.defaultHostName}'\n```"
+    },
+    {
+      "id": "14-IAC.md#069",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "### Modules in Bicep"
+    },
+    {
+      "id": "14-IAC.md#070",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "```bicep\n// main.bicep\nmodule database 'modules/postgres.bicep' = {\n  name: 'databaseDeploy'\n  params: {\n    serverName: '${appName}-db'\n    location: location\n    adminPassword: adminPassword\n  }\n}"
+    },
+    {
+      "id": "14-IAC.md#071",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "// Reference module output\nvar dbHostname = database.outputs.hostname\n```"
+    },
+    {
+      "id": "14-IAC.md#072",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "### Deploy Bicep"
+    },
+    {
+      "id": "14-IAC.md#073",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "```bash\n# Deploy to resource group\naz deployment group create \\\n  --resource-group myapp-rg \\\n  --template-file main.bicep \\\n  --parameters env=production appName=myapp"
+    },
+    {
+      "id": "14-IAC.md#074",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "# What-if (like terraform plan)\naz deployment group what-if \\\n  --resource-group myapp-rg \\\n  --template-file main.bicep \\\n  --parameters env=production appName=myapp"
+    },
+    {
+      "id": "14-IAC.md#075",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "# From Azure Pipelines\n- task: AzureResourceManagerTemplateDeployment@3\n  inputs:\n    deploymentScope: Resource Group\n    azureResourceManagerConnection: myServiceConnection\n    resourceGroupName: myapp-rg\n    templateLocation: Linked artifact\n    csmFile: infra/main.bicep\n    overrideParameters: -env production -appName myapp\n```"
+    },
+    {
+      "id": "14-IAC.md#076",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "14-IAC.md#077",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "## Pulumi"
+    },
+    {
+      "id": "14-IAC.md#078",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "Write real code (TypeScript, Python, Go, C#) that provisions infrastructure. The type system, loops, conditionals, and abstraction you already know."
+    },
+    {
+      "id": "14-IAC.md#079",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "> **Bicep → Pulumi bridge**\n>\n> Bicep is ARM JSON with better syntax — still declarative, still a DSL, still no loops beyond `for` expressions, still no real type system. It compiles down to ARM JSON.\n>\n> Pulumi is imperative IaC in real languages. You write TypeScript, Python, Go, or **C#** — with full IntelliSense, real loops, conditionals, generics, and typed resource references. For a C# developer, Pulumi feels like using the Azure SDK except the output is a running infrastructure deployment rather than an HTTP response.\n>\n> Pulumi C# example — create a storage account:\n>\n> ```csharp\n> using Pulumi;\n> using Pulumi.AzureNative.Resources;\n> using Pulumi.AzureNative.Storage;\n>\n> return await Deployment.RunAsync(() =>\n> {\n>     var rg = new ResourceGroup(\"rg\");\n>\n>     var sa = new StorageAccount(\"sa\", new StorageAccountArgs\n>     {\n>         ResourceGroupName = rg.Name,\n>         Sku = new SkuArgs { Name = SkuName.Standard_LRS },\n>         Kind = Kind.StorageV2,\n>     });\n>\n>     return new Dictionary<string, object?> { [\"storageAccountName\"] = sa.Name };\n> });\n> ```\n>\n> The NuGet package is `Pulumi.AzureNative` — it wraps the full Azure RM API surface with generated C# types. Every ARM resource type has a corresponding strongly-typed C# class."
+    },
+    {
+      "id": "14-IAC.md#080",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "```typescript\n// index.ts — Pulumi TypeScript"
+    },
+    {
+      "id": "14-IAC.md#081",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "import * as pulumi from \"@pulumi/pulumi\";\nimport * as azure from \"@pulumi/azure-native\";"
+    },
+    {
+      "id": "14-IAC.md#082",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "const config = new pulumi.Config();\nconst appName = config.require(\"appName\");\nconst env = config.require(\"env\");"
+    },
+    {
+      "id": "14-IAC.md#083",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "// Resource Group\nconst rg = new azure.resources.ResourceGroup(\"rg\", {\n  resourceGroupName: `${appName}-${env}-rg`,\n  location: \"EastUS\",\n});"
+    },
+    {
+      "id": "14-IAC.md#084",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "// App Service Plan\nconst plan = new azure.web.AppServicePlan(\"plan\", {\n  name: `${appName}-plan`,\n  resourceGroupName: rg.name,\n  location: rg.location,\n  kind: \"Linux\",\n  reserved: true,\n  sku: { name: \"P1v3\", tier: \"PremiumV3\" },\n});"
+    },
+    {
+      "id": "14-IAC.md#085",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "// Web App\nconst app = new azure.web.WebApp(\"app\", {\n  name: `${appName}-${env}`,\n  resourceGroupName: rg.name,\n  location: rg.location,\n  serverFarmId: plan.id,\n  siteConfig: {\n    linuxFxVersion: \"NODE|20-lts\",\n  },\n});"
+    },
+    {
+      "id": "14-IAC.md#086",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "// Export outputs — accessible after `pulumi up`\nexport const url = pulumi.interpolate`https://${app.defaultHostName}`;\n```"
+    },
+    {
+      "id": "14-IAC.md#087",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "```bash\npulumi up        # preview + deploy (like terraform plan + apply combined)\npulumi preview   # plan only\npulumi destroy   # tear down\npulumi stack     # manage environments (stacks = environments)\n```"
+    },
+    {
+      "id": "14-IAC.md#088",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "14-IAC.md#089",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "## Environments / Workspaces"
+    },
+    {
+      "id": "14-IAC.md#090",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "All three tools support multiple environments from the same code."
+    },
+    {
+      "id": "14-IAC.md#091",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "```\nTerraform workspaces:\n  terraform workspace new staging\n  terraform workspace select production\n  terraform apply -var-file=production.tfvars"
+    },
+    {
+      "id": "14-IAC.md#092",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "Bicep parameter files:\n  az deployment group create --parameters @params.prod.json"
+    },
+    {
+      "id": "14-IAC.md#093",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "Pulumi stacks:\n  pulumi stack init production\n  pulumi config set env production\n  pulumi up --stack production\n```"
+    },
+    {
+      "id": "14-IAC.md#094",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "Pattern: same code, different variable files per environment. Never duplicate infrastructure code for environments — parameterize."
+    },
+    {
+      "id": "14-IAC.md#095",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "14-IAC.md#096",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "## GitOps Pattern"
+    },
+    {
+      "id": "14-IAC.md#097",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "Infrastructure changes follow the same PR/review/merge flow as application code."
+    },
+    {
+      "id": "14-IAC.md#098",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "```\nGitOps Workflow\n================"
+    },
+    {
+      "id": "14-IAC.md#099",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "1. Engineer edits .tf / .bicep / Pulumi code\n  2. Opens PR\n  3. CI runs: terraform plan / az deployment what-if / pulumi preview\n     → Posts diff as PR comment: \"+ 2 resources, ~ 1 resource, - 0 resources\"\n  4. Reviewer sees exactly what will change in Azure\n  5. PR merges → CD pipeline runs terraform apply / az deploy / pulumi up\n  6. All infra changes auditable in git history"
+    },
+    {
+      "id": "14-IAC.md#100",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "No more \"who clicked what in the portal at 3pm Friday\"\n```"
+    },
+    {
+      "id": "14-IAC.md#101",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "```yaml\n# GitHub Actions — Terraform plan on PR\n- name: Terraform Plan\n  run: terraform plan -out=tfplan\n  env:\n    ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}\n    ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}\n    ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}\n    ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}"
+    },
+    {
+      "id": "14-IAC.md#102",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "- name: Comment plan on PR\n  uses: actions/github-script@v7\n  with:\n    script: |\n      const output = `...plan output...`;\n      github.rest.issues.createComment({ body: output, ... });\n```"
+    },
+    {
+      "id": "14-IAC.md#103",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "14-IAC.md#104",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "## Common Confusion Points"
+    },
+    {
+      "id": "14-IAC.md#105",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "**`terraform plan` shows a change you didn't make.**\nSomeone changed infrastructure outside of Terraform (portal clickops, manual az CLI). This is drift. Plan will show the delta between tfstate and reality. `terraform refresh` updates state from real world; then plan again."
+    },
+    {
+      "id": "14-IAC.md#106",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "**State file conflicts in a team.**\nTwo people run `terraform apply` simultaneously → state corruption. Fix: remote state with locking (Azure Blob Storage with lease locking, or Terraform Cloud). The backend config handles this automatically once set up."
+    },
+    {
+      "id": "14-IAC.md#107",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "**Bicep `what-if` is not always accurate.**\nWhat-if is advisory — some resource providers don't implement it fully. Always test in a non-production environment before applying to prod."
+    },
+    {
+      "id": "14-IAC.md#108",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "**Terraform destroy in production.**\n`terraform destroy` removes everything in the state. It's not scoped to what changed. Never run it in prod without reading the plan output carefully. Most teams add a `prevent_destroy = true` lifecycle block on critical resources."
+    },
+    {
+      "id": "14-IAC.md#109",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "**Resource drift vs config drift.**\nResource drift: someone changed infra outside IaC → fix by importing or re-applying.\nConfig drift: IaC code no longer reflects team intent → fix by updating code."
+    },
+    {
+      "id": "14-IAC.md#110",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "**Pulumi state vs Terraform state.**\nBoth track what was created. Pulumi defaults to Pulumi Cloud backend; Terraform defaults to local. Both support self-hosted backends. The state concept is identical — the storage location differs."
+    },
+    {
+      "id": "14-IAC.md#111",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "14-IAC.md#112",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "## Old World Bridge"
+    },
+    {
+      "id": "14-IAC.md#113",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "| Azure Portal / Manual Process | IaC Equivalent |\n|---|---|\n| Click \"Create resource group\" | `resource \"azurerm_resource_group\"` / `resource rg` |\n| Azure Portal ARM Export | Starting point for Bicep (decompile ARM JSON → Bicep) |\n| ARM JSON templates | Bicep (ARM is the compiled output) |\n| ARM JSON templates | Terraform HCL — `\"type\": \"Microsoft.Storage/storageAccounts\"` → `resource \"azurerm_storage_account\"`. ARM resource type strings map consistently to `azurerm_*` names; lookup at registry.terraform.io/providers/hashicorp/azurerm |\n| PowerShell provisioning scripts | Terraform / Bicep / Pulumi |\n| Deployment environments (dev/staging/prod) | Workspaces / stacks / parameter files |\n| Azure Blueprints (deprecated) | Bicep modules + Policy-as-code |\n| Manual VSTS environment setup | IaC in CI/CD pipeline (13-CICD) |\n| \"I know what's in prod\" | `terraform state list` / Pulumi stack output |\n| Azure Resource Manager | What Bicep compiles to; what Terraform's azurerm provider calls |\n| ARM as authoritative state store | Terraform remote state in Azure Blob — restores the \"Azure is source of truth\" property that local `.tfstate` breaks |"
+    },
+    {
+      "id": "14-IAC.md#114",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "14-IAC.md#115",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "## Cross-References"
+    },
+    {
+      "id": "14-IAC.md#116",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "- `computing/13-CICD.md` — deployment automation for infrastructure changes.\n- `cloud-architecture/01-CLOUD-MODELS.md` — cloud responsibility model for provisioned resources.\n- `systems-engineering/01-REQUIREMENTS.md` — requirements-to-implementation traceability."
+    },
+    {
+      "id": "14-IAC.md#117",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "14-IAC.md#118",
+      "path": [
+        "14-IAC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:computing-software:14-infrastructure-as-code, git-history:computing-software:14-infrastructure-as-code]",
+        "canonical_path": "computing/14-IAC.md",
+        "concepts": "[infrastructure as code, terraform, bicep, cloudformation, provisioning]",
+        "current_path": "computing/14-IAC.md",
+        "id": "maxim:computing-software:infrastructure-as-code",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[infrastructure as code, provisioning]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Infrastructure as Code",
+        "updated": "null"
+      },
+      "text": "| If you need to diagnose... | Start With | Key Caveat |\n|---|---|---|\n| Azure-only provisioning | Compare Bicep, ARM parity, modules, what-if, policy, and team Azure skill. | Bicep is Azure-native; multi-cloud portability is not its goal. |\n| Multi-cloud provisioning | Use Terraform with provider maturity, state backend, module discipline, and drift detection. | Provider abstraction does not make clouds equivalent. |\n| Programming-language IaC | Evaluate Pulumi language fit, typed APIs, secrets, state, previews, and team reviewability. | General-purpose languages can hide infrastructure intent in code flow. |\n| Server configuration | Use Ansible for OS/package/config tasks and separate it from cloud resource provisioning. | Configuration management and IaC overlap but solve different lifecycle layers. |\n| Change preview | Run plan/what-if/preview, inspect destructive changes, and require review before apply. | A plan is only as accurate as provider state and drift knowledge. |\n| Team state storage | Use remote backend, locking, encryption, access control, and backup. | Local state is a production risk. |\n| Reusable patterns | Use modules with versioning, inputs/outputs, examples, and policy guardrails. | Bad modules standardize bad architecture. |\n| CI/CD for infra | Use PR plan, approval, apply, drift checks, and environment promotion. | Infra pipelines can destroy production faster than app pipelines. |\n| Existing-resource import | Map real resource, import state, reconcile config, and run no-op plan. | Import records state; it does not generate correct desired configuration. |\n| Environment separation | Compare workspaces, stacks, parameter files, subscriptions/accounts, and blast radius. | Environments need isolation, not just variable names. |"
+    }
+  ],
+  "refs": [
+    "14-IAC.md"
+  ]
+}

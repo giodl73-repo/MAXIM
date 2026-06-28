@@ -614,7 +614,7 @@ CREATE DATABASE myapp CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
 
 | Collation | Behavior | Use When |
 |-----------|----------|----------|
-| `utf8mb4_unicode_ci` | Case+accent insensitive, Unicode 5.2 rules | Good default for MySQL 5.7 and earlier |
+| `utf8mb4_unicode_ci` | Case+accent insensitive, Unicode 4.0.0 rules | Good default for MySQL 5.7 and earlier |
 | `utf8mb4_0900_ai_ci` | Case+accent insensitive, Unicode 9.0 rules, faster | Default in MySQL 8.0 — use this |
 | `utf8mb4_0900_as_cs` | Case+accent sensitive | Need exact case matching |
 | `utf8mb4_bin` | Binary comparison | Maximum strictness, case-sensitive |
@@ -732,7 +732,7 @@ SQL Server identifier case sensitivity is always collation-dependent on the inst
 
 MySQL on Linux: **table names are file names** — the OS filesystem determines case sensitivity. On ext4/XFS (case-sensitive), `Orders` and `orders` are different tables. On macOS HFS+ (case-insensitive by default), they are the same. This is controlled by `lower_case_table_names`:
 - `0` = preserve case, case-sensitive comparisons (Linux default) — `Orders` ≠ `orders`
-- `1` = store lowercase, case-insensitive (Windows/macOS default) — `Orders` = `orders`
+- `1` = store lowercase, case-insensitive (Windows default) — `Orders` = `orders`
 - `2` = preserve case, case-insensitive comparisons (macOS only)
 
 **Operational trap:** Code developed on a developer's Mac (`lower_case_table_names=2`) deploys to a Linux server (`lower_case_table_names=0`) and breaks because table names were mixed-case. Always set `lower_case_table_names=1` (case-insensitive, store as lowercase) in production, and set it consistently across all environments. You cannot change this setting after database creation.

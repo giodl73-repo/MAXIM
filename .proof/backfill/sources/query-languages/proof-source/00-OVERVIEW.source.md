@@ -165,7 +165,7 @@ Consequence: WHERE col = NULL  → always UNKNOWN, never selects any rows
 | SQL-92 | 1992 | FULL OUTER JOIN, CASE, CAST, string functions, schema DDL, dynamic SQL | Mostly yes |
 | SQL:1999 (SQL3) | 1999 | **Recursive CTEs (WITH RECURSIVE)**, triggers, UDTs, BOOLEAN type, OO extensions | Partial (WITH existed as proprietary in SQL Server 2005+; not in 2000) |
 | SQL:2003 | 2003 | **Window functions (OVER)**, MERGE, SEQUENCE, XML type, identity columns, multiset types | No — major gap |
-| SQL:2008 | 2008 | TRUNCATE, **FETCH FIRST n ROWS ONLY** (ANSI pagination), INSTEAD OF triggers | No (T-SQL used TOP n) |
+| SQL:2008 | 2008 | TRUNCATE, **FETCH FIRST n ROWS ONLY** (ANSI pagination) | No (T-SQL used TOP n) |
 | SQL:2011 | 2011 | **Temporal tables** (system-versioned + application-time), PERIOD FOR | No |
 | SQL:2016 | 2016 | **JSON** (JSON_VALUE, JSON_QUERY, JSON_TABLE), row pattern recognition (MATCH_RECOGNIZE) | No |
 | SQL:2023 | 2023 | **SQL/PGQ** (property graph queries in SQL), UNIQUE predicate, improved JSON, PIPE syntax (preview) | No |

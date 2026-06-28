@@ -343,7 +343,7 @@ KV Cache — the critical inference optimization
   KV cache: store K and V tensors from all previous tokens
   At each new token: only compute Q for new token, reuse cached K and V
   Memory: O(n × layers × d_model × 2) per sequence
-  For Llama-7B, 4k context: ~800MB per sequence — significant at scale
+  For Llama-7B, 4k context: ~2GB per sequence (fp16) — significant at scale
 
   Implications for LLM serving:
     Throughput is limited by KV cache memory, not compute

@@ -364,7 +364,7 @@ PRAGMA wal_autocheckpoint = 10000;   -- 40MB before auto-checkpoint (tune for yo
 | Schema prefix | `database.schema.table` | `schema.table` (ATTACH DATABASE for multi-file) |
 | Permissions / users | Full grant/revoke | None — file system controls access |
 | ALTER COLUMN | `ALTER TABLE t ALTER COLUMN` | NOT SUPPORTED — recreate table |
-| FULL OUTER JOIN | Native | Not supported natively (3.39+ has RIGHT JOIN; emulate FULL with UNION) |
+| FULL OUTER JOIN | Native | Native in SQLite 3.39+ (2022, added RIGHT JOIN and FULL OUTER JOIN); pre-3.39 emulate FULL with UNION |
 
 ---
 

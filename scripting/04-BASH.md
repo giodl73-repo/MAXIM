@@ -255,7 +255,7 @@ echo $(( 8#77 ))           # → 63   (octal)
 echo $(( 2#1010 ))         # → 10   (binary)
 printf '%x\n' 255          # → ff   (decimal to hex output)
 printf '%o\n' 255          # → 377  (decimal to octal output)
-printf '%08b\n' 10         # → 00001010  (decimal to binary — with printf trick via dc or Python for real use)
+echo 'obase=2;10' | bc     # → 1010  (printf has no binary conversion; use bc/dc/Python)
 
 # Bitwise operators
 echo $(( 0xFF & 0x0F ))    # → 15  (AND)

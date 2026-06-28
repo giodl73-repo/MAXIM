@@ -1,11 +1,11 @@
 {
   "schema_version": "1",
-  "source_markdown": "C:\\src\\maxim\\computing\\05-FRONTEND.md",
+  "source_markdown": "computing\\05-FRONTEND.md",
   "blocks": [
     {
       "id": "block-1",
       "kind": "ascii_table_candidate",
-      "line": 27,
+      "line": 26,
       "heading_context": "## The Big Picture",
       "confidence": "candidate",
       "text": "                  FRONTEND FRAMEWORK LANDSCAPE\n\n  THE PROBLEM:  Data changes → UI must update\n  THE SOLUTION: Declare UI as a function of state\n\n  +------------+  +------------+  +------------+  +----------+\n  |   REACT    |  |    VUE     |  |  ANGULAR   |  |  SVELTE  |\n  +------------+  +------------+  +------------+  +----------+\n  | Virtual    |  | Reactive   |  | Zone.js    |  | Compile- |\n  | DOM diffing|  | system     |  | change     |  | time     |\n  | (runtime)  |  | (runtime)  |  | detection  |  | (no VDOM)|\n  +------------+  +------------+  +------------+  +----------+\n  | ~46% usage |  | ~18% usage |  | ~17% usage |  | ~6% usage|\n  | Meta/Vercel|  | Evan You   |  | Google     |  | Rich     |\n  |            |  |            |  |            |  | Harris   |\n  +------------+  +------------+  +------------+  +----------+\n\n  ECOSYSTEM LAYER (built on top of frameworks):\n  React: Next.js, Remix, Gatsby, Expo (React Native)\n  Vue:   Nuxt.js\n  Angular: Angular itself (full framework, no separate meta)",
@@ -16,7 +16,7 @@
     {
       "id": "block-2",
       "kind": "diagram_like",
-      "line": 59,
+      "line": 58,
       "heading_context": "### Imperative DOM Manipulation (the old way)",
       "confidence": "candidate",
       "text": "  <!-- HTML -->\n  <div id=\"count\">0</div>\n  <button id=\"btn\">Increment</button>\n\n  <script>\n    let count = 0\n    document.getElementById('btn').addEventListener('click', () => {\n      count++\n      document.getElementById('count').textContent = count  // manual sync\n    })\n  </script>",
@@ -27,7 +27,7 @@
     {
       "id": "block-3",
       "kind": "diagram_like",
-      "line": 77,
+      "line": 76,
       "heading_context": "### Declarative UI (the framework way)",
       "confidence": "candidate",
       "text": "  // React\n  function Counter() {\n    const [count, setCount] = useState(0)\n\n    return (\n      <div>\n        <div>{count}</div>\n        <button onClick={() => setCount(count + 1)}>Increment</button>\n      </div>\n    )\n  }",
@@ -38,7 +38,7 @@
     {
       "id": "block-4",
       "kind": "ascii_table_candidate",
-      "line": 101,
+      "line": 100,
       "heading_context": "## The Component Model",
       "confidence": "candidate",
       "text": "  COMPONENT = Data In + UI Out + Local State + Events Out\n\n  +------------------------------------------+\n  |              <UserCard>                  |\n  |  Props (inputs):                         |\n  |    name: \"Alice\"                         |\n  |    avatarUrl: \"...\"                      |\n  |    role: \"Admin\"                         |\n  |                                          |\n  |  Local State:                            |\n  |    isExpanded: false                     |\n  |                                          |\n  |  Renders:                                |\n  |    <div class=\"card\">                    |\n  |      <img src={avatarUrl} />             |\n  |      <h2>{name}</h2>                     |\n  |      <span>{role}</span>                 |\n  |      {isExpanded && <Details />}         |\n  |    </div>                                |\n  |                                          |\n  |  Events Out (callbacks via props):       |\n  |    onSelect: () => void                  |\n  +------------------------------------------+\n\n  Compose them into trees:\n  <App>\n    <Header />\n    <Sidebar>\n      <NavItem />\n      <NavItem />\n    </Sidebar>\n    <Main>\n      <UserCard name=\"Alice\" />\n      <UserCard name=\"Bob\" />\n    </Main>\n  </App>",
@@ -49,7 +49,7 @@
     {
       "id": "block-5",
       "kind": "diagram_like",
-      "line": 150,
+      "line": 149,
       "heading_context": "### JSX — Not HTML",
       "confidence": "candidate",
       "text": "  // What you write (JSX):\n  const element = <h1 className=\"title\">Hello {name}</h1>\n\n  // What it compiles to (React.createElement):\n  const element = React.createElement(\"h1\", { className: \"title\" }, \"Hello \", name)\n\n  // Key differences from HTML:\n  class      → className         (class is a reserved word in JS)\n  for        → htmlFor           (for is a reserved word in JS)\n  onclick    → onClick           (camelCase events)\n  style=\"\"   → style={{}}        (object, not string)\n  <!-- -->   → {/* comment */}   (JS comment syntax)\n  self-close → required          (<img /> not <img>)",
@@ -60,7 +60,7 @@
     {
       "id": "block-6",
       "kind": "diagram_like",
-      "line": 197,
+      "line": 196,
       "heading_context": "### The Virtual DOM and Reconciliation",
       "confidence": "candidate",
       "text": "  State changes → React re-runs your component function → new vdom tree\n\n  PREVIOUS VDOM             NEW VDOM                REAL DOM ACTION\n  ─────────────             ────────                ───────────────\n  <div.card>                <div.card>              no change (same element)\n    <h2>Alice</h2>            <h2>Alice</h2>        no change\n    <p>alice@ex.com</p>       <p>bob@ex.com</p>     update text node only\n\n  React walks both trees in parallel (O(n) — one pass).\n  Only the changed node gets a real DOM mutation.",
@@ -71,7 +71,7 @@
     {
       "id": "block-7",
       "kind": "diagram_like",
-      "line": 212,
+      "line": 211,
       "heading_context": "### The Virtual DOM and Reconciliation",
       "confidence": "candidate",
       "text": "  HEURISTIC 1: Element type at same position\n\n  <div> → <div>    Same type. React updates props. Keeps DOM node.\n  <div> → <span>   Different type. React TEARS DOWN the entire\n                   subtree and rebuilds from scratch.\n                   This is why swapping a component for a different\n                   one causes all child state to reset.\n\n  HEURISTIC 2: Keys for list items\n\n  Without keys:          With keys:\n  [A, B, C]              [A(k=1), B(k=2), C(k=3)]\n  [A, B, C, D]           [A(k=1), B(k=2), C(k=3), D(k=4)]\n\n  React compares by      React matches by key.\n  position. Adding D     New key=4 added at end.\n  at end is fine.        Key identifies identity\n                         across re-renders.\n\n  [A, B, C]    →  [X, A, B, C] (prepend X)\n  Without key: React thinks position 0 changed A→X, 1 changed B→A, etc.\n               Destroys and recreates all 4 DOM nodes.\n  With key:    React sees key=X new, keys 1/2/3 moved.\n               Creates 1 new node, moves 3 existing nodes.",
@@ -82,7 +82,7 @@
     {
       "id": "block-8",
       "kind": "diagram_like",
-      "line": 241,
+      "line": 240,
       "heading_context": "### The Virtual DOM and Reconciliation",
       "confidence": "candidate",
       "text": "  setState() called\n        |\n        v\n  ┌─────────────────────────────────────────────────────────┐\n  │ RENDER PHASE (pure, no side effects)                    │\n  │  Component function re-runs → new vdom tree             │\n  │  React diffs new tree vs previous (reconciliation)      │\n  │  Produces a list of DOM mutations needed                │\n  └─────────────────────────────────────────────────────────┘\n        |\n        v\n  ┌─────────────────────────────────────────────────────────┐\n  │ COMMIT PHASE (applies changes to real DOM)              │\n  │  React applies only the mutations computed in render    │\n  │  Runs useLayoutEffect (synchronous, after DOM update)   │\n  │  Runs useEffect (asynchronous, after browser paint)     │\n  └─────────────────────────────────────────────────────────┘\n        |\n        v\n  Browser paints the updated pixels",
@@ -93,7 +93,7 @@
     {
       "id": "block-9",
       "kind": "ascii_table_candidate",
-      "line": 266,
+      "line": 265,
       "heading_context": "### The Virtual DOM and Reconciliation",
       "confidence": "candidate",
       "text": "  REACT'S RENDERING MODEL\n\n  State change (setState called)\n         |\n         v\n  +------------------+\n  | Component fn     |\n  | re-executes      |\n  +------------------+\n  Re-runs to produce new JSX tree\n         |\n         v\n  +------------------+     +------------------+\n  | New Virtual DOM  |     | Previous Virtual |\n  | (JS object tree) |     | DOM (in memory)  |\n  +------------------+     +------------------+\n\n  Diff: new vs previous virtual DOM\n         |\n         v  (reconciliation)\n  +------------------+\n  | Minimal DOM      |\n  | patch applied    |\n  +------------------+\n  Only changed nodes updated (~10x cheaper than full re-render).\n\n  Re-renders propagate DOWN the tree.\n  A parent re-rendering always re-renders its children (unless memoized).\n  State change in a leaf component re-renders only that leaf.",
@@ -104,7 +104,7 @@
     {
       "id": "block-10",
       "kind": "diagram_like",
-      "line": 300,
+      "line": 299,
       "heading_context": "### When Does React Re-render?",
       "confidence": "candidate",
       "text": "  A component re-renders when:\n  1. Its own state changes (useState setter called)\n  2. Its parent re-renders (even if props didn't change — unless React.memo)\n  3. A context it consumes changes (useContext)\n\n  Implications:\n  - State high in the tree → expensive (many children re-render)\n  - State near the leaf → cheap (only that component re-renders)\n  - React.memo() wraps a component: skip re-render if props are shallowly equal\n  - useMemo() / useCallback() prevent new references on every render\n    (new reference = React thinks prop changed even if value is same)",
@@ -115,7 +115,7 @@
     {
       "id": "block-11",
       "kind": "diagram_like",
-      "line": 316,
+      "line": 315,
       "heading_context": "### When Does React Re-render?",
       "confidence": "candidate",
       "text": "  COMPONENT TREE                 STATE CHANGES AT <B>\n\n         <A>                            <A>         ← does NOT re-render\n         / \\                            / \\           (state change is in B,\n        /   \\                          /   \\           not A)\n      <B>   <E>                      <B>*  <E>     ← <B> re-renders (owns state)\n      / \\                            / \\           ← <E> does NOT re-render\n    <C> <D>                        <C>* <D>*      ← <C> and <D> re-render\n                                                    (children of B, no memo)\n\n  Default React behavior: parent re-renders → ALL children re-render.\n  Even if <C>'s and <D>'s props did not change.\n\n  WITH React.memo:\n\n         <A>\n         / \\\n       <B>   <E>\n       / \\\n  memo(<C>)  <D>\n\n  State changes at <B>:\n  <B> re-renders. React checks <C>'s props — shallow equal? Yes → SKIP.\n  <D> re-renders (no memo).\n\n  This is the motivation for React.memo, useMemo, useCallback:\n  ┌────────────────────────────────────────────────────────────┐\n  │ React.memo(Component)  — skip re-render if props unchanged │\n  │ useMemo(fn, deps)      — skip re-computation if deps same  │\n  │ useCallback(fn, deps)  — stable function reference         │\n  │                          (new function ref = React.memo    │\n  │                           sees a \"changed\" prop and        │\n  │                           re-renders anyway)               │\n  └────────────────────────────────────────────────────────────┘\n\n  Rule: put state as low in the tree as possible.\n  State at root → everything re-renders on every change.\n  State in a leaf → only that leaf re-renders.",
@@ -126,7 +126,7 @@
     {
       "id": "block-12",
       "kind": "diagram_like",
-      "line": 361,
+      "line": 360,
       "heading_context": "### Functional Components",
       "confidence": "candidate",
       "text": "  // A complete, real-world component\n  interface User {\n    id: number\n    name: string\n    email: string\n  }\n\n  interface UserCardProps {\n    user: User\n    onSelect: (id: number) => void\n    isHighlighted?: boolean        // optional prop\n  }\n\n  function UserCard({ user, onSelect, isHighlighted = false }: UserCardProps) {\n    return (\n      <div\n        className={`card ${isHighlighted ? 'card--highlighted' : ''}`}\n        onClick={() => onSelect(user.id)}\n      >\n        <h2>{user.name}</h2>\n        <p>{user.email}</p>\n      </div>\n    )\n  }",
@@ -137,7 +137,7 @@
     {
       "id": "block-13",
       "kind": "diagram_like",
-      "line": 394,
+      "line": 393,
       "heading_context": "#### useState",
       "confidence": "candidate",
       "text": "  const [value, setValue] = useState(initialValue)\n  //     ^        ^\n  //     current  updater function (triggers re-render)\n\n  const [count, setCount] = useState(0)\n  const [user, setUser] = useState<User | null>(null)\n  const [items, setItems] = useState<string[]>([])\n\n  // Updating objects — must create new object (immutability)\n  setUser({ ...user, name: \"New Name\" })    // spread + override\n  setItems([...items, \"new item\"])          // spread + append\n  setItems(items.filter(i => i !== \"old\"))  // spread + remove",
@@ -148,7 +148,7 @@
     {
       "id": "block-14",
       "kind": "diagram_like",
-      "line": 415,
+      "line": 414,
       "heading_context": "#### useEffect",
       "confidence": "candidate",
       "text": "  useEffect(() => {\n    // runs after every render (rarely what you want)\n  })\n\n  useEffect(() => {\n    // runs once after first render (componentDidMount equivalent)\n  }, [])   // empty dependency array\n\n  useEffect(() => {\n    // runs when userId changes\n    fetchUser(userId).then(setUser)\n  }, [userId])   // dependency array — re-run when these change\n\n  useEffect(() => {\n    const subscription = subscribe(topic)\n\n    return () => {\n      subscription.unsubscribe()  // cleanup = componentWillUnmount\n    }\n  }, [topic])\n\n  // Common pattern: fetch data\n  useEffect(() => {\n    let cancelled = false\n    async function load() {\n      const data = await fetchUser(id)\n      if (!cancelled) setUser(data)  // guard against stale closures\n    }\n    load()\n    return () => { cancelled = true }\n  }, [id])",
@@ -159,7 +159,7 @@
     {
       "id": "block-15",
       "kind": "ascii_table_candidate",
-      "line": 453,
+      "line": 452,
       "heading_context": "#### useRef",
       "confidence": "candidate",
       "text": "  // 1. Access a DOM element directly\n  const inputRef = useRef<HTMLInputElement>(null)\n  <input ref={inputRef} />\n  // later: inputRef.current?.focus()\n\n  // 2. Store a value across renders without re-rendering\n  const countRef = useRef(0)\n  countRef.current++   // mutate freely — won't trigger re-render\n  // Use for: timers, previous values, mutable state that doesn't affect UI",
@@ -170,7 +170,7 @@
     {
       "id": "block-16",
       "kind": "diagram_like",
-      "line": 469,
+      "line": 468,
       "heading_context": "#### useMemo and useCallback",
       "confidence": "candidate",
       "text": "  // useMemo: recompute only when dependencies change\n  const sortedItems = useMemo(\n    () => [...items].sort(compareFn),\n    [items]  // only re-sort when items changes\n  )\n\n  // useCallback: stable function reference across renders\n  const handleSelect = useCallback(\n    (id: number) => { onSelect(id); setSelected(id) },\n    [onSelect]  // new function only when onSelect changes\n  )\n  // Needed when passing callbacks to memoized child components",
@@ -181,7 +181,7 @@
     {
       "id": "block-17",
       "kind": "diagram_like",
-      "line": 515,
+      "line": 514,
       "heading_context": "### Custom Hooks — Reusable Logic",
       "confidence": "candidate",
       "text": "  // Custom hook: encapsulate fetch logic\n  function useUser(id: number) {\n    const [user, setUser] = useState<User | null>(null)\n    const [loading, setLoading] = useState(true)\n    const [error, setError] = useState<Error | null>(null)\n\n    useEffect(() => {\n      setLoading(true)\n      fetchUser(id)\n        .then(setUser)\n        .catch(setError)\n        .finally(() => setLoading(false))\n    }, [id])\n\n    return { user, loading, error }\n  }\n\n  // Use it anywhere — logic is encapsulated\n  function UserProfile({ id }: { id: number }) {\n    const { user, loading, error } = useUser(id)\n    if (loading) return <Spinner />\n    if (error) return <ErrorMessage error={error} />\n    return <UserCard user={user!} />\n  }",
@@ -192,7 +192,7 @@
     {
       "id": "block-18",
       "kind": "diagram_like",
-      "line": 544,
+      "line": 543,
       "heading_context": "### Rendering Lists and Conditional Rendering",
       "confidence": "candidate",
       "text": "  // Lists — always provide a key\n  function ItemList({ items }: { items: Item[] }) {\n    return (\n      <ul>\n        {items.map(item => (\n          <li key={item.id}>{item.name}</li>   // key = stable unique id\n        ))}\n      </ul>\n    )\n  }\n  // key helps React reconcile which items changed/added/removed.\n  // Don't use array index as key if list can reorder.\n\n  // Conditional rendering\n  function Panel({ isAdmin, user }: Props) {\n    return (\n      <div>\n        {isAdmin && <AdminControls />}          // short-circuit\n        {user ? <UserInfo user={user} /> : <LoginPrompt />}  // ternary\n        {error !== null && <ErrorBanner msg={error} />}\n      </div>\n    )\n  }",
@@ -203,7 +203,7 @@
     {
       "id": "block-19",
       "kind": "diagram_like",
-      "line": 572,
+      "line": 571,
       "heading_context": "### Component Lifecycle Summary",
       "confidence": "candidate",
       "text": "  MOUNT                    UPDATE                   UNMOUNT\n  -----                    ------                   -------\n  Component first          State or props           Component removed\n  appears in tree          changes                  from tree\n\n  useEffect(() => {        useEffect(() => {        useEffect(() => {\n    // setup               }, [dep])                  return () => {\n  }, [])                   // runs when dep            // cleanup\n                           // changes                }\n                                                    }, [])",
@@ -214,7 +214,7 @@
     {
       "id": "block-20",
       "kind": "ascii_table_candidate",
-      "line": 591,
+      "line": 590,
       "heading_context": "## Vue",
       "confidence": "candidate",
       "text": "  <!-- Single File Component (.vue) — template + script + style in one file -->\n  <template>\n    <div class=\"card\" @click=\"handleClick\">\n      <h2>{{ user.name }}</h2>\n      <p v-if=\"isExpanded\">{{ user.email }}</p>\n      <ul>\n        <li v-for=\"tag in user.tags\" :key=\"tag\">{{ tag }}</li>\n      </ul>\n    </div>\n  </template>\n\n  <script setup lang=\"ts\">\n  import { ref, computed } from 'vue'\n\n  const props = defineProps<{ user: User }>()\n  const emit = defineEmits<{ select: [id: number] }>()\n\n  const isExpanded = ref(false)                          // reactive primitive\n  const displayName = computed(() => props.user.name.toUpperCase())\n\n  function handleClick() {\n    isExpanded.value = !isExpanded.value                 // .value required\n    emit('select', props.user.id)\n  }\n  </script>\n\n  <style scoped>\n  .card { border: 1px solid #ccc; }    /* scoped = only this component */\n  </style>",
@@ -225,7 +225,7 @@
     {
       "id": "block-21",
       "kind": "diagram_like",
-      "line": 636,
+      "line": 635,
       "heading_context": "## Vue",
       "confidence": "candidate",
       "text": "  REACT MODEL                        VUE 3 / SIGNALS MODEL\n  ===========                        =====================\n\n  State changes → re-run the         State changes → propagate ONLY\n  entire component function.         through the reactive graph nodes\n  Framework decides what's           that depend on the changed state.\n  actually different via vdom diff.\n\n  Coarse-grained (component level)   Fine-grained (value level)\n\n  ──────────────────────────────     ──────────────────────────────\n\n  RX.NET MAPPING:\n\n  ref(0)                             new BehaviorSubject<int>(0)\n    ↓                                  ↓\n  computed(() => x.value * 2)        .Select(x => x * 2)  ← derived stream\n    ↓                                  ↓\n  watchEffect(() => render())        .Subscribe(v => render(v))\n\n  Vue tracks dependencies at READ time (like Rx Subscribe):\n  when computed() runs, Vue records every ref() it reads.\n  When those refs change, only that computed() re-evaluates.\n\n  REACTIVE GRAPH EXAMPLE:\n\n  const price = ref(100)                // BehaviorSubject<number>(100)\n  const qty   = ref(3)                  // BehaviorSubject<number>(3)\n  const total = computed(               // derived observable\n    () => price.value * qty.value       // subscribes to price AND qty\n  )\n  // total.value === 300\n\n  price.value = 200\n  // Vue sees: total depends on price → re-evaluate total only\n  // total.value === 600\n  // qty did not change → nothing else runs\n\n  // Compare React: you'd call setState({price: 200}),\n  // entire component re-runs, total recomputed as part of render.",
@@ -236,7 +236,7 @@
     {
       "id": "block-22",
       "kind": "diagram_like",
-      "line": 703,
+      "line": 702,
       "heading_context": "## Angular",
       "confidence": "candidate",
       "text": "  // app.component.ts\n  import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core'\n  import { UserService } from './user.service'\n\n  @Component({\n    selector: 'app-user-card',\n    template: `\n      <div class=\"card\" (click)=\"handleClick()\">\n        <h2>{{ user?.name }}</h2>\n        <p *ngIf=\"isExpanded\">{{ user?.email }}</p>\n        <li *ngFor=\"let tag of user?.tags\">{{ tag }}</li>\n      </div>\n    `,\n    styleUrls: ['./user-card.component.scss']\n  })\n  export class UserCardComponent implements OnInit {\n    @Input() userId!: number           // input property (like React prop)\n    @Output() selected = new EventEmitter<number>()  // output event\n\n    user: User | null = null\n    isExpanded = false\n\n    constructor(private userService: UserService) {}  // dependency injection\n\n    ngOnInit(): void {                 // lifecycle hook\n      this.userService.getUser(this.userId).subscribe(u => this.user = u)\n    }\n\n    handleClick(): void {\n      this.isExpanded = !this.isExpanded\n      this.selected.emit(this.userId)\n    }\n  }",
@@ -247,7 +247,7 @@
     {
       "id": "block-23",
       "kind": "diagram_like",
-      "line": 770,
+      "line": 769,
       "heading_context": "## Angular",
       "confidence": "candidate",
       "text": "  Angular DI tree mirrors the component tree:\n\n  AppModule injector (root)\n  ├── Router\n  ├── HttpClient\n  └── UserService  (providedIn: 'root' → lives here, singleton)\n\n      FeatureModule injector (child of root)\n      └── FeatureSpecificService  (provided in module → module-scoped)\n\n          AdminComponent injector (child of module)\n          └── AdminService  (provided in component → component-scoped)\n              ┌────────────────────────────────────────────────────┐\n              │ AdminComponent can see:                            │\n              │  - AdminService (own)                              │\n              │  - FeatureSpecificService (parent)                 │\n              │  - UserService (root)                              │\n              │                                                    │\n              │ A child injector can OVERRIDE a parent service     │\n              │ by providing the same token.                       │\n              └────────────────────────────────────────────────────┘\n\n  .NET equivalent: IServiceProvider scope hierarchy\n  var scope = rootProvider.CreateScope()\n  scope.ServiceProvider.GetService<T>()\n  // scope-level registrations shadow root registrations for same interface",
@@ -258,7 +258,7 @@
     {
       "id": "block-24",
       "kind": "diagram_like",
-      "line": 809,
+      "line": 808,
       "heading_context": "## Svelte",
       "confidence": "candidate",
       "text": "  <!-- UserCard.svelte -->\n  <script lang=\"ts\">\n    export let user: User        // props via export\n    export let onSelect: (id: number) => void\n\n    let isExpanded = false       // local state — just a variable\n    $: displayName = user.name.toUpperCase()   // $: = reactive declaration\n  </script>\n\n  <div on:click={() => { isExpanded = !isExpanded; onSelect(user.id) }}>\n    <h2>{displayName}</h2>\n    {#if isExpanded}\n      <p>{user.email}</p>\n    {/if}\n    {#each user.tags as tag}\n      <li>{tag}</li>\n    {/each}\n  </div>",
@@ -269,7 +269,7 @@
     {
       "id": "block-25",
       "kind": "ascii_table_candidate",
-      "line": 841,
+      "line": 840,
       "heading_context": "## Framework Comparison",
       "confidence": "candidate",
       "text": "  +---------------+----------+----------+----------+----------+\n  |               |  React   |   Vue    | Angular  |  Svelte  |\n  +---------------+----------+----------+----------+----------+\n  | Learning      | Medium   | Easy     | Hard     | Easy     |\n  | curve         |          |          |          |          |\n  +---------------+----------+----------+----------+----------+\n  | Bundle size   | ~40KB    | ~35KB    | ~130KB   | ~2KB     |\n  | (framework)   |          |          |          |          |\n  +---------------+----------+----------+----------+----------+\n  | Opinioned?    | Low      | Medium   | High     | Medium   |\n  +---------------+----------+----------+----------+----------+\n  | DI built-in?  | No       | No       | Yes      | No       |\n  +---------------+----------+----------+----------+----------+\n  | TypeScript    | Good     | Good     | Native   | Good     |\n  | support       |          |          |          |          |\n  +---------------+----------+----------+----------+----------+\n  | Meta-framework| Next.js  | Nuxt     | Built-in | SvelteKit|\n  |               | Remix    |          | Router   |          |\n  +---------------+----------+----------+----------+----------+\n  | Job market    | ★★★★★    | ★★★☆☆    | ★★★★☆    | ★★☆☆☆    |\n  +---------------+----------+----------+----------+----------+\n  | Best for      | Anything | Medium   | Large    | Perf-    |\n  |               |          | apps,    | enterprz | sensitive|\n  |               |          | fast DX  | teams    | apps     |\n  +---------------+----------+----------+----------+----------+",
@@ -280,7 +280,7 @@
     {
       "id": "block-26",
       "kind": "ascii_table_candidate",
-      "line": 875,
+      "line": 874,
       "heading_context": "## The React Ecosystem",
       "confidence": "candidate",
       "text": "  REACT CORE\n  - Components + JSX\n  - State (useState, useReducer)\n  - Side effects (useEffect)\n  - Context (useContext)\n  That's it.\n\n  WHAT YOU ADD:\n  +-------------------+------------------------------------------+\n  | Routing           | React Router, TanStack Router            |\n  | Server framework  | Next.js, Remix                           |\n  | Data fetching     | TanStack Query (React Query), SWR        |\n  | Global state      | Zustand, Jotai, Redux Toolkit            |\n  | Forms             | React Hook Form, Formik                  |\n  | UI components     | shadcn/ui, MUI, Radix, Chakra            |\n  | Animation         | Framer Motion                            |\n  | Testing           | React Testing Library + Vitest/Jest      |\n  | Styling           | Tailwind CSS, CSS Modules, styled-comps  |\n  +-------------------+------------------------------------------+\n\n  This is both the strength (composable, flexible) and the weakness\n  (decision fatigue, \"JavaScript fatigue\"). Angular bundles most\n  of this. React leaves it to you.",
@@ -291,7 +291,7 @@
     {
       "id": "block-27",
       "kind": "ascii_table_candidate",
-      "line": 905,
+      "line": 904,
       "heading_context": "### React Server Components (RSC)",
       "confidence": "candidate",
       "text": "  TRADITIONAL REACT (Client Components)\n  +-----------+                    +-----------+\n  | Browser   | -- fetch data -->  | Server    |\n  |           | <-- JSON data  --- |           |\n  | Runs all  |                    |           |\n  | components|                    |           |\n  | renders   |                    |           |\n  +-----------+                    +-----------+\n\n  REACT SERVER COMPONENTS\n  +-----------+                    +-----------+\n  | Browser   |                    | Server    |\n  |           | <-- HTML/RSC  ---- | Runs      |\n  | Runs only |     payload        | server    |\n  | client    |                    | components|\n  | components|                    | (async,   |\n  |           |                    | DB access)|\n  +-----------+                    +-----------+\n\n  Server Components:\n  - Run on the server only. Zero JS shipped to browser.\n  - Can be async — directly await database calls.\n  - Cannot use useState, useEffect, browser APIs.\n\n  Client Components:\n  - \"use client\" directive at top of file.\n  - Interactive — can use hooks, events.\n  - Can be nested inside server components.\n\n  This is a significant architectural shift. RSC is still maturing\n  in 2026. Next.js App Router uses RSC by default.",
@@ -302,7 +302,7 @@
     {
       "id": "block-28",
       "kind": "diagram_like",
-      "line": 943,
+      "line": 942,
       "heading_context": "## Styling in Component Frameworks",
       "confidence": "candidate",
       "text": "  APPROACH          HOW IT WORKS                   EXAMPLE\n  ---------         ------------                   -------\n  Global CSS        Traditional .css files         styles.css\n                    Class name collisions possible  .btn { color: red }\n\n  CSS Modules       Per-file scoped CSS            Button.module.css\n                    Class names auto-prefixed       .btn → .Button_btn_a3f1c\n                    Import as object               import s from './Button.module.css'\n                                                   <div className={s.btn}>\n\n  CSS-in-JS         Style objects in JS            styled-components, Emotion\n                    Dynamic styling easy            const Btn = styled.button`color: red`\n                    Runtime overhead               (being replaced by compile-time solutions)\n\n  Tailwind CSS      Utility classes in markup      <button className=\"px-4 py-2 bg-blue-500\">\n                    No separate .css files          Highly composable\n                    Learn the utilities once        Almost no custom CSS needed\n\n  Scoped (Vue)      <style scoped> in .vue file    Automatic per-component scope",
@@ -313,7 +313,7 @@
     {
       "id": "block-29",
       "kind": "diagram_like",
-      "line": 973,
+      "line": 972,
       "heading_context": "### \"Why does my state update not appear immediately?\"",
       "confidence": "candidate",
       "text": "  const [count, setCount] = useState(0)\n\n  function handleClick() {\n    setCount(count + 1)\n    console.log(count)    // still 0! state updates are async/batched\n\n    // React batches state updates and re-renders once.\n    // The new value is available on the NEXT render.\n  }\n\n  // If new state depends on previous state, use the updater form:\n  setCount(prev => prev + 1)   // always correct, even in batched updates",
@@ -324,7 +324,7 @@
     {
       "id": "block-30",
       "kind": "diagram_like",
-      "line": 990,
+      "line": 989,
       "heading_context": "### \"My useEffect runs too often / causes infinite loop\"",
       "confidence": "candidate",
       "text": "  // Infinite loop: object created fresh on every render\n  useEffect(() => {\n    fetchData(options)\n  }, [options])   // options = {} inline = new reference every render\n\n  // Fix: useMemo the object, or use primitive values as deps\n  useEffect(() => {\n    fetchData({ page, size })\n  }, [page, size])   // primitives compare by value, not reference",

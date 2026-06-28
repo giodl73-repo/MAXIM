@@ -492,7 +492,7 @@ BEGIN CATCH
     -- Capture error context
     SELECT
         ERROR_NUMBER()    AS ErrorNumber,
-        ERROR_SEVERITY()  AS Severity,     -- 1-10: informational; 11-16: user; 17+: resource/server
+        ERROR_SEVERITY()  AS Severity,     -- 0-10: informational; 11-16: user-correctable; 17+: resource/server
         ERROR_STATE()     AS State,
         ERROR_PROCEDURE() AS Procedure,
         ERROR_LINE()      AS Line,

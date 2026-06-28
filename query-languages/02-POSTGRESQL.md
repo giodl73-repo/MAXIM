@@ -831,7 +831,7 @@ ON CONFLICT ON CONSTRAINT reservations_slot_user_unique DO NOTHING;
 ## CTE BEHAVIOR — Important Difference
 
 ```sql
--- PostgreSQL materializes CTEs by default (optimization fence)
+-- PostgreSQL 11 and earlier materialized CTEs by default; PG 12+ inlines side-effect-free CTEs referenced once
 -- Optimizer CANNOT push predicates through a CTE
 WITH active_users AS (
     SELECT * FROM users WHERE active = TRUE  -- this query runs fully, result stored
@@ -853,7 +853,7 @@ WITH expensive_calc AS MATERIALIZED (
 SELECT * FROM expensive_calc WHERE ... UNION ALL SELECT * FROM expensive_calc WHERE ...;
 ```
 
-**T-SQL bridge:** SQL Server inlines CTEs by default (treats them as view substitutions). PostgreSQL materializes by default — opposite behavior. Add `NOT MATERIALIZED` when porting T-SQL CTEs.
+**T-SQL bridge:** SQL Server inlines CTEs by default. PostgreSQL 12+ also inlines single-reference CTEs by default; only pre-12 PostgreSQL materialized unconditionally.
 
 ---
 
@@ -931,7 +931,7 @@ SELECT * FROM expensive_calc WHERE ... UNION ALL SELECT * FROM expensive_calc WH
 
 **`SERIAL` vs `GENERATED ALWAYS AS IDENTITY`:** `SERIAL` is PostgreSQL shorthand for creating a sequence and setting a default. It's not SQL standard and has edge cases (sequences aren't owned properly). `GENERATED ALWAYS AS IDENTITY` (PG 10+) is the SQL:2003 standard — use it.
 
-**CTE materialization fence:** PostgreSQL 12 and earlier always materialized CTEs. PG 12+ materializes by default but respects `NOT MATERIALIZED`. This is the opposite of SQL Server, which inlines CTEs. Performance-sensitive queries coming from T-SQL need this audit.
+**CTE materialization fence:** PostgreSQL 11 and earlier always materialized CTEs. PG 12+ inlines simple single-reference CTEs by default but respects `MATERIALIZED` / `NOT MATERIALIZED`. This is the opposite of SQL Server, which inlines CTEs. Performance-sensitive queries coming from T-SQL need this audit.
 
 **`::`casting:** `value::type` is PostgreSQL shorthand for `CAST(value AS type)`. Identical semantics, PostgreSQL-only syntax. Common in production code — you'll see it everywhere.
 

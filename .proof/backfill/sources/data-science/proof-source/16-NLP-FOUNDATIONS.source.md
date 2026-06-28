@@ -166,7 +166,7 @@ replaced the matrix factorization with neural prediction (Word2Vec) for efficien
   Predict context words from center word:
     Maximize: Σ_t Σ_{-c≤j≤c, j≠0} log P(wₜ₊ⱼ | wₜ)
 
-    P(o | c) = exp(uₒᵀ vᵢ) / Σ_{w∈V} exp(uₙᵀ vᵢ)   ← softmax
+    P(o | c) = exp(uₒᵀ vᵢ) / Σ_{w∈V} exp(u_wᵀ vᵢ)   ← softmax
 
   Two matrices: input embeddings V (word as center) and output embeddings U (word as context)
   Full softmax over |V|=10⁵⁻⁶ words → too expensive
@@ -245,7 +245,7 @@ Final word vectors: sum of word embedding and context embedding wᵢ + w̃ᵢ.
 
 **RNN** (Elman 1990):
 ```
-  hₜ = tanh(Wxhₜ₋₁ + Wxₜ + b)
+  hₜ = tanh(W_hh hₜ₋₁ + W_xh xₜ + b)
   yₜ = Wyₒhₜ
 
   hₜ: hidden state (encodes all history up to t)
@@ -403,7 +403,7 @@ At inference: greedily apply merges in learned order to input text.
 
 ### WordPiece
 
-WordPiece (Schuster & Nakamura 2012, used in BERT/ALBERT):
+WordPiece (Schuster & Nakajima 2012, used in BERT/ALBERT):
 
 ```
 Same as BPE but different merge criterion:
@@ -614,7 +614,7 @@ Larger vocab → fewer tokens per text → faster inference
 **Emergent abilities**: see 11-DEEP-LEARNING-THEORY.md for full treatment. In NLP:
 ```
   Chain-of-thought reasoning emerges ~62B params
-  Few-shot learning: appears ~100M params (GPT-2 level)
+  Few-shot learning: strengthens dramatically at GPT-3 scale (~175B params)
   Instruction following: needs fine-tuning (RLHF, instruction tuning)
 ```
 

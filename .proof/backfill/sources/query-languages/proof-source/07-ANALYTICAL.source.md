@@ -223,7 +223,7 @@ SELECT * FROM sales.INFORMATION_SCHEMA.PARTITIONS WHERE table_name = 'orders';
 ### Snowflake
 
 ```sql
--- Snowflake uses automatic micro-partitioning (~50–500 MB chunks, compressed)
+-- Snowflake uses automatic micro-partitioning (~50–500 MB uncompressed per chunk, stored compressed)
 -- Explicit CLUSTER BY for frequently filtered columns (when auto-clustering is insufficient)
 
 CREATE TABLE orders (

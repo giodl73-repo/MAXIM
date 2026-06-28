@@ -284,7 +284,7 @@ USER AUTHENTICATION METHODS:
     Prerequisite: client public key in server ~/.ssh/authorized_keys
     Protocol: server sends challenge; client signs with private key; server verifies
     challenge = hash(session_id || "ssh-connection" || username || service || "publickey" || ...)
-    Ed25519 preferred: small key (64 bytes), fast, deterministic signatures
+    Ed25519 preferred: small key (32-byte public key, 64-byte signature), fast, deterministic
   FIDO2/U2F: hardware security key (YubiKey) stores private key; requires physical presence
     sk-ed25519 key type: resident key in FIDO2 authenticator; PIN/touch required
 

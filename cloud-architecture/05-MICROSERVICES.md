@@ -246,7 +246,7 @@ This is one of the most frequently confused topics in Azure integration.
 ```
 EVENT GRID (reactive routing):
   Publisher → Topic → Subscriptions → Subscriber endpoints
-  At-most-once delivery (retries for up to 24h, then drops)
+  At-least-once delivery (retries up to 24h, then dead-letters; handlers must be idempotent)
   Event size: up to 1MB
   Source events: Azure resource changes (VM created, Blob uploaded),
                  custom publishers

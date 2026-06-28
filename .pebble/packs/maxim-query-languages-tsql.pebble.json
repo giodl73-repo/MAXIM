@@ -2776,7 +2776,7 @@
         "title": "T-SQL - SQL Server + Azure SQL",
         "updated": "null"
       },
-      "text": "-- Capture error context\n    SELECT\n        ERROR_NUMBER()    AS ErrorNumber,\n        ERROR_SEVERITY()  AS Severity,     -- 1-10: informational; 11-16: user; 17+: resource/server\n        ERROR_STATE()     AS State,\n        ERROR_PROCEDURE() AS Procedure,\n        ERROR_LINE()      AS Line,\n        ERROR_MESSAGE()   AS Message;"
+      "text": "-- Capture error context\n    SELECT\n        ERROR_NUMBER()    AS ErrorNumber,\n        ERROR_SEVERITY()  AS Severity,     -- 0-10: informational; 11-16: user-correctable; 17+: resource/server\n        ERROR_STATE()     AS State,\n        ERROR_PROCEDURE() AS Procedure,\n        ERROR_LINE()      AS Line,\n        ERROR_MESSAGE()   AS Message;"
     }
   ],
   "refs": [

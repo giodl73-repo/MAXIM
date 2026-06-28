@@ -275,7 +275,7 @@ where expectation is over uniform distribution over all f: X → {0,1}
 **What this means in practice**:
 ```
   CNNs      → assume translation equivariance (strong bias for vision)
-  Transformers → assume permutation equivariance + attention structure
+  Transformers → assume minimal structural bias (attention over a set/sequence with learned positional encodings)
   GNNs      → assume local message passing on graphs
   Linear    → assume linear separability
 

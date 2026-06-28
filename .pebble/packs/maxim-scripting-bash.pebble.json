@@ -1264,7 +1264,7 @@
         "title": "Scripting: Bash",
         "updated": "null"
       },
-      "text": "# Base conversion literals\necho $(( 16#FF ))          # → 255  (hex literal: base#value)\necho $(( 8#77 ))           # → 63   (octal)\necho $(( 2#1010 ))         # → 10   (binary)\nprintf '%x\\n' 255          # → ff   (decimal to hex output)\nprintf '%o\\n' 255          # → 377  (decimal to octal output)\nprintf '%08b\\n' 10         # → 00001010  (decimal to binary — with printf trick via dc or Python for real use)"
+      "text": "# Base conversion literals\necho $(( 16#FF ))          # → 255  (hex literal: base#value)\necho $(( 8#77 ))           # → 63   (octal)\necho $(( 2#1010 ))         # → 10   (binary)\nprintf '%x\\n' 255          # → ff   (decimal to hex output)\nprintf '%o\\n' 255          # → 377  (decimal to octal output)\necho 'obase=2;10' | bc     # → 1010  (printf has no binary conversion; use bc/dc/Python)"
     },
     {
       "id": "04-BASH.md#045",

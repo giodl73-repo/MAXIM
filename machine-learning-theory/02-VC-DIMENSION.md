@@ -207,7 +207,7 @@ UNION
   VCdim(H₁ ∪ H₂) ≤ 2(d₁ + d₂) log(2e(d₁ + d₂))
   where d₁ = VCdim(H₁), d₂ = VCdim(H₂).
   Derived via Sauer's lemma: Π_{H₁∪H₂}(m) ≤ Π_{H₁}(m) + Π_{H₂}(m)
-  ≤ 2(em/d₁)^{d₁} when m > d₁+d₂; invert to get the VC bound.
+  ≤ 2(em/d)^{d} where d = max(d₁,d₂), when m > d₁+d₂; invert to get the VC bound.
 
 FUNCTION COMPOSITION
   If g: Y → Z and H maps X → Y, then:

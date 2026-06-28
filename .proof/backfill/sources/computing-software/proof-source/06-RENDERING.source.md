@@ -23,7 +23,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # Rendering Patterns — A Layered Guide
 
 ## The Big Picture

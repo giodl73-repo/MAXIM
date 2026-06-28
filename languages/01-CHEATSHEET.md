@@ -533,7 +533,7 @@ MAP      Map<K,V>  /  {[k:K]: V}     SET     Set<T>
 IF       if (cond) { }                NARROW  if (typeof x === "string") { /* x: string */ }
 GUARD    function isString(x): x is string { }
 SWITCH   switch(x) { case v: }
-SATISFY  x satisfies T  (C# "is" analogue, doesn't widen)
+SATISFY  x satisfies T  (compile-time conformance check, doesn't widen)
 
 TYPE     type Alias = T | U          INTERFACE interface I { prop: T }
 UNION    string | number             INTERSECT A & B

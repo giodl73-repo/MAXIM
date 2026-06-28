@@ -282,7 +282,7 @@ echo 'no $expansion here'
 set name world
 echo "hello $name"                  # → hello world
 echo "result: (math 1+2)"          # → result: (math 1+2)  — NOT expanded!
-echo "result: $(math 1+2)"          # → also not expanded in fish
+echo "result: $(math 1+2)"          # fish 3.4+: $(...) DOES expand, even in quotes → result: 3
 echo "result: "(math 1+2)           # CORRECT: concatenate string + command sub
 
 # No special $'...' ANSI-C quoting in Fish

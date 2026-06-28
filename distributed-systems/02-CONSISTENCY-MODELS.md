@@ -45,7 +45,8 @@ CONSISTENCY MODEL HIERARCHY (strongest to weakest)
 |  SEQUENTIAL CONSISTENCY (Lamport 1979)                    |
 |  All processes see same order. Not necessarily            |
 |  real-time. Cheaper than linearizability.                 |
-|  TSO (x86 memory model), some GPU memory models.          |
+|  Some GPU memory models; x86-TSO is close but             |
+|  strictly weaker (allows store→load reordering).          |
 +-----------------------------------------------------------+
            |
            v
@@ -171,7 +172,7 @@ Linearizability does NOT allow this: if P1's write completed before
 P2's read, P2 must see X=1.
 ```
 
-**Used by**: TSO (Total Store Order) on x86 processors — hardware does this for memory operations.
+**Used by**: x86 provides TSO (Total Store Order), which is *weaker* than sequential consistency — it permits store→load reordering, so SC needs explicit fences.
 
 ### Causal Consistency
 

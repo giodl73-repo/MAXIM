@@ -330,7 +330,7 @@ KERNEL RIDGE REGRESSION
 
   where fⱼ = ⟨f*, φⱼ⟩ are the signal's projections onto eigenfunctions.
 
-  As λ → 0:  bias → 0, variance → σ² Σⱼ 1/m  (explodes if Σμⱼ diverges)
+  As λ → 0:  bias → 0, variance → σ² Σⱼ 1/m  (explodes if there are infinitely many nonzero eigenvalues, i.e. infinite rank)
   As λ → ∞:  variance → 0, bias → Σⱼ fⱼ² = ‖f*‖²  (complete shrinkage)
 
   Optimal λ balances dBIAS²/dλ = -dVARIANCE/dλ.

@@ -260,7 +260,7 @@ QUARTER ROUND (core operation):
   a += b; d ^= a; d <<<= 8;
   c += d; b ^= c; b <<<= 7;
   Applied to 4 words; 20 rounds = 10 double-rounds (column round + diagonal round)
-  Mix function: 64 words after 80 quarter rounds; add initial state → 64-byte block
+  Mix function: 16 words (64 bytes) after 20 rounds (80 quarter-round ops); add initial state → 64-byte block
 
 KEYSTREAM GENERATION:
   ChaCha20(key, nonce, counter): run 20-round mixing; add initial state; output 64 bytes

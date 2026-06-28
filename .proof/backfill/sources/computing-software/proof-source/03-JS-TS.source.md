@@ -23,7 +23,6 @@ remap_from: []
 remap_to: []
 updated: null
 ---
-
 # JavaScript & TypeScript — A Layered Guide
 
 ## The Big Picture
@@ -103,7 +102,7 @@ These are three different things that people blur together:
                  template literals, Map/Set, generators.
   ES2016         Array.includes(), ** exponentiation
   ES2017         async/await, Object.entries/values
-  ES2018         Rest/spread, Promise.all settlement
+  ES2018         Object rest/spread, Promise.finally, async iteration
   ES2019         Array.flat(), Object.fromEntries
   ES2020         Optional chaining (?.), nullish coalescing (??),
                  BigInt, Promise.allSettled
