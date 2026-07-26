@@ -36,7 +36,7 @@ coverage is compressed.
   and adversarial review with no unresolved BLOCK items.
 - Do not integrate an incomplete module into `sections/`, `.mkdocs/mkdocs.yml`,
   or `TRACKER.md`; prototype boundary guides pass review first.
-- Every canonical source edit regenerates MDLOOM/CROP/MDPORT/FLETCH artifacts —
+- Every canonical source edit regenerates MDLOOM/MDCROP/MDPORT/FLETCH artifacts —
   but source-corpus backfill is a per-pulse deliverable, run only when a pulse
   authors or integrates content, never during a prototype boundary review.
 

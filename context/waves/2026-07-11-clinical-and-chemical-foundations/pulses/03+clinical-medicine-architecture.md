@@ -52,7 +52,7 @@ Get-Content disease\STATUS.md, medicine\STATUS.md, public-health\STATUS.md
 | Module manifest | `clinical-medicine/STATUS.md` (full 12-guide manifest; 03 + 08 complete, rest planned) |
 | Architecture record | `context/waves/.../artifacts/CLINICAL-MEDICINE-ARCHITECTURE.md` (MAXIM-CLIN-01 … 24 + G00 … G11) |
 | Wave tracking | `context/waves/.../pulses/03+clinical-medicine-architecture.md`; `WAVE.md` pulses table (Pulse 03 → IN REVIEW) |
-| **Deferred to Pulse 04** | `00-OVERVIEW` + guides 01, 02, 04, 05, 06, 07, 09, 10, 11; `sections/life-sciences.md`; `.mkdocs/mkdocs.yml`; `TRACKER.md`; source-corpus (`.mdloom/backfill/**`, `.crop/**`, `.mdport/**`, `.fletch/**`) |
+| **Deferred to Pulse 04** | `00-OVERVIEW` + guides 01, 02, 04, 05, 06, 07, 09, 10, 11; `sections/life-sciences.md`; `.mkdocs/mkdocs.yml`; `TRACKER.md`; source-corpus (`.mdloom/backfill/**`, `.mdcrop/**`, `.mdport/**`, `.fletch/**`) |
 
 ## Scope Contract (non-duplication)
 
@@ -195,7 +195,7 @@ the remaining ten guides, section/nav/`TRACKER` integration, the reverse `medici
 - Do not author the remaining ten guides or `00-OVERVIEW` in this pulse.
 - Do not integrate the incomplete module into `sections/life-sciences.md`,
   `.mkdocs/mkdocs.yml`, or `TRACKER.md`.
-- Do not run full module source backfill (MDLOOM/CROP/MDPORT/FLETCH) — this is a
+- Do not run full module source backfill (MDLOOM/MDCROP/MDPORT/FLETCH) — this is a
   prototype boundary review.
 - Do not rename, re-scope, or edit `medicine/` (deferred to a later boundary decision).
 - Do not modify `README.md`, `FOREWORD.md`, `VOLUMES.md`, `PROJECTS.md`, or any

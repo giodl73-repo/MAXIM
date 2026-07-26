@@ -207,7 +207,7 @@ and which guides to prototype to prove the hardest boundaries before authoring t
   HCI-usability + domain-deferral seam (`06`↔HCI/nuclear/aero/bme/transport). Each records its
   gate as a "Prototype Seam Contract."
 - **MAXIM-HF-18 — No source backfill in this pulse.** Per the wave guardrail, prototype
-  boundary review runs no MDLOOM/CROP/MDPORT/FLETCH backfill; metadata stays `needs-source` /
+  boundary review runs no MDLOOM/MDCROP/MDPORT/FLETCH backfill; metadata stays `needs-source` /
   `backsource_ids: []`. Backfill is a Pulse-04 deliverable.
 
 ### Safety/ethics, bias, and reification

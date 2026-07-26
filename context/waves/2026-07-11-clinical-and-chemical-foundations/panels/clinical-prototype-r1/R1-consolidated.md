@@ -59,7 +59,7 @@ re-check) surfaced five residual findings; all are now repaired in the guides. N
 - `git diff --check`: clean (no whitespace/conflict errors); the prototype module is
   still **untracked** (not yet integrated), so the check was run against the two edited
   guides explicitly.
-- Source backfill (MDLOOM/CROP/MDPORT/FLETCH) **not** run — this is a prototype
+- Source backfill (MDLOOM/MDCROP/MDPORT/FLETCH) **not** run — this is a prototype
   boundary review, per the pulse scope.
 - `medicine/` untouched; module not integrated into navigation, `TRACKER.md`, or the
   section landing page.

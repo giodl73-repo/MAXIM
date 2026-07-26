@@ -54,7 +54,7 @@ Get-Content mdloom.toml | Select-Object -First 130
 | Module manifest | `human-factors/STATUS.md` (full 12-guide manifest; `02` scaling-gate + `03`/`06` review-gated prototypes; rest planned) |
 | Architecture record | `context/waves/2026-07-11-human-systems-depth/artifacts/HUMAN-FACTORS-ARCHITECTURE.md` (MAXIM-HF-01 … 20 + G00 … G11) |
 | Wave tracking | `context/waves/2026-07-11-human-systems-depth/pulses/03+human-factors-architecture.md`; `WAVE.md` Pulse Sequence table (Pulse 03 → DONE) and current-state line |
-| **Deferred to Pulse 04** | `00-OVERVIEW` + guides `01`, `04`, `05`, `07`, `08`, `09`, `10`, `11`; `sections/*`; `.mkdocs/mkdocs.yml`; `TRACKER.md`; reciprocal pointers into `industrial-design/05`, `cognitive-science/09`, `human-computer-interaction/`; source-corpus (`.mdloom/backfill/**`, `.crop/**`, `.mdport/**`, `.fletch/**`) |
+| **Deferred to Pulse 04** | `00-OVERVIEW` + guides `01`, `04`, `05`, `07`, `08`, `09`, `10`, `11`; `sections/*`; `.mkdocs/mkdocs.yml`; `TRACKER.md`; reciprocal pointers into `industrial-design/05`, `cognitive-science/09`, `human-computer-interaction/`; source-corpus (`.mdloom/backfill/**`, `.mdcrop/**`, `.mdport/**`, `.fletch/**`) |
 
 ## Scope Contract (non-duplication)
 
@@ -226,7 +226,7 @@ pulse.
 
 - Do not author the remaining nine guides or `00-OVERVIEW` in this pulse.
 - Do not integrate the incomplete module into `sections/`, `.mkdocs/mkdocs.yml`, or `TRACKER.md`.
-- Do not run full-module source backfill (MDLOOM/CROP/MDPORT/FLETCH) — this is a prototype
+- Do not run full-module source backfill (MDLOOM/MDCROP/MDPORT/FLETCH) — this is a prototype
   boundary review; no backfill.
 - Do not edit, rescope, or add reciprocal cross-references into `industrial-design/05`,
   `cognitive-science/09`, `human-computer-interaction/`, `systems-engineering/06`,

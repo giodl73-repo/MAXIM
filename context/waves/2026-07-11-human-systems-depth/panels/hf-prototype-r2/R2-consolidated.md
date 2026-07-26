@@ -81,7 +81,7 @@ Westgard/lab-QC drift. Metadata stays `status: prototype` / `source_custody: nee
   `RWL = 23·0.833·1.000·0.910·0.904·0.88·1.00 = 13.88`, `LI = 15/13.88 = 1.08`, sweep
   `0.90/1.08/1.26/1.44`; RTLX A `295/6 = 49.2`, B `293/6 = 48.8`, weighted A `808/15 = 53.9`,
   B `904/15 = 60.3`; alarm inventory `21+8+8+25 = 62`, `25/62 = 40%` actionable — all agree.
-- Source backfill (MDLOOM sources / CROP / MDPORT / FLETCH) **not** run — prototype boundary
+- Source backfill (MDLOOM sources / MDCROP / MDPORT / FLETCH) **not** run — prototype boundary
   re-review; frontmatter at the truthful pre-backfill state. No sibling module, `sections/`,
   `.mkdocs/`, or `TRACKER.md` edits. No commit or push.
 

@@ -22,7 +22,7 @@
 
 - Chemistry MDLOOM check: 12 files, 0 errors, 0 warnings.
 - MDLOOM backfill: 12/12 round trips.
-- CROP strict view inspection: all views valid.
+- MDCROP strict view inspection: all views valid.
 - FLETCH registry: 61 entries, 0 findings.
 - `git diff --check`: clean.
 

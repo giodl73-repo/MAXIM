@@ -64,7 +64,7 @@ Get-Content context\waves\2026-07-11-clinical-and-chemical-foundations\artifacts
 | Module manifest | `pathology/STATUS.md` (full 12-guide manifest; **12/12 authored / reviewed**; module complete) |
 | Architecture record | `context/waves/.../artifacts/PATHOLOGY-ARCHITECTURE.md` (MAXIM-PATH-01 … 25 + G00 … G11) |
 | Wave tracking | `context/waves/.../pulses/05+pathology-architecture.md`; `WAVE.md` pulses table (Pulse 05 → DONE — FINAL PASS) |
-| **Completed 2026-07-12 (was "Deferred post-sign-off")** | `00-OVERVIEW` + guides 01–07, 09, 11 authored; reciprocal `clinical-medicine/03`→`pathology/` and `medicine/10`→`pathology/08` cross-references added (plus `disease/00`→`01`–`03`, `disease/04`→`05`/`10`); `sections/life-sciences.md`, `.mkdocs/mkdocs.yml`, `TRACKER.md` wired; source-corpus regenerated (`.mdloom/backfill/**`, `.crop/**`, `.mdport/**`, `.fletch/**`) |
+| **Completed 2026-07-12 (was "Deferred post-sign-off")** | `00-OVERVIEW` + guides 01–07, 09, 11 authored; reciprocal `clinical-medicine/03`→`pathology/` and `medicine/10`→`pathology/08` cross-references added (plus `disease/00`→`01`–`03`, `disease/04`→`05`/`10`); `sections/life-sciences.md`, `.mkdocs/mkdocs.yml`, `TRACKER.md` wired; source-corpus regenerated (`.mdloom/backfill/**`, `.mdcrop/**`, `.mdport/**`, `.fletch/**`) |
 
 ## Scope Contract (non-duplication)
 
@@ -329,7 +329,7 @@ git --no-pager diff --check
 
 Outcome: **pathology 12/12 guides round-trip PASS, 0 errors, 0 warnings** on focused MDLOOM;
 disease 11/11, medicine 11/11, clinical-medicine 12/12 — all with `finding_count: 0` on the
-FLETCH registry validation and a clean CROP view-store inspect. The **backfill-generator
+FLETCH registry validation and a clean MDCROP view-store inspect. The **backfill-generator
 custody fix** (record a `git-history` backsource only when the file has real tracked history)
 is covered by focused unit tests (tracked-history-present vs untracked/no-history), which pass.
 Because `pathology/` and `clinical-medicine/` are still untracked, their regenerated

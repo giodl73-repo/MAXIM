@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Backfill a MAXIM module into MDLOOM/CROP/MDPORT/FLETCH source-corpus artifacts."""
+"""Backfill a MAXIM module into MDLOOM/MDCROP/MDPORT/FLETCH source-corpus artifacts."""
 
 from __future__ import annotations
 
@@ -15,15 +15,15 @@ from pathlib import Path
 
 ROOT = Path.cwd()
 
-# Tool crates (MDLOOM/CROP/FLETCH) are located via the portfolio `repo-map.toml`
+# Tool crates (MDLOOM/MDCROP/FLETCH) are located via the portfolio `repo-map.toml`
 # config rather than hardcoded paths. The map records where every repo lives
 # locally; we walk up from the current module checkout to find the portfolio
 # root that defines the tool crates, then build each Cargo manifest path.
-TOOL_CRATES = {"mdloom": "mdloom", "crop": "crop", "fletch": "fletch"}
+TOOL_CRATES = {"mdloom": "mdloom", "mdcrop": "mdcrop", "fletch": "fletch"}
 
 
 def resolve_tool_manifests() -> dict[str, Path | None]:
-    """Resolve MDLOOM/CROP/FLETCH Cargo manifests from repo-map.toml.
+    """Resolve MDLOOM/MDCROP/FLETCH Cargo manifests from repo-map.toml.
 
     Searches upward from the current working directory for a `repo-map.toml`
     that defines `[repos.mdloom]`; the directory holding that map is the
@@ -289,7 +289,7 @@ def main() -> None:
     parser.add_argument("--module-id", required=True, help="Stable MAXIM module id, e.g. computing-software.")
     parser.add_argument("--section", help="Section id; defaults to --module-id.")
     parser.add_argument("--mdloom-manifest", default=None, help="Override MDLOOM Cargo.toml (default: from repo-map.toml).")
-    parser.add_argument("--crop-manifest", default=None, help="Override CROP Cargo.toml (default: from repo-map.toml).")
+    parser.add_argument("--mdcrop-manifest", default=None, help="Override MDCROP Cargo.toml (default: from repo-map.toml).")
     parser.add_argument("--fletch-manifest", default=None, help="Override FLETCH Cargo.toml (default: from repo-map.toml).")
     parser.add_argument("--validate", action="store_true")
     args = parser.parse_args()
@@ -321,7 +321,7 @@ def main() -> None:
     source_store = Path(".mdloom") / "backfill" / "sources" / module_id
     mdloom_source = source_store / "mdloom-source"
     module_ledger = Path(".mdloom") / "backfill" / "modules" / f"{module_id}.json"
-    view_store = Path(".crop") / "views"
+    view_store = Path(".mdcrop") / "views"
     pack_store = Path(".mdport") / "packs"
     module_view = view_store / f"maxim-{module_id}-source-corpus.json"
     module_pack = pack_store / f"maxim-{module_id}-source-corpus.mdport.json"
@@ -357,7 +357,7 @@ def main() -> None:
         }
         guides.append(guide)
         view = {
-            "schema_version": "crop.view.v1",
+            "schema_version": "mdcrop.view.v1",
             "name": f"maxim-{module_id}-{slug}",
             "root": f"../../{module_dir.as_posix()}",
             "task": f"Backfill MAXIM {fields['title']} as a partial source-custody fact/context pack.",
@@ -365,12 +365,12 @@ def main() -> None:
             "seed": 0,
             "frontmatter_query": f"id eq '{fields['id']}'",
             "include_extensions": ["md"],
-            "exclude_dirs": [".git", ".claude", ".crop", ".mkdocs", ".roles", ".vscode", "_archive"],
+            "exclude_dirs": [".git", ".claude", ".mdcrop", ".mkdocs", ".roles", ".vscode", "_archive"],
         }
         write_text(view_path, json.dumps(view, indent=2, ensure_ascii=False) + "\n")
 
     module_view_json = {
-        "schema_version": "crop.view.v1",
+        "schema_version": "mdcrop.view.v1",
         "name": f"maxim-{module_id}-source-corpus",
         "root": f"../../{module_dir.as_posix()}",
         "task": f"Backfill the MAXIM {module_id} module for downstream fact/context reuse.",
@@ -378,7 +378,7 @@ def main() -> None:
         "seed": 0,
         "frontmatter_query": "source_custody eq 'partial'",
         "include_extensions": ["md"],
-        "exclude_dirs": [".git", ".claude", ".crop", ".mkdocs", ".roles", ".vscode", "_archive"],
+        "exclude_dirs": [".git", ".claude", ".mdcrop", ".mkdocs", ".roles", ".vscode", "_archive"],
     }
     write_text(module_view, json.dumps(module_view_json, indent=2, ensure_ascii=False) + "\n")
 
@@ -596,8 +596,8 @@ been attached.
                     "node_kind": "fletch",
                     "shafts": [{"kind": "file", "url": guide["view"]}],
                     "edges": [{"to": f"{prefix}.mdloom-source", "kind": "derived-from", "label": "View over canonical guide source", "metadata": {"module": module_id, "guide": guide["path"], "custody": "partial"}}],
-                    "format": format_obj("crop.view.v1", "view-recipe", guide["view"]),
-                    "tags": ["source-corpus", "crop", "view", "partial-custody", "guide"],
+                    "format": format_obj("mdcrop.view.v1", "view-recipe", guide["view"]),
+                    "tags": ["source-corpus", "mdcrop", "view", "partial-custody", "guide"],
                     "metadata": common,
                 },
                 {
@@ -643,7 +643,7 @@ been attached.
 
     if args.validate:
         run(["cargo", "run", "--manifest-path", args.mdloom_manifest, "--quiet", "--", "check", *guide_paths])
-        run(["cargo", "run", "--manifest-path", args.crop_manifest, "--quiet", "--", "view", "--inspect", "--dir", str(view_store), "--strict"])
+        run(["cargo", "run", "--manifest-path", args.mdcrop_manifest, "--quiet", "--", "view", "--inspect", "--dir", str(view_store), "--strict"])
         run(["cargo", "run", "--manifest-path", args.fletch_manifest, "--bin", "fletch-cli", "--quiet", "--", "registry", "validate", "--file", str(registry_path)])
         missing = [shaft["url"] for fletch in fletches for shaft in fletch["shafts"] if not Path(shaft["url"]).exists()]
         if missing:

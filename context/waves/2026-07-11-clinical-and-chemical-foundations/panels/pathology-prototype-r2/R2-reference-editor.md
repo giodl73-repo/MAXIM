@@ -81,7 +81,7 @@ values emitted by `module_source_backfill.py`. But **no backfill was run**: ther
 `.mdloom/backfill/sources/pathology/` records, and the entire `pathology/` tree is **untracked**
 (no git history). The metadata therefore asserted a MDLOOM backfill artifact and a git-history
 backsource that do not exist — a source-custody honesty defect, and one that would poison the
-CROP `source_custody eq 'partial'` view if the module were indexed.
+MDCROP `source_custody eq 'partial'` view if the module were indexed.
 
 Fix: the frontmatter is set to the contract's documented **pre-backfill** state
 (`.mdloom/backfill/frontmatter-contract.md`; README "mark missing source custody as

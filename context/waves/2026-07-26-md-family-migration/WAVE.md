@@ -12,7 +12,7 @@ MAXIM's active expansion work was first preserved in checkpoint commit
 
 - `.mdloom/`, `mdloom.toml`, and `mdloom.*`,
 - `.mdport/`, `*.mdport.json`, and `mdport.v1`,
-- existing CROP views and FLETCH registries pointing at the renamed artifacts.
+- existing MDCROP views and FLETCH registries pointing at the renamed artifacts.
 
 Canonical numbered guides were not modified by the naming migration.
 

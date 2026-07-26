@@ -26,7 +26,7 @@ pipeline.
 | Module manifest | `chemistry/STATUS.md` |
 | Navigation | `.mkdocs/mkdocs.yml` (Life Sciences nav), `sections/life-sciences.md` (landscape + Directories) |
 | Portfolio registry | `TRACKER.md` (Summary Dashboard row + counts) |
-| Source corpus | `.mdloom/backfill/sources/chemistry/**`, `.mdloom/backfill/modules/chemistry.json`, `.crop/views/**`, `.mdport/packs/**`, `.fletch/registries/maxim-chemistry-source-corpus.json` |
+| Source corpus | `.mdloom/backfill/sources/chemistry/**`, `.mdloom/backfill/modules/chemistry.json`, `.mdcrop/views/**`, `.mdport/packs/**`, `.fletch/registries/maxim-chemistry-source-corpus.json` |
 
 ## Scope Contract (non-duplication)
 

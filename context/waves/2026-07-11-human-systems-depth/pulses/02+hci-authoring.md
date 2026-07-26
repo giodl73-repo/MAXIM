@@ -61,7 +61,7 @@ Get-Content mdloom.toml | Select-Object -First 92
 | Navigation / section | `.mkdocs/mkdocs.yml` (HCI nav entry); `sections/computing-software.md` (Directories row, landscape human-interaction layer, adjacent-section bridge, count) |
 | Library tracker | `TRACKER.md` (Summary Dashboard row, ✅ complete; totals include HCI) |
 | Reciprocal pointers | `industrial-design/06-INTERACTION-DESIGN.md` (→ HCI `02`/`05`; physical-product entry preserved); `cognitive-science/09-APPLIED-BRIDGE.md` (→ HCI applied; mechanism/law derivations retained) |
-| Source corpus (regenerated) | `.mdloom/backfill/**`, `.crop/views/**`, `.mdport/packs/**`, `.fletch/registries/**` for `human-computer-interaction`, `cognitive-science`, `industrial-design` |
+| Source corpus (regenerated) | `.mdloom/backfill/**`, `.mdcrop/views/**`, `.mdport/packs/**`, `.fletch/registries/**` for `human-computer-interaction`, `cognitive-science`, `industrial-design` |
 | Wave tracking | this pulse; `WAVE.md` Pulse Sequence (Pulse 02 → DONE; Pulse 03 next) |
 | **Final Pulse-02 gate** | PASS; no unresolved BLOCK/WARN |
 | **Out of scope / future work** | any Gold-tier / Da Vinci-invariant work; `human-factors/` (Pulse 03); any legal content in `law/` |
@@ -142,7 +142,7 @@ Results recorded in this pulse and STATUS. The final reviewer subsequently retur
 **PASS** after all content and record repairs; the current adversarial ledger is
 **0 unresolved BLOCK/WARN**, and all 12 guides remain honestly tiered **Silver**.
 The source-corpus backfill regenerates
-MDLOOM/CROP/MDPORT/FLETCH from the canonical numbered guides; the two sibling backfills
+MDLOOM/MDCROP/MDPORT/FLETCH from the canonical numbered guides; the two sibling backfills
 include the reciprocal pointers and panel-required taxonomy/claim-boundary repairs. No
 commit or push; no submodule pointer update.
 

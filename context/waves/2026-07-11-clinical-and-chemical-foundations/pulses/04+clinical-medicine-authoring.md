@@ -44,7 +44,7 @@ Get-Content medicine\10-DIAGNOSTICS-IMAGING.md | Select-Object -Index (466..561)
 | Manifest | `clinical-medicine/STATUS.md` (12/12 complete) |
 | Integration | `.mkdocs/mkdocs.yml`, `sections/life-sciences.md`, `TRACKER.md` |
 | Minimal reverse xref | `medicine/10-DIAGNOSTICS-IMAGING.md` `§11` → `clinical-medicine/03` (no other `medicine/` change) |
-| Source-corpus (regenerated) | `.mdloom/backfill/sources/clinical-medicine/**`, `.mdloom/backfill/modules/clinical-medicine.json`, `.crop/views/maxim-clinical-medicine-*.json`, `.mdport/packs/maxim-clinical-medicine-*.pebble.json`, `.fletch/registries/maxim-clinical-medicine-source-corpus.json` |
+| Source-corpus (regenerated) | `.mdloom/backfill/sources/clinical-medicine/**`, `.mdloom/backfill/modules/clinical-medicine.json`, `.mdcrop/views/maxim-clinical-medicine-*.json`, `.mdport/packs/maxim-clinical-medicine-*.pebble.json`, `.fletch/registries/maxim-clinical-medicine-source-corpus.json` |
 | Wave tracking | `WAVE.md` (Pulse 03 → DONE, Pulse 04 → DONE); `pulses/03+...` DONE; this record; `panels/clinical-full-r1/` (full-module review and rubric evidence) |
 
 ## Scope Contract (non-duplication)
@@ -92,7 +92,7 @@ The **non-advice contract** is a hard gate on every guide.
       (Directories table + count 19→20), `TRACKER.md` (Summary Dashboard row + 236→237
       directories, ~2,362→~2,374 files).
 - [x] Source-backfill with `--validate` for `clinical-medicine` (regenerated
-      MDLOOM/CROP/MDPORT/FLETCH) and re-validation for `medicine` (because `medicine/10`
+      MDLOOM/MDCROP/MDPORT/FLETCH) and re-validation for `medicine` (because `medicine/10`
       changed); focused MDLOOM clean; `git diff --check` clean.
 - [x] **Full-module adversarial panel and rubric review:**
       `expert-skeptic` advice-creep + `reference-editor` across all 12 guides, recorded under
@@ -118,7 +118,7 @@ BLOCK for the pending panel.
 Repo-config MDLOOM and the source-backfill helper, run from the MAXIM root:
 
 ```powershell
-# Source-backfill regenerates MDLOOM/CROP/MDPORT/FLETCH and validates
+# Source-backfill regenerates MDLOOM/MDCROP/MDPORT/FLETCH and validates
 python .claude\skills\maxim-source-backfill\scripts\module_source_backfill.py `
   --module-dir clinical-medicine --module-id clinical-medicine --validate
 
@@ -130,13 +130,13 @@ git --no-pager diff --check
 ```
 
 **Outcome (recorded):** all 12 `clinical-medicine` guides MDLOOM-clean; source-backfill
-`--validate` passed (MDLOOM check, CROP inspect `--strict`, FLETCH registry validate, shaft
+`--validate` passed (MDLOOM check, MDCROP inspect `--strict`, FLETCH registry validate, shaft
 paths present, `git diff --check`); `medicine/10` re-checked — its only new content is the
 minimal reverse cross-reference, and its two remaining MDLOOM warnings (`md_missing_section`
 for the numbered "12. Decision Cheat Sheet" heading and an `ascii_unclosed_fence`) are
 **pre-existing** in the committed file and untouched by this pulse. The full-module review
 repairs (`panels/clinical-full-r1/`) were then re-validated: `clinical-medicine` re-backfilled
-(**12/12** round-trip, CROP strict valid, FLETCH 61 entries/0 findings), `medicine` re-backfilled
+(**12/12** round-trip, MDCROP strict valid, FLETCH 61 entries/0 findings), `medicine` re-backfilled
 (**11/11** round-trip), focused MDLOOM **12 files / 0 errors / 0 warnings** on the numbered guides,
 `git diff --check` clean. No commit/push performed.
 

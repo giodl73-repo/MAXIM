@@ -66,7 +66,7 @@ Get-Content mdloom.toml | Select-Object -First 92
 | Navigation / section | `.mkdocs/mkdocs.yml` (Technology nav entry); `sections/technology.md` (Directories row, landscape SYSTEMS-ENGINEERING track, count, volume plan, adjacent-section bridges) |
 | Library tracker | `TRACKER.md` (Summary Dashboard row 🔬 In review; totals note) |
 | Reciprocal pointers (6 siblings) | `industrial-design/05-ERGONOMICS.md` (→ HF `02` quantitative-systems depth; product-form entry preserved); `human-computer-interaction/STATUS.md` (→ HF `03`/`04`/`06`/`08` safety-critical evidence; interaction/a11y methods retained); `cognitive-science/09-APPLIED-BRIDGE.md` (→ HF `03` applied measurement; mechanism/theory retained); `clinical-medicine/11-SAFETY-QUALITY-AND-WORKFLOW.md` (→ HF `04`/`11` generic science; clinical application retained); `systems-engineering/06-FMEA-RELIABILITY.md` (→ HF `05`/`08` human extension; tree/RPN math retained); `biomedical-engineering/07-MEDICAL-DEVICES.md` (→ HF `06`/`09` use-safety; device engineering/regulation retained) |
-| Source corpus (regenerated) | `.mdloom/backfill/**`, `.crop/views/**`, `.mdport/packs/**`, `.fletch/registries/**` for `human-factors` + the 5 changed content-guide siblings |
+| Source corpus (regenerated) | `.mdloom/backfill/**`, `.mdcrop/views/**`, `.mdport/packs/**`, `.fletch/registries/**` for `human-factors` + the 5 changed content-guide siblings |
 | Wave tracking | this pulse; `WAVE.md` Pulse Sequence (Pulse 04 → IN REVIEW; final re-review/sign-off pending) |
 | **Remaining Pulse-04 gate** | final independent re-review/sign-off only |
 | **Out of scope / future work** | any Gold-tier / Da Vinci-invariant work; any legal content in `law/` |
@@ -152,7 +152,7 @@ cargo run --manifest-path C:\src\TRACKER\repos\tools-infra\proof\Cargo.toml --qu
 git --no-pager diff --check
 ```
 
-The source-corpus backfill regenerates MDLOOM/CROP/MDPORT/FLETCH from the canonical numbered
+The source-corpus backfill regenerates MDLOOM/MDCROP/MDPORT/FLETCH from the canonical numbered
 guides; the five sibling backfills include the reciprocal pointers. No commit or push; no submodule
 pointer update.
 

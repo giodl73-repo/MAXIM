@@ -81,7 +81,7 @@ BLOCK: 5 · WARN: 13 — all **repaired** in this pass; none outstanding in sour
 - **Source-backfill `--validate`** (regenerate + validate) for the three touched modules:
   **human-computer-interaction 12/12** round-trip PASS (0 errors, 0 warnings), FLETCH registry valid
   (`fletch_count: 61`, `finding_count: 0`); **cognitive-science 10/10** (registry `51`, 0 findings);
-  **industrial-design 10/10** (registry `51`, 0 findings). CROP view-store inspect clean for each.
+  **industrial-design 10/10** (registry `51`, 0 findings). MDCROP view-store inspect clean for each.
 - **Focused MDLOOM** over all twelve `human-computer-interaction/[00–11]` guides plus
   `cognitive-science/09-APPLIED-BRIDGE.md` and `industrial-design/06-INTERACTION-DESIGN.md`:
   **14 files checked, 0 errors, 0 warnings** (one pre-existing `ascii_cell_padding` warning in the

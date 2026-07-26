@@ -62,7 +62,7 @@ review is complete and clean, and the final reviewer returned PASS on 2026-07-12
 - **Source-backfill `--validate`** (regenerate + validate) for `pathology` and every changed
   sibling: **pathology 12/12** round-trip PASS, **0 errors, 0 warnings**; **disease 11/11**;
   **medicine 11/11**; **clinical-medicine 12/12** — each with FLETCH registry `finding_count: 0`
-  and a clean CROP view-store inspect.
+  and a clean MDCROP view-store inspect.
 - **Focused MDLOOM** over all twelve `pathology/*.md` guides: **0 errors, 0 warnings**.
 - **Backfill-generator unit tests** (`.claude/skills/maxim-source-backfill/tests`): **all pass** —
   git-history included when tracked history exists, omitted for untracked/no-history files;

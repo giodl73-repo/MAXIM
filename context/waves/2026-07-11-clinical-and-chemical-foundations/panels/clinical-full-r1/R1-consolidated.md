@@ -46,7 +46,7 @@ the final tier; future Da Vinci/Gold promotion is optional and separate.**
 Source-corpus regenerated from the canonical numbered guides and re-validated (no commit/push):
 
 - **`clinical-medicine` source-backfill `--validate`:** PASS — 12 guides, MDLOOM round-trip
-  **12/12**, 63 tables, 69 structured blocks; CROP strict view inspection valid; FLETCH registry
+  **12/12**, 63 tables, 69 structured blocks; MDCROP strict view inspection valid; FLETCH registry
   `maxim-clinical-medicine-source-corpus` **valid** (61 entries, 0 findings); registry shaft paths
   present.
 - **`medicine` source-backfill `--validate`:** PASS — 11 guides, MDLOOM round-trip **11/11**; the

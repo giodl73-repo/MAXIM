@@ -49,7 +49,7 @@ Get-Content mdloom.toml | Select-Object -First 92
 | Module manifest | `human-computer-interaction/STATUS.md` (full 12-guide manifest; `05` + `08` gate-passed prototypes, rest planned) |
 | Architecture record | `context/waves/2026-07-11-human-systems-depth/artifacts/HUMAN-COMPUTER-INTERACTION-ARCHITECTURE.md` (MAXIM-HCI-01 … 24 + G00 … G11) |
 | Wave tracking | `context/waves/2026-07-11-human-systems-depth/pulses/01+hci-architecture.md`; `WAVE.md` frontmatter (date_open/status), Guardrails, Pulse Sequence table (Pulse 01 → DONE), Quality/Exit gates |
-| **Deferred to Pulse 02** | `00-OVERVIEW` + guides `01`, `02`, `03`, `04`, `06`, `07`, `09`, `10`, `11`; `sections/computing-and-software.md`; `.mkdocs/mkdocs.yml`; `TRACKER.md`; source-corpus (`.mdloom/backfill/**`, `.crop/**`, `.mdport/**`, `.fletch/**`) |
+| **Deferred to Pulse 02** | `00-OVERVIEW` + guides `01`, `02`, `03`, `04`, `06`, `07`, `09`, `10`, `11`; `sections/computing-and-software.md`; `.mkdocs/mkdocs.yml`; `TRACKER.md`; source-corpus (`.mdloom/backfill/**`, `.mdcrop/**`, `.mdport/**`, `.fletch/**`) |
 
 ## Scope Contract (non-duplication)
 
@@ -187,7 +187,7 @@ is still outstanding. No module integration, no source backfill, and no edits to
 - Do not author the remaining ten guides or `00-OVERVIEW` in this pulse.
 - Do not integrate the incomplete module into `sections/`, `.mkdocs/mkdocs.yml`, or
   `TRACKER.md`.
-- Do not run full-module source backfill (MDLOOM/CROP/MDPORT/FLETCH) — this is a prototype
+- Do not run full-module source backfill (MDLOOM/MDCROP/MDPORT/FLETCH) — this is a prototype
   boundary review.
 - Do not edit, rescope, or add reciprocal cross-references into `cognitive-science/` or
   `industrial-design/` (deferred to Pulse 02; prototype review first).

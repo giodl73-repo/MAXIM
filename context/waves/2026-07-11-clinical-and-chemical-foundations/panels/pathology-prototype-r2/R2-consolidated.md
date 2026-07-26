@@ -61,7 +61,7 @@ commit/push.
   **untracked** (not integrated), so MDLOOM was run against the two guides explicitly.
 - Structural spot-check: each guide has a single H1, a landscape diagram, a Decision Cheat
   Sheet, balanced code fences, no `@editor` tags, and **0** `you/your`.
-- Source backfill (MDLOOM sources / CROP / MDPORT / FLETCH) **not** run — this is a prototype
+- Source backfill (MDLOOM sources / MDCROP / MDPORT / FLETCH) **not** run — this is a prototype
   boundary re-review, and the frontmatter is at the truthful pre-backfill state. `medicine/`,
   `clinical-medicine/`, `sections/`, `.mkdocs/`, and `TRACKER.md` untouched. No commit or push.
 
