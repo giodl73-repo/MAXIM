@@ -1,0 +1,2533 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-variational-calculus-euler-lagrange",
+  "source": "../../variational-calculus",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "02-EULER-LAGRANGE.md#000",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "# Euler-Lagrange Equations"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#001",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "**Reader note**: The E-L derivation and classical examples below serve as reference. The key value for this learner is the connection between E-L and the fundamental PDEs of physics (Laplace, wave, Schrodinger as E-L equations of their action functionals), Noether's theorem, and the field-theory generalization — these sections follow the classical material."
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#002",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#003",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "## The Central Result"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#004",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "The Euler-Lagrange equation is the necessary condition for a function to extremize a\nfunctional. It is the single most important equation in variational calculus."
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#005",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "```\n+-----------------------------------------------------------------------+\n|              EULER-LAGRANGE EQUATION                                  |\n|                                                                       |\n|  FUNCTIONAL:  J[u] = ∫ₐᵇ F(x, u, u') dx                               |\n|                                                                       |\n|  EULER-LAGRANGE EQUATION:                                             |\n|  ┌────────────────────────────────────────────────────────────────┐   |\n|  │  ∂F     d  (  ∂F  )                                           │   |\n|  │  ── − ─── │ ───── │ = 0                                       │   |\n|  │  ∂u    dx  (  ∂u' )                                           │   |\n|  └────────────────────────────────────────────────────────────────┘   |\n|                                                                       |\n|  EXPANDED:  F_u − F_{u'x} − F_{u'u}u' − F_{u'u'}u'' = 0            |\n|  (a 2nd order ODE for u(x))                                          |\n|                                                                       |\n|  BOUNDARY CONDITIONS:  u(a) = A,  u(b) = B  (if fixed)              |\n|  OR:  natural BCs from free endpoints (F_{u'} = 0 at free end)       |\n|                                                                       |\n+-----------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#006",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#007",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "## Derivation"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#008",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "```\n  SETUP:  u is the minimizer of J[u] = ∫ₐᵇ F(x,u,u') dx.\n          u_ε(x) = u(x) + ε·η(x),  η ∈ C_c^∞(a,b) (η(a)=η(b)=0)."
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#009",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "For J to be stationary at u:\n  d/dε J[u_ε]|_{ε=0} = 0"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#010",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "d/dε J[u_ε] = d/dε ∫ F(x, u+εη, u'+εη') dx\n              = ∫ [∂F/∂u · η + ∂F/∂u' · η'] dx\n              = ∫ F_u η dx + ∫ F_{u'} η' dx"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#011",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "INTEGRATE BY PARTS on the second integral:\n  ∫ F_{u'} η' dx = [F_{u'} η]ₐᵇ − ∫ (d/dx F_{u'}) η dx\n                 = 0 − ∫ (F_{u'})_x η dx     (η vanishes at endpoints)"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#012",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "COMBINE:\n  δJ = ∫ₐᵇ [F_u − (F_{u'})_x] η dx = 0   for ALL η"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#013",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "By fundamental lemma: F_u − (F_{u'})_x = 0   ■\n```"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#014",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#015",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "## Key Examples"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#016",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "### Arc Length: Geodesics"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#017",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "```\n  PROBLEM: shortest path between (a,A) and (b,B)\n  J[u] = ∫ₐᵇ √(1 + u'²) dx"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#018",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "F = √(1+u'²),  F_u = 0,  F_{u'} = u'/√(1+u'²)"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#019",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "E-L: d/dx [u'/√(1+u'²)] = 0\n       → u'/√(1+u'²) = const\n       → u' = const   (constant slope)\n       → u(x) = mx + c  (straight line)"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#020",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "ANSWER: the shortest path in the plane is a straight line. ✓\n  (Obvious geometrically, but confirms the method works.)\n```"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#021",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "### Brachistochrone: Curve of Fastest Descent"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#022",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "```\n  PROBLEM: Bead slides from (0,0) to (a,b) under gravity.\n  Find the curve shape u(x) minimizing transit time."
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#023",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "T[u] = ∫₀ᵃ √(1+u'²) / √(2g·u) dx  (speed = √(2g·height))"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#024",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "Wait — use the arc instead: y = u(x), ds = √(1+u'²) dx,\n  speed v = √(2gy) (from energy conservation).\n  time = ∫ ds/v = ∫ √(1+u'²)/√(2gu) dx"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#025",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "F = √(1+u'²)/√(2gu),  F_u = −½√(1+u'²)/(u√(2gu))"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#026",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "Since F has no explicit x: use the BELTRAMI IDENTITY (see below).\n  F − u' F_{u'} = C"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#027",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "√(1+u'²)/√(2gu) − u'·u'/(√(1+u'²)√(2gu)) = C"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#028",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "1/[√(u(1+u'²))] = C'  (simplification)"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#029",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "Solution: parametric form (cycloid!):\n  x = r(θ − sin θ),  u = r(1 − cos θ)"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#030",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "ANSWER: The brachistochrone is a cycloid — the curve traced\n  by a point on the rim of a rolling circle.\n```"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#031",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "### Minimal Surface"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#032",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "```\n  PROBLEM: Surface of revolution with minimal area.\n  Rotate u(x) around x-axis; area = 2π ∫ u·√(1+u'²) dx"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#033",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "F = u√(1+u'²),  F_u = √(1+u'²),  F_{u'} = uu'/√(1+u'²)"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#034",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "E-L: √(1+u'²) − d/dx[uu'/√(1+u'²)] = 0"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#035",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "This simplifies to: u·u'' = 1 + u'²\n  Solution: u(x) = a·cosh((x−b)/a)  (CATENARY)"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#036",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "ANSWER: The minimal surface of revolution is a catenoid —\n  surface formed by rotating a catenary.\n  Soap film between two circular rings forms a catenoid.\n```"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#037",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#038",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "## Beltrami Identity: When F Has No Explicit x"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#039",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "A crucial simplification when ∂F/∂x = 0 (autonomous case):"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#040",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "```\n  IF F = F(u, u')  (no explicit x dependence):"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#041",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "BELTRAMI IDENTITY:  F − u'·∂F/∂u' = C  (constant)"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#042",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "DERIVATION:\n  d/dx[F − u'F_{u'}] = F_u u' + F_{u'} u'' − u''F_{u'} − u'·d/dx F_{u'}\n                     = u'[F_u − d/dx F_{u'}]\n                     = u' · 0   (by E-L equation)\n                     = 0"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#043",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "So F − u'F_{u'} is constant along solutions!"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#044",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "This reduces the 2nd order E-L equation to a 1st order ODE.\n  Much easier to solve."
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#045",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "EXAMPLES:\n  Arc length: F = √(1+u'²), Beltrami → 1/√(1+u'²) = C → u' = const.\n  Brachistochrone: F = √(1+u'²)/√(u), used above.\n  Lagrangian with no explicit t: energy conservation (H = const).\n```"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#046",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#047",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "## Multiple Variables: PDEs from E-L"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#048",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "For functionals with functions of several variables:"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#049",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "```\n  J[u] = ∫_Ω F(x, u, ∇u) dx   (x ∈ R^n)"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#050",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "E-L EQUATION:\n  ∂F/∂u − Σᵢ ∂/∂xᵢ (∂F/∂(∂u/∂xᵢ)) = 0"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#051",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "or:  F_u − ∇·(∂F/∂(∇u)) = 0"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#052",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "EXAMPLES:\n  ┌─────────────────────────────────────────────────────────────────┐\n  │ J = ½∫|∇u|²dx:  −∇²u = 0        (Laplace equation)              │\n  │ J = ½∫[|∇u|²−2fu]dx: −∇²u = f   (Poisson equation)              │\n  │ J = ∫√(1+|∇u|²)dx: −∇·(∇u/√(1+|∇u|²)) = 0 (minimal surface)│\n  │ J = ½∫[|∇u|²+V(x)u²]dx: −∇²u+V(x)u = 0  (Schrödinger type) │\n  │ J = ½∫[u_tt²−c²u_xx²]dt dx: u_tt − c²u_xx = 0  (wave!)          │\n  └─────────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#053",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "KEY INSIGHT: Every major linear PDE of physics is the E-L equation\n  of a corresponding quadratic action functional.\n```"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#054",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#055",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "## System E-L Equations"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#056",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "For multiple dependent variables u = (u₁,...,u_m):"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#057",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "```\n  J[u₁,...,u_m] = ∫ F(x, u₁,...,u_m, u₁',...,u_m') dx"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#058",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "E-L SYSTEM:  for each k = 1,...,m:\n  ∂F/∂u_k − d/dx(∂F/∂u_k') = 0"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#059",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "MECHANICS EXAMPLE: N particles, qi = position of particle i\n  L(q, q̇) = ½Σ mᵢ|q̇ᵢ|² − V(q₁,...,q_N)"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#060",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "E-L: d/dt(mᵢq̇ᵢ) = −∂V/∂qᵢ = Fᵢ  (Newton's 2nd for each particle)"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#061",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "FIELD THEORY: u(x,t) is a field (function of space and time)\n  L = ½(u_t² − c²u_x²) − W(u)  (Klein-Gordon if W = ½m²u²)"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#062",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "E-L: ∂²u/∂t² − c²∇²u + W'(u) = 0  (nonlinear wave equation)\n```"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#063",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#064",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "## Noether's Theorem: Formal Statement"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#065",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "```\n  SETUP: Action S[q] = ∫ L(q, q̇, t) dt invariant under a\n  one-parameter family of transformations:\n    q → Q(q, s),   t → T(t, s)   (s = parameter, s=0 is identity)"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#066",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "NOETHER'S CURRENT:\n  For a variational symmetry (δS = 0):"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#067",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "J = Σᵢ (∂L/∂q̇ᵢ)·(∂Qᵢ/∂s|_{s=0}) − H·(∂T/∂s|_{s=0})"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#068",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "where H = Σᵢ (∂L/∂q̇ᵢ)q̇ᵢ − L  (Hamiltonian)."
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#069",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "CONSERVATION LAW: dJ/dt = 0 along solutions."
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#070",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "┌────────────────────────────────────────────────────────────┐\n  │ SYMMETRY               CONSERVED QUANTITY                  │\n  │ q → q + a (translation)  → pᵢ = ∂L/∂q̇ᵢ  (momentum)         │\n  │ t → t + s (time shift)   → H = Σpq̇ − L   (energy)          │\n  │ q → R(s)q (rotation)     → L = q × p       (ang. moment)   │\n  │ φ → φ + s (U(1) phase)   → Q (electric charge)             │\n  └────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#071",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#072",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "## Conjugate Momentum and Legendre Transform"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#073",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "A key structure in the E-L formulation:"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#074",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "```\n  CANONICAL MOMENTUM (conjugate to q):\n  pᵢ = ∂L/∂q̇ᵢ"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#075",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "PHYSICAL MEANING:\n  In L = ½m|q̇|² − V(q): p = mq̇ (usual momentum).\n  In electromagnetic coupling: p = mq̇ + eA/c (kinetic + vector potential).\n  In relativistic L = −mc²√(1−v²/c²): p = mv/√(1−v²/c²) (relativistic momentum)."
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#076",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "E-L EQUATION in terms of p:\n  d/dt(pᵢ) = ∂L/∂qᵢ\n  ṗᵢ = ∂L/∂qᵢ  (generalized force = rate of change of momentum)"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#077",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "LEGENDRE TRANSFORM (to Hamiltonian):\n  H(q, p) = Σᵢ pᵢ q̇ᵢ − L(q, q̇, t)\n  where q̇ is expressed as a function of p from pᵢ = ∂L/∂q̇ᵢ.\n  (This requires the map q̇ → p to be invertible: ∂²L/∂q̇² nonsingular)\n```"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#078",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#079",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "## Computing the E-L Equation: Procedure"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#080",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "```\n  PROCEDURE for J[u] = ∫ₐᵇ F(x, u, u') dx:"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#081",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "STEP 1: Compute partial derivatives of F.\n    F_u = ∂F/∂u\n    F_{u'} = ∂F/∂u'"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#082",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "STEP 2: Compute total derivative of F_{u'}.\n    d/dx F_{u'} = (∂F_{u'}/∂x) + (∂F_{u'}/∂u)u' + (∂F_{u'}/∂u')u''\n               = F_{u'x} + F_{u'u}u' + F_{u'u'}u''"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#083",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "STEP 3: E-L equation:\n    F_u − F_{u'x} − F_{u'u}u' − F_{u'u'}u'' = 0"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#084",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "STEP 4: Solve the 2nd order ODE with BCs."
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#085",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "IF F has no explicit x (autonomous):\n    Use Beltrami: F − u'F_{u'} = C (reduces to 1st order ODE)."
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#086",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "IF F is quadratic in u':\n    F = ½A(x)u'² + B(x)uu' + ½C(x)u²\n    E-L gives:  −(Au')' + ½B'u − Bu' − ½(−C+...)u = 0\n    → 2nd order linear ODE.\n```"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#087",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#088",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "## Cross-References"
+    },
+    {
+      "id": "02-EULER-LAGRANGE.md#089",
+      "path": [
+        "02-EULER-LAGRANGE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:02-euler-lagrange, git-history:variational-calculus:02-euler-lagrange]",
+        "canonical_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "concepts": "[euler, lagrange]",
+        "current_path": "variational-calculus/02-EULER-LAGRANGE.md",
+        "id": "maxim:variational-calculus:euler-lagrange",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[euler, lagrange]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Euler-Lagrange Equations",
+        "updated": "null"
+      },
+      "text": "- `variational-calculus/01-FUNCTIONALS.md` — variational derivative and functional setup.\n- `variational-calculus/03-CONSTRAINTS.md` — constrained extrema extend Euler-Lagrange with multipliers.\n- `partial-differential-equations/03-WAVE-EQUATION.md` — field equations as Euler-Lagrange equations of action."
+    }
+  ],
+  "refs": [
+    "02-EULER-LAGRANGE.md"
+  ]
+}

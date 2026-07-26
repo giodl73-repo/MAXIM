@@ -1,0 +1,1469 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-genomics-crispr",
+  "source": "../../genomics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "07-CRISPR.md#000",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "# CRISPR Gene Editing"
+    },
+    {
+      "id": "07-CRISPR.md#001",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "07-CRISPR.md#002",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "```\nCRISPR: PROGRAMMABLE GENOME EDITING\n====================================="
+    },
+    {
+      "id": "07-CRISPR.md#003",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "ORIGIN: Discovered as a bacterial immune memory system\n  Bacteria use it to remember and destroy viral DNA\n  Jennifer Doudna + Emmanuelle Charpentier repurposed it (2012 paper; 2020 Nobel)\n  (→ microbiology/08-MICROBIAL-GENETICS.md for the natural system)"
+    },
+    {
+      "id": "07-CRISPR.md#004",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "CONCEPTUAL FRAMING:\n  ┌──────────────────────────────────────────────────────────────────┐\n  │ guide RNA (gRNA)   = search string    (20 nucleotide sequence)   │\n  │ PAM sequence       = anchor/constraint (NGG for SpCas9)          │\n  │ Cas9 protein       = the search + cut engine                     │\n  │ DNA double-strand  = target data (3B character string)           │\n  │                                                                  │\n  │ System finds the first 20-nt match to gRNA adjacent to PAM,      │\n  │ then cuts both strands of DNA. DNA repair mechanisms do the rest.│\n  │                                                                  │\n  │ Like regex search + cut on the human genome.                     │\n  └──────────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "07-CRISPR.md#005",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "WHAT YOU CAN DO:\n  ┌────────────────────────────────────────────────────────────────┐\n  │ DISRUPT (knock out)    Cut + error-prone repair → frameshift   │\n  │ CORRECT (knock in)     Cut + homology-directed repair template │\n  │ BASE EDIT              Change 1 base without cutting DNA       │\n  │ PRIME EDIT             Insert/delete/substitute without DSB    │\n  │ REGULATE (CRISPRi/a)   Block or activate transcription         │\n  │ LABEL (CRISPRimaging)  Fluorescent tag on specific locus       │\n  │ SCREEN                 Library of gRNAs to find gene function  │\n  └────────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "07-CRISPR.md#006",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-CRISPR.md#007",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "## The Cas9 Mechanism"
+    },
+    {
+      "id": "07-CRISPR.md#008",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "```\n  CAS9 SEARCH AND CUT MECHANISM\n  ================================"
+    },
+    {
+      "id": "07-CRISPR.md#009",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "STEP 1: PAM RECOGNITION\n  Cas9 scans DNA looking for NGG (PAM: Protospacer Adjacent Motif)\n  SpCas9 PAM: 5'–NGG–3' (N = any base)"
+    },
+    {
+      "id": "07-CRISPR.md#010",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "In the 3.2 Gb human genome:\n  NGG occurs every ~8 bp on average → ~1 billion PAM sites total\n  Any 20-nt target adjacent to NGG = potential edit site"
+    },
+    {
+      "id": "07-CRISPR.md#011",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "STEP 2: SEED REGION CHECK\n  Bases 1–10 of gRNA (adjacent to PAM) = \"seed region\"\n  Even 1–2 mismatches in seed region → no cutting\n  This limits off-target effects"
+    },
+    {
+      "id": "07-CRISPR.md#012",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "STEP 3: R-LOOP FORMATION\n  gRNA base-pairs with target DNA strand (20 bp)\n  Creates R-loop: gRNA:DNA hybrid + displaced DNA strand"
+    },
+    {
+      "id": "07-CRISPR.md#013",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "┌─────────────────────────────────────────────────────────────┐\n  │  5'─ NNNNNNNNNNNNNNNNNNNNNGG ─3'  (genomic DNA, PAM strand) │\n  │  3'─ NNNNNNNNNNNNNNNNNNNNN    ─5'  (non-PAM strand)         │\n  │                                                             │\n  │       ↑ 20-nt target sequence                               │\n  │       └── guide RNA anneals here                            │\n  └─────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "07-CRISPR.md#014",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "STEP 4: DOUBLE-STRAND BREAK (DSB)\n  Two nuclease domains:\n  - RuvC domain: cuts non-PAM strand\n  - HNH domain: cuts PAM strand\n  Result: Blunt-ended DSB at position 3 bp upstream of PAM"
+    },
+    {
+      "id": "07-CRISPR.md#015",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "EDIT SITE = 3 bp upstream of PAM\n  NGG motif intact after cutting (on PAM strand fragment)\n```"
+    },
+    {
+      "id": "07-CRISPR.md#016",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-CRISPR.md#017",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "## DNA Repair After Cas9 Cutting"
+    },
+    {
+      "id": "07-CRISPR.md#018",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "```\n  TWO REPAIR PATHWAYS — DETERMINE EDIT OUTCOME\n  =============================================="
+    },
+    {
+      "id": "07-CRISPR.md#019",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "PATHWAY 1: NHEJ (Non-Homologous End Joining)\n  ─────────────────────────────────────────────\n  DEFAULT repair in most cells\n  Fast, error-prone\n  Ligates broken ends directly"
+    },
+    {
+      "id": "07-CRISPR.md#020",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "RESULT: Small insertions or deletions (indels)\n  ─ Most common: 1-bp insertion (most common) or 1–20 bp deletion\n  ─ ~50–80% of cuts produce frameshift mutations\n  ─ Frameshift in coding exon → premature stop codon → protein KO"
+    },
+    {
+      "id": "07-CRISPR.md#021",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "USE CASE: Gene knockout\n  ┌──────────────────────────────────────────────────────┐\n  │ Wild-type: ATCGATCGATCGATCG → Protein: IDIDID        │\n  │ +1 insertion: ATCG[A]ATCGATCGATCG → IDIDX (frame     │\n  │   shift, garbage protein → nonsense-mediated decay)  │\n  └──────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "07-CRISPR.md#022",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "PATHWAY 2: HDR (Homology-Directed Repair)\n  ──────────────────────────────────────────\n  Uses a DNA template for precise repair\n  Template can be: single-stranded oligonucleotide (ssODN),\n                   plasmid, or recombinant virus (AAV)"
+    },
+    {
+      "id": "07-CRISPR.md#023",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "RESULT: Precise insertion, deletion, or base substitution\n  ─ Efficiency: 0.1–10% in most cells (vs. 50–80% for NHEJ)\n  ─ Requires: Template DNA + cells actively dividing (S/G2 phase)\n  ─ Best in: iPSCs, dividing cell lines, early embryos"
+    },
+    {
+      "id": "07-CRISPR.md#024",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "USE CASE: Gene correction, reporter knock-in, disease modeling"
+    },
+    {
+      "id": "07-CRISPR.md#025",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "┌──────────────────────────────────────────────────────────┐\n  │ CUT AT DISEASE MUTATION                                  │\n  │ + ssODN template with corrected sequence                 │\n  │ HDR uses template: MUTANT → WILD-TYPE restored           │\n  │ Application: Sickle cell / beta-thalassemia correction   │\n  └──────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "07-CRISPR.md#026",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-CRISPR.md#027",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "## CRISPR Delivery Methods"
+    },
+    {
+      "id": "07-CRISPR.md#028",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "```\n  DELIVERY VECTORS: GETTING CRISPR INTO CELLS\n  ============================================="
+    },
+    {
+      "id": "07-CRISPR.md#029",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "CHALLENGE: Cas9 protein (~160 kDa) + gRNA (100 nt) must enter\n             nucleus of target cells."
+    },
+    {
+      "id": "07-CRISPR.md#030",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "┌──────────────────────────────────────────────────────────────────┐\n  │ METHOD          │ CARGO              │ PROS          │ CONS      │\n  ├─────────────────┼────────────────────┼───────────────┼───────────┤\n  │ Plasmid DNA     │ SpCas9 + gRNA gene │ Cheap, easy   │ Transient │\n  │ electroporation │                    │ for cell lines│ immune    │\n  ├─────────────────┼────────────────────┼───────────────┼───────────┤\n  │ RNP             │ Cas9 protein       │ Low off-target│ Expensive │\n  │ electroporation │ + gRNA (complex)   │ Transient     │ per-use   │\n  ├─────────────────┼────────────────────┼───────────────┼───────────┤\n  │ Lentivirus      │ Cas9 + gRNA gene   │ High efficiency│ Integrates│\n  │                 │ (integrating)      │ for screens   │ genome    │\n  ├─────────────────┼────────────────────┼───────────────┼───────────┤\n  │ AAV             │ gRNA + template    │ In vivo       │ 4.7 kb    │\n  │ (adeno-assoc.)  │ (small Cas9 only)  │ tissue-target │ size limit│\n  ├─────────────────┼────────────────────┼───────────────┼───────────┤\n  │ LNP             │ mRNA (Cas9) +      │ Transient     │ Liver-    │\n  │ (lipid NP)      │ gRNA               │ No virus      │ tropic    │\n  └──────────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "07-CRISPR.md#031",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "IN VIVO DELIVERY CHALLENGE:\n  Ex vivo: Edit cells outside the body, infuse back (CAR-T, sickle cell)\n  In vivo: Deliver editing machinery directly to tissue\n           Liver: LNP works well (IV injection → ~80% liver)\n           Eye: Local injection (accessible, immune-privileged)\n           CNS: Still challenging; MiniCas9 + AAV or LNP in development\n           Muscle: Some AAV serotypes (AAV8, AAV9) tropism"
+    },
+    {
+      "id": "07-CRISPR.md#032",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "CLINICAL EXAMPLE: CASGEVY (Vertex/CRISPR Therapeutics, 2023)\n  ─ First approved CRISPR therapy (sickle cell + beta-thalassemia)\n  ─ Ex vivo: Patient HSCs harvested → BCL11A enhancer disrupted\n    (reactivates fetal hemoglobin) → cells infused back\n  ─ Delivery: Electroporation of RNP (no viral vector)\n```"
+    },
+    {
+      "id": "07-CRISPR.md#033",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-CRISPR.md#034",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "## Base Editing"
+    },
+    {
+      "id": "07-CRISPR.md#035",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "```\n  BASE EDITING: CHEMICAL CONVERSION WITHOUT DSB\n  ================================================"
+    },
+    {
+      "id": "07-CRISPR.md#036",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "PROBLEM WITH CAS9 CUTTING: DSBs can cause translocations,\n  large deletions, and off-target edits."
+    },
+    {
+      "id": "07-CRISPR.md#037",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "SOLUTION: Use catalytically dead Cas9 (dCas9) + deaminase enzyme\n  to chemically convert one base to another WITHOUT cutting both strands."
+    },
+    {
+      "id": "07-CRISPR.md#038",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "CBE (Cytosine Base Editor, David Liu lab):\n  ┌────────────────────────────────────────────────────────────┐\n  │ dCas9 + nicking + Cytosine Deaminase (APOBEC/AID)          │\n  │ Converts: C → U → read as T after repair                   │\n  │ Result: C:G → T:A base pair conversion                     │\n  │ Editing window: positions 4–8 of gRNA (counting from PAM)  │\n  └────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "07-CRISPR.md#039",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "ABE (Adenine Base Editor):\n  ┌────────────────────────────────────────────────────────────┐\n  │ dCas9 + evolved adenosine deaminase (ABE8e)                │\n  │ Converts: A → I → read as G after repair                   │\n  │ Result: A:T → G:C base pair conversion                     │\n  │ Medically relevant: most pathogenic SNPs can be corrected  │\n  │ with C→T or A→G conversion                                 │\n  └────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "07-CRISPR.md#040",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "WHY BASE EDITING MATTERS:\n  ─ ~60% of pathogenic point mutations correctable by ABE or CBE\n  ─ Much lower indel rate than CRISPR cutting\n  ─ Single-base precision: can correct one specific mutation\n    without disturbing adjacent sequence"
+    },
+    {
+      "id": "07-CRISPR.md#041",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "LIMITATION: Only installs specific C→T or A→G changes.\n  Can't: install arbitrary sequences, insert, delete, or\n  make other transversion mutations.\n```"
+    },
+    {
+      "id": "07-CRISPR.md#042",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-CRISPR.md#043",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "## Prime Editing"
+    },
+    {
+      "id": "07-CRISPR.md#044",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "```\n  PRIME EDITING: THE MOST FLEXIBLE APPROACH (2019)\n  =================================================="
+    },
+    {
+      "id": "07-CRISPR.md#045",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "\"Search-and-replace\" genomic editing\n  David Liu lab: pegRNA (prime editing guide RNA) + PE2/PE3/PE5"
+    },
+    {
+      "id": "07-CRISPR.md#046",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "MECHANISM:\n  ┌────────────────────────────────────────────────────────────────┐\n  │ pegRNA = gRNA + primer binding site (PBS) + reverse            │\n  │          transcriptase template (RTT) encoding desired edit    │\n  │                                                                │\n  │ PE protein = Cas9 nickase (nicks one strand) +                 │\n  │              M-MLV reverse transcriptase                       │\n  │                                                                │\n  │ PROCESS:                                                       │\n  │ 1. pegRNA guides Cas9 to target; nicks PAM strand              │\n  │ 2. 3' end of nicked strand hybridizes to PBS on pegRNA         │\n  │ 3. RT uses RTT as template to copy desired edit                │\n  │ 4. New DNA strand with edit replaces original                  │\n  │ 5. PE3: second nick on opposite strand → promotes edit         │\n  └────────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "07-CRISPR.md#047",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "CAPABILITIES (all four types of edit):\n  C→T, A→G substitutions       (like base editors)\n  All 12 types of point mutation (transversions included)\n  Small insertions (≤44 bp)\n  Small deletions (≤80 bp)\n  Combinations of the above"
+    },
+    {
+      "id": "07-CRISPR.md#048",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "LIMITATION: Large insertions still challenging.\n  ADVANTAGE: No DSB; works in non-dividing cells;\n             installs nearly any small edit precisely.\n```"
+    },
+    {
+      "id": "07-CRISPR.md#049",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-CRISPR.md#050",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "## CRISPRi and CRISPRa"
+    },
+    {
+      "id": "07-CRISPR.md#051",
+      "path": [
+        "07-CRISPR.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]",
+        "canonical_path": "genomics/07-CRISPR.md",
+        "concepts": "[crispr]",
+        "current_path": "genomics/07-CRISPR.md",
+        "id": "maxim:genomics:crispr",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "genomics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crispr]",
+        "section": "genomics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CRISPR Gene Editing",
+        "updated": "null"
+      },
+      "text": "```\n  CRISPR GENE REGULATION (WITHOUT EDITING)\n  =========================================="
+    }
+  ],
+  "refs": [
+    "07-CRISPR.md"
+  ]
+}

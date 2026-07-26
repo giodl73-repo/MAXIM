@@ -1,0 +1,349 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-graph-algorithms-planarity-and-structure",
+  "source": "../../graph-algorithms",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "09-PLANARITY-AND-STRUCTURE.md#000",
+      "path": [
+        "09-PLANARITY-AND-STRUCTURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:09-planarity-and-structure, git-history:graph-algorithms:09-planarity-and-structure]",
+        "canonical_path": "graph-algorithms/09-PLANARITY-AND-STRUCTURE.md",
+        "concepts": "[planarity, Euler formula, graph minors, treewidth, embeddings, Kuratowski]",
+        "current_path": "graph-algorithms/09-PLANARITY-AND-STRUCTURE.md",
+        "id": "maxim:graph-algorithms:planarity-and-structure",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[planarity, treewidth]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Planarity and Graph Structure",
+        "updated": "null"
+      },
+      "text": "# Planarity and Graph Structure — The Structural Escape Hatch"
+    },
+    {
+      "id": "09-PLANARITY-AND-STRUCTURE.md#001",
+      "path": [
+        "09-PLANARITY-AND-STRUCTURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:09-planarity-and-structure, git-history:graph-algorithms:09-planarity-and-structure]",
+        "canonical_path": "graph-algorithms/09-PLANARITY-AND-STRUCTURE.md",
+        "concepts": "[planarity, Euler formula, graph minors, treewidth, embeddings, Kuratowski]",
+        "current_path": "graph-algorithms/09-PLANARITY-AND-STRUCTURE.md",
+        "id": "maxim:graph-algorithms:planarity-and-structure",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[planarity, treewidth]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Planarity and Graph Structure",
+        "updated": "null"
+      },
+      "text": "This is the second escape hatch from `07`'s hardness, and the more profound one:\ninstead of relaxing to linear algebra (`08`), *exploit the graph's structure*.\nPlanar graphs (drawable without crossings) and bounded-treewidth graphs (\"tree-\nlike\" graphs) admit polynomial or even linear algorithms for problems that are\nNP-hard in general. The crowning theory — Robertson-Seymour graph minors — is one\nof the deepest results in combinatorics, and it explains *why* structure defeats\nhardness in a uniform way."
+    },
+    {
+      "id": "09-PLANARITY-AND-STRUCTURE.md#002",
+      "path": [
+        "09-PLANARITY-AND-STRUCTURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:09-planarity-and-structure, git-history:graph-algorithms:09-planarity-and-structure]",
+        "canonical_path": "graph-algorithms/09-PLANARITY-AND-STRUCTURE.md",
+        "concepts": "[planarity, Euler formula, graph minors, treewidth, embeddings, Kuratowski]",
+        "current_path": "graph-algorithms/09-PLANARITY-AND-STRUCTURE.md",
+        "id": "maxim:graph-algorithms:planarity-and-structure",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[planarity, treewidth]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Planarity and Graph Structure",
+        "updated": "null"
+      },
+      "text": "```\n  STRUCTURE DEFEATS HARDNESS\n  =========================="
+    },
+    {
+      "id": "09-PLANARITY-AND-STRUCTURE.md#003",
+      "path": [
+        "09-PLANARITY-AND-STRUCTURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:09-planarity-and-structure, git-history:graph-algorithms:09-planarity-and-structure]",
+        "canonical_path": "graph-algorithms/09-PLANARITY-AND-STRUCTURE.md",
+        "concepts": "[planarity, Euler formula, graph minors, treewidth, embeddings, Kuratowski]",
+        "current_path": "graph-algorithms/09-PLANARITY-AND-STRUCTURE.md",
+        "id": "maxim:graph-algorithms:planarity-and-structure",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[planarity, treewidth]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Planarity and Graph Structure",
+        "updated": "null"
+      },
+      "text": "PLANARITY                         TREEWIDTH\n   (geometric structure)             (decomposition structure)\n   -------------------------         ----------------------------------\n   drawable with no edge crossings   \"how far from being a tree?\"\n        |                                 |\n        |  Euler:  V - E + F = 2           |  tree (tw=1) -> series-parallel (tw=2)\n        |  forbidden minors: K5, K3,3      |  -> ... -> clique K_n (tw = n-1)\n        v                                  v\n   LINEAR-TIME planarity test        BOUNDED treewidth => DP solves NP-hard\n   (Hopcroft-Tarjan, Boyer-Myrvold)  problems in poly time (Courcelle's theorem)"
+    },
+    {
+      "id": "09-PLANARITY-AND-STRUCTURE.md#004",
+      "path": [
+        "09-PLANARITY-AND-STRUCTURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:09-planarity-and-structure, git-history:graph-algorithms:09-planarity-and-structure]",
+        "canonical_path": "graph-algorithms/09-PLANARITY-AND-STRUCTURE.md",
+        "concepts": "[planarity, Euler formula, graph minors, treewidth, embeddings, Kuratowski]",
+        "current_path": "graph-algorithms/09-PLANARITY-AND-STRUCTURE.md",
+        "id": "maxim:graph-algorithms:planarity-and-structure",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[planarity, treewidth]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Planarity and Graph Structure",
+        "updated": "null"
+      },
+      "text": "+---------------------------------------------------------+\n         | ROBERTSON-SEYMOUR (graph minors): every minor-closed    |\n         | family has a FINITE set of forbidden minors. Implies    |\n         | poly-time membership tests for huge classes of problems.|\n         +---------------------------------------------------------+\n```"
+    },
+    {
+      "id": "09-PLANARITY-AND-STRUCTURE.md#005",
+      "path": [
+        "09-PLANARITY-AND-STRUCTURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:09-planarity-and-structure, git-history:graph-algorithms:09-planarity-and-structure]",
+        "canonical_path": "graph-algorithms/09-PLANARITY-AND-STRUCTURE.md",
+        "concepts": "[planarity, Euler formula, graph minors, treewidth, embeddings, Kuratowski]",
+        "current_path": "graph-algorithms/09-PLANARITY-AND-STRUCTURE.md",
+        "id": "maxim:graph-algorithms:planarity-and-structure",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[planarity, treewidth]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Planarity and Graph Structure",
+        "updated": "null"
+      },
+      "text": "**Read left and right as two kinds of structure** — geometric (planarity) and\ndecompositional (treewidth) — unified at the bottom by the graph-minors theory."
+    },
+    {
+      "id": "09-PLANARITY-AND-STRUCTURE.md#006",
+      "path": [
+        "09-PLANARITY-AND-STRUCTURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:09-planarity-and-structure, git-history:graph-algorithms:09-planarity-and-structure]",
+        "canonical_path": "graph-algorithms/09-PLANARITY-AND-STRUCTURE.md",
+        "concepts": "[planarity, Euler formula, graph minors, treewidth, embeddings, Kuratowski]",
+        "current_path": "graph-algorithms/09-PLANARITY-AND-STRUCTURE.md",
+        "id": "maxim:graph-algorithms:planarity-and-structure",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[planarity, treewidth]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Planarity and Graph Structure",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-PLANARITY-AND-STRUCTURE.md#007",
+      "path": [
+        "09-PLANARITY-AND-STRUCTURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:09-planarity-and-structure, git-history:graph-algorithms:09-planarity-and-structure]",
+        "canonical_path": "graph-algorithms/09-PLANARITY-AND-STRUCTURE.md",
+        "concepts": "[planarity, Euler formula, graph minors, treewidth, embeddings, Kuratowski]",
+        "current_path": "graph-algorithms/09-PLANARITY-AND-STRUCTURE.md",
+        "id": "maxim:graph-algorithms:planarity-and-structure",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[planarity, treewidth]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Planarity and Graph Structure",
+        "updated": "null"
+      },
+      "text": "## Euler's Formula — The Backbone of Planar Graphs"
+    },
+    {
+      "id": "09-PLANARITY-AND-STRUCTURE.md#008",
+      "path": [
+        "09-PLANARITY-AND-STRUCTURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:09-planarity-and-structure, git-history:graph-algorithms:09-planarity-and-structure]",
+        "canonical_path": "graph-algorithms/09-PLANARITY-AND-STRUCTURE.md",
+        "concepts": "[planarity, Euler formula, graph minors, treewidth, embeddings, Kuratowski]",
+        "current_path": "graph-algorithms/09-PLANARITY-AND-STRUCTURE.md",
+        "id": "maxim:graph-algorithms:planarity-and-structure",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[planarity, treewidth]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Planarity and Graph Structure",
+        "updated": "null"
+      },
+      "text": "For any **connected planar** graph drawn without crossings, with V vertices, E\nedges, and F faces (regions, including the unbounded outer one):"
+    },
+    {
+      "id": "09-PLANARITY-AND-STRUCTURE.md#009",
+      "path": [
+        "09-PLANARITY-AND-STRUCTURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:09-planarity-and-structure, git-history:graph-algorithms:09-planarity-and-structure]",
+        "canonical_path": "graph-algorithms/09-PLANARITY-AND-STRUCTURE.md",
+        "concepts": "[planarity, Euler formula, graph minors, treewidth, embeddings, Kuratowski]",
+        "current_path": "graph-algorithms/09-PLANARITY-AND-STRUCTURE.md",
+        "id": "maxim:graph-algorithms:planarity-and-structure",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[planarity, treewidth]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Planarity and Graph Structure",
+        "updated": "null"
+      },
+      "text": "```\n                          V - E + F = 2"
+    },
+    {
+      "id": "09-PLANARITY-AND-STRUCTURE.md#010",
+      "path": [
+        "09-PLANARITY-AND-STRUCTURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:09-planarity-and-structure, git-history:graph-algorithms:09-planarity-and-structure]",
+        "canonical_path": "graph-algorithms/09-PLANARITY-AND-STRUCTURE.md",
+        "concepts": "[planarity, Euler formula, graph minors, treewidth, embeddings, Kuratowski]",
+        "current_path": "graph-algorithms/09-PLANARITY-AND-STRUCTURE.md",
+        "id": "maxim:graph-algorithms:planarity-and-structure",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[planarity, treewidth]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Planarity and Graph Structure",
+        "updated": "null"
+      },
+      "text": "Example (a cube graph drawn planar):  V=8, E=12, F=6  ->  8 - 12 + 6 = 2  OK\n  Example (a triangle):                 V=3, E=3,  F=2  ->  3 - 3  + 2 = 2  OK\n                                                            (2 faces: inside + outside)\n```"
+    },
+    {
+      "id": "09-PLANARITY-AND-STRUCTURE.md#011",
+      "path": [
+        "09-PLANARITY-AND-STRUCTURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:09-planarity-and-structure, git-history:graph-algorithms:09-planarity-and-structure]",
+        "canonical_path": "graph-algorithms/09-PLANARITY-AND-STRUCTURE.md",
+        "concepts": "[planarity, Euler formula, graph minors, treewidth, embeddings, Kuratowski]",
+        "current_path": "graph-algorithms/09-PLANARITY-AND-STRUCTURE.md",
+        "id": "maxim:graph-algorithms:planarity-and-structure",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[planarity, treewidth]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Planarity and Graph Structure",
+        "updated": "null"
+      },
+      "text": "Two corollaries that bound how dense a planar graph can be (the source of the\nlinear-time algorithms — **a planar graph is sparse**):"
+    }
+  ],
+  "refs": [
+    "09-PLANARITY-AND-STRUCTURE.md"
+  ]
+}

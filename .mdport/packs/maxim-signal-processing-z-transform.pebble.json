@@ -1,0 +1,433 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-signal-processing-z-transform",
+  "source": "../../signal-processing",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "05-Z-TRANSFORM.md#000",
+      "path": [
+        "05-Z-TRANSFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:05-z-transform, git-history:signal-processing:05-z-transform]",
+        "canonical_path": "signal-processing/05-Z-TRANSFORM.md",
+        "concepts": "[z, transform]",
+        "current_path": "signal-processing/05-Z-TRANSFORM.md",
+        "id": "maxim:signal-processing:z-transform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[z, transform]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Z-Transform - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "# Z-Transform — A Layered Guide"
+    },
+    {
+      "id": "05-Z-TRANSFORM.md#001",
+      "path": [
+        "05-Z-TRANSFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:05-z-transform, git-history:signal-processing:05-z-transform]",
+        "canonical_path": "signal-processing/05-Z-TRANSFORM.md",
+        "concepts": "[z, transform]",
+        "current_path": "signal-processing/05-Z-TRANSFORM.md",
+        "id": "maxim:signal-processing:z-transform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[z, transform]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Z-Transform - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "05-Z-TRANSFORM.md#002",
+      "path": [
+        "05-Z-TRANSFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:05-z-transform, git-history:signal-processing:05-z-transform]",
+        "canonical_path": "signal-processing/05-Z-TRANSFORM.md",
+        "concepts": "[z, transform]",
+        "current_path": "signal-processing/05-Z-TRANSFORM.md",
+        "id": "maxim:signal-processing:z-transform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[z, transform]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Z-Transform - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "The Z-transform is to discrete-time systems what the Laplace transform is to continuous-time.\nIt converts difference equations into polynomial algebra, and maps system behavior onto the complex plane."
+    },
+    {
+      "id": "05-Z-TRANSFORM.md#003",
+      "path": [
+        "05-Z-TRANSFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:05-z-transform, git-history:signal-processing:05-z-transform]",
+        "canonical_path": "signal-processing/05-Z-TRANSFORM.md",
+        "concepts": "[z, transform]",
+        "current_path": "signal-processing/05-Z-TRANSFORM.md",
+        "id": "maxim:signal-processing:z-transform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[z, transform]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Z-Transform - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\nTRANSFORM CORRESPONDENCE"
+    },
+    {
+      "id": "05-Z-TRANSFORM.md#004",
+      "path": [
+        "05-Z-TRANSFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:05-z-transform, git-history:signal-processing:05-z-transform]",
+        "canonical_path": "signal-processing/05-Z-TRANSFORM.md",
+        "concepts": "[z, transform]",
+        "current_path": "signal-processing/05-Z-TRANSFORM.md",
+        "id": "maxim:signal-processing:z-transform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[z, transform]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Z-Transform - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Continuous-Time                    Discrete-Time\n─────────────────────────────────────────────────────────────────"
+    },
+    {
+      "id": "05-Z-TRANSFORM.md#005",
+      "path": [
+        "05-Z-TRANSFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:05-z-transform, git-history:signal-processing:05-z-transform]",
+        "canonical_path": "signal-processing/05-Z-TRANSFORM.md",
+        "concepts": "[z, transform]",
+        "current_path": "signal-processing/05-Z-TRANSFORM.md",
+        "id": "maxim:signal-processing:z-transform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[z, transform]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Z-Transform - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Signal:   x(t)                     x[n]\nTransform: X(s) = ∫x(t)e^{-st}dt  X(z) = Σ x[n]z^{-n}\nVariable:  s ∈ ℂ                   z ∈ ℂ\nPlane:     s-plane                 z-plane"
+    },
+    {
+      "id": "05-Z-TRANSFORM.md#006",
+      "path": [
+        "05-Z-TRANSFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:05-z-transform, git-history:signal-processing:05-z-transform]",
+        "canonical_path": "signal-processing/05-Z-TRANSFORM.md",
+        "concepts": "[z, transform]",
+        "current_path": "signal-processing/05-Z-TRANSFORM.md",
+        "id": "maxim:signal-processing:z-transform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[z, transform]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Z-Transform - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Stability:  poles in left half      poles inside unit circle\n           Re(s) < 0               |z| < 1"
+    },
+    {
+      "id": "05-Z-TRANSFORM.md#007",
+      "path": [
+        "05-Z-TRANSFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:05-z-transform, git-history:signal-processing:05-z-transform]",
+        "canonical_path": "signal-processing/05-Z-TRANSFORM.md",
+        "concepts": "[z, transform]",
+        "current_path": "signal-processing/05-Z-TRANSFORM.md",
+        "id": "maxim:signal-processing:z-transform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[z, transform]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Z-Transform - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Freq resp: s = jω (imaginary axis) z = e^{jω} (unit circle)\n           X(jω) = CT Fourier       X(e^{jω}) = DTFT"
+    },
+    {
+      "id": "05-Z-TRANSFORM.md#008",
+      "path": [
+        "05-Z-TRANSFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:05-z-transform, git-history:signal-processing:05-z-transform]",
+        "canonical_path": "signal-processing/05-Z-TRANSFORM.md",
+        "concepts": "[z, transform]",
+        "current_path": "signal-processing/05-Z-TRANSFORM.md",
+        "id": "maxim:signal-processing:z-transform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[z, transform]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Z-Transform - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Mapping:   s → z via:  z = e^{sTs} (relation: bilinear approx)\n```"
+    },
+    {
+      "id": "05-Z-TRANSFORM.md#009",
+      "path": [
+        "05-Z-TRANSFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:05-z-transform, git-history:signal-processing:05-z-transform]",
+        "canonical_path": "signal-processing/05-Z-TRANSFORM.md",
+        "concepts": "[z, transform]",
+        "current_path": "signal-processing/05-Z-TRANSFORM.md",
+        "id": "maxim:signal-processing:z-transform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[z, transform]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Z-Transform - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-Z-TRANSFORM.md#010",
+      "path": [
+        "05-Z-TRANSFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:05-z-transform, git-history:signal-processing:05-z-transform]",
+        "canonical_path": "signal-processing/05-Z-TRANSFORM.md",
+        "concepts": "[z, transform]",
+        "current_path": "signal-processing/05-Z-TRANSFORM.md",
+        "id": "maxim:signal-processing:z-transform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[z, transform]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Z-Transform - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## Z-Transform Definition"
+    },
+    {
+      "id": "05-Z-TRANSFORM.md#011",
+      "path": [
+        "05-Z-TRANSFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:05-z-transform, git-history:signal-processing:05-z-transform]",
+        "canonical_path": "signal-processing/05-Z-TRANSFORM.md",
+        "concepts": "[z, transform]",
+        "current_path": "signal-processing/05-Z-TRANSFORM.md",
+        "id": "maxim:signal-processing:z-transform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[z, transform]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Z-Transform - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\n             +∞\nX(z) = Z{x[n]} = Σ  x[n] · z^{-n}\n              n=-∞"
+    },
+    {
+      "id": "05-Z-TRANSFORM.md#012",
+      "path": [
+        "05-Z-TRANSFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:05-z-transform, git-history:signal-processing:05-z-transform]",
+        "canonical_path": "signal-processing/05-Z-TRANSFORM.md",
+        "concepts": "[z, transform]",
+        "current_path": "signal-processing/05-Z-TRANSFORM.md",
+        "id": "maxim:signal-processing:z-transform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[z, transform]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Z-Transform - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "where z ∈ ℂ (complex variable, think of z = r·e^{jω})"
+    },
+    {
+      "id": "05-Z-TRANSFORM.md#013",
+      "path": [
+        "05-Z-TRANSFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:05-z-transform, git-history:signal-processing:05-z-transform]",
+        "canonical_path": "signal-processing/05-Z-TRANSFORM.md",
+        "concepts": "[z, transform]",
+        "current_path": "signal-processing/05-Z-TRANSFORM.md",
+        "id": "maxim:signal-processing:z-transform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[z, transform]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Z-Transform - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "INVERSE Z-TRANSFORM:\nx[n] = (1/2πj) ∮ X(z) · z^{n-1} dz\n        (contour integral around ROC — rarely computed directly)"
+    },
+    {
+      "id": "05-Z-TRANSFORM.md#014",
+      "path": [
+        "05-Z-TRANSFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:05-z-transform, git-history:signal-processing:05-z-transform]",
+        "canonical_path": "signal-processing/05-Z-TRANSFORM.md",
+        "concepts": "[z, transform]",
+        "current_path": "signal-processing/05-Z-TRANSFORM.md",
+        "id": "maxim:signal-processing:z-transform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[z, transform]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Z-Transform - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Practical inverse: partial fraction expansion + table lookup\n```"
+    }
+  ],
+  "refs": [
+    "05-Z-TRANSFORM.md"
+  ]
+}

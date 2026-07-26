@@ -1,0 +1,187 @@
+{
+  "schema_version": "1",
+  "source_markdown": "database-systems\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 170,
+      "heading_context": "## Where Each Real System Sits",
+      "headers": [
+        "System",
+        "Storage engine",
+        "Concurrency / default isolation",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "**PostgreSQL**",
+          "Heap + B-tree, in-place",
+          "MVCC; default **Read Committed**",
+          "MVCC by tuple versioning; old versions vacuumed"
+        ],
+        [
+          "**MySQL / InnoDB**",
+          "Clustered B+tree (index-organized)",
+          "MVCC; default **Repeatable Read**",
+          "RR uses gap locks → blocks many phantoms"
+        ],
+        [
+          "**SQL Server**",
+          "Heap or clustered B+tree",
+          "Locking default **Read Committed**; RCSI/SI add MVCC",
+          "Snapshot isolation is opt-in per DB"
+        ],
+        [
+          "**SQLite**",
+          "B-tree, single file",
+          "Database-level locking; WAL mode",
+          "Serializable-ish via coarse locking"
+        ],
+        [
+          "**Oracle**",
+          "Heap + B-tree",
+          "MVCC via undo segments; **Read Committed** default",
+          "\"Serializable\" is actually snapshot isolation"
+        ],
+        [
+          "**RocksDB / LevelDB**",
+          "LSM-tree",
+          "Library; pluggable",
+          "Storage engine *inside* other databases"
+        ],
+        [
+          "**Cassandra / Scylla**",
+          "LSM-tree",
+          "Tunable consistency, no cross-row txn (classic)",
+          "AP-leaning, quorum reads/writes"
+        ],
+        [
+          "**Spanner**",
+          "Colossus + tablets",
+          "External consistency via **TrueTime** + Paxos",
+          "The NewSQL gold standard (guide 09)"
+        ],
+        [
+          "**CockroachDB**",
+          "Mdport (LSM, RocksDB-like)",
+          "Serializable via Raft + MVCC",
+          "Spanner-inspired, no TrueTime hardware"
+        ],
+        [
+          "**Cosmos DB**",
+          "Multi-model, partitioned",
+          "**5 consistency levels** (Strong→Eventual)",
+          "Tunable per-request (guide 09)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 195,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know (old world)",
+        "The internals concept (new world)",
+        "SQL Server / Azure anchor"
+      ],
+      "rows": [
+        [
+          "A filesystem block cache",
+          "The **buffer pool** — the DB's own page cache, bypassing the OS cache",
+          "SQL Server buffer pool, `max server memory`"
+        ],
+        [
+          "`fsync()` to guarantee a write hit disk",
+          "WAL flush + group commit before acknowledging COMMIT",
+          "`WRITELOG` waits, log flush"
+        ],
+        [
+          "A clustered index = the table itself",
+          "**Index-organized / clustered** storage (InnoDB, SQL Server)",
+          "Clustered index IS the table"
+        ],
+        [
+          "Optimistic concurrency (a version/rowversion column you checked)",
+          "**MVCC** — the engine does this for every row automatically",
+          "`rowversion`/`timestamp`, RCSI"
+        ],
+        [
+          "A query plan you read in a profiler",
+          "The **physical plan** the cost-based optimizer chose",
+          "`SET SHOWPLAN_XML`, Query Store"
+        ],
+        [
+          "A transaction log you backed up",
+          "The **WAL** — same artifact, also drives replication",
+          "SQL Server transaction log, AG log shipping"
+        ],
+        [
+          "Read replicas behind a load balancer",
+          "**Leader-follower replication** with async/sync lag",
+          "Always On readable secondaries"
+        ],
+        [
+          "A partitioned table across filegroups",
+          "**Sharding / horizontal partitioning** by key",
+          "Elastic pools, Cosmos partition keys"
+        ],
+        [
+          "Two-phase commit across resource managers (MSDTC)",
+          "**2PC** for distributed transactions — same protocol",
+          "MSDTC, distributed transactions"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 253,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "The question is really about...",
+        "Go to guide"
+      ],
+      "rows": [
+        [
+          "Why is my write-heavy table slow / what is write amplification?",
+          "01 Storage Engines"
+        ],
+        [
+          "Should this be a B-tree or LSM workload?",
+          "01 Storage Engines"
+        ],
+        [
+          "Why isn't my index being used / what is a covering index?",
+          "02 Indexing"
+        ],
+        [
+          "Why did the optimizer pick a bad plan / stale statistics?",
+          "03 Query Processing"
+        ],
+        [
+          "Why are two transactions deadlocking / blocking?",
+          "04 Transactions & MVCC"
+        ],
+        [
+          "\"Is Read Committed safe enough here?\" / phantom reads / write skew",
+          "05 Isolation Levels"
+        ],
+        [
+          "\"Will I lose data on a crash?\" / why is COMMIT slow?",
+          "06 WAL & Recovery"
+        ],
+        [
+          "Replica lag, failover, split-brain",
+          "07 Replication"
+        ],
+        [
+          "\"How do I shard this 10 TB table?\" / 2PC",
+          "08 Sharding & Partitioning"
+        ],
+        [
+          "\"Strong vs eventual consistency across regions\" / Spanner vs Cosmos",
+          "09 Distributed SQL"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1217 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-graph-algorithms-strong-connectivity",
+  "source": "../../graph-algorithms",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#000",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "# Strong Connectivity — SCCs, Bridges, and 2-SAT"
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#001",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "This file is about *decomposing* a graph by connectivity structure, and it is a\nshowcase of one technique — a single DFS augmented with **discovery times and\nlow-link values** — solving four problems at once: strongly connected components,\nbridges, articulation points, and (via SCCs) 2-SAT. The low-link idea is the\ntrick worth owning; everything here is a corollary of it."
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#002",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "```\n  ONE DFS, FOUR RESULTS (all O(V+E))\n  =================================="
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#003",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "DFS assigns each vertex:\n     disc[v]  = discovery time (order first reached)\n     low[v]   = lowest disc reachable from v's subtree via >= 0 tree edges + 1 back edge"
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#004",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "+----------------------------------------+\n   DIRECTED graph -----> |  SCCs: Tarjan (1 DFS) or Kosaraju (2)  |\n                         +----------------------------------------+\n                                    |\n                                    v  condensation (SCCs -> super-nodes) is a DAG\n                         +----------------------------------------+\n   UNDIRECTED graph ---> |  BRIDGES: edge (u,v) with low[v]>disc[u]|\n                         |  ARTICULATION: vertex whose removal      |\n                         |    splits the graph                     |\n                         +----------------------------------------+\n                                    |\n                                    v  application\n                         +----------------------------------------+\n   Boolean 2-SAT -------> |  build implication graph, SCC it:      |\n                         |  SAT iff no var x and ~x in same SCC    |\n                         +----------------------------------------+\n```"
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#005",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "**Read top-down:** disc/low feed SCCs (directed) and bridges/articulation\n(undirected); SCCs in turn solve 2-SAT."
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#006",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#007",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "## Strongly Connected Components (SCCs)"
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#008",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "In a **directed** graph, an SCC is a maximal set of vertices that are *mutually\nreachable*: for every pair u, v in the SCC, there is a path u→v *and* a path v→u.\nSCCs partition the vertices. Contracting each SCC to a single super-node yields\nthe **condensation**, which is always a **DAG** — the \"skeleton\" of the graph's\nreachability."
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#009",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "```\n  Directed graph:                 SCCs:\n                                  ---------------------------------\n     A ---> B ---> C              {A, B, D} are mutually reachable\n     ^      |      |              (A->B->D->A is a cycle)\n     |      v      v              {C, E}     are mutually reachable\n     D <----+      E              (C->E->C ... if E->C exists)\n            |      ^\n            +------+              CONDENSATION (a DAG):\n                                    [ABD] ---> [CE]\n                                  reachability collapses to a clean DAG.\n```"
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#010",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "> **Why \"strongly\"?** *Weakly* connected = connected if you ignore edge\n> directions (just `02`'s components on the underlying undirected graph).\n> *Strongly* connected requires mutual reachability *respecting* direction — a\n> genuinely harder, directed-only notion."
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#011",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "### Tarjan vs Kosaraju — Two Linear Algorithms"
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#012",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "| | Tarjan | Kosaraju |\n|---|--------|----------|\n| DFS passes | **one** | **two** (graph, then transpose Gᵀ) |\n| Extra structure | a stack of \"open\" vertices + low-link | finish-order stack, then transpose |\n| Time | O(V+E) | O(V+E) |\n| Needs the transpose Gᵀ? | no | yes (reverse all edges) |\n| Intuition | low[v]==disc[v] ⇒ v roots an SCC | 2nd DFS in reverse finish order peels SCCs |"
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#013",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "```\n  KOSARAJU (easiest to reason about):\n    1. DFS on G, push each vertex on a stack when it FINISHES.\n    2. Transpose the graph (reverse every edge) -> G^T.\n    3. Pop vertices off the stack; DFS each in G^T. Each DFS tree = one SCC."
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#014",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "TARJAN (one pass, the production choice):\n    DFS maintaining disc[] and low[]. Keep visited-but-unassigned vertices on a\n    stack. When a vertex v finishes with low[v]==disc[v], it is the ROOT of an\n    SCC: pop the stack down to v -- those vertices are exactly that SCC.\n```"
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#015",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "> Old-world bridge: SCC condensation is how you find **circular dependencies** in\n> a module/package graph. NuGet/npm \"cyclic dependency\" errors are non-trivial\n> SCCs in the dependency digraph; a valid build order (topo sort, `02`) exists\n> *only* on the condensation DAG, never inside an SCC."
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#016",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#017",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "## Bridges and Articulation Points — Single Points of Failure"
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#018",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "In an **undirected** graph, a **bridge** is an edge whose removal increases the\nnumber of connected components; an **articulation point** (cut vertex) is a vertex\nwhose removal does the same. These are exactly the single points of failure in a\nnetwork — the things a resilient design must avoid."
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#019",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "```\n  Undirected graph:                 BRIDGE: edge B-C\n                                    -------------------------------\n     A --- B --- C --- D            removing B-C disconnects {A,B} from {C,D}.\n            \\   /                   ARTICULATION POINTS: B and C\n             (no - acyclic here)    removing B isolates A; removing C isolates D."
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#020",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "With a cycle, no bridge:       Low-link test:\n     A --- B --- C                    edge (u,v) is a BRIDGE iff  low[v] > disc[u]\n            \\   /                      (v's subtree has NO back edge above u)\n             D                       u is an ARTICULATION point iff some child v\n     B-C, C-D, D-B form a cycle:       has  low[v] >= disc[u]  (root: >= 2 children)\n     no single edge removal splits.\n```"
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#021",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "The mechanism is the same disc/low DFS as Tarjan. The intuition: an edge (u→v) in\nthe DFS tree is a bridge exactly when v's subtree cannot \"escape above\" u via any\nback edge — formally `low[v] > disc[u]`. A back edge provides redundancy; its\nabsence is a single point of failure."
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#022",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "> Old-world bridge: this is automated **network resilience analysis**. A bridge in\n> the physical topology is a link whose failure partitions the network; an\n> articulation point is a router/switch whose failure does. The same DFS that\n> finds SCCs in your service-call graph finds the single points of failure in your\n> infrastructure."
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#023",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#024",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "## Biconnectivity — The Redundancy Guarantee"
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#025",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "A graph is **biconnected** if it has no articulation points: every pair of\nvertices lies on a common cycle, so there are *two vertex-disjoint paths* between\nany two vertices (Menger's theorem). Biconnected components partition the *edges*.\nThis is the formal statement of \"the network survives any single node failure\" —\nexactly the property a fault-tolerant topology design targets."
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#026",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "```\n  k-connectivity (Menger's theorem):\n    a graph is k-vertex-connected  <=>  every pair has k vertex-disjoint paths\n    a graph is k-edge-connected    <=>  every pair has k edge-disjoint paths"
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#027",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "These connectivity numbers are computable via MAX-FLOW (06): the max number of\n  edge-disjoint s-t paths equals the min s-t cut (Menger == max-flow/min-cut).\n```"
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#028",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "> This is the bridge to `06`: edge-connectivity *is* a min-cut computation.\n> Menger's theorem (vertex/edge-disjoint paths) is the combinatorial face of the\n> max-flow/min-cut theorem. The same duality recurs throughout the directory."
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#029",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#030",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "## 2-SAT — Boolean Satisfiability in Linear Time"
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#031",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "General SAT is NP-complete (`07`), but the special case where every clause has\n**exactly two literals** (2-SAT) is solvable in **O(V+E)** — and the algorithm is\n*pure SCC*. This is one of the most satisfying reductions in the field: a logic\nproblem becomes a graph-connectivity problem."
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#032",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "```\n  Each 2-clause (a OR b) is logically two IMPLICATIONS:\n        (a OR b)  ==  (~a => b)  AND  (~b => a)"
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#033",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "Build the IMPLICATION GRAPH: a vertex for each literal x and ~x; an edge for\n  each implication. Then:"
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#034",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "SATISFIABLE  <=>  no variable x has  x  and  ~x  in the SAME SCC."
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#035",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "Why: x and ~x in one SCC means x => ~x AND ~x => x, forcing x = ~x. Contradiction."
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#036",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "Assignment: in the condensation DAG (reverse topo order), set a literal TRUE if\n  its SCC comes AFTER its negation's SCC."
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#037",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "Example: (x OR y) AND (~x OR y) AND (~y OR z)\n     edges: ~x->y, ~y->x, x->y, ~y->x, y->z, ~z->y ...\n     compute SCCs; check no {x,~x} pair shares one -> SATISFIABLE, read off values.\n```"
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#038",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "| SAT variant | Complexity | Method |\n|-------------|------------|--------|\n| 2-SAT | **O(V+E)** | implication graph + SCC |\n| Horn-SAT | linear | unit propagation |\n| 3-SAT (and general SAT) | **NP-complete** | DPLL/CDCL heuristics (`07`) |"
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#039",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "> The jump from 2-SAT (polynomial) to 3-SAT (NP-complete) is the cleanest\n> illustration of the complexity cliff in the whole directory: one extra literal\n> per clause moves you from a linear-time SCC computation to the canonical\n> NP-complete problem. This is the boundary the learner knows from complexity\n> theory, made concrete."
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#040",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#041",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "## Old World → New World Bridges"
+    },
+    {
+      "id": "05-STRONG-CONNECTIVITY.md#042",
+      "path": [
+        "05-STRONG-CONNECTIVITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:05-strong-connectivity, git-history:graph-algorithms:05-strong-connectivity]",
+        "canonical_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "concepts": "[strongly connected components, Tarjan, Kosaraju, bridges, articulation points, 2-SAT]",
+        "current_path": "graph-algorithms/05-STRONG-CONNECTIVITY.md",
+        "id": "maxim:graph-algorithms:strong-connectivity",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[strong connectivity]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Strong Connectivity and Graph Decomposition",
+        "updated": "null"
+      },
+      "text": "| You know it as… | It is a connectivity-decomposition of… |\n|-----------------|----------------------------------------|\n| Circular package/module dependencies | a non-trivial SCC in the dependency digraph |\n| Valid build order requires no cycles | topo sort works only on the SCC condensation DAG |\n| Single point of failure in a network | an articulation point / bridge |\n| \"Two independent network paths\" SLA | biconnectivity / 2-edge-connectivity |\n| Deadlock detection (wait-for graph) | a cycle = SCC in the resource wait-for graph |\n| Constraint config \"A implies B\" feasibility | 2-SAT on the implication graph |"
+    }
+  ],
+  "refs": [
+    "05-STRONG-CONNECTIVITY.md"
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-distributed-systems-distributed-txn",
+  "source": "../../distributed-systems",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "05-DISTRIBUTED-TXN.md#000",
+      "path": [
+        "05-DISTRIBUTED-TXN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:distributed-systems:05-distributed-txn, git-history:distributed-systems:05-distributed-txn]",
+        "canonical_path": "distributed-systems/05-DISTRIBUTED-TXN.md",
+        "concepts": "[distributed, txn]",
+        "current_path": "distributed-systems/05-DISTRIBUTED-TXN.md",
+        "id": "maxim:distributed-systems:distributed-txn",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, txn]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Transactions: 2PC, Sagas, CRDTs, Conflict Resolution",
+        "updated": "null"
+      },
+      "text": "# Distributed Transactions: 2PC, Sagas, CRDTs, Conflict Resolution"
+    },
+    {
+      "id": "05-DISTRIBUTED-TXN.md#001",
+      "path": [
+        "05-DISTRIBUTED-TXN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:distributed-systems:05-distributed-txn, git-history:distributed-systems:05-distributed-txn]",
+        "canonical_path": "distributed-systems/05-DISTRIBUTED-TXN.md",
+        "concepts": "[distributed, txn]",
+        "current_path": "distributed-systems/05-DISTRIBUTED-TXN.md",
+        "id": "maxim:distributed-systems:distributed-txn",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, txn]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Transactions: 2PC, Sagas, CRDTs, Conflict Resolution",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "05-DISTRIBUTED-TXN.md#002",
+      "path": [
+        "05-DISTRIBUTED-TXN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:distributed-systems:05-distributed-txn, git-history:distributed-systems:05-distributed-txn]",
+        "canonical_path": "distributed-systems/05-DISTRIBUTED-TXN.md",
+        "concepts": "[distributed, txn]",
+        "current_path": "distributed-systems/05-DISTRIBUTED-TXN.md",
+        "id": "maxim:distributed-systems:distributed-txn",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, txn]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Transactions: 2PC, Sagas, CRDTs, Conflict Resolution",
+        "updated": "null"
+      },
+      "text": "Distributed transactions are the problem of executing operations across multiple nodes atomically — all succeed or all fail. The challenge: you cannot have both fault tolerance and synchronous coordination simultaneously."
+    },
+    {
+      "id": "05-DISTRIBUTED-TXN.md#003",
+      "path": [
+        "05-DISTRIBUTED-TXN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:distributed-systems:05-distributed-txn, git-history:distributed-systems:05-distributed-txn]",
+        "canonical_path": "distributed-systems/05-DISTRIBUTED-TXN.md",
+        "concepts": "[distributed, txn]",
+        "current_path": "distributed-systems/05-DISTRIBUTED-TXN.md",
+        "id": "maxim:distributed-systems:distributed-txn",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distributed, txn]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Distributed Transactions: 2PC, Sagas, CRDTs, Conflict Resolution",
+        "updated": "null"
+      },
+      "text": "```\nDISTRIBUTED TRANSACTION PROBLEM SPACE\n+---------------------------------------------------------------+\n|                                                               |\n|  REQUIREMENT: Atomic update across nodes A, B, C              |\n|  CONSTRAINT: Any node can fail at any time                    |\n|  CONSTRAINT: Network can partition at any time                |\n|                                                               |\n|  APPROACH          GUARANTEE           COST                   |\n|  +---------------+ +-----------------+ +-------------------+  |\n|  | 2PC           | | Atomic, but     | | Blocking on       |  |\n|  | (coordinator) | | coordinator     | | coordinator       |  |\n|  |               | | failure blocks  | | failure           |  |\n|  +---------------+ +-----------------+ +-------------------+  |\n|  | 3PC           | | Reduces          | | Still not        |  |\n|  | (pre-commit)  | | blocking, not   | | partition-tolerant|  |\n|  |               | | partition-safe  | |                   |  |\n|  +---------------+ +-----------------+ +-------------------+  |\n|  | Sagas         | | Eventually       | | Requires           |  |\n|  | (compensating | | consistent,     | | compensating       |  |\n|  | transactions) | | not isolated    | | transaction design |  |\n|  +---------------+ +-----------------+ +-------------------+  |\n|  | CRDTs         | | Always mergeable | | Limited to       |  |\n|  | (conflict-free| | no coordination | | CRDT-shaped       |  |\n|  | data types)   | | needed          | | data models       |  |\n|  +---------------+ +-----------------+ +-------------------+  |\n|  | Spanner       | | Externally       | | Requires           |  |\n|  | TrueTime      | | consistent, full | | atomic clocks /    |  |\n|  |               | | SQL transactions | | GPS hardware       |  |\n|  +---------------+ +-----------------+ +-------------------+  |\n+---------------------------------------------------------------+\n```"
+    }
+  ],
+  "refs": [
+    "05-DISTRIBUTED-TXN.md"
+  ]
+}

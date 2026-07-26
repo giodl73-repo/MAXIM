@@ -1,0 +1,75 @@
+{
+  "schema_version": "1",
+  "source_markdown": "cryptography\\04-ZK-MPC.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 565,
+      "heading_context": "## 9. Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Answer"
+      ],
+      "rows": [
+        [
+          "IP complexity class equals?",
+          "PSPACE (Shamir 1992)"
+        ],
+        [
+          "ZK simulator paradigm means?",
+          "Verifier can simulate interaction without witness → proof reveals nothing"
+        ],
+        [
+          "Schnorr mdloom: what does it prove?",
+          "Knowledge of x such that y = g^x (discrete log) without revealing x"
+        ],
+        [
+          "Fiat-Shamir: what does it replace?",
+          "Interactive verifier challenge replaced with H(commitment",
+          "",
+          "statement) in ROM"
+        ],
+        [
+          "Pedersen commitment: binding vs hiding?",
+          "Computationally binding (DL assumption); perfectly hiding"
+        ],
+        [
+          "Groth16 proof size?",
+          "3 group elements ≈ 192 bytes; 3 pairing verifications"
+        ],
+        [
+          "Trusted setup ceremony failure?",
+          "If any participant's randomness (τ) recovered → proofs can be forged"
+        ],
+        [
+          "SNARK vs STARK trusted setup?",
+          "SNARKs require trusted setup; STARKs are transparent (hash-based only)"
+        ],
+        [
+          "Shamir (k,n): what k-1 shares reveal?",
+          "Nothing (information-theoretically secure)"
+        ],
+        [
+          "Beaver triple purpose?",
+          "Enable multiplication in MPC with just 2 network messages per mult gate"
+        ],
+        [
+          "OT extension: what does it reduce?",
+          "m OTs → k base OTs + cheap symmetric crypto (Beaver/IKNP extension)"
+        ],
+        [
+          "KZG commitment opens in?",
+          "1 group element proof (48 bytes BLS12-381); constant size"
+        ],
+        [
+          "FRI in STARKs: what is proven?",
+          "Low-degree of polynomial via Reed-Solomon IOP proximity testing"
+        ],
+        [
+          "BLS threshold simpler than ECDSA?",
+          "BLS signatures are aggregatable: each party signs, aggregate; no complex MPC needed"
+        ]
+      ]
+    }
+  ]
+}

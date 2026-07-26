@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "topology\\04-COMPACTNESS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+====================================================================+\n|             COMPACTNESS — THE FINITE-COVER CONDITION               |\n+====================================================================+\n|                                                                    |\n|  COMPACT: Every open cover has a finite subcover.                 |\n|                                                                    |\n|  ∀{Uα} open with X = ∪Uα,  ∃ finite {Uα₁,...,Uαₙ}: X=∪Uαᵢ.    |\n|                                                                    |\n|  INTUITION: Compact = \"behaves like a finite set\" even if infinite. |\n|  The finite-cover condition forces all \"infinity\" to be controlled. |\n|                                                                    |\n|  KEY THEOREMS:                                                     |\n|  Heine-Borel: [a,b] ⊆ R is compact (closed + bounded in Rⁿ).     |\n|  Continuous image: f(X) compact if X compact, f continuous.       |\n|  Extreme value: f: compact X → R attains max and min.             |\n|  Tychonoff: ∏{compact spaces} is compact (needs Axiom of Choice). |\n|                                                                    |\n|  IN METRIC SPACES:                                                |\n|  Compact ↔ sequentially compact ↔ complete + totally bounded.     |\n+====================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 80,
+      "heading_context": "## Heine-Borel Theorem",
+      "confidence": "candidate",
+      "text": "THEOREM: A subset of Rⁿ is compact iff it is closed and bounded.\n\nMDLOOM (for [a,b] ⊆ R):\n  Closed + bounded → compact:\n  Let {Uα} be an open cover of [a,b].\n  Let A = {x ∈ [a,b] : [a,x] has a finite subcover}.\n  A ≠ ∅ (a ∈ A) and A is bounded above (by b).\n  Let c = sup A.\n  Some Uα contains c: Uα ⊇ (c-δ, c+δ). [a,c-δ/2] has a finite subcover.\n  Adding Uα gives a finite subcover of [a,c+δ/2].\n  So c+δ/2 ∈ A (if c < b) → contradiction with c = sup A.\n  Therefore c = b and [a,b] is compact. □\n\nCompact → closed: if p is a limit point of X not in X, construct an open cover with no finite subcover.\nCompact → bounded: open cover {B(0,n)} has finite subcover → X ⊆ B(0,N) for some N.\n\nFAILURE IN INFINITE DIMENSIONS:\n  In L²: the closed unit ball {f : ‖f‖ ≤ 1} is closed and bounded but NOT compact.\n  Sequence eₙ (standard basis): ‖eₙ - eₘ‖ = √2 for n≠m → no convergent subsequence.\n  The Arzelà-Ascoli theorem gives compactness in C([0,1]): need equicontinuity too.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 109,
+      "heading_context": "### Continuous Images",
+      "confidence": "candidate",
+      "text": "THEOREM: If f: X → Y is continuous and X is compact, then f(X) is compact.\n  Proof: Let {Vα} cover f(X). Then {f^{-1}(Vα)} covers X.\n  Finite subcover: f^{-1}(Vα₁),...,f^{-1}(Vαₙ). → Vα₁,...,Vαₙ cover f(X). □\n\nCOROLLARIES:\n  Extreme Value Theorem: If f: X → R is continuous and X is compact,\n    then f attains its maximum and minimum.\n    (f(X) is compact → closed + bounded → has sup and inf, attained.)\n\n  Uniform Continuity: If f: X → Y with X compact metric, then f is uniformly continuous.\n    (Key in Riemann integration: any continuous function on [a,b] is integrable.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 125,
+      "heading_context": "### Compact + Hausdorff = Very Nice",
+      "confidence": "candidate",
+      "text": "In a compact Hausdorff space:\n  Every closed subset is compact.\n  Every compact subset is closed.\n  Normal: disjoint closed sets have disjoint open neighborhoods. (T₄)\n  Continuous bijection → homeomorphism.\n    (Proof: closed → compact → image closed → f^{-1} continuous.)\n\n  The category of compact Hausdorff spaces is particularly well-behaved:\n  Stone-Čech compactification: every Tychonoff (T₃.₅) space X embeds in\n    a compact Hausdorff space βX, the Stone-Čech compactification.\n    βX is characterized by: every bounded continuous f: X→R extends to βX.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 177,
+      "heading_context": "### Arzelà-Ascoli Theorem",
+      "confidence": "candidate",
+      "text": "THEOREM: A subset F ⊆ C([a,b]) is compact (in the sup metric) iff:\n  (1) F is uniformly bounded: ∃M: |f(x)| ≤ M for all f ∈ F, x ∈ [a,b].\n  (2) F is equicontinuous: ∀ε>0 ∃δ>0: |x-y|<δ → |f(x)-f(y)|<ε for all f ∈ F.\n\nWHY EQUICONTINUITY?\n  In infinite dimensions, closed + bounded ≠ compact.\n  Equicontinuity replaces \"bounded\" as the key extra condition.\n  Uniform bound gives pointwise compactness; equicontinuity gives no \"wild oscillations.\"\n\nAPPLICATIONS:\n  Existence proofs in ODEs and PDEs.\n  Schauder fixed-point theorem (compact convex operator has fixed point).\n  Compactness of solution sets.\n\nDIAGONALIZATION ARGUMENT:\n  Proof: Take a sequence (fₙ) in F. Choose a dense subset {rₖ} ⊆ [a,b].\n  Since (fₙ(r₁)) is bounded: has convergent subsequence fₙ₁.\n  From (fₙ₁(r₂)) bounded: extract fₙ₂.\n  Diagonal: fₙₙ converges at every rₖ.\n  Equicontinuity → uniformly Cauchy everywhere → uniform limit exists. □",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 202,
+      "heading_context": "### Compact Operators",
+      "confidence": "candidate",
+      "text": "COMPACT OPERATOR T: B(X, Y) (between Banach spaces):\n  T is compact if T maps bounded sets to precompact sets.\n  Equivalently: every bounded sequence (xₙ) has a subsequence with (Txₙ) convergent.\n\nFINITE-RANK OPERATORS are compact.\nLIMIT OF COMPACT OPERATORS is compact.\n\nSPECTRAL THEORY:\n  If T: H → H is a compact self-adjoint operator on Hilbert space:\n  H has an orthonormal basis of eigenvectors.\n  Eigenvalues accumulate only at 0.\n  This is the Hilbert-Schmidt theorem — infinite-dimensional analogue of diagonalization.\n\nFREDHOLM THEORY:\n  If K is compact: I-K has finite-dimensional kernel and cokernel.\n  \"Fredholm alternative\": either Kx = y has a unique solution, or Kx = 0 has nonzero solutions.\n  Used in: integral equations, elliptic PDEs.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

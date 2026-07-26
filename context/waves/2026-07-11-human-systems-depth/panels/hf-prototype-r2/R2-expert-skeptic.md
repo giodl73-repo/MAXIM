@@ -120,7 +120,7 @@ lab-QC/Westgard or other sibling territory, and no sibling module was edited.
 ## Verdict
 
 The strict pass finds the prototypes now hold the advice-creep, model-domain, reification,
-point-estimate, participant-honesty, and fictitious-authority lines, and focused PROOF stays
+point-estimate, participant-honesty, and fictitious-authority lines, and focused MDLOOM stays
 green. Because this reviewer is **independent of the authoring/repair role**, the findings it
 raised and saw repaired **do** clear this lens. **Recommend: ratify the prototype pattern/gate;
 Pulse 03 → DONE.**

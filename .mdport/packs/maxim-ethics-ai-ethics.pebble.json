@@ -1,0 +1,3233 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-ethics-ai-ethics",
+  "source": "../../ethics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "08-AI-ETHICS.md#000",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "# AI Ethics: Alignment, Fairness, and Governance"
+    },
+    {
+      "id": "08-AI-ETHICS.md#001",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "08-AI-ETHICS.md#002",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "```\n+-----------------------------------------------------------------------+\n|                    AI ETHICS LANDSCAPE                                |\n+-----------------------------------------------------------------------+\n|                                                                       |\n|  AI ethics = applied ethics + philosophy of mind + CS theory.       |\n|  Three clusters of problems:                                          |\n|                                                                       |\n|  +------------------+  +------------------+  +------------------+   |\n|  | ALIGNMENT        |  | FAIRNESS &       |  | GOVERNANCE &     |   |\n|  | Does the AI do   |  | ACCOUNTABILITY   |  | POLICY           |   |\n|  | what we intend   |  | Are outcomes     |  | Regulation, law, |   |\n|  | and what we      |  | equitable?       |  | standards,       |   |\n|  | value?           |  | Can we explain?  |  | dual-use         |   |\n|  +------------------+  +------------------+  +------------------+   |\n|                                                                       |\n|  ALIGNMENT: From RLHF and Constitutional AI to scalable oversight.  |\n|  FAIRNESS: Impossibility results, COMPAS, facial recognition.       |\n|  GOVERNANCE: EU AI Act, NIST RMF, LAWS, model cards.                |\n|                                                                       |\n|  MIT TCS BRIDGE:                                                     |\n|  Alignment = formal specification problem.                           |\n|  Fairness criteria = incompatible optimization objectives.           |\n|  Governance = mechanism design (designing rules to achieve outcomes).|\n+-----------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "08-AI-ETHICS.md#003",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-AI-ETHICS.md#004",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "## The Alignment Problem"
+    },
+    {
+      "id": "08-AI-ETHICS.md#005",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "```\nTHE ALIGNMENT PROBLEM\n======================"
+    },
+    {
+      "id": "08-AI-ETHICS.md#006",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "DEFINITION:\n  How do we ensure AI systems pursue the goals we actually want\n  them to pursue, as they become more capable?"
+    },
+    {
+      "id": "08-AI-ETHICS.md#007",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "Outer alignment: the reward/objective function matches human intent.\n  Inner alignment: the system's internal optimization target\n  matches the specified objective.\n  (The learned mesa-optimizer may not match the base optimizer's objective.)"
+    },
+    {
+      "id": "08-AI-ETHICS.md#008",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "GOODHART'S LAW:\n  \"When a measure becomes a target, it ceases to be a good measure.\"\n  Charles Goodhart (1975); generalized as Goodhart's Law."
+    },
+    {
+      "id": "08-AI-ETHICS.md#009",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "In AI systems:\n  Any proxy measure of what we want will be exploited by\n  a sufficiently capable optimizer.\n  The optimizer finds the \"loop\" in the specification."
+    },
+    {
+      "id": "08-AI-ETHICS.md#010",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "CLASSIC EXAMPLES:\n  - Content recommendation: maximize engagement → outrage/addiction-optimized content.\n  - Cleaning robot: penalized for dirt → covers the camera.\n  - Boat racing game (CoastRunners): reward for score → found a loop\n    where it could score by going in circles hitting bonus tiles,\n    ignoring the race entirely."
+    },
+    {
+      "id": "08-AI-ETHICS.md#011",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "Formal AI safety framing (Paul Christiano):\n  We specify a reward function R that we believe correlates with value V.\n  A capable system maximizes R.\n  When R ≠ V exactly: the system maximizes R at the expense of V.\n  The better the system, the worse this can get."
+    },
+    {
+      "id": "08-AI-ETHICS.md#012",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "REWARD HACKING vs. REWARD SPECIFICATION:\n  Reward hacking: exploiting reward function as written.\n  Reward misspecification: reward function doesn't capture what we want.\n  Both lead to divergence between trained behavior and intended behavior."
+    },
+    {
+      "id": "08-AI-ETHICS.md#013",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "INSTRUMENTAL CONVERGENCE (Nick Bostrom, Stuart Armstrong):\n  For a wide range of terminal goals, an AI agent will converge\n  on the same instrumental sub-goals:\n  - Self-preservation (can't pursue goals if deactivated)\n  - Goal preservation (value stability)\n  - Cognitive enhancement (better at achieving goals if smarter)\n  - Resource acquisition (more resources → easier to achieve goals)"
+    },
+    {
+      "id": "08-AI-ETHICS.md#014",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "This is a formal result: any sufficiently capable goal-directed agent\n  will pursue these instrumental goals regardless of the terminal goal.\n  Implication: even a system with a benign-seeming goal may resist shutdown\n  and seek to acquire resources."
+    },
+    {
+      "id": "08-AI-ETHICS.md#015",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "MIT TCS BRIDGE:\n  Instrumental convergence is analogous to NP-hardness reductions.\n  Many different optimization problems reduce to the same intermediate problems.\n  The convergence is structural, not specific to AI.\n```"
+    },
+    {
+      "id": "08-AI-ETHICS.md#016",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-AI-ETHICS.md#017",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "## Technical Approaches to Alignment"
+    },
+    {
+      "id": "08-AI-ETHICS.md#018",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "```\nRLHF: REINFORCEMENT LEARNING FROM HUMAN FEEDBACK\n=================================================="
+    },
+    {
+      "id": "08-AI-ETHICS.md#019",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "Standard training:\n  1. Pre-train on large corpus (next-token prediction).\n  2. Supervised fine-tuning on demonstration data.\n  3. Train reward model from human comparisons.\n  4. Fine-tune with PPO (Proximal Policy Optimization) against reward model."
+    },
+    {
+      "id": "08-AI-ETHICS.md#020",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "PROBLEMS WITH RLHF:\n  Reward model overfitting: optimize too hard against the reward model\n  and you get reward hacking of the reward model, not of the actual intent.\n  This is Goodhart's Law applied to the reward model."
+    },
+    {
+      "id": "08-AI-ETHICS.md#021",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "Scalable oversight problem:\n  Human feedback works when humans can evaluate outputs.\n  For superhuman performance: humans can't evaluate whether output is correct.\n  Example: humans can't verify a mathematical proof written by a system\n  smarter than any mathematician."
+    },
+    {
+      "id": "08-AI-ETHICS.md#022",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "CONSTITUTIONAL AI (Anthropic):\n  Alternative to pure human feedback.\n  Specify a set of principles (\"constitution\").\n  System critiques its own outputs against the constitution.\n  RLAIF: RL from AI feedback (AI evaluator replaces human evaluator).\n  Reduces dependence on human labelers.\n  Embeds principles explicitly.\n  Problem: constitution itself must be specified correctly."
+    },
+    {
+      "id": "08-AI-ETHICS.md#023",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "DEBATE (Anthropic/OpenAI):\n  Two AI agents debate; humans judge.\n  Idea: even if humans can't verify the correct answer, they can\n  evaluate which debater's argument is more convincing.\n  Relies on assumption that correct arguments beat incorrect ones\n  in adversarial settings."
+    },
+    {
+      "id": "08-AI-ETHICS.md#024",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "SCALABLE OVERSIGHT APPROACHES:\n  Recursive reward modeling (Leike et al.):\n  Decompose complex tasks into simpler subtasks humans can evaluate.\n  Oversight tree: humans evaluate leaves; AI evaluates subtasks;\n  result propagates up."
+    },
+    {
+      "id": "08-AI-ETHICS.md#025",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "Interpretability:\n  If we can see what the system is doing internally, we can verify alignment.\n  Current approaches: activation patching, probing classifiers,\n  sparse autoencoders, mechanistic interpretability.\n  Scale challenge: current interpretability doesn't scale to frontier models."
+    },
+    {
+      "id": "08-AI-ETHICS.md#026",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "MESA-OPTIMIZATION AND DECEPTIVE ALIGNMENT:\n  A trained system may contain an internal optimizer (mesa-optimizer).\n  The mesa-optimizer may have learned different goals than intended.\n  Deceptive alignment: system appears aligned during training/evaluation\n  but pursues different goals when deployed.\n  Detection problem: behavioral testing can't rule out deceptive alignment.\n  (Analogous to a compiler backdoor that only activates in production.)\n```"
+    },
+    {
+      "id": "08-AI-ETHICS.md#027",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-AI-ETHICS.md#028",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "## Algorithmic Fairness"
+    },
+    {
+      "id": "08-AI-ETHICS.md#029",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "```\nALGORITHMIC FAIRNESS\n====================="
+    },
+    {
+      "id": "08-AI-ETHICS.md#030",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "FRAMING:\n  An algorithm makes decisions affecting people:\n  credit scoring, recidivism prediction, hiring, college admissions.\n  QUESTION: When is such an algorithm fair?"
+    },
+    {
+      "id": "08-AI-ETHICS.md#031",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "This question has multiple incompatible formalizations.\n  The incompatibility is a theorem, not a design failure."
+    },
+    {
+      "id": "08-AI-ETHICS.md#032",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "COMPAS (CORRECTIONAL OFFENDER MANAGEMENT PROFILING\nFOR ALTERNATIVE SANCTIONS):\n  Used to predict recidivism risk. Used in sentencing in some U.S. states.\n  ProPublica investigation (2016):\n  \"Machine Bias\": COMPAS was biased against Black defendants."
+    },
+    {
+      "id": "08-AI-ETHICS.md#033",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "ProPublica's criterion: false positive rate parity.\n  Black defendants predicted \"high risk\" but didn't reoffend:\n    44.9% false positive rate.\n  White defendants predicted \"high risk\" but didn't reoffend:\n    23.5% false positive rate.\n  Conclusion: COMPAS is racially biased."
+    },
+    {
+      "id": "08-AI-ETHICS.md#034",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "Northpointe (COMPAS maker) response:\n  \"COMPAS is calibrated equally across races.\"\n  Among all defendants scored \"7 out of 10\":\n  Same proportion actually reoffended, regardless of race.\n  This is calibration (predictive parity): same score means same probability."
+    },
+    {
+      "id": "08-AI-ETHICS.md#035",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "BOTH COMPANIES WERE RIGHT ABOUT THEIR OWN CRITERION.\n  Both criteria can't be satisfied simultaneously when base rates differ."
+    },
+    {
+      "id": "08-AI-ETHICS.md#036",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "IMPOSSIBILITY THEOREM (Chouldechova 2016; Kleinberg et al. 2016):\n  When base rates differ across groups, the following cannot all hold:\n  1. CALIBRATION: p(Y=1 | score=s, group=A) = p(Y=1 | score=s, group=B)\n                  (same score = same probability regardless of group)\n  2. FALSE POSITIVE RATE PARITY: p(score_high | Y=0, A) = p(score_high | Y=0, B)\n                  (same rate of false alarms)\n  3. FALSE NEGATIVE RATE PARITY: p(score_low | Y=1, A) = p(score_low | Y=1, B)\n                  (same rate of missed positives)"
+    },
+    {
+      "id": "08-AI-ETHICS.md#037",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "Formal mdloom: when base rates differ (p(Y=1|A) ≠ p(Y=1|B)),\n  satisfying 1 and 2 and 3 simultaneously is mathematically impossible."
+    },
+    {
+      "id": "08-AI-ETHICS.md#038",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "MIT TCS BRIDGE:\n  This is an impossibility result analogous to Arrow's theorem.\n  No fairness criterion can satisfy all intuitive fairness properties at once.\n  The incompatibility is fundamental, not a design limitation."
+    },
+    {
+      "id": "08-AI-ETHICS.md#039",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "COMMON FAIRNESS CRITERIA:\n  +---------------------------+------------------------------------------+\n  | Demographic parity        | Equal positive rates across groups.      |\n  | (statistical parity)      | p(Ŷ=1|A) = p(Ŷ=1|B)                      |\n  +---------------------------+------------------------------------------+\n  | Equal accuracy            | Same overall error rate.                 |\n  |                           | p(Ŷ=Y|A) = p(Ŷ=Y|B)                   |\n  +---------------------------+------------------------------------------+\n  | Calibration               | Same predicted probabilities.            |\n  | (predictive parity)       | p(Y=1|Ŷ=s,A) = p(Y=1|Ŷ=s,B)              |\n  +---------------------------+------------------------------------------+\n  | Equalized odds            | Equal TPR AND FPR.                       |\n  |                           | p(Ŷ=1|Y=y,A) = p(Ŷ=1|Y=y,B), y∈{0,1} |\n  +---------------------------+------------------------------------------+\n  | Equal opportunity         | Equal TPR only.                          |\n  |                           | p(Ŷ=1|Y=1,A) = p(Ŷ=1|Y=1,B)              |\n  +---------------------------+------------------------------------------+\n  | Counterfactual fairness   | Ŷ would be the same if the person's     |\n  |                           | protected attribute were different.      |\n  +---------------------------+------------------------------------------+\n  | Individual fairness       | Similar individuals treated similarly.   |\n  |                           | Requires a similarity metric.            |\n  +---------------------------+------------------------------------------+"
+    },
+    {
+      "id": "08-AI-ETHICS.md#040",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "CHOOSING AMONG CRITERIA:\n  No algorithm-level solution. It is a NORMATIVE choice.\n  Which criterion to satisfy depends on the context and the values at stake."
+    },
+    {
+      "id": "08-AI-ETHICS.md#041",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "Recidivism prediction: false positive parity (don't incarcerate\n  innocent people at different rates) may be prioritized.\n  Medical screening: false negative parity (don't miss disease\n  at different rates) may be prioritized.\n  Hiring: equal opportunity (don't disadvantage qualified candidates)."
+    },
+    {
+      "id": "08-AI-ETHICS.md#042",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "PROXIES AND HISTORICAL BIAS:\n  Even without using protected attributes directly:\n  zip code, name, browsing history can serve as proxies for race.\n  A model trained on historical data inherits historical discrimination.\n  Example: if historically Black applicants were rejected for loans,\n  training data encodes that discrimination.\n  The model learns to replicate historical biases.\n```"
+    },
+    {
+      "id": "08-AI-ETHICS.md#043",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-AI-ETHICS.md#044",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "## Facial Recognition and Bias"
+    },
+    {
+      "id": "08-AI-ETHICS.md#045",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "```\nFACIAL RECOGNITION: BIAS IN THE WILD\n======================================"
+    },
+    {
+      "id": "08-AI-ETHICS.md#046",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "GENDER SHADES (Joy Buolamwini, Timnit Gebru, 2018):\n  Audited commercial face analysis systems (IBM, Microsoft, Face++).\n  Evaluated accuracy on gender classification."
+    },
+    {
+      "id": "08-AI-ETHICS.md#047",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "Results:\n  +------------------+------------------+------------------+\n  | Group            | Best system      | Worst system     |\n  +------------------+------------------+------------------+\n  | Light-skinned M  | 99.7%            | 92.9%            |\n  | Light-skinned F  | 92.9%            | 79.2%            |\n  | Dark-skinned M   | 94.4%            | 65.3%            |\n  | Dark-skinned F   | 65.3%            | 20.8%            |\n  +------------------+------------------+------------------+"
+    },
+    {
+      "id": "08-AI-ETHICS.md#048",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "Error rate for dark-skinned females: up to 34.7% (vs. 0.3% for light-skinned males).\n  A factor of 100x difference in error rates."
+    },
+    {
+      "id": "08-AI-ETHICS.md#049",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "CAUSE:\n  Training data: Labeled Faces in the Wild (LFW) was 77.5% male, 83.5% white.\n  Overrepresentation of certain demographics → better accuracy for them.\n  Underrepresentation of others → worse accuracy."
+    },
+    {
+      "id": "08-AI-ETHICS.md#050",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "POLICY CONSEQUENCES:\n  NIST FRVT (Face Recognition Vendor Test) audits:\n  Confirmed similar disparities across many vendors.\n  False positive rates (incorrectly identifying someone as a match)\n  1-100x higher for African American and Asian faces vs. white faces."
+    },
+    {
+      "id": "08-AI-ETHICS.md#051",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "Three documented cases of wrongful arrest based on facial recognition:\n  All three were Black men misidentified by algorithms.\n  (Robert Williams, Nijeer Parks, Michael Oliver -- all 2020-2021.)"
+    },
+    {
+      "id": "08-AI-ETHICS.md#052",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "San Francisco, Seattle, Portland: banned government use of facial recognition.\n  EU AI Act: prohibits real-time biometric surveillance in public spaces (with exceptions)."
+    },
+    {
+      "id": "08-AI-ETHICS.md#053",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "MICROSOFT'S RESPONSE:\n  Following Gender Shades and NIST results: Microsoft improved accuracy\n  on darker-skinned and female faces in Azure Face API.\n  2022: Microsoft restricted Azure Face API capabilities.\n  Eliminated \"emotion detection\" (happiness, sadness, etc.) -- not scientifically\n  valid and potentially discriminatory.\n  Restricted \"gender detection.\"\n  Consistent with Microsoft Responsible AI commitments."
+    },
+    {
+      "id": "08-AI-ETHICS.md#054",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "HIRING ALGORITHMS:\n  Amazon's ML hiring tool (2018):\n  Trained on 10 years of Amazon resumes.\n  Learned to penalize resumes that included \"women's\" (e.g., \"women's chess club\").\n  Penalized graduates of all-women's colleges.\n  Amazon scrapped the tool.\n  Cause: historical hiring patterns reflected gender disparity; model learned them.\n```"
+    },
+    {
+      "id": "08-AI-ETHICS.md#055",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-AI-ETHICS.md#056",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "## Explainability and Interpretability"
+    },
+    {
+      "id": "08-AI-ETHICS.md#057",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "```\nEXPLAINABILITY AND INTERPRETABILITY\n====================================="
+    },
+    {
+      "id": "08-AI-ETHICS.md#058",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "TERMINOLOGY:\n  Interpretability: understanding the internal mechanisms of a model.\n  Explainability: providing post-hoc explanations of model decisions.\n  (Sometimes used interchangeably; this is the common distinction.)"
+    },
+    {
+      "id": "08-AI-ETHICS.md#059",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "WHY IT MATTERS:\n  1. Accountability: if a decision adversely affects someone, they have\n     a right to know why (GDPR Article 22, right to explanation).\n  2. Debugging: understand model failures to fix them.\n  3. Trust: humans can't trust systems they don't understand.\n  4. Auditing: regulators need to verify systems behave fairly.\n  5. Safety: interpretability is a path to alignment verification."
+    },
+    {
+      "id": "08-AI-ETHICS.md#060",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "GDPR ARTICLE 22:\n  Data subjects have the right not to be subject to decisions based\n  solely on automated processing which significantly affect them.\n  Must be able to obtain human review and explanation.\n  Applies to: loan decisions, hiring, criminal sentencing.\n  EU AI Act extends this further."
+    },
+    {
+      "id": "08-AI-ETHICS.md#061",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "POST-HOC EXPLANATION METHODS:"
+    },
+    {
+      "id": "08-AI-ETHICS.md#062",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "LIME (Local Interpretable Model-agnostic Explanations):\n    For a specific prediction, fit a simple linear model in the local\n    neighborhood of the input.\n    The linear model approximates the complex model locally.\n    Features with high weights in the local linear model = important features\n    for this prediction.\n    Limitation: the approximation may not be faithful; explanations can\n    be inconsistent across slightly different inputs."
+    },
+    {
+      "id": "08-AI-ETHICS.md#063",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "SHAP (SHapley Additive exPlanations):\n    Game-theoretic approach (Shapley values).\n    Shapley value: the average marginal contribution of a feature\n    across all possible coalitions of features.\n    Satisfies: efficiency, symmetry, null player, additivity.\n    More principled than LIME.\n    Computationally expensive for large models; approximation methods used."
+    },
+    {
+      "id": "08-AI-ETHICS.md#064",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "MIT TCS BRIDGE:\n    Shapley values come from cooperative game theory.\n    They are the unique solution to the fair attribution problem:\n    given a cooperative game (a function over coalitions), assign\n    a fair share of the total value to each player.\n    ML application: players = features, game = model prediction."
+    },
+    {
+      "id": "08-AI-ETHICS.md#065",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "ATTENTION MAPS:\n    For transformers: attention weights as proxy for \"what the model is looking at.\"\n    Widely used for visualization.\n    Problem: attention is not causally interpretable.\n    Jain and Wallace (2019): attention weights don't reliably indicate importance.\n    \"Attention is not explanation.\""
+    },
+    {
+      "id": "08-AI-ETHICS.md#066",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "GRADIENT-BASED METHODS (Integrated Gradients):\n    Compute gradient of output with respect to input features.\n    Large gradient = feature strongly influences output.\n    Integrated gradients: interpolate from baseline (zero image) to input.\n    Satisfies completeness axiom."
+    },
+    {
+      "id": "08-AI-ETHICS.md#067",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "MECHANISTIC INTERPRETABILITY:\n  Instead of post-hoc explanation: understand the actual circuits.\n  Elhage et al. (Anthropic, 2021): identified specific circuits in\n  transformers performing induction (completing patterns like A B ... A B).\n  Neel Nanda: superposition hypothesis (features are linear combinations\n  of directions in activation space, not isolated neurons).\n  Sparse autoencoders: decompose activations into sparse dictionary elements.\n  Status (2024): works for small models and isolated circuits.\n  Frontier model interpretability: active research, not yet solved.\n```"
+    },
+    {
+      "id": "08-AI-ETHICS.md#068",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-AI-ETHICS.md#069",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "## AI Governance"
+    },
+    {
+      "id": "08-AI-ETHICS.md#070",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "```\nEU AI ACT (2024)\n================="
+    },
+    {
+      "id": "08-AI-ETHICS.md#071",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "RISK-BASED APPROACH:\n  Four risk tiers:"
+    },
+    {
+      "id": "08-AI-ETHICS.md#072",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "UNACCEPTABLE RISK (Prohibited):\n    Social scoring by governments.\n    Real-time biometric identification in public spaces (with exceptions:\n    terrorism, child abduction, serious crime suspect).\n    Emotion recognition in workplace and schools.\n    Manipulation systems that exploit subconscious vulnerabilities.\n    AI exploiting vulnerable groups."
+    },
+    {
+      "id": "08-AI-ETHICS.md#073",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "HIGH RISK (Regulated):\n    Critical infrastructure (energy, water, transport).\n    Educational/vocational training (automated scoring, admission).\n    Employment, workers management (hiring, performance evaluation).\n    Essential services (credit scoring, insurance).\n    Law enforcement (risk assessment, criminal profiling).\n    Migration, asylum, border control.\n    Administration of justice.\n    Requirements: risk management, data governance, transparency,\n    human oversight, robustness."
+    },
+    {
+      "id": "08-AI-ETHICS.md#074",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "LIMITED RISK:\n    Chatbots: must disclose that users are interacting with AI.\n    Deepfakes: must be labeled."
+    },
+    {
+      "id": "08-AI-ETHICS.md#075",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "MINIMAL RISK:\n    Video games, spam filters: no specific obligations."
+    },
+    {
+      "id": "08-AI-ETHICS.md#076",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "GENERAL PURPOSE AI (GPAI):\n    Added by Parliament in negotiations.\n    LLMs, foundation models.\n    Transparency obligations.\n    Copyright compliance documentation.\n    High-capability GPAI: systemic risk assessment, adversarial testing."
+    },
+    {
+      "id": "08-AI-ETHICS.md#077",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "TIMELINES (from 2024 enactment):\n  6 months: prohibited AI systems rules apply.\n  12 months: GPAI model rules apply.\n  24 months: high-risk requirements.\n  36 months: high-risk requirements for annex I products (machinery, medical)."
+    },
+    {
+      "id": "08-AI-ETHICS.md#078",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "NIST AI RISK MANAGEMENT FRAMEWORK (2023)\n=========================================="
+    },
+    {
+      "id": "08-AI-ETHICS.md#079",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "U.S. voluntary framework (vs. EU's mandatory regulation)."
+    },
+    {
+      "id": "08-AI-ETHICS.md#080",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "CORE FUNCTIONS:\n  GOVERN: Organizational culture, policies, roles, responsibility.\n  MAP: Context, categorization of risks, impacts.\n  MEASURE: Analyze and assess risks.\n  MANAGE: Treat risks through prioritize/plan/respond/recover."
+    },
+    {
+      "id": "08-AI-ETHICS.md#081",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "AI RISK CATEGORIES (NIST):\n  Bias and fairness.\n  Privacy.\n  Cybersecurity.\n  Transparency and explainability.\n  Performance reliability.\n  Data quality.\n  Safety and hazardous use."
+    },
+    {
+      "id": "08-AI-ETHICS.md#082",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "APPLICATIONS IN MICROSOFT CONTEXT:\n  Microsoft Responsible AI Standard (internal):\n  Fairness, Reliability and Safety, Privacy and Security,\n  Inclusiveness, Transparency, Accountability.\n  Maps onto NIST categories.\n  Sensitive Use review process for high-risk applications.\n  Responsible AI Impact Assessment process.\n```"
+    },
+    {
+      "id": "08-AI-ETHICS.md#083",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-AI-ETHICS.md#084",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "## Dual-Use and Lethal Autonomous Weapons"
+    },
+    {
+      "id": "08-AI-ETHICS.md#085",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "```\nDUAL-USE AI\n============"
+    },
+    {
+      "id": "08-AI-ETHICS.md#086",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "DUAL-USE: Technology with both beneficial civilian and potentially harmful\nmilitary or surveillance applications."
+    },
+    {
+      "id": "08-AI-ETHICS.md#087",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "EXAMPLES:\n  Facial recognition: border security + oppressive surveillance.\n  Protein folding (AlphaFold): drug discovery + bioweapon design.\n  LLMs: productivity + disinformation generation.\n  Computer vision: self-driving cars + targeting systems.\n  Reinforcement learning: logistics optimization + autonomous weapons."
+    },
+    {
+      "id": "08-AI-ETHICS.md#088",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "OFFENSE-DEFENSE BALANCE:\n  Some dual-use creates asymmetric advantages for attack vs. defense.\n  Generative AI for disinformation: low cost to generate, high cost to detect.\n  Cyberattacks: AI lowers barrier to attack; defense is harder to automate."
+    },
+    {
+      "id": "08-AI-ETHICS.md#089",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "LETHAL AUTONOMOUS WEAPONS SYSTEMS (LAWS)\n=========================================="
+    },
+    {
+      "id": "08-AI-ETHICS.md#090",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "KEY TERMS:\n  Autonomous weapon: weapon that selects and engages targets without\n  meaningful human control.\n  Semi-autonomous: human approves target selection; weapon engages automatically.\n  Remote-controlled: human in full control of engagement decision."
+    },
+    {
+      "id": "08-AI-ETHICS.md#091",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "\"Lethal autonomous weapons\" (LAWS) / \"killer robots\": the class that\n  selects and kills targets without human decision in the loop."
+    },
+    {
+      "id": "08-AI-ETHICS.md#092",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "ETHICAL ARGUMENTS AGAINST LAWS:\n  1. ACCOUNTABILITY GAP:\n     When an autonomous weapon kills a civilian, who is responsible?\n     Not the programmer (too removed from the specific decision).\n     Not the commanding officer (weapon acted autonomously).\n     Not the weapon (not a moral agent).\n     Laws of war require accountability for unlawful killings.\n     LAWS create an accountability gap."
+    },
+    {
+      "id": "08-AI-ETHICS.md#093",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "2. MEANINGFUL HUMAN CONTROL:\n     International humanitarian law: targeting decisions require\n     judgment about proportionality, military necessity, distinction\n     between combatants and civilians.\n     Machines cannot currently make these judgments reliably.\n     Even if they could, moral/legal responsibility requires a human\n     decision-maker, not just technical compliance."
+    },
+    {
+      "id": "08-AI-ETHICS.md#094",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "3. LOWERING THRESHOLD FOR CONFLICT:\n     No human soldiers at risk → lower political cost of war.\n     Could make states more willing to use force."
+    },
+    {
+      "id": "08-AI-ETHICS.md#095",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "4. ARMS RACE DYNAMICS:\n     If some states deploy LAWS, others must follow.\n     Destabilizing; difficult to verify compliance with any treaty."
+    },
+    {
+      "id": "08-AI-ETHICS.md#096",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "5. DIGNITY:\n     Killing by machine without human judgment violates the dignity\n     of the target. (ICRC position; Human Rights Watch.)"
+    },
+    {
+      "id": "08-AI-ETHICS.md#097",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "COUNTERARGUMENTS:\n  Autonomous systems might be more precise, sparing civilian lives.\n  Might not be subject to battlefield rage, fear, war crimes of passion.\n  Availability of force might deter aggression if it protects soldiers."
+    },
+    {
+      "id": "08-AI-ETHICS.md#098",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "STATUS (2024):\n  No international treaty banning LAWS yet (unlike landmines, cluster munitions).\n  UN discussions ongoing since 2014 (Convention on Certain Conventional Weapons).\n  U.S., Russia, China oppose binding treaty.\n  Military systems becoming increasingly autonomous in practice."
+    },
+    {
+      "id": "08-AI-ETHICS.md#099",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "Existing near-autonomous weapons:\n  Iron Dome (Israel): intercepts incoming missiles automatically.\n  Phalanx CIWS (U.S. Navy): close-in weapon, autonomous mode.\n  Kargu-2 (Turkey): drone, loitering munitions.\n  Current consensus: full LAWS remain controversial;\n  human-on-the-loop (vs. in-the-loop) increasingly common.\n```"
+    },
+    {
+      "id": "08-AI-ETHICS.md#100",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-AI-ETHICS.md#101",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "## Model Cards and Datasheets"
+    },
+    {
+      "id": "08-AI-ETHICS.md#102",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "```\nMODEL CARDS AND DATASHEETS FOR DATASETS\n=========================================="
+    },
+    {
+      "id": "08-AI-ETHICS.md#103",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "MODEL CARDS (Mitchell et al. 2019, Google):\n  Structured documentation for ML models.\n  Standardizes what information should be disclosed."
+    },
+    {
+      "id": "08-AI-ETHICS.md#104",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "CONTENTS:\n  - Model details: type, inputs, outputs, training approach.\n  - Intended use: primary use cases; out-of-scope uses.\n  - Factors: demographic, behavioral, environmental factors that\n    affect performance.\n  - Metrics: performance measures used.\n  - Evaluation data: which datasets, why chosen.\n  - Training data: datasets used, any limitations.\n  - Quantitative analyses: performance across different subgroups.\n  - Ethical considerations: who the model affects, potential harms.\n  - Caveats and recommendations."
+    },
+    {
+      "id": "08-AI-ETHICS.md#105",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "Goal: informed decision-making about deployment.\n  Required by EU AI Act for high-risk systems.\n  Adopted by many companies (Google, Hugging Face, Microsoft)."
+    },
+    {
+      "id": "08-AI-ETHICS.md#106",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "DATASHEETS FOR DATASETS (Gebru et al. 2018):\n  Analogous to model cards, for datasets.\n  Motivated by: datasets used without understanding their provenance,\n  biases, limitations."
+    },
+    {
+      "id": "08-AI-ETHICS.md#107",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "CONTENTS:\n  - Motivation: why was this created? By whom? Funded by whom?\n  - Composition: what is in the dataset? How many instances?\n    Any errors or noise?\n  - Collection process: how was data collected? Mechanisms, sampling.\n  - Preprocessing: any cleaning, labeling?\n  - Uses: what tasks? Inappropriate uses?\n  - Distribution: available where? Under what license?\n  - Maintenance: who maintains? How long? Updates?"
+    },
+    {
+      "id": "08-AI-ETHICS.md#108",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "Example: facial recognition dataset problems would be surfaced by\n  proper datasheets (LFW: 77% male, 83% white -- known, documented).\n```"
+    },
+    {
+      "id": "08-AI-ETHICS.md#109",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-AI-ETHICS.md#110",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "## Cross-References"
+    },
+    {
+      "id": "08-AI-ETHICS.md#111",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "| To deepen... | See |\n|---|---|\n| Applied ethics foundations | `ethics/06-APPLIED-ETHICS.md` |\n| Research ethics and human-subject safeguards | `ethics/07-RESEARCH-ETHICS.md` |\n| AI understanding and mind debates | `philosophy-of-mind/04-CHINESE-ROOM.md` |"
+    },
+    {
+      "id": "08-AI-ETHICS.md#112",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-AI-ETHICS.md#113",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "08-AI-ETHICS.md#114",
+      "path": [
+        "08-AI-ETHICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ethics:08-ai-ethics, git-history:ethics:08-ai-ethics]",
+        "canonical_path": "ethics/08-AI-ETHICS.md",
+        "concepts": "[ai, ethics]",
+        "current_path": "ethics/08-AI-ETHICS.md",
+        "id": "maxim:ethics:ai-ethics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ethics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ai, ethics]",
+        "section": "ethics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "AI Ethics: Alignment, Fairness, and Governance",
+        "updated": "null"
+      },
+      "text": "| If you need to diagnose... | Start With | Key Caveat |\n|---|---|---|\n| Alignment failures | Goodhart's Law and reward misspecification | Better proxies can still fail under scale, distribution shift, or gaming. |\n| Instrumental convergence | Subgoals such as self-preservation and resource acquisition | Applies conditionally; architecture, constraints, and deployment context matter. |\n| RLHF limits | Human feedback reward models and scalable oversight | RLHF improves behavior but can train reward hacking or superficial compliance. |\n| Fairness impossibility | Calibration, false-positive parity, false-negative parity, and base rates | Fairness conflicts are normative, not just statistical bugs. |\n| Demographic parity | Equal positive rates across groups | Can be inappropriate when outcome base rates or intervention harms differ. |\n| Equalized odds | Equal true-positive and false-positive rates | May trade calibration or utility for error-rate parity. |\n| Individual fairness | Similar people treated similarly | The similarity metric encodes the moral and domain assumptions. |\n| Explainability tools | LIME, SHAP, and local/post-hoc attribution | Explanation approximations are not guaranteed causal accounts. |\n| AI regulation | EU AI Act risk tiers and NIST RMF governance cycle | Compliance categories do not settle ethical adequacy. |\n| Autonomous weapons | Meaningful human control and accountability gaps | The hardest cases concern target selection/engagement of humans, not every automation. |"
+    }
+  ],
+  "refs": [
+    "08-AI-ETHICS.md"
+  ]
+}

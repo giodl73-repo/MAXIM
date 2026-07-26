@@ -15,7 +15,7 @@ governing_roles: [reference-editor, expert-skeptic, index-weaver, ascii-cartogra
 > (`sections/life-sciences.md`, `.mkdocs/mkdocs.yml`, `TRACKER.md`),
 > **reciprocally wired** with the minimal architecture-approved sibling pointers, and
 > **source-corpus backfilled** (`pathology/` plus the changed siblings `disease`, `medicine`,
-> `clinical-medicine`; custody `partial`; PROOF backfill recorded for all twelve; Git
+> `clinical-medicine`; custody `partial`; MDLOOM backfill recorded for all twelve; Git
 > provenance currently recorded for 0 and pending for 12 because the guides are untracked).
 > Prototype panels **R1**/**R2**, both `09`/`11` Stage-2 scaling gates, and the full-module
 > adversarial panel are complete with no unresolved BLOCK/WARN. The guide-specific R2
@@ -64,7 +64,7 @@ Get-Content context\waves\2026-07-11-clinical-and-chemical-foundations\artifacts
 | Module manifest | `pathology/STATUS.md` (full 12-guide manifest; **12/12 authored / reviewed**; module complete) |
 | Architecture record | `context/waves/.../artifacts/PATHOLOGY-ARCHITECTURE.md` (MAXIM-PATH-01 … 25 + G00 … G11) |
 | Wave tracking | `context/waves/.../pulses/05+pathology-architecture.md`; `WAVE.md` pulses table (Pulse 05 → DONE — FINAL PASS) |
-| **Completed 2026-07-12 (was "Deferred post-sign-off")** | `00-OVERVIEW` + guides 01–07, 09, 11 authored; reciprocal `clinical-medicine/03`→`pathology/` and `medicine/10`→`pathology/08` cross-references added (plus `disease/00`→`01`–`03`, `disease/04`→`05`/`10`); `sections/life-sciences.md`, `.mkdocs/mkdocs.yml`, `TRACKER.md` wired; source-corpus regenerated (`.proof/backfill/**`, `.crop/**`, `.pebble/**`, `.fletch/**`) |
+| **Completed 2026-07-12 (was "Deferred post-sign-off")** | `00-OVERVIEW` + guides 01–07, 09, 11 authored; reciprocal `clinical-medicine/03`→`pathology/` and `medicine/10`→`pathology/08` cross-references added (plus `disease/00`→`01`–`03`, `disease/04`→`05`/`10`); `sections/life-sciences.md`, `.mkdocs/mkdocs.yml`, `TRACKER.md` wired; source-corpus regenerated (`.mdloom/backfill/**`, `.crop/**`, `.mdport/**`, `.fletch/**`) |
 
 ## Scope Contract (non-duplication)
 
@@ -157,7 +157,7 @@ Get-Content context\waves\2026-07-11-clinical-and-chemical-foundations\artifacts
 - [x] **Scaling-gate authoring and review — guides 09 and 11 authored at full depth:**
       under the MAXIM-PATH-24 scaling mini-contracts, `09-ANATOMIC-PATHOLOGY-TECHNIQUE.md` and
       `11-QUALITY-ERROR-AND-THE-DIAGNOSTIC-LABORATORY-AS-SYSTEM.md` are authored at full peer
-      depth and focused-PROOF-clean, with their Stage-1 high-risk surfaces covered in-guide and
+      depth and focused-MDLOOM-clean, with their Stage-1 high-risk surfaces covered in-guide and
       **Stage-2 whole-procedure/whole-seam reviews complete and PASS** after repair (see the
       *Scaling-Gate* section and completed panel records under
       `panels/pathology-09-scaling/` and `panels/pathology-11-scaling/`).
@@ -166,7 +166,7 @@ Get-Content context\waves\2026-07-11-clinical-and-chemical-foundations\artifacts
       ownership/defer header, landscape diagram, layered molecular→cellular→tissue formalism,
       worked fictional cases, decision-useful tables, systems bridges, 3–5 solved reader tasks,
       Decision Cheat Sheet, Common Confusion Points, resource/geographic/bias caveats), all
-      focused-PROOF-clean (`0 errors, 0 warnings`) with **0** second-person voice and hard
+      focused-MDLOOM-clean (`0 errors, 0 warnings`) with **0** second-person voice and hard
       defers to `disease/`/`immunology/`/`genomics/`/`microbiology/`. **Integrated** the module
       into `sections/life-sciences.md` (Directories row + count), `.mkdocs/mkdocs.yml`
       (`Pathology: pathology/00-OVERVIEW.md`), and `TRACKER.md` (dashboard row + wave line + a
@@ -248,15 +248,15 @@ backfill**) — **[SUPERSEDED 2026-07-12: full-module validation has since been 
 "Full-module validation (2026-07-12)" at the end of this section.]**:
 
 ```powershell
-# Repo-config PROOF (MAXIM proof.toml) via the tools-infra/proof Cargo manifest,
+# Repo-config MDLOOM (MAXIM mdloom.toml) via the tools-infra/proof Cargo manifest,
 # scoped to the two prototype guides
 cargo run --manifest-path C:\src\TRACKER\repos\tools-infra\proof\Cargo.toml -- `
   check pathology\08-LABORATORY-MEDICINE.md `
-        pathology\10-DIAGNOSIS-PATTERN-RECOGNITION-AND-REPORTING.md --config proof.toml
+        pathology\10-DIAGNOSIS-PATTERN-RECOGNITION-AND-REPORTING.md --config mdloom.toml
 git --no-pager diff --check
 ```
 
-If the Cargo-manifest PROOF is unavailable in the environment, record the exact failure
+If the Cargo-manifest MDLOOM is unavailable in the environment, record the exact failure
 and fall back to focused structural validation (single H1; required `## Decision Cheat
 Sheet` H2; ≥1 code block; no `@editor` tags; aligned ASCII boxes; consistent tables) plus
 `git diff --check`, per `.claude/skills/maxim-pulse/SKILL.md`.
@@ -273,20 +273,20 @@ EP17/AUTO10-A→AUTO15; UICC/AJCC TNM elements-vs-stage-group; CAP/ICCR/RCPath s
 named, **qualified as grounded in standard summaries (not authoritative)**, and to be
 re-verified against primary sources during full authoring (see MAXIM-PATH-23).
 
-**Validation outcome (R1 and R2 repair rounds):** the focused Cargo PROOF, re-run after the
+**Validation outcome (R1 and R2 repair rounds):** the focused Cargo MDLOOM, re-run after the
 R1 and then the strict-R2 repairs to `08`/`10`, reports **2 files checked, 0 errors, 0
-warnings**, and `git diff --check` is clean (the pathology module is untracked, so the PROOF
+warnings**, and `git diff --check` is clean (the pathology module is untracked, so the MDLOOM
 check was run against the two prototype guides explicitly). Source backfill was **not** run,
 and `medicine/`, `clinical-medicine/`, `sections/`, `.mkdocs/`, and `TRACKER.md` were **not**
 touched.
 
-**Scaling-gate validation (guides 09 and 11).** The same focused Cargo PROOF, scoped to the
+**Scaling-gate validation (guides 09 and 11).** The same focused Cargo MDLOOM, scoped to the
 two scaling-gate guides, was run after authoring:
 
 ```powershell
 cargo run --release --manifest-path C:\src\TRACKER\repos\tools-infra\proof\Cargo.toml -- `
   check pathology\09-ANATOMIC-PATHOLOGY-TECHNIQUE.md `
-        pathology\11-QUALITY-ERROR-AND-THE-DIAGNOSTIC-LABORATORY-AS-SYSTEM.md --config proof.toml
+        pathology\11-QUALITY-ERROR-AND-THE-DIAGNOSTIC-LABORATORY-AS-SYSTEM.md --config mdloom.toml
 git --no-pager diff --check
 ```
 
@@ -299,7 +299,7 @@ boundary; `11`: the total-testing-process quality-control loop, the phase-indexe
 taxonomy, and the explicit `08`↔`11` seam), decision tables, systems bridges, worked fictional
 cases, reader tasks, and resource/bias caveats. Frontmatter is at the truthful pre-backfill
 state (`status: prototype`, `source_custody: needs-source`, `backsource_ids: []`). The focused
-Cargo PROOF was **re-run after the Stage-2 whole-seam repairs to `11`** and again reports **2
+Cargo MDLOOM was **re-run after the Stage-2 whole-seam repairs to `11`** and again reports **2
 files checked, 0 errors, 0 warnings** with `git diff --check` clean. **Stage-2 whole-guide
 reviews are now run**: `09` **PASS** and `11` **PASS after repair** (recorded under
 `panels/pathology-09-scaling/` and `panels/pathology-11-scaling/`). This paragraph records the
@@ -319,28 +319,28 @@ python .claude\skills\maxim-source-backfill\scripts\module_source_backfill.py --
 python .claude\skills\maxim-source-backfill\scripts\module_source_backfill.py --module-dir disease           --module-id disease           --validate
 python .claude\skills\maxim-source-backfill\scripts\module_source_backfill.py --module-dir medicine          --module-id medicine          --validate
 python .claude\skills\maxim-source-backfill\scripts\module_source_backfill.py --module-dir clinical-medicine --module-id clinical-medicine --validate
-# Focused PROOF over all twelve pathology guides
+# Focused MDLOOM over all twelve pathology guides
 $pathologyGuides = Get-ChildItem pathology -File -Filter "??-*.md" | ForEach-Object FullName
-cargo run --manifest-path C:\src\TRACKER\repos\tools-infra\proof\Cargo.toml -- check $pathologyGuides --config proof.toml
+cargo run --manifest-path C:\src\TRACKER\repos\tools-infra\proof\Cargo.toml -- check $pathologyGuides --config mdloom.toml
 # Backfill-generator unit tests (git-history custody behavior)
 python -m unittest discover -s .claude\skills\maxim-source-backfill\tests -p "test_*.py"
 git --no-pager diff --check
 ```
 
-Outcome: **pathology 12/12 guides round-trip PASS, 0 errors, 0 warnings** on focused PROOF;
+Outcome: **pathology 12/12 guides round-trip PASS, 0 errors, 0 warnings** on focused MDLOOM;
 disease 11/11, medicine 11/11, clinical-medicine 12/12 — all with `finding_count: 0` on the
 FLETCH registry validation and a clean CROP view-store inspect. The **backfill-generator
 custody fix** (record a `git-history` backsource only when the file has real tracked history)
 is covered by focused unit tests (tracked-history-present vs untracked/no-history), which pass.
 Because `pathology/` and `clinical-medicine/` are still untracked, their regenerated
-guide/source-record backsources carry `proof-backfill` only and each source-record's Git
+guide/source-record backsources carry `mdloom-backfill` only and each source-record's Git
 provenance stays `pending`; the tracked siblings `disease`/`medicine` correctly retain their
 `git-history` backsources. `git diff --check` is clean.
 
 ## Status
 
 Architecture ratified and recorded; the three-way lab split ratified (MAXIM-PATH-06); the
-two highest-risk boundary guides authored at full depth and focused-PROOF-clean;
+two highest-risk boundary guides authored at full depth and focused-MDLOOM-clean;
 `STATUS.md` manifest and wave tracking updated. The adversarial prototype gate
 (`expert-skeptic` advice-/procedure-creep + `reference-editor`) has been run as **round R1**
 and a strict re-review **round R2**, with findings repaired in `08`/`10`, the architecture
@@ -355,7 +355,7 @@ repairs (see `panels/pathology-09-scaling/` and `panels/pathology-11-scaling/`).
 
 **Authoring + integration round (this addendum).** Following the boundary/scaling gates, the
 remaining guides have now been **authored** — `00-OVERVIEW` and the seven mechanism guides
-`01`–`07` — at full peer depth and focused-PROOF-clean, completing all **12/12** guides. The
+`01`–`07` — at full peer depth and focused-MDLOOM-clean, completing all **12/12** guides. The
 module has been **integrated** (`sections/life-sciences.md`, `.mkdocs/mkdocs.yml`, `TRACKER.md`),
 **reciprocally wired** with the architecture-approved minimal sibling pointers
 (`disease/00`→`01`–`03`; `disease/04`→`05`/`10`; `medicine/10`→`08` preserving the

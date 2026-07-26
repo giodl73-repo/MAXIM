@@ -1,0 +1,1945 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-compilers-semantic-analysis",
+  "source": "../../compilers",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#000",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "# Semantic Analysis — Symbol Tables, Scopes, and Types"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#001",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#002",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "Parsing answers \"is this well-formed syntax?\" Semantic analysis answers \"does it\n*mean* something, and is it consistent?\" — name resolution (what does `x` refer\nto?), scope (where is `x` visible?), and type checking/inference (does `x + y`\nmake sense, and what type is it?). You know the typing judgments from type theory;\nthis guide is about the data structures and algorithms a frontend uses to *decide*\nthem at scale, and how Hindley-Milner inference actually runs."
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#003",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "```\n                       SEMANTIC ANALYSIS PIPELINE"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#004",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "parse tree (concrete)\n        |  build/lower\n        v\n   +----------+        AST: desugared, names not yet resolved\n   |   AST    |\n   +----------+"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#005",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "|\n        |  PASS 1: build symbol tables (declarations -> scopes)\n        v"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#006",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "+-------------------+   scope tree:  global -> module -> fn -> block\n   |  SYMBOL TABLES    |   each entry: name, kind, type-slot, source span\n   +-------------------+"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#007",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "|\n        |  PASS 2: NAME RESOLUTION (every use -> its declaration)\n        v"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#008",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "+-------------------+   each IDENT node now points at a Symbol\n   |  RESOLVED AST     |\n   +-------------------+"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#009",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "|\n        |  PASS 3: TYPE CHECKING / INFERENCE (annotate every node)\n        v"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#010",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "+-------------------+   each expr node now carries a Type;\n   |  TYPED AST        |   type errors emitted with spans\n   +-------------------+"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#011",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "|\n        v  hand to IR generation (guide 04)\n```"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#012",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "Read top-down: the tree is built, names are bound to declarations, and types are\nchecked or inferred — each pass annotating the same tree. The output is a **typed,\nresolved AST**, the contract the IR generator consumes."
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#013",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#014",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "## Parse Tree vs AST"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#015",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "The parser can produce a *concrete syntax tree* (every token, every grammar\nnonterminal) or directly an *abstract syntax tree* (only the semantically\nmeaningful structure). Frontends almost always want the AST."
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#016",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "```\n  source:  -(1 + 2)"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#017",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "CONCRETE (parse) tree              ABSTRACT (AST)\n  =====================              ==============\n        unary                            Neg\n       /  |  \\                            |\n      -  expr ...                        Add\n         /|\\                            /   \\\n        ( expr )                     Int(1) Int(2)\n          /|\\\n       1  +  2\n   (records parens, the              (parens gone -- they only\n    expr->term->factor chain)         affected structure, not meaning;\n                                       no intermediate nonterminals)\n```"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#018",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "```\n  AST drops:  parentheses, redundant nonterminals (expr->term->factor),\n              punctuation that only guided parsing.\n  AST keeps:  operators, operands, declarations, control structure --\n              everything with semantic content.\n  AST may add: desugaring (for-loop -> while; a += b -> a = a + b;\n              string interpolation -> concat calls).\n```"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#019",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "Tools that must reproduce source exactly (formatters, refactoring engines, IDEs)\nkeep a *lossless* concrete tree instead — Roslyn's red-green trees and tree-sitter\nboth retain every character so the original text round-trips."
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#020",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#021",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "## Symbol Tables and Scope"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#022",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "A symbol table maps names to declarations. Because of nested scopes, it is really a\n*tree of scopes*, and lookup walks outward from the current scope to the root."
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#023",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "```\n   SCOPE CHAIN (lexical scoping)"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#024",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "global scope:\n   +----------------------------------+\n   |  printf, main, MAX               |\n   +----------------------------------+\n              ^\n              | parent\n   function main():\n   +----------------------------------+\n   |  argc, argv, i                   |\n   +----------------------------------+\n              ^\n              | parent\n   block { ... }:\n   +----------------------------------+\n   |  i  (SHADOWS outer i), tmp       |\n   +----------------------------------+"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#025",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "Lookup(\"i\") from the innermost block:\n     found in block scope -> the shadowing `i`. Stop.\n   Lookup(\"argc\"):\n     not in block, not... found in function scope. Stop.\n   Lookup(\"printf\"):\n     walk all the way to global. Found.\n   Lookup(\"nope\"):\n     reach root, not found -> UNRESOLVED NAME error.\n```"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#026",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "| Implementation | Lookup | Scope entry/exit | Used by |\n|----------------|--------|------------------|---------|\n| stack of hash maps | O(1) avg per level, O(depth) chain | push/pop a map | many classic compilers |\n| single hash map + scope marks | O(1), undo on exit | push markers, pop entries | fast, cache-friendly |\n| persistent/immutable map | O(log n) | structural sharing, no undo | functional compilers, IDEs (snapshot per edit) |"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#027",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "Two subtleties that matter in real languages:"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#028",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "```\n  SHADOWING:   an inner `i` hides an outer `i`. Legal in most languages;\n               the inner scope's entry wins on lookup."
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#029",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "FORWARD REFERENCE / HOISTING:\n     - C: a function may be CALLED before its definition if DECLARED\n          (the prototype goes in the table first).\n     - JS: `var` and function declarations are HOISTED to the top of the\n          scope (the binder inserts them before processing the body).\n     - This is why semantic analysis often needs TWO passes: collect all\n          declarations in a scope first, THEN resolve uses -- so mutual\n          recursion and forward references work.\n```"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#030",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#031",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "## Name Resolution"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#032",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "With scopes built, every identifier *use* is linked to its *declaration*. After\nthis pass, the AST's `IDENT` nodes no longer carry just a string — they carry a\npointer to a `Symbol`."
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#033",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "```\n  Before resolution:        After resolution:\n  Call                      Call\n   |--callee: \"f\"            |--callee: -> Symbol#42 (fn f, defined at L3)\n   |--arg:    \"x\"            |--arg:    -> Symbol#17 (param x, defined at L1)"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#034",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "Resolution also catches:\n    - use of undeclared name\n    - duplicate declaration in one scope\n    - use-before-declaration (where the language forbids it)\n    - ambiguous overload / import collision\n```"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#035",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "This is exactly Roslyn's *binder* phase and tsc's *binder*: build the symbol table,\nthen bind each syntax node to its symbol. The `SemanticModel` you query in Roslyn is\nthe result — \"what does this identifier mean here?\""
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#036",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#037",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "## Type Checking vs Type Inference"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#038",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "Two regimes. **Checking**: the program is fully annotated; verify the annotations\nare consistent. **Inference**: annotations are absent; *reconstruct* the most\ngeneral types that make the program well-typed."
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#039",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "```\n   TYPE CHECKING (e.g. Java, C, C#)        TYPE INFERENCE (e.g. ML, Haskell,\n   ==============================            Rust locals, C# var, TS)\n   int x = f(y);                           let x = f y           -- no annotations\n   - look up type of f: int -> int          - assign fresh type vars\n   - check y : int                          - generate equality CONSTRAINTS\n   - check result int assignable to int     - SOLVE by UNIFICATION\n   Local, syntax-directed, one walk.        - generalize remaining vars (forall)\n                                            Global-ish; the famous algorithm\n                                            is Hindley-Milner / Algorithm W.\n```"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#040",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "You know the typing judgment `Γ ⊢ e : τ`. Checking *applies* the rules top-down;\ninference *solves* for the metavariables that make the rules hold. The full\nmetatheory (soundness, principal types, parametricity) lives in\n`programming-language-theory/02-TYPE-THEORY.md` and `formal-methods/04-TYPE-THEORY.md`\n— here we run the algorithm."
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#041",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "### Bidirectional checking — the modern default"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#042",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "Most real type checkers are **bidirectional**: they alternate between *checking* a\nterm against a known expected type and *synthesizing* a type from a term. This is how\nTypeScript, Rust, Swift, and modern functional languages localize inference and\nproduce good error messages."
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#043",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "```\n  check(e, T):  \"does e have type T?\"      (type flows IN -- e.g. a lambda\n                                            argument whose type is known)\n  synth(e) -> T: \"what type does e have?\"  (type flows OUT -- e.g. a literal,\n                                            a variable, a function call result)"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#044",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "Rule of thumb:\n    annotations + function results -> synthesize\n    lambda bodies + container literals against expected -> check\n```"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#045",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#046",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "## Hindley-Milner Inference, Worked"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#047",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "The HM core: assign fresh type variables, collect constraints from the typing\nrules, solve by **unification**, then **generalize**. Here is `let id = \\x -> x in\nid id` reconstructed."
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#048",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "```\n  Step 1 -- fresh vars and constraints for \\x -> x :\n     x : a            (fresh)\n     body x : a\n     so  \\x -> x : a -> a"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#049",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "Step 2 -- generalize at the `let`:\n     id : forall a. a -> a       (a is not free in the environment -> bind it)"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#050",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "Step 3 -- use `id id`. INSTANTIATE id twice with fresh vars:\n     left  id : b -> b\n     right id : c -> c\n     application (left right): require (b -> b) = (c -> c)'s argument type\n        unify  b   with  (c -> c)        =>  b := (c -> c)\n        result type:  b  = (c -> c)\n     so  id id : c -> c            (a function, the identity again)"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#051",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "Generalize:  id id : forall c. c -> c\n```"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#052",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "### Unification — the engine"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#053",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "Unification finds the most general substitution making two type terms equal. It is\nthe same algorithm behind Prolog and behind every HM type checker."
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#054",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "```\n  unify(t1, t2):\n    if t1, t2 are the same type var          -> ok, no-op\n    if t1 is a var a                          -> bind a := t2  (OCCURS CHECK first!)\n    if t2 is a var a                          -> bind a := t1  (OCCURS CHECK first!)\n    if t1 = f(s1..sn), t2 = f(u1..un)         -> unify si with ui pairwise\n    if constructors differ (Int vs Bool, ->)  -> TYPE ERROR"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#055",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "OCCURS CHECK:  refusing to bind  a := (a -> a)  would create an infinite\n                 type. The occurs check rejects it -> \"cannot construct\n                 infinite type\" -- the error you see for  \\x -> x x.\n```"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#056",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "```\n  Example unify( (a -> Int),  (Bool -> b) ):\n     match the -> constructor, recurse:\n       unify(a, Bool)  -> a := Bool\n       unify(Int, b)   -> b := Int\n     result substitution: { a := Bool, b := Int }\n     both sides become  Bool -> Int.   Consistent.\n```"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#057",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "HM gives **principal types** (a most-general type that every other valid type is an\ninstance of) and runs in near-linear time with union-find for the substitution —\nthough it is theoretically DEXPTIME in pathological let-nesting (rarely hit)."
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#058",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#059",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "## Attribute Grammars — The Formal Frame"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#060",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "Semantic analysis is classically described as decorating the parse tree with\n*attributes* that flow up (synthesized) or down (inherited). It is the formal model\nbehind \"annotate every node with a type.\""
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#061",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "```\n  SYNTHESIZED attribute: computed from children, flows UP.\n     E.type  is synthesized from E1.type and E2.type in  E -> E1 + E2."
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#062",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "INHERITED attribute: passed from parent/siblings, flows DOWN.\n     declared type of a variable flows down into the scope where it's used."
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#063",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "E.type  (up)\n            / \\\n       E1.type E2.type\n         ^       ^         both synthesized, combined at the parent"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#064",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "Type-checking is mostly an S-attributed (synthesized-only) or\n  L-attributed (one left-to-right pass) computation -- which is exactly\n  why a single AST walk usually suffices.\n```"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#065",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "Production compilers rarely *write* a formal attribute grammar, but the mental model\n— \"what flows up, what flows down, can I do it in one pass\" — is precisely how you\nreason about whether type checking needs one walk or a fixpoint."
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#066",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#067",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "## Old World → New World Bridges"
+    },
+    {
+      "id": "03-SEMANTIC-ANALYSIS.md#068",
+      "path": [
+        "03-SEMANTIC-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:03-semantic-analysis, git-history:compilers:03-semantic-analysis]",
+        "canonical_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "concepts": "[semantic analysis, symbol table, scope, type checking, type inference, unification, AST]",
+        "current_path": "compilers/03-SEMANTIC-ANALYSIS.md",
+        "id": "maxim:compilers:semantic-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[semantic analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Semantic Analysis - Symbol Tables, Scopes, Type Checking and Inference",
+        "updated": "null"
+      },
+      "text": "| You know | Maps to |\n|----------|---------|\n| Roslyn `SemanticModel` / `ISymbol` | The output of name resolution: every syntax node bound to a symbol |\n| Roslyn *binder* phase | The name-resolution pass building/walking symbol tables |\n| C# `var` and `out var` | Local type inference — a constrained HM (no let-generalization across statements) |\n| C# overload resolution | A constraint-solving search over candidate signatures, ranked by conversions |\n| `dynamic` in C# | Deferring type checking to runtime — opting out of static semantic analysis |\n| Generic constraints (`where T : IComparable`) | Bounded quantification — the checker verifies the bound at instantiation |\n| TypeScript structural typing | Subtyping by shape; the checker compares members, not names (vs C#'s nominal) |"
+    }
+  ],
+  "refs": [
+    "03-SEMANTIC-ANALYSIS.md"
+  ]
+}

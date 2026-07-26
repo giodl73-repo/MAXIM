@@ -1,0 +1,2589 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-probability-statistics-probability-foundations",
+  "source": "../../probability-statistics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#000",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "# Measure-Theoretic Probability Foundations"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#001",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#002",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "Probability theory is measure theory with total mass normalized to 1. The machinery exists to make \"random\" rigorous."
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#003",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|              PROBABILITY SPACE  (Omega, F, P)                    |\n+------------------------------------------------------------------+\n|                                                                  |\n|  Omega  = sample space      all possible outcomes               |\n|  F      = sigma-algebra     the events we can assign probs to   |\n|  P      = probability meas  assigns numbers in [0,1] to events  |\n|                                                                  |\n|  +--------------------+                                         |\n|  |  Omega             |  <- the \"universe\"                      |\n|  |  +------+          |                                         |\n|  |  |  A   |  <- event: a subset of Omega in F                  |\n|  |  +------+          |                                         |\n|     |                    |                                      |\n|  +--------------------+                                         |\n|           |                                                      |\n|           v                                                      |\n|  P(A) in [0,1]    probability measure applied to event A        |\n|                                                                  |\n|  Random variable X: Omega -> R                                   |\n|  (a measurable function on this space)                          |\n|                                                                  |\n+------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#004",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#005",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "## Sample Spaces and Events"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#006",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "**Sample space Omega**: The set of all possible outcomes of an experiment."
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#007",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "```\n  Coin flip:  Omega = {H, T}\n  Dice roll:  Omega = {1, 2, 3, 4, 5, 6}\n  Real line:  Omega = R  (lifetimes, temperatures, ...)\n  Sequences:  Omega = {0,1}^N  (infinite binary sequences)\n```"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#008",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "**Event**: A subset A of Omega. \"The event that an odd number comes up\" = {1, 3, 5}."
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#009",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "**The problem with naive \"all subsets\"**: For finite Omega, P(A) for every subset A is fine. For uncountable Omega (like R), assigning probabilities to *all* subsets leads to contradictions (Vitali sets — non-measurable sets exist if you have the Axiom of Choice). The sigma-algebra specifies *which* subsets are measurable."
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#010",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#011",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "## Sigma-Algebras"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#012",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "A sigma-algebra (sigma-field) F on Omega is a collection of subsets satisfying:"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#013",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "```\n  1.  Omega in F                     (whole space is measurable)\n  2.  A in F  =>  A^c in F           (closed under complement)\n  3.  A_1, A_2, ... in F  =>         (closed under countable unions)\n      Union_{i=1}^{inf} A_i in F"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#014",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "Consequence: also closed under countable intersections\n  (De Morgan: Intersection A_i = (Union A_i^c)^c)\n```"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#015",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "**Why countable, not arbitrary?** Because we want to pass limits through probability — P(lim A_n) = lim P(A_n) under appropriate conditions. Uncountable unions break this."
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#016",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "**Key sigma-algebras**:"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#017",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "```\n  Trivial:     F = {emptyset, Omega}          -- no information\n  Discrete:    F = P(Omega) (all subsets)     -- full info, OK for countable Omega\n  Borel:       B(R) = generated by open sets  -- the standard on R\n  Cylinder:    on function spaces (Wiener measure lives here)\n```"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#018",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "**Generated sigma-algebra**: sigma(C) for a collection C is the smallest sigma-algebra containing C. This is how B(R) is defined: sigma({open sets in R})."
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#019",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "**Filtration**: An increasing family F_0 subset F_1 subset ... subset F — models accumulating information over time. Essential for stochastic processes (see 04)."
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#020",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#021",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "## The Kolmogorov Axioms"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#022",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "A probability measure P: F -> [0,1] satisfies:"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#023",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "```\n  K1.  P(A) >= 0                for all A in F          (non-negativity)\n  K2.  P(Omega) = 1                                      (normalization)\n  K3.  A_1, A_2, ... disjoint   =>                       (sigma-additivity)\n       P(Union A_i) = Sum P(A_i)\n```"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#024",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "**Everything else follows**:"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#025",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "```\n  P(emptyset) = 0              (from K2 + K3: Omega = Omega union emptyset union ...)\n  P(A^c) = 1 - P(A)            (from K2 + K3: Omega = A union A^c)\n  A subset B => P(A) <= P(B)   (monotonicity)\n  P(A union B) = P(A) + P(B) - P(A intersect B)  (inclusion-exclusion)\n  Boole's inequality:  P(Union A_i) <= Sum P(A_i)  (sigma-subadditivity)\n```"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#026",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#027",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "## Conditional Probability and Independence"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#028",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "**Conditional probability** (definition, not theorem):"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#029",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "```\n  P(A | B) = P(A intersect B) / P(B),    P(B) > 0\n```"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#030",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "This updates the probability of A given that B has occurred. The sample space effectively shrinks to B."
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#031",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "**Independence**:"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#032",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "```\n  A, B independent  <=>  P(A intersect B) = P(A) P(B)\n  <=> P(A | B) = P(A)   (when P(B) > 0)\n  <=> P(B | A) = P(B)   (when P(A) > 0)"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#033",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "Events A_1, ..., A_n are mutually independent if:\n  For all S subset {1,...,n}:\n  P(Intersection_{i in S} A_i) = Product_{i in S} P(A_i)"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#034",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "Pairwise independence does NOT imply mutual independence.\n```"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#035",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "**Bayes' Theorem** (follows directly from conditional probability definition):"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#036",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "```\n  P(A | B) = P(B | A) P(A) / P(B)"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#037",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "Full form with partition {H_i}:\n  P(H_j | E) = P(E | H_j) P(H_j) / Sum_i P(E | H_i) P(H_i)"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#038",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "Posterior    = Likelihood x Prior / Evidence\n```"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#039",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#040",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "## Random Variables as Measurable Functions"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#041",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "A **random variable** X on (Omega, F, P) is a measurable function X: Omega -> R:"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#042",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "```\n  \"Measurable\" means: for all Borel sets B in B(R),\n  X^{-1}(B) = {omega in Omega : X(omega) in B} is in F"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#043",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "This is the same as \"measurable function\" from analysis.\n  The randomness comes from P, not from X itself.\n```"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#044",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "**The type-theory analogy**: A random variable X: Omega -> R has type `Omega -> R`, just like a measurable function. The sigma-algebra F is the \"measurability type class\" — it constrains which functions are valid. This is analogous to how a type system constrains which terms are well-typed."
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#045",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "**Distribution (pushforward measure)**: Given X: Omega -> R and P on Omega, define the distribution P_X on B(R):"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#046",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "```\n  P_X(B) = P(X^{-1}(B)) = P(X in B)"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#047",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "This is the \"law\" or \"distribution\" of X.\n  It lives on (R, B(R)), not on the original (Omega, F, P).\n```"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#048",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "Once you have P_X, you typically don't care about the underlying Omega anymore — you just work with the distribution."
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#049",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#050",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "## Expectation as Lebesgue Integral"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#051",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "```\n  E[X] = Integral_{Omega} X(omega) dP(omega)"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#052",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "For discrete X (takes values x_1, x_2, ...):\n  E[X] = Sum_i x_i P(X = x_i)"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#053",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "For continuous X with density f:\n  E[X] = Integral_{-inf}^{inf} x f(x) dx"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#054",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "Both are special cases of the Lebesgue integral.\n```"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#055",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "**Expectation rules** (from linearity of integration):"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#056",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "```\n  E[aX + bY] = aE[X] + bE[Y]              (linearity, always)\n  E[XY] = E[X]E[Y]                        (if X, Y independent)\n  E[g(X)] = Integral g(x) dP_X(x)        (law of the unconscious statistician)\n```"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#057",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "**Dominated Convergence Theorem** (the workhorse for limit exchange):"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#058",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "```\n  If X_n -> X pointwise a.s.,\n  and |X_n| <= Y with E[Y] < inf,\n  then E[X_n] -> E[X]"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#059",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "This justifies: lim E[X_n] = E[lim X_n]\n  under an integrability condition.\n```"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#060",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#061",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "## Key Inequalities"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#062",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "These appear constantly in proofs:"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#063",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "```\n  MARKOV'S INEQUALITY\n  P(X >= a) <= E[X] / a        for X >= 0, a > 0\n  Crude but universal. Tight for degenerate distributions."
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#064",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "CHEBYSHEV'S INEQUALITY\n  P(|X - mu| >= k*sigma) <= 1/k^2\n  Follows from Markov applied to (X - mu)^2.\n  Gives LLN (weak): sample mean converges in probability."
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#065",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "JENSEN'S INEQUALITY\n  If phi is convex: E[phi(X)] >= phi(E[X])\n  If phi is concave: E[phi(X)] <= phi(E[X])\n  Key examples: E[X^2] >= E[X]^2 (variance >= 0)\n                E[log X] <= log E[X] (important for KL divergence)"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#066",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "CAUCHY-SCHWARZ\n  |E[XY]|^2 <= E[X^2] E[Y^2]\n  Equivalently: |Cov(X,Y)| <= sqrt(Var(X) Var(Y))\n  Correlation in [-1, 1] follows directly."
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#067",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "HOEFFDING'S INEQUALITY\n  For bounded independent r.v.s X_i in [a_i, b_i]:\n  P(|mean - mu| >= t) <= 2 exp(-2n^2 t^2 / Sum(b_i - a_i)^2)\n  Exponential tail bound. Foundation of PAC learning.\n```"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#068",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "**Beyond Hoeffding — the concentration inequality family:**"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#069",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "```\n  CONCENTRATION INEQUALITY HIERARCHY:\n  ──────────────────────────────────────────────────────────────────────\n  BERNSTEIN'S INEQUALITY (variance-adaptive, tighter than Hoeffding):\n  For independent X_i in [a_i, b_i] with Var(X_i) = sigma_i^2:\n  P(|S_n - E[S_n]| >= t) <= 2 exp(-t^2 / (2(Sum sigma_i^2 + ct/3)))\n  Tighter than Hoeffding when variance << range (common in practice)."
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#070",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "AZUMA-HOEFFDING (for martingales):\n  If {M_k} is a martingale with |M_k - M_{k-1}| <= c_k:\n  P(|M_n - M_0| >= t) <= 2 exp(-t^2 / (2 Sum c_k^2))\n  Needed for adaptive algorithms where choices depend on past data."
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#071",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "McDIARMID'S INEQUALITY (bounded differences):\n  If f(X_1,...,X_n) changes by at most c_i when X_i varies:\n  P(|f - E[f]| >= t) <= 2 exp(-2t^2 / Sum c_i^2)\n  Ubiquitous in learning theory: apply to empirical risk, VC bounds."
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#072",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "SUB-GAUSSIAN / SUB-EXPONENTIAL (modern unifying framework):\n  X is sub-Gaussian(sigma) if E[exp(t(X-mu))] <= exp(sigma^2 t^2/2)\n  All bounded r.v.s are sub-Gaussian. Gaussian is sub-Gaussian.\n  Sub-Gaussian tails: P(|X - mu| >= t) <= 2 exp(-t^2/(2 sigma^2))"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#073",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "X is sub-exponential if E[exp(t|X-mu|)] < inf for small t.\n  Chi-squared, exponential r.v.s are sub-exponential (not sub-Gaussian).\n  Sub-exponential tails: Gaussian for small t, exponential for large t."
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#074",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "MATRIX CONCENTRATION (for random matrices):\n  Matrix Bernstein: ||Sum X_i - E[Sum X_i]|| <= O(sqrt(sigma^2 log d) + c log d)\n  Used in: compressed sensing, random graph theory, spectral methods.\n```"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#075",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#076",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "## Almost Sure vs. In Probability vs. In L^p"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#077",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "Multiple notions of convergence exist for sequences of random variables:"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#078",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "```\n  X_n --a.s.--> X:\n  P(lim_{n->inf} X_n = X) = 1\n  Convergence on a set of measure 1. Strongest."
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#079",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "X_n --P--> X  (in probability):\n  For all eps > 0: P(|X_n - X| > eps) -> 0\n  Weaker: each individual event shrinks, but not uniformly."
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#080",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "X_n --L^p--> X  (in L^p):\n  E[|X_n - X|^p] -> 0\n  L^2 convergence is mean-square convergence."
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#081",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "X_n --d--> X  (in distribution / weak convergence):\n  E[f(X_n)] -> E[f(X)] for all bounded continuous f\n  Weakest. CLT conclusion is convergence in distribution."
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#082",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "HIERARCHY:\n  a.s.  =>  in probability  =>  in distribution\n  L^2   =>  in probability  =>  in distribution\n  (a.s. and L^2 do NOT imply each other)\n```"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#083",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#084",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "## Independence, Sigma-Algebras, and the Factorization Lemma"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#085",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "**Independence via sigma-algebras**: Sub-sigma-algebras G_1, G_2 subset F are independent if:"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#086",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "```\n  For all A in G_1, B in G_2: P(A intersect B) = P(A) P(B)\n```"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#087",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "**Factorization lemma (Doob-Dynkin)**: Y is measurable with respect to sigma(X) (the sigma-algebra generated by X) if and only if Y = f(X) for some measurable f. This characterizes which random variables \"depend on\" X."
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#088",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "**Conditional expectation**: E[X | G] for a sub-sigma-algebra G is the unique G-measurable function Z satisfying:"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#089",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "```\n  For all A in G:  Integral_A Z dP = Integral_A X dP"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#090",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "This exists and is unique (Radon-Nikodym theorem).\n  When G = sigma(Y): E[X | G] = E[X | Y] in the usual sense.\n```"
+    },
+    {
+      "id": "01-PROBABILITY-FOUNDATIONS.md#091",
+      "path": [
+        "01-PROBABILITY-FOUNDATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:01-probability-foundations, git-history:probability-statistics:01-probability-foundations]",
+        "canonical_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "concepts": "[probability, foundations]",
+        "current_path": "probability-statistics/01-PROBABILITY-FOUNDATIONS.md",
+        "id": "maxim:probability-statistics:probability-foundations",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability, foundations]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure-Theoretic Probability Foundations",
+        "updated": "null"
+      },
+      "text": "The Radon-Nikodym theorem is the measure-theoretic engine behind conditional expectation — it guarantees the existence of the conditional expectation as a measurable function."
+    }
+  ],
+  "refs": [
+    "01-PROBABILITY-FOUNDATIONS.md"
+  ]
+}

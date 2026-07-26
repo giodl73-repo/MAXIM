@@ -1,0 +1,97 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-control-theory-mpc",
+  "source": "../../control-theory",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "07-MPC.md#000",
+      "path": [
+        "07-MPC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:07-mpc, git-history:control-theory:07-mpc]",
+        "canonical_path": "control-theory/07-MPC.md",
+        "concepts": "[mpc]",
+        "current_path": "control-theory/07-MPC.md",
+        "id": "maxim:control-theory:mpc",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mpc]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model Predictive Control",
+        "updated": "null"
+      },
+      "text": "# Model Predictive Control"
+    },
+    {
+      "id": "07-MPC.md#001",
+      "path": [
+        "07-MPC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:07-mpc, git-history:control-theory:07-mpc]",
+        "canonical_path": "control-theory/07-MPC.md",
+        "concepts": "[mpc]",
+        "current_path": "control-theory/07-MPC.md",
+        "id": "maxim:control-theory:mpc",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mpc]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model Predictive Control",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "07-MPC.md#002",
+      "path": [
+        "07-MPC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:07-mpc, git-history:control-theory:07-mpc]",
+        "canonical_path": "control-theory/07-MPC.md",
+        "concepts": "[mpc]",
+        "current_path": "control-theory/07-MPC.md",
+        "id": "maxim:control-theory:mpc",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mpc]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model Predictive Control",
+        "updated": "null"
+      },
+      "text": "```\n┌─────────────────────────────────────────────────────────────────────┐\n│               MODEL PREDICTIVE CONTROL — CORE IDEA                  │\n│                                                                     │\n│   TIME     t    t+1   t+2   t+3  ...  t+N                           │\n│            ↓                                                        │\n│   ┌────────────────────────────────────────────────────────────┐    │\n│   │  SOLVE:  min  Σ_{k=0}^{N-1} [x_kᵀQx_k + u_kᵀRu_k]        │   │\n│   │               + x_Nᵀ Px_N  (terminal cost)                 │   │\n│   │  subject to:                                               │   │\n│   │    x_{k+1} = A x_k + B u_k   (dynamics)                   │   │\n│   │    x_k ∈ X, u_k ∈ U           (state/input constraints)   │   │\n│   │    x_N ∈ X_f                  (terminal constraint)       │   │\n│   └────────────────────────────────────────────────────────────┘   │\n│            ↓                                                        │\n│   APPLY: only u₀* (first optimal control)                          │\n│            ↓                                                        │\n│   SHIFT HORIZON → Repeat at t+1 with measured/estimated x(t+1)    │\n│                                                                     │\n│  ─────────────────────────────────────────────────────────────     │\n│  Applied:  u₀* │ (discard)                                         │\n│  Planned:  u₀* u₁* u₂*...u_{N-1}*                                 │\n│                                                                     │\n│  UNLIKE LQR: handles input/state CONSTRAINTS explicitly             │\n│  UNLIKE PID: incorporates future predictions (feedforward-like)    │\n└─────────────────────────────────────────────────────────────────────┘\n```"
+    }
+  ],
+  "refs": [
+    "07-MPC.md"
+  ]
+}

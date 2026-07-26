@@ -1,0 +1,1189 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-algorithms-divide-and-conquer",
+  "source": "../../algorithms",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#000",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "# Divide and Conquer"
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#001",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "Divide-and-conquer is the paradigm where subproblems are **disjoint**: you split\nthe input, solve the pieces independently (recursively), and combine. Because the\npieces share no work, the cost is a clean recurrence `T(n) = a·T(n/b) + f(n)`, and\nthe entire art is *moving the watershed* between the leaf cost (`a`, `b`) and the\ncombine cost (`f`). The famous wins — Karatsuba, Strassen, FFT — all come from\nreducing `a` (fewer subproblems) so the leaves stop dominating."
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#002",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "```\n  DIVIDE & CONQUER: T(n) = a T(n/b) + f(n)        (a subproblems, size n/b, combine f)\n  ==================================================================================="
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#003",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "+-----------------+\n                         |  PROBLEM size n |\n                         +-----------------+\n                                |  DIVIDE into a pieces of size n/b\n        +-----------------+-----------------+----------+\n        v                 v                 v\n        +----------+      +----------+      +----------+\n        | size n/b |      | size n/b |  ... | size n/b |     (a of them)\n        +----------+      +----------+      +----------+\n        |     CONQUER (recurse)                        |\n        +-----------------+-----------------+----------+\n                                |  COMBINE in f(n)\n                                v\n                         +-----------------+\n                         |   SOLUTION      |\n                         +-----------------+"
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#004",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "The lever:  watershed exponent c = log_b(a)  (= log of #leaves)\n     a small (few subproblems) -> combine f(n) dominates  -> T = Theta(f)\n     a large (many subproblems)-> leaves dominate         -> T = Theta(n^c)"
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#005",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "ALGORITHM         a   b   f(n)     c=log_b a       T(n)\n   ---------         -   -   ----     ---------       ----\n   mergesort         2   2   n        1               n log n     (balanced)\n   binary search     1   2   1        0               log n\n   Karatsuba mult    3   2   n        1.585           n^1.585     (fewer mults!)\n   Strassen matmul   7   2   n^2      2.807           n^2.807     (7 not 8 mults)\n   FFT               2   2   n        1               n log n\n   closest pair      2   2   n        1               n log n\n   median-of-med.    (uneven split, Akra-Bazzi)       n          (see 01)\n```"
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#006",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "**Read this with `01-ANALYSIS.md` open**: every bound here is a Master-theorem or\nAkra-Bazzi solution. The design game is to *lower `a`* — do fewer recursive calls\nby being clever in the combine step."
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#007",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#008",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "## Layer 1: The Template and the Two Canonical Sorts"
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#009",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "```\n  divide_and_conquer(P):\n     if |P| small: return base_solve(P)        # base case\n     split P into P_1 .. P_a                     # DIVIDE   -> determines a, b\n     S_i = divide_and_conquer(P_i)               # CONQUER  -> the recursion\n     return combine(S_1 .. S_a)                  # COMBINE  -> determines f(n)\n```"
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#010",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "The two textbook sorts (full treatment in `02`) sit at opposite ends of the work\ndistribution:"
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#011",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "```\n   MERGESORT: cheap divide, EXPENSIVE combine        QUICKSORT: EXPENSIVE divide, free combine\n   T = 2T(n/2) + n  (the merge is the n)             T = 2T(n/2) + n  (the partition is the n)\n   balanced split ALWAYS                             split quality depends on the PIVOT\n   => Theta(n log n) worst-case                      => avg n log n, worst n^2 (bad pivots)\n```"
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#012",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "This is the cleanest illustration of the paradigm's lever: same recurrence shape,\nbut mergesort *guarantees* the balanced split while quicksort gambles on it."
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#013",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#014",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "## Layer 2: Fast Multiplication — Reducing `a`"
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#015",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "### Karatsuba — integer multiplication in O(n^1.585)"
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#016",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "Schoolbook multiplication of two n-digit numbers is Θ(n²). Split each into high/low\nhalves: `x = x1·B + x0`, `y = y1·B + y0`. Naively `xy` needs **4** half-size\nproducts. Karatsuba's trick computes it with **3**."
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#017",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "```\n   x*y = x1y1 B^2 + (x1y0 + x0y1) B + x0y0\n   Naive: 4 multiplications  -> T(n)=4T(n/2)+n = Theta(n^2)   (no win)"
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#018",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "Karatsuba: compute only 3 products:\n       z2 = x1*y1\n       z0 = x0*y0\n       z1 = (x1+x0)(y1+y0) - z2 - z0      <-- the middle term, ONE multiply\n   x*y = z2 B^2 + z1 B + z0\n   T(n) = 3 T(n/2) + O(n)  ->  Theta(n^1.585)     [Master case 1, c=log2 3]\n```"
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#019",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "Worked (base 10, B=10): x=12, y=34 → x1=1,x0=2,y1=3,y0=4."
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#020",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "```\n   z2 = 1*3 = 3\n   z0 = 2*4 = 8\n   z1 = (1+2)(3+4) - 3 - 8 = 3*7 - 11 = 21 - 11 = 10\n   xy = 3*100 + 10*10 + 8 = 300 + 100 + 8 = 408 = 12*34  CHECK\n```"
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#021",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "Going from `a=4` to `a=3` drops the exponent from 2 to 1.585 — the entire\nimprovement is \"one fewer recursive multiply.\" (Toom-Cook generalizes this; FFT\ntakes it to the limit.)"
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#022",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "### Strassen — matrix multiplication in O(n^2.807)"
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#023",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "The same lever for n×n matrices. Block into 2×2 of (n/2)×(n/2) blocks: naive needs\n**8** block multiplies → `8T(n/2)+n² = Θ(n³)`. Strassen uses **7**."
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#024",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "```\n   T(n) = 7 T(n/2) + O(n^2)  ->  Theta(n^(log2 7)) = Theta(n^2.807)   [Master case 1]\n   7 products (M1..M7) recombined with +/- into the 4 result blocks.\n```"
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#025",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "Strassen is the proof that the \"obvious\" Θ(n³) is not optimal; in practice it wins\nonly for large n (high constants, numerical-stability caveats) and is the gateway to\nthe theoretical frontier (current record ≈ O(n^2.37)). Cross-ref `numerical-methods/`\nfor the stability trade-offs."
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#026",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#027",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "## Layer 3: The FFT — Divide-and-Conquer over Roots of Unity"
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#028",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "The FFT computes the Discrete Fourier Transform in **O(n log n)** instead of Θ(n²),\nand via the convolution theorem it multiplies two degree-n polynomials (or two\nn-digit numbers) in O(n log n) — the asymptotic limit of the Karatsuba idea."
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#029",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "```\n   DFT: evaluate a degree-(n-1) polynomial at the n complex n-th roots of unity.\n   KEY: split p(x) into even and odd coefficient polynomials:\n        p(x) = p_even(x^2) + x * p_odd(x^2)\n   The n roots of unity, when squared, give only n/2 DISTINCT values.\n   => evaluating p at n points reduces to evaluating p_even, p_odd at n/2 points."
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#030",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "T(n) = 2 T(n/2) + O(n)   ->   Theta(n log n)     [Master case 2, mergesort recurrence]"
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#031",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "USE (fast convolution / multiplication):"
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#032",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "+------+   FFT    +-------+\n       | a, b | ------>  | A, B  |\n       +------+          +-------+\n                         A, B in point-value form"
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#033",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "|  pointwise multiply  C[k] = A[k]*B[k]   (O(n))\n                         v"
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#034",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "+-------+  inverse FFT    +----------+\n       |  C    | ------------>   | a (*) b  |\n       +-------+                 +----------+\n                                 a (*) b = convolution / product"
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#035",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "Total: O(n log n) — beats Karatsuba's n^1.585 and schoolbook n^2.\n```"
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#036",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "The structural trick is identical to Karatsuba: exploit shared structure (here, the\nroots of unity collapsing under squaring) so the recursion has `a=2` over halved\ninput instead of `a=4` over full work. FFT underpins signal processing, big-integer\nlibraries, and polynomial arithmetic. Cross-ref `signal-processing/` and\n`information-theory/`."
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#037",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#038",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "## Layer 4: Geometric Divide-and-Conquer — Closest Pair"
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#039",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "Finding the closest pair among n points is naively Θ(n²). Divide-and-conquer gets\nO(n log n) — the subtlety is the *combine* step."
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#040",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "```\n   1) Sort points by x. Split into LEFT / RIGHT halves by a vertical line.\n   2) Recurse: get closest pair in each half, let d = min(d_left, d_right).\n   3) COMBINE: the closest pair might straddle the line. Only points within a\n      vertical STRIP of width 2d around the line can do better than d."
+    },
+    {
+      "id": "03-DIVIDE-AND-CONQUER.md#041",
+      "path": [
+        "03-DIVIDE-AND-CONQUER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:03-divide-and-conquer, git-history:algorithms:03-divide-and-conquer]",
+        "canonical_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "concepts": "[divide and conquer, recurrences, karatsuba, strassen, fft, closest pair, master theorem]",
+        "current_path": "algorithms/03-DIVIDE-AND-CONQUER.md",
+        "id": "maxim:algorithms:divide-and-conquer",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[divide and conquer]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Divide and Conquer",
+        "updated": "null"
+      },
+      "text": "|          strip width 2d        |\n         |   .   .  | . :  . | .    .      |\n         |       .  |.: .  . |.   .        |   <- a point compares to at most\n         |   .      | . . . :|       .     |      7 OTHERS in the strip (packing\n         |          |        |             |      argument: a d x 2d box fits <=8 pts\n        L-half      <-- 2d -->     R-half          spaced >= d apart)"
+    }
+  ],
+  "refs": [
+    "03-DIVIDE-AND-CONQUER.md"
+  ]
+}

@@ -1,0 +1,713 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-numerical-methods-floating-point",
+  "source": "../../numerical-methods",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "01-FLOATING-POINT.md#000",
+      "path": [
+        "01-FLOATING-POINT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:01-floating-point, git-history:numerical-methods:01-floating-point]",
+        "canonical_path": "numerical-methods/01-FLOATING-POINT.md",
+        "concepts": "[floating, point]",
+        "current_path": "numerical-methods/01-FLOATING-POINT.md",
+        "id": "maxim:numerical-methods:floating-point",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[floating, point]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Floating-Point Arithmetic",
+        "updated": "null"
+      },
+      "text": "# Floating-Point Arithmetic"
+    },
+    {
+      "id": "01-FLOATING-POINT.md#001",
+      "path": [
+        "01-FLOATING-POINT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:01-floating-point, git-history:numerical-methods:01-floating-point]",
+        "canonical_path": "numerical-methods/01-FLOATING-POINT.md",
+        "concepts": "[floating, point]",
+        "current_path": "numerical-methods/01-FLOATING-POINT.md",
+        "id": "maxim:numerical-methods:floating-point",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[floating, point]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Floating-Point Arithmetic",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "01-FLOATING-POINT.md#002",
+      "path": [
+        "01-FLOATING-POINT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:01-floating-point, git-history:numerical-methods:01-floating-point]",
+        "canonical_path": "numerical-methods/01-FLOATING-POINT.md",
+        "concepts": "[floating, point]",
+        "current_path": "numerical-methods/01-FLOATING-POINT.md",
+        "id": "maxim:numerical-methods:floating-point",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[floating, point]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Floating-Point Arithmetic",
+        "updated": "null"
+      },
+      "text": "Floating-point is a hardware-level approximation to real arithmetic. Every calculation introduces small errors; how those errors compound determines whether you get a useful result or garbage."
+    },
+    {
+      "id": "01-FLOATING-POINT.md#003",
+      "path": [
+        "01-FLOATING-POINT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:01-floating-point, git-history:numerical-methods:01-floating-point]",
+        "canonical_path": "numerical-methods/01-FLOATING-POINT.md",
+        "concepts": "[floating, point]",
+        "current_path": "numerical-methods/01-FLOATING-POINT.md",
+        "id": "maxim:numerical-methods:floating-point",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[floating, point]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Floating-Point Arithmetic",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|                   IEEE 754 FLOATING-POINT                        |\n+------------------------------------------------------------------+\n|                                                                  |\n|  A floating-point number x:                                      |\n|  x = (-1)^sign * mantissa * 2^exponent                         |\n|                                                                  |\n|  DOUBLE PRECISION (float64):                                     |\n|  +--------+--------------------+------------------------------+  |\n|  | 1 bit  | 11 bits            | 52 bits                      |  |\n|  | sign   | biased exponent    | fraction (significand)       |  |\n|  +--------+--------------------+------------------------------+  |\n|                                                                  |\n|  Range: ~5e-324 to ~1.8e308                                     |\n|  Machine epsilon: eps_mach = 2^{-52} = 2.22e-16                |\n|  (~16 significant decimal digits)                               |\n|                                                                  |\n|  SINGLE PRECISION (float32): eps_mach = 2^{-23} = 1.19e-7     |\n|  (~7 significant decimal digits)                                |\n|  Common in GPU ML (TPU uses bfloat16: exp=8 bits, frac=7 bits) |\n|                                                                  |\n+------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "01-FLOATING-POINT.md#004",
+      "path": [
+        "01-FLOATING-POINT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:01-floating-point, git-history:numerical-methods:01-floating-point]",
+        "canonical_path": "numerical-methods/01-FLOATING-POINT.md",
+        "concepts": "[floating, point]",
+        "current_path": "numerical-methods/01-FLOATING-POINT.md",
+        "id": "maxim:numerical-methods:floating-point",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[floating, point]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Floating-Point Arithmetic",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-FLOATING-POINT.md#005",
+      "path": [
+        "01-FLOATING-POINT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:01-floating-point, git-history:numerical-methods:01-floating-point]",
+        "canonical_path": "numerical-methods/01-FLOATING-POINT.md",
+        "concepts": "[floating, point]",
+        "current_path": "numerical-methods/01-FLOATING-POINT.md",
+        "id": "maxim:numerical-methods:floating-point",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[floating, point]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Floating-Point Arithmetic",
+        "updated": "null"
+      },
+      "text": "## The IEEE 754 Standard"
+    },
+    {
+      "id": "01-FLOATING-POINT.md#006",
+      "path": [
+        "01-FLOATING-POINT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:01-floating-point, git-history:numerical-methods:01-floating-point]",
+        "canonical_path": "numerical-methods/01-FLOATING-POINT.md",
+        "concepts": "[floating, point]",
+        "current_path": "numerical-methods/01-FLOATING-POINT.md",
+        "id": "maxim:numerical-methods:floating-point",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[floating, point]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Floating-Point Arithmetic",
+        "updated": "null"
+      },
+      "text": "IEEE 754 (1985, revised 2008) defines floating-point arithmetic for all modern hardware. The learner's background with .NET and CLR puts them in regular contact with this standard — every float and double in C# obeys it."
+    },
+    {
+      "id": "01-FLOATING-POINT.md#007",
+      "path": [
+        "01-FLOATING-POINT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:01-floating-point, git-history:numerical-methods:01-floating-point]",
+        "canonical_path": "numerical-methods/01-FLOATING-POINT.md",
+        "concepts": "[floating, point]",
+        "current_path": "numerical-methods/01-FLOATING-POINT.md",
+        "id": "maxim:numerical-methods:floating-point",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[floating, point]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Floating-Point Arithmetic",
+        "updated": "null"
+      },
+      "text": "**Number representation**:"
+    },
+    {
+      "id": "01-FLOATING-POINT.md#008",
+      "path": [
+        "01-FLOATING-POINT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:01-floating-point, git-history:numerical-methods:01-floating-point]",
+        "canonical_path": "numerical-methods/01-FLOATING-POINT.md",
+        "concepts": "[floating, point]",
+        "current_path": "numerical-methods/01-FLOATING-POINT.md",
+        "id": "maxim:numerical-methods:floating-point",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[floating, point]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Floating-Point Arithmetic",
+        "updated": "null"
+      },
+      "text": "```\n  Normalized number: x = +/- 1.f * 2^e\n  where f is the 52-bit fraction and e = exponent - 1023 (bias)"
+    },
+    {
+      "id": "01-FLOATING-POINT.md#009",
+      "path": [
+        "01-FLOATING-POINT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:01-floating-point, git-history:numerical-methods:01-floating-point]",
+        "canonical_path": "numerical-methods/01-FLOATING-POINT.md",
+        "concepts": "[floating, point]",
+        "current_path": "numerical-methods/01-FLOATING-POINT.md",
+        "id": "maxim:numerical-methods:floating-point",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[floating, point]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Floating-Point Arithmetic",
+        "updated": "null"
+      },
+      "text": "Subnormal numbers: gradual underflow near 0\n  x = +/- 0.f * 2^{-1022}  (no leading 1)\n  Allow gradual loss of precision near 0; avoid hard underflow to 0."
+    },
+    {
+      "id": "01-FLOATING-POINT.md#010",
+      "path": [
+        "01-FLOATING-POINT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:01-floating-point, git-history:numerical-methods:01-floating-point]",
+        "canonical_path": "numerical-methods/01-FLOATING-POINT.md",
+        "concepts": "[floating, point]",
+        "current_path": "numerical-methods/01-FLOATING-POINT.md",
+        "id": "maxim:numerical-methods:floating-point",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[floating, point]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Floating-Point Arithmetic",
+        "updated": "null"
+      },
+      "text": "Special values:\n  +inf, -inf: overflow or division by nonzero / 0\n  NaN (Not a Number): 0/0, inf - inf, sqrt(-1), etc.\n  +0 and -0: same value, different bit pattern. (+0 == -0 is true)"
+    },
+    {
+      "id": "01-FLOATING-POINT.md#011",
+      "path": [
+        "01-FLOATING-POINT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:01-floating-point, git-history:numerical-methods:01-floating-point]",
+        "canonical_path": "numerical-methods/01-FLOATING-POINT.md",
+        "concepts": "[floating, point]",
+        "current_path": "numerical-methods/01-FLOATING-POINT.md",
+        "id": "maxim:numerical-methods:floating-point",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[floating, point]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Floating-Point Arithmetic",
+        "updated": "null"
+      },
+      "text": "IEEE GUARANTEES:\n  Each basic operation (+, -, *, /, sqrt) is \"correctly rounded\":\n  fl(x op y) = round(x op y)  where round rounds to nearest representable float.\n  This is the EXACT rounding guarantee — critical for reproducibility.\n```"
+    },
+    {
+      "id": "01-FLOATING-POINT.md#012",
+      "path": [
+        "01-FLOATING-POINT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:01-floating-point, git-history:numerical-methods:01-floating-point]",
+        "canonical_path": "numerical-methods/01-FLOATING-POINT.md",
+        "concepts": "[floating, point]",
+        "current_path": "numerical-methods/01-FLOATING-POINT.md",
+        "id": "maxim:numerical-methods:floating-point",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[floating, point]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Floating-Point Arithmetic",
+        "updated": "null"
+      },
+      "text": "**Machine epsilon**:"
+    },
+    {
+      "id": "01-FLOATING-POINT.md#013",
+      "path": [
+        "01-FLOATING-POINT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:01-floating-point, git-history:numerical-methods:01-floating-point]",
+        "canonical_path": "numerical-methods/01-FLOATING-POINT.md",
+        "concepts": "[floating, point]",
+        "current_path": "numerical-methods/01-FLOATING-POINT.md",
+        "id": "maxim:numerical-methods:floating-point",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[floating, point]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Floating-Point Arithmetic",
+        "updated": "null"
+      },
+      "text": "```\n  eps_mach = 2^{-p+1}  where p = bits in significand\n  = unit roundoff u = eps_mach/2, the smallest eps with fl(1 + eps) > 1 under round-to-nearest"
+    },
+    {
+      "id": "01-FLOATING-POINT.md#014",
+      "path": [
+        "01-FLOATING-POINT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:01-floating-point, git-history:numerical-methods:01-floating-point]",
+        "canonical_path": "numerical-methods/01-FLOATING-POINT.md",
+        "concepts": "[floating, point]",
+        "current_path": "numerical-methods/01-FLOATING-POINT.md",
+        "id": "maxim:numerical-methods:floating-point",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[floating, point]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Floating-Point Arithmetic",
+        "updated": "null"
+      },
+      "text": "Interpretation: fl(x) = x(1 + delta)  where |delta| <= eps_mach/2\n  Every representable number has relative error at most eps_mach/2."
+    },
+    {
+      "id": "01-FLOATING-POINT.md#015",
+      "path": [
+        "01-FLOATING-POINT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:01-floating-point, git-history:numerical-methods:01-floating-point]",
+        "canonical_path": "numerical-methods/01-FLOATING-POINT.md",
+        "concepts": "[floating, point]",
+        "current_path": "numerical-methods/01-FLOATING-POINT.md",
+        "id": "maxim:numerical-methods:floating-point",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[floating, point]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Floating-Point Arithmetic",
+        "updated": "null"
+      },
+      "text": "float16:  eps_mach = 2^{-10}  = 9.77e-4   (~3 decimal digits)\n  bfloat16: eps_mach = 2^{-7}   = 7.81e-3   (~2 decimal digits)\n  float32:  eps_mach = 2^{-23}  = 1.19e-7   (~7 decimal digits)\n  float64:  eps_mach = 2^{-52}  = 2.22e-16  (~16 decimal digits)\n  float128: eps_mach = 2^{-112} = 1.93e-34  (~34 decimal digits)\n```"
+    },
+    {
+      "id": "01-FLOATING-POINT.md#016",
+      "path": [
+        "01-FLOATING-POINT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:01-floating-point, git-history:numerical-methods:01-floating-point]",
+        "canonical_path": "numerical-methods/01-FLOATING-POINT.md",
+        "concepts": "[floating, point]",
+        "current_path": "numerical-methods/01-FLOATING-POINT.md",
+        "id": "maxim:numerical-methods:floating-point",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[floating, point]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Floating-Point Arithmetic",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-FLOATING-POINT.md#017",
+      "path": [
+        "01-FLOATING-POINT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:01-floating-point, git-history:numerical-methods:01-floating-point]",
+        "canonical_path": "numerical-methods/01-FLOATING-POINT.md",
+        "concepts": "[floating, point]",
+        "current_path": "numerical-methods/01-FLOATING-POINT.md",
+        "id": "maxim:numerical-methods:floating-point",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[floating, point]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Floating-Point Arithmetic",
+        "updated": "null"
+      },
+      "text": "## Rounding Modes"
+    },
+    {
+      "id": "01-FLOATING-POINT.md#018",
+      "path": [
+        "01-FLOATING-POINT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:01-floating-point, git-history:numerical-methods:01-floating-point]",
+        "canonical_path": "numerical-methods/01-FLOATING-POINT.md",
+        "concepts": "[floating, point]",
+        "current_path": "numerical-methods/01-FLOATING-POINT.md",
+        "id": "maxim:numerical-methods:floating-point",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[floating, point]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Floating-Point Arithmetic",
+        "updated": "null"
+      },
+      "text": "IEEE 754 specifies five rounding modes:"
+    },
+    {
+      "id": "01-FLOATING-POINT.md#019",
+      "path": [
+        "01-FLOATING-POINT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:01-floating-point, git-history:numerical-methods:01-floating-point]",
+        "canonical_path": "numerical-methods/01-FLOATING-POINT.md",
+        "concepts": "[floating, point]",
+        "current_path": "numerical-methods/01-FLOATING-POINT.md",
+        "id": "maxim:numerical-methods:floating-point",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[floating, point]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Floating-Point Arithmetic",
+        "updated": "null"
+      },
+      "text": "```\n  ROUND TO NEAREST EVEN (default):\n  Round to the nearest representable number.\n  If equidistant: round to the one with even last bit.\n  This is the most common mode; minimizes average rounding error."
+    },
+    {
+      "id": "01-FLOATING-POINT.md#020",
+      "path": [
+        "01-FLOATING-POINT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:01-floating-point, git-history:numerical-methods:01-floating-point]",
+        "canonical_path": "numerical-methods/01-FLOATING-POINT.md",
+        "concepts": "[floating, point]",
+        "current_path": "numerical-methods/01-FLOATING-POINT.md",
+        "id": "maxim:numerical-methods:floating-point",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[floating, point]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Floating-Point Arithmetic",
+        "updated": "null"
+      },
+      "text": "ROUND TOWARD +INF (ceiling):\n  Always round up. Used in interval arithmetic upper bounds."
+    },
+    {
+      "id": "01-FLOATING-POINT.md#021",
+      "path": [
+        "01-FLOATING-POINT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:01-floating-point, git-history:numerical-methods:01-floating-point]",
+        "canonical_path": "numerical-methods/01-FLOATING-POINT.md",
+        "concepts": "[floating, point]",
+        "current_path": "numerical-methods/01-FLOATING-POINT.md",
+        "id": "maxim:numerical-methods:floating-point",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[floating, point]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Floating-Point Arithmetic",
+        "updated": "null"
+      },
+      "text": "ROUND TOWARD -INF (floor):\n  Always round down. Used in interval arithmetic lower bounds."
+    },
+    {
+      "id": "01-FLOATING-POINT.md#022",
+      "path": [
+        "01-FLOATING-POINT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:01-floating-point, git-history:numerical-methods:01-floating-point]",
+        "canonical_path": "numerical-methods/01-FLOATING-POINT.md",
+        "concepts": "[floating, point]",
+        "current_path": "numerical-methods/01-FLOATING-POINT.md",
+        "id": "maxim:numerical-methods:floating-point",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[floating, point]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Floating-Point Arithmetic",
+        "updated": "null"
+      },
+      "text": "ROUND TOWARD ZERO (truncation):\n  Chop off the fractional part."
+    },
+    {
+      "id": "01-FLOATING-POINT.md#023",
+      "path": [
+        "01-FLOATING-POINT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:01-floating-point, git-history:numerical-methods:01-floating-point]",
+        "canonical_path": "numerical-methods/01-FLOATING-POINT.md",
+        "concepts": "[floating, point]",
+        "current_path": "numerical-methods/01-FLOATING-POINT.md",
+        "id": "maxim:numerical-methods:floating-point",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[floating, point]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Floating-Point Arithmetic",
+        "updated": "null"
+      },
+      "text": "ROUND AWAY FROM ZERO:\n  Less common; maximizes magnitude."
+    },
+    {
+      "id": "01-FLOATING-POINT.md#024",
+      "path": [
+        "01-FLOATING-POINT.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:01-floating-point, git-history:numerical-methods:01-floating-point]",
+        "canonical_path": "numerical-methods/01-FLOATING-POINT.md",
+        "concepts": "[floating, point]",
+        "current_path": "numerical-methods/01-FLOATING-POINT.md",
+        "id": "maxim:numerical-methods:floating-point",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[floating, point]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Floating-Point Arithmetic",
+        "updated": "null"
+      },
+      "text": "For .NET/C# context:\n  System.Math.Round(x) uses banker's rounding (round half to even) by default.\n  Math.Round(x, MidpointRounding.AwayFromZero) uses round-half-up.\n  This difference breaks naive financial rounding if not handled carefully.\n```\nNote: Directed rounding (toward +∞ and −∞) is precisely the mechanism that makes interval arithmetic work — computing the lower bound with round-toward-−∞ and the upper bound with round-toward-+∞ guarantees enclosure of the true result. This connection is developed in the Interval Arithmetic section below."
+    }
+  ],
+  "refs": [
+    "01-FLOATING-POINT.md"
+  ]
+}

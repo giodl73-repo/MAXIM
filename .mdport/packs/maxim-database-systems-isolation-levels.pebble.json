@@ -1,0 +1,97 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-database-systems-isolation-levels",
+  "source": "../../database-systems",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "05-ISOLATION-LEVELS.md#000",
+      "path": [
+        "05-ISOLATION-LEVELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:database-systems:05-isolation-levels, git-history:database-systems:05-isolation-levels]",
+        "canonical_path": "database-systems/05-ISOLATION-LEVELS.md",
+        "concepts": "[isolation level, read uncommitted, read committed, repeatable read, serializable, snapshot isolation, write skew, phantom, SSI]",
+        "current_path": "database-systems/05-ISOLATION-LEVELS.md",
+        "id": "maxim:database-systems:isolation-levels",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[isolation level]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Isolation Levels - The Four Levels, Their Anomalies, SSI",
+        "updated": "null"
+      },
+      "text": "# Isolation Levels — Exactly What Each One Guarantees"
+    },
+    {
+      "id": "05-ISOLATION-LEVELS.md#001",
+      "path": [
+        "05-ISOLATION-LEVELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:database-systems:05-isolation-levels, git-history:database-systems:05-isolation-levels]",
+        "canonical_path": "database-systems/05-ISOLATION-LEVELS.md",
+        "concepts": "[isolation level, read uncommitted, read committed, repeatable read, serializable, snapshot isolation, write skew, phantom, SSI]",
+        "current_path": "database-systems/05-ISOLATION-LEVELS.md",
+        "id": "maxim:database-systems:isolation-levels",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[isolation level]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Isolation Levels - The Four Levels, Their Anomalies, SSI",
+        "updated": "null"
+      },
+      "text": "Isolation levels are the **contract** the database offers about what concurrent transactions may\nobserve of each other. This is the most error-prone topic in databases because the SQL standard's\nlevels are defined by *which anomalies they forbid*, and real engines implement them with\ndifferent mechanisms (locking vs MVCC) that prevent *different additional* anomalies. This guide\nstates each guarantee precisely, because this is exactly where imprecise mental models cause\nproduction bugs."
+    },
+    {
+      "id": "05-ISOLATION-LEVELS.md#002",
+      "path": [
+        "05-ISOLATION-LEVELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:database-systems:05-isolation-levels, git-history:database-systems:05-isolation-levels]",
+        "canonical_path": "database-systems/05-ISOLATION-LEVELS.md",
+        "concepts": "[isolation level, read uncommitted, read committed, repeatable read, serializable, snapshot isolation, write skew, phantom, SSI]",
+        "current_path": "database-systems/05-ISOLATION-LEVELS.md",
+        "id": "maxim:database-systems:isolation-levels",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[isolation level]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Isolation Levels - The Four Levels, Their Anomalies, SSI",
+        "updated": "null"
+      },
+      "text": "```\n+=====================================================================================+\n|              ISOLATION = \"WHICH ANOMALIES CAN I SEE?\"  (weaker -> stronger)          |\n+=====================================================================================+\n|                                                                                     |\n|  READ UNCOMMITTED   READ COMMITTED   REPEATABLE READ   SNAPSHOT       SERIALIZABLE   |\n|       |                  |                |              |                 |          |\n|       v                  v                v              v                 v          |\n|  +----------+      +-----------+    +-----------+   +----------+    +-------------+   |\n|  | sees     |      | sees only |    | stable    |   | full     |    | TRUE serial |   |\n|  | UNCOMMIT |      | committed |    | re-reads  |   | snapshot |    | equivalence |   |\n|  | dirty    |      | per stmt  |    | of read   |   | (SI):    |    | no write    |   |\n|  | data     |      |           |    | rows      |   | no       |    | skew,       |   |\n|  |          |      |           |    |           |   | phantom  |    | no anomaly  |   |\n|  +----------+      +-----------+    +-----------+   +----------+    +-------------+   |\n|  allows:           allows:          allows (std):   allows:         allows:          |\n|   dirty read        non-repeat       phantom         WRITE SKEW      NOTHING          |\n|   non-repeat        phantom          (lost upd in    + read-only                     |\n|   phantom           write skew        std model)      anomaly                        |\n|   ...                                                                                |\n+=====================================================================================+\n   NOTE: SNAPSHOT (SI) is NOT one of the 4 ANSI SQL levels — it is a separate, widely\n   implemented level that sits \"beside\" REPEATABLE READ. It is the source of most confusion.\n```"
+    }
+  ],
+  "refs": [
+    "05-ISOLATION-LEVELS.md"
+  ]
+}

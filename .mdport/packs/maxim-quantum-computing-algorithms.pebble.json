@@ -1,0 +1,3093 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-quantum-computing-algorithms",
+  "source": "../../quantum-computing",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "02-ALGORITHMS.md#000",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "# Quantum Algorithms — From Deutsch to Shor to QAOA"
+    },
+    {
+      "id": "02-ALGORITHMS.md#001",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "02-ALGORITHMS.md#002",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|                   QUANTUM ALGORITHM LANDSCAPE                    |\n+------------------------------------------------------------------+\n|                                                                    |\n|  PROVEN SPEEDUP                    VARIATIONAL (NISQ-era)         |\n|                                                                   |\n|  Shor: factoring   ► exponential   VQE: quantum chemistry         |\n|  Grover: search   ► quadratic      QAOA: combinatorial opt        |\n|  QFT: Fourier   ► exponential      QSVM: kernel methods           |\n|  HHL: linear sys   ► conditional   Quantum ML: embeddings         |\n|  QPE: phase est.   ► exponential   (advantages unproven)          |\n|  Hamiltonian sim   ► exponential                                   |\n|                                                                    |\n|  PARADIGMS                                                         |\n|                                                                   |\n|  Query complexity → oracle model, count queries                    |\n|  Phase estimation → QFT + eigenvalue extraction                   |\n|  Amplitude amplification → Grover iterate                         |\n|  Hidden subgroup problem (HSP) → unifies Shor, Simon              |\n|  Variational → hybrid classical-quantum optimization              |\n+------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "02-ALGORITHMS.md#003",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-ALGORITHMS.md#004",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "## Speedup Taxonomy"
+    },
+    {
+      "id": "02-ALGORITHMS.md#005",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Before any algorithm, understand what kind of speedup is claimed:"
+    },
+    {
+      "id": "02-ALGORITHMS.md#006",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "```\nTYPE              EXAMPLE              CONDITION"
+    },
+    {
+      "id": "02-ALGORITHMS.md#007",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Exponential       Shor's algorithm     Problem has exploitable structure\n  (2^n → poly)   Quantum simulation   (periodicity, group structure)"
+    },
+    {
+      "id": "02-ALGORITHMS.md#008",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Quadratic         Grover's search      Unstructured; provably optimal\n  (N → √N)       Amplitude estim.     for black-box models"
+    },
+    {
+      "id": "02-ALGORITHMS.md#009",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Polynomial        HHL linear systems   Conditional on quantum RAM,\n  (conditional)  (potentially exp.)   state prep, readout caveats"
+    },
+    {
+      "id": "02-ALGORITHMS.md#010",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "No speedup        Most ML, databases   Classical structure already\n  (none)         Graph coloring(most) polynomial; no structure to exploit\n```"
+    },
+    {
+      "id": "02-ALGORITHMS.md#011",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-ALGORITHMS.md#012",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "## Oracle / Query Model"
+    },
+    {
+      "id": "02-ALGORITHMS.md#013",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Many quantum algorithms are analyzed in the **black-box query model**:"
+    },
+    {
+      "id": "02-ALGORITHMS.md#014",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "```\nAlgorithm has access to a function f via an oracle O_f:\n  O_f |x⟩|y⟩ = |x⟩|y ⊕ f(x)⟩    (y = ancilla bit, ⊕ = XOR)"
+    },
+    {
+      "id": "02-ALGORITHMS.md#015",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Phase oracle (equivalent, often more useful):\n  O_f^phase |x⟩ = (-1)^f(x) |x⟩  (mark x if f(x)=1 via phase kickback)"
+    },
+    {
+      "id": "02-ALGORITHMS.md#016",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Query complexity counts how many times we call O_f.\nQuantum queries use superposition: one call evaluates f on all inputs\nsimultaneously, but output is still probabilistic measurement.\n```"
+    },
+    {
+      "id": "02-ALGORITHMS.md#017",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-ALGORITHMS.md#018",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "## Deutsch-Jozsa (1992)"
+    },
+    {
+      "id": "02-ALGORITHMS.md#019",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "The toy problem that first showed quantum advantage in the query model."
+    },
+    {
+      "id": "02-ALGORITHMS.md#020",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "```\nProblem: f: {0,1}^n → {0,1} is promised to be either:\n  - Constant: f(x) = 0 for all x, OR f(x) = 1 for all x\n  - Balanced: f(x) = 0 for exactly half the inputs"
+    },
+    {
+      "id": "02-ALGORITHMS.md#021",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Classical: requires 2^(n-1)+1 queries worst case.\nQuantum:   requires 1 query."
+    },
+    {
+      "id": "02-ALGORITHMS.md#022",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Circuit:\n  |0⟩^⊗n   H^⊗n   O_f   H^⊗n   M   (all zeros iff constant)\n  |1⟩       H"
+    },
+    {
+      "id": "02-ALGORITHMS.md#023",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "After H^⊗n on |0⟩^⊗n: uniform superposition (1/√2^n)Σ|x⟩\nOracle query: (1/√2^n)Σ(-1)^f(x)|x⟩  (phase kickback)\nSecond H^⊗n: interference — if f constant, amplitude all in |0⟩^⊗n\n                           if f balanced, amplitude 0 in |0⟩^⊗n"
+    },
+    {
+      "id": "02-ALGORITHMS.md#024",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Practical value: zero. Exponential query advantage on artificial problem.\nConceptual value: first proof that quantum can do things classically impossible.\n```"
+    },
+    {
+      "id": "02-ALGORITHMS.md#025",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-ALGORITHMS.md#026",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "## Simon's Algorithm (1994)"
+    },
+    {
+      "id": "02-ALGORITHMS.md#027",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Set the stage for Shor by solving a structured period problem."
+    },
+    {
+      "id": "02-ALGORITHMS.md#028",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "```\nProblem: f: {0,1}^n → {0,1}^n, promised ∃ nonzero s such that\n  f(x) = f(y) iff y = x or y = x ⊕ s\n  (f is 2-to-1 with period s under XOR)"
+    },
+    {
+      "id": "02-ALGORITHMS.md#029",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Classical: Ω(2^(n/2)) queries (birthday paradox)\nQuantum:   O(n) queries"
+    },
+    {
+      "id": "02-ALGORITHMS.md#030",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Key step: QFT over ℤ₂ⁿ gives uniform superposition over {y : y·s = 0 mod 2}\nRepeat n times, solve system of linear equations over ℤ₂ → recover s."
+    },
+    {
+      "id": "02-ALGORITHMS.md#031",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Significance: First exponential speedup over randomized classical algorithms.\nInspired Shor to find the same structure (period finding) over ℤₙ.\n```"
+    },
+    {
+      "id": "02-ALGORITHMS.md#032",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-ALGORITHMS.md#033",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "## Quantum Fourier Transform (QFT)"
+    },
+    {
+      "id": "02-ALGORITHMS.md#034",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "The core building block of most exponential-speedup algorithms."
+    },
+    {
+      "id": "02-ALGORITHMS.md#035",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "```\nClassical DFT of vector x ∈ ℂ^N:\n  X_k = (1/√N) Σⱼ xⱼ e^(2πijk/N)   O(N log N) via FFT"
+    },
+    {
+      "id": "02-ALGORITHMS.md#036",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "QFT maps computational basis:\n  |j⟩   QFT ►  (1/√N) Σₖ e^(2πijk/N) |k⟩"
+    },
+    {
+      "id": "02-ALGORITHMS.md#037",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "On n qubits (N = 2^n):\n  QFT|j⟩ = (1/√2^n) Σₖ e^(2πijk/2^n) |k⟩"
+    },
+    {
+      "id": "02-ALGORITHMS.md#038",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Circuit: uses n Hadamards + n(n-1)/2 controlled-phase gates\n  O(n²) gates vs O(n 2^n) for classical FFT on 2^n elements"
+    },
+    {
+      "id": "02-ALGORITHMS.md#039",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "BUT: you can't read out all 2^n transformed coefficients — measurement\ngives one. QFT is useful only when the transformed state encodes\nsomething extractable, like a period.\n```"
+    },
+    {
+      "id": "02-ALGORITHMS.md#040",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "The QFT circuit for 3 qubits:\n```\nq₀:   H   R₂   R₃         SWAP"
+    },
+    {
+      "id": "02-ALGORITHMS.md#041",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "q₁:      ●    H   R₂   SWAP"
+    },
+    {
+      "id": "02-ALGORITHMS.md#042",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "q₂:           ●"
+    },
+    {
+      "id": "02-ALGORITHMS.md#043",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "where R_k = diag(1, e^{2πi/2^k})  (controlled phase gate)\n```"
+    },
+    {
+      "id": "02-ALGORITHMS.md#044",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-ALGORITHMS.md#045",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "## Phase Estimation (QPE)"
+    },
+    {
+      "id": "02-ALGORITHMS.md#046",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Extract the eigenvalue of a unitary — the workhorse for Shor and HHL."
+    },
+    {
+      "id": "02-ALGORITHMS.md#047",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "```\nGiven: Unitary U and eigenstate |u⟩ with U|u⟩ = e^(2πiφ)|u⟩\nFind: φ ∈ [0,1) to t bits of precision"
+    },
+    {
+      "id": "02-ALGORITHMS.md#048",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Circuit:\n  |0⟩^⊗t   H^⊗t                        QFT†   M\n                     controlled-U^j\n  |u⟩                                   (eigenstate unchanged)"
+    },
+    {
+      "id": "02-ALGORITHMS.md#049",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "After QFT†: |φ̃⟩ ≈ |⌊2^t φ⌉⟩   (closest t-bit approximation to φ)"
+    },
+    {
+      "id": "02-ALGORITHMS.md#050",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Precision: t bits, probability > 1 - ε with t = n + ⌈log(2 + 1/2ε)⌉ qubits\nGate count: O(t²) + cost of implementing controlled-U^(2^j)"
+    },
+    {
+      "id": "02-ALGORITHMS.md#051",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Used in:\n  Shor: φ ≈ s/r (a multiple of 1/period) — extract r via continued fractions\n  HHL: φ encodes eigenvalue of matrix A\n  Quantum chemistry: φ encodes molecular ground state energy\n```"
+    },
+    {
+      "id": "02-ALGORITHMS.md#052",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-ALGORITHMS.md#053",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "## Shor's Algorithm (1994)"
+    },
+    {
+      "id": "02-ALGORITHMS.md#054",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Factors N in O((log N)³) quantum gates. Largest cryptographic threat from QC."
+    },
+    {
+      "id": "02-ALGORITHMS.md#055",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "```\nREDUCTION: Factoring → Period Finding (classical number theory)"
+    },
+    {
+      "id": "02-ALGORITHMS.md#056",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Step 1 (classical): Choose random a, compute gcd(a, N)\n  If gcd(a,N) > 1: found factor, done."
+    },
+    {
+      "id": "02-ALGORITHMS.md#057",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Step 2 (quantum): Find period r of f(x) = aˣ mod N\n  r is smallest positive integer such that aʳ ≡ 1 (mod N)"
+    },
+    {
+      "id": "02-ALGORITHMS.md#058",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Step 3 (classical): With high probability:\n  - r is even (restart if not)\n  - a^(r/2) ≢ -1 (mod N) (restart if not)\n  - gcd(a^(r/2) ± 1, N) gives nontrivial factor"
+    },
+    {
+      "id": "02-ALGORITHMS.md#059",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "WHY r IS THE KEY: aʳ ≡ 1 (mod N) means:\n  (a^(r/2) − 1)(a^(r/2) + 1) = aʳ − 1 ≡ 0 (mod N)\n  But neither factor is divisible by N → they share factors with N."
+    },
+    {
+      "id": "02-ALGORITHMS.md#060",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "QUANTUM PERIOD FINDING:\n  1. Create superposition |ψ⟩ = (1/√M)Σₓ|x⟩|aˣ mod N⟩\n  2. Measure second register: collapses to uniform superposition\n     over {x : aˣ mod N = c} for some c\n  3. QFT on first register: peaks at multiples of M/r\n  4. Measure → get M/r approximately → recover r by continued fractions"
+    },
+    {
+      "id": "02-ALGORITHMS.md#061",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "COMPLEXITY:\n  Circuit depth: O((log N)²) with fast multiplication\n  Total gates: O((log N)³)\n  Qubits: ~2n + O(1) where N < 2^n"
+    },
+    {
+      "id": "02-ALGORITHMS.md#062",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "For RSA-2048: need ~4000 logical qubits → ~8M physical at current error rates\n```"
+    },
+    {
+      "id": "02-ALGORITHMS.md#063",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-ALGORITHMS.md#064",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "## Grover's Search (1996)"
+    },
+    {
+      "id": "02-ALGORITHMS.md#065",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Quadratic speedup for unstructured search — provably optimal."
+    },
+    {
+      "id": "02-ALGORITHMS.md#066",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "```\nProblem: Find x* such that f(x*) = 1, where f: {0,1}^n → {0,1}\n  N = 2^n items, 1 marked item."
+    },
+    {
+      "id": "02-ALGORITHMS.md#067",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Classical: O(N) queries expected (linear search).\nQuantum:   O(√N) queries."
+    },
+    {
+      "id": "02-ALGORITHMS.md#068",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "GROVER ITERATION (amplitude amplification):\n  1. Initialize: |s⟩ = H^⊗n|0⟩^⊗n = (1/√N)Σ|x⟩  (uniform superposition)"
+    },
+    {
+      "id": "02-ALGORITHMS.md#069",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "2. Oracle Uf: phase-flip the marked item:\n     |x⟩ → (-1)^f(x)|x⟩\n     Geometrically: reflect around subspace perpendicular to |x*⟩"
+    },
+    {
+      "id": "02-ALGORITHMS.md#070",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "3. Diffusion (inversion about mean):\n     D = 2|s⟩⟨s| − I\n     Geometrically: reflect around |s⟩"
+    },
+    {
+      "id": "02-ALGORITHMS.md#071",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Composed: Grover iterate G = D · Uf"
+    },
+    {
+      "id": "02-ALGORITHMS.md#072",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Amplitude of |x*⟩ after k iterations: sin²((2k+1)θ)\n  where sin(θ) = 1/√N"
+    },
+    {
+      "id": "02-ALGORITHMS.md#073",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Optimal k ≈ (π/4)√N → amplitude ≈ 1"
+    },
+    {
+      "id": "02-ALGORITHMS.md#074",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "GEOMETRIC PICTURE:\n  State lives in 2D subspace spanned by |x*⟩ and |s⟩.\n  Each iteration rotates by 2θ toward |x*⟩.\n  After ~π/(4θ) ≈ π√N/4 steps, state ≈ |x*⟩."
+    },
+    {
+      "id": "02-ALGORITHMS.md#075",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "MULTIPLE SOLUTIONS (M marked items):\n  Optimal: O(√(N/M)) iterations"
+    },
+    {
+      "id": "02-ALGORITHMS.md#076",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "LOWER BOUND: Bennett-Bernstein-Brassard-Vazirani (BBBV 1996)\n  Any quantum search algorithm requires Ω(√N) queries.\n  Grover is optimal for unstructured search."
+    },
+    {
+      "id": "02-ALGORITHMS.md#077",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "APPLICATIONS:\n  Exhaustive key search: AES-128 → 2^64 queries (was 2^128)\n  → NIST response: double key lengths (AES-256 stays secure)\n  Collision finding: O(N^(1/3)) with Grover + BHT\n  Preimage attacks: O(2^(n/2)) instead of O(2^n)\n```"
+    },
+    {
+      "id": "02-ALGORITHMS.md#078",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-ALGORITHMS.md#079",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "## HHL Algorithm (Harrow-Hassidim-Lloyd, 2009)"
+    },
+    {
+      "id": "02-ALGORITHMS.md#080",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Solve Ax = b exponentially faster — with massive fine print."
+    },
+    {
+      "id": "02-ALGORITHMS.md#081",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "```\nProblem: Given sparse N×N matrix A and vector b, find x = A⁻¹b.\nClassical: O(N^3) (direct) or O(N·κ·poly(log 1/ε)) iterative\nQuantum: O(log(N) · κ² · poly(log 1/ε)) with caveats"
+    },
+    {
+      "id": "02-ALGORITHMS.md#082",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Circuit:\n  1. Prepare quantum state |b⟩ (input state prep — big caveat)\n  2. QPE on e^(iAt): extract eigenvalues λⱼ of A\n  3. Ancilla rotation: |λⱼ⟩ → (C/λⱼ)|0⟩ + √(1-C²/λⱼ²)|1⟩\n  4. Uncompute QPE\n  5. Post-select on ancilla = |1⟩ → amplitude encodes 1/λⱼ\n  6. Output: |x⟩ = A⁻¹|b⟩/‖A⁻¹b‖"
+    },
+    {
+      "id": "02-ALGORITHMS.md#083",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "CAVEATS (each can kill the speedup):\n  State prep: Preparing |b⟩ from classical b takes O(N) — wipes out speedup\n  Readout: Reading out x takes O(N) measurements — wipes out speedup\n  Quantum RAM: Requires QRAM for efficient state prep (massive hardware assumption)\n  Condition number κ: Algorithm is O(κ²); classical iterative is O(κ) or O(κ√N)\n  Sparse access: A must be sparse AND efficiently oracle-accessible"
+    },
+    {
+      "id": "02-ALGORITHMS.md#084",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Practical advantage only when: reading a scalar property of x (not full x),\n  input already quantum, A sparse with efficient oracle, κ manageable.\n```"
+    },
+    {
+      "id": "02-ALGORITHMS.md#085",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-ALGORITHMS.md#086",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "## Variational Quantum Algorithms (NISQ Era)"
+    },
+    {
+      "id": "02-ALGORITHMS.md#087",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Hybrid classical-quantum loop — designed for noisy hardware today."
+    },
+    {
+      "id": "02-ALGORITHMS.md#088",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "### VQE (Variational Quantum Eigensolver)"
+    },
+    {
+      "id": "02-ALGORITHMS.md#089",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "```\nGoal: Find ground state energy E₀ = min_ψ ⟨ψ|H|ψ⟩"
+    },
+    {
+      "id": "02-ALGORITHMS.md#090",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Algorithm:\n  1. Choose parametrized circuit U(θ): |ψ(θ)⟩ = U(θ)|0⟩\n  2. Measure ⟨ψ(θ)|H|ψ(θ)⟩ on quantum hardware\n     (decompose H into Pauli strings, measure each)\n  3. Classical optimizer updates θ (COBYLA, SPSA, gradient descent)\n  4. Repeat until convergence"
+    },
+    {
+      "id": "02-ALGORITHMS.md#091",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Used for: molecular ground state energies (quantum chemistry)\nHardware: 10–100 qubits, shallow depth (NISQ-friendly)\nStatus: Demonstrated for small molecules (H₂, LiH, BeH₂)\n        Classical methods (CCSD(T)) still win for current qubit counts\n```"
+    },
+    {
+      "id": "02-ALGORITHMS.md#092",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "### QAOA (Quantum Approximate Optimization Algorithm)"
+    },
+    {
+      "id": "02-ALGORITHMS.md#093",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "```\nGoal: Approximate solution to combinatorial optimization (MaxCut, 3SAT)"
+    },
+    {
+      "id": "02-ALGORITHMS.md#094",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Problem Hamiltonian H_P: encodes cost function (diagonal in Z basis)\nMixer Hamiltonian H_M: = Σⱼ Xⱼ (drives exploration)"
+    },
+    {
+      "id": "02-ALGORITHMS.md#095",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Circuit (depth p):\n  |s⟩ = H^⊗n|0⟩  (uniform superposition)\n  Apply: [e^{-iγ₁H_P} e^{-iβ₁H_M}] ... [e^{-iγₚH_P} e^{-iβₚH_M}]"
+    },
+    {
+      "id": "02-ALGORITHMS.md#096",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "(p layers of alternating problem + mixer unitaries)"
+    },
+    {
+      "id": "02-ALGORITHMS.md#097",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Optimize γ, β to maximize ⟨H_P⟩."
+    },
+    {
+      "id": "02-ALGORITHMS.md#098",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Guarantees: At p→∞ approaches exact solution (adiabatic limit)\n            At p=1 gives 0.6924 approximation for MaxCut (Farhi 2014)\nClassical best: 0.878 (Goemans-Williamson SDP, 1995)\nStatus: No proven quantum advantage over classical at any p.\n        For small p, classical simulation is easy.\n```"
+    },
+    {
+      "id": "02-ALGORITHMS.md#099",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-ALGORITHMS.md#100",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "## Quantum Simulation"
+    },
+    {
+      "id": "02-ALGORITHMS.md#101",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "The original motivation for quantum computing (Feynman 1982):"
+    },
+    {
+      "id": "02-ALGORITHMS.md#102",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "```\n\"Nature isn't classical... and if you want to make a simulation\nof nature, you'd better make it quantum mechanical.\"\n            — Richard Feynman"
+    },
+    {
+      "id": "02-ALGORITHMS.md#103",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Quantum simulation:\n  Simulate quantum system H on quantum hardware\n  Trotter decomposition: e^{-iHt} ≈ (e^{-iH₁t/n}e^{-iH₂t/n}...e^{-iHₖt/n})^n"
+    },
+    {
+      "id": "02-ALGORITHMS.md#104",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Applications:\n    Quantum chemistry: molecular energies, reaction pathways\n    Drug discovery: protein folding, binding affinity\n    Materials: high-Tc superconductors, topological phases\n    Nuclear physics: QCD on a lattice"
+    },
+    {
+      "id": "02-ALGORITHMS.md#105",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Why exponential speedup is real here:\n    Hilbert space of n-body quantum system: 2^n (exponential)\n    Classical simulation requires tracking 2^n amplitudes\n    QC with n qubits IS the 2^n Hilbert space — exact simulation"
+    },
+    {
+      "id": "02-ALGORITHMS.md#106",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "Where speedup is confirmed: simulating quantum systems.\n  This is the most likely near-term practical quantum advantage.\n```"
+    },
+    {
+      "id": "02-ALGORITHMS.md#107",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-ALGORITHMS.md#108",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "## Algorithm Reference Table"
+    },
+    {
+      "id": "02-ALGORITHMS.md#109",
+      "path": [
+        "02-ALGORITHMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:02-algorithms, git-history:quantum-computing:02-algorithms]",
+        "canonical_path": "quantum-computing/02-ALGORITHMS.md",
+        "concepts": "[algorithms]",
+        "current_path": "quantum-computing/02-ALGORITHMS.md",
+        "id": "maxim:quantum-computing:algorithms",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[algorithms]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Algorithms - From Deutsch to Shor to QAOA",
+        "updated": "null"
+      },
+      "text": "| Algorithm | Problem | Speedup | Key resource | Status |\n|-----------|---------|---------|-------------|--------|\n| Deutsch-Jozsa | Constant vs balanced | Exp (query) | 1 query | Toy example |\n| Simon's | Period mod XOR | Exp | n queries | Historical; led to Shor |\n| Grover | Unstructured search | Quadratic (√N) | O(√N) oracle calls | Proven optimal |\n| Shor (factoring) | Integer factoring | Exponential | O((log N)³) gates | FTQC required |\n| Shor (DLog) | Discrete logarithm | Exponential | Same | FTQC required |\n| QFT | Fourier transform | Exponential | O(n²) gates | Subroutine |\n| QPE | Eigenvalue estimation | Exponential | O(n²) + controlled-U | Subroutine |\n| HHL | Linear systems | Conditional exp | QRAM, sparse access | Fine print kills it |\n| Ham. sim. | Simulate quantum H | Exponential | Trotter depth | Best near-term advantage |\n| VQE | Chemistry ground state | Unknown | Shallow parametric circuit | NISQ; beats classical? unclear |\n| QAOA | Combinatorial opt | Unknown | p-depth circuit | No proven advantage yet |\n| Quantum walk | Graph problems | Quadratic (some) | Coherent walk | Specific applications |"
+    }
+  ],
+  "refs": [
+    "02-ALGORITHMS.md"
+  ]
+}

@@ -37,8 +37,8 @@ Get-Content .claude\skills\maxim-review\SKILL.md, .claude\skills\maxim-pulse\SKI
 Get-Content cognitive-science\09-APPLIED-BRIDGE.md      # owns Fitts/Hick/Miller/GOMS "HCI laws"
 Get-Content industrial-design\06-INTERACTION-DESIGN.md  # owns Norman action model at product level
 Get-Content cognitive-science\STATUS.md, industrial-design\STATUS.md, statistics-applied\STATUS.md
-# PROOF rule surface for content guides
-Get-Content proof.toml | Select-Object -First 92
+# MDLOOM rule surface for content guides
+Get-Content mdloom.toml | Select-Object -First 92
 ```
 
 ## Scope Inventory
@@ -49,7 +49,7 @@ Get-Content proof.toml | Select-Object -First 92
 | Module manifest | `human-computer-interaction/STATUS.md` (full 12-guide manifest; `05` + `08` gate-passed prototypes, rest planned) |
 | Architecture record | `context/waves/2026-07-11-human-systems-depth/artifacts/HUMAN-COMPUTER-INTERACTION-ARCHITECTURE.md` (MAXIM-HCI-01 … 24 + G00 … G11) |
 | Wave tracking | `context/waves/2026-07-11-human-systems-depth/pulses/01+hci-architecture.md`; `WAVE.md` frontmatter (date_open/status), Guardrails, Pulse Sequence table (Pulse 01 → DONE), Quality/Exit gates |
-| **Deferred to Pulse 02** | `00-OVERVIEW` + guides `01`, `02`, `03`, `04`, `06`, `07`, `09`, `10`, `11`; `sections/computing-and-software.md`; `.mkdocs/mkdocs.yml`; `TRACKER.md`; source-corpus (`.proof/backfill/**`, `.crop/**`, `.pebble/**`, `.fletch/**`) |
+| **Deferred to Pulse 02** | `00-OVERVIEW` + guides `01`, `02`, `03`, `04`, `06`, `07`, `09`, `10`, `11`; `sections/computing-and-software.md`; `.mkdocs/mkdocs.yml`; `TRACKER.md`; source-corpus (`.mdloom/backfill/**`, `.crop/**`, `.mdport/**`, `.fletch/**`) |
 
 ## Scope Contract (non-duplication)
 
@@ -135,20 +135,20 @@ Get-Content proof.toml | Select-Object -First 92
 
 Focused prototype validation only (per the boundary-review scope; **no full-module source
 backfill**). `STATUS.md`, the architecture record, and the pulse/wave records are excluded
-from PROOF by `proof.toml` (`*/STATUS.md`, `context/**`); the two prototype **guides** are
+from MDLOOM by `mdloom.toml` (`*/STATUS.md`, `context/**`); the two prototype **guides** are
 checked explicitly:
 
 ```powershell
-# Repo-config PROOF (MAXIM proof.toml) via the tools-infra/proof Cargo manifest,
+# Repo-config MDLOOM (MAXIM mdloom.toml) via the tools-infra/proof Cargo manifest,
 # scoped to the two prototype guides
 cargo run --release --manifest-path C:\src\TRACKER\repos\tools-infra\proof\Cargo.toml -- `
   check human-computer-interaction\05-USABILITY-EVALUATION.md `
-        human-computer-interaction\08-ACCESSIBILITY-INCLUSIVE-DESIGN.md --config proof.toml
+        human-computer-interaction\08-ACCESSIBILITY-INCLUSIVE-DESIGN.md --config mdloom.toml
 git --no-pager diff --check
 ```
 
-Result: focused PROOF reports **2 files checked, 0 errors, 0 warnings**; `git diff --check`
-is clean for the touched files. (The module is untracked, so PROOF was run against the two
+Result: focused MDLOOM reports **2 files checked, 0 errors, 0 warnings**; `git diff --check`
+is clean for the touched files. (The module is untracked, so MDLOOM was run against the two
 guides explicitly.) Source backfill was **not** run, and `cognitive-science/` /
 `industrial-design/` were **not** edited.
 
@@ -166,7 +166,7 @@ not universal constants.
 ## Status
 
 Architecture ratified and recorded; the two highest-risk guides authored at full depth and
-passing focused PROOF; STATUS manifest and wave tracking updated. Both boundary-gate rounds
+passing focused MDLOOM; STATUS manifest and wave tracking updated. Both boundary-gate rounds
 have now run. The R1 panel (`panels/hci-prototype-r1/` — expert-skeptic + reference-editor +
 consolidated) raised conservative-prototype findings (advice-creep / overclaim /
 heuristic-as-law / conformance-as-usability / statistical rigor / three-way-boundary honesty
@@ -187,7 +187,7 @@ is still outstanding. No module integration, no source backfill, and no edits to
 - Do not author the remaining ten guides or `00-OVERVIEW` in this pulse.
 - Do not integrate the incomplete module into `sections/`, `.mkdocs/mkdocs.yml`, or
   `TRACKER.md`.
-- Do not run full-module source backfill (PROOF/CROP/PEBBLE/FLETCH) — this is a prototype
+- Do not run full-module source backfill (MDLOOM/CROP/MDPORT/FLETCH) — this is a prototype
   boundary review.
 - Do not edit, rescope, or add reciprocal cross-references into `cognitive-science/` or
   `industrial-design/` (deferred to Pulse 02; prototype review first).

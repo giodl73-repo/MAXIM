@@ -1,0 +1,2365 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-electronics-digital-logic",
+  "source": "../../electronics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "08-DIGITAL-LOGIC.md#000",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "# 08 — Digital Logic"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#001",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "This is the physical substrate beneath the entire computing stack: NAND gates compose into ALUs, ALUs into pipeline stages, pipelines into CPUs that execute the ISA, and the OS scheduler manages threads atop that ISA. Every abstraction from Boolean algebra through FSMs to RTL synthesis has a direct counterpart in the software world — truth tables are lookup tables, FSMs are state machines in protocol handlers, and the synthesis flow is a compiler toolchain targeting silicon instead of machine code."
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#002",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "```\nDIGITAL LOGIC LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#003",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "COMBINATIONAL LOGIC           SEQUENTIAL LOGIC            SYSTEM LEVEL\n  ─────────────────────────     ───────────────────────     ───────────────────\n  Boolean algebra               Flip-flops (D, JK, SR, T)  FSMs (Moore/Mealy)\n  Truth tables, K-maps          Registers, counters         ASM charts\n  Gates: AND/OR/NOT/XOR/NAND    Latches vs edge-triggered   Datapaths\n  Two-level minimization        Clocking, setup/hold        RTL description\n  Hazards (glitches)            Metastability               FPGA architecture\n  Multiplexers, decoders        Synchronous design          HDL synthesis"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#004",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "CMOS IMPLEMENTATION:\n    nMOS: ON when gate=1\n    pMOS: ON when gate=0\n    CMOS gate: pMOS pull-up network + nMOS pull-down network (complementary)\n    No static current draw at logic levels → low power"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#005",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "6.111 bridge: This IS 6.111. Precision refresher from first principles\n  through FSMs, timing analysis, and FPGA/HDL.\n```"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#006",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#007",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "## 1. Boolean Algebra"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#008",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "### Axioms (Huntington's Postulates)"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#009",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "```\n  Variables: B ∈ {0, 1}"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#010",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "OR  (+ or ∨):            AND (· or ∧):\n  0 + 0 = 0                0 · 0 = 0\n  0 + 1 = 1                0 · 1 = 0\n  1 + 0 = 1                1 · 0 = 0\n  1 + 1 = 1                1 · 1 = 1"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#011",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "NOT (complement):\n  0̄ = 1,  1̄ = 0"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#012",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "Completeness: {AND, OR, NOT} is functionally complete.\n  Also complete: {NAND} alone, {NOR} alone.\n```"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#013",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "### Identities"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#014",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "| Law | OR form | AND form |\n|---|---|---|\n| Identity | A + 0 = A | A · 1 = A |\n| Null | A + 1 = 1 | A · 0 = 0 |\n| Idempotent | A + A = A | A · A = A |\n| Complement | A + Ā = 1 | A · Ā = 0 |\n| Double negation | — | Ā̄ = A |\n| Commutative | A+B = B+A | AB = BA |\n| Associative | A+(B+C) = (A+B)+C | A(BC) = (AB)C |\n| Distributive | A(B+C) = AB+AC | A+BC = (A+B)(A+C) |\n| Absorption | A + AB = A | A(A+B) = A |\n| **De Morgan** | **(A+B)̄ = Ā·B̄** | **(AB)̄ = Ā+B̄** |\n| Consensus | AB + ĀC + BC = AB + ĀC | (A+B)(Ā+C)(B+C) = (A+B)(Ā+C) |"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#015",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "**De Morgan**: negate a product → sum of negations; negate a sum → product of negations.\nMechanically: flip AND↔OR, complement all literals."
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#016",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "### Duality"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#017",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "Every valid equation in Boolean algebra remains valid when AND ↔ OR and 0 ↔ 1 are swapped simultaneously. The dual of any theorem is also a theorem."
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#018",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#019",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "## 2. Logic Gate Implementations"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#020",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "### Gate Symbol Summary"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#021",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "```\n  AND:  A──┐                OR:  A──┐                NOT:  A──▷○── Ā\n       B──┤ >─── AB              B──┤ ≥1─── A+B\n            └──                       └──"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#022",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "NAND: A──┐                NOR:  A──┐                XOR: A──┐\n       B──┤ >○─── (AB)̄           B──┤ ≥1○─── (A+B)̄          B──┤ =1─── A⊕B\n            └──                       └──                      └──"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#023",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "XNOR: A──┐\n        B──┤ =1○─── A⊙B = A⊕B⊕1\n             └──\n```"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#024",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "### CMOS Implementation"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#025",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "```\n  CMOS inverter:\n       VDD\n        |\n       pMOS (A=0 → ON, A=1 → OFF)\n        |\n        +─── output = Ā\n        |\n       nMOS (A=0 → OFF, A=1 → ON)\n        |\n       GND"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#026",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "CMOS NAND (2-input):\n       VDD\n        |\n     pA─┤ pMOS A\n        |\n     pB─┤ pMOS B (two pMOS in parallel)\n        |\n        +─── Y = (AB)̄\n        |\n     nA─┤ nMOS A\n        |\n     nB─┤ nMOS B (two nMOS in series)\n        |\n       GND"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#027",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "Rule: pMOS in pull-up = DUAL of nMOS in pull-down.\n  nMOS: series = AND, parallel = OR.\n  pMOS: series = OR (De Morgan), parallel = AND (De Morgan).\n  Complex gate: implement F directly → saves transistors vs multi-gate approach.\n```"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#028",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "### Gate Count and Complexity"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#029",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "| Gate | Transistors | Notes |\n|---|---|---|\n| CMOS inverter | 2 | Most efficient gate |\n| NAND-2 | 4 | Preferred building block (speed + count) |\n| NOR-2 | 4 | Also 4T, slower due to series pMOS |\n| AND-2 | 6 | NAND + inverter |\n| OR-2 | 6 | NOR + inverter |\n| XOR-2 | 8–12 | Several implementations |"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#030",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "**NAND is preferred** in standard cells: series nMOS is fast, parallel pMOS is acceptable.\nNOR: series pMOS is slow (pMOS already slower than nMOS)."
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#031",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#032",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "## 3. Canonical Forms and K-Maps"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#033",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "### Canonical Sum of Products (SOP) and Product of Sums (POS)"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#034",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "```\n  Truth table → canonical forms:"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#035",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "Minterm: product term with all variables (complemented or not) = 1 at exactly one row.\n  m₃ = A̅BC (for ABC = 011)"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#036",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "Maxterm: sum term with all variables = 0 at exactly one row.\n  M₃ = (A+B̄+C̄) (for ABC = 011)"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#037",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "SOP (sum of minterms):  F = Σm(where F=1)\n  POS (product of maxterms): F = ΠM(where F=0)\n  F_SOP and F_POS are equivalent; which is simpler depends on function.\n```"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#038",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "### Karnaugh Maps (K-maps)"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#039",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "```\n  Systematic minimization for 2–4 variables (5–6 manageable).\n  Visual grouping of adjacent minterms → simplify."
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#040",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "3-variable K-map (2×4):\n       BC\n  A  00  01  11  10\n  0 | 0 | 1 | 1 | 0 |\n  1 | 1 | 1 | 0 | 0 |"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#041",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "Rules:\n  1. Group 1s into rectangles of sizes 1, 2, 4, 8 (powers of 2)\n  2. Rectangles must wrap around edges (map is toroidal)\n  3. Each rectangle = one product term (essential prime implicant if unique)\n  4. Use fewest, largest rectangles covering all 1s\n  5. Find all prime implicants, then minimum cover"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#042",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "Example groups above:\n  Column 01-11 rows 0,1: BC (B and C both 1, regardless of A)\n  Row 1, columns 00-01: AB̄ (A=1, B=0, C varies)\n  Minimal: F = BC + AB̄C  → or after checking: F = BC + AB̄ (need to verify)\n```"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#043",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "### 4-Variable K-map"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#044",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "```\n       CD\n  AB  00  01  11  10\n  00 |   |   |   |   |\n  01 |   |   |   |   |\n  11 |   |   |   |   |\n  10 |   |   |   |   |"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#045",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "Corner cells are all adjacent (map wraps horizontally AND vertically).\n  A group of all four corners = one term.\n  \"Don't care\" (X): can be included in group or not — use to make larger groups.\n```"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#046",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "### Hazards"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#047",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "```\n  Static hazard: output momentarily transitions to wrong value during input change.\n  Dynamic hazard: output changes 3+ times when it should change once."
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#048",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "Static-1 hazard: output should stay 1 but glitches to 0.\n  Cause: SOP realization where adjacent minterms in different product terms\n         have race condition during variable transition.\n  Fix: add consensus term (cover the transition with a redundant term).\n       The extra term is the prime implicant covering both minterms."
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#049",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "In synchronous circuits: hazards don't matter if flip-flop captures\n  value only after glitches have settled. Hazards matter in:\n    - Asynchronous logic\n    - Glitch-sensitive outputs (chip select, memory enable)\n    - High-speed analog-adjacent circuits (ADC clock)\n```"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#050",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#051",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "## 4. Combinational Building Blocks"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#052",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "### Multiplexer (MUX)"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#053",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "```\n  2-to-1 MUX:      n-to-1 MUX (log₂n select lines):\n  S=0: Y = A       Universal logic element.\n  S=1: Y = B       MUX(A,B;S) = ĀS̄ + BS = SOP\n                   Any function of n variables implementable with\n  Y = ĀS + BS      2^(n-1)-to-1 MUX (one variable used as data)."
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#054",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "Example 4-to-1 MUX:        MUX for F(A,B,C):\n  S[1:0] selects one of      Use A,B as selects (4 combinations).\n  4 inputs D3..D0.           Each input = F(0,0,C), F(0,1,C), F(1,0,C), F(1,1,C)\n                             = 0, C, 1, C̄ (constants or C/C̄).\n```"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#055",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "### Decoder"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#056",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "```\n  n-to-2^n decoder: activates exactly one output line for each input code.\n  3-to-8 decoder: inputs A,B,C → 8 output lines O0..O7\n  Oₖ = 1 only when ABC = binary(k)"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#057",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "Use: memory address decode, microprocessor instruction decode.\n  Two-level AND-OR = decoder + OR gates → any combinational function.\n```"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#058",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "### Encoder and Priority Encoder"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#059",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "```\n  2^n-to-n encoder: inverse of decoder.\n    Multiple active inputs → ambiguous. Use priority encoder instead."
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#060",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "Priority encoder: if multiple inputs active, output code for highest priority input.\n    V (valid) output: 0 if no input active, 1 if any active.\n```"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#061",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "### Adders"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#062",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "```\n  Half adder: S = A⊕B,  C = AB\n  Full adder: S = A⊕B⊕Cin,  Cout = AB + ACin + BCin = AB + (A⊕B)Cin"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#063",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "Ripple carry adder:\n    Chain n full adders. Each Cout → Cin of next stage.\n    Delay: O(n) — carry must propagate through all stages.\n    n=32: too slow for modern CPUs."
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#064",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "Carry lookahead adder (CLA):\n    Generate G = AB,  Propagate P = A⊕B\n    Carry: Cₖ₊₁ = Gₖ + PₖCₖ\n    Compute all carries simultaneously from G and P:\n    C₄ = G₃ + P₃G₂ + P₃P₂G₁ + P₃P₂P₁G₀ + P₃P₂P₁P₀C₀\n    Delay: O(log n) with multi-level CLA — standard in ALUs."
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#065",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "Carry select adder:\n    Compute two 4-bit sums in parallel (assuming Cin=0 and Cin=1).\n    Select correct sum via MUX once actual Cin arrives.\n    Balance area vs speed.\n```"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#066",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "### Comparator and ALU"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#067",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "```\n  1-bit equality: A⊙B = 1 iff A=B  (XNOR)\n  n-bit equality: AND of n XNORs"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#068",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "n-bit magnitude comparator (iterative):\n    Compare MSB first. If equal, proceed to next bit."
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#069",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "ALU: combines arithmetic (add/sub) and logic (AND/OR/XOR) in one unit.\n    Operation select via control lines.\n    Most ALUs: adder for arithmetic, bitwise units for logic, MUX for output.\n```"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#070",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#071",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "## 5. Sequential Logic: Flip-Flops"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#072",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "### Latches vs Edge-Triggered Flip-Flops"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#073",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "```\n  Latch: level-sensitive. Output follows input while enable is active.\n    SR latch: S=R=0: hold; S=1: set Q=1; R=1: clear Q=0; S=R=1: forbidden.\n    D latch: Q follows D when E=1; latches when E=0.\n    Problem: transparent during enable → output glitches during pulse."
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#074",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "Edge-triggered flip-flop: samples input on clock edge only.\n    D flip-flop: Q captures D at rising edge of CLK.\n    Most common: positive-edge-triggered D-FF.\n    JK FF: J=1,K=0: set; J=0,K=1: clear; J=K=1: toggle; J=K=0: hold.\n    T FF: toggle on clock when T=1. Built from D-FF + XOR."
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#075",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "Always use edge-triggered FFs in synchronous design.\n  Latches are used intentionally only in specific timing-critical cases.\n```"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#076",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "### D Flip-Flop Timing Parameters"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#077",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "```\n  ┌──────────────────────────────────────────────────────────────────┐\n  │                    D-FF TIMING                                   │\n  │                                                                  │\n  │    D ───XXXXXXX╔════════════════╗XXXXXXXX───                     │\n  │                 ← t_setup →    ← t_hold →                        │\n  │   CLK ──────────────╔════╗─────────────────                      │\n  │                     ↑ rising edge                                 │\n  │                     capture point                                 │\n  │    Q ────────────────────────────╔══════════── (after t_cq)       │\n  │                                  Q captures D at edge             │\n  └──────────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#078",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "t_setup: D must be stable before clock edge by this much\n  t_hold:  D must stay stable after clock edge by this much\n  t_cq:    clock-to-Q propagation delay (time until Q is valid)"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#079",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "Setup violation: D changes too close before clock → metastability\n  Hold violation: D changes too close after clock → potentially captures wrong value\n  Metastability: FF output can remain at indeterminate voltage for unbounded time\n                 MTBF = e^(τ·f_sync) / (f_data · f_clock) — synchronizer design\n```"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#080",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "### Registers and Shift Registers"
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#081",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "```\n  Register: n D-FFs sharing a clock. Holds n-bit value.\n  Load enable: CLK only loads when EN=1; otherwise holds."
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#082",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "Shift register (serial input, parallel output):\n    D₀ ─FF─ D₁ ─FF─ D₂ ─FF─ ... (all share clock)\n    Serial in: bit enters D₀ each cycle, shifts through.\n    After n cycles: full n-bit word loaded serially.\n    Uses: serial-to-parallel conversion, LFSR, delay lines."
+    },
+    {
+      "id": "08-DIGITAL-LOGIC.md#083",
+      "path": [
+        "08-DIGITAL-LOGIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:08-digital-logic, git-history:electronics:08-digital-logic]",
+        "canonical_path": "electronics/08-DIGITAL-LOGIC.md",
+        "concepts": "[digital, logic]",
+        "current_path": "electronics/08-DIGITAL-LOGIC.md",
+        "id": "maxim:electronics:digital-logic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[digital, logic]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "08 - Digital Logic",
+        "updated": "null"
+      },
+      "text": "Linear Feedback Shift Register (LFSR):\n    XOR taps at specific positions feed back to input.\n    Maximal length LFSR of n bits: cycles through 2ⁿ-1 states.\n    Uses: pseudo-random number generation, CRC, spread-spectrum.\n    Polynomial: x^n + ... + 1 (primitive polynomial mod 2).\n```"
+    }
+  ],
+  "refs": [
+    "08-DIGITAL-LOGIC.md"
+  ]
+}

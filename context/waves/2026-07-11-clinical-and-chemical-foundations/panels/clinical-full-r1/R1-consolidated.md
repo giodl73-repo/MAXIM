@@ -18,9 +18,9 @@ guide-specific rubric evidence are complete.
 
 The guide-specific Gold evidence is recorded in
 [`R2-gold-rubric.md`](R2-gold-rubric.md). All 12 guides meet the content-side Gold
-score threshold, pass three concrete reader tasks each, remain focused-PROOF-clean,
+score threshold, pass three concrete reader tasks each, remain focused-MDLOOM-clean,
 and have no unresolved R1 BLOCK/WARN findings. They are nevertheless classified
-**Silver, not Certified Gold**, because `proof.toml` has no guide-specific
+**Silver, not Certified Gold**, because `mdloom.toml` has no guide-specific
 `clinical-medicine` Da Vinci invariants and the repository-wide `--daVinci` run
 currently emits a literal `FAIL` from unrelated existing pins. No row is added to
 `context/gold/REGISTRY.md`; R2 records the exact pinning, clean mechanical run, and
@@ -45,14 +45,14 @@ the final tier; future Da Vinci/Gold promotion is optional and separate.**
 
 Source-corpus regenerated from the canonical numbered guides and re-validated (no commit/push):
 
-- **`clinical-medicine` source-backfill `--validate`:** PASS — 12 guides, PROOF round-trip
+- **`clinical-medicine` source-backfill `--validate`:** PASS — 12 guides, MDLOOM round-trip
   **12/12**, 63 tables, 69 structured blocks; CROP strict view inspection valid; FLETCH registry
   `maxim-clinical-medicine-source-corpus` **valid** (61 entries, 0 findings); registry shaft paths
   present.
-- **`medicine` source-backfill `--validate`:** PASS — 11 guides, PROOF round-trip **11/11**; the
+- **`medicine` source-backfill `--validate`:** PASS — 11 guides, MDLOOM round-trip **11/11**; the
   only working-tree change under `medicine/` is the pre-existing Pulse-04 reverse cross-reference in
   `medicine/10 §11` (no new `medicine/` edits in this pass).
-- **Focused PROOF (`proof.toml`):** the 12 `clinical-medicine` numbered guides —
+- **Focused MDLOOM (`mdloom.toml`):** the 12 `clinical-medicine` numbered guides —
   **12 files checked, 0 errors, 0 warnings**. `medicine/10-DIAGNOSTICS-IMAGING.md` — 1 file, 0
   errors, **2 warnings** (`md_missing_section` for the numbered "12. Decision Cheat Sheet" heading
   and `ascii_unclosed_fence` at line 560): both **pre-existing** in the committed file and untouched

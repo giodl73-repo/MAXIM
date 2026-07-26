@@ -21,7 +21,7 @@ overstated that "architecture is unavailable" in cytology, blurring *tissue-leve
 (genuinely unavailable) with *cell-group* cytoarchitecture (available and diagnostic); (2) the
 `09`/`11` scaling mini-contracts named only a thin partial-draft slice and no whole-guide gate,
 under-specifying the review that most needs specificity; and (3) the prototype frontmatter
-carried generated `proof-backfill`/`git-history` backsource IDs and `source_custody: partial`
+carried generated `mdloom-backfill`/`git-history` backsource IDs and `source_custody: partial`
 though no such artifacts exist and the module is untracked. All are repaired; the round is
 recorded and held IN REVIEW.
 
@@ -76,17 +76,17 @@ Files: `pathology/08-LABORATORY-MEDICINE.md`, `pathology/10-DIAGNOSIS-PATTERN-RE
 REPORTING.md` (frontmatter); `context/waves/.../artifacts/PATHOLOGY-ARCHITECTURE.md`
 
 Finding: both prototype guides carried `status: source-custody`, `source_custody: partial`, and
-`backsource_ids: [proof-backfill:pathology:…, git-history:pathology:…]` — the *post-backfill*
+`backsource_ids: [mdloom-backfill:pathology:…, git-history:pathology:…]` — the *post-backfill*
 values emitted by `module_source_backfill.py`. But **no backfill was run**: there are no
-`.proof/backfill/sources/pathology/` records, and the entire `pathology/` tree is **untracked**
-(no git history). The metadata therefore asserted a PROOF backfill artifact and a git-history
+`.mdloom/backfill/sources/pathology/` records, and the entire `pathology/` tree is **untracked**
+(no git history). The metadata therefore asserted a MDLOOM backfill artifact and a git-history
 backsource that do not exist — a source-custody honesty defect, and one that would poison the
 CROP `source_custody eq 'partial'` view if the module were indexed.
 
 Fix: the frontmatter is set to the contract's documented **pre-backfill** state
-(`.proof/backfill/frontmatter-contract.md`; README "mark missing source custody as
+(`.mdloom/backfill/frontmatter-contract.md`; README "mark missing source custody as
 `needs-source`"): `status: prototype`, `source_custody: needs-source`, `backsource_ids: []`.
-The generated `proof-backfill`/`git-history` IDs are removed. This is **forward-compatible**:
+The generated `mdloom-backfill`/`git-history` IDs are removed. This is **forward-compatible**:
 the deferred `module_source_backfill.py --module-id pathology` run generates the real backsource
 records and promotes the triple to `source-custody` / `partial|verified` / real IDs during
 integration. Recorded as **MAXIM-PATH-25** and **QR-14**; the `STATUS.md`/architecture Gaps

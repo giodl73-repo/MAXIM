@@ -1,0 +1,125 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-algorithms-data-structures",
+  "source": "../../algorithms",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "06-DATA-STRUCTURES.md#000",
+      "path": [
+        "06-DATA-STRUCTURES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:06-data-structures, git-history:algorithms:06-data-structures]",
+        "canonical_path": "algorithms/06-DATA-STRUCTURES.md",
+        "concepts": "[heaps, balanced binary search trees, hash tables, segment trees, fenwick trees, skip lists, B-trees]",
+        "current_path": "algorithms/06-DATA-STRUCTURES.md",
+        "id": "maxim:algorithms:data-structures",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data structures]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Data Structures - Heaps, Balanced BSTs, Hash Tables, Segment/Fenwick",
+        "updated": "null"
+      },
+      "text": "# Data Structures — Heaps, Balanced BSTs, Hash Tables, Segment/Fenwick"
+    },
+    {
+      "id": "06-DATA-STRUCTURES.md#001",
+      "path": [
+        "06-DATA-STRUCTURES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:06-data-structures, git-history:algorithms:06-data-structures]",
+        "canonical_path": "algorithms/06-DATA-STRUCTURES.md",
+        "concepts": "[heaps, balanced binary search trees, hash tables, segment trees, fenwick trees, skip lists, B-trees]",
+        "current_path": "algorithms/06-DATA-STRUCTURES.md",
+        "id": "maxim:algorithms:data-structures",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data structures]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Data Structures - Heaps, Balanced BSTs, Hash Tables, Segment/Fenwick",
+        "updated": "null"
+      },
+      "text": "Data structures are the *amortized-cost engines* that turn naive O(n) or O(n²) loops\ninto O(log n) or O(1) operations. Each one is a contract: a set of operations and\ntheir cost bounds, achieved by maintaining an invariant. The job here is to state\nthose bounds **exactly** — worst-case vs amortized vs expected — and to know which\nstructure's contract matches the operation mix you actually have. The single most\nabused bound in the field lives here: hash-table O(1) is *amortized expected*, never\nworst-case."
+    },
+    {
+      "id": "06-DATA-STRUCTURES.md#002",
+      "path": [
+        "06-DATA-STRUCTURES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:06-data-structures, git-history:algorithms:06-data-structures]",
+        "canonical_path": "algorithms/06-DATA-STRUCTURES.md",
+        "concepts": "[heaps, balanced binary search trees, hash tables, segment trees, fenwick trees, skip lists, B-trees]",
+        "current_path": "algorithms/06-DATA-STRUCTURES.md",
+        "id": "maxim:algorithms:data-structures",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data structures]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Data Structures - Heaps, Balanced BSTs, Hash Tables, Segment/Fenwick",
+        "updated": "null"
+      },
+      "text": "```\n  DATA STRUCTURES BY THE OPERATION CONTRACT THEY OFFER\n  ====================================================================================="
+    },
+    {
+      "id": "06-DATA-STRUCTURES.md#003",
+      "path": [
+        "06-DATA-STRUCTURES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:06-data-structures, git-history:algorithms:06-data-structures]",
+        "canonical_path": "algorithms/06-DATA-STRUCTURES.md",
+        "concepts": "[heaps, balanced binary search trees, hash tables, segment trees, fenwick trees, skip lists, B-trees]",
+        "current_path": "algorithms/06-DATA-STRUCTURES.md",
+        "id": "maxim:algorithms:data-structures",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[data structures]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Data Structures - Heaps, Balanced BSTs, Hash Tables, Segment/Fenwick",
+        "updated": "null"
+      },
+      "text": "ORDERED (comparisons; keep keys sorted)     UNORDERED (hashing; no order)\n   ---------------------------------------     -----------------------------\n   +-------------------+ +-----------------+    +-----------------------------+\n   | BALANCED BST      | | SKIP LIST       |    | HASH TABLE                  |\n   | (red-black,AVL,   | | randomized,     |    | chaining / open addressing  |\n   |  treap, B-tree)   | | expected O(logn)|    | O(1) AMORTIZED EXPECTED     |\n   | O(log n) WORST    | |                 |    | O(n) worst-case (collisions)|\n   | search/ins/del    | |                 |    | NO order, NO range queries  |\n   | + range/successor | |                 |    |                             |\n   +-------------------+ +-----------------+    +-----------------------------+\n            |  comparison-based -> Omega(log n) per op (decision-tree, see 02)\n            v\n   PRIORITY (partial order on one key)        RANGE / PREFIX AGGREGATES\n   ----------------------------------         -------------------------\n   +-------------------+                       +-----------------------------+\n   | HEAP              |                       | FENWICK (BIT)  prefix sums  |\n   | binary: insert,   |                       |   point update / prefix qry |\n   | extract O(log n); |                       |   O(log n), tiny constant   |\n   | peek O(1)         |                       | SEGMENT TREE  any assoc op  |\n   | Fibonacci: O(1)   |                       |  range query + range update |\n   | decrease-key amrt |                       |  O(log n), lazy propagation |\n   +-------------------+                       +-----------------------------+"
+    }
+  ],
+  "refs": [
+    "06-DATA-STRUCTURES.md"
+  ]
+}

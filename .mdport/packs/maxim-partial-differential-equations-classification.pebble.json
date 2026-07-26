@@ -1,0 +1,1525 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-partial-differential-equations-classification",
+  "source": "../../partial-differential-equations",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "01-CLASSIFICATION.md#000",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "# Classification and Well-Posedness"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#001",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#002",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "## Why Classification Matters"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#003",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "Classification is not taxonomy — it determines everything downstream:"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#004",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "```\n+---------------------------------------------------------------+\n|  CLASSIFICATION DETERMINES                                    |\n|                                                               |\n|  1. WHAT BOUNDARY CONDITIONS ARE APPROPRIATE                  |\n|     Elliptic:   data on closed boundary ∂Ω                    |\n|     Parabolic:  data at t=0 + spatial boundary                |\n|     Hyperbolic: Cauchy data (value + normal derivative)       |\n|                                                               |\n|  2. HOW INFORMATION PROPAGATES                                |\n|     Elliptic:   instantaneously, globally                     |\n|     Parabolic:  infinite speed, exponential decay             |\n|     Hyperbolic: finite speed (light cones / characteristics)  |\n|                                                               |\n|  3. WHAT REGULARITY TO EXPECT                                 |\n|     Elliptic:   solutions are C∞ in the interior              |\n|     Parabolic:  instantly smooth for t > 0                    |\n|     Hyperbolic: kinks and discontinuities can persist         |\n|                                                               |\n|  4. WHICH NUMERICAL METHODS WORK                              |\n|     Elliptic:   FEM, BEM, multigrid (no time-stepping)        |\n|     Parabolic:  implicit time-stepping, Crank-Nicolson        |\n|     Hyperbolic: upwind, Godunov, finite volumes + CFL         |\n|                                                               |\n+---------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#005",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#006",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "## The 2D Second-Order Case"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#007",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "General linear second-order PDE in two variables x, y:"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#008",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "```\n  Au_xx + 2Bu_xy + Cu_yy + Du_x + Eu_y + Fu = G"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#009",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "A, B, C, D, E, F, G may be functions of (x,y)."
+    },
+    {
+      "id": "01-CLASSIFICATION.md#010",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "PRINCIPAL PART: Au_xx + 2Bu_xy + Cu_yy\n  (lower-order terms don't affect classification)"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#011",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "ASSOCIATED SYMBOL MATRIX:   M = [ A  B ]\n                                   [ B  C ]"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#012",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "DISCRIMINANT:  Δ = B² − AC = −det(M)"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#013",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "┌─────────────────────────────────────────┐\n  │  Δ < 0  →  ELLIPTIC   (both eigenvalues │\n  │            of M have same sign)         │\n  │  Δ = 0  →  PARABOLIC  (one eigenvalue   │\n  │            of M is zero)                │\n  │  Δ > 0  →  HYPERBOLIC (eigenvalues of M │\n  │            have opposite signs)         │\n  └─────────────────────────────────────────┘"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#014",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "VERIFICATION on canonical examples:\n  Laplace   u_xx + u_yy = 0:  A=1,B=0,C=1  → Δ=−1 < 0  ELLIPTIC\n  Heat      u_t  − u_xx  = 0: treat t as y: A=−1,B=0,C=0→ Δ=0=0 PARABOLIC\n  Wave      u_tt − u_xx  = 0: A=−1,B=0,C=1 → Δ=1 > 0  HYPERBOLIC\n```"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#015",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#016",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "## Characteristics"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#017",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "Characteristics are curves along which the PDE has **reduced order** — where information\nnaturally flows. They are the key geometric concept."
+    },
+    {
+      "id": "01-CLASSIFICATION.md#018",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "```\n  For  Au_xx + 2Bu_xy + Cu_yy + ... = 0,\n  characteristic curves φ(x,y) = const satisfy:"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#019",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "A(dφ/dx)² − 2B(dφ/dx)(dφ/dy) + C(dφ/dy)² = 0"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#020",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "Or equivalently, the family y = y(x) satisfies:\n     A(dy/dx)² − 2B(dy/dx) + C = 0\n     dy/dx = [B ± √(B²−AC)] / A"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#021",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "┌────────────────────────────────────────────────────────────────┐\n  │ ELLIPTIC:  B²−AC < 0 → no REAL characteristic curves           │\n  │   No preferred propagation direction.                          │\n  │   Solutions are smooth (C∞) everywhere in the interior.        │\n  │   Think: a soap film — disturb one point, whole film adjusts.  │\n  │                                                                │\n  │ PARABOLIC: B²−AC = 0 → ONE real characteristic family          │\n  │   One degenerate direction.                                    │\n  │   For the heat equation: t = const are the characteristics.    │\n  │   Information moves \"forward\" in the degenerate direction.     │\n  │                                                                │\n  │ HYPERBOLIC: B²−AC > 0 → TWO real characteristic families       │\n  │   Two distinct propagation directions.                         │\n  │   Wave eq: t − x/c = const and t + x/c = const.                │\n  │   Discontinuities travel along characteristics.                │\n  └────────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#022",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "### Wave Equation Characteristics Worked Example"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#023",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "```\n  u_tt − c²u_xx = 0"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#024",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "Characteristic ODE:  −c²(dy)² + (dx)² = 0  (with y=t)\n                       dx/dt = ±c\n                       → t − x/c = const   (right-moving)\n                       → t + x/c = const   (left-moving)"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#025",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "Change of variables:  ξ = x + ct,  η = x − ct"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#026",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "Canonical form:  u_ξη = 0"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#027",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "General solution:  u(ξ,η) = F(ξ) + G(η) = F(x+ct) + G(x−ct)"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#028",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "This is d'Alembert's formula. The two characteristic families\n  are precisely the right-moving and left-moving wave directions.\n```"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#029",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#030",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "## Canonical Forms"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#031",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "By a local change of variables, every 2nd-order linear PDE reduces to:"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#032",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "```\n  ELLIPTIC CANONICAL FORM:\n      u_ξξ + u_ηη + lower-order = 0   (Laplace-like)"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#033",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "PARABOLIC CANONICAL FORM:\n      u_ξξ + lower-order = 0          (one direction only)"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#034",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "HYPERBOLIC CANONICAL FORM (first form):\n      u_ξη + lower-order = 0          (mixed derivative)"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#035",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "HYPERBOLIC CANONICAL FORM (wave form):\n      u_ξξ − u_ηη + lower-order = 0   (wave-like)"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#036",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "These two hyperbolic forms are equivalent via ξ = s+r, η = s−r.\n```"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#037",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "This is the PDE analogue of putting a quadratic form in diagonal form\n(Sylvester's law of inertia)."
+    },
+    {
+      "id": "01-CLASSIFICATION.md#038",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#039",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "## Higher Dimensions: Principal Symbol"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#040",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "In n independent variables x = (x₁,...,xₙ):"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#041",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "```\n  OPERATOR:  L[u] = Σ_{i,j} a_{ij}(x) ∂²u/∂x_i∂x_j + lower-order"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#042",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "PRINCIPAL SYMBOL:  p(x,ξ) = Σ_{i,j} a_{ij}(x) ξ_i ξ_j = ξᵀ A(x) ξ"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#043",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "where ξ = (ξ₁,...,ξₙ) is the \"frequency\" or \"covector\" variable."
+    },
+    {
+      "id": "01-CLASSIFICATION.md#044",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "CLASSIFICATION by eigenvalues of A(x):"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#045",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "┌────────────────────────────────────────────────────────────────┐\n  │ All eigenvalues same nonzero sign     → ELLIPTIC               │\n  │ One zero eigenvalue, rest same sign   → PARABOLIC              │\n  │ One eigenvalue opposite sign to rest  → HYPERBOLIC             │\n  │ (the \"time\" direction has opposite sign)                       │\n  │ More than one opposite sign           → ULTRAHYPERBOLIC        │\n  │ (more than one \"time\" direction — typically ill-posed)         │\n  └────────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#046",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "Connection to Fourier analysis: replace ∂/∂x_j → iξ_j.\n  Then L → p(x,ξ) (the symbol). Classification is about the\n  sign structure of this quadratic form.\n```"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#047",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#048",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "## Systems of PDEs: Hyperbolicity Revisited"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#049",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "For a first-order system Σ_j A_j ∂u/∂x_j = f:"
+    },
+    {
+      "id": "01-CLASSIFICATION.md#050",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "```\n  SYMMETRIC HYPERBOLIC SYSTEM (Friedrichs):\n  All A_j are symmetric matrices, A_n is positive definite."
+    },
+    {
+      "id": "01-CLASSIFICATION.md#051",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "STRONGLY HYPERBOLIC:\n  For all ξ, the matrix Σ A_j ξ_j has real eigenvalues and\n  a complete set of eigenvectors."
+    },
+    {
+      "id": "01-CLASSIFICATION.md#052",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "Eigenvalues = CHARACTERISTIC SPEEDS.\n  Eigenvectors = CHARACTERISTIC VARIABLES (decouple the system)."
+    },
+    {
+      "id": "01-CLASSIFICATION.md#053",
+      "path": [
+        "01-CLASSIFICATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:01-classification, git-history:partial-differential-equations:01-classification]",
+        "canonical_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "concepts": "[classification]",
+        "current_path": "partial-differential-equations/01-CLASSIFICATION.md",
+        "id": "maxim:partial-differential-equations:classification",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[classification]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classification and Well-Posedness",
+        "updated": "null"
+      },
+      "text": "EXAMPLES:\n  Maxwell's equations:\n    ∂B/∂t + ∇×E = 0,  ∂E/∂t − c²∇×B = 0\n    → Symmetric hyperbolic system for (E,B).\n    Characteristic speeds: 0 (×2 per direction) and ±c (×2)."
+    }
+  ],
+  "refs": [
+    "01-CLASSIFICATION.md"
+  ]
+}

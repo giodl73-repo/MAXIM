@@ -1,0 +1,1385 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-partial-differential-equations-overview",
+  "source": "../../partial-differential-equations",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "00-OVERVIEW.md#000",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "# Partial Differential Equations — Landscape and Taxonomy"
+    },
+    {
+      "id": "00-OVERVIEW.md#001",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "00-OVERVIEW.md#002",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "PDEs are equations that relate an unknown function of **multiple variables** to its partial\nderivatives. They are the native language of physics: every fundamental field equation is a PDE."
+    },
+    {
+      "id": "00-OVERVIEW.md#003",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------------------+\n|                    THE PDE LANDSCAPE                                          |\n|                                                                              |\n|   TYPE          CANONICAL EQUATION               PHYSICS                     |\n|   ----          ------------------               -------                     |\n|                                                                              |\n|   ELLIPTIC      ∇²u = 0   (Laplace)              Electrostatics,             |\n|   (steady)      ∇²u = f   (Poisson)              steady heat,                |\n|                                                  Newtonian gravity            |\n|                                                                              |\n|   PARABOLIC     ∂u/∂t = α∇²u                     Heat diffusion,             |\n|   (evolution,   (Heat / diffusion)               Brownian motion,            |\n|    irreversible)                                  Schrödinger (imag t)       |\n|                                                                              |\n|   HYPERBOLIC    ∂²u/∂t² = c²∇²u                  Sound, light,               |\n|   (wave         (Wave equation)                  seismic waves,              |\n|    propagation)                                  electromagnetism            |\n|                                                                              |\n|   MIXED / NONLINEAR                                                          |\n|   Navier-Stokes  ∂u/∂t + (u·∇)u = −∇p + ν∇²u   Fluid mechanics             |\n|   KdV            u_t + 6u·u_x + u_xxx = 0        Solitons                   |\n|   Schrödinger    iℏ∂ψ/∂t = Ĥψ                   Quantum mechanics           |\n|   Einstein       G_μν = 8πT_μν                   General relativity          |\n|   Black-Scholes  V_t + ½σ²S²V_SS + rSV_S − rV=0 Financial derivatives       |\n|                                                                              |\n+------------------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#004",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "The classification (elliptic / parabolic / hyperbolic) is not a bureaucratic label — it\ndetermines what boundary conditions are appropriate, whether solutions exist and are unique,\nhow information propagates through the domain, and which numerical methods work."
+    },
+    {
+      "id": "00-OVERVIEW.md#005",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#006",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "## Classification Axes"
+    },
+    {
+      "id": "00-OVERVIEW.md#007",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "### Order and Linearity"
+    },
+    {
+      "id": "00-OVERVIEW.md#008",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "```\n+----------------------------------------------------------+\n|  ORDER = highest derivative appearing                     |\n|                                                          |\n|  1st order:   u_x + u_y = 0             (transport)     |\n|  2nd order:   u_xx + u_yy = 0           (Laplace)       |\n|  4th order:   u_xxxx + 2u_xxyy + u_yyyy = 0  (biharmonic)|\n|                                                          |\n|  LINEARITY                                               |\n|                                                          |\n|  Linear:       L[u] = 0  where L is a linear operator   |\n|                L[αu + βv] = αL[u] + βL[v]               |\n|                → superposition holds                     |\n|                → powerful analytical toolkit             |\n|                                                          |\n|  Semilinear:   linear in highest derivatives,            |\n|                nonlinear in lower:                       |\n|                u_xx + u_yy = f(x, y, u, u_x)            |\n|                                                          |\n|  Quasilinear:  coefficients depend on u and lower        |\n|                derivatives but not highest:              |\n|                A(u)u_xx + B(u)u_yy = 0                  |\n|                                                          |\n|  Fully nonlinear: nonlinear in highest derivatives:      |\n|                u_xx · u_yy − u_xy² = f  (Monge-Ampère)  |\n|                                                          |\n+----------------------------------------------------------+\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#009",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "### The Discriminant (2nd-Order, 2 Variables)"
+    },
+    {
+      "id": "00-OVERVIEW.md#010",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "The general second-order linear PDE in two variables:"
+    },
+    {
+      "id": "00-OVERVIEW.md#011",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "```\n  Au_xx + 2Bu_xy + Cu_yy + Du_x + Eu_y + Fu = G"
+    },
+    {
+      "id": "00-OVERVIEW.md#012",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "DISCRIMINANT:  Δ = B² − AC"
+    },
+    {
+      "id": "00-OVERVIEW.md#013",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "Δ < 0   →   ELLIPTIC\n    Δ = 0   →   PARABOLIC\n    Δ > 0   →   HYPERBOLIC"
+    },
+    {
+      "id": "00-OVERVIEW.md#014",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "CANONICAL EXAMPLES:\n    Laplace   u_xx + u_yy = 0:     A=1, B=0, C=1   → Δ = −1 < 0   ELLIPTIC\n    Heat      u_t − u_xx = 0:      A=−1,B=0, C=0   → Δ =  0 = 0   PARABOLIC\n    Wave      u_tt − u_xx = 0:     A=1, B=0, C=−1  → Δ =  1 > 0   HYPERBOLIC\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#015",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "Note: the classification can change with location for variable-coefficient PDEs (e.g.,\nthe Tricomi equation u_xx + xu_yy = 0 is elliptic for x>0, parabolic at x=0, hyperbolic\nfor x<0)."
+    },
+    {
+      "id": "00-OVERVIEW.md#016",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#017",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "## Solution Strategy Map"
+    },
+    {
+      "id": "00-OVERVIEW.md#018",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "```\n+-----------------------------------------------------------------------+\n|                    HOW TO APPROACH A PDE                               |\n|                                                                       |\n|   Step 1: Classify type                                               |\n|   +-----------+   +-----------+   +-----------+                       |\n|   | ELLIPTIC  |   | PARABOLIC |   | HYPERBOLIC|                       |\n|   +-----------+   +-----------+   +-----------+                       |\n|        |               |               |                              |\n|   Step 2: Choose analytical method                                    |\n|        |               |               |                              |\n|   Separation    Separation +    Separation +                          |\n|   of variables  Fourier series  d'Alembert                            |\n|   Green's fn    Heat kernel     Characteristics                       |\n|   Potential     Fourier/Laplace Fourier transform                     |\n|   theory        transform       Riemann method                        |\n|        |               |               |                              |\n|   Step 3: Numerical (when analytic fails)                             |\n|   FEM (dominant)  FD implicit   FD explicit + CFL                     |\n|   BEM             Crank-Nicolson Godunov / upwind                     |\n|   Spectral        Spectral      Spectral                              |\n|        |               |               |                              |\n|   Step 4: Specify boundary / initial conditions                       |\n|   +-----------------+  +--------------------+                         |\n|   | Dirichlet: u=g  |  | Neumann: ∂u/∂n = h |                        |\n|   | (value given)   |  | (flux given)        |                        |\n|   +-----------------+  +--------------------+                         |\n|   +-------------------+  +-----------------------+                    |\n|   | Robin: ∂u/∂n+αu=g |  | Cauchy: u and ∂u/∂n   |                   |\n|   | (mixed)            |  | both given            |                   |\n|   +-------------------+  | (ok for hyperbolic;    |                   |\n|                           |  ill-posed for ellip!) |                   |\n|                           +-----------------------+                    |\n+-----------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#019",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#020",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "## The Core Equations: Reference Table"
+    },
+    {
+      "id": "00-OVERVIEW.md#021",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "```\n+-------------+-------------------------------------------+---------------------+\n| EQUATION    | FORM                                      | MODELS              |\n+-------------+-------------------------------------------+---------------------+\n| Laplace     | ∇²u = 0                                   | Electrostatic pot., |\n|             | u_xx + u_yy + u_zz = 0                    | steady-state heat,  |\n|             |                                           | irrotational flow   |\n+-------------+-------------------------------------------+---------------------+\n| Poisson     | ∇²u = f(x)                                | Gravity potential,  |\n|             |                                           | charge distribution |\n+-------------+-------------------------------------------+---------------------+\n| Heat        | u_t = α∇²u                                | Diffusion,          |\n|             | (α = thermal diffusivity > 0)             | Brownian motion,    |\n|             |                                           | chemical diffusion  |\n+-------------+-------------------------------------------+---------------------+\n| Wave        | u_tt = c²∇²u                              | Acoustics, EM,      |\n|             | (c = wave speed)                          | seismics, strings   |\n+-------------+-------------------------------------------+---------------------+\n| Helmholtz   | ∇²u + k²u = 0                             | Time-harmonic       |\n|             | (wave eq. with u ~ e^{iωt} ansatz)        | wave scattering     |\n+-------------+-------------------------------------------+---------------------+\n| Schrödinger | iℏ ψ_t = −(ℏ²/2m)∇²ψ + Vψ               | Quantum mechanics   |\n|             | (parabolic in imaginary time)             | electron dynamics   |\n+-------------+-------------------------------------------+---------------------+\n| Navier-Stokes| u_t + (u·∇)u = −∇p/ρ + ν∇²u            | Viscous fluid flow  |\n|             | ∇·u = 0 (incompressible)                  | (existence/smooth.  |\n|             |                                           |  in 3D: open!)      |\n+-------------+-------------------------------------------+---------------------+\n| Burgers     | u_t + u·u_x = ν·u_xx                      | Shock formation,    |\n|             | (ν=0: inviscid Burgers)                   | turbulence model    |\n+-------------+-------------------------------------------+---------------------+\n| KdV         | u_t + 6u·u_x + u_xxx = 0                  | Solitons, shallow   |\n|             |                                           | water waves         |\n+-------------+-------------------------------------------+---------------------+\n| Biharmonic  | ∇⁴u = ∇²(∇²u) = 0                        | Elasticity, Stokes  |\n|             |                                           | slow viscous flow   |\n+-------------+-------------------------------------------+---------------------+\n| Eikonal     | |∇u|² = n(x)²  (n = refractive index)    | Geometric optics,   |\n|             | (nonlinear 1st order)                     | ray tracing         |\n+-------------+-------------------------------------------+---------------------+\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#022",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#023",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "## Solution Methods: Full Landscape"
+    },
+    {
+      "id": "00-OVERVIEW.md#024",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "```\n┌─────────────────────────────────────────────────────────────────────┐\n│                    PDE SOLUTION METHODS — THREE ERAS                 │\n│                                                                     │\n│  CLASSICAL ANALYTICAL (18th–20th c.)                                │\n│  ┌──────────────┐ ┌──────────────┐ ┌─────────────┐ ┌────────────┐  │\n│  │ Separation   │ │ Fourier      │ │ Green's     │ │ Method of  │  │\n│  │ of Variables │ │ Transform    │ │ Functions   │ │ Charact's  │  │\n│  └──────┬───────┘ └──────┬───────┘ └──────┬──────┘ └─────┬──────┘  │\n│         │                │                │              │          │\n│         └───── exact solutions on separable/symmetric domains ─────┘│\n│                              │                                      │\n│  MODERN THEORY (20th c.)     │                                      │\n│  ┌──────────────┐ ┌──────────┴──────┐ ┌─────────────────────┐      │\n│  │ Sobolev      │ │ Weak/variational│ │ Elliptic regularity │      │\n│  │ spaces H^k   │ │ formulations    │ │ Calderón-Zygmund    │      │\n│  └──────┬───────┘ └──────┬──────────┘ └──────────┬──────────┘      │\n│         │                │                       │                  │\n│         └──── existence/uniqueness/regularity theory ───────────────┘│\n│                              │                                      │\n│  NUMERICAL METHODS           │      ML-BASED METHODS                │\n│  ┌────────┐ ┌────────┐ ┌────┴───┐  ┌────────┐ ┌──────┐ ┌───────┐  │\n│  │  FD    │ │  FV    │ │  FEM   │  │ PINNs  │ │ FNO  │ │DeepO- │  │\n│  │stencil │ │flux    │ │weak+   │  │residual│ │Fourier│ │Net    │  │\n│  │approx  │ │balance │ │basis   │  │as loss │ │space  │ │branch/│  │\n│  └────────┘ └────────┘ └────────┘  │mesh-   │ │oper.  │ │trunk  │  │\n│  Mesh-based, proven error bounds   │free    │ │learn  │ │decomp │  │\n│                                    └────────┘ └──────┘ └───────┘  │\n│                                    Mesh-free, amortized, no        │\n│                                    rigorous error bounds (yet)     │\n└─────────────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#025",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "## Key Analytical Tools"
+    },
+    {
+      "id": "00-OVERVIEW.md#026",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|                   ANALYTICAL TOOLKIT                              |\n|                                                                  |\n|  SEPARATION OF VARIABLES                                         |\n|  Assumes u(x,t) = X(x)·T(t)  (or X(x)·Y(y) etc.)                 |\n|  Reduces PDE → coupled system of ODEs                            |\n|  Works on: rectangular, cylindrical, spherical domains           |\n|  Produces: eigenfunction expansions                              |\n|                                                                  |\n|  FOURIER SERIES / TRANSFORM                                      |\n|  Represent solution as superposition of modes                    |\n|  Finite domain  → Fourier series (discrete spectrum)            |\n|  Infinite domain → Fourier transform (continuous spectrum)      |\n|  Turns ∂/∂x into multiplication by ik                           |\n|  Turns ∂²/∂x² into multiplication by −k²                       |\n|                                                                  |\n|  GREEN'S FUNCTIONS                                               |\n|  G(x,y) = response at x to point source at y                    |\n|  Solution: u(x) = ∫ G(x,y) f(y) dy                              |\n|  Think: impulse response / convolution kernel                    |\n|  (Same concept as transfer function in systems/controls)         |\n|                                                                  |\n|  METHOD OF CHARACTERISTICS                                       |\n|  First-order PDEs: follow characteristic curves                  |\n|  PDE becomes ODE along characteristics                           |\n|  Reveals shock formation (when characteristics cross)            |\n|                                                                  |\n|  TRANSFORM METHODS                                               |\n|  Laplace: converts t-derivative to algebraic in s               |\n|  Fourier: converts x-derivative to algebraic in k               |\n|  Reduces PDE → ODE or algebraic equation                         |\n|                                                                  |\n+------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#027",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "## ML-Based PDE Methods at a Glance"
+    },
+    {
+      "id": "00-OVERVIEW.md#028",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "Modern machine learning has produced a fourth class of PDE solution methods alongside analytical, theoretical, and classical numerical approaches:"
+    },
+    {
+      "id": "00-OVERVIEW.md#029",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "| Method | Core Idea | Strengths | Limitations |\n|--------|-----------|-----------|-------------|\n| **PINNs** | Parameterize u as neural net; minimize PDE residual as loss | Mesh-free; handles inverse problems naturally | Spectral bias; no rigorous error bounds; training instability |\n| **FNO** | Learn solution operator G: f → u in Fourier space | Amortized: one training, instant evaluation; O(N log N) | Requires training data from classical solvers; periodic domains preferred |\n| **DeepONet** | Branch (input function) + trunk (eval point) → inner product | Handles variable domains; flexible architecture | More training data needed; less spectral structure |\n| **Diffusion models** | Forward noising = heat equation on probability density; reverse = learned score-driven SDE | State-of-the-art generative models | Not PDE solvers per se — the PDE is the mechanism, not the target |"
+    },
+    {
+      "id": "00-OVERVIEW.md#030",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "The heat equation connection to diffusion models is particularly deep: the forward process of DDPM/score-based models **is** ∂ₜρ = β(t)∇²ρ (heat equation on the data density), and generation runs the reverse-time SDE using a learned score ∇ log p_t. See `04-HEAT-EQUATION.md` for the full treatment."
+    },
+    {
+      "id": "00-OVERVIEW.md#031",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "Full numerical details in `09-NUMERICAL-PDES.md`. The variational/weak-form connection (Deep Ritz, Deep Galerkin) in `08-VARIATIONAL-WEAK.md`."
+    },
+    {
+      "id": "00-OVERVIEW.md#032",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#033",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "## Well-Posedness (Hadamard, 1902)"
+    },
+    {
+      "id": "00-OVERVIEW.md#034",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "A PDE problem is **well-posed** if it has:\n1. **Existence** — a solution exists\n2. **Uniqueness** — only one solution\n3. **Stability** — small changes in data produce small changes in solution"
+    },
+    {
+      "id": "00-OVERVIEW.md#035",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "```\n+--------------------------------------------------+\n|  BOUNDARY CONDITIONS AND WELL-POSEDNESS           |\n|                                                  |\n|  ELLIPTIC (Laplace, Poisson):                    |\n|   Appropriate: boundary of entire domain Ω       |\n|   ✓ Dirichlet:  u = g on ∂Ω                     |\n|   ✓ Neumann:    ∂u/∂n = h on ∂Ω                 |\n|   ✓ Robin:      ∂u/∂n + αu = g on ∂Ω            |\n|   ✗ Cauchy:     both u and ∂u/∂n → ill-posed     |\n|                                                  |\n|  PARABOLIC (Heat):                               |\n|   ✓ IC: u(x,0) = u₀(x)  (initial data)          |\n|   ✓ BC: Dirichlet or Neumann on spatial ∂Ω      |\n|   ✗ Final-time data: ill-posed (backward heat)   |\n|                                                  |\n|  HYPERBOLIC (Wave):                              |\n|   ✓ Cauchy IVP: u(x,0) = u₀, u_t(x,0) = v₀     |\n|   ✓ Mixed: Cauchy IC + spatial boundary for Ω   |\n|   ✓ Characteristic BCs for outflow boundaries   |\n|                                                  |\n+--------------------------------------------------+\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#036",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#037",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "## Information Propagation: The Core Physical Intuition"
+    },
+    {
+      "id": "00-OVERVIEW.md#038",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "```\n  ELLIPTIC: Information propagates INSTANTLY everywhere."
+    },
+    {
+      "id": "00-OVERVIEW.md#039",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "+---------+    Change a boundary value → entire interior adjusts\n  |         |    immediately. No preferred direction. No \"time\".\n  |    ·    |    Solution at any point depends on ALL boundary data.\n  |         |    Think: soap film on a wire frame. Equilibrium.\n  +---------+"
+    },
+    {
+      "id": "00-OVERVIEW.md#040",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "PARABOLIC: Information propagates at INFINITE speed but decays."
+    },
+    {
+      "id": "00-OVERVIEW.md#041",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "t=0:   ─────────────────[spike]────────────────── x\n  t=ε:   ──────────────[Gaussian]────────────────── x\n  t=T:   ─────────────────[flat]──────────────────── x"
+    },
+    {
+      "id": "00-OVERVIEW.md#042",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "Every point is immediately influenced by the spike.\n  But influence diminishes exponentially with distance.\n  Irreversible: running time backward is ill-posed."
+    },
+    {
+      "id": "00-OVERVIEW.md#043",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "HYPERBOLIC: Information propagates at FINITE speed c."
+    },
+    {
+      "id": "00-OVERVIEW.md#044",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "t=0:   ──────────────[spike at x=0]───────────── x\n  t=1:   ────────────────────X──────────────────── x (nothing outside)\n                           [−c,+c]\n  t=2:   ─────────────────X─────X──────────────── x\n                         [−2c] [+2c]"
+    },
+    {
+      "id": "00-OVERVIEW.md#045",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "Domain of influence: forward light cone.\n  Domain of dependence: backward light cone.\n  Outside the cone: EXACTLY zero effect (causality).\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#046",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#047",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "## This Directory"
+    },
+    {
+      "id": "00-OVERVIEW.md#048",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:00-overview, git-history:partial-differential-equations:00-overview]",
+        "canonical_path": "partial-differential-equations/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "partial-differential-equations/00-OVERVIEW.md",
+        "id": "maxim:partial-differential-equations:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Partial Differential Equations - Landscape and Taxonomy",
+        "updated": "null"
+      },
+      "text": "| File | Topic |\n|------|-------|\n| 00-OVERVIEW.md | This file — landscape and taxonomy |\n| 01-CLASSIFICATION.md | Classification and well-posedness in depth |\n| 02-FIRST-ORDER.md | First-order PDEs, method of characteristics |\n| 03-WAVE-EQUATION.md | Wave equation and hyperbolic systems |\n| 04-HEAT-EQUATION.md | Heat equation and parabolic systems |\n| 05-LAPLACE-POISSON.md | Laplace and Poisson equations |\n| 06-FOURIER-METHODS.md | Fourier methods and separation of variables |\n| 07-GREENS-FUNCTIONS.md | Green's functions and distributions |\n| 08-VARIATIONAL-WEAK.md | Weak formulations, Sobolev spaces, FEM foundation |\n| 09-NUMERICAL-PDES.md | Numerical methods for PDEs |"
+    }
+  ],
+  "refs": [
+    "00-OVERVIEW.md"
+  ]
+}

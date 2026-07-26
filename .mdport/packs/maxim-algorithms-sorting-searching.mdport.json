@@ -1,0 +1,1665 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-algorithms-sorting-searching",
+  "source": "../../algorithms",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "02-SORTING-SEARCHING.md#000",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "# Sorting and Searching"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#001",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "Sorting is the field's canonical case study: it has a *provable lower bound* in the\ncomparison model, a family of algorithms that hit it, a separate family that\nescapes it under extra assumptions, and clean stability/in-place trade-offs that\nmatter in real systems. Searching is its dual — sorted structure is what makes\nsublinear search possible. Every complexity bound below is stated best/average/worst\nwith the precondition that governs it."
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#002",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "```\n  THE SORTING LANDSCAPE\n  ====================================================================================="
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#003",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "COMPARISON SORTS  (only learn via \"a<b?\")        NON-COMPARISON  (read key bits)\n   bounded BELOW by Omega(n log n)                   can be O(n) — ESCAPE the bound\n   ------------------------------------              ----------------------------------\n   +----------------------------------+              +------------------------------+\n   | O(n^2) family    | O(n log n)    |              | counting   O(n+k)            |\n   |  insertion       |  mergesort *  |              | radix      O(d(n+k))         |\n   |  selection       |  heapsort     |              | bucket     O(n) avg          |\n   |  bubble          |  quicksort**  |              +------------------------------+\n   +----------------------------------+               precondition: integer/bounded keys\n     * stable          ** avg n log n / worst n^2\n                          NOT stable, in-place"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#004",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "|  the lower bound (decision tree):\n            v\n   n! orderings -> binary decision tree of height >= log2(n!) = Theta(n log n)\n   => NO comparison sort does better than Omega(n log n) in the worst case."
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#005",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "SEARCHING                          SELECTION (k-th smallest)\n   ---------                          -------------------------\n   unsorted: O(n) linear              quickselect   O(n) avg / O(n^2) worst\n   sorted:   O(log n) binary search   median-of-medians O(n) WORST (Akra-Bazzi, see 01)\n   sorted+indexed: O(log log n)\n     interpolation (uniform keys)\n```"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#006",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "**Read top-down**: the comparison model has a hard floor (`Ω(n log n)`); algorithms\neither hit that floor (mergesort, heapsort, quicksort-avg) or leave the model\nentirely (counting/radix) to go linear, at the cost of assuming structured keys."
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#007",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#008",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "## Layer 1: The Comparison-Sort Lower Bound"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#009",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "This is the cleanest impossibility result in the directory, and it pins down\n*exactly* what \"you can't sort faster than n log n\" means."
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#010",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "```\n   A comparison sort's only window into the data is the question \"is a[i] < a[j]?\"\n   Its entire execution is a binary DECISION TREE:"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#011",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "a < b ?\n                       /        \\\n                    yes          no\n                    /              \\\n                 b < c ?          a < c ?\n                 /   \\            /     \\\n            [a,b,c]  a<c?     [b,a,c]   b<c?\n                     / \\                / \\\n               [a,c,b][c,a,b]    [b,c,a][c,b,a]"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#012",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "- Each LEAF is one of the n! possible orderings (all must be reachable).\n   - The number of comparisons on an input = depth of its leaf.\n   - Worst case = tree HEIGHT.\n   - A binary tree with L leaves has height >= ceil(log2 L).\n   - L >= n!  =>  height >= log2(n!) = Theta(n log n)   [Stirling: log2(n!) ~ n log2 n]"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#013",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "THEOREM: every comparison sort makes Omega(n log n) comparisons in the worst case.\n```"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#014",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "The bound is about the **model**, not about cleverness. Counting/radix sort run in\nO(n) precisely because they are *not* comparison sorts — they never ask \"a < b?\",\nthey read the key directly, so the decision-tree argument does not apply to them.\nThis is the same move as a reduction in `09`: an impossibility result is only as\nstrong as the model it is stated in."
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#015",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#016",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "## Layer 2: The Comparison Sorts (the property matrix)"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#017",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "```\n  +--------------------------------------------------------------------------------+\n  | Sort       | Best       | Average    | Worst      | Space   | Stable | In-place|\n  |------------|------------|------------|------------|---------|--------|---------|\n  | Insertion  | O(n)       | O(n^2)     | O(n^2)     | O(1)    | YES    | yes     |\n  | Selection  | O(n^2)     | O(n^2)     | O(n^2)     | O(1)    | no     | yes     |\n  | Bubble     | O(n)       | O(n^2)     | O(n^2)     | O(1)    | YES    | yes     |\n  | Mergesort  | O(n log n) | O(n log n) | O(n log n) | O(n)    | YES    | no      |\n  | Heapsort   | O(n log n) | O(n log n) | O(n log n) | O(1)    | no     | yes     |\n  | Quicksort  | O(n log n) | O(n log n) | O(n^2)     | O(log n)| no     | yes     |\n  | Timsort    | O(n)       | O(n log n) | O(n log n) | O(n)    | YES    | no      |\n  +--------------------------------------------------------------------------------+\n   \"Stable\" = equal keys keep their original relative order.\n   Quicksort space O(log n) = recursion stack depth (with tail-recursion on the smaller side).\n```"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#018",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "### Insertion sort — O(n) on nearly-sorted input"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#019",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "Best-case O(n) (already sorted), and it is the building block Timsort uses on small\nruns. Adaptive: cost is O(n + inversions)."
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#020",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "```\n   sort [5, 2, 4, 6, 1, 3], insert each into the sorted prefix:"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#021",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "[5 | 2 4 6 1 3]            take 2, shift 5\n   [2 5 | 4 6 1 3]            take 4, shift 5\n   [2 4 5 | 6 1 3]            take 6, no shift\n   [2 4 5 6 | 1 3]            take 1, shift 6 5 4 2\n   [1 2 4 5 6 | 3]            take 3, shift 6 5 4\n   [1 2 3 4 5 6]              done\n```"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#022",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "### Mergesort — stable, O(n log n) worst-case, O(n) extra space"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#023",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "```\n   split to singletons, then merge sorted runs (T(n)=2T(n/2)+n -> Theta(n log n), see 01):"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#024",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "[5 2 4 6 1 3]\n   -> [5 2 4] [6 1 3]\n   -> [5][2 4] [6][1 3]\n   -> [5][2][4] [6][1][3]\n   merge: [2 4][5] -> [2 4 5]   ;   [1 3][6] -> [1 3 6]\n   merge: [2 4 5] + [1 3 6]:\n          take min of fronts each step:\n          1<2 ->1 | 2<3 ->2 | 3<4 ->3 | 4<6 ->4 | 5<6 ->5 | 6\n   => [1 2 3 4 5 6]\n```"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#025",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "Stable because the merge takes from the left run on ties. The O(n log n) is\nworst-case (no bad inputs), which is why it backs `OrderBy`-style stable sorts and\nexternal sorts."
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#026",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "### Quicksort — avg O(n log n), **worst O(n²)**, not stable"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#027",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "```\n   partition around a pivot (here last element = 3): elements < 3 left, >= 3 right."
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#028",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "[5 2 4 6 1 | 3]   pivot 3\n     scan: 5>=3 keep right, 2<3 swap-left, 4>=3, 6>=3, 1<3 swap-left\n     -> [2 1 | 3 | 5 6 4]      (3 in final position)\n   recurse left [2 1] -> [1 2] ; recurse right [5 6 4] -> [4 5 6]\n   => [1 2 3 4 5 6]"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#029",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "WORST CASE: pivot is always the min/max (e.g. already-sorted input + first-element pivot)\n     -> partitions of size n-1, 0  ->  T(n)=T(n-1)+n = Theta(n^2).\n   FIX: randomized pivot OR median-of-three -> O(n log n) EXPECTED for any input (see 01).\n```"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#030",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "Quicksort is the practical default (in-place, cache-friendly, small constants) but\nits O(n log n) is *average/expected*, never a worst-case guarantee. Production\nlibraries use **introsort**: quicksort that switches to heapsort once recursion\ndepth exceeds ~2·log n, capping the worst case at O(n log n)."
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#031",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "### Heapsort — O(n log n) worst-case, in-place, **not stable**"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#032",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "Build a max-heap in O(n), then repeatedly extract-max into the back. O(1) extra\nspace, O(n log n) worst-case — but poor cache locality and not stable, so it is\nusually the *fallback*, not the default. (Heaps themselves are in `06`.)"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#033",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#034",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "## Layer 3: Non-Comparison Sorts (escaping Ω(n log n))"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#035",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "These read key *values/bits* directly. They beat the comparison bound only under\nthe precondition of integer (or fixed-width) keys in a bounded range."
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#036",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "### Counting sort — O(n + k), stable, for keys in [0, k)"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#037",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "```\n   sort [2,5,2,0,3,2] with keys in [0,5]:\n   1) count occurrences:   value: 0 1 2 3 4 5\n                           count: 1 0 3 1 0 1\n   2) prefix-sum to positions: 1 1 4 5 5 6   (cumulative)\n   3) place each element (scanning RIGHT-to-LEFT keeps it STABLE):\n      => [0, 2, 2, 2, 3, 5]\n   cost: O(n + k).  Linear when k = O(n).  Needs O(k) extra space.\n```"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#038",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "### Radix sort — O(d·(n + k)), stable"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#039",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "Sort by each digit, least-significant first, using a *stable* sort (counting) per\ndigit. With `d` digits over base `k`: O(d·(n+k)). For 32-bit ints in base 256,\nd = 4, k = 256 → effectively O(n)."
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#040",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "```\n   LSD radix on [170, 45, 75, 90, 802, 24, 2, 66] (base 10):"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#041",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "by 1s: 170 90 802 2 24 45 75 66        (ones: 0 0 2 2 4 5 5 6)\n   by 10s: 802 2 24 45 66 170 75 90       (tens: 0 0 2 4 6 7 7 9)\n   by 100s: 2 24 45 66 75 90 170 802      (hundreds: 0 0 0 0 0 0 1 8)\n   => sorted. Each pass MUST be stable or earlier-digit order is lost.\n```"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#042",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "**Why stability is non-negotiable here**: radix relies on earlier (less significant)\npasses having already ordered ties; a non-stable per-digit sort would scramble them."
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#043",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "### Bucket sort — O(n) average for uniform keys"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#044",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "Distribute into n buckets by key range, sort each (insertion), concatenate. O(n)\naverage under a uniform-distribution assumption; O(n²) worst-case if everything\nlands in one bucket."
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#045",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "```\n  WHEN A NON-COMPARISON SORT WINS\n  counting  -> small integer key range k = O(n)\n  radix     -> fixed-width integer/string keys, large range\n  bucket    -> keys ~uniform over a known interval (e.g. floats in [0,1))\n  otherwise -> a comparison sort; you cannot beat Omega(n log n) generically\n```"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#046",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#047",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "## Layer 4: Selection (the k-th smallest)"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#048",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "You can find the k-th order statistic *without fully sorting* — better than the\nO(n log n) a sort would cost."
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#049",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "```\n  QUICKSELECT (partition like quicksort, recurse into ONE side):\n    avg O(n):  n + n/2 + n/4 + ... = O(n)    worst O(n^2): bad pivots\n    median:    k = n/2"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#050",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "MEDIAN-OF-MEDIANS (deterministic pivot = median of group-of-5 medians):\n    T(n) = T(n/5) + T(7n/10) + O(n)  ->  Theta(n) WORST CASE  (Akra-Bazzi, see 01)\n    guarantees the pivot splits off at least 30% each side.\n```"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#051",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "Quickselect is what you reach for in practice (small constants); median-of-medians\nis the existence proof that **worst-case linear selection** is possible, and is the\npivot strategy that makes a deterministic O(n log n) quicksort variant possible."
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#052",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#053",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "## Layer 5: Searching"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#054",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "```\n  +------------------------------------------------------------------------+\n  | Structure        | Search    | Notes / precondition                    |\n  |------------------|-----------|-----------------------------------------|\n  | unsorted array   | O(n)      | linear scan; no structure to exploit    |\n  | sorted array     | O(log n)  | binary search                           |\n  | sorted, uniform  | O(log log n)| interpolation search (uniform keys)   |\n  | hash table       | O(1) exp* | *amortized expected, NOT worst-case (06)|\n  | balanced BST     | O(log n)  | worst-case guarantee, ordered (06)      |\n  | B-tree           | O(log n)  | disk/SSD-friendly, high fan-out (06)    |\n  +------------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#055",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "### Binary search — and the off-by-one that bites everyone"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#056",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "```\n   find 23 in [4, 8, 15, 16, 23, 42]   (indices 0..5)\n   lo=0 hi=5  mid=2 -> 15 < 23 -> lo=3\n   lo=3 hi=5  mid=4 -> 23 == 23 -> FOUND at index 4"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#057",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "Invariant: target, if present, is always in [lo, hi].\n   Use mid = lo + (hi - lo)/2  (NOT (lo+hi)/2 — that can overflow for large indices).\n```"
+    },
+    {
+      "id": "02-SORTING-SEARCHING.md#058",
+      "path": [
+        "02-SORTING-SEARCHING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:algorithms:02-sorting-searching, git-history:algorithms:02-sorting-searching]",
+        "canonical_path": "algorithms/02-SORTING-SEARCHING.md",
+        "concepts": "[sorting, comparison sort lower bound, quicksort, mergesort, heapsort, radix sort, selection, binary search]",
+        "current_path": "algorithms/02-SORTING-SEARCHING.md",
+        "id": "maxim:algorithms:sorting-searching",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sorting]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Sorting and Searching",
+        "updated": "null"
+      },
+      "text": "Binary search generalizes far beyond arrays: any **monotone predicate** can be\nbinary-searched (\"smallest x where f(x) is true\"), which is the backbone of\nparametric search and many \"minimize the maximum\" optimization problems."
+    }
+  ],
+  "refs": [
+    "02-SORTING-SEARCHING.md"
+  ]
+}

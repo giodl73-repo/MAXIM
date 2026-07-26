@@ -1,0 +1,545 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-numerical-methods-linear-systems",
+  "source": "../../numerical-methods",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "02-LINEAR-SYSTEMS.md#000",
+      "path": [
+        "02-LINEAR-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:02-linear-systems, git-history:numerical-methods:02-linear-systems]",
+        "canonical_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "concepts": "[linear, systems]",
+        "current_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "id": "maxim:numerical-methods:linear-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[linear, systems]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Linear Systems",
+        "updated": "null"
+      },
+      "text": "# Linear Systems"
+    },
+    {
+      "id": "02-LINEAR-SYSTEMS.md#001",
+      "path": [
+        "02-LINEAR-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:02-linear-systems, git-history:numerical-methods:02-linear-systems]",
+        "canonical_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "concepts": "[linear, systems]",
+        "current_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "id": "maxim:numerical-methods:linear-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[linear, systems]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Linear Systems",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "02-LINEAR-SYSTEMS.md#002",
+      "path": [
+        "02-LINEAR-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:02-linear-systems, git-history:numerical-methods:02-linear-systems]",
+        "canonical_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "concepts": "[linear, systems]",
+        "current_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "id": "maxim:numerical-methods:linear-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[linear, systems]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Linear Systems",
+        "updated": "null"
+      },
+      "text": "Solving Ax = b is the most common operation in scientific computing. Every PDE solver, least-squares regression, and iterative optimizer reduces to linear solves. The choice between direct and iterative methods depends on problem size and structure."
+    },
+    {
+      "id": "02-LINEAR-SYSTEMS.md#003",
+      "path": [
+        "02-LINEAR-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:02-linear-systems, git-history:numerical-methods:02-linear-systems]",
+        "canonical_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "concepts": "[linear, systems]",
+        "current_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "id": "maxim:numerical-methods:linear-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[linear, systems]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Linear Systems",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|                  LINEAR SYSTEM SOLVER TAXONOMY                   |\n+------------------------------------------------------------------+\n|                                                                  |\n|  DIRECT METHODS                    ITERATIVE METHODS             |\n|  (exact up to rounding)            (converge to solution)       |\n|  +---------------------+           +-------------------+        |\n|  | LU factorization    |           | CG (sym. PD)      |        |\n|  | Ax=b, dense         |           | GMRES (general)   |        |\n|  | O(n^3) work         |           | BiCGSTAB          |        |\n|  | O(n^2) storage      |           | MINRES (sym.)     |        |\n|  +---------------------+           | Multigrid         |        |\n|  | QR factorization    |           +-------------------+        |\n|  | Least squares min   |           | O(n) to O(n^4/3)  |        |\n|  | ||Ax-b||^2          |           | for sparse A      |        |\n|  +---------------------+           +-------------------+        |\n|  | Cholesky (sym.PD)   |           PRECONDITIONING:             |\n|  | A = LL^T            |           Key to practical speed       |\n|  | Half the work of LU |                                        |\n|  -----------------------                                        |\n|  WHEN DIRECT:          n < 10^4, dense, need exact solution     |\n|  WHEN ITERATIVE:       n > 10^4, sparse, structured             |\n|                                                                 |\n+------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "02-LINEAR-SYSTEMS.md#004",
+      "path": [
+        "02-LINEAR-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:02-linear-systems, git-history:numerical-methods:02-linear-systems]",
+        "canonical_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "concepts": "[linear, systems]",
+        "current_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "id": "maxim:numerical-methods:linear-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[linear, systems]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Linear Systems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-LINEAR-SYSTEMS.md#005",
+      "path": [
+        "02-LINEAR-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:02-linear-systems, git-history:numerical-methods:02-linear-systems]",
+        "canonical_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "concepts": "[linear, systems]",
+        "current_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "id": "maxim:numerical-methods:linear-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[linear, systems]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Linear Systems",
+        "updated": "null"
+      },
+      "text": "## Gaussian Elimination and LU Factorization"
+    },
+    {
+      "id": "02-LINEAR-SYSTEMS.md#006",
+      "path": [
+        "02-LINEAR-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:02-linear-systems, git-history:numerical-methods:02-linear-systems]",
+        "canonical_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "concepts": "[linear, systems]",
+        "current_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "id": "maxim:numerical-methods:linear-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[linear, systems]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Linear Systems",
+        "updated": "null"
+      },
+      "text": "**Gaussian elimination** transforms Ax = b into Ux = c (upper triangular) by row operations:"
+    },
+    {
+      "id": "02-LINEAR-SYSTEMS.md#007",
+      "path": [
+        "02-LINEAR-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:02-linear-systems, git-history:numerical-methods:02-linear-systems]",
+        "canonical_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "concepts": "[linear, systems]",
+        "current_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "id": "maxim:numerical-methods:linear-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[linear, systems]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Linear Systems",
+        "updated": "null"
+      },
+      "text": "```\n  FORWARD ELIMINATION:\n  For k = 1 to n-1:\n    For i = k+1 to n:\n      m_ik = A_{ik} / A_{kk}   (multiplier; A_{kk} = pivot)\n      For j = k to n:\n        A_{ij} = A_{ij} - m_ik * A_{kj}\n      b_i = b_i - m_ik * b_k"
+    },
+    {
+      "id": "02-LINEAR-SYSTEMS.md#008",
+      "path": [
+        "02-LINEAR-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:02-linear-systems, git-history:numerical-methods:02-linear-systems]",
+        "canonical_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "concepts": "[linear, systems]",
+        "current_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "id": "maxim:numerical-methods:linear-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[linear, systems]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Linear Systems",
+        "updated": "null"
+      },
+      "text": "BACK SUBSTITUTION:\n  x_n = b_n / A_{nn}\n  x_i = (b_i - Sum_{j=i+1}^n A_{ij} x_j) / A_{ii}   for i = n-1 down to 1"
+    },
+    {
+      "id": "02-LINEAR-SYSTEMS.md#009",
+      "path": [
+        "02-LINEAR-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:02-linear-systems, git-history:numerical-methods:02-linear-systems]",
+        "canonical_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "concepts": "[linear, systems]",
+        "current_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "id": "maxim:numerical-methods:linear-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[linear, systems]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Linear Systems",
+        "updated": "null"
+      },
+      "text": "COST: O(n^3) flops (2n^3/3 for elimination + O(n^2) for back substitution)\n  STORAGE: O(n^2)\n```"
+    },
+    {
+      "id": "02-LINEAR-SYSTEMS.md#010",
+      "path": [
+        "02-LINEAR-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:02-linear-systems, git-history:numerical-methods:02-linear-systems]",
+        "canonical_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "concepts": "[linear, systems]",
+        "current_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "id": "maxim:numerical-methods:linear-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[linear, systems]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Linear Systems",
+        "updated": "null"
+      },
+      "text": "**LU factorization** decomposes A = LU (L lower triangular, U upper triangular):"
+    },
+    {
+      "id": "02-LINEAR-SYSTEMS.md#011",
+      "path": [
+        "02-LINEAR-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:02-linear-systems, git-history:numerical-methods:02-linear-systems]",
+        "canonical_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "concepts": "[linear, systems]",
+        "current_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "id": "maxim:numerical-methods:linear-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[linear, systems]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Linear Systems",
+        "updated": "null"
+      },
+      "text": "```\n  L_{ik} = m_ik (multipliers stored below diagonal of \"A\")\n  U_{kj} = A_{kj} after elimination (upper triangular result)"
+    },
+    {
+      "id": "02-LINEAR-SYSTEMS.md#012",
+      "path": [
+        "02-LINEAR-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:02-linear-systems, git-history:numerical-methods:02-linear-systems]",
+        "canonical_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "concepts": "[linear, systems]",
+        "current_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "id": "maxim:numerical-methods:linear-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[linear, systems]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Linear Systems",
+        "updated": "null"
+      },
+      "text": "SOLVE Ax = b using A = LU:\n  Ly = b (forward substitution, O(n^2))\n  Ux = y (back substitution, O(n^2))"
+    },
+    {
+      "id": "02-LINEAR-SYSTEMS.md#013",
+      "path": [
+        "02-LINEAR-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:02-linear-systems, git-history:numerical-methods:02-linear-systems]",
+        "canonical_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "concepts": "[linear, systems]",
+        "current_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "id": "maxim:numerical-methods:linear-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[linear, systems]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Linear Systems",
+        "updated": "null"
+      },
+      "text": "ADVANTAGE: Factorize ONCE (O(n^3)), solve MANY times (O(n^2) each).\n  For solving with multiple right-hand sides b_1, b_2, ...: one factorization suffices.\n```"
+    },
+    {
+      "id": "02-LINEAR-SYSTEMS.md#014",
+      "path": [
+        "02-LINEAR-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:02-linear-systems, git-history:numerical-methods:02-linear-systems]",
+        "canonical_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "concepts": "[linear, systems]",
+        "current_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "id": "maxim:numerical-methods:linear-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[linear, systems]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Linear Systems",
+        "updated": "null"
+      },
+      "text": "**Partial pivoting** (essential for stability):"
+    },
+    {
+      "id": "02-LINEAR-SYSTEMS.md#015",
+      "path": [
+        "02-LINEAR-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:02-linear-systems, git-history:numerical-methods:02-linear-systems]",
+        "canonical_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "concepts": "[linear, systems]",
+        "current_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "id": "maxim:numerical-methods:linear-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[linear, systems]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Linear Systems",
+        "updated": "null"
+      },
+      "text": "```\n  PROBLEM: If A_{kk} is small, the multipliers m_ik = A_{ik}/A_{kk} are large.\n  Large multipliers amplify rounding errors. UNSTABLE without pivoting."
+    },
+    {
+      "id": "02-LINEAR-SYSTEMS.md#016",
+      "path": [
+        "02-LINEAR-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:02-linear-systems, git-history:numerical-methods:02-linear-systems]",
+        "canonical_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "concepts": "[linear, systems]",
+        "current_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "id": "maxim:numerical-methods:linear-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[linear, systems]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Linear Systems",
+        "updated": "null"
+      },
+      "text": "PARTIAL PIVOTING: before elimination step k, find row with largest |A_{ik}| for i >= k.\n  Swap that row with row k. Record the permutation."
+    },
+    {
+      "id": "02-LINEAR-SYSTEMS.md#017",
+      "path": [
+        "02-LINEAR-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:02-linear-systems, git-history:numerical-methods:02-linear-systems]",
+        "canonical_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "concepts": "[linear, systems]",
+        "current_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "id": "maxim:numerical-methods:linear-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[linear, systems]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Linear Systems",
+        "updated": "null"
+      },
+      "text": "PA = LU factorization with permutation matrix P.\n  Solve Ax = b: Ly = Pb, then Ux = y."
+    },
+    {
+      "id": "02-LINEAR-SYSTEMS.md#018",
+      "path": [
+        "02-LINEAR-SYSTEMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:02-linear-systems, git-history:numerical-methods:02-linear-systems]",
+        "canonical_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "concepts": "[linear, systems]",
+        "current_path": "numerical-methods/02-LINEAR-SYSTEMS.md",
+        "id": "maxim:numerical-methods:linear-systems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[linear, systems]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Linear Systems",
+        "updated": "null"
+      },
+      "text": "STABILITY: Backward stable with partial pivoting (Wilkinson's theorem).\n  Growth factor bounded: max_{i,j}|U_{ij}| <= 2^{n-1} max_{i,j}|A_{ij}| in worst case (practically never an issue)."
+    }
+  ],
+  "refs": [
+    "02-LINEAR-SYSTEMS.md"
+  ]
+}

@@ -142,6 +142,6 @@ with the verified-now results. *Disposition: repaired.*
 ## Verdict
 
 Factual, quantitative, scaling, and record defects in this lens are corrected and focused
-PROOF is green (**3 files checked, 0 errors, 0 warnings**). Because every fix was made in the
+MDLOOM is green (**3 files checked, 0 errors, 0 warnings**). Because every fix was made in the
 same repair pass, the pattern is **not** ratified on this record alone. **Recommend Pulse 03
 stays IN REVIEW pending a strict R2 re-review.**

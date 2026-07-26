@@ -1,0 +1,1273 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-marketing-metrics-and-analytics",
+  "source": "../../marketing",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#000",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "# Metrics and Analytics"
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#001",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#002",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "This is where marketing proves it paid. The metrics layer converts campaigns into\n**unit economics** — the cost to acquire a customer vs the value that customer\nreturns — and into the *did-it-work* question (attribution, incrementality). The\nlandscape, from spend to verdict:"
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#003",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "```\n+-------------------------------------------------------------------------+\n|                    THE MARKETING ECONOMICS STACK                        |\n|                                                                         |\n|  SPEND            -> ACQUISITION    -> VALUE        -> VERDICT          |\n|  -----               -----------       -----           -------          |\n|  marketing $         CAC               LTV             LTV : CAC        |\n|  + sales $           (cost to          (value a        ratio + payback  |\n|                       acquire one)      customer        period          |\n|                                         returns)                        |\n|     |                    |                  |              |            |\n|     v                    v                  v              v            |\n|  .--------.          .--------.         .--------.    .-------------.   |\n|  | ROAS   |          | FUNNEL |         | COHORT |    | ATTRIBUTION |   |\n|  | revenue|          | per-   |         | retain |    | which spend |   |\n|  | per $  |          | stage  |         | by     |    | gets credit?|   |\n|  | spent  |          | yield  |         | cohort |    | MMM vs MTA  |   |\n|  '--------'          '--------'         '--------'    '-------------'   |\n|                                                            |            |\n|                                                            v            |\n|                                                    .---------------.    |\n|                                                    | INCREMENTALITY |   |\n|                                                    | what spend     |   |\n|                                                    | CAUSED (A/B)   |   |\n|                                                    '---------------'    |\n|                                                                         |\n|  The whole stack answers: are we acquiring customers profitably?        |\n+-------------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#004",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "**Read left-to-right**: spend buys acquisitions at some CAC; those customers\nreturn some LTV; the ratio and payback decide profitability; attribution and\nincrementality decide *which spend* deserves the credit. The bridge: this is\n**cost accounting + observability for the growth pipeline** — the same instinct as\ncost-per-request and SLOs, applied to customers."
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#005",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#006",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "## CAC: Customer Acquisition Cost"
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#007",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "The denominator of the whole model."
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#008",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "```\n                 total sales + marketing spend (in a period)\n   CAC  =  ---------------------------------------------------------\n                 number of NEW customers acquired (same period)\n```"
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#009",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "| Subtlety | Why it matters |\n|---|---|\n| **Fully-loaded vs paid-media-only** | Include salaries, tools, content — not just ad spend — or CAC flatters |\n| **Blended vs paid CAC** | Blended divides by *all* new customers (incl. organic); paid divides by paid-channel customers. Blended hides whether paid is working |\n| **By channel / cohort** | Marginal CAC rises as you scale a channel (you exhaust the cheap audience first) |\n| **Attribution-dependent** | Which channel gets credited changes per-channel CAC (see attribution below) |"
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#010",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "The trap is **blended CAC masking a broken paid channel**: organic growth can hide\nthat your paid acquisition is unprofitable. Always look at *paid* CAC and\n*marginal* CAC (the cost of the *next* customer), not just the blended average —\nthe same reason you watch p99 and marginal cost, not just the mean."
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#011",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#012",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "## LTV: Customer Lifetime Value"
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#013",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "The numerator — the value a customer returns over their life. Several formulations;\nhere is the operating one."
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#014",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "```\n  SIMPLE (steady-state):"
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#015",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "ARPA  x  gross margin %\n   LTV  =  ---------------------------\n                 churn rate"
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#016",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "ARPA = avg revenue per account (per period)\n   churn = fraction of customers lost per period\n   (1 / churn = expected customer lifetime in periods)"
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#017",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "EXAMPLE: $100/mo ARPA, 70% gross margin, 5% monthly churn\n   lifetime = 1 / 0.05 = 20 months\n   LTV = (100 x 0.70) / 0.05 = $1,400\n```"
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#018",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "```\n+-----------------------------------------------------------------+\n|                  WHAT DRIVES LTV                                |\n|                                                                 |\n|  ARPA up       -> upsell, cross-sell, price (04)                |\n|  MARGIN up     -> cost to serve down                            |\n|  CHURN down    -> retention is the BIGGEST lever (1/churn       |\n|                   is nonlinear: halving churn DOUBLES lifetime) |\n|  EXPANSION     -> negative net churn (existing accounts grow    |\n|                   faster than they leave) -> LTV can be huge    |\n+-----------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#019",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "Two refinements senior readers will want: (1) **discount future cash flows** — LTV\nis a present value; far-future revenue is worth less, so a proper LTV discounts at\nthe cost of capital. (2) **Churn is the dominant, nonlinear lever** — because\nlifetime is 1/churn, cutting churn from 5% to 2.5% *doubles* expected lifetime and\nLTV. Retention beats acquisition for LTV, which is why cohort analysis (below)\nmatters more than any single campaign metric."
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#020",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#021",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "## The LTV:CAC Ratio and Payback Period"
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#022",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "The two numbers that decide whether the business works."
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#023",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "```\n+-----------------------------------------------------------------+\n|              LTV : CAC  AND  PAYBACK                            |\n|                                                                 |\n|  LTV : CAC RATIO     how much value you get per $ of            |\n|                      acquisition.                               |\n|                                                                 |\n|     < 1 : 1   losing money on every customer (stop)             |\n|     ~ 1 : 1   break-even, no margin for ops/profit              |\n|     ~ 3 : 1   the common HEALTHY benchmark for SaaS             |\n|     > 5 : 1   possibly UNDER-investing in growth (spend more!)  |\n|                                                                 |\n|  CAC PAYBACK PERIOD  months to recover CAC from gross-margin    |\n|                      contribution.                              |\n|                                                                 |\n|              CAC                                                |\n|     = -----------------------------                             |\n|        ARPA x gross margin (monthly)                            |\n|                                                                 |\n|     Healthy SaaS rule of thumb: < 12 months.                    |\n|     Long payback strains cash even if LTV:CAC looks great.      |\n+-----------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#024",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "| Metric | Formula | Healthy benchmark | What it ignores |\n|---|---|---|---|\n| **LTV:CAC** | LTV / CAC | ~3:1 (SaaS) | *When* the cash returns (timing) |\n| **CAC payback** | CAC / (ARPA x GM% per period) | < 12 months | Total lifetime value beyond payback |"
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#025",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "The two metrics are complementary and you need *both*. A 5:1 LTV:CAC with a\n36-month payback can *bankrupt* you on cash even though each customer is wildly\nprofitable eventually — you front the CAC today and collect for three years. This\nis a **cash-flow-vs-NPV** distinction: LTV:CAC is the lifetime return; payback is\nthe cash-conversion speed. The bridge: it's the difference between \"is this service\nprofitable per request\" and \"can we afford the capex to stand it up before the\nrevenue lands.\""
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#026",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "```\nOLD WORLD                          UNIT-ECONOMICS ANALOG\n-----------------------------      -------------------------------------\nCost per request / per unit        CAC (cost per acquired customer)\nLifetime value of a tenant         LTV (value per customer over life)\nNPV of a capacity investment       LTV:CAC ratio (lifetime return)\nTime to ROI / break-even           CAC payback period (cash speed)\nWatch marginal, not just average   Marginal CAC, not blended CAC\n```"
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#027",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#028",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "## ROAS: Return on Ad Spend"
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#029",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "The campaign-level efficiency metric."
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#030",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "```\n                 revenue attributable to the ads\n   ROAS  =  ----------------------------------------\n                 cost of the ads"
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#031",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "ROAS = 4 (or \"400%\")  ->  $4 revenue per $1 spent."
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#032",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "BREAK-EVEN ROAS depends on MARGIN, not revenue:\n     break-even ROAS = 1 / gross margin %\n     (50% margin -> need ROAS > 2 just to break even on COGS;\n      and that's BEFORE the ad cost itself)\n```"
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#033",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "The constant error is treating **ROAS as profit**. ROAS is *revenue* per ad\ndollar; profit requires netting out COGS (so break-even ROAS = 1/margin) and all\nother costs. A 3x ROAS on a 30% margin product is *losing money*. ROAS is also\n**attribution-dependent** — the revenue in the numerator is \"attributed\" revenue,\nwhich means the attribution model (next section) silently sets the number. Two\nteams can report different ROAS for the same campaign purely from attribution\nchoices."
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#034",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#035",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "## Funnel and Cohort Analysis"
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#036",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "Two complementary lenses on the data."
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#037",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "```\n+-----------------------------------------------------------------+\n|         FUNNEL (cross-section)   vs   COHORT (longitudinal)     |\n|                                                                 |\n|  FUNNEL = conversion by STAGE    COHORT = behavior over TIME    |\n|  ------------------------------  ------------------------------ |\n|   visit    100,000               group users by SIGNUP MONTH:   |\n|     |  10%                                                      |\n|   signup    10,000               cohort  m0   m1   m2   m3      |\n|     |  20%                       Jan     100%  60%  45%  40%    |\n|   activate   2,000               Feb     100%  65%  50%  47%    |\n|     |  15%                       Mar     100%  70%  58%  ...    |\n|   pay          300                                              |\n|                                  -> is RETENTION improving      |\n|   where is the bottleneck        cohort over cohort?            |\n|   STAGE? -> fix the worst        -> does the curve FLATTEN      |\n|   per-stage yield                (a retained core) or -> 0?     |\n+-----------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#038",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "**Funnel analysis** is a *cross-sectional* view — conversion rate per stage right\nnow — and it localizes the bottleneck (the lowest-yield stage is where to invest,\nexactly like the slowest stage in a pipeline). **Cohort analysis** is a\n*longitudinal* view — group users by acquisition date and track them over time —\nand it answers the questions funnels can't: is retention improving for newer\ncohorts, and does the retention curve *flatten* (you have a sticky core) or decay\nto zero (you have a leaky bucket no acquisition can fill). The bridge: funnels are\nper-stage throughput; cohorts are *retention curves by release*, like tracking\neach deploy's user base over time. You need both: the funnel says *where* it\nleaks, the cohort says *whether it's getting better*."
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#039",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#040",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "## Attribution: Who Gets the Credit?"
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#041",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "Customers touch many channels before converting. **Attribution** assigns credit\nfor the conversion across those touches — and it silently determines CAC, ROAS,\nand budget decisions. There is no objectively \"true\" attribution model; each is a\n*rule*, and the rule changes the answer."
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#042",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "```\n+-----------------------------------------------------------------+\n|              ATTRIBUTION MODELS                                 |\n|              (journey: display -> search -> email -> BUY)       |\n|                                                                 |\n|  LAST-TOUCH     100% to the LAST touch (email).                 |\n|                 Simple; over-credits bottom-funnel.             |\n|                                                                 |\n|  FIRST-TOUCH    100% to the FIRST touch (display).              |\n|                 Over-credits top-funnel awareness.              |\n|                                                                 |\n|  LINEAR         equal credit to all touches (25% each).         |\n|                                                                 |\n|  TIME-DECAY     more credit to touches NEARER the conversion.   |\n|                                                                 |\n|  POSITION-BASED 40% first, 40% last, 20% middle (U-shaped).     |\n|                                                                 |\n|  DATA-DRIVEN    model-estimated credit (e.g. Shapley-value      |\n|                 style) from many journeys. Best, data-hungry.   |\n|                                                                 |\n|  THE PROBLEM: these are RULES, not truth. They distribute a     |\n|  fixed credit by assumption -> different budgets, same data.    |\n+-----------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#043",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "| Model | Credit rule | Bias |\n|---|---|---|\n| **Last-touch** | All to final touch | Over-credits closers (search/email) |\n| **First-touch** | All to first touch | Over-credits awareness |\n| **Linear** | Equal to all | Ignores that touches differ in impact |\n| **Time-decay** | More to recent touches | Still assumption-driven |\n| **Position-based (U)** | 40/40/20 | Arbitrary weights |\n| **Data-driven** | Modeled (Shapley-like) | Best, but needs lots of journey data |"
+    },
+    {
+      "id": "09-METRICS-AND-ANALYTICS.md#044",
+      "path": [
+        "09-METRICS-AND-ANALYTICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:marketing:09-metrics-and-analytics, git-history:marketing:09-metrics-and-analytics]",
+        "canonical_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "concepts": "[CAC, LTV, ROAS, funnel analysis, cohort analysis, MMM, MTA, attribution, incrementality]",
+        "current_path": "marketing/09-METRICS-AND-ANALYTICS.md",
+        "id": "maxim:marketing:metrics-and-analytics",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "marketing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[marketing metrics, unit economics]",
+        "section": "marketing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Metrics and Analytics",
+        "updated": "null"
+      },
+      "text": "The deep point: **all attribution is correlational** — it divides up credit among\nobserved touches by an assumed rule, but it cannot tell you what would have\nhappened *without* the touch. That counterfactual is what you actually want, and\nonly experiments give it (incrementality, below)."
+    }
+  ],
+  "refs": [
+    "09-METRICS-AND-ANALYTICS.md"
+  ]
+}

@@ -1,0 +1,1413 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-energy-systems-grid-integration",
+  "source": "../../energy-systems",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "05-GRID-INTEGRATION.md#000",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "# Grid Integration of Variable Renewables"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#001",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#002",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "The electrical grid is a real-time distributed physical system whose synchronous areas coordinate around a shared frequency target. The consensus analogy is useful, but it is physics-mediated rather than message-mediated: generators, inverters, protection, and loads interact through voltage, frequency, impedance, and controls."
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#003",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "```\nENGINEERING BRIDGE: GRID STABILITY AS DISTRIBUTED CONSENSUS\n══════════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#004",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "GRID RESPONSE LAYER             DISTRIBUTED SYSTEMS ANALOG\n──────────────────────────────────────────────────────────────────────\nInertial response (0–5 s)      Local retry / hardware fault tolerance\n  Spinning mass resists Δf       → physics-based, automatic, no software"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#005",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "Primary freq regulation (5–30s) Circuit breaker pattern\n  Governor droop response         → local node adjusts autonomously"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#006",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "AGC / secondary (30s–15min)     Orchestrator intervention\n  Centralized dispatch signal     → consensus coordinator rebalances"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#007",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "Economic dispatch (15min–1hr)   Load balancer / autoscaler\n  Optimal generator scheduling    → minimize cost subject to constraints"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#008",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "Capacity markets (months–years) Capacity planning / reserved instances\n  Ensure enough future capacity   → long-term provisioning"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#009",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "TRANSITION INSIGHT:\nSynchronous generators → inverter-based resources =\nHardware-enforced ordering → software-enforced ordering.\nGrid-forming inverters synthesize virtual inertia in firmware:\na software replica of a physical invariant — like implementing\nlogical clocks to replace hardware timestamp counters.\n══════════════════════════════════════════════════════════════════════\n```"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#010",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "The electrical grid must balance supply and demand instantaneously — unlike any other\ncommodity. When wind and solar were <5% of generation, their variability was a rounding\nerror managed by existing reserves. At 30-80% penetration, variability becomes the\ncentral engineering challenge. This guide is about the grid as a real-time control\nsystem, and what changes as variable renewable energy (VRE) dominates."
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#011",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "```\nGRID ARCHITECTURE — The Stack"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#012",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "GENERATION                   TRANSMISSION              DISTRIBUTION / LOAD"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#013",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "Nuclear (baseload)           ┌────────────┐            Residential\n  Coal (baseload)       ──────►│            │──────────► Commercial\n  Gas CCGT (mid-load)   ──────►│ 115-765 kV │            Industrial\n  Gas peaker (peak)     ──────►│            │            Data centers ←─ you\n  Hydro (dispatchable)  ──────►│ HV Network │\n  Solar PV (variable)   ──────►│            │◄────────── Pumped Hydro\n  Wind (variable)       ──────►│            │◄────────── BESS\n  Offshore wind         ──────►└────┬───────┘\n                                    │\n                              ┌────────────┐\n                              │ Substation │\n                              └─────┬──────┘\n                                    │  (step down: 115kV → 34.5kV → 12kV)\n                                    │\n                              ┌────────────┐\n                              │Distribution│\n                              └─────┬──────┘\n                                    │  (12 kV → 240/120 V)\n                                    │\n                              Homes / Businesses / DERs (rooftop solar, EVs, small BESS)"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#014",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "CONTROL HIERARCHY:\n  Real-time (seconds): Automatic (frequency/voltage response)\n  Minutes:             Automatic generation control (AGC)\n  Hours:               Economic dispatch, unit commitment\n  Day-ahead:           Day-ahead market clearing\n  Year-ahead:          Capacity market, resource planning\n```"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#015",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#016",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "## Grid Stability Fundamentals"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#017",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "### Frequency — The Grid's Heartbeat"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#018",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "```\n  WHY 60 Hz (USA) / 50 Hz (Europe):\n  AC grids standardized early (50 Hz in Europe 1899, 60 Hz in USA by GE).\n  No deep physics reason; 50/60 Hz are both practical."
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#019",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "FREQUENCY AS POWER BALANCE SIGNAL:\n  ┌──────────────────────────────────────────────────────────┐\n  │  Generation = Load  →  f = 60.00 Hz  (balanced)          │\n  │  Generation > Load  →  f rises       (excess power)      │\n  │  Generation < Load  →  f falls       (deficit)           │\n  └──────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#020",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "Rate of Change of Frequency (ROCOF):\n  df/dt = (P_gen - P_load) / (2H × S_rated)"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#021",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "H = inertia constant (seconds of stored rotational energy)\n  S_rated = total synchronized generation capacity"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#022",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "Example: 1 GW of load suddenly connected to a grid with:\n  • H = 4 seconds (typical thermal-heavy grid)\n  • S = 100 GW synchronized\n  • ROCOF = 1 GW / (2 × 4s × 100 GW) = 0.00125 Hz/s → slow, manageable"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#023",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "If H falls to 1 second (high VRE penetration, many synchronous generators offline):\n  • ROCOF = 1 GW / (2 × 1s × 100 GW) = 0.005 Hz/s → 4× faster → harder to arrest"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#024",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "Protective relay thresholds:\n  UFLS (under-frequency load shedding): starts at ~59.3 Hz in ERCOT, 59.0 Hz NERC\n  Under-frequency disconnect (generators): trips at ~57.5 Hz\n  Target: arrest frequency decline before reaching protection thresholds\n```"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#025",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "### Inertia — The Grid's Momentum"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#026",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "```\n  SYNCHRONOUS MACHINE INERTIA:\n  Large spinning generators (turbines, motors) store kinetic energy:\n    E_kinetic = ½ J ω²  (J = moment of inertia, ω = angular velocity)"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#027",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "When grid frequency deviates, synchronous machines naturally resist (F = ma analog):\n  • Frequency drops → generators momentarily slow → release stored KE → current flows\n  • This is automatic, physics-based, requires no controls"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#028",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "INERTIA CONSTANT H:\n  H = E_kinetic (MWs) / S_rated (MVA)\n  Typical values:\n    Steam turbine (nuclear/coal):  H = 4-8 seconds\n    Combined cycle gas turbine:    H = 4-6 seconds\n    Gas peaker (simple cycle):     H = 2-4 seconds\n    Hydro turbine:                 H = 2-6 seconds\n    Solar PV inverter:             H = 0 (no rotating mass)\n    Wind turbine (type 4 full converter): H ≈ 0 (decoupled from grid)\n    Wind turbine (type 3 DFIG):    H = 2-6s but electrically decoupled"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#029",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "THE PROBLEM:\n  As coal/nuclear retire and wind/solar grow:\n  → Fewer synchronous machines online\n  → H_total falls\n  → ROCOF increases for same disturbance\n  → Harder to prevent cascade events\n  → More sensitive to large generator trips (N-1 events)"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#030",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "MEASURED EXAMPLES:\n  Great Britain grid H: ~9s in 2010 → ~5s in 2022 (solar + wind growth)\n  ROCOF record in GB: +1 Hz/s (Aug 2019 outage — offshore wind + gas trips)\n    → 1 million customers lost power; ROCOF relays tripped inappropriately\n    → Led to revised ROCOF standards (±1 Hz/s ride-through required)\n```"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#031",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "### Synthetic Inertia and Grid-Forming Inverters"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#032",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "```\n  TRADITIONAL GRID:          INVERTER-BASED RESOURCE GRID:\n  ─────────────────          ────────────────────────────────\n  Synchronous generators     Inverters measure grid voltage\n  automatically provide      and frequency → synthesize\n  inertial response          \"virtual\" inertial response via\n  (physics, no control)      rapid power injection (milliseconds)"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#033",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "TWO INVERTER CONTROL ARCHITECTURES:"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#034",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "GRID-FOLLOWING (GFL):                  GRID-FORMING (GFM):\n  ┌──────────────────┐                   ┌──────────────────┐\n  │ Measure grid V,f │                   │  Create internal │\n  │ Lock PLL to grid │                   │  voltage source  │\n  │ Inject current   │                   │  with defined V,f│\n  │ per setpoint     │                   │  Act as voltage  │\n  │                  │                   │  source, not just│\n  │ Like a current   │                   │  current source  │\n  │ source           │                   │                  │\n  └──────────────────┘                   └──────────────────┘"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#035",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "GFL: 90%+ of deployed inverters today\n       Needs grid voltage reference to lock onto (can't form black-start)\n       Fast frequency response (FFR) possible — inject power when f drops\n       But FFR is programmed response, not physics-based"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#036",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "GFM: active area of research and deployment\n       Can form a grid (enable black start)\n       Provides authentic inertia-like response\n       Better stability at high IBR (inverter-based resource) penetration\n       AEMO (Australia), National Grid ESO (UK): require GFM for new BESS above threshold"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#037",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "VIRTUAL SYNCHRONOUS MACHINE (VSM):\n  GFM variant that explicitly emulates synchronous machine dynamics\n  Includes: virtual inertia (emulated H), virtual damping, droop control\n  Allows tunable \"virtual inertia\" to compensate for declining real inertia\n```"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#038",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#039",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "## Ancillary Services"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#040",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "Grid operators procure services beyond energy to maintain reliability. These are the\n\"reserve\" mechanisms. As VRE grows, the market for these services grows."
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#041",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "```\n  FREQUENCY REGULATION TIMESCALES:"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#042",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "─────────────────────────────────────────────────────────────────\n  Inertial response    0-1 sec    Physics (synchronous machines)\n                                  OR grid-forming inverters\n  ─────────────────────────────────────────────────────────────────\n  Primary frequency    1-30 sec   Governor droop response\n  regulation (PFR)               Batteries FFR (faster)\n                                  NADIR (lowest frequency point)\n  ─────────────────────────────────────────────────────────────────\n  Secondary frequency  30 sec-    Automatic Generation Control (AGC)\n  regulation (SFR)     15 min     Restores frequency to 60.00 Hz\n  / AGC                           LFC (load frequency control)\n  ─────────────────────────────────────────────────────────────────\n  Tertiary /           15 min-    Economic dispatch re-optimization\n  Economic dispatch    1 hr       Replaces reserves that were used\n  ─────────────────────────────────────────────────────────────────\n  Unit commitment      1-12 hr    Day-ahead scheduling\n                                  Which plants start/stop\n  ─────────────────────────────────────────────────────────────────\n  Resource adequacy    Months-yr  Capacity markets\n  planning                        Ensure enough capacity for peak demand\n  ─────────────────────────────────────────────────────────────────"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#043",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "ANCILLARY SERVICE PRODUCTS (ERCOT example):\n  ECRS: ERCOT Contingency Reserve Service (900 MW required, 10-min response)\n  RRS:  Responsive Reserve Service (2,300 MW, includes FFR requirement)\n  REGUP/REGDN: Regulation Up/Down (online, fastest response, AGC-capable)\n  NSPIN: Non-spinning reserve (30 min, can start offline)\n  ORDC: Operating Reserve Demand Curve (scarcity pricing when reserves thin)"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#044",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "BATTERY BESS FOR FREQUENCY REGULATION:\n  Response time: 200ms (vs 10-30s for gas turbine governor)\n  High cycle count required (may be 365 × 2 cycles/day = 730 cycles/yr)\n  High-cycle service wears batteries faster → LFP preferred (cycle life)\n  Revenue: $20-80/MWh equivalent (frequency reg premium over energy arbitrage)\n```"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#045",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "### Voltage — The Other Stability Dimension"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#046",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "```\n  FREQUENCY: real power balance (P)\n  VOLTAGE:   reactive power balance (Q)"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#047",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "Reactive power:\n  • Does no net work (90° out of phase with current)\n  • Essential for maintaining voltage levels\n  • Must be produced locally (can't be transmitted long distances efficiently)"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#048",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "REACTIVE POWER SOURCES:\n  Synchronous generators: continuously adjustable Q\n  Synchronous condensers: spinning generator producing no real power, only Q\n  STATCOM (static synchronous compensator): power electronics equivalent of synchronous condenser\n  SVC (static VAr compensator): thyristor-switched capacitors/reactors\n  Capacitor banks: fixed Q injection"
+    },
+    {
+      "id": "05-GRID-INTEGRATION.md#049",
+      "path": [
+        "05-GRID-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:05-grid-integration, git-history:energy-systems:05-grid-integration]",
+        "canonical_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "concepts": "[grid, integration]",
+        "current_path": "energy-systems/05-GRID-INTEGRATION.md",
+        "id": "maxim:energy-systems:grid-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[grid, integration]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Grid Integration of Variable Renewables",
+        "updated": "null"
+      },
+      "text": "THE IBIR REACTIVE POWER CHALLENGE:\n  Inverter-based resources can produce reactive power,\n  but often operate at unity power factor by default (no Q).\n  High VRE penetration → fewer synchronous machines online → less Q support\n  → voltage instability risk, especially at grid periphery (distribution feeders)"
+    }
+  ],
+  "refs": [
+    "05-GRID-INTEGRATION.md"
+  ]
+}

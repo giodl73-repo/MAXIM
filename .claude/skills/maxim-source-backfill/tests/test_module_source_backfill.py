@@ -27,21 +27,21 @@ import module_source_backfill as msb  # noqa: E402
 
 
 class GuideBacksourceIdTests(unittest.TestCase):
-    """The guide frontmatter always keeps proof-backfill; git-history is conditional."""
+    """The guide frontmatter always keeps mdloom-backfill; git-history is conditional."""
 
     def test_includes_git_history_when_history_present(self):
         ids = msb.guide_backsource_ids("pathology", "00", "overview", True)
         self.assertEqual(
             ids,
             [
-                "proof-backfill:pathology:00-overview",
+                "mdloom-backfill:pathology:00-overview",
                 "git-history:pathology:00-overview",
             ],
         )
 
     def test_omits_git_history_when_no_history(self):
         ids = msb.guide_backsource_ids("pathology", "00", "overview", False)
-        self.assertEqual(ids, ["proof-backfill:pathology:00-overview"])
+        self.assertEqual(ids, ["mdloom-backfill:pathology:00-overview"])
         self.assertNotIn("git-history:pathology:00-overview", ids)
 
 
@@ -74,7 +74,7 @@ class ModuleProvenanceNoteTests(unittest.TestCase):
         guides = [{"git_hashes": []} for _ in range(12)]
         self.assertEqual(
             msb.module_provenance_note(guides),
-            "PROOF literal backfill is recorded for all 12 guides; "
+            "MDLOOM literal backfill is recorded for all 12 guides; "
             "Git provenance is recorded for 0 guides and pending for 12.",
         )
 
@@ -86,7 +86,7 @@ class ModuleProvenanceNoteTests(unittest.TestCase):
         ]
         self.assertEqual(
             msb.module_provenance_note(guides),
-            "PROOF literal backfill is recorded for all 3 guides; "
+            "MDLOOM literal backfill is recorded for all 3 guides; "
             "Git provenance is recorded for 2 guides and pending for 1.",
         )
 
@@ -125,7 +125,7 @@ class GitHashesTests(unittest.TestCase):
         self.assertEqual(msb.git_hashes("untracked.md"), [])
 
 
-class FullPebbleTests(unittest.TestCase):
+class FullMdportTests(unittest.TestCase):
     def test_heading_count_ignores_frontmatter(self):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "guide.md"
@@ -135,16 +135,16 @@ class FullPebbleTests(unittest.TestCase):
             )
             self.assertEqual(msb.markdown_heading_count(path), 4)
 
-    def test_validate_full_guide_pebble_rejects_truncation(self):
+    def test_validate_full_guide_mdport_rejects_truncation(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             guide = root / "guide.md"
-            pack = root / "guide.pebble.json"
+            pack = root / "guide.mdport.json"
             guide.write_text("# Guide\n\n## One\n\n## Two\n", encoding="utf-8")
             pack.write_text(
                 json.dumps(
                     {
-                        "schema": "pebble.v1",
+                        "schema": "mdport.v1",
                         "kind": "document",
                         "sections": [{"id": "guide", "text": "# Guide"}],
                     }
@@ -152,9 +152,9 @@ class FullPebbleTests(unittest.TestCase):
                 encoding="utf-8",
             )
             with self.assertRaisesRegex(ValueError, "expected 3 sections"):
-                msb.validate_full_guide_pebble(guide, pack)
+                msb.validate_full_guide_mdport(guide, pack)
 
-    def test_assemble_module_pebble_prefixes_section_ids(self):
+    def test_assemble_module_mdport_prefixes_section_ids(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             first = root / "first.json"
@@ -164,7 +164,7 @@ class FullPebbleTests(unittest.TestCase):
                 path.write_text(
                     json.dumps(
                         {
-                            "schema": "pebble.v1",
+                            "schema": "mdport.v1",
                             "kind": "document",
                             "sections": [{"id": "overview", "text": title}],
                             "refs": [f"{title}.md"],
@@ -177,7 +177,7 @@ class FullPebbleTests(unittest.TestCase):
                 {"slug": "two", "pack": str(second)},
             ]
             self.assertEqual(
-                msb.assemble_module_pebble("test", Path("test"), guides, output),
+                msb.assemble_module_mdport("test", Path("test"), guides, output),
                 2,
             )
             module = json.loads(output.read_text(encoding="utf-8"))

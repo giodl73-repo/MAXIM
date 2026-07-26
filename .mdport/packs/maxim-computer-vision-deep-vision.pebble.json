@@ -1,0 +1,1189 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-computer-vision-deep-vision",
+  "source": "../../computer-vision",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "05-DEEP-VISION.md#000",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "# Deep Vision — CNNs and Transformers"
+    },
+    {
+      "id": "05-DEEP-VISION.md#001",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "## The Big Picture: Learning the Filters"
+    },
+    {
+      "id": "05-DEEP-VISION.md#002",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "The classical pipeline (guide 04) hand-designed the filters (HOG, SIFT) and learned only\nthe classifier. Deep vision learns *everything* end-to-end: the convolution kernels are\nparameters, optimized by backpropagation so that early layers discover edge filters,\nmiddle layers discover parts, and late layers discover objects. This guide assumes you\nalready know what a neural net is and how backprop trains it (see `ai-engineering/` and\n`machine-learning-theory/`); the focus here is the *spatial* architecture — what makes a\nvision network a vision network."
+    },
+    {
+      "id": "05-DEEP-VISION.md#003",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------------------+\n|               THE CNN AS A LEARNED FEATURE HIERARCHY  (image -> label)       |\n|                                                                              |\n|   IMAGE     LAYER 1        LAYER 2..k        DEEP LAYERS      HEAD           |\n|   +-----+   edges,         textures,         object parts,    softmax        |\n|   |     |   oriented  -->  corners,    -->   wheels, eyes -->  \"car: 0.97\"   |\n|   |     |   bars           color blobs        whole objects                  |\n|   +-----+   (Gabor-like)                                                     |\n|              |                                                               |\n|              +-- These early filters look like LEARNED Sobel/SIFT filters.   |\n|                 Deep learning AUTOMATED the feature engineering of guide 04. |\n|                                                                              |\n|   Spatial size SHRINKS (pooling/stride); channel depth GROWS (more filters). |\n+------------------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "05-DEEP-VISION.md#004",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-DEEP-VISION.md#005",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "## Layer 1: The Convolution Layer — Weight Sharing as a Prior"
+    },
+    {
+      "id": "05-DEEP-VISION.md#006",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "A convolution layer applies a small bank of learned kernels across the whole image. Two\narchitectural priors make this work where a fully-connected net would fail:\n**translation equivariance** (the same filter slides everywhere — a cat is a cat in any\ncorner) and **parameter sharing** (one kernel, not one weight per pixel pair)."
+    },
+    {
+      "id": "05-DEEP-VISION.md#007",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "```\n   A conv layer: input C_in channels -> output C_out channels.\n   Each output channel = SUM over input channels of (input * kernel) + bias."
+    },
+    {
+      "id": "05-DEEP-VISION.md#008",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "input HxWxC_in   --[ K kernels, each kxkxC_in ]-->   output H'xW'xC_out"
+    },
+    {
+      "id": "05-DEEP-VISION.md#009",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "Parameters per layer:  k*k * C_in * C_out  (+ C_out biases)\n   -- INDEPENDENT of image size. A dense layer would need H*W*C weights per unit."
+    },
+    {
+      "id": "05-DEEP-VISION.md#010",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "Stride s: step the kernel by s -> downsamples by s.\n   Padding p: pad the border to control output size.\n   Output size: H' = floor((H + 2p - k)/s) + 1\n```"
+    },
+    {
+      "id": "05-DEEP-VISION.md#011",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "| Prior | What it buys |\n|-------|--------------|\n| Local connectivity | Each unit sees a small patch — matches image locality |\n| Weight sharing | Far fewer parameters; translation equivariance |\n| Pooling / stride | Spatial invariance + a growing receptive field |\n| Channel depth | Many filters per location → rich feature banks |"
+    },
+    {
+      "id": "05-DEEP-VISION.md#012",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "**Bridge — signal processing:** each channel is a learned 2D FIR filter (guide 02). The\nlayer is a *filter bank*; depth stacks banks. The \"convolution\" is technically\ncorrelation (no kernel flip) — see guide 02 — but the learned weights absorb it."
+    },
+    {
+      "id": "05-DEEP-VISION.md#013",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-DEEP-VISION.md#014",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "## Layer 2: The Receptive Field — How Much Each Unit Sees"
+    },
+    {
+      "id": "05-DEEP-VISION.md#015",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "The **receptive field** of a unit is the region of the input image that can influence it.\nIt is the deep-net analogue of a kernel's support, and it grows with depth, stride, and\npooling. A unit must \"see\" an object to classify it, so receptive-field growth is what\nlets deep layers reason about whole objects from local convolutions."
+    },
+    {
+      "id": "05-DEEP-VISION.md#016",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------------------+\n|                       RECEPTIVE FIELD GROWTH WITH DEPTH                      |\n|                                                                              |\n|   input        layer1 (3x3)     layer2 (3x3)      layer3 (3x3)               |\n|   pixel grid   sees 3x3         sees 5x5          sees 7x7                   |\n|                                                                              |\n|   o o o o o     [ o o o ]                                                    |\n|   o o o o o     [ o o o ]  -> stacking two 3x3 = one 5x5 RF, fewer params    |\n|   o o o o o     [ o o o ]     and more nonlinearity (the VGG insight)        |\n|                                                                              |\n|   Stride/pooling MULTIPLY RF growth; dilation (atrous) ENLARGES RF without   |\n|   adding parameters or losing resolution (used in DeepLab, guide 03).        |\n+------------------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "05-DEEP-VISION.md#017",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "The VGG insight (2014): two stacked 3x3 convolutions have the same 5x5 receptive field as\none 5x5 convolution but with fewer parameters and an extra nonlinearity. Small kernels,\nstacked deep, became the default."
+    },
+    {
+      "id": "05-DEEP-VISION.md#018",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-DEEP-VISION.md#019",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "## Layer 3: The Building Blocks"
+    },
+    {
+      "id": "05-DEEP-VISION.md#020",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "A modern conv net is assembled from a handful of standard layers."
+    },
+    {
+      "id": "05-DEEP-VISION.md#021",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "| Layer | Role | Key detail |\n|-------|------|-----------|\n| **Convolution** | Learned filtering | The feature extractor |\n| **ReLU** (activation) | Nonlinearity | `max(0,x)`; cheap, avoids vanishing gradient |\n| **Pooling** | Downsample / invariance | Max or average over a window; no parameters |\n| **Batch norm** | Stabilize training | Normalizes activations per mini-batch |\n| **Stride / dilation** | Control resolution & RF | Stride downsamples; dilation enlarges RF |\n| **1x1 convolution** | Channel mixing / bottleneck | Reduces depth cheaply (Network-in-Network) |\n| **Global avg pool** | Spatial → vector | Replaces dense layers before the head |"
+    },
+    {
+      "id": "05-DEEP-VISION.md#022",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "```\n   A typical block:   conv -> batch norm -> ReLU  (repeat)  -> pool\n   Classifier tail:   ... -> global average pool -> dense -> softmax\n```"
+    },
+    {
+      "id": "05-DEEP-VISION.md#023",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-DEEP-VISION.md#024",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "## Layer 4: The Architecture Lineage"
+    },
+    {
+      "id": "05-DEEP-VISION.md#025",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "Vision architectures evolved by solving the problem the previous one exposed. Knowing the\nlineage tells you *why* each design exists."
+    },
+    {
+      "id": "05-DEEP-VISION.md#026",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------------------+\n|                  CNN ARCHITECTURE LINEAGE  (problem -> fix)                  |\n|                                                                              |\n|  LeNet (1998)    first conv net (digits)                                     |\n|      |                                                                       |\n|  AlexNet (2012)  ReLU + dropout + GPUs; WON ImageNet -> ignited deep vision  |\n|      |                                                                       |\n|  VGG (2014)      deep stacks of 3x3 convs; simple, uniform                   |\n|      |                                                                       |\n|  GoogLeNet/      Inception modules: parallel multi-scale convs + 1x1         |\n|  Inception       bottlenecks -> efficiency                                   |\n|      |                                                                       |\n|  ResNet (2015)   RESIDUAL connections: y = F(x) + x  -> trains 100+ layers   |\n|      |          (solves vanishing-gradient/degradation) -- the turning point |\n|      |                                                                       |\n|  DenseNet,       feature reuse, depthwise-separable convs (MobileNet),       |\n|  EfficientNet    compound scaling -> accuracy/compute frontier               |\n|      |                                                                       |\n|  ViT (2020)      pure transformer on image patches -- a new branch (below)   |\n+------------------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "05-DEEP-VISION.md#027",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "### ResNet — why residual connections matter"
+    },
+    {
+      "id": "05-DEEP-VISION.md#028",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "The central problem deep nets hit was *degradation*: adding layers made training error go\n*up*, not down — not overfitting, an optimization failure. ResNet's fix is the **residual\n(skip) connection**: a layer learns a residual `F(x)` added to its input `x`."
+    },
+    {
+      "id": "05-DEEP-VISION.md#029",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "```\n   Plain block:     y = F(x)                  hard to learn identity\n   Residual block:  y = F(x) + x              identity is FREE (set F=0)"
+    },
+    {
+      "id": "05-DEEP-VISION.md#030",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "x ----------------+\n         |                 |  (skip / identity)\n         v                 v\n       [ weight layers ]   +  ----> y = F(x) + x\n       (learn F(x))"
+    },
+    {
+      "id": "05-DEEP-VISION.md#031",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "Gradient flows directly through the +x path -> deep nets become trainable.\n   This single idea unlocked networks of 50, 101, 152+ layers.\n```"
+    },
+    {
+      "id": "05-DEEP-VISION.md#032",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "**Bridge — numerical methods:** the residual form makes each block a perturbation of the\nidentity, which keeps the Jacobian near `I` and the gradients well-conditioned — the deep\nanalogue of a well-scaled iterative update."
+    },
+    {
+      "id": "05-DEEP-VISION.md#033",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-DEEP-VISION.md#034",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "## Layer 5: Transfer Learning — The Practical Workhorse"
+    },
+    {
+      "id": "05-DEEP-VISION.md#035",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "Training from scratch needs millions of labeled images. In practice you almost never do\nit: you take a network pre-trained on ImageNet and adapt it. The early layers' filters\n(edges, textures) are nearly universal across visual domains, so they transfer."
+    },
+    {
+      "id": "05-DEEP-VISION.md#036",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------------------+\n|                       TRANSFER LEARNING STRATEGIES                           |\n|                                                                              |\n|  PRE-TRAINED BACKBONE (ImageNet)        +------------------------+           |\n|  [ generic early layers ] [ later ]     | YOUR small dataset     |           |\n|                                          +------------------------+          |\n|                                                                              |\n|  STRATEGY                  FREEZE              TRAIN                         |\n|  --------                  ------              -----                         |\n|  Feature extraction        all conv layers     just a new head               |\n|  Fine-tuning (light)       early layers         later layers + head          |\n|  Fine-tuning (full)        nothing              everything (low LR)          |\n|                                                                              |\n|  Less data / more similar -> freeze more. More data / less similar -> train  |\n|  more. This is the single highest-leverage technique in applied vision.      |\n+------------------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "05-DEEP-VISION.md#037",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "| Your situation | Strategy |\n|----------------|----------|\n| Tiny dataset, similar domain | Freeze backbone, train new head only |\n| Moderate dataset | Fine-tune later layers + head |\n| Large dataset, different domain | Fine-tune all, low learning rate |\n| No labels | Self-supervised pretraining (SimCLR, MAE), then fine-tune |"
+    },
+    {
+      "id": "05-DEEP-VISION.md#038",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "**Bridge — ML theory:** why transfer works connects to the generalization and\nrepresentation-learning material in `machine-learning-theory/`. The early filters\napproximate a universal visual basis (Gabor-like), so they need not be relearned."
+    },
+    {
+      "id": "05-DEEP-VISION.md#039",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-DEEP-VISION.md#040",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "## Layer 6: Vision Transformers — Attention Instead of Convolution"
+    },
+    {
+      "id": "05-DEEP-VISION.md#041",
+      "path": [
+        "05-DEEP-VISION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:05-deep-vision, git-history:computer-vision:05-deep-vision]",
+        "canonical_path": "computer-vision/05-DEEP-VISION.md",
+        "concepts": "[convolutional neural network, receptive field, residual networks, transfer learning, vision transformer, learned filters]",
+        "current_path": "computer-vision/05-DEEP-VISION.md",
+        "id": "maxim:computer-vision:deep-vision",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[deep vision]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep Vision - CNNs and Transformers",
+        "updated": "null"
+      },
+      "text": "The Vision Transformer (ViT, 2020) discarded convolution entirely: split the image into\npatches, embed each as a token, and run a standard transformer encoder. Self-attention\nlets every patch interact with every other patch directly — a global receptive field from\nlayer one, where a CNN builds global context only gradually."
+    }
+  ],
+  "refs": [
+    "05-DEEP-VISION.md"
+  ]
+}

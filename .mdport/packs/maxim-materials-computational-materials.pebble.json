@@ -1,0 +1,573 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-materials-computational-materials",
+  "source": "../../materials",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "09-COMPUTATIONAL-MATERIALS.md#000",
+      "path": [
+        "09-COMPUTATIONAL-MATERIALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:materials:09-computational-materials, git-history:materials:09-computational-materials]",
+        "canonical_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "concepts": "[computational, materials]",
+        "current_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "id": "maxim:materials:computational-materials",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational, materials]",
+        "section": "materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Computational Materials Science",
+        "updated": "null"
+      },
+      "text": "# Computational Materials Science"
+    },
+    {
+      "id": "09-COMPUTATIONAL-MATERIALS.md#001",
+      "path": [
+        "09-COMPUTATIONAL-MATERIALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:materials:09-computational-materials, git-history:materials:09-computational-materials]",
+        "canonical_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "concepts": "[computational, materials]",
+        "current_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "id": "maxim:materials:computational-materials",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational, materials]",
+        "section": "materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Computational Materials Science",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "09-COMPUTATIONAL-MATERIALS.md#002",
+      "path": [
+        "09-COMPUTATIONAL-MATERIALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:materials:09-computational-materials, git-history:materials:09-computational-materials]",
+        "canonical_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "concepts": "[computational, materials]",
+        "current_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "id": "maxim:materials:computational-materials",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational, materials]",
+        "section": "materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Computational Materials Science",
+        "updated": "null"
+      },
+      "text": "```\n┌────────────────────────────────────────────────────────────────────────┐\n│              MULTISCALE MATERIALS SIMULATION HIERARCHY                 │\n│                                                                        │\n│  SCALE        METHOD              TIME         ATOMS        COST       │\n│  ─────────────────────────────────────────────────────────────────     │\n│  Electrons    DFT / QMC           ps           1–1000       High       │\n│  Atoms        MD (classical)      ns–μs        10⁶–10⁸      Medium     │\n│  Grains       Phase field         ms–s         N/A          Low-Med    │\n│  Components   FEA                 s–years      N/A          Low        │\n│                                                                        │\n│  ┌───────────┐    ┌──────────┐    ┌──────────┐    ┌────────────┐       │\n│  │  DFT      │ ──►│   MD     │ ──►│  Phase   │ ──►│    FEA     │      │\n│  │ Kohn-Sham │    │ Newton   │    │  Field   │    │ Continuum  │      │\n│  │ electrons │    │ + force  │    │ diffuse  │    │ mechanics  │      │\n│  │           │    │ field    │    │ interface│    │            │      │\n│  └───────────┘    └──────────┘    └──────────┘    └────────────┘      │\n│     10⁻¹⁰m          10⁻⁹m           10⁻⁶m           10⁻³m            │\n│                                                                        │\n│  KEY: No single method spans all scales.                               │\n│  Multiscale: parameterize coarser model from finer model.             │\n└────────────────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "09-COMPUTATIONAL-MATERIALS.md#003",
+      "path": [
+        "09-COMPUTATIONAL-MATERIALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:materials:09-computational-materials, git-history:materials:09-computational-materials]",
+        "canonical_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "concepts": "[computational, materials]",
+        "current_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "id": "maxim:materials:computational-materials",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational, materials]",
+        "section": "materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Computational Materials Science",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-COMPUTATIONAL-MATERIALS.md#004",
+      "path": [
+        "09-COMPUTATIONAL-MATERIALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:materials:09-computational-materials, git-history:materials:09-computational-materials]",
+        "canonical_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "concepts": "[computational, materials]",
+        "current_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "id": "maxim:materials:computational-materials",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational, materials]",
+        "section": "materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Computational Materials Science",
+        "updated": "null"
+      },
+      "text": "## 1. Density Functional Theory"
+    },
+    {
+      "id": "09-COMPUTATIONAL-MATERIALS.md#005",
+      "path": [
+        "09-COMPUTATIONAL-MATERIALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:materials:09-computational-materials, git-history:materials:09-computational-materials]",
+        "canonical_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "concepts": "[computational, materials]",
+        "current_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "id": "maxim:materials:computational-materials",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational, materials]",
+        "section": "materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Computational Materials Science",
+        "updated": "null"
+      },
+      "text": "### Foundations"
+    },
+    {
+      "id": "09-COMPUTATIONAL-MATERIALS.md#006",
+      "path": [
+        "09-COMPUTATIONAL-MATERIALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:materials:09-computational-materials, git-history:materials:09-computational-materials]",
+        "canonical_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "concepts": "[computational, materials]",
+        "current_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "id": "maxim:materials:computational-materials",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational, materials]",
+        "section": "materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Computational Materials Science",
+        "updated": "null"
+      },
+      "text": "```\n  MANY-ELECTRON PROBLEM: H Ψ(r₁,...,rₙ) = E Ψ(r₁,...,rₙ)\n  Exact but exponentially hard: wavefunction in 3N dimensions"
+    },
+    {
+      "id": "09-COMPUTATIONAL-MATERIALS.md#007",
+      "path": [
+        "09-COMPUTATIONAL-MATERIALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:materials:09-computational-materials, git-history:materials:09-computational-materials]",
+        "canonical_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "concepts": "[computational, materials]",
+        "current_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "id": "maxim:materials:computational-materials",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational, materials]",
+        "section": "materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Computational Materials Science",
+        "updated": "null"
+      },
+      "text": "HOHENBERG-KOHN THEOREM (1964):\n    1. Ground-state electron density ρ(r) uniquely determines\n       all ground-state properties (energy, geometry, etc.)\n    2. Variational principle: E[ρ] ≥ E_ground for any trial ρ"
+    },
+    {
+      "id": "09-COMPUTATIONAL-MATERIALS.md#008",
+      "path": [
+        "09-COMPUTATIONAL-MATERIALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:materials:09-computational-materials, git-history:materials:09-computational-materials]",
+        "canonical_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "concepts": "[computational, materials]",
+        "current_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "id": "maxim:materials:computational-materials",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational, materials]",
+        "section": "materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Computational Materials Science",
+        "updated": "null"
+      },
+      "text": "Result: 3N-dimensional problem → 3-dimensional problem\n  Price: E_xc[ρ] = exchange-correlation functional — UNKNOWN\n```"
+    },
+    {
+      "id": "09-COMPUTATIONAL-MATERIALS.md#009",
+      "path": [
+        "09-COMPUTATIONAL-MATERIALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:materials:09-computational-materials, git-history:materials:09-computational-materials]",
+        "canonical_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "concepts": "[computational, materials]",
+        "current_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "id": "maxim:materials:computational-materials",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational, materials]",
+        "section": "materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Computational Materials Science",
+        "updated": "null"
+      },
+      "text": "### Kohn-Sham Equations"
+    },
+    {
+      "id": "09-COMPUTATIONAL-MATERIALS.md#010",
+      "path": [
+        "09-COMPUTATIONAL-MATERIALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:materials:09-computational-materials, git-history:materials:09-computational-materials]",
+        "canonical_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "concepts": "[computational, materials]",
+        "current_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "id": "maxim:materials:computational-materials",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational, materials]",
+        "section": "materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Computational Materials Science",
+        "updated": "null"
+      },
+      "text": "```\n┌─────────────────────────────────────────────────────────────────────┐\n│  Kohn-Sham (1965): replace interacting electrons with               │\n│  non-interacting electrons in an effective potential                │\n│                                                                     │\n│  [-ℏ²/2m ∇² + V_eff(r)] φᵢ(r) = εᵢ φᵢ(r)                            │\n│                                                                     │\n│  V_eff = V_ext + V_Hartree + V_xc                                   │\n│    V_ext:     external (nuclear) potential                          │\n│    V_Hartree: electron-electron Coulomb (mean field)                │\n│    V_xc:      exchange-correlation correction                       │\n│                                                                     │\n│  ρ(r) = Σᵢ |φᵢ(r)|²   (sum over occupied orbitals)                  │\n│                                                                     │\n│  SELF-CONSISTENT FIELD (SCF) LOOP:                                  │\n│    Guess ρ → compute V_eff → solve KS equations → new ρ → repeat    │\n└─────────────────────────────────────────────────────────────────────┘\nSCF convergence is a fixed-point iteration (rho -> F(rho) -> fixed point). Anderson mixing (also called DIIS — direct inversion in the iterative subspace) accelerates convergence by using the history of residuals to extrapolate toward the fixed point, analogous to Krylov subspace methods in linear algebra. Convergence is not guaranteed in general but is reliable for most materials with appropriate mixing parameters.\n```"
+    },
+    {
+      "id": "09-COMPUTATIONAL-MATERIALS.md#011",
+      "path": [
+        "09-COMPUTATIONAL-MATERIALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:materials:09-computational-materials, git-history:materials:09-computational-materials]",
+        "canonical_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "concepts": "[computational, materials]",
+        "current_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "id": "maxim:materials:computational-materials",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational, materials]",
+        "section": "materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Computational Materials Science",
+        "updated": "null"
+      },
+      "text": "### XC Functionals and Jacob's Ladder"
+    },
+    {
+      "id": "09-COMPUTATIONAL-MATERIALS.md#012",
+      "path": [
+        "09-COMPUTATIONAL-MATERIALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:materials:09-computational-materials, git-history:materials:09-computational-materials]",
+        "canonical_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "concepts": "[computational, materials]",
+        "current_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "id": "maxim:materials:computational-materials",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational, materials]",
+        "section": "materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Computational Materials Science",
+        "updated": "null"
+      },
+      "text": "```\n  LEVEL 1 — LDA (Local Density Approximation):\n    E_xc = ∫ ε_xc(ρ(r)) ρ(r) d³r\n    Only depends on local density. Works surprisingly well for metals.\n    Overbinds molecules (~1 eV error)."
+    },
+    {
+      "id": "09-COMPUTATIONAL-MATERIALS.md#013",
+      "path": [
+        "09-COMPUTATIONAL-MATERIALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:materials:09-computational-materials, git-history:materials:09-computational-materials]",
+        "canonical_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "concepts": "[computational, materials]",
+        "current_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "id": "maxim:materials:computational-materials",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational, materials]",
+        "section": "materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Computational Materials Science",
+        "updated": "null"
+      },
+      "text": "LEVEL 2 — GGA (Generalized Gradient Approximation):\n    E_xc = ∫ ε_xc(ρ, ∇ρ) d³r\n    PBE (Perdew-Burke-Ernzerhof): workhorse for solids\n    BLYP, B3LYP: workhorse for chemistry"
+    },
+    {
+      "id": "09-COMPUTATIONAL-MATERIALS.md#014",
+      "path": [
+        "09-COMPUTATIONAL-MATERIALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:materials:09-computational-materials, git-history:materials:09-computational-materials]",
+        "canonical_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "concepts": "[computational, materials]",
+        "current_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "id": "maxim:materials:computational-materials",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational, materials]",
+        "section": "materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Computational Materials Science",
+        "updated": "null"
+      },
+      "text": "LEVEL 3 — Meta-GGA:\n    Also uses kinetic energy density τ(r) = Σ |∇φᵢ|²/2\n    SCAN functional: satisfies all 17 known exact constraints"
+    },
+    {
+      "id": "09-COMPUTATIONAL-MATERIALS.md#015",
+      "path": [
+        "09-COMPUTATIONAL-MATERIALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:materials:09-computational-materials, git-history:materials:09-computational-materials]",
+        "canonical_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "concepts": "[computational, materials]",
+        "current_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "id": "maxim:materials:computational-materials",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational, materials]",
+        "section": "materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Computational Materials Science",
+        "updated": "null"
+      },
+      "text": "LEVEL 4 — Hybrid (HF + DFT):\n    E_xc = α E_x^HF + (1-α) E_x^DFT + E_c^DFT\n    B3LYP (α=0.2): chemistry standard, good bandgaps\n    HSE06: screened hybrid for solids (O(N) scaling)"
+    },
+    {
+      "id": "09-COMPUTATIONAL-MATERIALS.md#016",
+      "path": [
+        "09-COMPUTATIONAL-MATERIALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:materials:09-computational-materials, git-history:materials:09-computational-materials]",
+        "canonical_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "concepts": "[computational, materials]",
+        "current_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "id": "maxim:materials:computational-materials",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational, materials]",
+        "section": "materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Computational Materials Science",
+        "updated": "null"
+      },
+      "text": "LEVEL 5 — RPA, double hybrids:\n    Expensive but highly accurate\n    Used for benchmarking, not routine calculations"
+    },
+    {
+      "id": "09-COMPUTATIONAL-MATERIALS.md#017",
+      "path": [
+        "09-COMPUTATIONAL-MATERIALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:materials:09-computational-materials, git-history:materials:09-computational-materials]",
+        "canonical_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "concepts": "[computational, materials]",
+        "current_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "id": "maxim:materials:computational-materials",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational, materials]",
+        "section": "materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Computational Materials Science",
+        "updated": "null"
+      },
+      "text": "COMMON FAILURES:\n  - Van der Waals / dispersion: add -D3 correction (Grimme)\n  - Strongly correlated (NiO, UO₂): DFT+U Hubbard correction\n  - Bandgaps systematically underestimated by LDA/GGA\n```"
+    },
+    {
+      "id": "09-COMPUTATIONAL-MATERIALS.md#018",
+      "path": [
+        "09-COMPUTATIONAL-MATERIALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:materials:09-computational-materials, git-history:materials:09-computational-materials]",
+        "canonical_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "concepts": "[computational, materials]",
+        "current_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "id": "maxim:materials:computational-materials",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational, materials]",
+        "section": "materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Computational Materials Science",
+        "updated": "null"
+      },
+      "text": "### Practical DFT"
+    },
+    {
+      "id": "09-COMPUTATIONAL-MATERIALS.md#019",
+      "path": [
+        "09-COMPUTATIONAL-MATERIALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:materials:09-computational-materials, git-history:materials:09-computational-materials]",
+        "canonical_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "concepts": "[computational, materials]",
+        "current_path": "materials/09-COMPUTATIONAL-MATERIALS.md",
+        "id": "maxim:materials:computational-materials",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "materials",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[computational, materials]",
+        "section": "materials",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Computational Materials Science",
+        "updated": "null"
+      },
+      "text": "```\n  PLANE WAVE BASIS:\n    Periodic system → Bloch theorem → expand in plane waves e^{ik·r}\n    k-points: sample Brillouin zone (Monkhorst-Pack grid)\n    Cutoff energy E_cut: determines basis set size (~300–700 eV)"
+    }
+  ],
+  "refs": [
+    "09-COMPUTATIONAL-MATERIALS.md"
+  ]
+}

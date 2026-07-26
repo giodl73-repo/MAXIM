@@ -1,0 +1,433 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-data-science-optimization-theory",
+  "source": "../../data-science",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "10-OPTIMIZATION-THEORY.md#000",
+      "path": [
+        "10-OPTIMIZATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:10-optimization-theory, git-history:data-science:10-optimization-theory]",
+        "canonical_path": "data-science/10-OPTIMIZATION-THEORY.md",
+        "concepts": "[optimization, theory]",
+        "current_path": "data-science/10-OPTIMIZATION-THEORY.md",
+        "id": "maxim:data-science:optimization-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimization, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimization Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "# Optimization Theory for Machine Learning\n## From Convex Analysis to SGD, Adam, and Non-Convex Deep Learning"
+    },
+    {
+      "id": "10-OPTIMIZATION-THEORY.md#001",
+      "path": [
+        "10-OPTIMIZATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:10-optimization-theory, git-history:data-science:10-optimization-theory]",
+        "canonical_path": "data-science/10-OPTIMIZATION-THEORY.md",
+        "concepts": "[optimization, theory]",
+        "current_path": "data-science/10-OPTIMIZATION-THEORY.md",
+        "id": "maxim:data-science:optimization-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimization, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimization Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "```\nTHE OPTIMIZATION LANDSCAPE"
+    },
+    {
+      "id": "10-OPTIMIZATION-THEORY.md#002",
+      "path": [
+        "10-OPTIMIZATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:10-optimization-theory, git-history:data-science:10-optimization-theory]",
+        "canonical_path": "data-science/10-OPTIMIZATION-THEORY.md",
+        "concepts": "[optimization, theory]",
+        "current_path": "data-science/10-OPTIMIZATION-THEORY.md",
+        "id": "maxim:data-science:optimization-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimization, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimization Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "Convex region                     Non-convex region (deep learning)\n  ┌──────────────────┐              ┌──────────────────────────────────┐\n  │  Global min = local min         │  Many local minima, saddle points │\n  │  GD converges (with LR tuning)  │  SGD finds flat minima           │\n  │  Strong theory, guarantees      │  Theory: NTK, loss landscape     │\n  │  Logistic regression, SVM, LR   │  Neural networks                 │\n  └──────────────────┘              └──────────────────────────────────┘"
+    },
+    {
+      "id": "10-OPTIMIZATION-THEORY.md#003",
+      "path": [
+        "10-OPTIMIZATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:10-optimization-theory, git-history:data-science:10-optimization-theory]",
+        "canonical_path": "data-science/10-OPTIMIZATION-THEORY.md",
+        "concepts": "[optimization, theory]",
+        "current_path": "data-science/10-OPTIMIZATION-THEORY.md",
+        "id": "maxim:data-science:optimization-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimization, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimization Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "Key parameters:\n    L = Lipschitz constant of gradient  (L-smooth)\n    μ = strong convexity constant       (μ-strongly convex)\n    κ = L/μ = condition number          (determines convergence rate)\n```"
+    },
+    {
+      "id": "10-OPTIMIZATION-THEORY.md#004",
+      "path": [
+        "10-OPTIMIZATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:10-optimization-theory, git-history:data-science:10-optimization-theory]",
+        "canonical_path": "data-science/10-OPTIMIZATION-THEORY.md",
+        "concepts": "[optimization, theory]",
+        "current_path": "data-science/10-OPTIMIZATION-THEORY.md",
+        "id": "maxim:data-science:optimization-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimization, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimization Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "10-OPTIMIZATION-THEORY.md#005",
+      "path": [
+        "10-OPTIMIZATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:10-optimization-theory, git-history:data-science:10-optimization-theory]",
+        "canonical_path": "data-science/10-OPTIMIZATION-THEORY.md",
+        "concepts": "[optimization, theory]",
+        "current_path": "data-science/10-OPTIMIZATION-THEORY.md",
+        "id": "maxim:data-science:optimization-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimization, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimization Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "## Numerical Analysis / Operations Research Bridge"
+    },
+    {
+      "id": "10-OPTIMIZATION-THEORY.md#006",
+      "path": [
+        "10-OPTIMIZATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:10-optimization-theory, git-history:data-science:10-optimization-theory]",
+        "canonical_path": "data-science/10-OPTIMIZATION-THEORY.md",
+        "concepts": "[optimization, theory]",
+        "current_path": "data-science/10-OPTIMIZATION-THEORY.md",
+        "id": "maxim:data-science:optimization-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimization, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimization Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "The condition number κ and convergence machinery here are identical to classical\nnumerical linear algebra and operations research — just in a new setting:"
+    },
+    {
+      "id": "10-OPTIMIZATION-THEORY.md#007",
+      "path": [
+        "10-OPTIMIZATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:10-optimization-theory, git-history:data-science:10-optimization-theory]",
+        "canonical_path": "data-science/10-OPTIMIZATION-THEORY.md",
+        "concepts": "[optimization, theory]",
+        "current_path": "data-science/10-OPTIMIZATION-THEORY.md",
+        "id": "maxim:data-science:optimization-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimization, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimization Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "```\nNumerical linear algebra / OR                  Optimization theory (this file)\n────────────────────────────────────────────   ──────────────────────────────────────────\nCondition number κ(A) = ‖A‖·‖A⁻¹‖             Condition number κ = L/μ\n  → determines round-off amplification in        → same ratio: L = largest curvature\n    Gaussian elimination                              μ = smallest curvature\n  → determines convergence rate of CG on Ax=b  → ill-conditioned loss ↔ elongated ellipse\n  → well-conditioned (κ≈1): fast, stable        → CG on Ax=b converges in O(√κ) iterations\n  → ill-conditioned (κ≫1): slow, numerically       same rate as Nesterov GD: O(1/T²)\n    fragile"
+    },
+    {
+      "id": "10-OPTIMIZATION-THEORY.md#008",
+      "path": [
+        "10-OPTIMIZATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:10-optimization-theory, git-history:data-science:10-optimization-theory]",
+        "canonical_path": "data-science/10-OPTIMIZATION-THEORY.md",
+        "concepts": "[optimization, theory]",
+        "current_path": "data-science/10-OPTIMIZATION-THEORY.md",
+        "id": "maxim:data-science:optimization-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimization, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimization Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "Conjugate gradient (Ax=b):                    Nesterov accelerated gradient:\n  Converges in O(√κ) iterations                Converges in O(1/√κ) per step\n  Optimal for quadratic objectives             Optimal for smooth convex objectives\n  Uses Krylov subspace Span{r₀,...,r_{t-1}}   Uses \"lookahead\" momentum\n  → Both achieve the same √κ improvement       Both are lower bound-achieving"
+    },
+    {
+      "id": "10-OPTIMIZATION-THEORY.md#009",
+      "path": [
+        "10-OPTIMIZATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:10-optimization-theory, git-history:data-science:10-optimization-theory]",
+        "canonical_path": "data-science/10-OPTIMIZATION-THEORY.md",
+        "concepts": "[optimization, theory]",
+        "current_path": "data-science/10-OPTIMIZATION-THEORY.md",
+        "id": "maxim:data-science:optimization-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimization, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimization Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "Preconditioning Ax=b → P⁻¹Ax = P⁻¹b:         Adaptive gradient methods (Adam, Adagrad):\n  Choose P to make κ(P⁻¹A) ≈ 1                 Approximate diagonal preconditioning\n  → same number of CG iterations as            → per-parameter LR ≈ 1/√accumulated_grad²\n    perfectly conditioned system               K-FAC: full Kronecker-factored preconditioner"
+    },
+    {
+      "id": "10-OPTIMIZATION-THEORY.md#010",
+      "path": [
+        "10-OPTIMIZATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:10-optimization-theory, git-history:data-science:10-optimization-theory]",
+        "canonical_path": "data-science/10-OPTIMIZATION-THEORY.md",
+        "concepts": "[optimization, theory]",
+        "current_path": "data-science/10-OPTIMIZATION-THEORY.md",
+        "id": "maxim:data-science:optimization-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimization, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimization Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "Quasi-Newton (Nocedal & Wright, \"Numerical     L-BFGS:\n  Optimization\"):                               Same algorithm — same textbook\n  BFGS: O(d²) memory, superlinear convergence  L-BFGS: O(md) memory via limited history\n  L-BFGS: limited-memory variant               Standard in scipy.optimize.minimize"
+    },
+    {
+      "id": "10-OPTIMIZATION-THEORY.md#011",
+      "path": [
+        "10-OPTIMIZATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:10-optimization-theory, git-history:data-science:10-optimization-theory]",
+        "canonical_path": "data-science/10-OPTIMIZATION-THEORY.md",
+        "concepts": "[optimization, theory]",
+        "current_path": "data-science/10-OPTIMIZATION-THEORY.md",
+        "id": "maxim:data-science:optimization-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimization, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimization Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "Trust region methods (OR):                     SAM (Sharpness-Aware Minimization):\n  Constrain step to ball ‖δ‖ ≤ Δ               Maximize loss in ε-ball, then step\n  → solve subproblem, update trust radius      → same geometry: local worst-case over\n  Used in SQP, TRPO (RL)                         a norm ball"
+    },
+    {
+      "id": "10-OPTIMIZATION-THEORY.md#012",
+      "path": [
+        "10-OPTIMIZATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:10-optimization-theory, git-history:data-science:10-optimization-theory]",
+        "canonical_path": "data-science/10-OPTIMIZATION-THEORY.md",
+        "concepts": "[optimization, theory]",
+        "current_path": "data-science/10-OPTIMIZATION-THEORY.md",
+        "id": "maxim:data-science:optimization-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimization, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimization Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "Linear programming duality (OR):              Convex duality (Lagrangian):\n  Primal/dual gap → KKT conditions             Strong duality for convex problems\n  → same theory, same conditions               SVMs are LP duals in disguise"
+    },
+    {
+      "id": "10-OPTIMIZATION-THEORY.md#013",
+      "path": [
+        "10-OPTIMIZATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:10-optimization-theory, git-history:data-science:10-optimization-theory]",
+        "canonical_path": "data-science/10-OPTIMIZATION-THEORY.md",
+        "concepts": "[optimization, theory]",
+        "current_path": "data-science/10-OPTIMIZATION-THEORY.md",
+        "id": "maxim:data-science:optimization-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimization, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimization Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "Simplex (OR, linear programs):                 Coordinate descent (LASSO, GLMs):\n  Move along vertex of feasible polytope        Move along one coordinate at a time\n  → both exploit sparse structure              → both effective when coordinates\n  → both convergence guarantees known            are (approximately) uncorrelated\n```"
+    },
+    {
+      "id": "10-OPTIMIZATION-THEORY.md#014",
+      "path": [
+        "10-OPTIMIZATION-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:10-optimization-theory, git-history:data-science:10-optimization-theory]",
+        "canonical_path": "data-science/10-OPTIMIZATION-THEORY.md",
+        "concepts": "[optimization, theory]",
+        "current_path": "data-science/10-OPTIMIZATION-THEORY.md",
+        "id": "maxim:data-science:optimization-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimization, theory]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimization Theory for Machine Learning",
+        "updated": "null"
+      },
+      "text": "The core insight: **machine learning optimization is numerical optimization on\nhigh-dimensional, stochastic, non-convex objectives**. Every concept in this guide\nhas a numerical analysis or OR ancestor — the theory is the same, the scale and\nthe stochasticity are new."
+    }
+  ],
+  "refs": [
+    "10-OPTIMIZATION-THEORY.md"
+  ]
+}

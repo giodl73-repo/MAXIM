@@ -49,8 +49,8 @@ Westgard/lab-QC drift. Metadata stays `status: prototype` / `source_custody: nee
 | Guide-03 worked case | Reframed as **one representative participant (P)** with **common weighting** across A and B; both consoles' ratings shown and both composites computed (RTLX A 49.2 / B 48.8; weighted A **53.9** / B 60.3); aggregation/inference deferred to `statistics-applied/`. "**Four families**" corrected to **five instruments spanning two workload families + an SA probe**. |
 | Guide-06 alarm case | Added a **traceable fictional event inventory + aggregation rules** yielding the before/after metrics; **separated alarms (P1/P2/P3, all action-requiring) from informational notifications** (moved to a separate channel, own metric row); **P3/informational conflation removed**; "after" kept labelled a modeled projection with the calculation shown. |
 | HCI↔HF↔domain seam (02 §8, 06 §9, STATUS, arch) | Recast from "**joint acceptance / sign-off / veto**" to **evidence vs acceptance**: modules own methods/evidence; **the accountable domain organization and its regulator own acceptance and implementation**; `law/` owns legal obligation. Explicit rule: a reference module supplies evidence, it does **not** sign off or veto. |
-| Definition of Done (02) | Gate 4 strengthened to **edition verification**; added **closure gates 9–13**: ordinary PROOF (no BLOCK/WARN); truthful metadata & **source-custody transition**; **source-hierarchy/edition & citation-risk closure** (citation risk cannot remain unresolved at sign-off); **independent adversarial closure**; **records & integration closure**. |
-| Records truthfulness | STATUS / architecture / pulse / WAVE advanced to **DONE / ratified (R1 + independent R2)**; pulse Validation states PROOF checks the guides **by path** and that `git diff --check` was run **after `git add -N` (intent-to-add)** then unstaged, so it truly covers the untracked guides; WAVE's stale "remaining step" wording fixed. |
+| Definition of Done (02) | Gate 4 strengthened to **edition verification**; added **closure gates 9–13**: ordinary MDLOOM (no BLOCK/WARN); truthful metadata & **source-custody transition**; **source-hierarchy/edition & citation-risk closure** (citation risk cannot remain unresolved at sign-off); **independent adversarial closure**; **records & integration closure**. |
+| Records truthfulness | STATUS / architecture / pulse / WAVE advanced to **DONE / ratified (R1 + independent R2)**; pulse Validation states MDLOOM checks the guides **by path** and that `git diff --check` was run **after `git add -N` (intent-to-add)** then unstaged, so it truly covers the untracked guides; WAVE's stale "remaining step" wording fixed. |
 
 ## Findings ledger
 
@@ -70,10 +70,10 @@ Westgard/lab-QC drift. Metadata stays `status: prototype` / `source_custody: nee
 
 ## Validation
 
-- Focused PROOF (MAXIM `proof.toml`) via the `tools-infra/proof` Cargo manifest, scoped to the
+- Focused MDLOOM (MAXIM `mdloom.toml`) via the `tools-infra/proof` Cargo manifest, scoped to the
   three prototype guides, re-run after the R2 repairs: **3 files checked, 0 errors, 0 warnings**.
-  PROOF checks the guides **explicitly by path** because the module is untracked and
-  `*/STATUS.md`, `*/00-OVERVIEW.md`, and `context/**` are PROOF-excluded.
+  MDLOOM checks the guides **explicitly by path** because the module is untracked and
+  `*/STATUS.md`, `*/00-OVERVIEW.md`, and `context/**` are MDLOOM-excluded.
 - `git diff --check`: run **after `git add -N` (intent-to-add)** on the three guides — necessary
   because `git diff --check` inspects tracked/indexed content only — then the intent-to-add was
   undone, leaving the guides untracked. Clean (no whitespace / conflict markers).
@@ -81,7 +81,7 @@ Westgard/lab-QC drift. Metadata stays `status: prototype` / `source_custody: nee
   `RWL = 23·0.833·1.000·0.910·0.904·0.88·1.00 = 13.88`, `LI = 15/13.88 = 1.08`, sweep
   `0.90/1.08/1.26/1.44`; RTLX A `295/6 = 49.2`, B `293/6 = 48.8`, weighted A `808/15 = 53.9`,
   B `904/15 = 60.3`; alarm inventory `21+8+8+25 = 62`, `25/62 = 40%` actionable — all agree.
-- Source backfill (PROOF sources / CROP / PEBBLE / FLETCH) **not** run — prototype boundary
+- Source backfill (MDLOOM sources / CROP / MDPORT / FLETCH) **not** run — prototype boundary
   re-review; frontmatter at the truthful pre-backfill state. No sibling module, `sections/`,
   `.mkdocs/`, or `TRACKER.md` edits. No commit or push.
 

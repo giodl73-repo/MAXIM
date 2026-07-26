@@ -41,7 +41,7 @@ The completed-guide whole-procedure `expert-skeptic` review confirmed, across th
 
 **PASS (recorded 2026-07-12).** Guide `09` clears its Stage-2 completed-guide whole-procedure
 review: the no-runnable-steps (pillar-2) contract holds across the entire gross-to-glass surface,
-and the depth/boundary/pillar checks above are satisfied. Focused Cargo PROOF over `09` (with `11`)
+and the depth/boundary/pillar checks above are satisfied. Focused Cargo MDLOOM over `09` (with `11`)
 reports **2 files checked, 0 errors, 0 warnings**.
 
 This is a **per-guide** clearance. Guide `11`'s Stage-2 whole-seam review has since been **re-run

@@ -1,0 +1,321 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-probability-statistics-information-geometry",
+  "source": "../../probability-statistics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "09-INFORMATION-GEOMETRY.md#000",
+      "path": [
+        "09-INFORMATION-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:09-information-geometry, git-history:probability-statistics:09-information-geometry]",
+        "canonical_path": "probability-statistics/09-INFORMATION-GEOMETRY.md",
+        "concepts": "[information, geometry]",
+        "current_path": "probability-statistics/09-INFORMATION-GEOMETRY.md",
+        "id": "maxim:probability-statistics:information-geometry",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, geometry]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Geometry",
+        "updated": "null"
+      },
+      "text": "# Information Geometry"
+    },
+    {
+      "id": "09-INFORMATION-GEOMETRY.md#001",
+      "path": [
+        "09-INFORMATION-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:09-information-geometry, git-history:probability-statistics:09-information-geometry]",
+        "canonical_path": "probability-statistics/09-INFORMATION-GEOMETRY.md",
+        "concepts": "[information, geometry]",
+        "current_path": "probability-statistics/09-INFORMATION-GEOMETRY.md",
+        "id": "maxim:probability-statistics:information-geometry",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, geometry]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Geometry",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "09-INFORMATION-GEOMETRY.md#002",
+      "path": [
+        "09-INFORMATION-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:09-information-geometry, git-history:probability-statistics:09-information-geometry]",
+        "canonical_path": "probability-statistics/09-INFORMATION-GEOMETRY.md",
+        "concepts": "[information, geometry]",
+        "current_path": "probability-statistics/09-INFORMATION-GEOMETRY.md",
+        "id": "maxim:probability-statistics:information-geometry",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, geometry]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Geometry",
+        "updated": "null"
+      },
+      "text": "Information geometry treats the set of probability distributions as a Riemannian manifold, with the Fisher information metric as the natural geometry. This gives a coordinate-free framework unifying statistics, information theory, and optimization."
+    },
+    {
+      "id": "09-INFORMATION-GEOMETRY.md#003",
+      "path": [
+        "09-INFORMATION-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:09-information-geometry, git-history:probability-statistics:09-information-geometry]",
+        "canonical_path": "probability-statistics/09-INFORMATION-GEOMETRY.md",
+        "concepts": "[information, geometry]",
+        "current_path": "probability-statistics/09-INFORMATION-GEOMETRY.md",
+        "id": "maxim:probability-statistics:information-geometry",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, geometry]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Geometry",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|                   INFORMATION GEOMETRY LANDSCAPE                 |\n+------------------------------------------------------------------+\n|                                                                  |\n|  STATISTICAL MANIFOLD S                                          |\n|  = {p(x; theta) : theta in Theta}                               |\n|  Each point is a probability distribution.                      |\n|                                                                  |\n|  GEOMETRY ON S:                                                  |\n|  Fisher information metric g_{ij} = E[partial_i log p * partial_j log p]\n|  (Riemannian metric on the manifold of distributions)           |\n|                                                                  |\n|  TWO NATURAL CONNECTIONS:                                        |\n|  e-connection (exponential): flat for exponential families      |\n|  m-connection (mixture): flat for mixture families              |\n|  These are dual connections: together they determine the geometry|\n|                                                                  |\n|  DIVERGENCES (asymmetric distances):                            |\n|  KL divergence D_KL(p||q)                                       |\n|  alpha-divergences (generalization)                             |\n|  Bregman divergences                                            |\n|                                                                  |\n|  APPLICATIONS:                                                   |\n|  Natural gradient descent      Cramer-Rao bound (geodesic)     |\n|  Sufficient statistics         EM algorithm (e/m projections)  |\n|  Hypothesis testing geometry   Neural network optimization     |\n+------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "09-INFORMATION-GEOMETRY.md#004",
+      "path": [
+        "09-INFORMATION-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:09-information-geometry, git-history:probability-statistics:09-information-geometry]",
+        "canonical_path": "probability-statistics/09-INFORMATION-GEOMETRY.md",
+        "concepts": "[information, geometry]",
+        "current_path": "probability-statistics/09-INFORMATION-GEOMETRY.md",
+        "id": "maxim:probability-statistics:information-geometry",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, geometry]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Geometry",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-INFORMATION-GEOMETRY.md#005",
+      "path": [
+        "09-INFORMATION-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:09-information-geometry, git-history:probability-statistics:09-information-geometry]",
+        "canonical_path": "probability-statistics/09-INFORMATION-GEOMETRY.md",
+        "concepts": "[information, geometry]",
+        "current_path": "probability-statistics/09-INFORMATION-GEOMETRY.md",
+        "id": "maxim:probability-statistics:information-geometry",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, geometry]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Geometry",
+        "updated": "null"
+      },
+      "text": "## The Statistical Manifold"
+    },
+    {
+      "id": "09-INFORMATION-GEOMETRY.md#006",
+      "path": [
+        "09-INFORMATION-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:09-information-geometry, git-history:probability-statistics:09-information-geometry]",
+        "canonical_path": "probability-statistics/09-INFORMATION-GEOMETRY.md",
+        "concepts": "[information, geometry]",
+        "current_path": "probability-statistics/09-INFORMATION-GEOMETRY.md",
+        "id": "maxim:probability-statistics:information-geometry",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, geometry]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Geometry",
+        "updated": "null"
+      },
+      "text": "A parametric family {p(x; theta) : theta in Theta subset R^k} is a **statistical manifold** — a k-dimensional smooth manifold where each point is a probability distribution."
+    },
+    {
+      "id": "09-INFORMATION-GEOMETRY.md#007",
+      "path": [
+        "09-INFORMATION-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:09-information-geometry, git-history:probability-statistics:09-information-geometry]",
+        "canonical_path": "probability-statistics/09-INFORMATION-GEOMETRY.md",
+        "concepts": "[information, geometry]",
+        "current_path": "probability-statistics/09-INFORMATION-GEOMETRY.md",
+        "id": "maxim:probability-statistics:information-geometry",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, geometry]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Geometry",
+        "updated": "null"
+      },
+      "text": "**Connection to information-theory/**: See that directory for entropy and KL divergence fundamentals. This module builds on them with geometric structure."
+    },
+    {
+      "id": "09-INFORMATION-GEOMETRY.md#008",
+      "path": [
+        "09-INFORMATION-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:09-information-geometry, git-history:probability-statistics:09-information-geometry]",
+        "canonical_path": "probability-statistics/09-INFORMATION-GEOMETRY.md",
+        "concepts": "[information, geometry]",
+        "current_path": "probability-statistics/09-INFORMATION-GEOMETRY.md",
+        "id": "maxim:probability-statistics:information-geometry",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, geometry]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Geometry",
+        "updated": "null"
+      },
+      "text": "**Connection to differential-geometry/**: The statistical manifold is literally a Riemannian manifold — see that directory for the definition and machinery of Riemannian geometry. The Fisher information metric IS a Riemannian metric."
+    },
+    {
+      "id": "09-INFORMATION-GEOMETRY.md#009",
+      "path": [
+        "09-INFORMATION-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:09-information-geometry, git-history:probability-statistics:09-information-geometry]",
+        "canonical_path": "probability-statistics/09-INFORMATION-GEOMETRY.md",
+        "concepts": "[information, geometry]",
+        "current_path": "probability-statistics/09-INFORMATION-GEOMETRY.md",
+        "id": "maxim:probability-statistics:information-geometry",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, geometry]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Geometry",
+        "updated": "null"
+      },
+      "text": "```\n  Point in manifold:     a distribution p(x; theta)\n  Tangent vector at p:   partial_theta log p(x; theta) = score function\n  Riemannian metric:     Fisher information matrix g_ij(theta)"
+    },
+    {
+      "id": "09-INFORMATION-GEOMETRY.md#010",
+      "path": [
+        "09-INFORMATION-GEOMETRY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:09-information-geometry, git-history:probability-statistics:09-information-geometry]",
+        "canonical_path": "probability-statistics/09-INFORMATION-GEOMETRY.md",
+        "concepts": "[information, geometry]",
+        "current_path": "probability-statistics/09-INFORMATION-GEOMETRY.md",
+        "id": "maxim:probability-statistics:information-geometry",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[information, geometry]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Information Geometry",
+        "updated": "null"
+      },
+      "text": "The score function s(x; theta) = partial/partial_theta log p(x; theta)\n  acts as a tangent vector: it points in the direction of maximum\n  change in the distribution.\n```"
+    }
+  ],
+  "refs": [
+    "09-INFORMATION-GEOMETRY.md"
+  ]
+}

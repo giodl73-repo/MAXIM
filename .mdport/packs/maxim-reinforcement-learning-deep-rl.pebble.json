@@ -1,0 +1,125 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-reinforcement-learning-deep-rl",
+  "source": "../../reinforcement-learning",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "07-DEEP-RL.md#000",
+      "path": [
+        "07-DEEP-RL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:reinforcement-learning:07-deep-rl, git-history:reinforcement-learning:07-deep-rl]",
+        "canonical_path": "reinforcement-learning/07-DEEP-RL.md",
+        "concepts": "[TRPO, PPO, clipped objective, DDPG, TD3, SAC, maximum entropy RL, trust region]",
+        "current_path": "reinforcement-learning/07-DEEP-RL.md",
+        "id": "maxim:reinforcement-learning:deep-rl",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[PPO, SAC]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep RL - TRPO, PPO, DDPG/TD3, SAC and Max-Entropy RL",
+        "updated": "null"
+      },
+      "text": "# Deep RL — TRPO, PPO, DDPG/TD3, SAC and Max-Entropy RL"
+    },
+    {
+      "id": "07-DEEP-RL.md#001",
+      "path": [
+        "07-DEEP-RL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:reinforcement-learning:07-deep-rl, git-history:reinforcement-learning:07-deep-rl]",
+        "canonical_path": "reinforcement-learning/07-DEEP-RL.md",
+        "concepts": "[TRPO, PPO, clipped objective, DDPG, TD3, SAC, maximum entropy RL, trust region]",
+        "current_path": "reinforcement-learning/07-DEEP-RL.md",
+        "id": "maxim:reinforcement-learning:deep-rl",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[PPO, SAC]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep RL - TRPO, PPO, DDPG/TD3, SAC and Max-Entropy RL",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "07-DEEP-RL.md#002",
+      "path": [
+        "07-DEEP-RL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:reinforcement-learning:07-deep-rl, git-history:reinforcement-learning:07-deep-rl]",
+        "canonical_path": "reinforcement-learning/07-DEEP-RL.md",
+        "concepts": "[TRPO, PPO, clipped objective, DDPG, TD3, SAC, maximum entropy RL, trust region]",
+        "current_path": "reinforcement-learning/07-DEEP-RL.md",
+        "id": "maxim:reinforcement-learning:deep-rl",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[PPO, SAC]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep RL - TRPO, PPO, DDPG/TD3, SAC and Max-Entropy RL",
+        "updated": "null"
+      },
+      "text": "Deep RL is policy optimization made *stable* at neural-network scale. Naive policy\ngradients take destructively large steps; one bad update collapses the policy and,\nbecause the policy generates its own data, it never recovers. The modern\nalgorithms are answers to one question: **how do you take the biggest policy\nimprovement step that is still safe?** Two lineages answer it differently."
+    },
+    {
+      "id": "07-DEEP-RL.md#003",
+      "path": [
+        "07-DEEP-RL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:reinforcement-learning:07-deep-rl, git-history:reinforcement-learning:07-deep-rl]",
+        "canonical_path": "reinforcement-learning/07-DEEP-RL.md",
+        "concepts": "[TRPO, PPO, clipped objective, DDPG, TD3, SAC, maximum entropy RL, trust region]",
+        "current_path": "reinforcement-learning/07-DEEP-RL.md",
+        "id": "maxim:reinforcement-learning:deep-rl",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[PPO, SAC]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Deep RL - TRPO, PPO, DDPG/TD3, SAC and Max-Entropy RL",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|              TWO LINEAGES OF DEEP POLICY OPTIMIZATION            |\n|                                                                  |\n|   ON-POLICY (trust region)        OFF-POLICY (deterministic /    |\n|   ---------------------            max-entropy actor-critic)     |\n|                                   ---------------------------    |\n|   constrain step size so the      reuse a replay buffer; learn   |\n|   new policy stays CLOSE to old   a Q-critic + an actor          |\n|                                                                  |\n|   TRPO  -> PPO                    DDPG -> TD3 -> SAC             |\n|   (KL trust region -> clip)       (det. PG -> twin-Q -> entropy) |\n|                                                                  |\n|   stable, simple, sample-hungry   sample-efficient, fiddly       |\n+------------------------------------------------------------------+\n                                 |\n                                 v\n+------------------------------------------------------------------+\n|   ALL share the ch 06 core:  grad J = E[ grad log pi * A ]       |\n|   They differ ONLY in how they CONTROL the update.               |\n+------------------------------------------------------------------+\n```"
+    }
+  ],
+  "refs": [
+    "07-DEEP-RL.md"
+  ]
+}

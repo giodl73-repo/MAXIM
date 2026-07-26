@@ -138,7 +138,7 @@ Frontmatter on all three guides is already truthful (`status: prototype`,
 ## Verdict
 
 The prototypes now clear the advice-creep, reification, heuristic-diagram, and seam-caricature
-risks in this lens, and focused PROOF stays green (**3 files checked, 0 errors, 0 warnings**).
+risks in this lens, and focused MDLOOM stays green (**3 files checked, 0 errors, 0 warnings**).
 **This does not ratify the pattern.** All seven findings were fixed by the same author in the
 same pass; an independent, **strict re-review (R2)** is required before the pattern can govern
 the Pulse-04 authoring of the remaining nine guides. Recommendation: **Pulse 03 remains IN

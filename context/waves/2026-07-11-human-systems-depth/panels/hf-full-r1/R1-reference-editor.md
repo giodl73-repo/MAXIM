@@ -5,7 +5,7 @@
 > guides (`00`–`11`) and the module records/artifacts, run after authoring, integration, and
 > source-corpus backfill. The reference-editor lens owns **citation/edition accuracy, standard
 > attribution, structure and cross-reference navigability, the accessibility contract's honest
-> reach, the trackers/totals, the PROOF artifact truth, and the panel-record/DoD closure
+> reach, the trackers/totals, the MDLOOM artifact truth, and the panel-record/DoD closure
 > evidence**. Every finding is **repaired**. This lens does **not** clear the gate — see the
 > verdict. No commit/push. Tier decision (**Silver**, no registry) lives in `R2-gold-rubric.md`.
 
@@ -15,7 +15,7 @@ All twelve guides at peer depth; the named-model citations (Leveson STAMP, the r
 equation, SPAR-H/NUREG-CR-6883, Bainbridge, Parasuraman-Sheridan-Wickens, Reason, Hollnagel); the
 cross-reference surface (intro deferrals, cheat sheets, boundaries); the module-wide safety &
 accessibility contract vs its actual per-guide presence; `TRACKER.md` and `sections/technology.md`
-totals; `.proof/last-check.json`; and the wave/pulse/STATUS records and the (missing) full-module
+totals; `.mdloom/last-check.json`; and the wave/pulse/STATUS records and the (missing) full-module
 panel record.
 
 ## Findings
@@ -87,12 +87,12 @@ now reads "23 kg, set by the revised 1993 equation" (the 1993/1994 primary citat
 correct); the stray trailing whitespace is trimmed; and the whitespace validation is run over the
 untracked files via **`git add --intent-to-add`** so `git diff --check` actually inspects them.
 
-**RE-07 — WARN — PROOF artifact truth: `.proof/last-check.json` recorded the prototype's 3-file run,
+**RE-07 — WARN — MDLOOM artifact truth: `.mdloom/last-check.json` recorded the prototype's 3-file run,
 not the 12-guide module.** The persisted artifact read `files_checked: 3` (from Pulse 03's three
 prototypes), overstating cleanliness relative to the authored 12-guide module and blending sibling
-scope. *Repaired:* a **focused, HF-only PROOF over all twelve guides** was run and records the exact
+scope. *Repaired:* a **focused, HF-only MDLOOM over all twelve guides** was run and records the exact
 **12 files checked, 0 errors, 0 warnings**; the artifact is refreshed to the 12-file result, and any
-sibling PROOF/whitespace warnings are reported **separately**, not folded into the HF module number.
+sibling MDLOOM/whitespace warnings are reported **separately**, not folded into the HF module number.
 
 ## Citation-risk closure (recorded exact status)
 
@@ -114,7 +114,7 @@ source is a completion gate. Where a specific external primary could not be pinn
 **REPAIRED — no unresolved BLOCK or WARN after this pass; the lens does not itself ratify.** The
 reference/citation/structure/records defects — one determinate-without-triangulation BLOCK (`11`),
 one records/panels BLOCK (`RE-02`), and five WARNs (cross-refs, accessibility reach, totals,
-Leveson/RNLE/whitespace, PROOF truth) — are repaired, and the citation-risk items are closed against
+Leveson/RNLE/whitespace, MDLOOM truth) — are repaired, and the citation-risk items are closed against
 authoritative sources with recorded status. Because the repairs were made in this same pass, an
 **independent final re-review is still required**; the wave stays **IN REVIEW**. Tier: **Silver**,
 **no registry** — see `R2-gold-rubric.md`.

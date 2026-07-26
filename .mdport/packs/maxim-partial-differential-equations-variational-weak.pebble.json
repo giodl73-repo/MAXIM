@@ -1,0 +1,2309 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-partial-differential-equations-variational-weak",
+  "source": "../../partial-differential-equations",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "08-VARIATIONAL-WEAK.md#000",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "# Variational Formulation and Weak Solutions"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#001",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#002",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "Weak formulations restate a PDE problem as a variational equality that makes sense for\nfunctions with fewer derivatives than the classical formulation requires. This is the\ntheoretical foundation of the Finite Element Method (FEM)."
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#003",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "```\n+-----------------------------------------------------------------------+\n|              WEAK FORMULATION CONCEPT                                 |\n|                                                                       |\n|  CLASSICAL (STRONG) FORMULATION:                                      |\n|  −∇²u = f in Ω,  u = 0 on ∂Ω                                          |\n|  Requires: u ∈ C²(Ω) — twice differentiable                           |\n|  What about rough f? Irregular Ω? Discontinuous coefficients?         |\n|                                                                       |\n|  WEAK FORMULATION:                                                    |\n|  ∫_Ω ∇u·∇v dx = ∫_Ω fv dx   for all v ∈ H₀¹(Ω)                        |\n|  Requires: u,v ∈ H₀¹(Ω) — just ONE derivative in L²                   |\n|                                                                       |\n|  KEY STEP: integration by parts ONCE, moving one derivative to v.     |\n|  Classical solution ⊂ weak solutions.                                 |\n|  Weak solutions may be less smooth — but they exist under             |\n|  much weaker hypotheses.                                              |\n|                                                                       |\n|  FEM CONNECTION:                                                      |\n|  Replace: v ∈ H₀¹(Ω) by v ∈ V_h ⊂ H₀¹ (finite-dimensional subspace)   |\n|  → Galerkin approximation (linear system Au = b)                      |\n|  → This IS the finite element method.                                 |\n|                                                                       |\n+-----------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#004",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#005",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "## Sobolev Spaces"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#006",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "To make weak formulations rigorous, we need function spaces that track both function\nvalues and derivatives in L²."
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#007",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "```\n  L²(Ω):  {u : Ω → R : ∫_Ω |u|² dx < ∞}\n  Inner product: (u,v) = ∫_Ω uv dx\n  Norm: ‖u‖_L² = (∫|u|²)^{1/2}"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#008",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "H¹(Ω):  {u ∈ L²(Ω) : ∂u/∂x_i ∈ L²(Ω) for all i}\n  Norm: ‖u‖_H¹ = (∫|u|² + ∫|∇u|²)^{1/2}"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#009",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "H^k(Ω) = W^{k,2}(Ω):  all partial derivatives up to order k in L²\n  Norm: ‖u‖_{H^k} = (Σ_{|α|≤k} ∫|D^α u|²)^{1/2}"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#010",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "H₀¹(Ω):  closure of C_c^∞(Ω) in H¹ = {u ∈ H¹ : u|_{∂Ω} = 0}\n  (H¹ functions with zero boundary trace)"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#011",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "POINCARÉ INEQUALITY:\n  For bounded Ω: ∃C > 0 such that ‖u‖_L² ≤ C‖∇u‖_L²  for u ∈ H₀¹(Ω)\n  → ‖∇u‖_L² is an equivalent norm on H₀¹(Ω)\n  → Coercivity for the Dirichlet Laplacian follows automatically."
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#012",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "SOBOLEV EMBEDDING THEOREM:\n  H^k ↪ C^j (bounded embedding) if k − n/2 > j  (n = space dimension)\n  In 3D: H² ↪ C⁰ (H² functions are continuous)\n         H¹ ↪ L⁶ (H¹ functions are in L⁶, Sobolev exponent p*=2n/(n−2))\n```"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#013",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#014",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "## Deriving the Weak Formulation"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#015",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "### Poisson Equation"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#016",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "```\n  STRONG: −∇²u = f in Ω,  u = 0 on ∂Ω"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#017",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "STEP 1: Multiply both sides by a test function v ∈ H₀¹(Ω):\n  −∫_Ω (∇²u) v dx = ∫_Ω f v dx"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#018",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "STEP 2: Integration by parts (Green's first identity):\n  ∫_Ω ∇u · ∇v dx − ∮_{∂Ω} v ∂u/∂n dS = ∫_Ω fv dx"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#019",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "STEP 3: Since v ∈ H₀¹: v = 0 on ∂Ω, so the boundary term vanishes:\n  ∫_Ω ∇u · ∇v dx = ∫_Ω fv dx"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#020",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "WEAK FORM: Find u ∈ H₀¹(Ω) such that\n  ┌──────────────────────────────────────────────────────────────┐\n  │  a(u,v) = F(v)   for all v ∈ H₀¹(Ω)                          │\n  │  where a(u,v) = ∫_Ω ∇u·∇v dx   (bilinear form)               │\n  │  and   F(v)   = ∫_Ω fv dx       (linear functional)          │\n  └──────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#021",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "OBSERVATIONS:\n  • u appears only with FIRST derivatives (one less than strong form)\n  • v also only needs first derivatives\n  • No BCs appear explicitly — they're \"built in\" to H₀¹\n  • If u solves the strong form and is smooth, it solves the weak form\n  • Weak solution may exist even when strong solution doesn't\n```"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#022",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "### General Variable-Coefficient Elliptic"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#023",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "```\n  STRONG: −∇·(A(x)∇u) + c(x)u = f in Ω,  u=0 on ∂Ω"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#024",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "A(x) = diffusion tensor (symmetric, uniformly positive definite)\n  c(x) ≥ 0 (reaction coefficient)"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#025",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "WEAK FORM: Find u ∈ H₀¹(Ω) s.t.\n  ∫_Ω [∇v · A∇u + c·uv] dx = ∫_Ω fv dx   for all v ∈ H₀¹"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#026",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "Bilinear form: a(u,v) = ∫_Ω [∇v · A∇u + c·uv] dx"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#027",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "UNIFORM ELLIPTICITY: ξ·A(x)ξ ≥ α|ξ|²  for all ξ, x (some α > 0)\n  This ensures coercivity: a(u,u) ≥ α‖u‖²_{H₀¹}\n  → Lax-Milgram applies → unique weak solution.\n```"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#028",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#029",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "## Finite Element Method: The Full Derivation"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#030",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "FEM is the numerical method that directly discretizes the weak formulation."
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#031",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "```\n  STEP 1: TRIANGULATE the domain Ω.\n  ┌────────────────────────────────────────────────────────────┐\n  │ Mesh T_h: partition Ω into elements (triangles in 2D,      │\n  │ tetrahedra in 3D). Mesh size h = max element diameter.     │\n  │                                                            │\n  │  [*]─[*]─[*]─[*]─[*]                                       │\n  │   |\\ |\\ |\\ |\\ |\\                                           │\n  │  [*]─[*]─[*]─[*]─[*]                                       │\n  │   |\\ |\\ |\\ |\\ |\\                                           │\n  │  [*]─[*]─[*]─[*]─[*]                                       │\n  └────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#032",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "STEP 2: DEFINE FINITE ELEMENT SPACE V_h ⊂ H₀¹(Ω).\n  Lagrange P1 elements: piecewise linear, continuous, zero on ∂Ω.\n  BASIS FUNCTIONS φ_j: hat functions — φ_j(x_i) = δ_{ij}\n  (piecewise linear, = 1 at node j, = 0 at all other nodes)"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#033",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "STEP 3: GALERKIN APPROXIMATION.\n  Replace H₀¹ by V_h in the weak form:\n  Find u_h = Σ_j U_j φ_j ∈ V_h such that:\n  a(u_h, φ_i) = F(φ_i)   for all basis functions φ_i"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#034",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "STEP 4: ASSEMBLE LINEAR SYSTEM.\n  This becomes AU = b where:\n  A_{ij} = a(φ_j, φ_i) = ∫_Ω ∇φ_i · ∇φ_j dx    (STIFFNESS MATRIX)\n  b_i    = F(φ_i)       = ∫_Ω f φ_i dx           (LOAD VECTOR)"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#035",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "STEP 5: SOLVE Au = b.\n  A is symmetric positive definite (from coercivity of a).\n  A is SPARSE (φ_i, φ_j have overlapping support only when nodes i,j\n  are in the same element) → sparse linear solvers."
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#036",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "STEP 6: RECOVER SOLUTION.\n  u_h(x) = Σ_j U_j φ_j(x)\n```"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#037",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#038",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "## Error Analysis: Céa's Lemma"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#039",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "```\n  CÉA'S LEMMA:"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#040",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "‖u − u_h‖_{H¹} ≤ (M/α) · min_{v_h ∈ V_h} ‖u − v_h‖_{H¹}"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#041",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "where M = continuity constant of a, α = coercivity constant."
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#042",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "INTERPRETATION:\n  The FEM error is (M/α) times the BEST APPROXIMATION error\n  from V_h to the exact solution u."
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#043",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "FEM quasi-optimally approximates u from within V_h."
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#044",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "For piecewise linear elements (P1) and u ∈ H²(Ω):\n  ‖u − u_h‖_{H¹} ≤ C·h·‖u‖_{H²}    (first-order convergence in H¹)\n  ‖u − u_h‖_{L²} ≤ C·h²·‖u‖_{H²}   (second-order in L²)"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#045",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "For P_k elements: O(h^k) in H¹, O(h^{k+1}) in L²."
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#046",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "AUBIN-NITSCHE TRICK:\n  The improved L² estimate comes from a duality argument:\n  ‖e‖_{L²} = sup_{g} (e,g)/‖g‖ = ... ≤ C·h·‖e‖_{H¹} ≤ C·h²·‖u‖_{H²}\n```"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#047",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#048",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "## Weak Solutions for Parabolic Equations"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#049",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "```\n  HEAT EQUATION WEAK FORMULATION:"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#050",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "Strong: u_t − α∇²u = f in Q_T = Ω×(0,T), u(x,0) = u₀, u=0 on ∂Ω"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#051",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "SPACE: V = H₀¹(Ω),  H = L²(Ω)\n  Gelfand triple: V ⊂ H ≅ H* ⊂ V*"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#052",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "WEAK FORM: Find u ∈ L²(0,T;H₀¹) with u_t ∈ L²(0,T;H⁻¹) such that"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#053",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "d/dt (u,v)_H + α·a(u,v) = ⟨f,v⟩   for a.e. t ∈ (0,T)\n  u(0) = u₀"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#054",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "where (u,v)_H = ∫_Ω uv dx  and  a(u,v) = ∫_Ω ∇u·∇v dx."
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#055",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "EXISTENCE (Galerkin method):\n  1. Discretize in x: Galerkin in space → ODE system u_h'(t) + A·u_h(t) = f_h(t)\n  2. Solve ODE → solutions u_h_n\n  3. Take limit h→0, n→∞ (compactness arguments)\n  → Weak solution u ∈ L²(0,T;H₀¹) with u_t ∈ L²(0,T;H⁻¹) exists."
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#056",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "REGULARITY: if u₀ ∈ H₀¹ and f ∈ L²(Q_T), then u ∈ H¹(0,T;L²) ∩ L²(0,T;H²).\n```"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#057",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#058",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "## Hyperbolic Weak Solutions: Shocks"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#059",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "```\n  For conservation laws u_t + f(u)_x = 0:"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#060",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "CLASSICAL SOLUTION: smooth, satisfies PDE everywhere.\n  Can break down at time t_break when characteristics cross."
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#061",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "WEAK SOLUTION: Find u ∈ L^∞ such that\n  ∫∫ [u·φ_t + f(u)·φ_x] dx dt + ∫ u₀(x)φ(x,0) dx = 0\n  for all φ ∈ C_c^∞(R × [0,∞))"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#062",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "Allows DISCONTINUITIES. Permits shock solutions.\n  But weak solutions are NOT unique in general."
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#063",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "ENTROPY CONDITION (additional selection criterion):\n  ∂_t η(u) + ∂_x q(u) ≤ 0  (in distributional sense)\n  for all convex entropy η with entropy flux q' = η'f'."
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#064",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "This selects the unique \"physical\" (entropy) weak solution."
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#065",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "RANKINE-HUGONIOT at a shock (speed s):\n  s[u] = [f(u)]  (brackets = jump across shock)\n  s(u_R − u_L) = f(u_R) − f(u_L)\n```"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#066",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#067",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "## From Weak Formulation to Finite Element: Summary"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#068",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "```\n  +-------------------+----------------------------------------+\n  | STRONG PDE        | −∇·(A∇u) + cu = f in Ω                 |\n  +-------------------+----------------------------------------+\n          |\n          | Multiply by test fn v, integrate by parts\n          v\n  +-------------------+----------------------------------------+\n  | WEAK FORMULATION  | a(u,v) = F(v)  ∀v ∈ H₀¹                |\n  +-------------------+----------------------------------------+\n          |\n          | Abstract: Lax-Milgram → existence/uniqueness\n          v\n  +-------------------+----------------------------------------+\n  | GAP: V_h ⊂ H₀¹    | Finite-dimensional subspace            |\n  | Galerkin method   | a(u_h,v_h) = F(v_h)  ∀v_h ∈ V_h        |\n  +-------------------+----------------------------------------+\n          |\n          | Basis expansion: u_h = Σ U_j φ_j\n          v\n  +-------------------+----------------------------------------+\n  | LINEAR SYSTEM     | A U = b  (A sparse, SPD)               |\n  | Stiffness + load  |                                        |\n  +-------------------+----------------------------------------+\n          |\n          | Céa's lemma → quasi-optimality\n          v\n  +-------------------+----------------------------------------+\n  | ERROR ESTIMATE    | ‖u−u_h‖_{H¹} = O(h^k) for P_k elements |\n  +-------------------+----------------------------------------+\n```"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#069",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#070",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "## Neural Methods as Variational Approaches"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#071",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "PINNs and neural operators are direct descendants of the variational framework. Understanding their connection to weak formulations explains both their power and their failure modes."
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#072",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "```\nVARIATIONAL / WEAK FORM → NEURAL METHODS\n═════════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#073",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "FEM (classical):\n  V_h = span{φ₁,...,φ_N}   (piecewise polynomial basis)\n  Find u_h ∈ V_h:  a(u_h, v_h) = F(v_h)  ∀v_h ∈ V_h\n  → Stiffness matrix A·c = b;  solve linear system.\n  Céa's lemma: ‖u−u_h‖ ≤ (M/α) inf_{v∈V_h} ‖u−v‖"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#074",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "PINN (strong-form residual):\n  V_θ = {u_θ(x) : θ ∈ ℝᵖ}  (neural network parameterization)\n  Loss: L(θ) = Σ_i |−∇²u_θ(x_i) − f(x_i)|²  + λ · BC penalty\n  Gradients: ∂L/∂θ via automatic differentiation through PDE operator.\n  No mesh. No linear system. Just gradient descent on the residual."
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#075",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "DEEP RITZ METHOD (variational/energy form):\n  Minimize the energy functional directly:\n  J[u_θ] = ½ a(u_θ, u_θ) − F(u_θ)\n         = ½ ∫|∇u_θ|² dx − ∫ f·u_θ dx\n  This IS the Ritz method with a neural network as the trial function.\n  Same energy minimization as FEM, different function class."
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#076",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "DEEP GALERKIN METHOD (weak form):\n  Test against random test functions v_k:\n  Loss = E_v[ |a(u_θ, v) − F(v)|² ]\n  Stochastic: sample test functions randomly at each iteration."
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#077",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "WHY PINNs CAN FAIL — VARIATIONAL PERSPECTIVE:\n  Céa's lemma requires coercivity: a(u,u) ≥ α‖u‖²\n  PINN loss landscape is NON-CONVEX (nonlinear parameterization).\n  No analogue of Céa's lemma → no guaranteed approximation quality.\n  Spectral bias: networks learn low-frequency modes first (related\n  to the eigenvalue spectrum of the NTK — neural tangent kernel).\n  Stiff PDEs (large condition number of A) → optimization difficulty.\n```"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#078",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "The key insight: FEM trades expressiveness for guarantees (piecewise polynomials are limited but analyzable). Neural methods trade guarantees for expressiveness (universal approximation but non-convex optimization). Understanding the variational framework — coercivity, Céa's lemma, energy minimization — is what explains when each approach is appropriate. See `09-NUMERICAL-PDES.md` for the full comparison table."
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#079",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#080",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "## Cross-References"
+    },
+    {
+      "id": "08-VARIATIONAL-WEAK.md#081",
+      "path": [
+        "08-VARIATIONAL-WEAK.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:partial-differential-equations:08-variational-weak, git-history:partial-differential-equations:08-variational-weak]",
+        "canonical_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "concepts": "[variational, weak]",
+        "current_path": "partial-differential-equations/08-VARIATIONAL-WEAK.md",
+        "id": "maxim:partial-differential-equations:variational-weak",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "partial-differential-equations",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[variational, weak]",
+        "section": "partial-differential-equations",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Variational Formulation and Weak Solutions",
+        "updated": "null"
+      },
+      "text": "- `variational-calculus/01-FUNCTIONALS.md` — functionals as the language behind weak formulations.\n- `partial-differential-equations/09-NUMERICAL-PDES.md` — FEM as discretized weak formulation.\n- `differential-geometry/03-DIFFERENTIAL-FORMS.md` — integration by parts and weak structure in coordinate-free form."
+    }
+  ],
+  "refs": [
+    "08-VARIATIONAL-WEAK.md"
+  ]
+}

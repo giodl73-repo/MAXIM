@@ -1,0 +1,1777 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-os-cross-platform",
+  "source": "../../os",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "07-CROSS-PLATFORM.md#000",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "# Cross-Platform Development Reference"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#001",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "```\nOS-LEVEL DIVERGENCE LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#002",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "PROCESS MODEL               FILESYSTEM                    IPC / ASYNC\n  ─────────────────────────   ─────────────────────────     ─────────────────────────\n  Windows                     Windows                       Windows\n  CreateProcess()             C:\\foo\\bar (backslash)        Named pipe \\\\.\\pipe\\name\n  No fork() — fresh           Drive letters (C:, D:)        IOCP (completion-based)\n  process from scratch        NTFS: case-insensitive        Winsock TCP/UDP\n  Explicit handle inherit     MAX_PATH=260 (legacy)\n  Job Objects for groups      CRLF line endings"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#003",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "Linux                       Linux                         Linux\n  fork() + exec()             /foo/bar (forward slash)      Unix domain socket /tmp/x.sock\n  COW clone then replace      No drive letters              epoll / io_uring (readiness)\n  All fds inherited           ext4: case-sensitive          POSIX sockets TCP/UDP\n  unless O_CLOEXEC            LF line endings               Netlink (kernel ↔ userspace)\n  clone() for threads         No max path (POSIX: 4096)     D-Bus (desktop services)"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#004",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "macOS                       macOS                         macOS\n  posix_spawn() preferred     /foo/bar                      Unix domain socket (same as Linux)\n  fork() works but restricted APFS: case-insensitive        kqueue (readiness, plus file watch)\n  in sandboxed/App Store apps by default                    Mach ports (XPC services)\n  Same fd inherit as Linux    LF line endings               XPC (high-level Mach IPC)\n                              HFS+: NFD Unicode normalize"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#005",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "UNICODE / ENCODING          SIGNALS                       CONFIG STORE\n  ─────────────────────────   ─────────────────────────     ─────────────────────────\n  Windows: UTF-16 internal    Windows: no POSIX signals     Windows: Registry (binary DB)\n  NFKC normalization          SetConsoleCtrlHandler         Linux: /etc text files\n  char = UTF-16 in Win32 API  (Ctrl+C only)                macOS: .plist files\n  Filenames: Unicode (UTF-16) WM_CLOSE for GUI windows      Both: env vars for 12-factor"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#006",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "Linux: no normalization     Linux: full POSIX signals\n  Bytes on disk               SIGTERM/SIGKILL/SIGHUP etc.\n  Filename: byte strings      signalfd for event-loop\n  (usually UTF-8 by convention but not enforced)"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#007",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "macOS: NFC (HFS+ uses NFD)  macOS: POSIX signals + kqueue\n  Same filename, different    EVFILT_SIGNAL preferred\n  byte representation than    in multi-threaded apps\n  Linux (NFD) for some chars\n```"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#008",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "## OS-Level Portability — Where Code Breaks Across Platforms"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#009",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "### Filesystem Path Differences"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#010",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "```\nPATH DIFFERENCES — PRODUCTION BUGS HIDING HERE\n═══════════════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#011",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "Attribute          Windows                Linux / most POSIX    macOS\n  ──────────         ─────────────────────  ──────────────────    ──────────────────────\n  Separator          \\  (backslash)          /  (forward slash)    /  (forward slash)\n  Alt separator      /  (also accepted       (none)                (none)\n                      by most Windows APIs)\n  Drive letters      C:\\, D:\\, \\\\server\\sh  No                    No\n  Root               C:\\  or \\\\server\\share  /                     /\n  Case sensitivity   Insensitive+preserving  Sensitive (ext4)      Insensitive by default\n                     (NTFS default)          Sensitive (xfs, btrfs) Can be formatted sensitive\n  Max path length    260 chars (legacy)      ~4096 bytes           ~1024 bytes\n                     32767 with \\\\?\\ prefix  per component: 255    per component: 255\n  Null char in path  Not allowed             Not allowed           Not allowed\n  Other reserved     CON, PRN, AUX, NUL,    No reserved names     No reserved names\n  names              COM1-9, LPT1-9\n                     Cannot be filenames\n  Trailing spaces    Stripped silently       Valid (unusual)        Valid (unusual)\n  Symlinks           Require Admin or        Standard               Standard; /etc → /private/etc\n                     Developer Mode; are\n                     not followed by all\n                     tools (Explorer hides)"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#012",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "Path separator in code — the right way:\n    Python:    pathlib.Path('a') / 'b' / 'c'  (OS-native, correct everywhere)\n    .NET:      Path.Combine(\"a\", \"b\", \"c\")     (correct; avoids \\ vs / issue)\n    Node.js:   path.join('a', 'b', 'c')        (correct)\n    Wrong:     \"a\" + \"/\" + \"b\"                  (fails on Windows if dir has C:\\)\n    Also wrong: \"a\\\\b\"                          (fails on Linux/macOS)"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#013",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "Max path gotcha on Windows:\n    Legacy Win32 APIs enforce MAX_PATH=260.\n    Opt-in to long paths: HKLM\\SYSTEM\\CurrentControlSet\\Control\\FileSystem\\\n      LongPathsEnabled=1  (Windows 10 1607+)\n    OR use \\\\?\\ prefix: \\\\?\\C:\\very\\long\\path\n    .NET: automatically uses \\\\?\\ prefix for long paths in .NET 6+\n    Docker on Windows: /var/lib/docker paths can exceed 260 — enable long paths\n```"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#014",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "### Line Endings — CRLF vs LF"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#015",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "```\nLINE ENDING SEMANTICS\n═══════════════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#016",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "Windows:  \\r\\n  (CRLF, 0x0D 0x0A)  — text mode default since MS-DOS\n  Linux:    \\n    (LF, 0x0A)          — POSIX standard\n  macOS:    \\n    (LF, 0x0A)          — changed from \\r in OS X 10.0\n  Old Mac:  \\r    (CR, 0x0D)          — pre-OS X; still used by some Excel exports"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#017",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "The production bug:\n    Developer on Windows checks in shell script\n    git config core.autocrlf = true (Windows default in Git for Windows)\n    Git converts LF → CRLF on checkout\n    Script.sh checked out on Windows → contains CRLF\n    CI runs in Docker (Linux) → #!/bin/bash\\r — shebang has trailing \\r\n    bash: cannot execute: No such file  (or similar cryptic error)"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#018",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "Fix: .gitattributes (committed to repo, overrides local config)\n    # .gitattributes\n    * text=auto                   # auto-detect text files, normalize to LF in repo\n    *.sh text eol=lf              # always LF for shell scripts\n    *.bat text eol=crlf           # always CRLF for batch files\n    *.ps1 text eol=crlf           # PowerShell on Windows wants CRLF\n    *.sln text eol=crlf           # Visual Studio solution files\n    *.png binary                  # no conversion for binary files"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#019",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "git config audit:\n    git config core.autocrlf      # true (Win) / input (Mac/Linux) / false (no convert)\n    git config core.eol           # lf / crlf / native"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#020",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "Check for CRLFs in existing files:\n    file script.sh                # \"with CRLF line terminators\" if CRLF\n    cat -A script.sh | head       # ^M at end of lines = CR (\\r)"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#021",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "Fix CRLFs in place:\n    sed -i 's/\\r//' script.sh      # Linux/macOS\n    dos2unix script.sh             # if dos2unix installed\n```"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#022",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "### Case Sensitivity Bugs"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#023",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "```\nCASE SENSITIVITY TRAP\n═══════════════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#024",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "Windows (NTFS):  case-insensitive, case-preserving\n    FOO.TXT and foo.txt are the SAME file — last write wins\n  Linux (ext4):    case-sensitive\n    FOO.TXT and foo.txt are DIFFERENT files — can coexist\n  macOS (APFS):    case-insensitive by default\n    Same as Windows by default; developer machines can run case-sensitive APFS"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#025",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "The bug pattern:\n    Developer on Windows or macOS: import './Utils'\n    utils.ts exists on disk as utils.ts (lowercase)\n    Works: Windows/macOS filesystem resolves 'Utils' → 'utils.ts'\n    Fails: Linux CI (Docker, GitHub Actions Ubuntu) — 'Utils' ≠ 'utils.ts'"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#026",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "Detectors:\n    TypeScript: \"forceConsistentCasingInFileNames\": true  in tsconfig.json\n    ESLint: import/no-unresolved (with case-sensitive resolver)\n    CI: run on Linux even if devs use Windows/Mac"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#027",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "Docker on Windows:\n    Docker Desktop mounts C:\\ via VirtioFS / Hyper-V 9P\n    The container filesystem IS case-sensitive (Linux ext4)\n    Code that works when run natively on Windows may fail in your Docker container"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#028",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "Git case sensitivity:\n    git mv Readme.md README.md   # might silently do nothing on case-insensitive FS\n    Use: git mv Readme.md tmp && git mv tmp README.md  (two-step)\n    Or:  git config core.ignorecase false  (use carefully)\n```"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#029",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "### Unicode Normalization — The Silent Gotcha"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#030",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "```\nUNICODE NORMALIZATION ACROSS OSes\n═══════════════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#031",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "Forms:\n    NFC  (Canonical Decomposition + Canonical Composition)    — used by Windows, Linux common\n    NFD  (Canonical Decomposition)                            — used by macOS HFS+ filesystem\n    NFKC (Compatibility Decomposition + Composition)          — Windows Registry, some Win32 APIs\n    NFD  and NFC differ for composed characters like é:\n      NFC: U+00E9 (single code point: é)\n      NFD: U+0065 U+0301 (e + combining acute accent — two code points)"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#032",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "macOS HFS+ (legacy, not APFS): stores filenames in NFD\n  macOS APFS: preserves whatever form you write (no normalization)\n  Linux: no normalization — bytes in, bytes out\n  Windows: NTFS stores as UTF-16, no normalization enforced"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#033",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "The bug:\n    File created on macOS HFS+ with filename \"café\" → stored as NFD on disk\n    Copied to Linux (rsync, scp) → arrives as NFD byte sequence\n    Linux program: filename == \"café\" (NFC comparison) → NOT EQUAL\n    Strings look identical on screen, compare unequal in code"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#034",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "Fix in code:\n    Python:  unicodedata.normalize('NFC', filename)\n    JS/TS:   filename.normalize('NFC')\n    .NET:    string.Normalize(NormalizationForm.FormC)"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#035",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "Practical rule: normalize to NFC at IO boundaries\n  (when reading filenames, user input, or data from other systems)\n```"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#036",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "### Process Creation Model — Cross-OS Bridge"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#037",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "```\nPROCESS CREATION MODELS\n═══════════════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#038",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "Windows: CreateProcess()          Linux: fork() + exec()        macOS: posix_spawn() preferred\n  ─────────────────────────         ─────────────────────────     ───────────────────────────────\n  Fresh process from scratch         Clone current process          Combination: avoids full fork\n  No fork() at all                   (COW copy of address space)    overhead; preferred on Apple\n  All handles must be explicit:       → exec() replaces image        Silicon and in sandboxed apps\n    bInheritHandle = TRUE on          All fds inherited unless       (fork is restricted in some\n    SECURITY_ATTRIBUTES, or           O_CLOEXEC set at open time     App Store / sandbox contexts)\n    UpdateProcThreadAttribute()       (or SOCK_CLOEXEC, etc.)       iOS: fork() not available at all\n    for handle list"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#039",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "Security context:                  Security context:              Security context:\n    Token explicitly specified         uid/gid inherited from parent  uid/gid inherited; can setuid\n    or inherits calling process token  setuid executable changes uid  posix_spawn actions can\n    CreateProcessAsUser() for           post-exec                      chdir, dup2, close fds\n    impersonation"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#040",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "fd/handle inheritance:             fd inheritance:                fd inheritance:\n    Explicit opt-in per handle         All fds unless O_CLOEXEC       posix_spawn_file_actions:\n    DuplicateHandle() to share          (Python subprocess,            explicit file action list\n    across non-related processes        subprocess32, Go exec.Cmd      (not inherited by default\n                                        all set O_CLOEXEC by default)   without explicit action)"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#041",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "Env vars:                          Env vars:                      Env vars:\n    lpEnvironment param or inherit     environ[] inherited           Same as Linux fork/exec\n    CreateProcess always starts fresh   (unless execve() with new env)(posix_spawn with new env)"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#042",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "Process group / session:           Process group / session:       Same as Linux\n    Job Objects (Windows-specific)     setsid() / setpgid()          setpgid() / setsid()\n    → CPU/memory limits per group      process groups for signal      (no Job Objects)\n    → on child, kill all               delivery to group"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#043",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "Security implication of no fork on Windows:\n    Every new process starts clean — no accidental fd/secret inheritance\n    Explicit handle list forces developer to think about what is shared\n    Linux/macOS: a fd opened before fork() is silently inherited by child\n    unless O_CLOEXEC was set — common security bug in servers that use fork()"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#044",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "Cross-platform process launcher libraries:\n    Python:     subprocess.Popen() — handles all three platforms\n    Node.js:    child_process.spawn() — handles all three\n    Rust:       std::process::Command — handles all three\n    .NET:       Process.Start(ProcessStartInfo) — handles all three\n    Go:         os/exec.Command — handles all three\n    All abstract fork+exec (Unix) or CreateProcess (Windows) behind one API.\n```"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#045",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "### Cross-Platform IPC — Named Pipes vs Unix Domain Sockets"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#046",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "```\nLOCAL IPC MECHANISMS — CROSS-PLATFORM COMPARISON\n═══════════════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#047",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "Windows Named Pipe               Unix Domain Socket (Linux + macOS)\n  ────────────────────────────     ────────────────────────────────────────\n  Address: \\\\.\\pipe\\myserver       Address: /tmp/myserver.sock  (filesystem path)\n  or \\\\hostname\\pipe\\myserver      (no remote addressing for AF_UNIX)"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#048",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "API:                             API:\n    Server: CreateNamedPipe()        Server: socket(AF_UNIX, SOCK_STREAM, 0)\n    Client: CreateFile(\\\\.\\pipe\\...) bind(/tmp/sock) → listen() → accept()\n    Both: ReadFile() / WriteFile()   Client: connect(/tmp/sock)\n    Async: overlapped I/O + IOCP     Both: read() / write() / send() / recv()\n                                     Async: epoll / kqueue / io_uring"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#049",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": ".NET:                            .NET (5+):\n    NamedPipeServerStream            UnixDomainSocketEndPoint\n    NamedPipeClientStream            Same Socket API as TCP"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#050",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "Permissions:                     Permissions:\n    ACL on pipe object               Filesystem permissions on socket path\n    OpenNamedPipe with access flags  chmod / chown on /tmp/sock\n                                     (directory execute bit needed too)"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#051",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "Visual Studio / VS Code use case:\n    Language Server Protocol (LSP) must support both:\n    Windows:  \\\\.\\pipe\\vscode-<extension>\n    Linux:    /tmp/vscode-<extension>.sock\n    macOS:    /tmp/vscode-<extension>.sock (same as Linux)"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#052",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "Cross-platform server that supports both:\n  ```\n  if platform == 'win32':\n      server = NamedPipeServer('\\\\\\\\.\\\\pipe\\\\myapp')\n  else:\n      server = UnixSocketServer('/tmp/myapp.sock')\n  ```\n  Or use TCP loopback (127.0.0.1:PORT) — works everywhere, no platform-specific code,\n  slight overhead but avoids the named-pipe/Unix-socket split entirely.\n  gRPC defaults to TCP; language servers often offer TCP as fallback."
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#053",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "Passing file descriptors cross-platform:\n    Linux/macOS: SCM_RIGHTS over AF_UNIX socket (sendmsg with ancillary data)\n    Windows:     DuplicateHandle() — requires target process handle\n    No universal API — platform detection required\n```"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#054",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "## The Landscape — Big Picture"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#055",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "```\n  ┌─────────────────────────────────────────────────────────────────────────────┐\n  │  Target Platforms                                                           │\n  │                                                                             │\n  │  iOS ──────────────────────────────────────────────────────┐                │\n  │  Android ──────────────────────────────────────────────────┤                │\n  │  Windows ──────────────────────────────────────────────────┤                │\n  │  macOS ────────────────────────────────────────────────────┤                │\n  │  Linux ────────────────────────────────────────────────────┤                │\n  │  Web ──────────────────────────────────────────────────────┘                │\n  │                         ▲                                                   │\n  │  ONE CODEBASE ───────────┘ (aspiration)                                     │\n  │                                                                             │\n  │  ┌─────────────┬──────────────┬─────────────┬────────────┬───────────┐      │\n  │  │  .NET MAUI  │ React Native │   Flutter   │  Electron  │   Tauri   │    │\n  │  │  C# / XAML  │  JS / TS     │    Dart     │  JS + Node │  JS + Rust│    │\n  │  │  iOS/And/   │  iOS/Android │  iOS/And/   │  Windows/  │  Win/Mac/ │    │\n  │  │  Win/macOS  │  Web(limited)│  Win/Mac/   │  macOS/    │  Linux    │    │\n  │  │             │              │  Linux/Web  │  Linux     │           │    │\n  │  └─────────────┴──────────────┴─────────────┴────────────┴───────────┘    │\n  │                                                                             │\n  │  ┌──────────────────────────────────────────────────────────────────────┐  │\n  │  │  Capacitor / Ionic — web app wrapped in native shell                 │  │\n  │  └──────────────────────────────────────────────────────────────────────┘  │\n  └─────────────────────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#056",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#057",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "## The Abstraction Spectrum"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#058",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "```\n  FULLY NATIVE ◄─────────────────────────────────────────────► WEBVIEW WRAPPER\n  100% native perf                                              pure web in shell\n  most code                                                     least code\n  ┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────────┐\n  │ Swift    │   │ Flutter  │   │  MAUI    │   │  React   │   │  Electron /  │\n  │ Kotlin   │   │          │   │          │   │  Native  │   │  Capacitor / │\n  │ (native) │   │ Custom   │   │ Handler- │   │          │   │  Tauri       │\n  │          │   │ renderer │   │ mapped   │   │ Native   │   │              │\n  │ 2 repos  │   │ (Skia/   │   │ native   │   │ widgets  │   │ Chromium /   │\n  │ 2 teams  │   │ Impeller)│   │ widgets  │   │ via JS   │   │ OS webview   │\n  │          │   │          │   │          │   │ bridge   │   │              │\n  │ All APIs │   │ Any look │   │ Natve    │   │ Mostly   │   │ Web APIs     │\n  │ day one  │   │ cross-   │   │ look on  │   │ native   │   │ + some       │\n  │          │   │ platform │   │ each OS  │   │ feel     │   │ native APIs  │\n  └──────────┘   └──────────┘   └──────────┘   └──────────┘   └──────────────┘"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#059",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "Trade-off axis:\n  ┌─────────────────────────────────────────────────────────────────────────────┐\n  │  ←── higher: performance, API access, native feel, new OS feature support   │\n  │  ←── lower:  code sharing, hiring pool, iteration speed, cost               │\n  │                                                                             │\n  │  →── higher: code sharing %, web skills leverage, prototype speed           │\n  │  →── lower:  performance, native API coverage, platform authenticity        │\n  └─────────────────────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#060",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#061",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "## Cross-Platform Decision Matrix"
+    },
+    {
+      "id": "07-CROSS-PLATFORM.md#062",
+      "path": [
+        "07-CROSS-PLATFORM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:07-cross-platform, git-history:os:07-cross-platform]",
+        "canonical_path": "os/07-CROSS-PLATFORM.md",
+        "concepts": "[cross, platform]",
+        "current_path": "os/07-CROSS-PLATFORM.md",
+        "id": "maxim:os:cross-platform",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cross, platform]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cross-Platform Development Reference",
+        "updated": "null"
+      },
+      "text": "| Attribute | .NET MAUI | React Native | Flutter | Electron | Tauri | Capacitor/Ionic |\n|-----------|-----------|--------------|---------|----------|-------|-----------------|\n| **Language** | C# | JS / TypeScript | Dart | JS / TypeScript | JS + Rust | JS / TypeScript |\n| **UI approach** | Handler-mapped native widgets | Native widgets via JS bridge / JSI | Custom renderer (Skia/Impeller) | HTML/CSS in Chromium | HTML/CSS in OS webview | HTML/CSS in native webview |\n| **Targets: Mobile** | iOS, Android | iOS, Android | iOS, Android | No | No | iOS, Android |\n| **Targets: Desktop** | Windows (WinUI 3), macOS (Mac Catalyst) | No (limited) | Windows, macOS, Linux | Windows, macOS, Linux | Windows, macOS, Linux | No |\n| **Targets: Web** | Blazor Hybrid (partial) | Experimental | Flutter Web | No | No | Yes (it IS a web app) |\n| **Code sharing** | ~80-90% | ~70-85% | ~85-95% | ~95% | ~90% | ~95% |\n| **Performance** | Near-native | Good (JSI) / was poor (bridge) | Near-native (custom renderer) | Heavy (Chromium per window) | Good (native webview, Rust core) | Web perf |\n| **Native look & feel** | Yes (per-platform widgets) | Mostly yes | No (consistent custom look) | No | No | No |\n| **Microsoft support** | First-party | Community + Meta | Community + Google | Community | Community | Community |\n| **Maturity** | Medium (2022; replaces Xamarin) | High (2015, Meta-backed) | High (2017, Google-backed) | Very high (2013, Slack/VS Code) | Growing (2022) | Medium |\n| **Ecosystem / packages** | NuGet + .NET ecosystem | npm + React ecosystem | pub.dev (growing) | npm + Node ecosystem | Cargo + npm | npm + web ecosystem |\n| **Team profile** | .NET / C# team | React / JS team | Any (Dart is learnable) | Web / Node team | Web + Rust team | Web team |\n| **Install size** | ~30-80 MB | ~10-30 MB | ~10-25 MB | 50-200 MB | 3-10 MB | ~5-15 MB |\n| **Primary weakness** | Mac Catalyst limitations; not SwiftUI | New Architecture migration complexity | No native widgets (platform-purists object) | Size + memory (Chromium per window) | Webview inconsistency across OS; Rust barrier | WebView is not native; browser engine limits |\n| **Best for** | .NET enterprise teams; Windows + mobile from one codebase | React teams going mobile; apps with heavy web component | Consistent custom design; high-quality cross-platform | VS Code-style desktop tools; developer tools; productivity apps | New desktop app; size/security-conscious; OK with Rust | Existing web app needs native packaging |"
+    }
+  ],
+  "refs": [
+    "07-CROSS-PLATFORM.md"
+  ]
+}

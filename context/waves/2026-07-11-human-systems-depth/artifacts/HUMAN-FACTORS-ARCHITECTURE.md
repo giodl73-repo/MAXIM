@@ -22,7 +22,7 @@ authoring pass.
 > **Current status: DONE — Pulse 03 prototype boundary review; prototype pattern/gate
 > ratified (R1 + independent R2).** The architecture is recorded and the 12-guide manifest is
 > fixed; the three prototype guides (`02` scaling-gate, `03` and `06` review-gated) are
-> authored at full peer depth and pass focused PROOF (3 files checked, 0 errors, 0 warnings).
+> authored at full peer depth and pass focused MDLOOM (3 files checked, 0 errors, 0 warnings).
 > The R1 boundary-gate panel (`panels/hf-prototype-r1/`) found and drove repair of the
 > conservative-prototype findings; because it both raised and repaired them it could not
 > self-ratify, so an **independent strict re-review (R2)** (`panels/hf-prototype-r2/`) —
@@ -87,12 +87,12 @@ and which guides to prototype to prove the hardest boundaries before authoring t
   `source_custody: needs-source`, `backsource_ids: []`; only after source-corpus backfill
   does it graduate to `status: source-custody` with populated `backsource_ids`. The three
   Pulse-03 prototypes (`02`, `03`, `06`) carry exactly this truthful metadata.
-- **MAXIM-HF-02 — Style contract & PROOF surface.** Landscape diagram first → layer down →
+- **MAXIM-HF-02 — Style contract & MDLOOM surface.** Landscape diagram first → layer down →
   ASCII boxes → decision-useful tables → universal-first bridges → **Decision Cheat Sheet**
-  + **Common Confusion Points**; ~32,000-token cap per guide. `proof.toml` enforces
+  + **Common Confusion Points**; ~32,000-token cap per guide. `mdloom.toml` enforces
   `max_h1 = 1`, a required `## Decision Cheat Sheet`, at least one code block, and
   ASCII-box width consistency (±2 tolerance); it **excludes** `*/STATUS.md`,
-  `*/00-OVERVIEW.md`, and `context/**`, so only the numbered content guides are PROOF-checked.
+  `*/00-OVERVIEW.md`, and `context/**`, so only the numbered content guides are MDLOOM-checked.
   The prototypes use an "open" diagram idiom (rules + indentation + arrows) that passes the
   box-width checker cleanly.
 - **MAXIM-HF-03 — clinical-medicine and chemistry are the governing depth exemplars**, both
@@ -207,7 +207,7 @@ and which guides to prototype to prove the hardest boundaries before authoring t
   HCI-usability + domain-deferral seam (`06`↔HCI/nuclear/aero/bme/transport). Each records its
   gate as a "Prototype Seam Contract."
 - **MAXIM-HF-18 — No source backfill in this pulse.** Per the wave guardrail, prototype
-  boundary review runs no PROOF/CROP/PEBBLE/FLETCH backfill; metadata stays `needs-source` /
+  boundary review runs no MDLOOM/CROP/MDPORT/FLETCH backfill; metadata stays `needs-source` /
   `backsource_ids: []`. Backfill is a Pulse-04 deliverable.
 
 ### Safety/ethics, bias, and reification
@@ -362,7 +362,7 @@ that most stress the module's boundaries were authored first:
 These gates were **exercised by R1 and ratified by the independent R2 re-review**
 (`panels/hf-prototype-r2/`), so the pattern the remaining nine guides inherit is ratified —
 exactly as the HCI prototypes (`05`, `08`) did for that module. The Definition of Done the
-pattern carries (guide `02`) now includes explicit **closure gates** — ordinary PROOF;
+pattern carries (guide `02`) now includes explicit **closure gates** — ordinary MDLOOM;
 truthful metadata / source-custody transition; source-hierarchy/edition & citation-risk
 closure; independent adversarial closure; and records/integration closure — so a remaining
 guide is *done* only when independently cleared with no unresolved BLOCK/WARN and **no open
@@ -374,7 +374,7 @@ citation risk** at sign-off.
   reciprocal HCI↔HF seam; the safety/ethics contract; the bounded-model epistemic stance; the
   two-stage scaling gate (`02`) and review gates (`03`, `06`).
 - **Prototype now (this pulse):** guides `02`, `03`, `06` at full peer depth, with truthful
-  pre-backfill metadata and focused PROOF only.
+  pre-backfill metadata and focused MDLOOM only.
 - **Defer to Pulse 04:** `00-OVERVIEW` + guides `01`, `04`, `05`, `07`, `08`, `09`, `10`,
   `11`; section/nav/`TRACKER` integration; reciprocal pointers into `industrial-design/05`,
   `cognitive-science/09`, and `human-computer-interaction/`; source-corpus backfill; the

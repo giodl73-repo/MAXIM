@@ -1,0 +1,125 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-robotics-control",
+  "source": "../../robotics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "06-CONTROL.md#000",
+      "path": [
+        "06-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:06-control, git-history:robotics:06-control]",
+        "canonical_path": "robotics/06-CONTROL.md",
+        "concepts": "[control]",
+        "current_path": "robotics/06-CONTROL.md",
+        "id": "maxim:robotics:control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[control]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Robot Control",
+        "updated": "null"
+      },
+      "text": "# Robotics — Robot Control"
+    },
+    {
+      "id": "06-CONTROL.md#001",
+      "path": [
+        "06-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:06-control, git-history:robotics:06-control]",
+        "canonical_path": "robotics/06-CONTROL.md",
+        "concepts": "[control]",
+        "current_path": "robotics/06-CONTROL.md",
+        "id": "maxim:robotics:control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[control]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Robot Control",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "06-CONTROL.md#002",
+      "path": [
+        "06-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:06-control, git-history:robotics:06-control]",
+        "canonical_path": "robotics/06-CONTROL.md",
+        "concepts": "[control]",
+        "current_path": "robotics/06-CONTROL.md",
+        "id": "maxim:robotics:control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[control]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Robot Control",
+        "updated": "null"
+      },
+      "text": "Control is what closes the loop between the desired trajectory and the actual motion.\nEvery other subsystem (kinematics, dynamics, planning) feeds into the control layer."
+    },
+    {
+      "id": "06-CONTROL.md#003",
+      "path": [
+        "06-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:06-control, git-history:robotics:06-control]",
+        "canonical_path": "robotics/06-CONTROL.md",
+        "concepts": "[control]",
+        "current_path": "robotics/06-CONTROL.md",
+        "id": "maxim:robotics:control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[control]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Robot Control",
+        "updated": "null"
+      },
+      "text": "```\n+===========================================================================+\n|                         ROBOT CONTROL LANDSCAPE                           |\n+===========================================================================+\n|                                                                           |\n|  HIERARCHY:                                                               |\n|                                                                           |\n|  Task Planner -------> desired task (symbolic)                            |\n|       |                                                                   |\n|  Trajectory Planner --> q_d(t), q_dot_d(t), q_ddot_d(t)                 |\n|       |                                                                   |\n|  CONTROLLER <---------- state feedback: q, q_dot                         |\n|       |                                                                   |\n|  Actuators -----------> torques/forces/currents                           |\n|       |                                                                   |\n|  Plant (robot) -------> actual motion q(t)                               |\n|       |                                                                   |\n|  Sensors -------------> q, q_dot (back to controller)                    |\n|                                                                           |\n|  JOINT SPACE CONTROL      OPERATIONAL SPACE CONTROL                       |\n|  ====================     ========================                        |\n|  PID, computed-torque     Cartesian control (x,y,z)                      |\n|  Works in q directly      Uses Jacobian                                   |\n|                                                                           |\n|  FREE SPACE CONTROL       CONTACT / FORCE CONTROL                         |\n|  ===================      ======================                          |\n|  Position tracking        Impedance control                               |\n|  Trajectory following     Force/torque regulation                         |\n|                           Hybrid position-force                            |\n|                                                                           |\n+===========================================================================+\n```"
+    }
+  ],
+  "refs": [
+    "06-CONTROL.md"
+  ]
+}

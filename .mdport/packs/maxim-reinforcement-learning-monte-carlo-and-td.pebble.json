@@ -1,0 +1,405 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-reinforcement-learning-monte-carlo-and-td",
+  "source": "../../reinforcement-learning",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "03-MONTE-CARLO-AND-TD.md#000",
+      "path": [
+        "03-MONTE-CARLO-AND-TD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:reinforcement-learning:03-monte-carlo-and-td, git-history:reinforcement-learning:03-monte-carlo-and-td]",
+        "canonical_path": "reinforcement-learning/03-MONTE-CARLO-AND-TD.md",
+        "concepts": "[monte carlo, temporal difference, TD(0), TD(lambda), eligibility traces, bias variance]",
+        "current_path": "reinforcement-learning/03-MONTE-CARLO-AND-TD.md",
+        "id": "maxim:reinforcement-learning:monte-carlo-and-td",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[temporal difference]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Monte Carlo and Temporal Difference Learning",
+        "updated": "null"
+      },
+      "text": "# Monte Carlo and Temporal Difference Learning"
+    },
+    {
+      "id": "03-MONTE-CARLO-AND-TD.md#001",
+      "path": [
+        "03-MONTE-CARLO-AND-TD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:reinforcement-learning:03-monte-carlo-and-td, git-history:reinforcement-learning:03-monte-carlo-and-td]",
+        "canonical_path": "reinforcement-learning/03-MONTE-CARLO-AND-TD.md",
+        "concepts": "[monte carlo, temporal difference, TD(0), TD(lambda), eligibility traces, bias variance]",
+        "current_path": "reinforcement-learning/03-MONTE-CARLO-AND-TD.md",
+        "id": "maxim:reinforcement-learning:monte-carlo-and-td",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[temporal difference]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Monte Carlo and Temporal Difference Learning",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "03-MONTE-CARLO-AND-TD.md#002",
+      "path": [
+        "03-MONTE-CARLO-AND-TD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:reinforcement-learning:03-monte-carlo-and-td, git-history:reinforcement-learning:03-monte-carlo-and-td]",
+        "canonical_path": "reinforcement-learning/03-MONTE-CARLO-AND-TD.md",
+        "concepts": "[monte carlo, temporal difference, TD(0), TD(lambda), eligibility traces, bias variance]",
+        "current_path": "reinforcement-learning/03-MONTE-CARLO-AND-TD.md",
+        "id": "maxim:reinforcement-learning:monte-carlo-and-td",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[temporal difference]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Monte Carlo and Temporal Difference Learning",
+        "updated": "null"
+      },
+      "text": "Now the model is gone. We learn value functions from *sampled experience* alone.\nTwo pure strategies sit at opposite ends of a spectrum, and the trade-off between\nthem — bias versus variance, set by how much you *bootstrap* — is one of the most\nimportant dials in all of RL."
+    },
+    {
+      "id": "03-MONTE-CARLO-AND-TD.md#003",
+      "path": [
+        "03-MONTE-CARLO-AND-TD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:reinforcement-learning:03-monte-carlo-and-td, git-history:reinforcement-learning:03-monte-carlo-and-td]",
+        "canonical_path": "reinforcement-learning/03-MONTE-CARLO-AND-TD.md",
+        "concepts": "[monte carlo, temporal difference, TD(0), TD(lambda), eligibility traces, bias variance]",
+        "current_path": "reinforcement-learning/03-MONTE-CARLO-AND-TD.md",
+        "id": "maxim:reinforcement-learning:monte-carlo-and-td",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[temporal difference]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Monte Carlo and Temporal Difference Learning",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|        THE SPECTRUM: HOW FAR DO YOU LOOK BEFORE UPDATING?        |\n|                                                                  |\n|  MONTE CARLO                  TD(lambda)            TD(0)        |\n|  (full return)                (n-step blend)        (one step)   |\n|  ----------                   -----------           -------      |\n|  wait for episode end         intermediate         bootstrap now |\n|  G_t = r + gr + g^2 r + ...   geometric mix         r + g V(s')  |\n|                                                                  |\n|  no bootstrap                 partial bootstrap   full bootstrap |\n|  UNBIASED                                           BIASED       |\n|  HIGH variance                                      LOW variance |\n|                                                                  |\n|  lambda = 1  <----------------------------------->  lambda = 0   |\n+------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "03-MONTE-CARLO-AND-TD.md#004",
+      "path": [
+        "03-MONTE-CARLO-AND-TD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:reinforcement-learning:03-monte-carlo-and-td, git-history:reinforcement-learning:03-monte-carlo-and-td]",
+        "canonical_path": "reinforcement-learning/03-MONTE-CARLO-AND-TD.md",
+        "concepts": "[monte carlo, temporal difference, TD(0), TD(lambda), eligibility traces, bias variance]",
+        "current_path": "reinforcement-learning/03-MONTE-CARLO-AND-TD.md",
+        "id": "maxim:reinforcement-learning:monte-carlo-and-td",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[temporal difference]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Monte Carlo and Temporal Difference Learning",
+        "updated": "null"
+      },
+      "text": "**Read it left-to-right as the bootstrapping dial.** Pure Monte Carlo waits for\nthe true return (unbiased, high variance). TD(0) updates immediately toward its\nown estimate (biased by that estimate, low variance). TD(lambda) interpolates."
+    },
+    {
+      "id": "03-MONTE-CARLO-AND-TD.md#005",
+      "path": [
+        "03-MONTE-CARLO-AND-TD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:reinforcement-learning:03-monte-carlo-and-td, git-history:reinforcement-learning:03-monte-carlo-and-td]",
+        "canonical_path": "reinforcement-learning/03-MONTE-CARLO-AND-TD.md",
+        "concepts": "[monte carlo, temporal difference, TD(0), TD(lambda), eligibility traces, bias variance]",
+        "current_path": "reinforcement-learning/03-MONTE-CARLO-AND-TD.md",
+        "id": "maxim:reinforcement-learning:monte-carlo-and-td",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[temporal difference]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Monte Carlo and Temporal Difference Learning",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-MONTE-CARLO-AND-TD.md#006",
+      "path": [
+        "03-MONTE-CARLO-AND-TD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:reinforcement-learning:03-monte-carlo-and-td, git-history:reinforcement-learning:03-monte-carlo-and-td]",
+        "canonical_path": "reinforcement-learning/03-MONTE-CARLO-AND-TD.md",
+        "concepts": "[monte carlo, temporal difference, TD(0), TD(lambda), eligibility traces, bias variance]",
+        "current_path": "reinforcement-learning/03-MONTE-CARLO-AND-TD.md",
+        "id": "maxim:reinforcement-learning:monte-carlo-and-td",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[temporal difference]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Monte Carlo and Temporal Difference Learning",
+        "updated": "null"
+      },
+      "text": "## Monte Carlo Prediction"
+    },
+    {
+      "id": "03-MONTE-CARLO-AND-TD.md#007",
+      "path": [
+        "03-MONTE-CARLO-AND-TD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:reinforcement-learning:03-monte-carlo-and-td, git-history:reinforcement-learning:03-monte-carlo-and-td]",
+        "canonical_path": "reinforcement-learning/03-MONTE-CARLO-AND-TD.md",
+        "concepts": "[monte carlo, temporal difference, TD(0), TD(lambda), eligibility traces, bias variance]",
+        "current_path": "reinforcement-learning/03-MONTE-CARLO-AND-TD.md",
+        "id": "maxim:reinforcement-learning:monte-carlo-and-td",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[temporal difference]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Monte Carlo and Temporal Difference Learning",
+        "updated": "null"
+      },
+      "text": "Estimate `v_pi(s)` by *averaging actual returns* observed after visiting `s`. No\nmodel, no bootstrapping — just the law of large numbers."
+    },
+    {
+      "id": "03-MONTE-CARLO-AND-TD.md#008",
+      "path": [
+        "03-MONTE-CARLO-AND-TD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:reinforcement-learning:03-monte-carlo-and-td, git-history:reinforcement-learning:03-monte-carlo-and-td]",
+        "canonical_path": "reinforcement-learning/03-MONTE-CARLO-AND-TD.md",
+        "concepts": "[monte carlo, temporal difference, TD(0), TD(lambda), eligibility traces, bias variance]",
+        "current_path": "reinforcement-learning/03-MONTE-CARLO-AND-TD.md",
+        "id": "maxim:reinforcement-learning:monte-carlo-and-td",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[temporal difference]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Monte Carlo and Temporal Difference Learning",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|  MONTE CARLO PREDICTION                                          |\n|                                                                  |\n|  run an episode under pi:  S0,A0,R1,S1,...,S_T  (terminal)       |\n|  for each state S_t visited, compute the realized return:        |\n|     G_t = R_{t+1} + gamma R_{t+2} + ... + gamma^{T-t-1} R_T      |\n|  update toward it:                                               |\n|     V(S_t)  <-  V(S_t) + alpha [ G_t - V(S_t) ]                  |\n+------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "03-MONTE-CARLO-AND-TD.md#009",
+      "path": [
+        "03-MONTE-CARLO-AND-TD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:reinforcement-learning:03-monte-carlo-and-td, git-history:reinforcement-learning:03-monte-carlo-and-td]",
+        "canonical_path": "reinforcement-learning/03-MONTE-CARLO-AND-TD.md",
+        "concepts": "[monte carlo, temporal difference, TD(0), TD(lambda), eligibility traces, bias variance]",
+        "current_path": "reinforcement-learning/03-MONTE-CARLO-AND-TD.md",
+        "id": "maxim:reinforcement-learning:monte-carlo-and-td",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[temporal difference]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Monte Carlo and Temporal Difference Learning",
+        "updated": "null"
+      },
+      "text": "`G_t` is an *unbiased* sample of `v_pi(S_t)` — its expectation is exactly the\nvalue. Averaging many such samples converges to the true value."
+    },
+    {
+      "id": "03-MONTE-CARLO-AND-TD.md#010",
+      "path": [
+        "03-MONTE-CARLO-AND-TD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:reinforcement-learning:03-monte-carlo-and-td, git-history:reinforcement-learning:03-monte-carlo-and-td]",
+        "canonical_path": "reinforcement-learning/03-MONTE-CARLO-AND-TD.md",
+        "concepts": "[monte carlo, temporal difference, TD(0), TD(lambda), eligibility traces, bias variance]",
+        "current_path": "reinforcement-learning/03-MONTE-CARLO-AND-TD.md",
+        "id": "maxim:reinforcement-learning:monte-carlo-and-td",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[temporal difference]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Monte Carlo and Temporal Difference Learning",
+        "updated": "null"
+      },
+      "text": "```\n  first-visit MC:  average return after the FIRST visit to s per episode\n  every-visit MC:  average return after EVERY visit to s\n```"
+    },
+    {
+      "id": "03-MONTE-CARLO-AND-TD.md#011",
+      "path": [
+        "03-MONTE-CARLO-AND-TD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:reinforcement-learning:03-monte-carlo-and-td, git-history:reinforcement-learning:03-monte-carlo-and-td]",
+        "canonical_path": "reinforcement-learning/03-MONTE-CARLO-AND-TD.md",
+        "concepts": "[monte carlo, temporal difference, TD(0), TD(lambda), eligibility traces, bias variance]",
+        "current_path": "reinforcement-learning/03-MONTE-CARLO-AND-TD.md",
+        "id": "maxim:reinforcement-learning:monte-carlo-and-td",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[temporal difference]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Monte Carlo and Temporal Difference Learning",
+        "updated": "null"
+      },
+      "text": "Both converge; first-visit gives an unbiased mean of i.i.d. returns. The catch:\nMC needs *complete episodes* (no learning in continuing tasks) and the returns\nare high-variance because they accumulate randomness from the entire trajectory."
+    },
+    {
+      "id": "03-MONTE-CARLO-AND-TD.md#012",
+      "path": [
+        "03-MONTE-CARLO-AND-TD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:reinforcement-learning:03-monte-carlo-and-td, git-history:reinforcement-learning:03-monte-carlo-and-td]",
+        "canonical_path": "reinforcement-learning/03-MONTE-CARLO-AND-TD.md",
+        "concepts": "[monte carlo, temporal difference, TD(0), TD(lambda), eligibility traces, bias variance]",
+        "current_path": "reinforcement-learning/03-MONTE-CARLO-AND-TD.md",
+        "id": "maxim:reinforcement-learning:monte-carlo-and-td",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[temporal difference]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Monte Carlo and Temporal Difference Learning",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-MONTE-CARLO-AND-TD.md#013",
+      "path": [
+        "03-MONTE-CARLO-AND-TD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:reinforcement-learning:03-monte-carlo-and-td, git-history:reinforcement-learning:03-monte-carlo-and-td]",
+        "canonical_path": "reinforcement-learning/03-MONTE-CARLO-AND-TD.md",
+        "concepts": "[monte carlo, temporal difference, TD(0), TD(lambda), eligibility traces, bias variance]",
+        "current_path": "reinforcement-learning/03-MONTE-CARLO-AND-TD.md",
+        "id": "maxim:reinforcement-learning:monte-carlo-and-td",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "reinforcement-learning",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[temporal difference]",
+        "section": "reinforcement-learning",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Monte Carlo and Temporal Difference Learning",
+        "updated": "null"
+      },
+      "text": "## Temporal Difference: TD(0)"
+    }
+  ],
+  "refs": [
+    "03-MONTE-CARLO-AND-TD.md"
+  ]
+}

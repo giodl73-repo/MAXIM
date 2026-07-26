@@ -1,0 +1,3009 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-robotics-slam",
+  "source": "../../robotics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "04-SLAM.md#000",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "# Robotics — SLAM (Simultaneous Localization and Mapping)"
+    },
+    {
+      "id": "04-SLAM.md#001",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "04-SLAM.md#002",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "SLAM is the chicken-and-egg problem: you need a map to localize, and you need your\npose to build a map. SLAM solves both simultaneously."
+    },
+    {
+      "id": "04-SLAM.md#003",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "```\n+===========================================================================+\n|                          SLAM LANDSCAPE                                   |\n+===========================================================================+\n|                                                                           |\n|  THE PROBLEM:                                                             |\n|    p(x_{1:t}, m | z_{1:t}, u_{1:t})                                       |\n|    ^^^^^^^^^   ^   ^^^^^^^^^^^^^^^^                                       |\n|    robot trajectory + map | observations + controls                       |\n|    <- ESTIMATE THESE ->     <- GIVEN THESE ->                             |\n|                                                                           |\n|  FILTER-BASED               GRAPH-BASED                                   |\n|  (online, sequential)       (offline, batch optimization)                 |\n|  ==================         ==================================             |\n|  EKF-SLAM                   Pose Graph / Factor Graph                     |\n|    Landmark-based           g2o / GTSAM / Ceres                           |\n|    O(n^2) in landmarks      Handles loop closure globally                 |\n|    < 100 landmarks          Millions of poses possible                    |\n|                                                                           |\n|  Particle Filter (FastSLAM) VISUAL SLAM          LIDAR SLAM               |\n|    Multi-modal posteriors   ORB-SLAM3             LOAM / LIO-SAM           |\n|    Rao-Blackwellized        Feature-based         Scan matching            |\n|    Handles non-Gaussianity  Keyframe selection    IMU pre-integration      |\n|                             Loop closure (BoW)    NDT / ICP                |\n|                                                                           |\n|  MAP REPRESENTATIONS:                                                     |\n|    Landmark cloud   Occupancy grid   Point cloud   Mesh   NeRF             |\n|                                                                           |\n+===========================================================================+\n```"
+    },
+    {
+      "id": "04-SLAM.md#004",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-SLAM.md#005",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "## The SLAM Problem Formulation"
+    },
+    {
+      "id": "04-SLAM.md#006",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "SLAM decomposes into two coupled subproblems: (1) **dead reckoning** — propagate pose forward using IMU/odometry, with drift accumulating unboundedly without correction; (2) **map updating + loop closure** — when the robot revisits a known location, the loop closure constraint retroactively corrects accumulated drift across the entire trajectory. This is the **optimistic concurrency + reconciliation** pattern: local operations proceed without global coordination (dead reckoning), and periodic global consistency checks (loop closure) correct all accumulated state divergence. Any engineer who has debugged vector clock drift or designed checkpoint/restore systems maps this immediately."
+    },
+    {
+      "id": "04-SLAM.md#007",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "### Probabilistic State Estimation"
+    },
+    {
+      "id": "04-SLAM.md#008",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "SLAM is a Bayesian estimation problem. Define:"
+    },
+    {
+      "id": "04-SLAM.md#009",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "```\nx_{1:t}: robot trajectory (poses at all timesteps up to t)\nm:       map (landmark positions, occupancy grid, or other representation)\nz_{1:t}: sensor observations (LiDAR scans, camera frames, encoder ticks)\nu_{1:t}: control inputs (wheel commands, joint torques)"
+    },
+    {
+      "id": "04-SLAM.md#010",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "FULL SLAM (offline):\n  Estimate p(x_{1:t}, m | z_{1:t}, u_{1:t})\n  Process all data batch. Best accuracy. Used for post-processing."
+    },
+    {
+      "id": "04-SLAM.md#011",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "ONLINE SLAM (real-time):\n  Estimate p(x_t, m | z_{1:t}, u_{1:t})\n  Only marginal over current pose. Must run in real time."
+    },
+    {
+      "id": "04-SLAM.md#012",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "COMPONENTS:\n  1. Motion model:       p(x_t | x_{t-1}, u_t)   \"where did I go?\"\n  2. Observation model:  p(z_t | x_t, m)           \"what would I see here?\"\n  3. Map model:          how landmarks or grid cells relate to poses\n```"
+    },
+    {
+      "id": "04-SLAM.md#013",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-SLAM.md#014",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "## Occupancy Grid Maps"
+    },
+    {
+      "id": "04-SLAM.md#015",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "The most practical 2D map representation for mobile robots."
+    },
+    {
+      "id": "04-SLAM.md#016",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "```\nOCCUPANCY GRID:\n  Discretize space into a 2D grid of cells.\n  Each cell stores: log-odds probability of being occupied."
+    },
+    {
+      "id": "04-SLAM.md#017",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "log_odds(p) = log(p / (1-p))"
+    },
+    {
+      "id": "04-SLAM.md#018",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "Initial value: 0  (= probability 0.5, unknown)\n  After measuring free space: subtract log_odds_free (e.g., -0.4)\n  After measuring occupied:   add log_odds_occ  (e.g., +0.9)\n  Clamp to [-5, 5] to avoid saturation."
+    },
+    {
+      "id": "04-SLAM.md#019",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "Convert back to probability: p = 1 - 1/(1 + exp(log_odds))"
+    },
+    {
+      "id": "04-SLAM.md#020",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "BAYESIAN UPDATE (per cell):\n  l_t(x,y) = l_{t-1}(x,y) + l_occ_or_free - l_0\n             ^^^^^^^^^^^^^   ^^^^^^^^^^^^^^^^   ^^^\n             prior            sensor update      prior correction"
+    },
+    {
+      "id": "04-SLAM.md#021",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "LIDAR RAY CASTING:\n  For each LiDAR ray:\n    - All cells along the ray before endpoint: mark free (subtract log_odds_free)\n    - Cell at endpoint: mark occupied (add log_odds_occ)\n    Bresenham's line algorithm for efficiency."
+    },
+    {
+      "id": "04-SLAM.md#022",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "RESOLUTION TRADE-OFFS:\n  5 cm cells: detailed, large memory for big environments\n  25 cm cells: coarse, fast, sufficient for navigation\n  1 cm cells: extremely detailed, for manipulation workspace"
+    },
+    {
+      "id": "04-SLAM.md#023",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "EXAMPLE:\n  100m x 100m environment at 5cm resolution:\n  2000 x 2000 = 4,000,000 cells. Fine for a modern CPU.\n```"
+    },
+    {
+      "id": "04-SLAM.md#024",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-SLAM.md#025",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "## EKF-SLAM"
+    },
+    {
+      "id": "04-SLAM.md#026",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "The classical SLAM algorithm. History: Durrant-Whyte and Bailey (2006). Theoretically\noptimal for linear Gaussian systems, but has scaling problems."
+    },
+    {
+      "id": "04-SLAM.md#027",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "### State Vector"
+    },
+    {
+      "id": "04-SLAM.md#028",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "```\nState vector includes BOTH robot pose and ALL landmark positions:"
+    },
+    {
+      "id": "04-SLAM.md#029",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "x = [x_robot, y_robot, theta_robot,   <- robot pose (3)\n       lx_1, ly_1,                       <- landmark 1 (2)\n       lx_2, ly_2,                       <- landmark 2 (2)\n       ...\n       lx_n, ly_n]                       <- landmark n (2)"
+    },
+    {
+      "id": "04-SLAM.md#030",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "Total: 3 + 2n dimensions.\n  Covariance matrix P: (3+2n) x (3+2n)\n```"
+    },
+    {
+      "id": "04-SLAM.md#031",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "### EKF-SLAM Algorithm"
+    },
+    {
+      "id": "04-SLAM.md#032",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "```\nPREDICTION (robot moves):\n  Apply motion model to robot pose component of x.\n  Update covariance P using Jacobian of motion model F.\n  Landmark positions unchanged (map doesn't move)."
+    },
+    {
+      "id": "04-SLAM.md#033",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "UPDATE (landmark observed):\n  Compute expected observation h(x_i, landmark_j)\n    = [expected distance, expected bearing]^T\n  Compute innovation: z_measured - z_expected\n  Compute Kalman gain K using measurement Jacobian H.\n  Update full state x and covariance P."
+    },
+    {
+      "id": "04-SLAM.md#034",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "DATA ASSOCIATION (which landmark is this?):\n  Match observed landmark to known landmarks.\n  Use nearest-neighbor, Mahalanobis distance, or Hungarian algorithm.\n  CRITICAL: wrong association = filter divergence."
+    },
+    {
+      "id": "04-SLAM.md#035",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "NEW LANDMARK INITIALIZATION:\n  If no match: add new landmark to state vector.\n  Augment x and P accordingly."
+    },
+    {
+      "id": "04-SLAM.md#036",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "COMPLEXITY:\n  Update step: O(n^2) due to P matrix manipulation.\n  Memory: O(n^2) for covariance.\n  In practice: degrades badly beyond ~100 landmarks.\n```"
+    },
+    {
+      "id": "04-SLAM.md#037",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "### EKF-SLAM Limitation Visualization"
+    },
+    {
+      "id": "04-SLAM.md#038",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "```\n  Covariance matrix P for n=3 landmarks:\n  (3+2*3) x (3+2*3) = 9x9"
+    },
+    {
+      "id": "04-SLAM.md#039",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "+-------------------------------+\n  | Rr  Rl1  Rl2  Rl3 ...         |\n  |     L1   L1L2  ...            |\n  |                               |\n  +-------------------------------+\n  Top row: robot-robot, robot-landmark correlations.\n  Other rows: landmark-landmark correlations.\n  All entries are correlated!\n  Every landmark observation updates EVERY landmark covariance.\n  n=100 landmarks: 200x200 = 40,000 matrix entries.\n  n=1000 landmarks: unfeasible in real time.\n```"
+    },
+    {
+      "id": "04-SLAM.md#040",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-SLAM.md#041",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "## Particle Filter SLAM (FastSLAM)"
+    },
+    {
+      "id": "04-SLAM.md#042",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "FastSLAM (Montemerlo, 2002) solves the EKF scaling problem using Rao-Blackwellization:\nfactorize the posterior so each particle maintains its own map."
+    },
+    {
+      "id": "04-SLAM.md#043",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "```\nFACTORIZATION:\n  p(x_{1:t}, m | z_{1:t}, u_{1:t})\n  = p(x_{1:t} | z_{1:t}, u_{1:t})   <- robot trajectory (particle filter)\n  * product_j p(m_j | x_{1:t}, z_{1:t})  <- independent landmark estimates"
+    },
+    {
+      "id": "04-SLAM.md#044",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "KEY INSIGHT:\n  Given the robot trajectory, landmarks are INDEPENDENT.\n  Each particle gets its OWN set of independent EKF landmark filters."
+    },
+    {
+      "id": "04-SLAM.md#045",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "PARTICLE FILTER:\n  N particles, each representing a hypothesis about robot trajectory.\n  Each particle i has weight w_i and landmark set {EKF_j(i)}."
+    },
+    {
+      "id": "04-SLAM.md#046",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "ALGORITHM PER TIMESTEP:\n  1. SAMPLE: draw N new poses from motion model.\n  2. OBSERVE: for each particle, update landmark EKFs.\n  3. WEIGHT: score each particle by how well observations match landmarks.\n  4. RESAMPLE: sample N particles proportional to weights.\n     (low-variance resampling to avoid particle collapse)"
+    },
+    {
+      "id": "04-SLAM.md#047",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "COMPLEXITY:\n  O(M * K) where M = # particles, K = # landmarks observed at once.\n  Much better than EKF for large landmark counts.\n  Typical M: 50-500 particles.\n  Trade-off: particle degeneracy in high-dimensional spaces.\n```"
+    },
+    {
+      "id": "04-SLAM.md#048",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-SLAM.md#049",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "## Graph SLAM"
+    },
+    {
+      "id": "04-SLAM.md#050",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "Modern SLAM systems use factor graphs for batch optimization. This handles large\nenvironments and loop closures cleanly."
+    },
+    {
+      "id": "04-SLAM.md#051",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "### Pose Graph Formulation"
+    },
+    {
+      "id": "04-SLAM.md#052",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "```\nNODES: robot poses x_1, x_2, ..., x_t\nEDGES: constraints between poses"
+    },
+    {
+      "id": "04-SLAM.md#053",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "ODOMETRY EDGE: consecutive poses connected by motion model.\n    x_{i+1} = f(x_i, u_i) + noise\n    Edge represents: \"given I was at x_i and moved u_i, I should be at x_{i+1}\""
+    },
+    {
+      "id": "04-SLAM.md#054",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "LOOP CLOSURE EDGE: non-consecutive poses identified as the same place.\n    x_i ~ x_j (same location visited at different times)\n    This is the global correction -- fixes accumulated drift."
+    },
+    {
+      "id": "04-SLAM.md#055",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "POSE GRAPH:\n  x1 - x2 - x3 - x4 - x5 - x6\n                 |              |\n                 +--- odom ---x7+--- LOOP CLOSURE (x6 ~ x2)\n                                    (detected: same place visited again)\n```"
+    },
+    {
+      "id": "04-SLAM.md#056",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "### Factor Graph Optimization"
+    },
+    {
+      "id": "04-SLAM.md#057",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "```\nFACTOR GRAPH (more general than pose graph):\n  Variables: poses x_i, landmark positions l_j\n  Factors: probability functions connecting variables"
+    },
+    {
+      "id": "04-SLAM.md#058",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "F(x, l) = product_i product_j factor(x_i, l_j, z_{ij})"
+    },
+    {
+      "id": "04-SLAM.md#059",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "OPTIMIZATION:\n  Find x*, l* = argmax F(x,l)\n  Equivalent to nonlinear least squares:\n  min_x sum_i || z_i - h_i(x) ||^2_{information_i}"
+    },
+    {
+      "id": "04-SLAM.md#060",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "SOLVERS:\n  g2o (Kummerle, 2011):   general graph optimization, widely used in ROS\n  GTSAM (Dellaert, 2006): factor graph library, iSAM2 incremental solver\n  Ceres Solver (Google):  general nonlinear least squares, used in Cartographer\n  iSAM2:                  incremental update without re-solving from scratch"
+    },
+    {
+      "id": "04-SLAM.md#061",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "INCREMENTAL SOLVING (iSAM2):\n  Key: when new factor arrives, only relinearize affected variables.\n  Bayes tree data structure makes this efficient.\n  Real-time capable for large-scale mapping.\n```"
+    },
+    {
+      "id": "04-SLAM.md#062",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-SLAM.md#063",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "## Visual SLAM: ORB-SLAM3"
+    },
+    {
+      "id": "04-SLAM.md#064",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "ORB-SLAM3 (Campos, 2021) is the state-of-the-art feature-based visual SLAM system.\nHandles monocular, stereo, RGB-D, and inertial (IMU) configurations."
+    },
+    {
+      "id": "04-SLAM.md#065",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "### Pipeline"
+    },
+    {
+      "id": "04-SLAM.md#066",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "```\nINPUT FRAME\n     |\n     v\n+------------------+\n|  ORB EXTRACTION  |\n+------------------+\n Extract ORB (Oriented FAST + Rotated BRIEF) features.\n ~1000-3000 keypoints per frame. Scale-invariant.\n     |\n     v\n+------------------+\n|    TRACKING      |\n+------------------+\n Match current frame features to map points.\n Pose optimization (minimize reprojection error).\n Motion model: constant velocity assumption for init.\n     |\n     v\n+------------------+\n|  KEYFRAME SELECT |\n+------------------+\n Insert keyframe if: translation > threshold OR\n insufficient map points tracked.\n Keyframes keep a sparse set of \"good\" frames.\n     |\n     v\n+------------------+\n|  LOCAL MAPPING   |\n+------------------+\n Triangulate new map points from keyframe pairs.\n Bundle adjustment: optimize local keyframe poses\n + map points jointly. (Schur complement for speed.)\n     |\n     v\n+------------------+\n|  LOOP CLOSING    |\n+------------------+\n Detect revisited places using DBoW2 (bag-of-words).\n Verify loop closure geometrically (RANSAC).\n Correct drift: pose graph optimization.\n Fuse duplicate map points.\n     |\n     v\n+------------------+\n|  MAP REUSE       |\n+------------------+\n Save map. Reload and relocalize in saved map.\n Multi-session mapping.\n```"
+    },
+    {
+      "id": "04-SLAM.md#067",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "### ORB Features"
+    },
+    {
+      "id": "04-SLAM.md#068",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "```\nORB = Oriented FAST + Rotated BRIEF"
+    },
+    {
+      "id": "04-SLAM.md#069",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "FAST keypoint detector: very fast, scale-space pyramid.\nBRIEF descriptor: binary (256 bits). XOR comparison = very fast matching.\nOriented: compensate for rotation (makes descriptor rotation-invariant).\nScale pyramid: detect features at multiple scales."
+    },
+    {
+      "id": "04-SLAM.md#070",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "Matching: Hamming distance of 256-bit descriptors. <30 bits = good match.\nOutlier rejection: RANSAC with Essential/Homography matrix.\n```"
+    },
+    {
+      "id": "04-SLAM.md#071",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-SLAM.md#072",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "## LiDAR SLAM: LOAM and LIO-SAM"
+    },
+    {
+      "id": "04-SLAM.md#073",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "### LOAM (Lidar Odometry and Mapping)"
+    },
+    {
+      "id": "04-SLAM.md#074",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "```\nLOAM (Zhang & Singh, 2014):\n  Two simultaneously running algorithms:\n  1. Odometry at 10 Hz: coarse, scan-to-scan matching.\n  2. Mapping at 1 Hz: fine, scan-to-map matching."
+    },
+    {
+      "id": "04-SLAM.md#075",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "Feature extraction from LiDAR scan:\n    Edge features: high curvature points (corners)\n    Planar features: low curvature points (flat surfaces)"
+    },
+    {
+      "id": "04-SLAM.md#076",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "Registration: match features to map using point-to-edge and\n  point-to-plane distances. Levenberg-Marquardt optimization."
+    },
+    {
+      "id": "04-SLAM.md#077",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "LOAM-variants:\n  LeGO-LOAM: lightweight, ground-segmented, outdoor mobile robots.\n  LiLi-OM: multiple LiDAR configurations.\n  F-LOAM: faster LOAM without iterative optimization.\n```"
+    },
+    {
+      "id": "04-SLAM.md#078",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "### LIO-SAM (Shan, 2020)"
+    },
+    {
+      "id": "04-SLAM.md#079",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "```\nLIO-SAM (Lidar-Inertial Odometry via Smoothing and Mapping):"
+    },
+    {
+      "id": "04-SLAM.md#080",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "Key improvement over LOAM: tightly-coupled IMU pre-integration."
+    },
+    {
+      "id": "04-SLAM.md#081",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "IMU pre-integration: accumulate IMU measurements between LiDAR scans.\n  Provides: initial pose guess for scan matching (much faster convergence).\n  Also: deskewing -- remove motion distortion from spinning LiDAR scan."
+    },
+    {
+      "id": "04-SLAM.md#082",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "Factor graph (GTSAM):\n    IMU pre-integration factors\n    LiDAR odometry factors\n    GPS factors (if available)\n    Loop closure factors"
+    },
+    {
+      "id": "04-SLAM.md#083",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "This is the dominant approach for autonomous vehicle outdoor SLAM (2020-present).\n  Also: FAST-LIO2 (HKU), more computationally efficient.\n```"
+    },
+    {
+      "id": "04-SLAM.md#084",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-SLAM.md#085",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "## Loop Closure Detection"
+    },
+    {
+      "id": "04-SLAM.md#086",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "Loop closure = recognizing that you've visited a place before.\nWithout loop closure, SLAM drift accumulates without bound."
+    },
+    {
+      "id": "04-SLAM.md#087",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "### Bag-of-Words (Visual)"
+    },
+    {
+      "id": "04-SLAM.md#088",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "```\nBUILDING A VOCABULARY:\n  1. Collect large image dataset.\n  2. Extract ORB/SIFT/SuperPoint features from all images.\n  3. K-means cluster features into \"visual words\" (vocabulary tree).\n  4. Vocabulary: hierarchical tree, ~10^5 to 10^6 words."
+    },
+    {
+      "id": "04-SLAM.md#089",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "QUERY:\n  New image -> extract features -> quantize to visual words -> TF-IDF vector.\n  Compare against database of keyframe TF-IDF vectors (fast dot product).\n  High similarity score = possible loop closure."
+    },
+    {
+      "id": "04-SLAM.md#090",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "VERIFICATION:\n  Geometric verification: check that matched images have consistent geometry.\n  RANSAC with Essential matrix. Required to reject false positives."
+    },
+    {
+      "id": "04-SLAM.md#091",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "LIBRARY: DBoW2 (used in ORB-SLAM), DBoW3, HFNET (learned).\n```"
+    },
+    {
+      "id": "04-SLAM.md#092",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "### Scan Context (LiDAR)"
+    },
+    {
+      "id": "04-SLAM.md#093",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "```\nSCAN CONTEXT (Kim & Kim, 2018):\n  Encode a 3D LiDAR scan as a 2D matrix:\n    - Rows: azimuth sectors (0-360 degrees)\n    - Cols: range rings (concentric)\n    - Value: max height of points in that sector-ring"
+    },
+    {
+      "id": "04-SLAM.md#094",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "Rotation-invariant comparison via column-shift search.\n  Fast retrieval via two-stage approach: ring key (coarse) + scan context (fine).\n  Works even with 180-degree viewpoint change.\n  Used in LIO-SAM, ALOAM.\n```"
+    },
+    {
+      "id": "04-SLAM.md#095",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-SLAM.md#096",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "## Map Representations Comparison"
+    },
+    {
+      "id": "04-SLAM.md#097",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "```\n+------------------+----------+----------+----------+----------+-----------+\n| Representation   | Memory   | Dense?   | Queryable| Update   | Example   |\n|                  |          |          | path plan| rate     | system    |\n+------------------+----------+----------+----------+----------+-----------+\n| Landmark cloud   | Low      | No       | No       | Fast     | EKF-SLAM  |\n| Occupancy grid   | Med-High | Yes (2D) | Yes      | Med      | GMapping  |\n| 3D point cloud   | Very high| Yes (3D) | Limited  | Slow     | LOAM      |\n| Voxel map (OcTree)| Med     | Yes (3D) | Yes      | Med      | OctoMap   |\n| Mesh             | Med      | Yes (3D) | Hard     | Slow     | RTABMap   |\n| Signed distance  | Med-High | Yes (3D) | Yes      | Fast     | KinectFusion|\n| NeRF / 3DGS      | Low-Med  | Dense    | No (yet) | Slow     | iNeRF     |\n+------------------+----------+----------+----------+----------+-----------+\n```"
+    },
+    {
+      "id": "04-SLAM.md#098",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-SLAM.md#099",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "## SLAM Systems Reference"
+    },
+    {
+      "id": "04-SLAM.md#100",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "| System | Modality | Map type | Loop closure | Open source? |\n|--------|----------|----------|--------------|--------------|\n| GMapping | 2D LiDAR | Occ. grid | No | Yes (ROS) |\n| Cartographer (Google) | 2D/3D LiDAR | Submap + pose graph | Yes | Yes |\n| ORB-SLAM3 | Camera (+ IMU) | 3D landmarks | Yes (BoW) | Yes |\n| RTAB-Map | Camera/LiDAR | 3D point cloud | Yes | Yes (ROS) |\n| LOAM / LIO-SAM | 3D LiDAR + IMU | 3D map | Yes (SC) | Yes |\n| FAST-LIO2 | 3D LiDAR + IMU | iKd-tree | Limited | Yes |\n| OpenVSLAM | Camera | 3D landmarks | Yes | Yes |\n| ElasticFusion | RGB-D | Surfel map | Yes | Yes |"
+    },
+    {
+      "id": "04-SLAM.md#101",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-SLAM.md#102",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "04-SLAM.md#103",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "| Scenario | Recommended approach |\n|----------|---------------------|\n| Indoor flat floor, 2D navigation | GMapping or Cartographer 2D |\n| Indoor 3D with robot arm | RTAB-Map or ORB-SLAM3 with RGB-D |\n| Outdoor autonomous vehicle | LIO-SAM or Cartographer 3D |\n| Visual only, no LiDAR | ORB-SLAM3 monocular or stereo |\n| Real-time, computationally limited | FAST-LIO2 (very efficient) |\n| Need dense map for grasping | ElasticFusion or KinectFusion |\n| Large-scale multi-session | ORB-SLAM3 atlas (map reuse) |\n| Loop closure only (no full SLAM) | Scan Context for re-ID |"
+    },
+    {
+      "id": "04-SLAM.md#104",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-SLAM.md#105",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "## Common Confusion Points"
+    },
+    {
+      "id": "04-SLAM.md#106",
+      "path": [
+        "04-SLAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:04-slam, git-history:robotics:04-slam]",
+        "canonical_path": "robotics/04-SLAM.md",
+        "concepts": "[slam]",
+        "current_path": "robotics/04-SLAM.md",
+        "id": "maxim:robotics:slam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[slam]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - SLAM (Simultaneous Localization and Mapping)",
+        "updated": "null"
+      },
+      "text": "**\"SLAM solves localization AND mapping simultaneously\" -- but one at a time matters more**\nIn practice, for a known map, you only need localization (AMCL in Nav2 is standard).\nFull SLAM (building the map) is needed when the environment is new or changing.\nMost warehouse robots use SLAM once to build a map, then switch to pure localization."
+    }
+  ],
+  "refs": [
+    "04-SLAM.md"
+  ]
+}

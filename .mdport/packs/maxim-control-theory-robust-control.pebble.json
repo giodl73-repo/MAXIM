@@ -1,0 +1,1385 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-control-theory-robust-control",
+  "source": "../../control-theory",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "05-ROBUST-CONTROL.md#000",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "# Robust Control"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#001",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#002",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "```\n┌─────────────────────────────────────────────────────────────────────┐\n│                    ROBUST CONTROL FRAMEWORK                         │\n│                                                                     │\n│  REALITY:                                                           │\n│  ┌─────────────────────────────────────────────────────────────┐    │\n│  │  True plant: G_real(s) = G(s)(1 + Δ(s))                    │   │\n│  │                                        ↑                    │   │\n│  │  Nominal model: G(s)  (what you designed for)               │   │\n│  │  Uncertainty: Δ(s)    (unknown, but ‖Δ‖∞ ≤ 1 assumed)      │   │\n│  └─────────────────────────────────────────────────────────────┘   │\n│                                                                     │\n│  FUNDAMENTAL QUESTION:                                              │\n│  Design C(s) that stabilizes G(s)(1+Δ(s)) for ALL admissible Δ    │\n│                                                                     │\n│  BRIDGE: \"Nominal model + bounded uncertainty\" is how deployment      │\n│  systems handle production variance. Staging = G(s), production =    │\n│  G(s)(1+Δ). The uncertainty bound ‖Δ‖∞ ≤ 1 is the service contract  │\n│  on how far production can deviate from staging. Robust control's    │\n│  guarantee = stable for ALL environments within the spec.            │\n│                                                                     │\n│  TOOLS:                                                             │\n│  Small Gain Theorem ──► H∞ control ──► μ-synthesis               │\n│  (stability condition)  (min worst-case gain)  (structured Δ)      │\n│                                                                     │\n│  CLASSICAL METRICS vs ROBUST METRICS:                              │\n│  Classical: gain margin, phase margin (single SISO loop)            │\n│  Robust:    H∞ norm of closed-loop map (MIMO, structured Δ)          │\n└─────────────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#003",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#004",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "## Uncertainty Representations"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#005",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "### Uncertainty Models"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#006",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "```\nADDITIVE UNCERTAINTY:\n  G_real(s) = G(s) + Δ_A(s)\n  ‖Δ_A(jω)‖ ≤ l_A(ω)  (frequency-dependent bound)\n  Captures: additive noise, model error in absolute terms\n  Feedback: Δ_A enters as input disturbance in standard form"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#007",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "MULTIPLICATIVE OUTPUT UNCERTAINTY:\n  G_real(s) = (I + Δ_O(s)) G(s)\n  ‖Δ_O(jω)‖ ≤ l_O(ω)\n  Captures: relative model error — more natural for systems where\n  error scales with gain (sensor calibration, gain uncertainty)\n  Feedback: Δ_O is \"wrapped around\" plant output"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#008",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "MULTIPLICATIVE INPUT UNCERTAINTY:\n  G_real(s) = G(s)(I + Δ_I(s))\n  ‖Δ_I(jω)‖ ≤ l_I(ω)\n  Captures: actuator uncertainty (servo amplifier gain variation)"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#009",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "COPRIME FACTOR UNCERTAINTY:\n  G_real(s) = (M̃(s) + ΔM)⁻¹(Ñ(s) + ΔN)\n  where G = M⁻¹N is a coprime factorization\n  ‖[ΔN, ΔM]‖∞ ≤ ε\n  Captures: right/left half-plane pole/zero uncertainty\n  Basis for McFarlane-Glover loop shaping\n```"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#010",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "### Structured vs Unstructured"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#011",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "```\nUNSTRUCTURED UNCERTAINTY:\n  Δ(s) is arbitrary matrix bounded in H∞ norm\n  ‖Δ‖∞ ≤ 1  (normalized)\n  Conservative: assumes worst possible perturbation structure\n  Used in H∞ design"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#012",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "STRUCTURED UNCERTAINTY:\n  Δ = diag(δ₁I_{k₁}, ..., δₛI_{kₛ}, Δ₁, ..., Δ_f)\n  Known structure: δᵢ are scalar uncertainties (parameter variations)\n                   Δⱼ are full complex matrix uncertainties (dynamic)\n  Less conservative: exploits that perturbations act independently\n  Requires μ-synthesis (structured singular value)"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#013",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "EXAMPLE — Aircraft pitch axis:\n  q_eff/q_cmd ≈ G_nominal(s) with:\n  δ₁ = ±20% CG uncertainty (scalar, real)\n  δ₂ = ±15% aerodynamic gain (scalar, real)\n  Δ₁ = unmodeled flex dynamics (complex, 2×2)\n```"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#014",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#015",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "## Small Gain Theorem"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#016",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "### Statement and Derivation"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#017",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "```\nSTANDARD INTERCONNECTION:"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#018",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "w ─────►┌───────┐──── z\n          │  M(s) │\n  ┌───────└───────┘◄───┐\n  │                    │\n  │       ┌───────┐    │\n  └──────►│  Δ(s) │────┘\n          └───────┘"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#019",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "where M is the closed-loop transfer function from (w, output of Δ)\nto (z, input to Δ), and Δ is the uncertainty."
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#020",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "SMALL GAIN THEOREM:\n  If ‖M‖∞ < 1/‖Δ‖∞  for all ω,\n  then the interconnection is stable for all stable Δ."
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#021",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "EQUIVALENTLY: If ‖M(jω)‖ · ‖Δ(jω)‖ < 1 for all ω ∈ ℝ"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#022",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "MDLOOM SKETCH (L2 gain argument):\n  Let ‖M‖∞ = γ_M, ‖Δ‖∞ = γ_Δ, γ_M · γ_Δ < 1\n  Signals e = w + Δy, y = Me\n  ‖y‖₂ ≤ γ_M ‖e‖₂ = γ_M ‖w + Δy‖₂ ≤ γ_M(‖w‖₂ + γ_Δ‖y‖₂)\n  ‖y‖₂ (1 - γ_M γ_Δ) ≤ γ_M ‖w‖₂  →  ‖y‖₂ ≤ γ_M/(1 - γ_M γ_Δ) ‖w‖₂\n  Bounded input → bounded output: L2 stable. □"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#023",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "DESIGN IMPLICATION:\n  Design M = T_zw(C, G) so that ‖M‖∞ < 1/l(ω) at all frequencies\n  where l(ω) is the uncertainty weight ‖Δ(jω)‖ ≤ l(ω)\n```"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#024",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#025",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "## H∞ Control"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#026",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "### Problem Formulation"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#027",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "```\nGENERALIZED PLANT P(s):\n  ┌─────────────────┐\n  │                 │\nw ─►               ├──► z    (exogenous input w → performance output z)\n  │     P(s)        │\nu ─►               ├──► y    (control input u → measured output y)\n  └─────────────────┘"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#028",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "Partition P: [z]   [P₁₁  P₁₂] [w]\n             [y] = [P₂₁  P₂₂] [u]"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#029",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "Controller u = C(s)y → closed-loop z = T_zw(P, C) w"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#030",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "H∞ PROBLEM: find C(s) stabilizing P such that\n  ‖T_zw(P, C)‖∞ < γ  (minimize γ)"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#031",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "‖T_zw‖∞ = sup_ω σ_max(T_zw(jω)) = worst-case RMS gain from w to z\n```"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#032",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "### Mixed Sensitivity Formulation (SISO)"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#033",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "```\nTYPICAL WEIGHTING STRUCTURE:\n  Reference r enters a weighting filter W1, then the controller C\n  generates control input u, which drives the plant G whose output y\n  feeds back and forms the error signal e for C."
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#034",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "Minimize: ‖[W₁S]‖   where S = (1 + GC)⁻¹  (sensitivity)\n            ‖[W₂T]‖∞       T = GC(1 + GC)⁻¹ (complementary sensitivity)\n            ‖[W₃CS]‖       CS = C(1 + GC)⁻¹ (control sensitivity)"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#035",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "WEIGHT DESIGN RULES:\n  W₁(s): performance weight on S — high at low ω (good disturbance rejection)\n    Typical: W₁(s) = (s/M + ω_B) / (s + ω_B A)\n    Parameters: ω_B = desired bandwidth, M = peak sensitivity bound, A = steady-state error"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#036",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "W₂(s): weight on T — roll off at high ω (robustness to sensor noise, unmodeled dynamics)\n    Typical: W₂(s) = (s + ω_B/M_T) / (ε·s + ω_B)  (high-pass)"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#037",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "W₃(s): limit control effort at high frequencies (actuator limits)"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#038",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "WATERBED EFFECT:\n  S(jω) + T(jω) = 1  →  pushing down S somewhere pushes up T elsewhere\n  Bode's integral: ∫₀^∞ log|S(jω)|dω = π Σ Re(pᵢ) (RHP poles)\n  Can't make S small everywhere — must budget sensitivity"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#039",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "Engineering bridge: The waterbed effect formalizes a trade-off familiar in\n  infrastructure engineering — you cannot simultaneously minimize P99 latency,\n  cost, and failure rate across all traffic patterns. Pushing sensitivity down\n  at one frequency pushes it up at another, just as tightening an SLO on one\n  dimension (latency) relaxes tolerance on another (cost, availability during\n  peak). Bode's integral is a formal lower bound on \"you can't have everything.\"\n```"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#040",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "### Riccati Equation Solution"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#041",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "```\nH∞ SUBOPTIMAL CONTROL (Doyle-Glover-Khargonekar-Francis, 1989):\n  Existence of C achieving ‖T_zw‖∞ < γ is equivalent to:\n  1. X∞ ≥ 0 solves: A^T X∞ + X∞A + C₁^TC₁ + X∞(B₁B₁^T/γ² - B₂B₂^T^{-1}...\n     [standard form Riccati with γ-dependent term]\n  2. Y∞ ≥ 0 solves: AY∞ + Y∞A^T + B₁B₁^T + Y∞(C₁^TC₁/γ² - C₂^TR₂^{-1}C₂)Y∞ = 0\n  3. ρ(X∞Y∞) < γ²  (spectral radius condition)"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#042",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "OPTIMAL γ SEARCH: Binary search on γ until conditions marginally met\n  γ → ∞: Riccati solutions exist (LQG limit)\n  γ → γ_opt: Riccati solutions approach each other (optimal γ)"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#043",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "CONTROLLER STRUCTURE:\n  H∞ controller has same order as plant (state dimension = n)\n  Generalizes LQG: H∞ = LQG when γ → ∞\n  State estimate from H∞ filter (minimax estimation)\n```"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#044",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#045",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "## Loop Shaping — McFarlane-Glover"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#046",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "```\nPROCEDURE:\n  1. Design desired open-loop shape L₀(s) by classical frequency-domain methods\n     (bandwidth, roll-off rate, integral action — exactly like classical design)"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#047",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "2. Form shaped plant: G_s(s) = W₂(s) G(s) W₁(s)\n     where W₁, W₂ are pre/post compensators shaping L₀"
+    },
+    {
+      "id": "05-ROBUST-CONTROL.md#048",
+      "path": [
+        "05-ROBUST-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:05-robust-control, git-history:control-theory:05-robust-control]",
+        "canonical_path": "control-theory/05-ROBUST-CONTROL.md",
+        "concepts": "[robust, control]",
+        "current_path": "control-theory/05-ROBUST-CONTROL.md",
+        "id": "maxim:control-theory:robust-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[robust, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robust Control",
+        "updated": "null"
+      },
+      "text": "3. Find robustly stabilizing controller for G_s using normalized\n     coprime factor uncertainty:\n     G_s = M_s⁻¹ N_s  →  maximize ε: Gᵣₑₐₗ = (M_s + ΔM)⁻¹(N_s + ΔN)"
+    }
+  ],
+  "refs": [
+    "05-ROBUST-CONTROL.md"
+  ]
+}

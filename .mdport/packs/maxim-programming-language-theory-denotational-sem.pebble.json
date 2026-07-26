@@ -1,0 +1,125 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-programming-language-theory-denotational-sem",
+  "source": "../../programming-language-theory",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "04-DENOTATIONAL-SEM.md#000",
+      "path": [
+        "04-DENOTATIONAL-SEM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:programming-language-theory:04-denotational-sem, git-history:programming-language-theory:04-denotational-sem]",
+        "canonical_path": "programming-language-theory/04-DENOTATIONAL-SEM.md",
+        "concepts": "[denotational, sem]",
+        "current_path": "programming-language-theory/04-DENOTATIONAL-SEM.md",
+        "id": "maxim:programming-language-theory:denotational-sem",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "programming-language-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[denotational, sem]",
+        "section": "programming-language-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Denotational Semantics: Scott Domains, Continuity, Full Abstraction",
+        "updated": "null"
+      },
+      "text": "# Denotational Semantics: Scott Domains, Continuity, Full Abstraction"
+    },
+    {
+      "id": "04-DENOTATIONAL-SEM.md#001",
+      "path": [
+        "04-DENOTATIONAL-SEM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:programming-language-theory:04-denotational-sem, git-history:programming-language-theory:04-denotational-sem]",
+        "canonical_path": "programming-language-theory/04-DENOTATIONAL-SEM.md",
+        "concepts": "[denotational, sem]",
+        "current_path": "programming-language-theory/04-DENOTATIONAL-SEM.md",
+        "id": "maxim:programming-language-theory:denotational-sem",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "programming-language-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[denotational, sem]",
+        "section": "programming-language-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Denotational Semantics: Scott Domains, Continuity, Full Abstraction",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "04-DENOTATIONAL-SEM.md#002",
+      "path": [
+        "04-DENOTATIONAL-SEM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:programming-language-theory:04-denotational-sem, git-history:programming-language-theory:04-denotational-sem]",
+        "canonical_path": "programming-language-theory/04-DENOTATIONAL-SEM.md",
+        "concepts": "[denotational, sem]",
+        "current_path": "programming-language-theory/04-DENOTATIONAL-SEM.md",
+        "id": "maxim:programming-language-theory:denotational-sem",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "programming-language-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[denotational, sem]",
+        "section": "programming-language-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Denotational Semantics: Scott Domains, Continuity, Full Abstraction",
+        "updated": "null"
+      },
+      "text": "Denotational semantics assigns mathematical objects to programs — independently of how they compute. The meaning of a program is a function, and the theory is built to handle recursion (which requires fixed points) and higher-order functions (which require function spaces that are themselves domains)."
+    },
+    {
+      "id": "04-DENOTATIONAL-SEM.md#003",
+      "path": [
+        "04-DENOTATIONAL-SEM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:programming-language-theory:04-denotational-sem, git-history:programming-language-theory:04-denotational-sem]",
+        "canonical_path": "programming-language-theory/04-DENOTATIONAL-SEM.md",
+        "concepts": "[denotational, sem]",
+        "current_path": "programming-language-theory/04-DENOTATIONAL-SEM.md",
+        "id": "maxim:programming-language-theory:denotational-sem",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "programming-language-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[denotational, sem]",
+        "section": "programming-language-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Denotational Semantics: Scott Domains, Continuity, Full Abstraction",
+        "updated": "null"
+      },
+      "text": "```\n+--------------------------------------------------------------------------+\n|                    DENOTATIONAL SEMANTICS LANDSCAPE                      |\n+--------------------------------------------------------------------------+\n|                                                                          |\n|  GOAL: ⟦t⟧ ∈ D — assign mathematical object from domain D to term t    |\n|                                                                          |\n|  THE PROBLEM WITH NAIVE SEMANTICS:                                       |\n|  Recursive function f x = if x=0 then 1 else x * (f (x-1))             |\n|  What mathematical object is f?                                          |\n|  f : Int → Int, but f is defined in terms of itself                     |\n|  → Need a domain with a notion of approximation                         |\n|                                                                          |\n|  SCOTT'S SOLUTION (1969–70):                                            |\n|  Domains = partial orders with certain completeness properties           |\n|  Meaning of recursion = LEAST FIXED POINT                               |\n|  ⟦fix f⟧ = ⊔{fⁿ(⊥) | n ≥ 0}  (least upper bound of approximations)   |\n|                                                                          |\n|  ADEQUACY THEOREM:                                                       |\n|  ⟦t⟧ = ⟦v⟧ iff t →* v   (denotational agrees with operational)        |\n|                                                                          |\n|  FULL ABSTRACTION (FAILURE):                                            |\n|  ⟦t₁⟧ = ⟦t₂⟧ iff t₁ ≈ t₂ (contextual equivalence)?                   |\n|  For PCF (Milner's problem 1977): NO — fails without parallel or       |\n|  SOLVED by: game semantics (Abramsky et al. 1990s)                     |\n+--------------------------------------------------------------------------+\n```"
+    }
+  ],
+  "refs": [
+    "04-DENOTATIONAL-SEM.md"
+  ]
+}

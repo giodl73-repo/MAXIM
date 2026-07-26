@@ -22,8 +22,8 @@ source-corpus pipeline.
    `religious-studies/00-OVERVIEW.md`.
 2. **Do not hand-edit generated source-corpus artifacts.** Treat these paths as
    derived output unless a task explicitly changes the generator/schema:
-   `.proof/backfill/sources/**`, `.proof/backfill/modules/**`, `.crop/views/**`,
-   `.pebble/packs/**`, and `.fletch/registries/**`.
+   `.mdloom/backfill/sources/**`, `.mdloom/backfill/modules/**`, `.crop/views/**`,
+   `.mdport/packs/**`, and `.fletch/registries/**`.
 3. **Regenerate after source edits.** After changing a module guide, run the
    source-backfill helper for that module:
 
@@ -37,7 +37,7 @@ source-corpus pipeline.
    Use `--module-id computing-software` for the legacy `computing/` module;
    otherwise the module id normally matches the directory name.
 4. **Commit source and regenerated outputs together.** A content change is not
-   complete until the guide, PROOF source markdown/sidecars, CROP views, PEBBLE
+   complete until the guide, MDLOOM source markdown/sidecars, CROP views, MDPORT
    packs, FLETCH registry, and validation results all agree.
 
 ---

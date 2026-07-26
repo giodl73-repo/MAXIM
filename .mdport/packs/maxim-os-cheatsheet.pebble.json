@@ -1,0 +1,825 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-os-cheatsheet",
+  "source": "../../os",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "01-CHEATSHEET.md#000",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:01-cheatsheet, git-history:os:01-cheatsheet]",
+        "canonical_path": "os/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "os/01-CHEATSHEET.md",
+        "id": "maxim:os:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Operating Systems - Universal Cheat Sheet and Vocabulary Load-In",
+        "updated": "null"
+      },
+      "text": "# Operating Systems — Universal Cheat Sheet & Vocabulary Load-In"
+    },
+    {
+      "id": "01-CHEATSHEET.md#001",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:01-cheatsheet, git-history:os:01-cheatsheet]",
+        "canonical_path": "os/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "os/01-CHEATSHEET.md",
+        "id": "maxim:os:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Operating Systems - Universal Cheat Sheet and Vocabulary Load-In",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "01-CHEATSHEET.md#002",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:01-cheatsheet, git-history:os:01-cheatsheet]",
+        "canonical_path": "os/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "os/01-CHEATSHEET.md",
+        "id": "maxim:os:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Operating Systems - Universal Cheat Sheet and Vocabulary Load-In",
+        "updated": "null"
+      },
+      "text": "```\nKERNEL ARCHITECTURE AT A GLANCE\n════════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "01-CHEATSHEET.md#003",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:01-cheatsheet, git-history:os:01-cheatsheet]",
+        "canonical_path": "os/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "os/01-CHEATSHEET.md",
+        "id": "maxim:os:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Operating Systems - Universal Cheat Sheet and Vocabulary Load-In",
+        "updated": "null"
+      },
+      "text": "MONOLITHIC                HYBRID                     MACH MICROKERNEL (inside hybrid)\n  ──────────────            ──────────────             ──────────────────────────────────\n  Linux                     Windows NT                 XNU (macOS / iOS)\n                            XNU (macOS / iOS)\n  Everything in             Core in ring 0,            Mach handles: IPC (ports),\n  ring 0: VFS,              servers structured         VM, tasks, threads\n  sched, net,               as \"managers\" but          BSD layer: POSIX, filesystems,\n  drivers,                  all in ring 0              network stack\n  filesystems               (NT: Executive)            IOKit: drivers (C++, ring 0)"
+    },
+    {
+      "id": "01-CHEATSHEET.md#004",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:01-cheatsheet, git-history:os:01-cheatsheet]",
+        "canonical_path": "os/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "os/01-CHEATSHEET.md",
+        "id": "maxim:os:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Operating Systems - Universal Cheat Sheet and Vocabulary Load-In",
+        "updated": "null"
+      },
+      "text": "┌──────────────┐          ┌──────────────────┐       ┌──────────────────────────────┐\n  │  YOUR APP    │          │   YOUR APP       │       │       YOUR APP               │\n  ├──────────────┤          ├──────────────────┤       ├──────────────────────────────┤\n  │  glibc       │          │  Win32 / WinRT   │       │ Foundation / libSystem        │\n  ├──────────────┤          ├──────────────────┤       ├──────────────────────────────┤\n  │  LINUX       │          │  NT Executive    │       │ BSD layer (POSIX syscalls)   │\n  │  KERNEL      │          │  (Object Mgr,    │       │ Mach layer (IPC/VM/tasks)    │\n  │  (all in     │          │  I/O Mgr, Sec,   │       │ IOKit (C++ drivers)          │\n  │   ring 0)    │          │  Proc Mgr, Mem)  │       │                              │\n  ├──────────────┤          ├──────────────────┤       ├──────────────────────────────┤\n  │  HARDWARE    │          │  HAL + HARDWARE  │       │  HARDWARE                    │\n  └──────────────┘          └──────────────────┘       └──────────────────────────────┘"
+    },
+    {
+      "id": "01-CHEATSHEET.md#005",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:01-cheatsheet, git-history:os:01-cheatsheet]",
+        "canonical_path": "os/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "os/01-CHEATSHEET.md",
+        "id": "maxim:os:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Operating Systems - Universal Cheat Sheet and Vocabulary Load-In",
+        "updated": "null"
+      },
+      "text": "Syscall:                  Syscall:                   Syscall:\n  SYSCALL instr             INT 2Eh / SYSFAST          Mach trap (mach_msg) +\n  (x86-64)                  → ntdll → ntoskrnl         BSD syscall (sysenter/SVC)\n  SVC #0 (ARM64)\n```"
+    },
+    {
+      "id": "01-CHEATSHEET.md#006",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:01-cheatsheet, git-history:os:01-cheatsheet]",
+        "canonical_path": "os/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "os/01-CHEATSHEET.md",
+        "id": "maxim:os:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Operating Systems - Universal Cheat Sheet and Vocabulary Load-In",
+        "updated": "null"
+      },
+      "text": "## Master Comparison Matrix"
+    },
+    {
+      "id": "01-CHEATSHEET.md#007",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:01-cheatsheet, git-history:os:01-cheatsheet]",
+        "canonical_path": "os/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "os/01-CHEATSHEET.md",
+        "id": "maxim:os:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Operating Systems - Universal Cheat Sheet and Vocabulary Load-In",
+        "updated": "null"
+      },
+      "text": "| Topic | Windows | Linux (Ubuntu/Debian) | Linux (RHEL/Fedora) | macOS | iOS | Android |\n|-------|---------|-----------------------|---------------------|-------|-----|---------|\n| **Kernel** | NT (hybrid) | Linux 6.x (monolithic) | Linux 6.x | XNU (Mach+BSD hybrid) | XNU (same) | Linux (modified) |\n| **Init / PID 1** | smss.exe → wininit | systemd | systemd | launchd | launchd | init → Zygote |\n| **Shell default** | PowerShell (pwsh) | bash / zsh | bash | zsh | none (no CLI) | sh (via adb) |\n| **Package install** | winget / choco | apt install | dnf install | brew install | App Store only | Play Store / adb |\n| **Service manage** | Get-Service, sc.exe | systemctl | systemctl | launchctl | (managed) | adb shell am |\n| **Process list** | Get-Process / tasklist | ps / htop / top | ps / htop | ps / Activity Monitor | Instruments | adb shell ps |\n| **Network info** | ipconfig / Get-NetIPAddress | ip a / ss | ip a / ss | ifconfig / networksetup | Settings only | adb shell ip |\n| **Disk usage** | Get-PSDrive / du | df / du | df / du | df / du | Settings only | adb shell df |\n| **Firewall** | netsh advfirewall / New-NetFirewallRule | ufw / iptables / nftables | firewalld | pfctl (pf) | managed | managed |\n| **File system** | NTFS / ReFS | ext4 / XFS / btrfs | XFS / ext4 | APFS | APFS | ext4 / f2fs |\n| **Dynamic lib** | .dll (PE format) | .so (ELF) | .so (ELF) | .dylib (Mach-O) | .dylib (Mach-O) | .so (ELF in APK) |\n| **Executable** | .exe (PE) | (no ext, ELF) | (no ext, ELF) | (Mach-O, in .app) | (Mach-O, in .ipa) | classes.dex in APK |\n| **Debug symbols** | .pdb | DWARF (in .so) | DWARF | .dSYM bundle | .dSYM bundle | .sym / tombstone |\n| **Code signing** | Authenticode (signtool) | GPG (packages) | RPM GPG | Developer ID + notarize | App Store cert | Keystore (.jks) |\n| **App bundle** | .msix / .exe / .msi | .deb / snap / flatpak | .rpm / snap | .app bundle / .dmg | .ipa | .apk / .aab |\n| **Config location** | Registry (HKCU/HKLM) | /etc/ + ~/.config/ | /etc/ + ~/.config/ | plist in ~/Library | plist in sandbox | SharedPreferences |\n| **Log location** | Event Viewer / ETW | journalctl / /var/log | journalctl / /var/log | Console.app / ~/Library/Logs | Xcode Organizer | logcat |\n| **Env variables** | $env:VAR (PS) / %VAR% | $VAR / export VAR | $VAR / export VAR | $VAR | injected at runtime | build config |\n| **User data dir** | %APPDATA% | ~/.local/share (XDG) | ~/.local/share | ~/Library/App Support | NSDocumentDirectory | getFilesDir() |\n| **Temp dir** | %TEMP% | /tmp (tmpfs) | /tmp (tmpfs) | /tmp → /private/tmp | NSTemporaryDirectory() | getCacheDir() |\n| **Virtualization** | Hyper-V | KVM + QEMU | KVM + QEMU | Virtualization.framework | (none) | (none) |\n| **Container runtime** | Docker Desktop (Hyper-V/WSL2) | Docker (native) | Podman (rootless) | Docker Desktop (Virt.fw) | (none) | (none) |"
+    },
+    {
+      "id": "01-CHEATSHEET.md#008",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:01-cheatsheet, git-history:os:01-cheatsheet]",
+        "canonical_path": "os/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "os/01-CHEATSHEET.md",
+        "id": "maxim:os:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Operating Systems - Universal Cheat Sheet and Vocabulary Load-In",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-CHEATSHEET.md#009",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:01-cheatsheet, git-history:os:01-cheatsheet]",
+        "canonical_path": "os/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "os/01-CHEATSHEET.md",
+        "id": "maxim:os:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Operating Systems - Universal Cheat Sheet and Vocabulary Load-In",
+        "updated": "null"
+      },
+      "text": "## Per-OS Vocabulary Cards"
+    },
+    {
+      "id": "01-CHEATSHEET.md#010",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:01-cheatsheet, git-history:os:01-cheatsheet]",
+        "canonical_path": "os/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "os/01-CHEATSHEET.md",
+        "id": "maxim:os:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Operating Systems - Universal Cheat Sheet and Vocabulary Load-In",
+        "updated": "null"
+      },
+      "text": "### WINDOWS — Terms to Load In"
+    },
+    {
+      "id": "01-CHEATSHEET.md#011",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:01-cheatsheet, git-history:os:01-cheatsheet]",
+        "canonical_path": "os/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "os/01-CHEATSHEET.md",
+        "id": "maxim:os:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Operating Systems - Universal Cheat Sheet and Vocabulary Load-In",
+        "updated": "null"
+      },
+      "text": "```\nKERNEL & RUNTIME\n─────────────────\nntoskrnl.exe    The NT kernel image (ring 0)\nhal.dll         Hardware Abstraction Layer — isolates kernel from hardware\nsmss.exe        Session Manager Subsystem — first user-mode process\ncsrss.exe       Client/Server Runtime (Win32 subsystem) — one per session\nlsass.exe       Local Security Authority — credentials, tokens, domain auth\nservices.exe    Service Control Manager host\nsvchost.exe     Generic service host — groups many services for efficiency\nconhost.exe     Console host — handles terminal I/O\nwinlogon.exe    Login process; watches for Ctrl+Alt+Del\ndwm.exe         Desktop Window Manager — compositor"
+    },
+    {
+      "id": "01-CHEATSHEET.md#012",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:01-cheatsheet, git-history:os:01-cheatsheet]",
+        "canonical_path": "os/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "os/01-CHEATSHEET.md",
+        "id": "maxim:os:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Operating Systems - Universal Cheat Sheet and Vocabulary Load-In",
+        "updated": "null"
+      },
+      "text": "HANDLES & OBJECTS\n─────────────────\nHANDLE          Integer index into a process's handle table (not a pointer)\nObject Manager  NT kernel component — all resources are \"objects\" with refcounts\nDuplicate       Copy a handle between processes: DuplicateHandle()\nKernelObject    Kernel-mode objects: Process, Thread, File, Event, Mutex, Semaphore\nUserObject      User32 objects: Window, Menu, Cursor (not ref-counted the same way)"
+    },
+    {
+      "id": "01-CHEATSHEET.md#013",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:01-cheatsheet, git-history:os:01-cheatsheet]",
+        "canonical_path": "os/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "os/01-CHEATSHEET.md",
+        "id": "maxim:os:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Operating Systems - Universal Cheat Sheet and Vocabulary Load-In",
+        "updated": "null"
+      },
+      "text": "SECURITY\n─────────────────\nSID             Security Identifier — binary value identifying user/group\nDACL            Discretionary ACL — who can access this object (allow/deny ACEs)\nSACL            System ACL — audit entries\nACE             Access Control Entry — one rule in a DACL/SACL\nToken           Security context attached to process/thread (SIDs + privileges)\nImpersonation   Thread uses a different token than its process (service patterns)\nUAC             User Account Control — admin gets two tokens; elevation = new process\nIntegrity Level Low(untrusted) < Medium(normal) < High(elevated) < System\nPrivilege       Named capability in token: SeDebugPrivilege, SeShutdownPrivilege etc\nAppContainer    Sandboxed token for UWP apps — very restricted capabilities"
+    },
+    {
+      "id": "01-CHEATSHEET.md#014",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:01-cheatsheet, git-history:os:01-cheatsheet]",
+        "canonical_path": "os/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "os/01-CHEATSHEET.md",
+        "id": "maxim:os:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Operating Systems - Universal Cheat Sheet and Vocabulary Load-In",
+        "updated": "null"
+      },
+      "text": "MEMORY\n─────────────────\nVirtualAlloc    Reserve/commit virtual pages — bottom-level memory API\nHeapAlloc       Win32 heap (on top of VirtualAlloc) — for small allocations\nAWE             Address Windowing Extensions — map >4GB in 32-bit process (legacy)\nWorking Set     Pages currently in RAM for a process\nCommit charge   Total committed (may be in page file) across all processes\nPageFile.sys    Windows virtual memory paging file\nSection         Kernel object for shared memory / memory-mapped files\nPEB             Process Environment Block — user-mode process metadata\nTEB             Thread Environment Block — per-thread metadata (TLS, stack bounds)"
+    },
+    {
+      "id": "01-CHEATSHEET.md#015",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:01-cheatsheet, git-history:os:01-cheatsheet]",
+        "canonical_path": "os/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "os/01-CHEATSHEET.md",
+        "id": "maxim:os:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Operating Systems - Universal Cheat Sheet and Vocabulary Load-In",
+        "updated": "null"
+      },
+      "text": "REGISTRY\n─────────────────\nHKEY_LOCAL_MACHINE (HKLM)   Machine-wide settings (requires admin to write)\nHKEY_CURRENT_USER  (HKCU)   Current user settings\nHKEY_CLASSES_ROOT  (HKCR)   COM registration, file associations (merged HKLM+HKCU)\nHKEY_USERS         (HKU)    All users' hives\nHive file          HKLM\\SYSTEM → %SystemRoot%\\System32\\Config\\SYSTEM on disk\nREG_SZ             String value\nREG_DWORD          32-bit integer\nREG_BINARY         Raw binary\nREG_MULTI_SZ       Multi-string (array of strings)\nreg.exe            CLI: reg query HKLM\\... / reg add / reg delete\nGet-ItemProperty   PowerShell equivalent"
+    },
+    {
+      "id": "01-CHEATSHEET.md#016",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:01-cheatsheet, git-history:os:01-cheatsheet]",
+        "canonical_path": "os/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "os/01-CHEATSHEET.md",
+        "id": "maxim:os:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Operating Systems - Universal Cheat Sheet and Vocabulary Load-In",
+        "updated": "null"
+      },
+      "text": "SERVICES\n─────────────────\nSCM             Service Control Manager — manages service lifecycle\nsc.exe          CLI: sc query / sc start myService / sc config\nGet-Service     PowerShell equivalent\nServiceType     Win32OwnProcess / Win32ShareProcess / KernelDriver / FileSystemDriver\nStartType       Automatic / AutomaticDelayed / Manual / Disabled\nRecovery action On failure: restart / run program / reboot\nSYSTEM account  NT AUTHORITY\\SYSTEM — no network identity (use gMSA instead)\ngMSA            Group Managed Service Account — domain account with auto-rotating password\nLocalService    Limited SYSTEM account — lower privileges, can access network as null session\nNetworkService  Like LocalService but presents machine credentials on network"
+    },
+    {
+      "id": "01-CHEATSHEET.md#017",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:01-cheatsheet, git-history:os:01-cheatsheet]",
+        "canonical_path": "os/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "os/01-CHEATSHEET.md",
+        "id": "maxim:os:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Operating Systems - Universal Cheat Sheet and Vocabulary Load-In",
+        "updated": "null"
+      },
+      "text": "DEBUGGING\n─────────────────\nWinDbg          Primary Windows debugger — user mode + kernel mode\nPDB             Program DataBase — debug symbols (symbol server: https://msdl.microsoft.com/...)\n!analyze -v     WinDbg command — auto-analyze crash dump\nProcess Monitor Sysinternals — file/registry/process/network activity\nProcess Explorer Sysinternals — Task Manager replacement with full process tree\nETW             Event Tracing for Windows — kernel-level tracing framework\nWPA             Windows Performance Analyzer — ETW visualization\nperfview        .NET-specific ETW viewer (GC, JIT, CPU sampling)\nMinidump        Small crash dump (thread state + exception) vs full dump (all memory)\nDebugBreak()    Programmatic breakpoint (raises STATUS_BREAKPOINT)\nEXCEPTION_RECORD    Structured Exception Handling — Windows' own try/except in C\n```"
+    },
+    {
+      "id": "01-CHEATSHEET.md#018",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:01-cheatsheet, git-history:os:01-cheatsheet]",
+        "canonical_path": "os/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "os/01-CHEATSHEET.md",
+        "id": "maxim:os:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Operating Systems - Universal Cheat Sheet and Vocabulary Load-In",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-CHEATSHEET.md#019",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:01-cheatsheet, git-history:os:01-cheatsheet]",
+        "canonical_path": "os/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "os/01-CHEATSHEET.md",
+        "id": "maxim:os:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Operating Systems - Universal Cheat Sheet and Vocabulary Load-In",
+        "updated": "null"
+      },
+      "text": "### LINUX — Terms to Load In"
+    },
+    {
+      "id": "01-CHEATSHEET.md#020",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:01-cheatsheet, git-history:os:01-cheatsheet]",
+        "canonical_path": "os/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "os/01-CHEATSHEET.md",
+        "id": "maxim:os:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Operating Systems - Universal Cheat Sheet and Vocabulary Load-In",
+        "updated": "null"
+      },
+      "text": "```\nKERNEL INTERNALS\n─────────────────\nvmlinuz         Compressed kernel image\ninitramfs       Initial RAM filesystem — early boot environment\n/proc           Virtual filesystem — kernel data structures as files (/proc/PID/maps)\n/sys (sysfs)    Kernel device/driver model as files — configure drivers at runtime\n/dev            Device files — char (serial) + block (disk) devices\nudev            Userspace device manager — creates /dev nodes dynamically\ndmesg           Kernel ring buffer — boot messages + driver output\nkthread         Kernel threads (show up in ps with [brackets])\nOOM killer      Out-of-memory killer — picks a process to kill when RAM exhausted\ncgroups         Control groups — limit/account CPU/memory/IO per process group\nnamespaces      Isolate: pid, net, mnt, uts, ipc, user — the Docker substrate\nseccomp-bpf     Syscall filter — whitelist allowed syscalls per process (Chrome, Docker)\nBPF/eBPF        Extended Berkeley Packet Filter — JIT code injected into kernel for\n                tracing, networking, security (replaces many kernel modules)"
+    },
+    {
+      "id": "01-CHEATSHEET.md#021",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:01-cheatsheet, git-history:os:01-cheatsheet]",
+        "canonical_path": "os/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "os/01-CHEATSHEET.md",
+        "id": "maxim:os:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Operating Systems - Universal Cheat Sheet and Vocabulary Load-In",
+        "updated": "null"
+      },
+      "text": "FILESYSTEM\n─────────────────\nVFS             Virtual File System — abstraction layer, all FS implement same ops\ninode           Metadata struct for a file/dir (permissions, size, timestamps, not name)\ndentry          Directory entry — maps filename to inode (cached in dentry cache)\npage cache      Disk data cached in RAM — Linux aggressively uses free RAM for this\ndirty page      Page in cache modified but not yet written to disk\n/               Root mount\n/bin, /usr/bin  System executables (modern: /bin → symlink to /usr/bin)\n/etc            Configuration files (system-wide)\n/var            Variable data: logs (/var/log), spool, cache\n/home           User home directories\n/tmp            Temporary files — tmpfs (RAM-backed, cleared on boot)\n/opt            Optional packages (not managed by distro package manager)\n/run            Runtime data — PIDs, sockets (tmpfs, cleared on boot)\n/proc           Process + kernel virtual FS\n/sys            Kernel/device virtual FS\nmount           Attach filesystem to tree: mount /dev/sdb1 /mnt/data\nbind mount      Mount a directory at another location (Docker volume mechanism)\ntmpfs           In-memory filesystem\noverlayfs       Union mount — upper (writable) + lower (read-only) — Docker layers"
+    },
+    {
+      "id": "01-CHEATSHEET.md#022",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:01-cheatsheet, git-history:os:01-cheatsheet]",
+        "canonical_path": "os/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "os/01-CHEATSHEET.md",
+        "id": "maxim:os:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Operating Systems - Universal Cheat Sheet and Vocabulary Load-In",
+        "updated": "null"
+      },
+      "text": "PROCESSES\n─────────────────\nPID 1           init / systemd — all processes are children of this\nfork()          Copy process — child inherits parent's FDs, memory (copy-on-write)\nexec()          Replace process image — used after fork() to run new program\nwait()          Parent waits for child exit (otherwise: zombie)\nzombie          Process exited but parent hasn't called wait() — stays in table\norphan          Process whose parent died — reparented to PID 1\nnice            Priority adjustment: -20 (highest prio) to +19 (lowest)\nrenice          Change nice of running process\nkill -9         SIGKILL — force kill, cannot be caught or ignored\nkill -15        SIGTERM — polite terminate, can be caught (default for kill)\nkill -1         SIGHUP — reload config (convention: daemons reload on SIGHUP)\nstrace          Trace system calls a process makes\nltrace          Trace library calls\n/proc/PID/fd    Open file descriptors for a process\nlsof            List open files (file descriptors) — who has what open\nfuser           Which processes are using a file or port"
+    },
+    {
+      "id": "01-CHEATSHEET.md#023",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:01-cheatsheet, git-history:os:01-cheatsheet]",
+        "canonical_path": "os/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "os/01-CHEATSHEET.md",
+        "id": "maxim:os:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Operating Systems - Universal Cheat Sheet and Vocabulary Load-In",
+        "updated": "null"
+      },
+      "text": "SYSTEMD\n─────────────────\nunit file       /etc/systemd/system/myapp.service — service definition\nExecStart       Command to run\nExecReload      Command to reload (usually kill -HUP $MAINPID)\nWantedBy        Target to attach to (multi-user.target = normal boot)\nAfter           Ordering: start after network.target\nRequires        Hard dependency: fail if dep fails\nType=simple     (default) main process = ExecStart PID\nType=forking    Old-style: ExecStart forks, parent exits\nType=notify     Service sends sd_notify() when ready (most modern)\nType=oneshot    Run once and exit (e.g., setup tasks)\nsystemctl       CLI: start/stop/restart/status/enable/disable/reload\njournalctl      Log viewer: journalctl -u myservice -f (follow) --since \"1 hour ago\"\njournald        Systemd journal daemon — structured binary log storage\nsocket activate Service starts on first connection — faster boot"
+    },
+    {
+      "id": "01-CHEATSHEET.md#024",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:01-cheatsheet, git-history:os:01-cheatsheet]",
+        "canonical_path": "os/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "os/01-CHEATSHEET.md",
+        "id": "maxim:os:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Operating Systems - Universal Cheat Sheet and Vocabulary Load-In",
+        "updated": "null"
+      },
+      "text": "NETWORKING\n─────────────────\nip a            Show interfaces + addresses (replaces ifconfig)\nip r            Show routing table (replaces route)\nss              Socket statistics (replaces netstat)\nss -tlnp        TCP listening ports with process names\nnftables        Modern packet filtering (replaces iptables in RHEL9+/Ubuntu22+)\niptables        Legacy packet filter — still widely documented\nnetfilter       Kernel framework that iptables/nftables use\n/etc/resolv.conf   DNS servers\n/etc/hosts      Static hostname→IP mappings\nNetworkManager  Daemon managing network connections on desktops\nsystemd-networkd  Server-side network config alternative to NM"
+    },
+    {
+      "id": "01-CHEATSHEET.md#025",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:01-cheatsheet, git-history:os:01-cheatsheet]",
+        "canonical_path": "os/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "os/01-CHEATSHEET.md",
+        "id": "maxim:os:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Operating Systems - Universal Cheat Sheet and Vocabulary Load-In",
+        "updated": "null"
+      },
+      "text": "PERMISSIONS\n─────────────────\nrwxr-xr-x      user/group/other — 3 triplets of read/write/execute\nchmod 755       u=rwx,g=rx,o=rx\nchmod +x        Add execute bit for all\nchown alice:dev Set owner:group\numask           Default permission mask for new files (022 → new files 644, dirs 755)\nsticky bit      On directory: only owner can delete files (like /tmp)\nsetuid bit      Execute with owner's privileges (e.g., /usr/bin/passwd runs as root)\nsetgid bit      Execute with group's privileges / inherit group for new dir files\nsudo            Run as root (configured via /etc/sudoers)\nsu              Switch user\ncapabilities    Fine-grained root powers: CAP_NET_BIND_SERVICE (bind port <1024 as non-root)\n```"
+    },
+    {
+      "id": "01-CHEATSHEET.md#026",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:01-cheatsheet, git-history:os:01-cheatsheet]",
+        "canonical_path": "os/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "os/01-CHEATSHEET.md",
+        "id": "maxim:os:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Operating Systems - Universal Cheat Sheet and Vocabulary Load-In",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-CHEATSHEET.md#027",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:01-cheatsheet, git-history:os:01-cheatsheet]",
+        "canonical_path": "os/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "os/01-CHEATSHEET.md",
+        "id": "maxim:os:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Operating Systems - Universal Cheat Sheet and Vocabulary Load-In",
+        "updated": "null"
+      },
+      "text": "### MACOS — Terms to Load In"
+    },
+    {
+      "id": "01-CHEATSHEET.md#028",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:os:01-cheatsheet, git-history:os:01-cheatsheet]",
+        "canonical_path": "os/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "os/01-CHEATSHEET.md",
+        "id": "maxim:os:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "os",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "os",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Operating Systems - Universal Cheat Sheet and Vocabulary Load-In",
+        "updated": "null"
+      },
+      "text": "```\nKERNEL & DARWIN\n─────────────────\nXNU             \"X is Not Unix\" — the macOS/iOS kernel\n                Mach (microkernel IPC + VM) + BSD (POSIX + filesystems) + IOKit (drivers)\nDarwin          Open-source base of macOS = XNU kernel + userland tools\nMach port       Fundamental IPC primitive in XNU (message-passing endpoints)\nMach trap       Low-level system call into Mach layer\nBSD syscall     Standard POSIX syscalls (open, read, fork etc) — go through BSD layer\ndyld            Dynamic linker/loader — loads .dylib dependencies, initializes ObjC runtime\ndyld shared cache  All system frameworks pre-linked into one file for startup perf\nIOKit           C++ driver framework in kernel (object-oriented, unusual)\nkext            Kernel Extension — macOS driver (deprecated → use DriverKit)\nDriverKit       User-space driver framework (macOS 10.15+) — safer than kext\nSIP             System Integrity Protection — protects /System, /usr, /bin, /sbin\n                even from root. Disable only in Recovery mode (don't).\nAPFS            Apple File System: COW, snapshots, clones, encryption, sparse files\nRosetta 2       Dynamic binary translator — runs x86-64 on Apple Silicon (arm64)\nUniversal binary    Fat binary containing both x86_64 + arm64 slices"
+    }
+  ],
+  "refs": [
+    "01-CHEATSHEET.md"
+  ]
+}

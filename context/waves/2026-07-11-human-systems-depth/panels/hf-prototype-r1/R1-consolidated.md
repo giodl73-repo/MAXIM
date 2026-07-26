@@ -48,7 +48,7 @@ BLOCK: 8 · WARN: 8 · all **repaired** in the repair pass; none outstanding in 
 
 ## Validation observed
 
-- Focused PROOF (repo `proof.toml`, the three guides only): **3 files checked, 0 errors, 0
+- Focused MDLOOM (repo `mdloom.toml`, the three guides only): **3 files checked, 0 errors, 0
   warnings** after repairs.
 - `git diff --check`: clean on the touched files.
 - No source-corpus backfill was run (out of scope, by pulse design); no edits to any sibling

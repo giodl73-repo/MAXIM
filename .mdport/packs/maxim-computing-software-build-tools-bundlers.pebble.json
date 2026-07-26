@@ -1,0 +1,125 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-computing-software-build-tools-bundlers",
+  "source": "../../computing",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "04-BUILD.md#000",
+      "path": [
+        "04-BUILD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:04-build, git-history:computing-software:04-build]",
+        "canonical_path": "computing/04-BUILD.md",
+        "concepts": "[build tools, bundlers, transpilers, vite, webpack, rollup, esbuild, swc, frontend toolchains]",
+        "current_path": "computing/04-BUILD.md",
+        "id": "maxim:computing-software:build-tools-bundlers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[build tools, bundlers]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Build Tools & Bundlers - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "# Build Tools & Bundlers — A Layered Guide"
+    },
+    {
+      "id": "04-BUILD.md#001",
+      "path": [
+        "04-BUILD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:04-build, git-history:computing-software:04-build]",
+        "canonical_path": "computing/04-BUILD.md",
+        "concepts": "[build tools, bundlers, transpilers, vite, webpack, rollup, esbuild, swc, frontend toolchains]",
+        "current_path": "computing/04-BUILD.md",
+        "id": "maxim:computing-software:build-tools-bundlers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[build tools, bundlers]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Build Tools & Bundlers - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "04-BUILD.md#002",
+      "path": [
+        "04-BUILD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:04-build, git-history:computing-software:04-build]",
+        "canonical_path": "computing/04-BUILD.md",
+        "concepts": "[build tools, bundlers, transpilers, vite, webpack, rollup, esbuild, swc, frontend toolchains]",
+        "current_path": "computing/04-BUILD.md",
+        "id": "maxim:computing-software:build-tools-bundlers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[build tools, bundlers]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Build Tools & Bundlers - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Build tools solve a problem that doesn't exist in .NET: browsers can't natively consume a modern frontend codebase. You need a build step to transform it into something a browser can load efficiently."
+    },
+    {
+      "id": "04-BUILD.md#003",
+      "path": [
+        "04-BUILD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:04-build, git-history:computing-software:04-build]",
+        "canonical_path": "computing/04-BUILD.md",
+        "concepts": "[build tools, bundlers, transpilers, vite, webpack, rollup, esbuild, swc, frontend toolchains]",
+        "current_path": "computing/04-BUILD.md",
+        "id": "maxim:computing-software:build-tools-bundlers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[build tools, bundlers]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Build Tools & Bundlers - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|                    THE BUILD TOOL LANDSCAPE                      |\n|                                                                  |\n|  SOURCE (what you write)       OUTPUT (what the browser gets)    |\n|  ----------------------        ------------------------------    |\n|  TypeScript                    Minified JavaScript bundles       |\n|  JSX / TSX                     Hashed filenames (cache busting)  |\n|  CSS Modules / SASS            Optimized CSS                     |\n|  Images, fonts, SVG            Base64-inlined or hashed assets   |\n|  ES Modules (hundreds)         A few large bundles               |\n|  node_modules deps             Tree-shaken (dead code removed)   |\n|                                                                  |\n|                        BUILD TOOL                                |\n|                      (the transform)                             |\n|                                                                  |\n|  TRANSPILERS          BUNDLERS           DEV SERVERS             |\n|  ----------           --------           -----------             |\n|  tsc                  Webpack            Vite dev server         |\n|  esbuild              Rollup             Webpack DevServer       |\n|  SWC                  esbuild            Turbopack               |\n|  Babel                Vite (uses         parcel                  |\n|                        Rollup in prod,                           |\n|                        esbuild in dev)                           |\n+------------------------------------------------------------------+\n```"
+    }
+  ],
+  "refs": [
+    "04-BUILD.md"
+  ]
+}

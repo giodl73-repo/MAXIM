@@ -1,0 +1,433 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-graph-algorithms-np-hard-graphs",
+  "source": "../../graph-algorithms",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "07-NP-HARD-GRAPHS.md#000",
+      "path": [
+        "07-NP-HARD-GRAPHS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:07-np-hard-graphs, git-history:graph-algorithms:07-np-hard-graphs]",
+        "canonical_path": "graph-algorithms/07-NP-HARD-GRAPHS.md",
+        "concepts": "[TSP, vertex cover, graph coloring, clique, independent set, reductions, approximation]",
+        "current_path": "graph-algorithms/07-NP-HARD-GRAPHS.md",
+        "id": "maxim:graph-algorithms:np-hard-graphs",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[NP-hard graph problems]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NP-Hard Graph Problems",
+        "updated": "null"
+      },
+      "text": "# NP-Hard Graph Problems — The Cliff and How to Climb It"
+    },
+    {
+      "id": "07-NP-HARD-GRAPHS.md#001",
+      "path": [
+        "07-NP-HARD-GRAPHS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:07-np-hard-graphs, git-history:graph-algorithms:07-np-hard-graphs]",
+        "canonical_path": "graph-algorithms/07-NP-HARD-GRAPHS.md",
+        "concepts": "[TSP, vertex cover, graph coloring, clique, independent set, reductions, approximation]",
+        "current_path": "graph-algorithms/07-NP-HARD-GRAPHS.md",
+        "id": "maxim:graph-algorithms:np-hard-graphs",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[NP-hard graph problems]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NP-Hard Graph Problems",
+        "updated": "null"
+      },
+      "text": "This is the other side of the field. Everything in `02`–`06` was polynomial; here\nthe problems are NP-hard, meaning no polynomial algorithm is known and one exists\nonly if P = NP. For a reader who knows reductions and complexity classes cold, the\nvalue is in the *structure*: which problems reduce to which, how tight the\napproximation bounds are, and which special cases escape hardness. The recurring\nlesson — already seen with 2-SAT (`05`) and bipartite vertex cover (`06`) — is\nthat hardness is fragile: a small structural restriction often collapses an\nNP-hard problem to P."
+    },
+    {
+      "id": "07-NP-HARD-GRAPHS.md#002",
+      "path": [
+        "07-NP-HARD-GRAPHS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:07-np-hard-graphs, git-history:graph-algorithms:07-np-hard-graphs]",
+        "canonical_path": "graph-algorithms/07-NP-HARD-GRAPHS.md",
+        "concepts": "[TSP, vertex cover, graph coloring, clique, independent set, reductions, approximation]",
+        "current_path": "graph-algorithms/07-NP-HARD-GRAPHS.md",
+        "id": "maxim:graph-algorithms:np-hard-graphs",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[NP-hard graph problems]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NP-Hard Graph Problems",
+        "updated": "null"
+      },
+      "text": "```\n  THE NP-HARD GRAPH ZOO (and the reductions wiring them together)\n  =============================================================="
+    },
+    {
+      "id": "07-NP-HARD-GRAPHS.md#003",
+      "path": [
+        "07-NP-HARD-GRAPHS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:07-np-hard-graphs, git-history:graph-algorithms:07-np-hard-graphs]",
+        "canonical_path": "graph-algorithms/07-NP-HARD-GRAPHS.md",
+        "concepts": "[TSP, vertex cover, graph coloring, clique, independent set, reductions, approximation]",
+        "current_path": "graph-algorithms/07-NP-HARD-GRAPHS.md",
+        "id": "maxim:graph-algorithms:np-hard-graphs",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[NP-hard graph problems]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NP-Hard Graph Problems",
+        "updated": "null"
+      },
+      "text": "3-SAT  (canonical NP-complete, Cook-Levin)\n                   |  poly-time reduction\n       +-----------+-----------------------+\n       v                                   v\n   INDEPENDENT SET <==complement==> CLIQUE       VERTEX COVER\n   (no two adjacent)  (V \\ IS in     (all adjacent)  (= V minus a max\n       |               complement)        ^          independent set!)\n       |  S is an independent set  <=>  V\\S is a vertex cover\n       |\n       v\n   GRAPH COLORING (k-coloring: adjacent vertices differ)\n       |   3-coloring is NP-complete; 2-coloring (bipartite) is O(V+E)\n       v\n   TSP / HAMILTONIAN CYCLE (visit every vertex; min-cost tour)\n       Hamiltonicity is NP-complete; metric TSP -> 1.5-approx (Christofides)"
+    },
+    {
+      "id": "07-NP-HARD-GRAPHS.md#004",
+      "path": [
+        "07-NP-HARD-GRAPHS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:07-np-hard-graphs, git-history:graph-algorithms:07-np-hard-graphs]",
+        "canonical_path": "graph-algorithms/07-NP-HARD-GRAPHS.md",
+        "concepts": "[TSP, vertex cover, graph coloring, clique, independent set, reductions, approximation]",
+        "current_path": "graph-algorithms/07-NP-HARD-GRAPHS.md",
+        "id": "maxim:graph-algorithms:np-hard-graphs",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[NP-hard graph problems]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NP-Hard Graph Problems",
+        "updated": "null"
+      },
+      "text": "ESCAPES:  approximation | fixed-parameter (FPT in k) | structure (planar/bipartite)\n```"
+    },
+    {
+      "id": "07-NP-HARD-GRAPHS.md#005",
+      "path": [
+        "07-NP-HARD-GRAPHS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:07-np-hard-graphs, git-history:graph-algorithms:07-np-hard-graphs]",
+        "canonical_path": "graph-algorithms/07-NP-HARD-GRAPHS.md",
+        "concepts": "[TSP, vertex cover, graph coloring, clique, independent set, reductions, approximation]",
+        "current_path": "graph-algorithms/07-NP-HARD-GRAPHS.md",
+        "id": "maxim:graph-algorithms:np-hard-graphs",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[NP-hard graph problems]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NP-Hard Graph Problems",
+        "updated": "null"
+      },
+      "text": "**Read the reduction arrows:** independent set, clique, and vertex cover are the\n*same problem in three disguises*; coloring and TSP are reached by further\nreductions. The bottom row lists the three escape hatches."
+    },
+    {
+      "id": "07-NP-HARD-GRAPHS.md#006",
+      "path": [
+        "07-NP-HARD-GRAPHS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:07-np-hard-graphs, git-history:graph-algorithms:07-np-hard-graphs]",
+        "canonical_path": "graph-algorithms/07-NP-HARD-GRAPHS.md",
+        "concepts": "[TSP, vertex cover, graph coloring, clique, independent set, reductions, approximation]",
+        "current_path": "graph-algorithms/07-NP-HARD-GRAPHS.md",
+        "id": "maxim:graph-algorithms:np-hard-graphs",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[NP-hard graph problems]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NP-Hard Graph Problems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-NP-HARD-GRAPHS.md#007",
+      "path": [
+        "07-NP-HARD-GRAPHS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:07-np-hard-graphs, git-history:graph-algorithms:07-np-hard-graphs]",
+        "canonical_path": "graph-algorithms/07-NP-HARD-GRAPHS.md",
+        "concepts": "[TSP, vertex cover, graph coloring, clique, independent set, reductions, approximation]",
+        "current_path": "graph-algorithms/07-NP-HARD-GRAPHS.md",
+        "id": "maxim:graph-algorithms:np-hard-graphs",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[NP-hard graph problems]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NP-Hard Graph Problems",
+        "updated": "null"
+      },
+      "text": "## The Three Faces of One Problem"
+    },
+    {
+      "id": "07-NP-HARD-GRAPHS.md#008",
+      "path": [
+        "07-NP-HARD-GRAPHS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:07-np-hard-graphs, git-history:graph-algorithms:07-np-hard-graphs]",
+        "canonical_path": "graph-algorithms/07-NP-HARD-GRAPHS.md",
+        "concepts": "[TSP, vertex cover, graph coloring, clique, independent set, reductions, approximation]",
+        "current_path": "graph-algorithms/07-NP-HARD-GRAPHS.md",
+        "id": "maxim:graph-algorithms:np-hard-graphs",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[NP-hard graph problems]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NP-Hard Graph Problems",
+        "updated": "null"
+      },
+      "text": "Independent set, clique, and vertex cover are tightly interlinked by two exact\nidentities — internalize these, and three \"different\" NP-hard problems become one."
+    },
+    {
+      "id": "07-NP-HARD-GRAPHS.md#009",
+      "path": [
+        "07-NP-HARD-GRAPHS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:07-np-hard-graphs, git-history:graph-algorithms:07-np-hard-graphs]",
+        "canonical_path": "graph-algorithms/07-NP-HARD-GRAPHS.md",
+        "concepts": "[TSP, vertex cover, graph coloring, clique, independent set, reductions, approximation]",
+        "current_path": "graph-algorithms/07-NP-HARD-GRAPHS.md",
+        "id": "maxim:graph-algorithms:np-hard-graphs",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[NP-hard graph problems]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NP-Hard Graph Problems",
+        "updated": "null"
+      },
+      "text": "```\n  Graph G:                Complement G':           Identities (on V vertices):\n                                                   ---------------------------------\n    A --- B               A     B  (A-B gone)      S is an INDEPENDENT SET in G\n    |    /                |                          <=> S is a CLIQUE in G'\n    C    D (D isolated)   C --- D (new edges...)   S is an INDEPENDENT SET in G\n                                                     <=> V\\S is a VERTEX COVER in G\n   {C,D} is independent   {edges flip}             so:\n   (no edge between)                               max independent set + min vertex\n   {A,C} is a vertex                                 cover = V   (exactly)\n   cover (covers A-B,\n   A-C, ...)\n```"
+    },
+    {
+      "id": "07-NP-HARD-GRAPHS.md#010",
+      "path": [
+        "07-NP-HARD-GRAPHS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:07-np-hard-graphs, git-history:graph-algorithms:07-np-hard-graphs]",
+        "canonical_path": "graph-algorithms/07-NP-HARD-GRAPHS.md",
+        "concepts": "[TSP, vertex cover, graph coloring, clique, independent set, reductions, approximation]",
+        "current_path": "graph-algorithms/07-NP-HARD-GRAPHS.md",
+        "id": "maxim:graph-algorithms:np-hard-graphs",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[NP-hard graph problems]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NP-Hard Graph Problems",
+        "updated": "null"
+      },
+      "text": "| Problem | Asks for | Identity |\n|---------|----------|----------|\n| **Independent set** | largest set, no two adjacent | complement of a clique in Gᶜ |\n| **Clique** | largest set, all pairwise adjacent | independent set in the complement |\n| **Vertex cover** | smallest set touching every edge | V minus a maximum independent set |"
+    },
+    {
+      "id": "07-NP-HARD-GRAPHS.md#011",
+      "path": [
+        "07-NP-HARD-GRAPHS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:07-np-hard-graphs, git-history:graph-algorithms:07-np-hard-graphs]",
+        "canonical_path": "graph-algorithms/07-NP-HARD-GRAPHS.md",
+        "concepts": "[TSP, vertex cover, graph coloring, clique, independent set, reductions, approximation]",
+        "current_path": "graph-algorithms/07-NP-HARD-GRAPHS.md",
+        "id": "maxim:graph-algorithms:np-hard-graphs",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[NP-hard graph problems]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NP-Hard Graph Problems",
+        "updated": "null"
+      },
+      "text": "All three are NP-hard. But their *approximability* differs sharply — and that\nasymmetry is the interesting part."
+    },
+    {
+      "id": "07-NP-HARD-GRAPHS.md#012",
+      "path": [
+        "07-NP-HARD-GRAPHS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:07-np-hard-graphs, git-history:graph-algorithms:07-np-hard-graphs]",
+        "canonical_path": "graph-algorithms/07-NP-HARD-GRAPHS.md",
+        "concepts": "[TSP, vertex cover, graph coloring, clique, independent set, reductions, approximation]",
+        "current_path": "graph-algorithms/07-NP-HARD-GRAPHS.md",
+        "id": "maxim:graph-algorithms:np-hard-graphs",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[NP-hard graph problems]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NP-Hard Graph Problems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-NP-HARD-GRAPHS.md#013",
+      "path": [
+        "07-NP-HARD-GRAPHS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:07-np-hard-graphs, git-history:graph-algorithms:07-np-hard-graphs]",
+        "canonical_path": "graph-algorithms/07-NP-HARD-GRAPHS.md",
+        "concepts": "[TSP, vertex cover, graph coloring, clique, independent set, reductions, approximation]",
+        "current_path": "graph-algorithms/07-NP-HARD-GRAPHS.md",
+        "id": "maxim:graph-algorithms:np-hard-graphs",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[NP-hard graph problems]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NP-Hard Graph Problems",
+        "updated": "null"
+      },
+      "text": "## Approximation — How Close Can Polynomial Time Get?"
+    },
+    {
+      "id": "07-NP-HARD-GRAPHS.md#014",
+      "path": [
+        "07-NP-HARD-GRAPHS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:07-np-hard-graphs, git-history:graph-algorithms:07-np-hard-graphs]",
+        "canonical_path": "graph-algorithms/07-NP-HARD-GRAPHS.md",
+        "concepts": "[TSP, vertex cover, graph coloring, clique, independent set, reductions, approximation]",
+        "current_path": "graph-algorithms/07-NP-HARD-GRAPHS.md",
+        "id": "maxim:graph-algorithms:np-hard-graphs",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[NP-hard graph problems]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NP-Hard Graph Problems",
+        "updated": "null"
+      },
+      "text": "NP-hardness forbids exact polynomial solutions (unless P=NP), but *approximation*\nalgorithms with provable ratios often exist. The ratios are wildly uneven across\nthese closely-related problems — a deep fact from PCP theory."
+    }
+  ],
+  "refs": [
+    "07-NP-HARD-GRAPHS.md"
+  ]
+}

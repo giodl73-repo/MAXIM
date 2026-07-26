@@ -1,0 +1,797 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-graph-algorithms-traversal",
+  "source": "../../graph-algorithms",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "02-TRAVERSAL.md#000",
+      "path": [
+        "02-TRAVERSAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:02-traversal, git-history:graph-algorithms:02-traversal]",
+        "canonical_path": "graph-algorithms/02-TRAVERSAL.md",
+        "concepts": "[BFS, DFS, topological sort, connected components, cycle detection]",
+        "current_path": "graph-algorithms/02-TRAVERSAL.md",
+        "id": "maxim:graph-algorithms:traversal",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graph traversal]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Graph Traversal",
+        "updated": "null"
+      },
+      "text": "# Graph Traversal — BFS, DFS, and Their Decorations"
+    },
+    {
+      "id": "02-TRAVERSAL.md#001",
+      "path": [
+        "02-TRAVERSAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:02-traversal, git-history:graph-algorithms:02-traversal]",
+        "canonical_path": "graph-algorithms/02-TRAVERSAL.md",
+        "concepts": "[BFS, DFS, topological sort, connected components, cycle detection]",
+        "current_path": "graph-algorithms/02-TRAVERSAL.md",
+        "id": "maxim:graph-algorithms:traversal",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graph traversal]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Graph Traversal",
+        "updated": "null"
+      },
+      "text": "Traversal is *the* primitive. Almost every algorithm in this directory is a BFS\nor DFS with extra bookkeeping bolted on: shortest paths is BFS/Dijkstra with a\npriority queue, topological sort is DFS with a finish-time stack, SCCs are DFS\nwith low-link numbers, cycle detection is DFS with a color array. Master the two\nwalks and the bookkeeping, and the rest of the field is variations."
+    },
+    {
+      "id": "02-TRAVERSAL.md#002",
+      "path": [
+        "02-TRAVERSAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:02-traversal, git-history:graph-algorithms:02-traversal]",
+        "canonical_path": "graph-algorithms/02-TRAVERSAL.md",
+        "concepts": "[BFS, DFS, topological sort, connected components, cycle detection]",
+        "current_path": "graph-algorithms/02-TRAVERSAL.md",
+        "id": "maxim:graph-algorithms:traversal",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graph traversal]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Graph Traversal",
+        "updated": "null"
+      },
+      "text": "```\n  TRAVERSAL = (1) a frontier data structure  +  (2) a per-vertex bookkeeping array\n  ============================================================================="
+    },
+    {
+      "id": "02-TRAVERSAL.md#003",
+      "path": [
+        "02-TRAVERSAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:02-traversal, git-history:graph-algorithms:02-traversal]",
+        "canonical_path": "graph-algorithms/02-TRAVERSAL.md",
+        "concepts": "[BFS, DFS, topological sort, connected components, cycle detection]",
+        "current_path": "graph-algorithms/02-TRAVERSAL.md",
+        "id": "maxim:graph-algorithms:traversal",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graph traversal]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Graph Traversal",
+        "updated": "null"
+      },
+      "text": "BFS                              DFS\n   frontier = QUEUE (FIFO)          frontier = STACK (LIFO) / recursion\n   explores in LAYERS by distance   explores DEEP then backtracks\n   O(V+E)                           O(V+E)"
+    },
+    {
+      "id": "02-TRAVERSAL.md#004",
+      "path": [
+        "02-TRAVERSAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:02-traversal, git-history:graph-algorithms:02-traversal]",
+        "canonical_path": "graph-algorithms/02-TRAVERSAL.md",
+        "concepts": "[BFS, DFS, topological sort, connected components, cycle detection]",
+        "current_path": "graph-algorithms/02-TRAVERSAL.md",
+        "id": "maxim:graph-algorithms:traversal",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graph traversal]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Graph Traversal",
+        "updated": "null"
+      },
+      "text": "s                                s\n      / | \\                            / | \\\n     1  1  1   <- layer 1             a  .  .     dive a, then a's child,\n    /|     |\\                         |          then backtrack, then next\n   2 2     2 2 <- layer 2             b          ...\n                                      |\n   gives FEWEST-EDGES paths          c          gives a DFS TREE + edge types"
+    },
+    {
+      "id": "02-TRAVERSAL.md#005",
+      "path": [
+        "02-TRAVERSAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:02-traversal, git-history:graph-algorithms:02-traversal]",
+        "canonical_path": "graph-algorithms/02-TRAVERSAL.md",
+        "concepts": "[BFS, DFS, topological sort, connected components, cycle detection]",
+        "current_path": "graph-algorithms/02-TRAVERSAL.md",
+        "id": "maxim:graph-algorithms:traversal",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graph traversal]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Graph Traversal",
+        "updated": "null"
+      },
+      "text": "+-----------------------------------------------------------------+\n   | DECORATE the same O(V+E) walk to get:                          |\n   |   topo sort     = DFS finish-order reversed (or Kahn's BFS)    |\n   |   components    = repeat traversal from each unvisited vertex  |\n   |   cycle detect  = DFS with WHITE/GRAY/BLACK colors            |\n   |   bipartite test= BFS 2-coloring by layer parity              |\n   +-----------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "02-TRAVERSAL.md#006",
+      "path": [
+        "02-TRAVERSAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:02-traversal, git-history:graph-algorithms:02-traversal]",
+        "canonical_path": "graph-algorithms/02-TRAVERSAL.md",
+        "concepts": "[BFS, DFS, topological sort, connected components, cycle detection]",
+        "current_path": "graph-algorithms/02-TRAVERSAL.md",
+        "id": "maxim:graph-algorithms:traversal",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graph traversal]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Graph Traversal",
+        "updated": "null"
+      },
+      "text": "**Read the box bottom-up:** BFS and DFS are the same O(V+E) skeleton differing\nonly in frontier discipline (queue vs stack). Everything below the line is that\nskeleton plus one array."
+    },
+    {
+      "id": "02-TRAVERSAL.md#007",
+      "path": [
+        "02-TRAVERSAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:02-traversal, git-history:graph-algorithms:02-traversal]",
+        "canonical_path": "graph-algorithms/02-TRAVERSAL.md",
+        "concepts": "[BFS, DFS, topological sort, connected components, cycle detection]",
+        "current_path": "graph-algorithms/02-TRAVERSAL.md",
+        "id": "maxim:graph-algorithms:traversal",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graph traversal]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Graph Traversal",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-TRAVERSAL.md#008",
+      "path": [
+        "02-TRAVERSAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:02-traversal, git-history:graph-algorithms:02-traversal]",
+        "canonical_path": "graph-algorithms/02-TRAVERSAL.md",
+        "concepts": "[BFS, DFS, topological sort, connected components, cycle detection]",
+        "current_path": "graph-algorithms/02-TRAVERSAL.md",
+        "id": "maxim:graph-algorithms:traversal",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graph traversal]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Graph Traversal",
+        "updated": "null"
+      },
+      "text": "## BFS vs DFS — The Core Contrast"
+    },
+    {
+      "id": "02-TRAVERSAL.md#009",
+      "path": [
+        "02-TRAVERSAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:02-traversal, git-history:graph-algorithms:02-traversal]",
+        "canonical_path": "graph-algorithms/02-TRAVERSAL.md",
+        "concepts": "[BFS, DFS, topological sort, connected components, cycle detection]",
+        "current_path": "graph-algorithms/02-TRAVERSAL.md",
+        "id": "maxim:graph-algorithms:traversal",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graph traversal]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Graph Traversal",
+        "updated": "null"
+      },
+      "text": "| Property | BFS | DFS |\n|----------|-----|-----|\n| Frontier | queue (FIFO) | stack / recursion (LIFO) |\n| Order | by distance (layers) | by depth (dive then backtrack) |\n| Time | O(V+E) | O(V+E) |\n| Space | O(V) — worst frontier is a full layer | O(V) — recursion depth ≤ V |\n| Finds | **fewest-edges** shortest path (unweighted) | a spanning tree; finish-time order |\n| Natural for | shortest hops, level structure, bipartite test | topo sort, SCC, cycle detect, backtracking |\n| Implicit-graph use | uniform-cost frontier search | iterative deepening, game trees |"
+    },
+    {
+      "id": "02-TRAVERSAL.md#010",
+      "path": [
+        "02-TRAVERSAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:02-traversal, git-history:graph-algorithms:02-traversal]",
+        "canonical_path": "graph-algorithms/02-TRAVERSAL.md",
+        "concepts": "[BFS, DFS, topological sort, connected components, cycle detection]",
+        "current_path": "graph-algorithms/02-TRAVERSAL.md",
+        "id": "maxim:graph-algorithms:traversal",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graph traversal]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Graph Traversal",
+        "updated": "null"
+      },
+      "text": "> BFS gives shortest paths **only when every edge has the same cost** (hop count).\n> The moment edges carry weights, BFS is wrong and you escalate to Dijkstra\n> (`03`) — which is, structurally, BFS with a priority queue replacing the plain\n> queue."
+    },
+    {
+      "id": "02-TRAVERSAL.md#011",
+      "path": [
+        "02-TRAVERSAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:02-traversal, git-history:graph-algorithms:02-traversal]",
+        "canonical_path": "graph-algorithms/02-TRAVERSAL.md",
+        "concepts": "[BFS, DFS, topological sort, connected components, cycle detection]",
+        "current_path": "graph-algorithms/02-TRAVERSAL.md",
+        "id": "maxim:graph-algorithms:traversal",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graph traversal]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Graph Traversal",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-TRAVERSAL.md#012",
+      "path": [
+        "02-TRAVERSAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:02-traversal, git-history:graph-algorithms:02-traversal]",
+        "canonical_path": "graph-algorithms/02-TRAVERSAL.md",
+        "concepts": "[BFS, DFS, topological sort, connected components, cycle detection]",
+        "current_path": "graph-algorithms/02-TRAVERSAL.md",
+        "id": "maxim:graph-algorithms:traversal",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graph traversal]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Graph Traversal",
+        "updated": "null"
+      },
+      "text": "## BFS — Layer by Layer"
+    },
+    {
+      "id": "02-TRAVERSAL.md#013",
+      "path": [
+        "02-TRAVERSAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:02-traversal, git-history:graph-algorithms:02-traversal]",
+        "canonical_path": "graph-algorithms/02-TRAVERSAL.md",
+        "concepts": "[BFS, DFS, topological sort, connected components, cycle detection]",
+        "current_path": "graph-algorithms/02-TRAVERSAL.md",
+        "id": "maxim:graph-algorithms:traversal",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graph traversal]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Graph Traversal",
+        "updated": "null"
+      },
+      "text": "BFS dequeues a vertex, enqueues its undiscovered neighbors, and never revisits.\nBecause the queue is FIFO, vertices come out in non-decreasing distance from the\nsource — so the first time you reach a vertex is via a fewest-edges path."
+    },
+    {
+      "id": "02-TRAVERSAL.md#014",
+      "path": [
+        "02-TRAVERSAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:02-traversal, git-history:graph-algorithms:02-traversal]",
+        "canonical_path": "graph-algorithms/02-TRAVERSAL.md",
+        "concepts": "[BFS, DFS, topological sort, connected components, cycle detection]",
+        "current_path": "graph-algorithms/02-TRAVERSAL.md",
+        "id": "maxim:graph-algorithms:traversal",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graph traversal]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Graph Traversal",
+        "updated": "null"
+      },
+      "text": "```\n  Graph (undirected):        BFS from s, queue trace:\n                             ----------------------------------------\n       s --- a --- d        dequeue  discovers   dist set\n       |           |        s        a, b        a=1, b=1\n       b --- c ----+        a        d           d=2\n                            b        c           c=2\n                            c        (a,b seen)  -\n                            d        (a seen)    -\n                            => order s,a,b,c,d ; dist[d]=2 via s-a-d"
+    },
+    {
+      "id": "02-TRAVERSAL.md#015",
+      "path": [
+        "02-TRAVERSAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:02-traversal, git-history:graph-algorithms:02-traversal]",
+        "canonical_path": "graph-algorithms/02-TRAVERSAL.md",
+        "concepts": "[BFS, DFS, topological sort, connected components, cycle detection]",
+        "current_path": "graph-algorithms/02-TRAVERSAL.md",
+        "id": "maxim:graph-algorithms:traversal",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graph traversal]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Graph Traversal",
+        "updated": "null"
+      },
+      "text": "LAYERS:   L0 = {s}   L1 = {a, b}   L2 = {c, d}\n```"
+    },
+    {
+      "id": "02-TRAVERSAL.md#016",
+      "path": [
+        "02-TRAVERSAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:02-traversal, git-history:graph-algorithms:02-traversal]",
+        "canonical_path": "graph-algorithms/02-TRAVERSAL.md",
+        "concepts": "[BFS, DFS, topological sort, connected components, cycle detection]",
+        "current_path": "graph-algorithms/02-TRAVERSAL.md",
+        "id": "maxim:graph-algorithms:traversal",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graph traversal]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Graph Traversal",
+        "updated": "null"
+      },
+      "text": "**Correctness (why first-discovery = shortest):** BFS maintains the invariant\nthat the queue holds vertices of at most two consecutive distances, dequeued in\nnon-decreasing order. When v is first dequeued, every shorter path would have\ndiscovered it earlier; hence `dist[v]` is exactly the hop-distance. Edges within\na layer or to an already-seen vertex are ignored — they cannot shorten anything."
+    },
+    {
+      "id": "02-TRAVERSAL.md#017",
+      "path": [
+        "02-TRAVERSAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:02-traversal, git-history:graph-algorithms:02-traversal]",
+        "canonical_path": "graph-algorithms/02-TRAVERSAL.md",
+        "concepts": "[BFS, DFS, topological sort, connected components, cycle detection]",
+        "current_path": "graph-algorithms/02-TRAVERSAL.md",
+        "id": "maxim:graph-algorithms:traversal",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graph traversal]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Graph Traversal",
+        "updated": "null"
+      },
+      "text": "> Old-world bridge: BFS is the unweighted special case of Dijkstra (all weights =\n> 1). A FIFO queue *is* a priority queue when every key increments by exactly one\n> — which is why a deque handles the 0/1-weight case (0-1 BFS) without a heap."
+    },
+    {
+      "id": "02-TRAVERSAL.md#018",
+      "path": [
+        "02-TRAVERSAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:02-traversal, git-history:graph-algorithms:02-traversal]",
+        "canonical_path": "graph-algorithms/02-TRAVERSAL.md",
+        "concepts": "[BFS, DFS, topological sort, connected components, cycle detection]",
+        "current_path": "graph-algorithms/02-TRAVERSAL.md",
+        "id": "maxim:graph-algorithms:traversal",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graph traversal]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Graph Traversal",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-TRAVERSAL.md#019",
+      "path": [
+        "02-TRAVERSAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:02-traversal, git-history:graph-algorithms:02-traversal]",
+        "canonical_path": "graph-algorithms/02-TRAVERSAL.md",
+        "concepts": "[BFS, DFS, topological sort, connected components, cycle detection]",
+        "current_path": "graph-algorithms/02-TRAVERSAL.md",
+        "id": "maxim:graph-algorithms:traversal",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graph traversal]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Graph Traversal",
+        "updated": "null"
+      },
+      "text": "## DFS — The DFS Tree and Edge Classification"
+    },
+    {
+      "id": "02-TRAVERSAL.md#020",
+      "path": [
+        "02-TRAVERSAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:02-traversal, git-history:graph-algorithms:02-traversal]",
+        "canonical_path": "graph-algorithms/02-TRAVERSAL.md",
+        "concepts": "[BFS, DFS, topological sort, connected components, cycle detection]",
+        "current_path": "graph-algorithms/02-TRAVERSAL.md",
+        "id": "maxim:graph-algorithms:traversal",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graph traversal]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Graph Traversal",
+        "updated": "null"
+      },
+      "text": "DFS dives as deep as possible before backtracking. Its real value is the\n*structure* it exposes: a DFS forest plus a classification of every edge, which\nis the substrate for topo sort, SCCs, bridges, and cycle detection."
+    },
+    {
+      "id": "02-TRAVERSAL.md#021",
+      "path": [
+        "02-TRAVERSAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:02-traversal, git-history:graph-algorithms:02-traversal]",
+        "canonical_path": "graph-algorithms/02-TRAVERSAL.md",
+        "concepts": "[BFS, DFS, topological sort, connected components, cycle detection]",
+        "current_path": "graph-algorithms/02-TRAVERSAL.md",
+        "id": "maxim:graph-algorithms:traversal",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graph traversal]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Graph Traversal",
+        "updated": "null"
+      },
+      "text": "```\n  Directed graph, DFS from 0:        Edge types relative to the DFS tree:\n                                     ------------------------------------\n     0 ---> 1 ---> 2                 TREE  : edge to a freshly-discovered\n     |      ^      |                         vertex (0->1, 1->2)\n     v      |      v                 BACK  : edge to a GRAY ancestor  => CYCLE\n     3 -----+      4                         (2->1 here) <-- proves a cycle\n                                     FWD   : edge to a BLACK descendant\n   discover/finish times:           CROSS : edge to a finished vertex in\n     0: d=1            f=10                  another subtree\n     1: d=2  3: d=3 f=4\n     2: d=5  4: d=6 f=7 f=8 f=9      In an UNDIRECTED graph: only TREE and\n                                     BACK edges exist (no fwd/cross).\n```"
+    },
+    {
+      "id": "02-TRAVERSAL.md#022",
+      "path": [
+        "02-TRAVERSAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:02-traversal, git-history:graph-algorithms:02-traversal]",
+        "canonical_path": "graph-algorithms/02-TRAVERSAL.md",
+        "concepts": "[BFS, DFS, topological sort, connected components, cycle detection]",
+        "current_path": "graph-algorithms/02-TRAVERSAL.md",
+        "id": "maxim:graph-algorithms:traversal",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graph traversal]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Graph Traversal",
+        "updated": "null"
+      },
+      "text": "The **white/gray/black** coloring is the key:"
+    },
+    {
+      "id": "02-TRAVERSAL.md#023",
+      "path": [
+        "02-TRAVERSAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:02-traversal, git-history:graph-algorithms:02-traversal]",
+        "canonical_path": "graph-algorithms/02-TRAVERSAL.md",
+        "concepts": "[BFS, DFS, topological sort, connected components, cycle detection]",
+        "current_path": "graph-algorithms/02-TRAVERSAL.md",
+        "id": "maxim:graph-algorithms:traversal",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graph traversal]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Graph Traversal",
+        "updated": "null"
+      },
+      "text": "```\n  WHITE = undiscovered     GRAY = on the recursion stack (being explored)\n  BLACK = fully finished (subtree done)"
+    },
+    {
+      "id": "02-TRAVERSAL.md#024",
+      "path": [
+        "02-TRAVERSAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:02-traversal, git-history:graph-algorithms:02-traversal]",
+        "canonical_path": "graph-algorithms/02-TRAVERSAL.md",
+        "concepts": "[BFS, DFS, topological sort, connected components, cycle detection]",
+        "current_path": "graph-algorithms/02-TRAVERSAL.md",
+        "id": "maxim:graph-algorithms:traversal",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graph traversal]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Graph Traversal",
+        "updated": "null"
+      },
+      "text": "A BACK edge (to a GRAY vertex) is the definition of a cycle in a digraph.\n```"
+    },
+    {
+      "id": "02-TRAVERSAL.md#025",
+      "path": [
+        "02-TRAVERSAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:02-traversal, git-history:graph-algorithms:02-traversal]",
+        "canonical_path": "graph-algorithms/02-TRAVERSAL.md",
+        "concepts": "[BFS, DFS, topological sort, connected components, cycle detection]",
+        "current_path": "graph-algorithms/02-TRAVERSAL.md",
+        "id": "maxim:graph-algorithms:traversal",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graph traversal]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Graph Traversal",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-TRAVERSAL.md#026",
+      "path": [
+        "02-TRAVERSAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:02-traversal, git-history:graph-algorithms:02-traversal]",
+        "canonical_path": "graph-algorithms/02-TRAVERSAL.md",
+        "concepts": "[BFS, DFS, topological sort, connected components, cycle detection]",
+        "current_path": "graph-algorithms/02-TRAVERSAL.md",
+        "id": "maxim:graph-algorithms:traversal",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graph traversal]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Graph Traversal",
+        "updated": "null"
+      },
+      "text": "## Topological Sort — Ordering a DAG"
+    },
+    {
+      "id": "02-TRAVERSAL.md#027",
+      "path": [
+        "02-TRAVERSAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:02-traversal, git-history:graph-algorithms:02-traversal]",
+        "canonical_path": "graph-algorithms/02-TRAVERSAL.md",
+        "concepts": "[BFS, DFS, topological sort, connected components, cycle detection]",
+        "current_path": "graph-algorithms/02-TRAVERSAL.md",
+        "id": "maxim:graph-algorithms:traversal",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[graph traversal]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Graph Traversal",
+        "updated": "null"
+      },
+      "text": "A topological order lists the vertices of a **DAG** (directed *acyclic* graph) so\nthat every edge points forward. It is the formal model of \"do prerequisites\nfirst\": build dependencies, course prerequisites, task scheduling, package\ninstall order. **A topo order exists iff the graph is acyclic** — a cycle is a\nmutual dependency with no valid order."
+    }
+  ],
+  "refs": [
+    "02-TRAVERSAL.md"
+  ]
+}

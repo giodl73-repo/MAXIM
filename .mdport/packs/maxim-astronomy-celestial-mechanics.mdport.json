@@ -1,0 +1,3401 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-astronomy-celestial-mechanics",
+  "source": "../../astronomy",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#000",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "# Celestial Mechanics\n## Two-Body Problem, Orbital Elements, Perturbations, Resonances, Tidal Effects"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#001",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#002",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "## 1. The Full Map"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#003",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "```\n  CELESTIAL MECHANICS HIERARCHY"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#004",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "┌──────────────────────────────────────────────────────────────────────────┐\n  │  TWO-BODY PROBLEM (exact analytic solution)                              │\n  │    Reduction to 1D via conservation laws                                 │\n  │    Conic sections: ellipse / parabola / hyperbola                        │\n  │    Kepler's laws as corollaries; vis-viva equation                       │\n  └───────────────────────┬──────────────────────────────────────────────────┘\n                          │ add a third body\n                          ▼\n  ┌──────────────────────────────────────────────────────────────────────────┐\n  │  THREE-BODY PROBLEM (no general analytic solution — Poincaré 1887)       │\n  │    Restricted case → Jacobi integral (1 conserved quantity)              │\n  │    Hill sphere, Lagrange points L1–L5                                    │\n  └───────────────────────┬──────────────────────────────────────────────────┘\n                          │ add n bodies, small perturbations\n                          ▼\n  ┌──────────────────────────────────────────────────────────────────────────┐\n  │  PERTURBATION THEORY                                                     │\n  │    Lagrange planetary equations (elements evolve under perturbations)    │\n  │    Secular vs periodic effects; J₂ nodal regression; lunisolar forcing   │\n  └───────────────────────┬──────────────────────────────────────────────────┘\n                          │ special frequency relationships\n                          ▼\n  ┌──────────────────────────────────────────────────────────────────────────┐\n  │  RESONANCES                                                              │\n  │    Mean motion resonances (MMR) — Laplace, Kirkwood, Trojans, Plutinos   │\n  │    Secular resonances — precession rate matching                         │\n  └───────────────────────┬──────────────────────────────────────────────────┘\n                          │ add deformable bodies, dissipation\n                          ▼\n  ┌──────────────────────────────────────────────────────────────────────────┐\n  │  TIDAL MECHANICS                                                         │\n  │    Tidal forces, tidal locking, Roche limit, tidal heating               │\n  └───────────────────────┬──────────────────────────────────────────────────┘\n                          │ long time integration\n                          ▼\n  ┌──────────────────────────────────────────────────────────────────────────┐\n  │  CHAOS AND STABILITY                                                     │\n  │    Lyapunov exponents; solar system long-term fate; Mercury chaos        │\n  └──────────────────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#005",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#006",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "## 2. The Two-Body Problem — Exact Solution"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#007",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "### 2.1 Reduction to One-Body"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#008",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "Two masses m₁ and m₂ under mutual gravity:"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#009",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "```\n  m₁ r̈₁ = +G m₁ m₂ / |r₁−r₂|² × r̂₁₂\n  m₂ r̈₂ = −G m₁ m₂ / |r₁−r₂|² × r̂₁₂"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#010",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "Center of mass:  R = (m₁r₁ + m₂r₂) / (m₁+m₂)   → R̈ = 0 (free particle, inertial)"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#011",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "Relative vector: r = r₁ − r₂\n  Reduced mass:    μ = m₁m₂/(m₁+m₂)"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#012",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "Equation of motion reduces to:\n  ┌─────────────────────────────────────────────┐\n  │  μ r̈ = −G m₁ m₂ r / r³  =  −μ GM r / r³     │\n  └─────────────────────────────────────────────┘\n  where M = m₁ + m₂"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#013",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "One particle, mass μ, in a central force field with GM = G(m₁+m₂).\n  For M >> m (planet orbiting star): μ ≈ m, the star barely moves.\n```"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#014",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "### 2.2 Two Conservation Laws → Planar Motion + Conic Sections"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#015",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "**Angular momentum** (central force → torque = 0):"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#016",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "```\n  L = μ r × ṙ = constant (vector)\n  → r and ṙ always in the same plane → motion is 2D"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#017",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "|L| = μ r² θ̇ = μ √(GM p)    where p = a(1−e²) = semi-latus rectum\n```"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#018",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "**Energy:**"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#019",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "```\n  E = ½μv² − G m₁ m₂ / r = constant"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#020",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "E < 0: bound orbit (ellipse)\n  E = 0: escape with zero velocity at ∞ (parabola)\n  E > 0: unbound (hyperbola)\n  E = −Gm₁m₂/(2a)    ← only depends on semi-major axis a\n```"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#021",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "**Orbit equation** (from L, E conservation → integrate):"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#022",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "```\n  r(ν) = p / (1 + e cos ν)         p = L²/(μ² GM) = a(1−e²)"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#023",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "ν = true anomaly (angle from periapsis)\n  e = eccentricity = √(1 + 2EL²/(μ³ G²m₁²m₂²))"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#024",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "┌─────────────────────────────────────────────────────────┐\n  │  e = 0: circle      e < 1: ellipse     r_min = a(1−e)   │\n  │  e = 1: parabola    e > 1: hyperbola   r_max = a(1+e)   │\n  └─────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#025",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "### 2.3 Kepler's Three Laws as Corollaries"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#026",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "```\n  1st Law:  r = a(1−e²)/(1+e cos ν) — ellipse with focus at center of mass\n            [from E, L conservation — conic section is the general solution]"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#027",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "2nd Law:  dA/dt = |L|/(2μ) = constant — equal areas in equal times\n            [from L = constant → angular momentum conservation]"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#028",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "3rd Law:  T² = 4π² a³ / (GM)      T = period\n            [from integrating dA/dt = |L|/(2μ) over full ellipse area πab]"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#029",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "ALL THREE follow from Newton's inverse-square law + calculus.\n  Kepler derived them empirically from Brahe's data.\n```"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#030",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "### 2.4 Vis-Viva Equation"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#031",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "The single most useful formula in orbital mechanics:"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#032",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "```\n  ┌──────────────────────────────────────────────────────┐\n  │  v² = GM ( 2/r − 1/a )                               │\n  └──────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#033",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "From E = ½μv² − GMμ/r = −GMμ/(2a), rearranged."
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#034",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "Special cases:\n  ─────────────────────────────────────────────────────────────\n  Circular orbit (r = a):    v_c = √(GM/a)\n  At periapsis (r = a(1−e)): v_peri = √(GM(1+e)/(a(1−e)))\n  At apoapsis (r = a(1+e)):  v_apo  = √(GM(1−e)/(a(1+e)))\n  Escape (a → ∞):            v_esc  = √(2GM/r) = v_c√2\n  ─────────────────────────────────────────────────────────────\n  Earth surface: v_c ≈ 7.91 km/s,  v_esc ≈ 11.19 km/s\n  LEO (400 km):  v_c ≈ 7.67 km/s,  ISS orbital speed ≈ 7.66 km/s\n```"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#035",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#036",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "## 3. Orbital Elements — Describing Any Orbit in 3D"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#037",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "Six numbers completely specify an orbit + position on it:"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#038",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "```\n  THE CLASSICAL ORBITAL ELEMENTS"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#039",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "┌──────────────────────────────────────────────────────────────────────────┐\n  │ SHAPE & SIZE                                                             │\n  │   a  — semi-major axis        [distance]  Sets T via T²=4π²a³/(GM)       │\n  │   e  — eccentricity           [0 to 1+]   Shape: 0=circle, 1=parabola    │\n  ├──────────────────────────────────────────────────────────────────────────┤\n  │ ORIENTATION OF ORBITAL PLANE                                             │\n  │   i  — inclination            [0°–180°]   Tilt wrt reference plane      │\n  │   Ω  — longitude of ascending node [0°–360°]  Where orbit crosses      │\n  │         (RAAN)                              reference plane going north  │\n  ├──────────────────────────────────────────────────────────────────────────┤\n  │ ORIENTATION OF ELLIPSE IN PLANE                                          │\n  │   ω  — argument of periapsis  [0°–360°]   Angle from node to periapsis   │\n  ├──────────────────────────────────────────────────────────────────────────┤\n  │ POSITION ON ORBIT                                                        │\n  │   ν  — true anomaly           [0°–360°]   Current angle from periapsis  │\n  │   (or M — mean anomaly, or E — eccentric anomaly, or t₀ — epoch)       │\n  └──────────────────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#040",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "GEOMETRY:"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#041",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "reference direction (vernal equinox Aries point for heliocentric)\n              ↑\n     ─────────┼──────────  reference plane (ecliptic or equatorial)\n              │   ↗ ascending node (Ω measured here, along reference plane)\n              │  /\n              │ /  ← orbital plane tilted at i\n              ●\n              └── periapsis direction (ω measured from ascending node\n                  within orbital plane, to the direction of periapsis)\n```"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#042",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "### 3.1 Kepler's Equation — Time on the Orbit"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#043",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "Getting from time t to position ν requires solving transcendentally:"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#044",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "```\n  Mean anomaly:      M = n(t − t₀)        n = 2π/T  (mean motion, rad/s)\n  Kepler's equation: M = E − e sin E       E = eccentric anomaly\n  True anomaly:      tan(ν/2) = √((1+e)/(1−e)) · tan(E/2)"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#045",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "Kepler's equation has no closed-form inverse → Newton-Raphson in practice."
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#046",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "Physical meaning of E:\n  If you circumscribe the ellipse with a circle of radius a,\n  E is the angle of the corresponding point on that circle."
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#047",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "a\n    ─────●─────── (circumscribed circle, radius a)\n        / |\n       /  |     ← E = eccentric anomaly\n      ●───┼──── (point on ellipse at distance r from focus)\n    focus │\n          ν = true anomaly (from focus)\n```"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#048",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#049",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "## 4. Three-Body Problem and Lagrange Points"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#050",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "### 4.1 Why Three Bodies Are Hard"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#051",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "```\n  TWO-BODY:  10 conserved quantities (E, L×3, P×3, CM×3, t)\n             → 12 degrees of freedom reduced to 2 (r and ν in orbital plane)\n             → FULLY INTEGRABLE, analytic solution"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#052",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "THREE-BODY: 10 conserved quantities vs 18 degrees of freedom\n              → 8 degrees of freedom remain\n              → NOT integrable in general\n              Poincaré (1887): proved no algebraic first integrals beyond the 10 classical\n              → demonstrated chaos; won the King Oscar II prize (with correction)\n```"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#053",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "### 4.2 Restricted Three-Body Problem"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#054",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "Two massive bodies M₁ ≫ M₂ orbit their CM in circles; massless test particle m₃:"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#055",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "```\n  ROTATING FRAME (co-rotating with M₁, M₂ at angular velocity n):"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#056",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "Effective potential (centrifugal + gravitational):\n  U*(x,y) = −GM₁/r₁ − GM₂/r₂ − ½n²(x² + y²)"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#057",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "Jacobi integral (the one conserved quantity):\n  C_J = 2U*(x,y) − v²    (conserved along any trajectory)"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#058",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "C_J determines \"Hill surfaces\" — zero-velocity surfaces in rotating frame.\n  A particle cannot cross a zero-velocity surface with given C_J.\n  → limits where the particle can go (Hill's regions)\n```"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#059",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "### 4.3 The Five Lagrange Points"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#060",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "```\n  ∇U* = 0  →  five equilibrium points"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#061",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "──────────────────────────────────────────────────────────────────────────\n         L4 (stable)\n          ●\n         / \\\n        /60°\\\n       /     \\\n      M₁──────M₂──────L3──────────L1────L2\n      (larger) (smaller) (behind) (between) (beyond M₂)"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#062",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "L5 (stable, below the M₁-M₂ line, symmetric to L4)\n  ──────────────────────────────────────────────────────────────────────────"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#063",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "L1: between M₁ and M₂ — unstable saddle, Hill sphere boundary\n      Practical use: SOHO (Sun-Earth L1), DSCOVR, continuous Sun observation\n      Distance from M₂: r_L1 ≈ d × (M₂/(3M₁))^(1/3)  (Hill radius)"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#064",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "L2: beyond M₂ (opposite M₁) — unstable saddle\n      Practical use: JWST, Herschel, Planck, Gaia — thermal stability + sky access\n      Distance from M₂: r_L2 ≈ d × (M₂/(3M₁))^(1/3)  (same as L1 to first order)"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#065",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "L3: opposite M₂, behind M₁ — unstable, inaccessible, no practical use\n      Sun-Earth L3: always behind the Sun — no spacecraft sent there"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#066",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "L4, L5: equilateral triangle vertices with M₁, M₂\n          Stable iff:  M₂/(M₁+M₂) < 0.03852  (Routh's criterion)"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#067",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "STABILITY CHECK:\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │ System         M₂/(M₁+M₂)    L4/L5 stable?   Trojans?               │\n  │ Sun–Jupiter    9.5 × 10⁻⁴    YES              ~12,000 Trojans       │\n  │ Sun–Earth      3.0 × 10⁻⁶    YES              ~few Earth Trojans    │\n  │ Sun–Mars       3.2 × 10⁻⁷    YES              ~Trojan asteroids     │\n  │ Sun–Neptune    5.2 × 10⁻⁵    YES              abundant Trojans      │\n  │ Earth–Moon     1.2 × 10⁻²    YES (< 0.0385)   no significant obj.   │\n  └─────────────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#068",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "### 4.4 Halo Orbits (Practical Use)"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#069",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "L1 and L2 are unstable — a spacecraft placed exactly there will drift. But **periodic halo orbits** around these points exist and require only small station-keeping ΔV."
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#070",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "```\n  HALO ORBIT around L2 (JWST):\n  ─────────────────────────────────────────────────────────────────────\n  Amplitude: ~500,000 km in y/z, ~100,000 km in x (around L2)\n  Period: ~6 months\n  Station-keeping: ~2.5 m/s per year\n  Advantage: continuous view of >50% of sky, thermal stability\n  (one side always faces Sun, one always in shadow)\n  ─────────────────────────────────────────────────────────────────────\n```"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#071",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#072",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "## 5. Perturbation Theory — How Real Orbits Evolve"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#073",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "### 5.1 Lagrange Planetary Equations"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#074",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "Under a perturbing force R (disturbing function), the orbital elements evolve:"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#075",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "```\n  da/dt = (2/na) · ∂R/∂M                             [n = mean motion]\n  de/dt = ((1−e²)/na²e)·∂R/∂M − √(1−e²)/(na²e)·∂R/∂ω\n  di/dt = −1/(na²√(1−e²) sin i)·(∂R/∂Ω − cos i·∂R/∂ω)\n  dΩ/dt = +1/(na²√(1−e²) sin i)·∂R/∂i\n  dω/dt = +√(1−e²)/(na²e)·∂R/∂e − cos i/(na²√(1−e²) sin i)·∂R/∂i\n  dM/dt = n − (2/na)·∂R/∂a − (1−e²)/(na²e)·∂R/∂e"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#076",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "These are exact — the full osculating element dynamics.\n  Perturbation theory: expand R in small parameter, average over fast angle (M).\n  → Secular terms: systematic drift (orbit-averaged)\n  → Periodic terms: oscillate with orbital frequencies\n```"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#077",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "### 5.2 J₂ Perturbations — The Most Important Real-World Case"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#078",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "Earth's equatorial bulge (J₂) acts as a perturbation R on satellite orbits:"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#079",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "```\n  J₂ SECULAR EFFECTS (orbit-averaged):"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#080",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "Nodal regression:\n  ┌─────────────────────────────────────────────────────────┐\n  │  dΩ/dt = −(3/2) · n · J₂ · (R_E/a)² · cos i             │\n  │                              (1−e²)²                    │\n  └─────────────────────────────────────────────────────────┘\n  Prograde orbits (i < 90°): Ω decreases (nodes regress westward)\n  Retrograde orbits (i > 90°): Ω increases (nodes precess eastward)"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#081",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "Apsidal precession:\n  ┌─────────────────────────────────────────────────────────┐\n  │  dω/dt = +(3/4) · n · J₂ · (R_E/a)² · (5cos²i − 1)      │\n  │                               (1−e²)²                   │\n  └─────────────────────────────────────────────────────────┘\n  5cos²i − 1 = 0 at i = 63.43° → ω frozen (Molniya condition)"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#082",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "ENGINEERING APPLICATIONS:"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#083",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "Sun-synchronous orbit:  choose i so dΩ/dt = +360°/yr (matches Earth's orbit)\n    → satellite always crosses equator at same local solar time\n    → i ≈ 97–98° (slightly retrograde)\n    → used by: Landsat, Sentinel, weather sats, spy sats"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#084",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "Molniya orbit:  i = 63.43°, e ≈ 0.74, T = 12 hr\n    → ω = 270° frozen → apoapsis always over Northern Hemisphere\n    → ~8 hr per orbit with high elevation over Russia/Arctic\n    → used by Russian Molniya comms satellites, SIRIUS Radio"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#085",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "Frozen orbit:  choose (e, i, ω) to minimize secular element changes\n    → long-lived satellite without frequent maneuvers\n```"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#086",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#087",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "## 6. Orbital Resonances"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#088",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "### 6.1 Mean Motion Resonances (MMR)"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#089",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "Two bodies are in p:q MMR when their mean motions satisfy:"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#090",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "```\n  p · n₁ = q · n₂     (p, q positive integers)"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#091",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "Equivalent: T₁/T₂ = p/q   (period ratio is rational)"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#092",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "The order of the resonance = |p − q|\n  Lower order → stronger resonance (larger perturbation amplitude)\n```"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#093",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "### 6.2 Stable vs Destabilizing Resonances"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#094",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "Resonances are *not* all alike:"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#095",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "```\n  DESTABILIZING: Kirkwood Gaps in asteroid belt (Jupiter MMRs)\n  ─────────────────────────────────────────────────────────────────────\n  Resonance with Jupiter    Location (AU)    Effect\n  ─────────────────────────────────────────────────────────────────────\n  4:1                        2.06             gap (asteroids cleared out)\n  3:1                        2.50             gap (Hestia family border)\n  5:2                        2.82             gap\n  7:3                        2.95             gap\n  2:1                        3.27             Hecuba gap\n  ─────────────────────────────────────────────────────────────────────\n  Mechanism: repeated Jupiter kicks pump eccentricity → Mars/Earth\n  crossing orbits → eventual close encounter → ejection from belt"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#096",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "STABILIZING: Orbital resonances that protect\n  ─────────────────────────────────────────────────────────────────────\n  Resonance               Bodies               Status\n  ─────────────────────────────────────────────────────────────────────\n  3:2 with Neptune        Plutinos (Pluto...)  ~200 known — STABLE\n  1:1 with Jupiter        Trojans (L4, L5)     ~12,000 — STABLE\n  1:1 with Neptune        Neptune Trojans       STABLE\n  2:1 (Lindblad MMR)      Saturn ring gaps      gap = destabilizing\n  ─────────────────────────────────────────────────────────────────────\n  Why 3:2 Neptune is stable while 2:1 Jupiter is not:\n  In the Pluto case, the resonance is \"protected\" — Pluto's aphelion\n  is near Neptune's orbit, but the resonance ensures they are NEVER\n  near each other at the same time. The critical angle librates rather\n  than circulating.\n```"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#097",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "### 6.3 The Laplace Resonance — Jupiter's Galilean Moons"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#098",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "```\n  n_Io : n_Europa : n_Ganymede  ≈  4 : 2 : 1"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#099",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "More precisely, the three-body Laplace resonance:\n  φ_L = λ_Io − 3λ_Europa + 2λ_Ganymede = 180° (librates around 180°)\n  where λ = mean longitude"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#100",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "CONSEQUENCES:\n  1. Orbital eccentricities maintained non-zero (Io: e≈0.004, forced by Europa)\n  2. Io's non-zero eccentricity → varying tidal deformation → TIDAL HEATING\n  3. Io is the most volcanically active body in the solar system\n  4. Europa's eccentricity → possible subsurface liquid ocean (tidal heating)"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#101",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "The resonance is self-correcting: if Io speeds up slightly,\n  it pushes Europa back in phase; Europa does same to Ganymede.\n  Very stable over solar system age.\n```"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#102",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "### 6.4 Secular Resonances"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#103",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "MMR is about orbital *periods*. Secular resonances are about orbital *precession frequencies*:"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#104",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "```\n  When the apsidal precession rate (dω/dt) or nodal regression rate (dΩ/dt)\n  of one body matches a fundamental frequency of the planetary system."
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#105",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "Key secular resonances in solar system:\n  ─────────────────────────────────────────────────────────────────────────\n  ν₆ resonance: dω/dt of asteroid = g₆ (Saturn's apsidal frequency)\n    Located at ~2.1 AU inner asteroid belt boundary\n    Pumps eccentricity → Mars-crossing → removed from belt\n    Acts as the \"inner edge\" of the asteroid belt"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#106",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "ν₁₆ resonance: nodal regression rate matches s₆ (Saturn nodal rate)\n    Located at ~2.1 AU (overlaps ν₆)\n    Pumps inclination"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#107",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "These secular resonances, combined with Kirkwood gaps, largely explain\n  the structure of the asteroid belt.\n```"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#108",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#109",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "## 7. Tidal Mechanics"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#110",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "### 7.1 Tidal Force"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#111",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "Gravity varies across an extended body — the *differential* is the tidal force:"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#112",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "```\n  TIDAL ACCELERATION on mass at displacement δ from body center,\n  in the direction toward perturber M at distance d:"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#113",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "2GM δ\n  a_tidal = ───────   (radial component, toward perturber)\n               d³"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#114",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "Scales as M/d³ — same dependence as precession forcing.\n  Falls off faster than gravity itself (1/d²)."
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#115",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "TIDAL DEFORMATION OF EARTH by Moon:\n  ─────────────────────────────────────────────────────────────────────\n  Solid Earth tide:  ~0.3 m  (measurable with GPS, strainmeters)\n  Ocean equilibrium: ~0.27 m  (theoretical — actual ocean tides larger)\n  Bay of Fundy:      ~15 m   (resonance of ocean basin, 12.5-hr period ≈ tidal period)\n  Open ocean:        0.5–1 m  (typical)\n  ─────────────────────────────────────────────────────────────────────\n  The tidal bulge is AHEAD of the Moon (Earth rotates faster than Moon orbits)\n  → Moon pulls backward on bulge → Earth rotation slows\n  → Moon gains energy → Moon's orbit expands\n  → Moon recedes: +3.8 cm/yr (measured by laser ranging to Apollo retroreflectors)\n```"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#116",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "### 7.2 Tidal Locking"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#117",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "The same tidal torque that slows Earth's rotation eventually brings a body to **synchronous rotation** — one face permanently toward the perturber."
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#118",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "```\n  SYNCHRONOUS ROTATION (spin = orbital period):\n  ─────────────────────────────────────────────────────────────────────\n  Body              Spin:Orbit ratio   Notes\n  ─────────────────────────────────────────────────────────────────────\n  Moon              1:1 (locked)       We always see the same face\n  Pluto/Charon      1:1 (mutually)     Both tidally locked to each other\n  Io, Europa, etc.  1:1                All Galilean moons locked\n  Mercury           3:2 (NOT 1:1!)     Spin-orbit resonance, not lock\n  Venus             retrograde, slow   Thermal atmospheric tides complicate\n  ─────────────────────────────────────────────────────────────────────"
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#119",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "Mercury 3:2 resonance:\n  Rotates 3 times per 2 orbits. The 3:2 is a stable resonance because\n  Mercury's high eccentricity (e=0.206) makes 1:1 unstable — the torque\n  averages to non-zero at 3:2 but averages away at other resonances."
+    },
+    {
+      "id": "03-CELESTIAL-MECHANICS.md#120",
+      "path": [
+        "03-CELESTIAL-MECHANICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:astronomy:03-celestial-mechanics, git-history:astronomy:03-celestial-mechanics]",
+        "canonical_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "concepts": "[celestial, mechanics]",
+        "current_path": "astronomy/03-CELESTIAL-MECHANICS.md",
+        "id": "maxim:astronomy:celestial-mechanics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "astronomy",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[celestial, mechanics]",
+        "section": "astronomy",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Celestial Mechanics",
+        "updated": "null"
+      },
+      "text": "Tidal locking timescale:\n       a⁶ Q m_planet\n  τ ∝ ──────────────      Q = tidal dissipation factor (rock: ~100, ice: ~10⁴)\n       M_star² R⁵_planet"
+    }
+  ],
+  "refs": [
+    "03-CELESTIAL-MECHANICS.md"
+  ]
+}

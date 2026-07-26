@@ -1,0 +1,1049 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-energy-storage-flow-batteries",
+  "source": "../../energy-storage",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "04-FLOW-BATTERIES.md#000",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "# Flow Batteries: Architecture, Vanadium Redox, and Iron-Air"
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#001",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#002",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "Flow batteries decouple energy capacity (tank size) from power rating (electrochemical\nstack size). This separation is architecturally significant: it is the battery equivalent\nof a gas turbine where fuel storage is separate from the engine. It makes flow batteries\nideal for long-duration grid storage where Li-ion's fixed energy/power ratio is a constraint."
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#003",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "```\nFLOW BATTERY ARCHITECTURE\n==========================="
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#004",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "POWER SUBSYSTEM              ENERGY SUBSYSTEM\n                 ================             ================="
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#005",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": ".--- ELECTROCHEMICAL STACK ---.   .--- ELECTROLYTE TANKS ---.\n           |                             |   |                          |\n           |  NEGATIVE        POSITIVE   |   |  Negative    Positive    |\n           |  ELECTRODE       ELECTRODE  |   |  electrolyte electrolyte |\n           |    |                  |    |   |  (reduced)   (oxidized)  |\n    e- <---|----+------------------+-----|   |   [Tank A]    [Tank B]   |\n           |    |                  |    |   |                          |\n           | Ion-exchange membrane |    |   .----.-----.   .-----.----.\n           |    |  (H+, Cl-...) |  |    |        |     |         |    |\n           '----'---------------'--'    |       Pump       Pump       |\n                |               |       '-------'-----'---'-----'-----'\n                |               |               |         |\n           Flow in          Flow out     Electrolyte circulates through stack"
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#006",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "KEY DISTINCTION FROM LI-ION:\n  Li-ion: energy stored IN solid electrodes (fixed per cell design)\n  Flow: energy stored IN external liquid tanks (changeable, scalable)"
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#007",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "Scale up ENERGY: add bigger tanks (cheap)\n  Scale up POWER:  add more cell stacks (expensive, fixed cost per kW)\n```"
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#008",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "### Power vs. Energy Cost"
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#009",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "```\nCOST STRUCTURE COMPARISON\n==========================="
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#010",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "LI-ION:\n  Energy and power inextricably linked\n  Adding kWh also adds kW (same cell adds both)\n  $/kWh and $/kW scale together"
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#011",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "FLOW BATTERY:\n  Power: stack (electrode + membrane + bipolar plates): ~$200-400/kW (expensive)\n  Energy: tanks + electrolyte: $20-150/kWh (cheap at long duration)"
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#012",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "Cost break-even vs. Li-ion: ~4-8 hours duration\n  At <4 hr: Li-ion wins (stack cost dominates, energy cheap for Li-ion)\n  At >8 hr: Flow wins (tank cost cheap, Li-ion needs proportionally more expensive cells)"
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#013",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "For 12-hour storage:\n    Li-ion: ~$250-400/kWh (cell cost x 12h duration)\n    VRB: ~$150-250/kWh (fixed stack cost amortized over 12h, cheap vanadium tanks)\n```"
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#014",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#015",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "## Vanadium Redox Flow Battery (VRFB / VRB)"
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#016",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "### Chemistry and Structure"
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#017",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "```\nVRFB CHEMISTRY\n==============="
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#018",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "NEGATIVE ELECTRODE (anode during charge, cathode during discharge):\n  V3+ + e- -> V2+  (charge, reduction, E° = -0.26 V vs. SHE)\n  V2+ -> V3+ + e-  (discharge, oxidation)"
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#019",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "POSITIVE ELECTRODE (cathode during charge, anode during discharge):\n  VO2+ + H2O -> VO2+ + 2H+ + e-  (charge, oxidation)\n  VO2+ + 2H+ + e- -> VO2+ + H2O  (discharge, reduction)\n  E° = +1.00 V vs. SHE"
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#020",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "FULL CELL:\n  V2+ | membrane | VO2+  discharge: cell voltage ~ 1.26 V (standard)\n  V3+ | membrane | VO2+  fully discharged: lower voltage\n  Open circuit at full SOC: ~1.4-1.6 V (concentration-dependent via Nernst)"
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#021",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "KEY ADVANTAGE -- SAME ELEMENT IN BOTH TANKS:\n  Cross-contamination does NOT permanently degrade electrolyte\n  If V2+ crosses membrane to VO2+ tank: both become a mix of V(II) and V(V)\n  -> Re-charge restores separation\n  Vs. other flow chemistries (Fe/Cr, Zn/Br): cross-contamination = irreversible contamination"
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#022",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "This is why VRFB has 10,000+ cycle life claim (vs. ~2000 for most batteries)\n  Electrolyte degradation mechanism: HVO4- formation at high T (>45 C)\n    Reversible if kept in temperature range; manageable\n```"
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#023",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "### VRFB Performance Specifications"
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#024",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "```\nVRFB PERFORMANCE (commercial systems, 2025)\n============================================="
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#025",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "Parameter              Value                 Notes\n---------------------  --------------------  --------------------------------\nCell voltage           1.25-1.55 V           SOC dependent (Nernst)\nStack power density    60-100 mW/cm^2        Improving with better membranes\nSpecific energy        20-40 Wh/L            Lower than Li-ion (liquid electrolyte)\n                       15-30 Wh/kg           (includes tank + electrolyte mass)\nRound-trip efficiency  65-80%                Depends on C-rate and system\nCycle life             10,000+ cycles        Electrolyte doesn't degrade (V is stable)\nCalendar life          25+ years             Tank and stack life (stack < tank)\nSelf-discharge         Low (pump off: none)  Electrolyte in separate tanks\nTemperature range      10-40 C (optimal)     Below 10 C: V2+ precipitation risk\n                                             Above 45 C: electrolyte degradation risk\nResponse time          <100 ms (power)       Pumps add seconds for standby\nDepth of discharge     100% (safe)           Unlike Li-ion (limit to 80% for life)"
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#026",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "VANADIUM COST:\n  V2O5 feedstock: ~$5-10/kg (2024, was $40/kg in 2018 -- volatile)\n  Electrolyte: ~$20-40/kWh (at current V prices)\n  Total installed VRFB system: $200-400/kWh (2025)\n  Projected 2030: $150-250/kWh (learning curve + V price normalization)\n```"
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#027",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "### Commercial Deployments"
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#028",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "Notable VRFB installations:"
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#029",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "| Project | Location | Scale | Year | Notes |\n|---------|----------|-------|------|-------|\n| Rongke Power, Dalian | China | 200 MW / 800 MWh | 2022 | Largest in world |\n| Sumitomo Electric, Hokkaido | Japan | 15 MW / 60 MWh | 2015 | Wind balancing |\n| Invinity / Pacific Crest | Various | 1-10 MW | 2022+ | Multiple sites |\n| Largo Clean Energy | US | 3-10 MW pilot | 2021 | V from mine operations |"
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#030",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#031",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "## Iron-Air Batteries (Form Energy)"
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#032",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "### Chemistry and Promise"
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#033",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "```\nIRON-AIR BATTERY\n=================="
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#034",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "NEGATIVE ELECTRODE (iron): Fe + 2OH- -> Fe(OH)2 + 2e-  (discharge oxidation)\nPOSITIVE ELECTRODE (air):  1/2 O2 + H2O + 2e- -> 2OH-  (discharge reduction)"
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#035",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "OVERALL: Fe + 1/2 O2 + H2O -> Fe(OH)2  (rust formation -- discharge)\nCHARGE:  Fe(OH)2 + 2e- -> Fe + 2OH-    (un-rust -- charge)"
+    },
+    {
+      "id": "04-FLOW-BATTERIES.md#036",
+      "path": [
+        "04-FLOW-BATTERIES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:04-flow-batteries, git-history:energy-storage:04-flow-batteries]",
+        "canonical_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "concepts": "[flow, batteries]",
+        "current_path": "energy-storage/04-FLOW-BATTERIES.md",
+        "id": "maxim:energy-storage:flow-batteries",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flow, batteries]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flow Batteries: Architecture, Vanadium Redox, and Iron-Air",
+        "updated": "null"
+      },
+      "text": "KEY INSIGHT:\n  This is literally controlled rusting and un-rusting\n  Iron: $0.05/kg (most abundant and cheap structural metal)\n  Oxygen: free from air (like Li-air, cathode is open to atmosphere)\n  Alkaline electrolyte: KOH (cheap)"
+    }
+  ],
+  "refs": [
+    "04-FLOW-BATTERIES.md"
+  ]
+}

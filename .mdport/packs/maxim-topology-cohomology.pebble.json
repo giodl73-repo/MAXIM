@@ -1,0 +1,1273 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-topology-cohomology",
+  "source": "../../topology",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "08-COHOMOLOGY.md#000",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "# Cohomology"
+    },
+    {
+      "id": "08-COHOMOLOGY.md#001",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "08-COHOMOLOGY.md#002",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "```\n+====================================================================+\n|        COHOMOLOGY — THE DUAL THEORY WITH RING STRUCTURE            |\n+====================================================================+\n|                                                                    |\n|  HOMOLOGY: chains (add up geometric pieces) → groups Hₙ(X).      |\n|  COHOMOLOGY: cochains (assign numbers to pieces) → groups Hⁿ(X). |\n|                                                                    |\n|  RELATIONSHIP: Hⁿ(X;Z) ≅ Hom(Hₙ(X),Z) ⊕ Ext(Hₙ₋₁(X),Z)        |\n|  (Universal Coefficient Theorem — cohomology ≈ dual of homology)  |\n|                                                                    |\n|  WHY COHOMOLOGY IS RICHER:                                        |\n|  Cohomology groups Hⁿ(X;R) form a graded RING under cup product: |\n|  ⌣: Hᵖ(X) ⊗ Hq(X) → Hᵖ⁺q(X)                                    |\n|  This ring structure distinguishes spaces with the same groups.   |\n|                                                                    |\n|  DE RHAM COHOMOLOGY (for smooth manifolds):                       |\n|  HᵈᴿⁿR(M) = {closed n-forms} / {exact n-forms}                   |\n|  De Rham's theorem: HᵈᴿⁿR(M;R) ≅ Hⁿ(M;R).                       |\n|  Bridges topology, analysis, and differential geometry.           |\n+====================================================================+\n```"
+    },
+    {
+      "id": "08-COHOMOLOGY.md#003",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-COHOMOLOGY.md#004",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "## Singular Cohomology"
+    },
+    {
+      "id": "08-COHOMOLOGY.md#005",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "### From Homology to Cohomology"
+    },
+    {
+      "id": "08-COHOMOLOGY.md#006",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "```\nCOCHAIN GROUP: Cⁿ(X; R) = Hom(Cₙ(X), R)\n  = { functions f: {singular n-simplices} → R }"
+    },
+    {
+      "id": "08-COHOMOLOGY.md#007",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "For R = Z: integer-valued functions on chains.\n  For R = R: real-valued functions (relevant for de Rham)."
+    },
+    {
+      "id": "08-COHOMOLOGY.md#008",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "COBOUNDARY OPERATOR δⁿ: Cⁿ → Cⁿ⁺¹:\n  (δf)(σ) = f(∂σ)  for f ∈ Cⁿ, σ a singular (n+1)-simplex.\n  δδ = 0 follows from ∂∂ = 0."
+    },
+    {
+      "id": "08-COHOMOLOGY.md#009",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "COCHAIN COMPLEX: 0 → C⁰ --δ⁰--> C¹ --δ¹--> C² --δ²--> ..."
+    },
+    {
+      "id": "08-COHOMOLOGY.md#010",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "COCYCLES: Zⁿ = ker(δⁿ) = {cochains f with δf = 0}\nCOBOUNDARIES: Bⁿ = im(δⁿ⁻¹) = {cochains of the form f = δg}"
+    },
+    {
+      "id": "08-COHOMOLOGY.md#011",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "COHOMOLOGY GROUP: Hⁿ(X; R) = Zⁿ/Bⁿ"
+    },
+    {
+      "id": "08-COHOMOLOGY.md#012",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "UNIVERSAL COEFFICIENT THEOREM:\n  0 → Ext¹(Hₙ₋₁(X;Z), Z) → Hⁿ(X;Z) → Hom(Hₙ(X;Z), Z) → 0.\n  This sequence splits (non-naturally)."
+    },
+    {
+      "id": "08-COHOMOLOGY.md#013",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "Ext¹(Z, Z) = 0, Ext¹(Z/n, Z) = Z/n, Ext¹(free, Z) = 0."
+    },
+    {
+      "id": "08-COHOMOLOGY.md#014",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "KEY CONSEQUENCE: If all homology groups are torsion-free (free abelian),\n  then Hⁿ(X;Z) ≅ Hₙ(X;Z). (Homology and cohomology groups agree when free.)"
+    },
+    {
+      "id": "08-COHOMOLOGY.md#015",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "When there's torsion: cohomology can have torsion one degree higher.\n  Example: RP²:\n    H₁(RP²;Z) = Z/2 → Ext¹(Z/2, Z) = Z/2 appears in H²(RP²;Z).\n    So H²(RP²;Z) = Z/2, even though H₂(RP²;Z) = 0.\n```"
+    },
+    {
+      "id": "08-COHOMOLOGY.md#016",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-COHOMOLOGY.md#017",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "## The Cup Product"
+    },
+    {
+      "id": "08-COHOMOLOGY.md#018",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "### Construction"
+    },
+    {
+      "id": "08-COHOMOLOGY.md#019",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "```\nCUP PRODUCT: ⌣ : Hᵖ(X;R) ⊗ Hq(X;R) → Hᵖ⁺q(X;R)"
+    },
+    {
+      "id": "08-COHOMOLOGY.md#020",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "For cochains:\n  (f ⌣ g)(σ) = f(σ|[v₀,...,vₚ]) · g(σ|[vₚ,...,vₚ₊q])\n  for σ: Δᵖ⁺q → X a singular simplex, with the front-p and back-q face maps."
+    },
+    {
+      "id": "08-COHOMOLOGY.md#021",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "WELL-DEFINED: The cup product of cocycles is a cocycle; coboundary times anything\n  is a coboundary. So ⌣ descends to cohomology."
+    },
+    {
+      "id": "08-COHOMOLOGY.md#022",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "GRADED RING STRUCTURE:\n  H*(X;R) = ⊕ₙ Hⁿ(X;R) with the cup product is a GRADED-COMMUTATIVE ring:\n  α ⌣ β = (-1)^{pq} β ⌣ α  for α ∈ Hᵖ, β ∈ Hq.\n  [NOT simply commutative — the sign is essential for complex coefficients.]"
+    },
+    {
+      "id": "08-COHOMOLOGY.md#023",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "The graded unit: 1 ∈ H⁰(X;R) (the constant cochain with value 1)."
+    },
+    {
+      "id": "08-COHOMOLOGY.md#024",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "WHY THIS IS POWERFUL:\n  Two spaces can have identical cohomology groups but different cup products.\n  The cohomology RING distinguishes them.\n```"
+    },
+    {
+      "id": "08-COHOMOLOGY.md#025",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "### Computed Examples"
+    },
+    {
+      "id": "08-COHOMOLOGY.md#026",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "```\nEXAMPLE 1: H*(S¹; Z)\n  H⁰(S¹) = Z (generated by 1)\n  H¹(S¹) = Z (generator α, representing the \"winding 1-cocycle\")\n  All higher = 0.\n  Cup product: α ⌣ α ∈ H² = 0. So H*(S¹) = Z[α]/(α²) (as a ring).\n  (Since H² = 0, α² = 0.)"
+    },
+    {
+      "id": "08-COHOMOLOGY.md#027",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "EXAMPLE 2: H*(S²; Z)\n  H⁰=Z (gen 1), H²=Z (gen β), rest 0.\n  β ⌣ β ∈ H⁴ = 0. Ring: Z[β]/(β²)."
+    },
+    {
+      "id": "08-COHOMOLOGY.md#028",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "EXAMPLE 3: H*(T²; Z) — the key example\n  H⁰=Z (gen 1), H¹=Z² (gens α,β), H²=Z (gen γ).\n  Cup products:\n    α ⌣ β = γ (the fundamental class)\n    β ⌣ α = -γ  (graded commutativity: (-1)^{1·1} = -1)\n    α ⌣ α = 0, β ⌣ β = 0.\n  Ring: H*(T²) = Z[α,β]/(α²,β²,αβ+βα)."
+    },
+    {
+      "id": "08-COHOMOLOGY.md#029",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "EXAMPLE 4: H*(S¹ × S¹) via Künneth\n  Künneth for cohomology rings (when torsion-free):\n  H*(X×Y;R) ≅ H*(X;R) ⊗ H*(Y;R)  as graded rings.\n  H*(S¹×S¹) = Z[α]/(α²) ⊗ Z[β]/(β²) = Z[α,β]/(α²,β²).\n  This matches the direct computation above. ✓"
+    },
+    {
+      "id": "08-COHOMOLOGY.md#030",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "EXAMPLE 5: S² vs T² — groups same? No, but example of ring distinguishing spaces.\n  RP²×RP²  vs  a different space with same groups but different ring.\n```"
+    },
+    {
+      "id": "08-COHOMOLOGY.md#031",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "### Distinguished Spaces via Cohomology Ring"
+    },
+    {
+      "id": "08-COHOMOLOGY.md#032",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "```\nCP² vs S² ∨ S⁴  (complex projective plane vs wedge of spheres):"
+    },
+    {
+      "id": "08-COHOMOLOGY.md#033",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "H*(CP²; Z):  H⁰=Z, H²=Z, H⁴=Z, rest 0.  Generator α of H².\n                α ⌣ α = generator of H⁴.  So α² ≠ 0.\n                RING: Z[α]/(α³)."
+    },
+    {
+      "id": "08-COHOMOLOGY.md#034",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "H*(S² ∨ S⁴; Z):  H⁰=Z, H²=Z, H⁴=Z, rest 0.  Same groups!\n                α ⌣ α = 0 (generator of H² crossed with itself is zero,\n                since the α generator \"comes from\" the S² piece and\n                the H⁴ \"comes from\" the S⁴ piece — no interaction)."
+    },
+    {
+      "id": "08-COHOMOLOGY.md#035",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "Groups are the same. Rings are different.\n  CP² ≇ S² ∨ S⁴ is detected by the cup product.\n  (CP² is homeomorphic to no such simple space — it's a true non-trivial manifold.)"
+    },
+    {
+      "id": "08-COHOMOLOGY.md#036",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "COHOMOLOGY RING AS COMPLETE INVARIANT?\n  Not quite — spaces exist with the same cohomology ring but not homeomorphic.\n  But cohomology ring + extra structure (Steenrod operations, etc.) often classify.\n```"
+    },
+    {
+      "id": "08-COHOMOLOGY.md#037",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-COHOMOLOGY.md#038",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "## de Rham Cohomology"
+    },
+    {
+      "id": "08-COHOMOLOGY.md#039",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "### Differential Forms"
+    },
+    {
+      "id": "08-COHOMOLOGY.md#040",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "```\nSETUP: M a smooth n-manifold. Local coordinates x₁,...,xₙ."
+    },
+    {
+      "id": "08-COHOMOLOGY.md#041",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "0-FORM: a smooth function f: M → R.\n1-FORM: a smooth section of T*M (cotangent bundle).\n  Locally: ω = Σᵢ fᵢ dxᵢ.\n  dxᵢ is the \"differential of the i-th coordinate function.\""
+    },
+    {
+      "id": "08-COHOMOLOGY.md#042",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "k-FORM: a smooth antisymmetric (0,k) tensor field.\n  Locally: ω = Σ_{i₁<...<iₖ} fᵢ₁...ᵢₖ dxᵢ₁ ∧ ... ∧ dxᵢₖ\n  The wedge product ∧ is antisymmetric: dxᵢ ∧ dxⱼ = -dxⱼ ∧ dxᵢ."
+    },
+    {
+      "id": "08-COHOMOLOGY.md#043",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "EXTERIOR DERIVATIVE d: Ωᵏ(M) → Ωᵏ⁺¹(M):\n  For a function f: df = Σᵢ (∂f/∂xᵢ) dxᵢ.\n  For a k-form: dω = Σ (df_{...}) ∧ dx_{...}."
+    },
+    {
+      "id": "08-COHOMOLOGY.md#044",
+      "path": [
+        "08-COHOMOLOGY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:08-cohomology, git-history:topology:08-cohomology]",
+        "canonical_path": "topology/08-COHOMOLOGY.md",
+        "concepts": "[cohomology]",
+        "current_path": "topology/08-COHOMOLOGY.md",
+        "id": "maxim:topology:cohomology",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cohomology]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cohomology",
+        "updated": "null"
+      },
+      "text": "d² = 0: d(dω) = 0 for all ω. (Antisymmetry kills second partials.)"
+    }
+  ],
+  "refs": [
+    "08-COHOMOLOGY.md"
+  ]
+}

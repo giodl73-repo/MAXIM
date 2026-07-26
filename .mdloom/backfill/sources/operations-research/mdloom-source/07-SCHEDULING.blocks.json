@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "operations-research\\07-SCHEDULING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|                 SCHEDULING: THE WHOLE PICTURE                        |\n|                                                                      |\n|   alpha | beta | gamma   <-- the 3-field classification             |\n|     |      |      |                                                   |\n|  machine_| job  |_objective (Cmax makespan, sum C_j, sum w_j C_j,   |\n|  environ. |constraints     Lmax lateness, ...)                       |\n|  (1, P, F,|(release dates,                                           |\n|   J, O,...)| precedence, ...)                                        |\n|                                                                      |\n|   POLYNOMIAL (exact rules)        NP-HARD (approximate)             |\n|   ------------------------        --------------------              |\n|   1 || sum C_j   -> SPT           P || Cmax  (load balancing)       |\n|   1 || Lmax      -> EDD           J || Cmax  (job-shop)             |\n|   critical path  -> longest path  flow shop F>=3                     |\n|                    in a DAG                                          |\n|                                                                      |\n|   GREEDY LIST SCHEDULING (Graham): always within (2 - 1/m) of opt   |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 56,
+      "heading_context": "## Layer 1: The Three-Field Classification ($\\alpha\\,|\\,\\beta\\,|\\,\\gamma$)",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|  alpha (machine environment)                                        |\n|    1     single machine                                             |\n|    P     identical parallel machines                                |\n|    Q     uniform (different speeds)                                 |\n|    R     unrelated parallel machines                                |\n|    F     flow shop (all jobs same machine order)                    |\n|    J     job shop (each job its own machine order)                  |\n|    O     open shop (order free)                                     |\n|                                                                      |\n|  beta (job characteristics / constraints)                           |\n|    r_j   release dates       prec    precedence constraints         |\n|    d_j   due dates           pmtn    preemption allowed             |\n|    p_j=1 unit processing                                            |\n|                                                                      |\n|  gamma (objective to minimize)                                      |\n|    Cmax       makespan (max completion time) -- finish everything   |\n|    sum C_j    total completion (mean flow time)                    |\n|    sum w_j C_j weighted completion                                  |\n|    Lmax       max lateness                                          |\n|    sum U_j    number of late jobs                                  |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 94,
+      "heading_context": "## Layer 2: Single-Machine — The Polynomial Optimal Rules",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|  PROBLEM            OPTIMAL RULE                  WHY                 |\n|  -------            ------------                  ---                 |\n|  1 || sum C_j       SPT: Shortest Processing      short jobs first    |\n|                     Time first                    minimize the wait   |\n|                                                   they impose on rest |\n|                                                                      |\n|  1 || sum w_j C_j   WSPT: largest ratio w_j/p_j   weighted version    |\n|                     first (Smith's rule)          (exchange argument) |\n|                                                                      |\n|  1 || Lmax          EDD: Earliest Due Date first  minimize max        |\n|                                                   lateness            |\n|                                                                      |\n|  1 || sum U_j       Moore-Hodgson algorithm       min # of late jobs  |\n+----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 116,
+      "heading_context": "## Layer 2: Single-Machine — The Polynomial Optimal Rules",
+      "confidence": "candidate",
+      "text": "   SPT in action (1 || sum C_j):\n   jobs p = [3, 1, 2]  ->  sort: [1, 2, 3]\n   completion times:    1, 1+2=3, 3+3=6   sum = 10  (optimal)\n   any other order gives a larger sum.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 129,
+      "heading_context": "## Layer 3: Critical Path Method (CPM) and PERT",
+      "confidence": "candidate",
+      "text": "   PROJECT AS A DAG (activity-on-node), durations in [ ]:\n\n        [A:3] ---> [C:2] ---\\\n       /                      \\\n   START                       [E:4] ---> END\n       \\                      /\n        [B:5] -------> [D:1]-/\n\n   PATHS:   A->C->E = 3+2+4 = 9\n            B->D->E = 5+1+4 = 10  <- CRITICAL PATH (longest = project length)\n   Project minimum duration = 10. Critical activities: B, D, E (zero slack).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 196,
+      "heading_context": "## Layer 4: Parallel Machines and List Scheduling",
+      "confidence": "candidate",
+      "text": "   MDLOOM IDEA (clean and worth knowing):\n   Let M be the last machine to finish, and let job J start last on it\n   at time S. Before S, every machine was busy (greedy: J went to the\n   least-loaded machine). So S <= (total work - p_J)/m. Then\n        Cmax = S + p_J <= (sum p_i)/m + (1 - 1/m) p_J.\n   Two lower bounds on the optimum:  Cmax* >= (sum p_i)/m   (avg load)\n        and  Cmax* >= p_J  (longest job). Combine:\n        Cmax <= Cmax* + (1 - 1/m) Cmax* = (2 - 1/m) Cmax*.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 293,
+      "heading_context": "### \"Is scheduling polynomial or NP-hard?\"",
+      "confidence": "candidate",
+      "text": "### \"What does a $2 - 1/m$ approximation actually guarantee?\"",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    }
+  ]
+}

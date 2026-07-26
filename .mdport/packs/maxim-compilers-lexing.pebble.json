@@ -1,0 +1,1609 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-compilers-lexing",
+  "source": "../../compilers",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "01-LEXING.md#000",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "# Lexical Analysis — Regex → NFA → DFA → Tokens"
+    },
+    {
+      "id": "01-LEXING.md#001",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "01-LEXING.md#002",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "The lexer turns a flat character stream into a flat token stream. It is the one\ncompiler stage that is *completely solved theory*: tokens are regular languages, so\na lexer is a finite automaton, and the whole construction — regex to NFA to DFA to\nminimized DFA — is mechanical. You know this chain. The engineering question is not\n\"can we\" but \"how do real lexers handle longest-match, keywords, Unicode, and the\nmillion-tokens-per-second throughput a language server needs.\""
+    },
+    {
+      "id": "01-LEXING.md#003",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "```\n+--------------------------------------------------------------------------+\n|                      THE LEXER CONSTRUCTION CHAIN                        |\n|                                                                          |\n|   token specs (regexes)                                                  |\n|        |                                                                 |\n|        |  Thompson's construction (linear)                               |\n|        v                                                                 |\n|   +---------+        epsilon-moves, nondeterministic                     |\n|   |   NFA   |        O(r) states for                                     |\n|   +---------+        regex of size r                                     |\n|        |                                                                 |\n|        |  subset construction (powerset)                                 |\n|        v                                                                 |\n|   +---------+        deterministic, no epsilon, one move per char        |\n|   |   DFA   |        worst case 2^n states                               |\n|   +---------+        (rare in practice)                                  |\n|        |                                                                 |\n|        |  Hopcroft minimization  O(n log n)                              |\n|        v                                                                 |\n|   +-----------+      fewest states recognizing                           |\n|   | min DFA   |      the same language                                   |\n|   +-----------+                                                          |\n|        |                                                                 |\n|        |  drive with input + MAXIMAL MUNCH + token actions               |\n|        v                                                                 |\n|   +-----------------------------------------------------------+          |\n|   |  TOKEN STREAM:  IDENT(\"foo\") LPAREN INT(42) RPAREN SEMI   |          |\n|   +-----------------------------------------------------------+          |\n+--------------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "01-LEXING.md#004",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "Read top-down: the spec compiles to an NFA, the NFA determinizes to a DFA, the DFA\nminimizes, and the minimized DFA — plus the longest-match rule and per-token\nactions — is the lexer. Everything above the bottom box is offline (lexer-generator\ntime); the bottom box is the hot loop at compile time."
+    },
+    {
+      "id": "01-LEXING.md#005",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-LEXING.md#006",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "## From Tokens to a Recognizer"
+    },
+    {
+      "id": "01-LEXING.md#007",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "A token class is a regular expression. The classic identifier and integer specs:"
+    },
+    {
+      "id": "01-LEXING.md#008",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "```\n  IDENT   = [A-Za-z_][A-Za-z0-9_]*\n  INT     = [0-9]+\n  WS      = [ \\t\\r\\n]+\n  KEYWORD = if | else | while | return | ...\n```"
+    },
+    {
+      "id": "01-LEXING.md#009",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "### Thompson's construction (regex → NFA)"
+    },
+    {
+      "id": "01-LEXING.md#010",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "Each regex operator becomes a small NFA fragment with epsilon transitions; fragments\ncompose. For `a(b|c)*`:"
+    },
+    {
+      "id": "01-LEXING.md#011",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "```\n            eps         +--> b -->+\n   ->(0)--a-->(1)--eps->(2)       (3)--eps-->((5))   accept\n                         ^   +--> c -->+   |\n                         |              v   |\n                         +------- eps -----+\n                    (the (b|c) loop: enter, choose b or c, loop back or exit)\n```"
+    },
+    {
+      "id": "01-LEXING.md#012",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "Size is linear in the regex: an `r`-character regex yields O(r) states. The cost of\nthis convenience is nondeterminism — epsilon edges and multiple `a`-edges out of one\nstate mean you cannot run it by single-stepping."
+    },
+    {
+      "id": "01-LEXING.md#013",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "### Subset construction (NFA → DFA)"
+    },
+    {
+      "id": "01-LEXING.md#014",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "Determinize by tracking the *set* of NFA states you could be in. Each DFA state is\nan epsilon-closure of NFA states; on input `c`, move every member and take the\nclosure of the result."
+    },
+    {
+      "id": "01-LEXING.md#015",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "```\n  DFA state = subset of NFA states (after epsilon-closure)"
+    },
+    {
+      "id": "01-LEXING.md#016",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "start  = eps-closure({0})\n  move(S, c) = eps-closure( { t : s in S, s --c--> t } )"
+    },
+    {
+      "id": "01-LEXING.md#017",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "Worked (for a(b|c)*):\n    A = closure({0})              = {0}\n    move(A,'a') = closure({1})    = {1,2,3,4? ...}  -> B    (entered the loop)\n    move(B,'b') = closure(...)    -> B'  (accepting, can loop)\n    move(B,'c') = closure(...)    -> B'' (accepting, can loop)\n    B', B'' accept; b/c keep you in accepting states.\n```"
+    },
+    {
+      "id": "01-LEXING.md#018",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "Worst case the DFA has 2^n states for n NFA states — but pathological blowup needs\ncontrived regexes (`(a|a)*...` style). Real token sets stay small. This is the same\npowerset determinization you saw for NFAs in automata theory; nothing new, just\napplied."
+    },
+    {
+      "id": "01-LEXING.md#019",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "### Hopcroft minimization (DFA → minimal DFA)"
+    },
+    {
+      "id": "01-LEXING.md#020",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "Partition states into equivalence classes (accepting vs non-accepting), then refine:\ntwo states are distinguishable if some input drives them to distinguishable states.\nRefine until stable. O(n log n). The result is the unique (up to renaming) minimal\nDFA for the language."
+    },
+    {
+      "id": "01-LEXING.md#021",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "| Stage | Algorithm | Cost | Determinism |\n|-------|-----------|------|-------------|\n| regex → NFA | Thompson | O(r) states | nondeterministic, ε-moves |\n| NFA → DFA | subset/powerset | up to 2^n states | deterministic |\n| DFA → min DFA | Hopcroft | O(n log n) | deterministic, minimal |"
+    },
+    {
+      "id": "01-LEXING.md#022",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-LEXING.md#023",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "## Maximal Munch — The Rule That Makes Lexing Work"
+    },
+    {
+      "id": "01-LEXING.md#024",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "A DFA recognizes *a* lexeme. A lexer must repeatedly carve the **longest** valid\nlexeme from the remaining input. That is the **maximal-munch** (longest-match) rule,\nand it is the central engineering decision of every lexer."
+    },
+    {
+      "id": "01-LEXING.md#025",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "```\n  Input:  \"if x>=10\""
+    },
+    {
+      "id": "01-LEXING.md#026",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "Naive (shortest match) would stop at the first accepting state:\n     \"i\" -> IDENT? but DFA can keep going..."
+    },
+    {
+      "id": "01-LEXING.md#027",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "Maximal munch: keep consuming while a transition exists; remember the\n  LAST accepting state seen; when stuck, emit the token for that state and\n  rewind input to just after it."
+    },
+    {
+      "id": "01-LEXING.md#028",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "position ->  i  f     x     >  =     1  0\n               ^^                ^^^^         ^^^^\n               \"if\" is a keyword (longest match beats IDENT \"i\",\"if\")\n                                 \">=\"  beats \">\" then \"=\"\n                                              \"10\" is one INT, not \"1\",\"0\"\n```"
+    },
+    {
+      "id": "01-LEXING.md#029",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "The \"remember last accepting state, then rewind\" loop is the canonical lexer driver:"
+    },
+    {
+      "id": "01-LEXING.md#030",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "```\n  start_of_lexeme = pos\n  last_accept = NONE\n  state = DFA.start\n  while transition(state, input[pos]) exists:\n      state = transition(state, input[pos]); pos++\n      if state is accepting: last_accept = (state, pos)\n  if last_accept == NONE: ERROR (no valid token)\n  emit token for last_accept.state\n  pos = last_accept.pos          # rewind past the longest match\n```"
+    },
+    {
+      "id": "01-LEXING.md#031",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "### Where maximal munch bites"
+    },
+    {
+      "id": "01-LEXING.md#032",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "```\n  C++ before C++11:   vector<vector<int>>\n                      \">>\" lexed as the shift operator, not two closers!\n                      Required a special-case in the parser/lexer."
+    },
+    {
+      "id": "01-LEXING.md#033",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "a---b   in C:       \"a\" \"--\" \"-\" \"b\"  (longest-match grabs \"--\" first),\n                      not \"a\" \"-\" \"--\" \"b\". Bug magnet."
+    },
+    {
+      "id": "01-LEXING.md#034",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "Rust ranges:        1..10   \"1\" \"..\" \"10\"  -- but  1.0  is a float.\n                      The lexer needs lookahead to disambiguate `.`.\n```"
+    },
+    {
+      "id": "01-LEXING.md#035",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "These are not theory gaps — they are the price of a greedy longest-match rule, and\nevery language spec pins down the resolution."
+    },
+    {
+      "id": "01-LEXING.md#036",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-LEXING.md#037",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "## Keywords vs Identifiers — The Standard Trick"
+    },
+    {
+      "id": "01-LEXING.md#038",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "You almost never put every keyword in the DFA as its own regex. Keywords *are* valid\nidentifiers, so you lex an identifier and then look it up."
+    },
+    {
+      "id": "01-LEXING.md#039",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "```\n  +----------------+      lex with IDENT regex      +------------------+\n  | char stream    | -----------------------------> | lexeme \"return\"  |\n  +----------------+                                 +--------+--------+\n                                                              |\n                                              hash-table lookup in keyword set\n                                                              |\n                                         +--------------------+-------------+\n                                         |                                  |\n                                   in keyword set?                    not found\n                                         |                                  |\n                                         v                                  v\n                                 emit KW_RETURN                       emit IDENT(\"foo\")\n```"
+    },
+    {
+      "id": "01-LEXING.md#040",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "This keeps the DFA small (one identifier pattern, not 50 keyword patterns whose\nstates would dominate the table) and makes adding a keyword a one-line table change.\nPerfect-hash generators (gperf) make the lookup branchless. C# (Roslyn) and most\nproduction lexers do exactly this."
+    },
+    {
+      "id": "01-LEXING.md#041",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-LEXING.md#042",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "## Lexer Generators — and Why Many Modern Lexers Are Hand-Written"
+    },
+    {
+      "id": "01-LEXING.md#043",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "```\n   GENERATED                                 HAND-WRITTEN\n   =========                                 ============\n   You write token regexes;                  You write the state machine\n   a tool emits the DFA table + driver.      (or just a switch loop) directly."
+    },
+    {
+      "id": "01-LEXING.md#044",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "+----------+   +--------+   +---------+    +---------------------------+\n   | lex/flex |   | re2c   |   | Logos   |    | clang, Roslyn, V8, rustc  |\n   | (C)      |   | (C/C++)|   | (Rust   |    | hand-written lexers       |\n   |          |   | inline |   |  proc-  |    |                           |\n   |          |   |  DFA)  |   |  macro) |    | Why: error messages,      |\n   +----------+   +--------+   +---------+    | speed, incremental relex, |\n                                              | weird context-sensitive   |\n   Pros: declarative, correct by             | rules, trivia (comments/  |\n     construction, fast to change.           | whitespace) attachment.   |\n   Cons: generic error messages, awkward                                  |\n     for context-sensitive tokens.          +---------------------------+\n```"
+    },
+    {
+      "id": "01-LEXING.md#045",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "| Tool | Lang | Form | Notable user |\n|------|------|------|--------------|\n| lex / flex | C | generated DFA table | classic Unix toolchain |\n| re2c | C/C++ | inline DFA, no runtime | git, PHP, ninja |\n| ragel | many | state machine compiler | Mongrel, Sphinx |\n| ANTLR (lexer) | Java/many | generated, integrated with parser | many DSLs |\n| Logos | Rust | derive macro → DFA | many Rust frontends |\n| tree-sitter | C | incremental, error-tolerant | editors / IDEs |"
+    },
+    {
+      "id": "01-LEXING.md#046",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "Production language compilers usually **hand-write** the lexer. The reasons are all\nengineering, not theory: precise error recovery and positions, raw throughput for a\nlanguage server relexing on every keystroke, attaching \"trivia\" (comments and\nwhitespace) to tokens for formatters, and context-sensitive lexing (string\ninterpolation, here-docs, Python indentation) that a pure regex DFA cannot express."
+    },
+    {
+      "id": "01-LEXING.md#047",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-LEXING.md#048",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "## Beyond Pure Regular: Where Lexers Cheat"
+    },
+    {
+      "id": "01-LEXING.md#049",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "A few common token-level needs are *not* regular and require the lexer to carry a\nlittle state — a deliberate, bounded departure from the DFA model."
+    },
+    {
+      "id": "01-LEXING.md#050",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "```\n  Python indentation (off-side rule):\n     The lexer keeps an INDENT STACK and emits synthetic INDENT/DEDENT\n     tokens. A pure DFA has no stack -> this is the lexer doing a tiny\n     bit of the parser's job."
+    },
+    {
+      "id": "01-LEXING.md#051",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "String interpolation  \"$\"+expr+\"\":\n     Lexer modes / a mode stack. Entering ${ switches to \"expression mode\";\n     the matching } pops back to \"string mode\"."
+    },
+    {
+      "id": "01-LEXING.md#052",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "Nested comments  /* ... /* ... */ ... */ :\n     Requires a counter -> not regular (matched nesting is context-free).\n     Lexers special-case it with a depth counter.\n```"
+    },
+    {
+      "id": "01-LEXING.md#053",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "The clean theory says lexing is regular. The clean theory is a guideline; real\nlexers add a stack or a mode register exactly where the language forces them to, and\nkeep the DFA for everything else."
+    },
+    {
+      "id": "01-LEXING.md#054",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-LEXING.md#055",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "## Old World → New World Bridges"
+    },
+    {
+      "id": "01-LEXING.md#056",
+      "path": [
+        "01-LEXING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:01-lexing, git-history:compilers:01-lexing]",
+        "canonical_path": "compilers/01-LEXING.md",
+        "concepts": "[lexing, tokenizing, regex, NFA, DFA, subset construction, maximal munch, lexer generators]",
+        "current_path": "compilers/01-LEXING.md",
+        "id": "maxim:compilers:lexing",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[lexical analysis]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Lexical Analysis - Regex to DFA, Tokenizing, Lexer Generators",
+        "updated": "null"
+      },
+      "text": "| You know | Maps to |\n|----------|---------|\n| .NET `Regex` (backtracking NFA engine) | A *lexer* uses a DFA — no backtracking, linear time, but no captures/backrefs. Different trade-off: throughput over expressiveness. |\n| `System.Text.RegularExpressions` catastrophic backtracking | Cannot happen in a DFA lexer — DFA is O(n) in input length, guaranteed. RE2 / re2c chose DFA precisely to kill ReDoS. |\n| Roslyn `SyntaxToken` with leading/trailing trivia | The hand-written lexer attaches whitespace/comments as trivia so the parser sees clean tokens but the formatter keeps everything. |\n| A `switch` statement over characters | That *is* a hand-coded DFA — each `case` is a state transition. Most hand-written lexers are exactly this. |\n| Tokenizing in a `StringTokenizer` | Same job, no token classes/positions — a lexer additionally classifies and tracks source spans for diagnostics. |"
+    }
+  ],
+  "refs": [
+    "01-LEXING.md"
+  ]
+}

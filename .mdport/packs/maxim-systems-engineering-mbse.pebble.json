@@ -1,0 +1,853 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-systems-engineering-mbse",
+  "source": "../../systems-engineering",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "08-MBSE.md#000",
+      "path": [
+        "08-MBSE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:08-mbse, git-history:systems-engineering:08-mbse]",
+        "canonical_path": "systems-engineering/08-MBSE.md",
+        "concepts": "[mbse]",
+        "current_path": "systems-engineering/08-MBSE.md",
+        "id": "maxim:systems-engineering:mbse",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mbse]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Based Systems Engineering (MBSE)",
+        "updated": "null"
+      },
+      "text": "# Model-Based Systems Engineering (MBSE)"
+    },
+    {
+      "id": "08-MBSE.md#001",
+      "path": [
+        "08-MBSE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:08-mbse, git-history:systems-engineering:08-mbse]",
+        "canonical_path": "systems-engineering/08-MBSE.md",
+        "concepts": "[mbse]",
+        "current_path": "systems-engineering/08-MBSE.md",
+        "id": "maxim:systems-engineering:mbse",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mbse]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Based Systems Engineering (MBSE)",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "08-MBSE.md#002",
+      "path": [
+        "08-MBSE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:08-mbse, git-history:systems-engineering:08-mbse]",
+        "canonical_path": "systems-engineering/08-MBSE.md",
+        "concepts": "[mbse]",
+        "current_path": "systems-engineering/08-MBSE.md",
+        "id": "maxim:systems-engineering:mbse",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mbse]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Based Systems Engineering (MBSE)",
+        "updated": "null"
+      },
+      "text": "MBSE replaces document-centric SE with a central authoritative model. Instead of a pile of documents (SRS, ICD, architecture description) that go out of sync with each other, the model IS the design. Documents are generated views of the model."
+    },
+    {
+      "id": "08-MBSE.md#003",
+      "path": [
+        "08-MBSE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:08-mbse, git-history:systems-engineering:08-mbse]",
+        "canonical_path": "systems-engineering/08-MBSE.md",
+        "concepts": "[mbse]",
+        "current_path": "systems-engineering/08-MBSE.md",
+        "id": "maxim:systems-engineering:mbse",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mbse]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Based Systems Engineering (MBSE)",
+        "updated": "null"
+      },
+      "text": "```\nDOCUMENT-CENTRIC SE (Traditional)\n──────────────────────────────────────────────────────────────────\n┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐\n│   SRS    │  │   ICD    │  │  Arch    │  │  FMEA    │\n│ v3.2.1   │  │ v2.1.0   │  │  Descr   │  │ v4.0     │\n└──────────┘  └──────────┘  └──────────┘  └──────────┘\n     │              │              │             │\n     └──────────────┴──────────────┴─────────────┘\n                           │\n               No automated consistency check\n               Manual cross-referencing\n               Version drift inevitable\n               Requirement changed in SRS, not propagated to ICD\n               FMEA references wrong architecture version"
+    },
+    {
+      "id": "08-MBSE.md#004",
+      "path": [
+        "08-MBSE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:08-mbse, git-history:systems-engineering:08-mbse]",
+        "canonical_path": "systems-engineering/08-MBSE.md",
+        "concepts": "[mbse]",
+        "current_path": "systems-engineering/08-MBSE.md",
+        "id": "maxim:systems-engineering:mbse",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mbse]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Based Systems Engineering (MBSE)",
+        "updated": "null"
+      },
+      "text": "MODEL-BASED SE (MBSE)\n──────────────────────────────────────────────────────────────────\n                    ┌──────────────────────────────┐\n                    │       SYSTEM MODEL           │\n                    │                              │\n                    │  Requirements + Architecture │\n                    │  + Behavior + ICDs + Analyses│\n                    │  All in one consistent model │\n                    └──────────────────────────────┘\n                         │           │           │\n                         │  generate views       │\n                   ┌──────┘      ┌───┘       ┌──────┘\n                   ▼             ▼            ▼\n               SRS view      ICD view    Test view\n               (auto-gen)   (auto-gen)   (auto-gen)\n               Always        Always      Always\n               consistent    consistent  consistent\n```"
+    },
+    {
+      "id": "08-MBSE.md#005",
+      "path": [
+        "08-MBSE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:08-mbse, git-history:systems-engineering:08-mbse]",
+        "canonical_path": "systems-engineering/08-MBSE.md",
+        "concepts": "[mbse]",
+        "current_path": "systems-engineering/08-MBSE.md",
+        "id": "maxim:systems-engineering:mbse",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mbse]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Based Systems Engineering (MBSE)",
+        "updated": "null"
+      },
+      "text": "**Bridge**: MBSE is the software analog of moving from \"architecture documented in Word docs\" to \"architecture as code\" (Infrastructure as Code, OpenAPI specs, GraphQL schemas). The model is the single source of truth. Documents are derived artifacts."
+    },
+    {
+      "id": "08-MBSE.md#006",
+      "path": [
+        "08-MBSE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:08-mbse, git-history:systems-engineering:08-mbse]",
+        "canonical_path": "systems-engineering/08-MBSE.md",
+        "concepts": "[mbse]",
+        "current_path": "systems-engineering/08-MBSE.md",
+        "id": "maxim:systems-engineering:mbse",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mbse]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Based Systems Engineering (MBSE)",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-MBSE.md#007",
+      "path": [
+        "08-MBSE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:08-mbse, git-history:systems-engineering:08-mbse]",
+        "canonical_path": "systems-engineering/08-MBSE.md",
+        "concepts": "[mbse]",
+        "current_path": "systems-engineering/08-MBSE.md",
+        "id": "maxim:systems-engineering:mbse",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mbse]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Based Systems Engineering (MBSE)",
+        "updated": "null"
+      },
+      "text": "## Why MBSE?"
+    },
+    {
+      "id": "08-MBSE.md#008",
+      "path": [
+        "08-MBSE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:08-mbse, git-history:systems-engineering:08-mbse]",
+        "canonical_path": "systems-engineering/08-MBSE.md",
+        "concepts": "[mbse]",
+        "current_path": "systems-engineering/08-MBSE.md",
+        "id": "maxim:systems-engineering:mbse",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mbse]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Based Systems Engineering (MBSE)",
+        "updated": "null"
+      },
+      "text": "```\nMBSE MOTIVATION\n──────────────────────────────────────────────────────────────────\nProblem 1: Ambiguity in natural language\n  \"The system shall respond quickly\" → 10 engineers, 10 interpretations\n  Model: \"ResponseTime: Duration [unit=ms] ≤ 200\" → unambiguous"
+    },
+    {
+      "id": "08-MBSE.md#009",
+      "path": [
+        "08-MBSE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:08-mbse, git-history:systems-engineering:08-mbse]",
+        "canonical_path": "systems-engineering/08-MBSE.md",
+        "concepts": "[mbse]",
+        "current_path": "systems-engineering/08-MBSE.md",
+        "id": "maxim:systems-engineering:mbse",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mbse]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Based Systems Engineering (MBSE)",
+        "updated": "null"
+      },
+      "text": "Problem 2: Traceability is manual in documents\n  Requirement changed → manually find all affected items → miss some\n  Model: change requirement → automated impact analysis → consistent"
+    },
+    {
+      "id": "08-MBSE.md#010",
+      "path": [
+        "08-MBSE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:08-mbse, git-history:systems-engineering:08-mbse]",
+        "canonical_path": "systems-engineering/08-MBSE.md",
+        "concepts": "[mbse]",
+        "current_path": "systems-engineering/08-MBSE.md",
+        "id": "maxim:systems-engineering:mbse",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mbse]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Based Systems Engineering (MBSE)",
+        "updated": "null"
+      },
+      "text": "Problem 3: Integration of analysis\n  FEA model, FMEA spreadsheet, requirements doc → separate tools\n  Model: single data source → analysis driven from model data"
+    },
+    {
+      "id": "08-MBSE.md#011",
+      "path": [
+        "08-MBSE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:08-mbse, git-history:systems-engineering:08-mbse]",
+        "canonical_path": "systems-engineering/08-MBSE.md",
+        "concepts": "[mbse]",
+        "current_path": "systems-engineering/08-MBSE.md",
+        "id": "maxim:systems-engineering:mbse",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mbse]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Based Systems Engineering (MBSE)",
+        "updated": "null"
+      },
+      "text": "Problem 4: Communication across disciplines\n  Mechanical engineer reads SRS differently from software engineer\n  Model: multiple views of same model → each discipline sees their view\n  Consistent because generated from same underlying data"
+    },
+    {
+      "id": "08-MBSE.md#012",
+      "path": [
+        "08-MBSE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:08-mbse, git-history:systems-engineering:08-mbse]",
+        "canonical_path": "systems-engineering/08-MBSE.md",
+        "concepts": "[mbse]",
+        "current_path": "systems-engineering/08-MBSE.md",
+        "id": "maxim:systems-engineering:mbse",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mbse]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Based Systems Engineering (MBSE)",
+        "updated": "null"
+      },
+      "text": "Problem 5: Reuse\n  \"Can we reuse this subsystem design?\" → compare docs manually\n  Model: compare models formally → automated compatibility check\n```"
+    },
+    {
+      "id": "08-MBSE.md#013",
+      "path": [
+        "08-MBSE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:08-mbse, git-history:systems-engineering:08-mbse]",
+        "canonical_path": "systems-engineering/08-MBSE.md",
+        "concepts": "[mbse]",
+        "current_path": "systems-engineering/08-MBSE.md",
+        "id": "maxim:systems-engineering:mbse",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mbse]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Based Systems Engineering (MBSE)",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-MBSE.md#014",
+      "path": [
+        "08-MBSE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:08-mbse, git-history:systems-engineering:08-mbse]",
+        "canonical_path": "systems-engineering/08-MBSE.md",
+        "concepts": "[mbse]",
+        "current_path": "systems-engineering/08-MBSE.md",
+        "id": "maxim:systems-engineering:mbse",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mbse]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Based Systems Engineering (MBSE)",
+        "updated": "null"
+      },
+      "text": "## MBSE Methodologies"
+    },
+    {
+      "id": "08-MBSE.md#015",
+      "path": [
+        "08-MBSE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:08-mbse, git-history:systems-engineering:08-mbse]",
+        "canonical_path": "systems-engineering/08-MBSE.md",
+        "concepts": "[mbse]",
+        "current_path": "systems-engineering/08-MBSE.md",
+        "id": "maxim:systems-engineering:mbse",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mbse]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Based Systems Engineering (MBSE)",
+        "updated": "null"
+      },
+      "text": "### INCOSE OOSEM (Object-Oriented SE Method)"
+    },
+    {
+      "id": "08-MBSE.md#016",
+      "path": [
+        "08-MBSE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:08-mbse, git-history:systems-engineering:08-mbse]",
+        "canonical_path": "systems-engineering/08-MBSE.md",
+        "concepts": "[mbse]",
+        "current_path": "systems-engineering/08-MBSE.md",
+        "id": "maxim:systems-engineering:mbse",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mbse]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Based Systems Engineering (MBSE)",
+        "updated": "null"
+      },
+      "text": "```\nOOSEM METHOD\n──────────────────────────────────────────────────────────────────\nObject-Oriented approach applied to SE\nUses SysML as modeling language"
+    },
+    {
+      "id": "08-MBSE.md#017",
+      "path": [
+        "08-MBSE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:08-mbse, git-history:systems-engineering:08-mbse]",
+        "canonical_path": "systems-engineering/08-MBSE.md",
+        "concepts": "[mbse]",
+        "current_path": "systems-engineering/08-MBSE.md",
+        "id": "maxim:systems-engineering:mbse",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mbse]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Based Systems Engineering (MBSE)",
+        "updated": "null"
+      },
+      "text": "Steps:\n1. Analyze stakeholder needs (use case model)\n2. Define system requirements (SysML requirements diagram)\n3. Define logical architecture (BDD + IBD at logical level)\n4. Synthesize physical architecture (allocate to physical)\n5. Optimize and evaluate (parametric diagrams, simulation)\n6. Integrate (verify interfaces via model)\n```"
+    },
+    {
+      "id": "08-MBSE.md#018",
+      "path": [
+        "08-MBSE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:08-mbse, git-history:systems-engineering:08-mbse]",
+        "canonical_path": "systems-engineering/08-MBSE.md",
+        "concepts": "[mbse]",
+        "current_path": "systems-engineering/08-MBSE.md",
+        "id": "maxim:systems-engineering:mbse",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mbse]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Based Systems Engineering (MBSE)",
+        "updated": "null"
+      },
+      "text": "### ARCADIA / Capella"
+    },
+    {
+      "id": "08-MBSE.md#019",
+      "path": [
+        "08-MBSE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:08-mbse, git-history:systems-engineering:08-mbse]",
+        "canonical_path": "systems-engineering/08-MBSE.md",
+        "concepts": "[mbse]",
+        "current_path": "systems-engineering/08-MBSE.md",
+        "id": "maxim:systems-engineering:mbse",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mbse]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Based Systems Engineering (MBSE)",
+        "updated": "null"
+      },
+      "text": "```\nARCADIA METHODOLOGY (Thales, widely used in France/Europe)\n──────────────────────────────────────────────────────────────────\nFour analysis levels:\n  OA: Operational Analysis\n    Who uses the system? Operational capabilities needed?\n    Actors, operational activities, operational capability"
+    },
+    {
+      "id": "08-MBSE.md#020",
+      "path": [
+        "08-MBSE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:08-mbse, git-history:systems-engineering:08-mbse]",
+        "canonical_path": "systems-engineering/08-MBSE.md",
+        "concepts": "[mbse]",
+        "current_path": "systems-engineering/08-MBSE.md",
+        "id": "maxim:systems-engineering:mbse",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mbse]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Based Systems Engineering (MBSE)",
+        "updated": "null"
+      },
+      "text": "SA: System Analysis\n    What does the system do (functions)?\n    System functions, data flows, system interfaces (external)"
+    },
+    {
+      "id": "08-MBSE.md#021",
+      "path": [
+        "08-MBSE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:08-mbse, git-history:systems-engineering:08-mbse]",
+        "canonical_path": "systems-engineering/08-MBSE.md",
+        "concepts": "[mbse]",
+        "current_path": "systems-engineering/08-MBSE.md",
+        "id": "maxim:systems-engineering:mbse",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mbse]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Based Systems Engineering (MBSE)",
+        "updated": "null"
+      },
+      "text": "LA: Logical Architecture\n    How does the system do it (logical components)?\n    Logical components, logical data flows"
+    },
+    {
+      "id": "08-MBSE.md#022",
+      "path": [
+        "08-MBSE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:08-mbse, git-history:systems-engineering:08-mbse]",
+        "canonical_path": "systems-engineering/08-MBSE.md",
+        "concepts": "[mbse]",
+        "current_path": "systems-engineering/08-MBSE.md",
+        "id": "maxim:systems-engineering:mbse",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mbse]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Based Systems Engineering (MBSE)",
+        "updated": "null"
+      },
+      "text": "PA: Physical Architecture\n    How is it implemented (physical components)?\n    Physical component allocation, ICDs, technologies"
+    },
+    {
+      "id": "08-MBSE.md#023",
+      "path": [
+        "08-MBSE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:08-mbse, git-history:systems-engineering:08-mbse]",
+        "canonical_path": "systems-engineering/08-MBSE.md",
+        "concepts": "[mbse]",
+        "current_path": "systems-engineering/08-MBSE.md",
+        "id": "maxim:systems-engineering:mbse",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mbse]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Based Systems Engineering (MBSE)",
+        "updated": "null"
+      },
+      "text": "Tool: Capella (Eclipse-based, open source, Thales)\nWidely used in French defense, rail, automotive (Thales, Airbus)\nStrong functional analysis capability\n```"
+    },
+    {
+      "id": "08-MBSE.md#024",
+      "path": [
+        "08-MBSE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:08-mbse, git-history:systems-engineering:08-mbse]",
+        "canonical_path": "systems-engineering/08-MBSE.md",
+        "concepts": "[mbse]",
+        "current_path": "systems-engineering/08-MBSE.md",
+        "id": "maxim:systems-engineering:mbse",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mbse]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Based Systems Engineering (MBSE)",
+        "updated": "null"
+      },
+      "text": "### RFLP (Dassault Systèmes / Cameo)"
+    },
+    {
+      "id": "08-MBSE.md#025",
+      "path": [
+        "08-MBSE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:08-mbse, git-history:systems-engineering:08-mbse]",
+        "canonical_path": "systems-engineering/08-MBSE.md",
+        "concepts": "[mbse]",
+        "current_path": "systems-engineering/08-MBSE.md",
+        "id": "maxim:systems-engineering:mbse",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mbse]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Based Systems Engineering (MBSE)",
+        "updated": "null"
+      },
+      "text": "```\nRFLP METHOD (Requirements-Functional-Logical-Physical)\n──────────────────────────────────────────────────────────────────\nR - Requirements    Stakeholder and system requirements\nF - Functional      Functional decomposition, data flows\nL - Logical         Architecture (vendor-agnostic)\nP - Physical        Actual product configuration"
+    },
+    {
+      "id": "08-MBSE.md#026",
+      "path": [
+        "08-MBSE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:08-mbse, git-history:systems-engineering:08-mbse]",
+        "canonical_path": "systems-engineering/08-MBSE.md",
+        "concepts": "[mbse]",
+        "current_path": "systems-engineering/08-MBSE.md",
+        "id": "maxim:systems-engineering:mbse",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mbse]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Based Systems Engineering (MBSE)",
+        "updated": "null"
+      },
+      "text": "Each level traced to next\nCameo Systems Modeler (formerly Magic Systems) implements RFLP\nPopular in aerospace (Boeing, Airbus, NASA)\nStrong integration with simulation (Simulink via SysML parametric)\n```"
+    },
+    {
+      "id": "08-MBSE.md#027",
+      "path": [
+        "08-MBSE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:08-mbse, git-history:systems-engineering:08-mbse]",
+        "canonical_path": "systems-engineering/08-MBSE.md",
+        "concepts": "[mbse]",
+        "current_path": "systems-engineering/08-MBSE.md",
+        "id": "maxim:systems-engineering:mbse",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mbse]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Based Systems Engineering (MBSE)",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-MBSE.md#028",
+      "path": [
+        "08-MBSE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:08-mbse, git-history:systems-engineering:08-mbse]",
+        "canonical_path": "systems-engineering/08-MBSE.md",
+        "concepts": "[mbse]",
+        "current_path": "systems-engineering/08-MBSE.md",
+        "id": "maxim:systems-engineering:mbse",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mbse]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Based Systems Engineering (MBSE)",
+        "updated": "null"
+      },
+      "text": "## MBSE Tools Landscape"
+    },
+    {
+      "id": "08-MBSE.md#029",
+      "path": [
+        "08-MBSE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:08-mbse, git-history:systems-engineering:08-mbse]",
+        "canonical_path": "systems-engineering/08-MBSE.md",
+        "concepts": "[mbse]",
+        "current_path": "systems-engineering/08-MBSE.md",
+        "id": "maxim:systems-engineering:mbse",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mbse]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Model-Based Systems Engineering (MBSE)",
+        "updated": "null"
+      },
+      "text": "```\nMBSE TOOL CATEGORIES\n──────────────────────────────────────────────────────────────────\nFull MBSE Tools (SysML-capable):\n  Cameo Systems Modeler    Industry standard (Dassault/No Magic)\n    → Best SysML 1.x implementation, Java-based, expensive\n  IBM Rhapsody             IBM, strong HW/SW co-design, code gen\n  YAKINDU (itemis CREATE)  Strong state machine focus\n  Enterprise Architect     Sparx Systems, lower cost, broad use\n  Papyrus (Eclipse)        Open source, SysML plugin\n  Capella (Thales/Eclipse) Open source, ARCADIA-specific"
+    }
+  ],
+  "refs": [
+    "08-MBSE.md"
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "distributed-systems\\06-DISTRIBUTED-DB.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "DISTRIBUTED DATABASE LANDSCAPE\n+-----------------------------------------------------------------------+\n|                                                                       |\n|  CONSISTENCY AXIS                                                     |\n|  Strong ──────────────────────────────────────── Eventual             |\n|     |                                                 |               |\n|  Spanner        CockroachDB   CosmosDB   CosmosDB  DynamoDB           |\n|  (TrueTime)     (HLC)         (Strong)   (Eventual) (AP default)      |\n|  FoundationDB                 Azure SQL                               |\n|                                                                       |\n|  QUERY MODEL AXIS                                                     |\n|  SQL ──────────────────────────────── Document/KV/Graph               |\n|     |                                          |                      |\n|  Spanner        CockroachDB   CosmosDB(SQL)  DynamoDB   Cassandra     |\n|  FoundationDB                 CosmosDB(Mongo)            Redis        |\n|                                                                       |\n|  SCALE AXIS                                                           |\n|  Single-DC ──────────────────────────── Globally distributed          |\n|     |                                          |                      |\n|  PostgreSQL     CockroachDB   CosmosDB         Spanner                |\n|  (single node)  (multi-region) (multi-region)  (global)               |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 61,
+      "heading_context": "### Architecture",
+      "confidence": "candidate",
+      "text": "SPANNER ARCHITECTURE\n+----------------------------------------------------------+\n|                    GLOBAL                                |\n|  +-------------------+   +-------------------+           |\n|  | Zone A (US-East)  |   | Zone B (EU-West)  |  ...     |\n|  +-------------------+   +-------------------+           |\n|  |  Tablet servers   |   |  Tablet servers   |           |\n|  |  (data shards)    |   |  (data shards)    |           |\n|  +-------------------+   +-------------------+           |\n|          |                        |                       |\n|          ---------- connection ----------                |\n|                     |                                     |\n|          Paxos groups (per shard)                         |\n|          (majority = cross-zone quorum)                   |\n|                     |                                     |\n|         TrueTime API (atomic clock + GPS)                 |\n|         provides bounded timestamp uncertainty            |\n+----------------------------------------------------------+\n\nWRITE PATH\n  Client → any zone → route to Paxos leader for that shard\n  Leader proposes → quorum acks → commit with TrueTime timestamp\n  Commit wait: 2ε (~2-14ms) before returning to client\n  → External consistency guaranteed\n\nREAD PATH (strong)\n  Read at current TrueTime → waits for safe time\n  → guaranteed to see all commits before read timestamp\n\nREAD PATH (stale)\n  Read at timestamp T (seconds ago)\n  → served from any replica (no quorum needed)\n  → lower latency for analytics",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 120,
+      "heading_context": "### Architecture",
+      "confidence": "candidate",
+      "text": "COCKROACHDB ARCHITECTURE\n+----------------------------------------------------------+\n| Nodes (any number, add for scale)                        |\n+----------------------------------------------------------+\n| SQL Layer   (standard PostgreSQL-compatible SQL)         |\n+----------------------------------------------------------+\n| Transaction Layer (serializable isolation, 2PC-like)     |\n+----------------------------------------------------------+\n| Distribution Layer (range-based sharding)                |\n|   Key space split into ~64MB ranges                      |\n|   Each range: Raft group (3 replicas by default)         |\n+----------------------------------------------------------+\n| Replication Layer (Raft per range)                       |\n+----------------------------------------------------------+\n| Storage Layer (RocksDB/Mdport, LSM-tree)                 |\n+----------------------------------------------------------+\n\nSHARDING: Ranges are contiguous key ranges, automatically split/merged\nCONSENSUS: Each range has its own Raft group\nCLOCK: Hybrid Logical Clocks (HLC) instead of TrueTime",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 166,
+      "heading_context": "### Architecture",
+      "confidence": "candidate",
+      "text": "DYNAMODB ARCHITECTURE\n+----------------------------------------------------------+\n| Table = collection of items (no schema except PK)        |\n| Item = up to 400KB, JSON-like attributes                 |\n+----------------------------------------------------------+\n| PRIMARY KEY:                                             |\n|   Partition key only (hash)     → single-attribute PK   |\n|   Partition key + sort key      → composite PK          |\n+----------------------------------------------------------+\n| STORAGE:                                                 |\n|   3 AZ replicas per table region (sync replication)      |\n|   Consistent hash ring → auto-sharding                   |\n+----------------------------------------------------------+\n| CONSISTENCY OPTIONS:                                     |\n|   Eventually consistent reads (default) → read 1 replica |\n|   Strongly consistent reads (2x read units) → read quorum |\n+----------------------------------------------------------+\n| GLOBAL TABLES:                                           |\n|   Multi-region, multi-master replication                 |\n|   Conflict resolution: last-write-wins                   |\n+----------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 194,
+      "heading_context": "### Single-Table Design",
+      "confidence": "candidate",
+      "text": "TRADITIONAL (SQL approach)       DYNAMODB SINGLE-TABLE DESIGN\nUsers table                      Single table with GSI/LSI overloading:\nOrders table                     PK           SK              type\nOrderItems table                 USER#123     PROFILE#123     user\n                                 USER#123     ORDER#456       order\nJOIN on query                    ORDER#456    ITEM#1          item\n                                 ORDER#456    ITEM#2          item\n\nQuery users and orders:          Query PK=USER#123, SK begins with ORDER#\n  SELECT * FROM users            → returns all orders for user in one query\n  JOIN orders ON id=user_id      → no cross-partition scan",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 220,
+      "heading_context": "### Architecture",
+      "confidence": "candidate",
+      "text": "COSMOSDB ARCHITECTURE\n+----------------------------------------------------------+\n| Account (globally distributed resource)                  |\n|   Regions: write region(s) + read regions                |\n|   Multi-master: optional (multiple write regions)        |\n+----------------------------------------------------------+\n| Database → Containers (collections)                      |\n|   Container = partitioned collection                     |\n|   Partition key determines shard placement               |\n+----------------------------------------------------------+\n| Physical partitions                                      |\n|   Each physical partition: ~50GB max                     |\n|   Replicated 4 times within a region (quorum)            |\n|   Replicated across regions via async log replication    |\n+----------------------------------------------------------+\n| Consistency level per request (5 options)                |\n|   Default: set at account, override per read             |\n+----------------------------------------------------------+\n\nSTRONG: Linearizability. Single-write-region only.\n        Cross-region reads wait for replication.\n        Highest latency, but reads never stale.\n\nBOUNDED STALENESS: Reads lag by at most K operations or T seconds.\n                   Good for globally distributed apps needing order.\n\nSESSION: Read-your-writes within a session token.\n         Most apps use this. Balance of consistency and performance.\n\nCONSISTENT PREFIX: Reads see operations in order, but may lag.\n                   No isolated stale reads; causal ordering maintained.\n\nEVENTUAL: Fastest reads. No ordering guarantee. Reads may be stale.\n          Maximum throughput and availability.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 271,
+      "heading_context": "### Architecture",
+      "confidence": "candidate",
+      "text": "CASSANDRA RING TOPOLOGY\n+----------------------------------------------------------+\n|                                                          |\n|        Node1 ────── Node2                                |\n|       /                    \\                             |\n|    Node5                  Node3                          |\n|       \\                    /                             |\n|        Node4 ────── (Node4)                              |\n|                                                          |\n| Consistent hashing: each node owns a token range         |\n| Replication factor: each key replicated to RF nodes      |\n| (adjacent in ring by token)                              |\n|                                                          |\n| WRITE:                                                   |\n|   Client → coordinator (any node) → W replica nodes      |\n|   Coordinator waits for W acks (W = quorum setting)      |\n|                                                          |\n| READ:                                                    |\n|   Client → coordinator → R replica nodes                 |\n|   Coordinator returns latest (by timestamp), repairs     |\n|   stale replicas (read repair)                           |\n+----------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 298,
+      "heading_context": "### Tunable Consistency in Cassandra",
+      "confidence": "candidate",
+      "text": "CONSISTENCY LEVELS (per operation):\n  ONE: 1 replica must ack. Fast, AP.\n  QUORUM: majority must ack. Balanced CP/AP.\n  ALL: all replicas must ack. Slow, CP.\n  LOCAL_QUORUM: quorum in local DC only. Good for multi-DC.\n  EACH_QUORUM: quorum in each DC. Strong cross-DC.\n\nQUORUM MATH:\n  RF=3, W=QUORUM(2), R=QUORUM(2): W+R=4 > RF=3 → strong consistency\n  RF=3, W=ONE(1), R=ONE(1): W+R=2 <= RF=3 → eventual consistency",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

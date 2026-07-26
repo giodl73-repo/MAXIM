@@ -1,0 +1,573 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-mathematics-groups-sets-algebra",
+  "source": "../../mathematics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "05-GROUPS-SETS-ALGEBRA.md#000",
+      "path": [
+        "05-GROUPS-SETS-ALGEBRA.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:05-groups-sets-algebra, git-history:mathematics:05-groups-sets-algebra]",
+        "canonical_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "concepts": "[groups, sets, algebra]",
+        "current_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "id": "maxim:mathematics:groups-sets-algebra",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[groups, sets]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - Groups, Sets, and Abstract Algebra",
+        "updated": "null"
+      },
+      "text": "# 05 — Groups, Sets, and Abstract Algebra"
+    },
+    {
+      "id": "05-GROUPS-SETS-ALGEBRA.md#001",
+      "path": [
+        "05-GROUPS-SETS-ALGEBRA.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:05-groups-sets-algebra, git-history:mathematics:05-groups-sets-algebra]",
+        "canonical_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "concepts": "[groups, sets, algebra]",
+        "current_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "id": "maxim:mathematics:groups-sets-algebra",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[groups, sets]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - Groups, Sets, and Abstract Algebra",
+        "updated": "null"
+      },
+      "text": "```\nTHE LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "05-GROUPS-SETS-ALGEBRA.md#002",
+      "path": [
+        "05-GROUPS-SETS-ALGEBRA.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:05-groups-sets-algebra, git-history:mathematics:05-groups-sets-algebra]",
+        "canonical_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "concepts": "[groups, sets, algebra]",
+        "current_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "id": "maxim:mathematics:groups-sets-algebra",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[groups, sets]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - Groups, Sets, and Abstract Algebra",
+        "updated": "null"
+      },
+      "text": "SETS                GROUPS              RINGS / FIELDS       LIE GROUPS\n  ┌──────────┐        ┌──────────────┐    ┌──────────────┐     ┌──────────────┐\n  │ ∈, ⊆, ∪  │        │ closure      │    │ + and ×      │     │ group + mfld │\n  │ ∩, \\, ×  │   →    │ associative  │ →  │ distributive │  →  │ smooth sym.  │\n  │ power set│        │ identity     │    │ inverses     │     │ U(1),SU(2)   │\n  │ functions│        │ inverses     │    │ Fields: ÷    │     │ SU(3),SO(3)  │\n  └──────────┘        └──────────────┘    └──────────────┘     └──────────────┘"
+    },
+    {
+      "id": "05-GROUPS-SETS-ALGEBRA.md#003",
+      "path": [
+        "05-GROUPS-SETS-ALGEBRA.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:05-groups-sets-algebra, git-history:mathematics:05-groups-sets-algebra]",
+        "canonical_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "concepts": "[groups, sets, algebra]",
+        "current_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "id": "maxim:mathematics:groups-sets-algebra",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[groups, sets]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - Groups, Sets, and Abstract Algebra",
+        "updated": "null"
+      },
+      "text": "WHY THIS MATTERS FOR PHYSICS:\n  Every conservation law = a symmetry group (Noether's theorem)\n  EM gauge invariance      = U(1)          → photon (massless)\n  Weak force               = SU(2)         → W±, Z bosons\n  Strong force             = SU(3)         → 8 gluons\n  Spacetime rotations      = SO(3)/SO(3,1) → angular momentum quantization\n  Spin                     = SU(2) (double cover of SO(3))\n  Standard Model gauge group = U(1) × SU(2) × SU(3)\n═══════════════════════════════════════════════════════════════════════════════\n```"
+    },
+    {
+      "id": "05-GROUPS-SETS-ALGEBRA.md#004",
+      "path": [
+        "05-GROUPS-SETS-ALGEBRA.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:05-groups-sets-algebra, git-history:mathematics:05-groups-sets-algebra]",
+        "canonical_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "concepts": "[groups, sets, algebra]",
+        "current_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "id": "maxim:mathematics:groups-sets-algebra",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[groups, sets]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - Groups, Sets, and Abstract Algebra",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-GROUPS-SETS-ALGEBRA.md#005",
+      "path": [
+        "05-GROUPS-SETS-ALGEBRA.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:05-groups-sets-algebra, git-history:mathematics:05-groups-sets-algebra]",
+        "canonical_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "concepts": "[groups, sets, algebra]",
+        "current_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "id": "maxim:mathematics:groups-sets-algebra",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[groups, sets]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - Groups, Sets, and Abstract Algebra",
+        "updated": "null"
+      },
+      "text": "## 1. Sets — The Foundation"
+    },
+    {
+      "id": "05-GROUPS-SETS-ALGEBRA.md#006",
+      "path": [
+        "05-GROUPS-SETS-ALGEBRA.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:05-groups-sets-algebra, git-history:mathematics:05-groups-sets-algebra]",
+        "canonical_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "concepts": "[groups, sets, algebra]",
+        "current_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "id": "maxim:mathematics:groups-sets-algebra",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[groups, sets]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - Groups, Sets, and Abstract Algebra",
+        "updated": "null"
+      },
+      "text": "### 1.1 ZFC Axioms — The Foundations"
+    },
+    {
+      "id": "05-GROUPS-SETS-ALGEBRA.md#007",
+      "path": [
+        "05-GROUPS-SETS-ALGEBRA.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:05-groups-sets-algebra, git-history:mathematics:05-groups-sets-algebra]",
+        "canonical_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "concepts": "[groups, sets, algebra]",
+        "current_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "id": "maxim:mathematics:groups-sets-algebra",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[groups, sets]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - Groups, Sets, and Abstract Algebra",
+        "updated": "null"
+      },
+      "text": "Modern mathematics rests on the Zermelo-Fraenkel axioms with the Axiom of Choice (ZFC). These are the foundation the Cantor cardinality material below depends on."
+    },
+    {
+      "id": "05-GROUPS-SETS-ALGEBRA.md#008",
+      "path": [
+        "05-GROUPS-SETS-ALGEBRA.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:05-groups-sets-algebra, git-history:mathematics:05-groups-sets-algebra]",
+        "canonical_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "concepts": "[groups, sets, algebra]",
+        "current_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "id": "maxim:mathematics:groups-sets-algebra",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[groups, sets]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - Groups, Sets, and Abstract Algebra",
+        "updated": "null"
+      },
+      "text": "```\n  THE ZF AXIOMS (Zermelo-Fraenkel):"
+    },
+    {
+      "id": "05-GROUPS-SETS-ALGEBRA.md#009",
+      "path": [
+        "05-GROUPS-SETS-ALGEBRA.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:05-groups-sets-algebra, git-history:mathematics:05-groups-sets-algebra]",
+        "canonical_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "concepts": "[groups, sets, algebra]",
+        "current_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "id": "maxim:mathematics:groups-sets-algebra",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[groups, sets]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - Groups, Sets, and Abstract Algebra",
+        "updated": "null"
+      },
+      "text": "1. EXTENSIONALITY: Two sets are equal iff they have the same elements.\n     A = B  ⟺  ∀x (x ∈ A ⟺ x ∈ B)"
+    },
+    {
+      "id": "05-GROUPS-SETS-ALGEBRA.md#010",
+      "path": [
+        "05-GROUPS-SETS-ALGEBRA.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:05-groups-sets-algebra, git-history:mathematics:05-groups-sets-algebra]",
+        "canonical_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "concepts": "[groups, sets, algebra]",
+        "current_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "id": "maxim:mathematics:groups-sets-algebra",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[groups, sets]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - Groups, Sets, and Abstract Algebra",
+        "updated": "null"
+      },
+      "text": "2. PAIRING: For any a, b, the set {a, b} exists."
+    },
+    {
+      "id": "05-GROUPS-SETS-ALGEBRA.md#011",
+      "path": [
+        "05-GROUPS-SETS-ALGEBRA.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:05-groups-sets-algebra, git-history:mathematics:05-groups-sets-algebra]",
+        "canonical_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "concepts": "[groups, sets, algebra]",
+        "current_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "id": "maxim:mathematics:groups-sets-algebra",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[groups, sets]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - Groups, Sets, and Abstract Algebra",
+        "updated": "null"
+      },
+      "text": "3. UNION: For any family F of sets, ∪F exists."
+    },
+    {
+      "id": "05-GROUPS-SETS-ALGEBRA.md#012",
+      "path": [
+        "05-GROUPS-SETS-ALGEBRA.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:05-groups-sets-algebra, git-history:mathematics:05-groups-sets-algebra]",
+        "canonical_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "concepts": "[groups, sets, algebra]",
+        "current_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "id": "maxim:mathematics:groups-sets-algebra",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[groups, sets]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - Groups, Sets, and Abstract Algebra",
+        "updated": "null"
+      },
+      "text": "4. POWER SET: For any set A, the set 𝒫(A) = {X | X ⊆ A} exists."
+    },
+    {
+      "id": "05-GROUPS-SETS-ALGEBRA.md#013",
+      "path": [
+        "05-GROUPS-SETS-ALGEBRA.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:05-groups-sets-algebra, git-history:mathematics:05-groups-sets-algebra]",
+        "canonical_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "concepts": "[groups, sets, algebra]",
+        "current_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "id": "maxim:mathematics:groups-sets-algebra",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[groups, sets]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - Groups, Sets, and Abstract Algebra",
+        "updated": "null"
+      },
+      "text": "5. INFINITY: There exists an infinite set (formalizes ℕ).\n     ∃S: ∅ ∈ S ∧ ∀x ∈ S, (x ∪ {x}) ∈ S"
+    },
+    {
+      "id": "05-GROUPS-SETS-ALGEBRA.md#014",
+      "path": [
+        "05-GROUPS-SETS-ALGEBRA.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:05-groups-sets-algebra, git-history:mathematics:05-groups-sets-algebra]",
+        "canonical_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "concepts": "[groups, sets, algebra]",
+        "current_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "id": "maxim:mathematics:groups-sets-algebra",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[groups, sets]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - Groups, Sets, and Abstract Algebra",
+        "updated": "null"
+      },
+      "text": "6. REPLACEMENT: If F is a class function, the image F[A] of any set A exists."
+    },
+    {
+      "id": "05-GROUPS-SETS-ALGEBRA.md#015",
+      "path": [
+        "05-GROUPS-SETS-ALGEBRA.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:05-groups-sets-algebra, git-history:mathematics:05-groups-sets-algebra]",
+        "canonical_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "concepts": "[groups, sets, algebra]",
+        "current_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "id": "maxim:mathematics:groups-sets-algebra",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[groups, sets]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - Groups, Sets, and Abstract Algebra",
+        "updated": "null"
+      },
+      "text": "7. FOUNDATION (Regularity): Every non-empty set A has an element\n     disjoint from A. This prevents A ∈ A (no self-membership)."
+    },
+    {
+      "id": "05-GROUPS-SETS-ALGEBRA.md#016",
+      "path": [
+        "05-GROUPS-SETS-ALGEBRA.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:05-groups-sets-algebra, git-history:mathematics:05-groups-sets-algebra]",
+        "canonical_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "concepts": "[groups, sets, algebra]",
+        "current_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "id": "maxim:mathematics:groups-sets-algebra",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[groups, sets]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - Groups, Sets, and Abstract Algebra",
+        "updated": "null"
+      },
+      "text": "8. SEPARATION (Axiom schema): For any set A and formula φ,\n     {x ∈ A | φ(x)} exists. (Avoids Russell's paradox — set must be\n     carved from an existing set, not collected from all of V.)"
+    },
+    {
+      "id": "05-GROUPS-SETS-ALGEBRA.md#017",
+      "path": [
+        "05-GROUPS-SETS-ALGEBRA.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:05-groups-sets-algebra, git-history:mathematics:05-groups-sets-algebra]",
+        "canonical_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "concepts": "[groups, sets, algebra]",
+        "current_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "id": "maxim:mathematics:groups-sets-algebra",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[groups, sets]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - Groups, Sets, and Abstract Algebra",
+        "updated": "null"
+      },
+      "text": "AXIOM OF CHOICE (AC): For any family of non-empty sets, there exists\n  a choice function selecting one element from each.\n  ∀F (∅ ∉ F → ∃f: F→∪F such that ∀A ∈ F, f(A) ∈ A)\n```"
+    },
+    {
+      "id": "05-GROUPS-SETS-ALGEBRA.md#018",
+      "path": [
+        "05-GROUPS-SETS-ALGEBRA.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:05-groups-sets-algebra, git-history:mathematics:05-groups-sets-algebra]",
+        "canonical_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "concepts": "[groups, sets, algebra]",
+        "current_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "id": "maxim:mathematics:groups-sets-algebra",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[groups, sets]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - Groups, Sets, and Abstract Algebra",
+        "updated": "null"
+      },
+      "text": "**Key equivalences to AC** (each is equivalent to AC over ZF):"
+    },
+    {
+      "id": "05-GROUPS-SETS-ALGEBRA.md#019",
+      "path": [
+        "05-GROUPS-SETS-ALGEBRA.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:05-groups-sets-algebra, git-history:mathematics:05-groups-sets-algebra]",
+        "canonical_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "concepts": "[groups, sets, algebra]",
+        "current_path": "mathematics/05-GROUPS-SETS-ALGEBRA.md",
+        "id": "maxim:mathematics:groups-sets-algebra",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[groups, sets]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - Groups, Sets, and Abstract Algebra",
+        "updated": "null"
+      },
+      "text": "```\n  ZORN'S LEMMA: If every chain in a partial order has an upper bound,\n  the partial order has a maximal element.\n  → Used constantly in algebra: every vector space has a basis (Hamel basis),\n    every ring has a maximal ideal, every field has an algebraic closure."
+    }
+  ],
+  "refs": [
+    "05-GROUPS-SETS-ALGEBRA.md"
+  ]
+}

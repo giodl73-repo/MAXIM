@@ -1,0 +1,3009 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-quantum-computing-error-correction",
+  "source": "../../quantum-computing",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "03-ERROR-CORRECTION.md#000",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "# Quantum Error Correction"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#001",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#002",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|               QUANTUM ERROR CORRECTION LANDSCAPE                 |\n+------------------------------------------------------------------+\n|                                                                    |\n|  WHY IT'S HARD               HOW IT WORKS                        |\n|                                                                   |\n|  No-cloning: can't copy       Encode logical qubit in             |\n|  Measurement destroys state   entangled multi-qubit state         |\n|  Errors are continuous        Syndrome measurements detect        |\n|  Quantum info fragile         errors without reading state        |\n|                                                                    |\n|  CODES (historical order)     PRACTICAL PATH                      |\n|                                                                   |\n|  Shor 9-qubit (1995)          Surface code (2D toric)             |\n|  Calderbank-Shor-Steane       ~1000 phys. per logical             |\n|  CSS codes (1996)             IBM, Google targeting this          |\n|  Kitaev toric code (1997)     Threshold theorem: below p*,        |\n|  Surface code variants        logical error → 0 as code size ↑    |\n+------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#003",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "Without error correction, quantum computers are limited to circuits\nshallow enough that decoherence doesn't corrupt the computation.\nFor most useful algorithms (Shor, QPE, HHL), this requires\nfault-tolerant quantum computers — still years away."
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#004",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#005",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "## Why Quantum Error Correction Is Hard"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#006",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "Three fundamental obstacles vs classical error correction:"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#007",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "```\nOBSTACLE 1: NO-CLONING\n  Classical: back up bit stream, compare, restore from majority\n  Quantum:   |ψ⟩ cannot be cloned (no-cloning theorem)\n  Solution:  Spread logical qubit across entangled multi-qubit states.\n             Syndrome measurements detect error location/type\n             without revealing the encoded information."
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#008",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "OBSTACLE 2: MEASUREMENT DESTROYS STATE\n  Classical: read bit → extract value directly\n  Quantum:   measuring |ψ⟩ = α|0⟩ + β|1⟩ destroys superposition\n  Solution:  Ancilla qubits measure error syndromes — parity checks\n             on stabilizer generators — without touching logical state.\n             E.g., measure ZZ = parity of two qubits: ⟨ZZ⟩ = ±1\n             reveals if they're equal/unequal, not their individual values."
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#009",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "OBSTACLE 3: CONTINUOUS ERRORS\n  Classical: bit flip is discrete {0→1, 1→0}\n  Quantum:   arbitrary rotation error: |0⟩ → cos(ε)|0⟩ + sin(ε)e^{iφ}|1⟩\n  Solution:  Discretization by stabilizer measurement. Measuring syndrome\n             projects continuous error onto discrete error space (X, Z, Y, I).\n             This is why QEC works despite continuous error model.\n```"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#010",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#011",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "## Quantum Error Model"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#012",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "Any single-qubit error can be decomposed in the Pauli basis:"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#013",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "```\nPAULI BASIS {I, X, Y, Z}:\n  I = identity (no error)\n  X = bit flip:    X|0⟩ = |1⟩, X|1⟩ = |0⟩\n  Z = phase flip:  Z|0⟩ = |0⟩, Z|1⟩ = −|1⟩\n  Y = both:        Y = iXZ  (bit flip + phase flip)"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#014",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "Any single-qubit error ε:\n  ε(|ψ⟩⟨ψ|) = Σᵢⱼ Eᵢ|ψ⟩⟨ψ|Eⱼ†  where Eᵢ ∈ {I, X, Y, Z} × complex coeff."
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#015",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "QEC only needs to correct X, Z, Y errors:\n  If code corrects these, it corrects any error (by linearity)\n  This is the discretization miracle."
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#016",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "Quantum channel models:\n  Bit-flip channel:   with prob p: X error, prob (1-p): I\n  Phase-flip channel: with prob p: Z error, prob (1-p): I\n  Depolarizing:       with prob p: uniform X, Y, or Z error each with p/3\n  Amplitude damping:  |1⟩ → |0⟩ energy loss (T₁ process)\n```"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#017",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#018",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "## 3-Qubit Bit-Flip Code"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#019",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "The simplest quantum error correcting code (analogous to classical repetition):"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#020",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "```\nENCODING:   |0_L⟩ = |000⟩    |1_L⟩ = |111⟩\n  |ψ⟩ = α|0⟩ + β|1⟩  →  α|000⟩ + β|111⟩"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#021",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "Error occurs (say X on qubit 1): α|100⟩ + β|011⟩"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#022",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "SYNDROME MEASUREMENT (ancilla qubits):\n  Measure stabilizers Z₁Z₂ and Z₂Z₃  (parity checks):"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#023",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "State         Z₁Z₂  Z₂Z₃   Error"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#024",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "α|000⟩+β|111⟩  +1    +1     none (I)\n  α|100⟩+β|011⟩  −1    +1     X on qubit 0\n  α|010⟩+β|101⟩  −1    −1     X on qubit 1\n  α|001⟩+β|110⟩  +1    −1     X on qubit 2"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#025",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "CORRECTION: Apply X to the indicated qubit. State restored."
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#026",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "WHAT IS NOT MEASURED: The logical state (α, β) — only the syndrome\n(which physical qubit has an X error)."
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#027",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "LIMITATION: Corrects only single X (bit-flip) errors.\n            Cannot correct Z (phase-flip) errors.\n```"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#028",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#029",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "## 3-Qubit Phase-Flip Code"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#030",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "Handles phase errors using Hadamard-rotated basis:"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#031",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "```\nENCODING (in |+⟩/|−⟩ basis):\n  |0_L⟩ = |+++⟩    |1_L⟩ = |−−−⟩\n  where |+⟩ = (|0⟩+|1⟩)/√2, |−⟩ = (|0⟩−|1⟩)/√2"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#032",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "SYNDROME: Measure X₁X₂ and X₂X₃ (analog of Z₁Z₂ in rotated basis)"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#033",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "Z error on qubit j flips phase of that qubit: |+⟩ ↔ |−⟩\nSame syndrome table as bit-flip code but with X↔Z."
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#034",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "CORRECTION: Apply Z to indicated qubit.\n```"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#035",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#036",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "## Shor's 9-Qubit Code (1995)"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#037",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "First quantum error correcting code. Combines the two 3-qubit codes:"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#038",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "```\nENCODING (each logical qubit into 9 physical qubits):\n  |0_L⟩ = (|000⟩+|111⟩)^⊗3 / 2√2\n  |1_L⟩ = (|000⟩−|111⟩)^⊗3 / 2√2"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#039",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "Three blocks of 3 qubits — each block encodes for bit flips.\n  The three blocks together encode for phase flips.\n  Outer code: phase-flip code (over 3 blocks)\n  Inner code: bit-flip code (within each block)"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#040",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "CORRECTS: Any single-qubit X, Y, or Z error.\nSYNDROME: 8 measurements (2 per block for bit-flip + 2 for phase-flip)\nOVERHEAD: 9 physical qubits per 1 logical qubit\n[[n,k,d]] notation: [[9,1,3]]\n  n = 9 physical qubits\n  k = 1 logical qubit\n  d = 3 (distance — can correct ⌊(d-1)/2⌋ = 1 error)\n```"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#041",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#042",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "## Stabilizer Formalism"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#043",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "The general framework unifying all major QEC codes."
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#044",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "```\nPAULI GROUP on n qubits: Pₙ = {±1, ±i} × {I,X,Y,Z}^⊗n\n  Elements are n-qubit Pauli operators (e.g., XZYIZ)"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#045",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "STABILIZER GROUP S:\n  Abelian subgroup S ⊂ Pₙ with −I ∉ S\n  A state |ψ⟩ is stabilized by S if: s|ψ⟩ = |ψ⟩ for all s ∈ S"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#046",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "STABILIZER CODE [[n,k,d]]:\n  n physical qubits, k logical qubits, distance d\n  |S| = n − k stabilizer generators (s₁, ..., s_{n-k})\n  Code space: simultaneous +1 eigenspace of all stabilizers"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#047",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "Logical operators: X̄, Z̄ commute with all stabilizers\n                    but are not themselves stabilizers"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#048",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "Error detection:\n    Error E anticommutes with some stabilizer: sᵢE ≠ Esᵢ\n    → syndrome measurement of sᵢ gives −1 instead of +1\n    → reveals error without reading logical state\n```"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#049",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "**Example — 3-qubit bit-flip code in stabilizer language:**"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#050",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "```\nGenerators: s₁ = Z₁Z₂, s₂ = Z₂Z₃\nLogical operators: X̄ = X₁X₂X₃, Z̄ = Z₁  (or Z₂ or Z₃)\nCode space: +1 eigenspace of Z₁Z₂ and Z₂Z₃\n           = span{|000⟩, |111⟩}  ✓"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#051",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "X error on qubit 1: X₁ anticommutes with Z₁Z₂ (syndrome s₁ = -1),\n                    commutes with Z₂Z₃ (syndrome s₂ = +1)\nSyndrome = (−1, +1) → X₁ error → apply X₁ → corrected\n```"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#052",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#053",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "## CSS Codes (Calderbank-Shor-Steane)"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#054",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "CSS codes are the bridge between classical and quantum error correction: they construct quantum codes directly from classical linear codes using parity-check matrices."
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#055",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "```\nCLASSICAL → QUANTUM BRIDGE:"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#056",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "CLASSICAL LINEAR CODE C[n,k,d]:\n  Parity-check matrix H: syndrome s = Hx detects bit errors\n  Hamming [7,4,3]: H is 3×7, corrects 1-bit errors\n  Dual code C⊥: codewords orthogonal to C"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#057",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "CSS CONSTRUCTION:\n  Take two classical codes C_x, C_z with parity-check matrices H_x, H_z\n  Requirement: C_z⊥ ⊆ C_x  (equivalently: H_x · H_zᵀ = 0)"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#058",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "X-stabilizers from rows of H_z → detect Z (phase) errors\n  Z-stabilizers from rows of H_x → detect X (bit-flip) errors\n  Bit-flip and phase-flip correction are independent!"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#059",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "The CSS condition H_x · H_zᵀ = 0 ensures stabilizers commute —\n  this is the quantum constraint that has no classical analog."
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#060",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "STEANE [[7,1,3]] CODE = HAMMING [7,4,3] CODE:\n  Use the SAME Hamming code for both C_x and C_z\n  H_x = H_z = Hamming parity-check matrix (self-dual CSS code)\n  Classical: 3 syndrome bits identify which of 7 bits flipped\n  Quantum:   3 X-syndrome bits identify Z-error location\n             3 Z-syndrome bits identify X-error location\n  Same decoding algorithm — applied twice, once per error type"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#061",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "CSS code [[n, k, d]] with k = dim(C_x) + dim(C_z) − n:\n  Reed-Solomon based: large k/n ratio\n  Topological codes (toric, surface): CSS structure on lattice"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#062",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "Transversal gates:\n  CSS codes support transversal CNOT\n  Steane code supports transversal H, CNOT, P (Clifford group)\n  No code supports transversal T gate (Eastin-Knill theorem)\n  → T gate requires magic state distillation\n```"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#063",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#064",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "## Surface Code"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#065",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "The current leading candidate for practical fault-tolerant quantum computers."
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#066",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "```\nLAYOUT (distance-d surface code, d × d data qubits):"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#067",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "●     ●     ●     ●    ● = data qubit (physical)\n     X     Z     X       X = X-type stabilizer (face/plaquette check)\n  ●     ●     ●     ●    Z = Z-type stabilizer (vertex check)\n     Z     X     Z\n  ●     ●     ●     ●\n     X     Z     X\n  ●     ●     ●     ●"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#068",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "d×d data qubits + (d²-1)/2 X-stabilizers + (d²-1)/2 Z-stabilizers\n  Total qubits: ~2d²"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#069",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "Each stabilizer check: 4 neighboring data qubits (weight-4 Pauli)\n  Only nearest-neighbor interactions — hardware friendly!\n  1 logical qubit per surface code patch"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#070",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "LOGICAL OPERATORS:\n  Z̄ = product of Z along top-bottom path (d qubits)\n  X̄ = product of X along left-right path (d qubits)"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#071",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "Code distance d = min path length crossing the patch\n  Corrects up to ⌊(d-1)/2⌋ arbitrary errors"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#072",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "ERROR CORRECTION CYCLE (~1 μs for superconducting):\n  1. Measure all stabilizers using ancilla qubits\n  2. Compare syndrome to previous round\n  3. Run minimum-weight perfect matching (MWPM) decoder\n  4. Apply corrections or track in software (correction tracking)"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#073",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "THRESHOLD: With physical error rate p < p* ≈ 0.1–1%:\n  Logical error rate: p_L ≈ (p/p*)^⌈d/2⌉  (exponentially suppressed!)"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#074",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "At p = 0.1%, d = 31:  p_L ≈ 10^{-15}  (target for Shor on RSA-2048)\n  Physical qubits needed: ~2 × 31² ≈ 2000 per logical qubit\n```"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#075",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#076",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "## Toric Code (Kitaev, 1997)"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#077",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "The original topological quantum code — surface code ancestor:"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#078",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "```\nSame structure as surface code but on a torus (periodic boundary conditions):\n  Encodes 2 logical qubits per torus (vs 1 for surface code)\n  Logical operators: nontrivial loops around torus"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#079",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "Why it matters conceptually:\n  Error correction ↔ topology: error is a chain of flipped stabilizers\n  Logical error = chain wrapping around torus\n  Correctable errors = chains that don't wrap"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#080",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "Physical intuition: quantum information is stored in global topological\n  properties, immune to local perturbations — Anyonic excitations."
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#081",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "Excitations are anyons:\n  X error: creates pair of \"e\" anyons (Z-stabilizer violations)\n  Z error: creates pair of \"m\" anyons (X-stabilizer violations)\n  MWPM decoder pairs them up and annihilates\n```"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#082",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#083",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "## Fault Tolerance Threshold Theorem"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#084",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "The fundamental theoretical guarantee:"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#085",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "```\nTHEOREM (Aharonov-Ben-Or 1997, Knill-Laflamme-Zurek 1996, ...):\n  If each gate has error probability ≤ p < p* (threshold),\n  then using quantum error correction with O(log^c(1/ε)) overhead,\n  any quantum circuit of depth L can be simulated with error < ε."
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#086",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "p* depends on:\n    Code choice: surface code p* ≈ 1%\n    Error model: depolarizing, correlated, ...\n    Decoder efficiency: MWPM is efficient and near-optimal"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#087",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "Overhead:\n    Gate overhead: O(poly(log 1/ε)) per logical gate\n    Space overhead: 2d² physical per logical (surface code, distance d)"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#088",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "CURRENT STATE (2024–2025):\n  Best physical error rates: ~0.1–0.5% 2Q gate error (superconducting)\n  Surface code threshold: ~1%\n  Status: BELOW threshold — key milestone achieved"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#089",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "IBM Heron: EPLG ~0.14% — well below 1% threshold\n  Google Willow (2024): logical error rate DECREASES as code distance increases\n    → This is the defining signature of being below threshold\n    → First demonstration of the exponential suppression the threshold theorem predicts"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#090",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "DISTINCTION (often conflated):\n    Below threshold ✓ — demonstrated (Willow, Heron error rates)\n    Enough qubits for useful FTQC ✗ — still ~4-5 orders of magnitude short\n    These are independent milestones: threshold is a rate, FTQC is a scale problem"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#091",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "CONSEQUENCE: below threshold, more physical qubits = better.\n             above threshold, more physical qubits = worse (error propagation).\n```"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#092",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#093",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "## Magic State Distillation"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#094",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "Why T gates are expensive in fault-tolerant QC:"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#095",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "```\nEASTIN-KNILL THEOREM: No quantum error correcting code supports\na universal transversal gate set. Specifically, CSS codes are\nlimited to Clifford group gates transversally."
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#096",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "CLIFFORD GROUP gates (transversal → \"cheap\" in FTQC):\n  H, S, CNOT, CZ, SWAP — efficiently simulable classically (Gottesman-Knill)\n  Free to implement in logical space via transversal circuits."
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#097",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "T GATE (non-Clifford → \"expensive\"):\n  Required for universality.\n  No transversal implementation in any code."
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#098",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "MAGIC STATE DISTILLATION (Bravyi-Kitaev 2005):\n  1. Inject noisy \"magic states\" |T⟩ = T|+⟩ = (|0⟩ + e^{iπ/4}|1⟩)/√2\n     Noisy injection: use teleportation with noisy resource state\n  2. Purify many noisy |T⟩ states into few high-fidelity ones\n     15 noisy → 1 clean (15-to-1 protocol, distance-3 Reed-Muller code)\n     Output error: O(ε^3) from input ε (cubic purification per round)\n  3. Use clean |T⟩ + gate teleportation → apply T logically"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#099",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "OVERHEAD:\n  15-to-1 distillation, round 1: 15 physical T-count per logical T\n  For RSA-2048 Shor: ~10^10 T gates needed\n  Magic state factories: ~90% of the total physical qubit overhead"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#100",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "More efficient protocols: Haah et al. 2017: 20-to-4 protocol, better asymptotic\n```"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#101",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#102",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "## Resource Estimation for Shor's Algorithm"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#103",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "Putting it all together:"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#104",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "```\nTARGET: Factor 2048-bit RSA modulus"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#105",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "Logical resources:\n  Logical qubits: ~4000\n  T gates: ~10^10  (using optimized Shor circuit)\n  Clifford gates: ~10^12\n  Total circuit depth: ~10^9 logical cycles"
+    },
+    {
+      "id": "03-ERROR-CORRECTION.md#106",
+      "path": [
+        "03-ERROR-CORRECTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:03-error-correction, git-history:quantum-computing:03-error-correction]",
+        "canonical_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "concepts": "[error, correction]",
+        "current_path": "quantum-computing/03-ERROR-CORRECTION.md",
+        "id": "maxim:quantum-computing:error-correction",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[error, correction]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Error Correction",
+        "updated": "null"
+      },
+      "text": "Physical resources (surface code, p = 10^{-3}):\n  Code distance: d ≈ 31  (to reach logical error 10^{-15} per gate)\n  Physical qubits per logical: ~2 × 31² ≈ 2000\n  Data qubits total: 4000 × 2000 = 8M physical qubits\n  Magic state factories: additional ~1M qubits\n  Total: ~9–10 million physical qubits"
+    }
+  ],
+  "refs": [
+    "03-ERROR-CORRECTION.md"
+  ]
+}

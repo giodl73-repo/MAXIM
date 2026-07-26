@@ -1,0 +1,825 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-scripting-cheatsheet",
+  "source": "../../scripting",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "01-CHEATSHEET.md#000",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:scripting:01-cheatsheet, git-history:scripting:01-cheatsheet]",
+        "canonical_path": "scripting/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "scripting/01-CHEATSHEET.md",
+        "id": "maxim:scripting:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "scripting",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "scripting",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Universal Scripting Cheat Sheet",
+        "updated": "null"
+      },
+      "text": "# Universal Scripting Cheat Sheet"
+    },
+    {
+      "id": "01-CHEATSHEET.md#001",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:scripting:01-cheatsheet, git-history:scripting:01-cheatsheet]",
+        "canonical_path": "scripting/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "scripting/01-CHEATSHEET.md",
+        "id": "maxim:scripting:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "scripting",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "scripting",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Universal Scripting Cheat Sheet",
+        "updated": "null"
+      },
+      "text": "```\nSCRIPTING TOOL LANDSCAPE — TWO-AXIS MAP\n═══════════════════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "01-CHEATSHEET.md#002",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:scripting:01-cheatsheet, git-history:scripting:01-cheatsheet]",
+        "canonical_path": "scripting/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "scripting/01-CHEATSHEET.md",
+        "id": "maxim:scripting:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "scripting",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "scripting",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Universal Scripting Cheat Sheet",
+        "updated": "null"
+      },
+      "text": "SCRIPTING / AUTOMATION POWER\n                                    ▲\n                                    │\n                         Perl ──────┤──────── PowerShell\n                    (full lang,     │         (full lang,\n                     text DSL,      │          .NET objects,\n                     CPAN)          │          cmdlet pipe)\n                                    │\n              AWK ──────────────────┼──────────────── Python (ref)\n         (text DSL,                 │                 (general purpose;\n          record model)             │                  not covered here)\n                                    │\n              sed ──────────────────┤\n         (stream editor,            │\n          line regex)               │\n                                    │\n               sh ──────────────────┤── Bash ─────────────────── Zsh\n         (POSIX min,                │   (superset,           (superset+,\n          Alpine/Docker)            │    arrays, [[]])        interactive++)\n                                    │\n                        Batch ──────┤\n                   (Windows legacy; │\n                    no real power)  │\n                                    │\n◄───────────────────────────────────┼────────────────────────────────────────►\n SCRIPT-ONLY                        │                            INTERACTIVE\n (not interactive REPLs)            │                            (great REPL\n                                    │                             experience)\n                                    │\n                                    │──────────────────────────── Fish\n                                    │                      (interactive-first,\n                                    │                       non-POSIX, modern UX)\n                                    ▼\n                        LOW SCRIPTING POWER / NARROW SCOPE\n```"
+    },
+    {
+      "id": "01-CHEATSHEET.md#003",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:scripting:01-cheatsheet, git-history:scripting:01-cheatsheet]",
+        "canonical_path": "scripting/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "scripting/01-CHEATSHEET.md",
+        "id": "maxim:scripting:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "scripting",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "scripting",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Universal Scripting Cheat Sheet",
+        "updated": "null"
+      },
+      "text": "**How to read this map:**"
+    },
+    {
+      "id": "01-CHEATSHEET.md#004",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:scripting:01-cheatsheet, git-history:scripting:01-cheatsheet]",
+        "canonical_path": "scripting/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "scripting/01-CHEATSHEET.md",
+        "id": "maxim:scripting:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "scripting",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "scripting",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Universal Scripting Cheat Sheet",
+        "updated": "null"
+      },
+      "text": "- **Top-right quadrant** (PowerShell, Python): high scripting power AND good interactive use — general-purpose work\n- **Top-left quadrant** (Perl, AWK, sed): high scripting/text power but not interactive shells — invoke from shell pipelines\n- **Bottom-right quadrant** (Fish, Zsh, Bash): interactive shells you actually type in; scripting power varies\n- **Bottom-left** (Batch, sh): minimal feature set; sh for portability, Batch for legacy Windows only"
+    },
+    {
+      "id": "01-CHEATSHEET.md#005",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:scripting:01-cheatsheet, git-history:scripting:01-cheatsheet]",
+        "canonical_path": "scripting/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "scripting/01-CHEATSHEET.md",
+        "id": "maxim:scripting:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "scripting",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "scripting",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Universal Scripting Cheat Sheet",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-CHEATSHEET.md#006",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:scripting:01-cheatsheet, git-history:scripting:01-cheatsheet]",
+        "canonical_path": "scripting/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "scripting/01-CHEATSHEET.md",
+        "id": "maxim:scripting:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "scripting",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "scripting",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Universal Scripting Cheat Sheet",
+        "updated": "null"
+      },
+      "text": "## Task → Tool Decision Table"
+    },
+    {
+      "id": "01-CHEATSHEET.md#007",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:scripting:01-cheatsheet, git-history:scripting:01-cheatsheet]",
+        "canonical_path": "scripting/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "scripting/01-CHEATSHEET.md",
+        "id": "maxim:scripting:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "scripting",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "scripting",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Universal Scripting Cheat Sheet",
+        "updated": "null"
+      },
+      "text": "| I need to... | Reach for | Why |\n|---|---|---|\n| Process CSV/TSV columns, sum/count/filter fields | `awk` | Record model, field splitting, arithmetic — designed for this |\n| Substitute text patterns in a stream | `sed` | Line-by-line substitution; `-i` for in-place |\n| In-place file edit with complex logic | `perl -i -pe` | More power than sed; regex with captures and code |\n| Parse/transform arbitrary text (complex) | `perl` or `python` | Full language; AWK runs out of headroom |\n| Write a portable script (any Linux/Docker/CI) | `sh` (POSIX) | Runs everywhere: dash, bash, busybox ash |\n| Write a Linux CI script (GitHub Actions, ubuntu) | `bash` | Default shell in ubuntu runners; `[[`, arrays available |\n| Script for Alpine or minimal Docker | `sh` (POSIX) | Alpine uses busybox ash — no bash |\n| Automate Windows / work with .NET objects | PowerShell | Object pipeline, .NET access, Azure CLI integration |\n| Interactive terminal experience on macOS | `zsh` | macOS default since 10.15; Oh My Zsh ecosystem |\n| Modern interactive shell (opinionated) | `fish` | Autosuggestions, syntax highlighting; non-POSIX |\n| Maintain a legacy Windows automation script | Batch | Only if you can't replace it; otherwise rewrite in PS |\n| One-liner: extract column from log | `awk '{print $3}'` | Field splitting by default |\n| One-liner: replace string in file | `sed -i 's/old/new/g'` | Canonical stream substitution |\n| One-liner: extract all regex matches | `grep -o` or `perl -ne` | grep for simple; perl for groups |\n| Script with error handling, cleanup traps | `bash` | `set -euo pipefail` + `trap` |"
+    },
+    {
+      "id": "01-CHEATSHEET.md#008",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:scripting:01-cheatsheet, git-history:scripting:01-cheatsheet]",
+        "canonical_path": "scripting/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "scripting/01-CHEATSHEET.md",
+        "id": "maxim:scripting:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "scripting",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "scripting",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Universal Scripting Cheat Sheet",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-CHEATSHEET.md#009",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:scripting:01-cheatsheet, git-history:scripting:01-cheatsheet]",
+        "canonical_path": "scripting/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "scripting/01-CHEATSHEET.md",
+        "id": "maxim:scripting:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "scripting",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "scripting",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Universal Scripting Cheat Sheet",
+        "updated": "null"
+      },
+      "text": "## PowerShell ↔ Bash Bridge"
+    },
+    {
+      "id": "01-CHEATSHEET.md#010",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:scripting:01-cheatsheet, git-history:scripting:01-cheatsheet]",
+        "canonical_path": "scripting/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "scripting/01-CHEATSHEET.md",
+        "id": "maxim:scripting:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "scripting",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "scripting",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Universal Scripting Cheat Sheet",
+        "updated": "null"
+      },
+      "text": "The conceptual shift: PowerShell passes **typed objects** through its pipeline; Bash passes **text strings**. Everything else follows from that. This table maps the idiom, not just the syntax."
+    },
+    {
+      "id": "01-CHEATSHEET.md#011",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:scripting:01-cheatsheet, git-history:scripting:01-cheatsheet]",
+        "canonical_path": "scripting/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "scripting/01-CHEATSHEET.md",
+        "id": "maxim:scripting:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "scripting",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "scripting",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Universal Scripting Cheat Sheet",
+        "updated": "null"
+      },
+      "text": "### Idiom Translation Table"
+    },
+    {
+      "id": "01-CHEATSHEET.md#012",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:scripting:01-cheatsheet, git-history:scripting:01-cheatsheet]",
+        "canonical_path": "scripting/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "scripting/01-CHEATSHEET.md",
+        "id": "maxim:scripting:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "scripting",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "scripting",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Universal Scripting Cheat Sheet",
+        "updated": "null"
+      },
+      "text": "| Task | PowerShell | Bash / Unix |\n|---|---|---|\n| **Setup / safety** | | |\n| Strict mode (exit on error) | `$ErrorActionPreference = \"Stop\"` | `set -euo pipefail` |\n| Unbound var = error | `Set-StrictMode -Version Latest` | `set -u` (part of `set -euo`) |\n| Strict mode in script header | `Set-StrictMode -Version Latest` + `$EAP=\"Stop\"` | `#!/usr/bin/env bash` + `set -euo pipefail` |\n| **Variables** | | |\n| Assign | `$name = \"value\"` | `name=value` (no spaces!) |\n| Expand | `$name` | `\"$name\"` (always quote) |\n| Env var assign | `$env:FOO = \"bar\"` | `export FOO=bar` |\n| Env var read | `$env:PATH` | `$PATH` |\n| Null/empty default | `$x ?? \"default\"` | `${x:-default}` |\n| **Output** | | |\n| Print to pipeline/stdout | `Write-Output \"text\"` or bareword | `echo \"text\"` |\n| Print to terminal only (no capture) | `Write-Host \"text\"` | `echo \"text\" >&2` (idiom: log to stderr) |\n| Print to error stream | `Write-Error \"msg\"` | `echo \"msg\" >&2` |\n| Discard output | `cmd \\| Out-Null` or `> $null` | `cmd > /dev/null` or `cmd &>/dev/null` |\n| **Exit codes** | | |\n| Exit with code | `exit 0` / `exit 1` | `exit 0` / `exit 1` |\n| Last external exit code | `$LASTEXITCODE` | `$?` |\n| Last cmdlet success | `$?` (bool: True/False) | `$?` (int: 0=success) |\n| Check external command failed | `if ($LASTEXITCODE -ne 0)` | `if [ $? -ne 0 ]` or `cmd \\|\\| handler` |\n| **Flow control** | | |\n| If/else | `if ($x -eq 5) { } else { }` | `if [[ $x -eq 5 ]]; then ...; else ...; fi` |\n| Comparison (equal) | `-eq` | `-eq` (numeric) / `==` (string in `[[ ]]`) |\n| Null/empty test | `if ($null -eq $x)` or `if (-not $x)` | `if [[ -z \"$x\" ]]` |\n| **Loops** | | |\n| For-each (array) | `foreach ($item in $arr)` | `for item in \"${arr[@]}\"; do ...; done` |\n| For-each (pipeline) | `$arr \\| ForEach-Object { $_ }` | `printf '%s\\n' \"${arr[@]}\" \\| while read -r item` |\n| C-style for | `for ($i=0; $i-lt10; $i++)` | `for (( i=0; i<10; i++ )); do ...; done` |\n| While | `while ($cond) { }` | `while [[ $cond ]]; do ...; done` |\n| **File tests** | | |\n| File exists | `Test-Path \"file\"` | `[[ -f file ]]` |\n| Directory exists | `Test-Path \"dir\" -PathType Container` | `[[ -d dir ]]` |\n| Anything exists | `Test-Path \"path\"` | `[[ -e path ]]` |\n| **Functions** | | |\n| Declare | `function Verb-Noun { param(...) ... }` | `func_name() { local x=\"$1\"; ...; }` |\n| Named params | `param([string]$Name, [int]$Port = 8080)` | `getopts` or manual `while/case` arg parsing |\n| Advanced function | `[CmdletBinding()] param(...)` | No direct equivalent; getopts for -flag style |\n| Return value | last expression / `return $val` | `echo \"value\"` → capture with `$(func)` |\n| **Strings** | | |\n| Concatenation | `\"hello\" + \" \" + \"world\"` | `\"hello world\"` (adjacent in double-quotes) |\n| Substring | `$str.Substring(0,5)` or `$str[0..4]` | `${str:0:5}` |\n| Replace | `$str -replace 'old','new'` | `${str//old/new}` (pattern) or `sed` |\n| Length | `$str.Length` | `${#str}` |\n| Split | `$str -split ','` | `IFS=',' read -ra arr <<< \"$str\"` |\n| **Timing / profiling** | | |\n| Time a command | `Measure-Command { Get-Process }` | `time cmd` |\n| **Cleanup on exit** | | |\n| Run on exit/error | `try { } finally { cleanup }` | `trap 'cleanup' EXIT` |\n| Run on Ctrl+C | `[Console]::CancelKeyPress` handler | `trap 'cleanup' INT` |"
+    },
+    {
+      "id": "01-CHEATSHEET.md#013",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:scripting:01-cheatsheet, git-history:scripting:01-cheatsheet]",
+        "canonical_path": "scripting/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "scripting/01-CHEATSHEET.md",
+        "id": "maxim:scripting:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "scripting",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "scripting",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Universal Scripting Cheat Sheet",
+        "updated": "null"
+      },
+      "text": "### The Pipeline Translation Pattern"
+    },
+    {
+      "id": "01-CHEATSHEET.md#014",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:scripting:01-cheatsheet, git-history:scripting:01-cheatsheet]",
+        "canonical_path": "scripting/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "scripting/01-CHEATSHEET.md",
+        "id": "maxim:scripting:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "scripting",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "scripting",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Universal Scripting Cheat Sheet",
+        "updated": "null"
+      },
+      "text": "```\nPowerShell pipeline (objects):\n  Get-ChildItem *.log |\n      Where-Object { $_.Length -gt 1MB } |\n      Sort-Object Length -Descending |\n      Select-Object Name, Length |\n      Format-Table"
+    },
+    {
+      "id": "01-CHEATSHEET.md#015",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:scripting:01-cheatsheet, git-history:scripting:01-cheatsheet]",
+        "canonical_path": "scripting/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "scripting/01-CHEATSHEET.md",
+        "id": "maxim:scripting:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "scripting",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "scripting",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Universal Scripting Cheat Sheet",
+        "updated": "null"
+      },
+      "text": "Bash pipeline (text):\n  ls -la *.log |\n      awk '$5 > 1048576' |          # filter: size > 1MB (field 5 in ls -la)\n      sort -k5 -rn |                 # sort by field 5, reverse numeric\n      awk '{print $9, $5}'           # select name (field 9) and size (field 5)"
+    },
+    {
+      "id": "01-CHEATSHEET.md#016",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:scripting:01-cheatsheet, git-history:scripting:01-cheatsheet]",
+        "canonical_path": "scripting/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "scripting/01-CHEATSHEET.md",
+        "id": "maxim:scripting:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "scripting",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "scripting",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Universal Scripting Cheat Sheet",
+        "updated": "null"
+      },
+      "text": "The bash version requires knowing the column positions in ls -la output.\nThe PS version queries named typed properties — no parsing required."
+    },
+    {
+      "id": "01-CHEATSHEET.md#017",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:scripting:01-cheatsheet, git-history:scripting:01-cheatsheet]",
+        "canonical_path": "scripting/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "scripting/01-CHEATSHEET.md",
+        "id": "maxim:scripting:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "scripting",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "scripting",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Universal Scripting Cheat Sheet",
+        "updated": "null"
+      },
+      "text": "For real structured data (JSON, CSV), bash reaches for jq/awk/python\nrather than native pipeline features.\n```"
+    },
+    {
+      "id": "01-CHEATSHEET.md#018",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:scripting:01-cheatsheet, git-history:scripting:01-cheatsheet]",
+        "canonical_path": "scripting/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "scripting/01-CHEATSHEET.md",
+        "id": "maxim:scripting:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "scripting",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "scripting",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Universal Scripting Cheat Sheet",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-CHEATSHEET.md#019",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:scripting:01-cheatsheet, git-history:scripting:01-cheatsheet]",
+        "canonical_path": "scripting/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "scripting/01-CHEATSHEET.md",
+        "id": "maxim:scripting:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "scripting",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "scripting",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Universal Scripting Cheat Sheet",
+        "updated": "null"
+      },
+      "text": "8 languages × 12 topics. Comparison tables first (feature-first lookup), language quick cards second (language-first lookup)."
+    },
+    {
+      "id": "01-CHEATSHEET.md#020",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:scripting:01-cheatsheet, git-history:scripting:01-cheatsheet]",
+        "canonical_path": "scripting/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "scripting/01-CHEATSHEET.md",
+        "id": "maxim:scripting:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "scripting",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "scripting",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Universal Scripting Cheat Sheet",
+        "updated": "null"
+      },
+      "text": "Languages covered: Batch, PowerShell, Bash, sh (POSIX), Zsh, Fish, AWK, Perl"
+    },
+    {
+      "id": "01-CHEATSHEET.md#021",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:scripting:01-cheatsheet, git-history:scripting:01-cheatsheet]",
+        "canonical_path": "scripting/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "scripting/01-CHEATSHEET.md",
+        "id": "maxim:scripting:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "scripting",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "scripting",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Universal Scripting Cheat Sheet",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-CHEATSHEET.md#022",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:scripting:01-cheatsheet, git-history:scripting:01-cheatsheet]",
+        "canonical_path": "scripting/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "scripting/01-CHEATSHEET.md",
+        "id": "maxim:scripting:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "scripting",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "scripting",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Universal Scripting Cheat Sheet",
+        "updated": "null"
+      },
+      "text": "# Part A — Comparison Tables"
+    },
+    {
+      "id": "01-CHEATSHEET.md#023",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:scripting:01-cheatsheet, git-history:scripting:01-cheatsheet]",
+        "canonical_path": "scripting/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "scripting/01-CHEATSHEET.md",
+        "id": "maxim:scripting:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "scripting",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "scripting",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Universal Scripting Cheat Sheet",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-CHEATSHEET.md#024",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:scripting:01-cheatsheet, git-history:scripting:01-cheatsheet]",
+        "canonical_path": "scripting/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "scripting/01-CHEATSHEET.md",
+        "id": "maxim:scripting:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "scripting",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "scripting",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Universal Scripting Cheat Sheet",
+        "updated": "null"
+      },
+      "text": "### Topic 1: File Extension & Invocation"
+    },
+    {
+      "id": "01-CHEATSHEET.md#025",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:scripting:01-cheatsheet, git-history:scripting:01-cheatsheet]",
+        "canonical_path": "scripting/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "scripting/01-CHEATSHEET.md",
+        "id": "maxim:scripting:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "scripting",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "scripting",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Universal Scripting Cheat Sheet",
+        "updated": "null"
+      },
+      "text": "| Language   | Extension     | Shebang Line                            | Run Command                                  | Notes                                                        |\n|------------|---------------|-----------------------------------------|----------------------------------------------|--------------------------------------------------------------|\n| Batch      | `.bat` / `.cmd` | None — cmd.exe only                   | `script.bat` or `call script.bat`            | `@echo off` at top to suppress command echo                  |\n| PowerShell | `.ps1`        | Optional: `#!/usr/bin/env pwsh`         | `pwsh script.ps1` or `.\\script.ps1`          | ExecutionPolicy may block; `Set-ExecutionPolicy RemoteSigned` |\n| Bash       | `.sh`         | `#!/usr/bin/env bash` or `#!/bin/bash`  | `bash script.sh` or `chmod +x && ./script.sh` | Prefer `env bash` for portability across `/usr/local/bin`   |\n| sh (POSIX) | `.sh`         | `#!/bin/sh`                             | `sh script.sh`                               | POSIX only; no Bash extensions; safest for Docker/Alpine     |\n| Zsh        | `.zsh`        | `#!/usr/bin/env zsh`                    | `zsh script.zsh`                             | Rarely scripted standalone; usually interactive config       |\n| Fish       | `.fish`       | `#!/usr/bin/env fish`                   | `fish script.fish`                           | Not POSIX compat; can't source Bash scripts                  |\n| AWK        | `.awk`        | `#!/usr/bin/awk -f`                     | `awk -f script.awk file` or `awk '{...}' file` | Usually inline one-liners passed directly to shell          |\n| Perl       | `.pl`         | `#!/usr/bin/perl` or `#!/usr/bin/env perl` | `perl script.pl`                          | `perl -e 'code'` one-liners; `perl -w` for warnings         |"
+    },
+    {
+      "id": "01-CHEATSHEET.md#026",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:scripting:01-cheatsheet, git-history:scripting:01-cheatsheet]",
+        "canonical_path": "scripting/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "scripting/01-CHEATSHEET.md",
+        "id": "maxim:scripting:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "scripting",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "scripting",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Universal Scripting Cheat Sheet",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-CHEATSHEET.md#027",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:scripting:01-cheatsheet, git-history:scripting:01-cheatsheet]",
+        "canonical_path": "scripting/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "scripting/01-CHEATSHEET.md",
+        "id": "maxim:scripting:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "scripting",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "scripting",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Universal Scripting Cheat Sheet",
+        "updated": "null"
+      },
+      "text": "### Topic 2: Variables — Declare, Assign, Expand"
+    },
+    {
+      "id": "01-CHEATSHEET.md#028",
+      "path": [
+        "01-CHEATSHEET.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:scripting:01-cheatsheet, git-history:scripting:01-cheatsheet]",
+        "canonical_path": "scripting/01-CHEATSHEET.md",
+        "concepts": "[cheatsheet]",
+        "current_path": "scripting/01-CHEATSHEET.md",
+        "id": "maxim:scripting:cheatsheet",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "scripting",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cheatsheet]",
+        "section": "scripting",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Universal Scripting Cheat Sheet",
+        "updated": "null"
+      },
+      "text": "| Language   | Assign                        | Expand                  | Declare / Type Hint               | Unset / Clear                        |\n|------------|-------------------------------|-------------------------|-----------------------------------|--------------------------------------|\n| Batch      | `SET myvar=hello` (no spaces!)| `%myvar%`               | `SETLOCAL` (scope); `SET /A` for int | `SET myvar=` (set to empty)       |\n| PowerShell | `$name = \"value\"`             | `$name` / `\"...$name...\"` | `[string]$name = \"value\"`; `[int]` etc | `Remove-Variable name` or `$name = $null` |\n| Bash       | `name=value` (NO spaces around `=`) | `$name` or `${name}` | `declare -r` readonly; `declare -i` integer; `declare -a` array | `unset name` |\n| sh (POSIX) | `name=value`                  | `$name` or `${name}`    | `readonly name`                   | `unset name`                         |\n| Zsh        | `name=value`                  | `$name`                 | `typeset -r` readonly; `typeset -i` int; `typeset -f` float | `unset name` |\n| Fish       | `set name value` (no `=`!)    | `$name`                 | `set -l` local; `set -x` export; `set -U` universal (persists) | `set -e name` |\n| AWK        | `var = value` (inside program) | `var`                  | No declaration; vars spring into existence | `delete arr[key]` for arrays only |\n| Perl       | `my $name = \"value\"`          | `$name`                 | `my` lexical; `our` package-global; `local` dynamic scoping | `undef $name`; `delete $hash{key}` |"
+    }
+  ],
+  "refs": [
+    "01-CHEATSHEET.md"
+  ]
+}

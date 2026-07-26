@@ -1,0 +1,2113 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-energy-storage-electrochemical",
+  "source": "../../energy-storage",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "01-ELECTROCHEMICAL.md#000",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "# Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#001",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#002",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "Electrochemical energy storage converts between chemical energy and electrical energy\nvia controlled redox reactions at solid-liquid interfaces. Understanding the\nthermodynamics (Nernst), kinetics (Butler-Volmer), and interfacial chemistry (SEI)\nis essential for understanding battery behavior, performance, and failure."
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#003",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "```\nELECTROCHEMICAL CELL OVERVIEW\n================================"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#004",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "EXTERNAL CIRCUIT (electron flow)\n        e- <------+---------------------------+------> e-\n                  |                           |\n           NEGATIVE                       POSITIVE\n           ELECTRODE                      ELECTRODE\n           (Anode on                      (Cathode on\n            discharge)                    discharge)\n                  |                           |\n           Oxidation:                    Reduction:\n           M -> M^n+ + ne-               M^n+ + ne- -> M\n                  |                           |\n                  +-----ELECTROLYTE-----------+\n                    (ion transport: M^n+ flow)"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#005",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "TERMINOLOGY:\n  Anode: electrode where oxidation occurs (releases e-)\n    In battery DISCHARGE: negative electrode (e.g., graphite)\n    In battery CHARGE: negative electrode IS STILL anode (confusion common)\n  Cathode: electrode where reduction occurs (accepts e-)\n    In battery DISCHARGE: positive electrode (e.g., LiCoO2)"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#006",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "Cell voltage: V_cell = phi_cathode - phi_anode\n    (always positive for spontaneous discharge)\n```"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#007",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#008",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "## Thermodynamics: Nernst Equation"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#009",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "### Electrode Potentials"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#010",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "The standard electrode potential E° is defined relative to the Standard Hydrogen\nElectrode (SHE: H2/H+ at unit activity, assigned E° = 0 V by convention)."
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#011",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "```\nSTANDARD ELECTRODE POTENTIALS TABLE\n====================================="
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#012",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "Half-reaction                         E° (V vs. SHE)\n--------------------------------------  ---------------\nLi+ + e- -> Li                         -3.04  (most negative = strongest reductant)\nNa+ + e- -> Na                         -2.71\nMg2+ + 2e- -> Mg                       -2.37\nAl3+ + 3e- -> Al                       -1.66\nZn2+ + 2e- -> Zn                       -0.76\nFe2+ + 2e- -> Fe                       -0.44\nNi2+ + 2e- -> Ni                       -0.25\n2H+ + 2e- -> H2                         0.00  (reference)\nCu2+ + 2e- -> Cu                       +0.34\nO2 + 2H2O + 4e- -> 4OH-               +0.40\nI2 + 2e- -> 2I-                        +0.54\nFe3+ + e- -> Fe2+                      +0.77\nAg+ + e- -> Ag                         +0.80\nO2 + 4H+ + 4e- -> 2H2O               +1.23  (oxygen evolution/reduction)\nF2 + 2e- -> 2F-                        +2.87  (most positive = strongest oxidant)"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#013",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "BATTERY CELL VOLTAGE = E°(cathode) - E°(anode)"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#014",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "Li-ion (LiCoO2 cathode, graphite anode):\n  E°_cathode (LiCoO2): ~+0.6 V vs. SHE\n  E°_anode (LiC6): ~-3.0 V vs. SHE\n  E°_cell ~ 3.6 V (this is why Li-ion has high voltage -- Li anode very negative)"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#015",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "Lead-acid (PbO2 cathode, Pb anode):\n  E°_cathode (PbO2): +1.69 V\n  E°_anode (Pb): -0.36 V\n  E°_cell = 2.05 V per cell; 12V battery = 6 cells\n```"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#016",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "### Nernst Equation: Real vs. Standard"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#017",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "```\nNERNST EQUATION\n================"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#018",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "At non-standard conditions (activity a_i not equal to 1):"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#019",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "E = E° - (RT / nF) * ln(Q)"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#020",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "where:\n  E  = cell potential at actual conditions\n  E° = standard cell potential\n  R  = 8.314 J/mol/K\n  T  = temperature (K)\n  n  = number of electrons transferred per formula unit\n  F  = Faraday constant = 96,485 C/mol\n  Q  = reaction quotient = product of activity terms"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#021",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "At 298 K (25 C):\n  RT/F = (8.314 * 298) / 96485 = 0.02569 V (thermal voltage)\n  (2.303 * RT/F) = 0.0592 V (for log base 10)\n  Nernst simplification: E = E° - (0.0592/n) * log(Q)"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#022",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "EXAMPLE: Li+ insertion into graphite\n  Li+ + e- + 6C (graphite) -> LiC6\n  Q = a(LiC6) / [a(Li+) * a(C)^6]\n  As battery discharges: Li+ concentration in cathode decreases -> Q increases\n  -> E drops (discharge curve slopes downward)"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#023",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "Temperature dependence:\n    Higher T: RT/nF larger -> more Nernst variation\n    Lower T: smaller Nernst term -> flatter curve but slower kinetics\n    Li-ion at -20 C: capacity drops 30-50% (kinetics dominate)\n```"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#024",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#025",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "## Kinetics: Butler-Volmer Equation"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#026",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "The Nernst equation gives equilibrium (no current). When current flows, the\npotential deviates from equilibrium by the overpotential eta = E - E_eq."
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#027",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "```\nBUTLER-VOLMER EQUATION\n========================"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#028",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "i = i_0 * [exp(alpha_a * F * eta / RT) - exp(-alpha_c * F * eta / RT)]"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#029",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "where:\n  i      = current density (A/cm^2)\n  i_0    = exchange current density (A/cm^2)  -- kinetic parameter\n  alpha_a = anodic transfer coefficient (typically 0.3-0.7, often ~0.5)\n  alpha_c = cathodic transfer coefficient = 1 - alpha_a\n  F       = Faraday constant\n  eta     = overpotential = E - E_eq\n  RT/F    = thermal voltage (26 mV at 25 C)"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#030",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "EXCHANGE CURRENT DENSITY i_0:\n  Rate of forward and reverse electron transfer at equilibrium\n  Large i_0: fast kinetics (reaction proceeds easily at small overpotential)\n  Small i_0: slow kinetics (need large overpotential to drive reaction)\n  Units: A/cm^2 of electrode area\n  Pt in H2SO4: i_0 ~ 10^-3 A/cm^2 (fast -- good HER catalyst)\n  Li+ intercalation in graphite: i_0 ~ 10^-6 A/cm^2 at room temp (slower)\n  Li+ at low T (-20 C): i_0 << 10^-6 (very slow -- why Li-ion fails in cold)"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#031",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "TAFEL APPROXIMATION (large overpotential limit, |eta| >> RT/F = 26 mV):\n  eta >> 26 mV:   i ~ i_0 * exp(alpha_a * F * eta / RT)\n  eta << -26 mV:  i ~ -i_0 * exp(-alpha_c * F * eta / RT)"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#032",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "Taking log: eta = (RT / alpha_a * F) * ln(i/i_0)  =  Tafel equation\n  Plot eta vs. log(i): straight line (Tafel slope = 2.303*RT / alpha*F)\n  At alpha=0.5, 25C: Tafel slope = 0.118 V/decade = 118 mV/decade"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#033",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "Larger |eta| needed for same current -> slower electrode reaction\n```"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#034",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#035",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "## Overpotential Components: Why Batteries Lose Voltage"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#036",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "```\nOVERPOTENTIAL DECOMPOSITION\n============================="
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#037",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "Measured cell voltage during discharge:\n  V_cell = V_OCV - eta_ohmic - eta_activation - eta_concentration"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#038",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "V_OCV: Open circuit voltage (Nernst potential, no current)\n       = equilibrium potential, determined by thermodynamics"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#039",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "eta_ohmic = i * R_internal\n  R_internal = electrolyte resistance + current collector + contacts\n  Ohm's law -- instantaneous (no delay)\n  Manifests as: IR drop when current applied (immediate voltage step)\n  Reduced by: higher electrolyte conductivity, thinner electrodes, better contacts"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#040",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "eta_activation (Butler-Volmer):\n  Energy to overcome activation barrier for electron transfer\n  Reduced by: higher temperature, better catalytic electrode surface, i_0 > larger\n  Manifests as: curved V-I relationship, Tafel slope"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#041",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "eta_concentration (diffusion limitation):\n  Reactant depletion near electrode surface\n  Li+ ions cannot diffuse to interface fast enough at high current\n  Manifests as: voltage cliff at high current rates (rate capability limit)\n  Reduced by: thinner electrodes, porous structure, higher T (faster diffusion)"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#042",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "TYPICAL INTERNAL RESISTANCE FOR Li-ion cell (18650, room temp):\n  R_ohmic: ~50-100 mOhm (electrolyte + separator + contacts)\n  R_charge_transfer: ~50-200 mOhm (anode + cathode activation)\n  R_diffusion: rate-dependent, rises with SOC and rate\n  Total: ~100-400 mOhm (new cell); rises with aging"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#043",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "At 2A discharge in 18650 (capacity ~3 Ah = 3.5V nominal):\n  Power to internal resistance: I^2 * R = 4 * 0.15 = 0.6 W\n  Cell heat generation: 0.6 W\n  At 40% SOC: rate contribution to total heat is significant\n  Thermal management critical above 1C rate\n```"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#044",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#045",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "## SEI: Solid Electrolyte Interphase"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#046",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "The SEI is the most important and least understood element of lithium-ion batteries.\nIt governs cycle life, safety, and degradation."
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#047",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "```\nSEI FORMATION AND COMPOSITION\n================================"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#048",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "WHERE: Forms on negative electrode (anode -- graphite or silicon)\nWHEN: First charge cycle (and ongoing)"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#049",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "WHY IT FORMS:\n  Graphite anode operates at ~0-0.2 V vs. Li/Li+\n  Electrolyte window: liquid electrolyte (EC/DMC with LiPF6) is stable only\n    above ~1 V vs. Li/Li+ (on the reductive side)\n  Below 1 V: electrolyte components reduced by electrode electrons:\n    EC (ethylene carbonate) + 2e- + 2Li+ -> Li2CO3 + CH2=CH2 (gas)\n    EC (another pathway) -> LEDC (lithium ethylene dicarbonate)\n    DMC -> CH3OLi + ...\n  These decomposition products are insoluble -> deposit on electrode surface\n  -> BUILD SEI LAYER"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#050",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "SEI COMPOSITION:\n  Inorganic inner layer (close to electrode):\n    Li2CO3, LiF, Li2O (dense, ionically conductive)\n  Organic outer layer:\n    LEDC, ROCO2Li species (porous, less dense)\n  Total thickness: 10-100 nm (grows slowly over thousands of cycles)"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#051",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "SEI PROPERTIES:\n  Electrically insulating: prevents further electrolyte reduction (self-passivating)\n  Li+ ionically conductive: allows Li+ to pass through (critical)\n  Mechanically: must withstand volume changes of electrode (~10% for graphite, 300% for Si)"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#052",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "SEI FIRST CYCLE CONSEQUENCES:\n  Li consumed irreversibly (forms SEI, not returned on discharge)\n  First cycle Coulombic efficiency (CE): 85-95% for graphite\n    CE = discharge capacity / charge capacity\n    If CE = 0.90 on first cycle: 10% of Li is permanently lost to SEI\n  Manufacturers pre-lithiate or account for SEI loss in cell design\n  Silicon anode CE: 70-85% on first cycle (more SEI due to more surface area)"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#053",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "SEI FAILURE MODES:\n  1. Mechanical cracking (Si expansion 300%): exposes fresh Si -> new SEI forms\n     -> each cycle consumes more Li -> capacity fade\n  2. Li+ plating: at high rate or low T, Li deposits as metal on SEI surface\n     -> dendrites risk (safety: Li metal can puncture separator -> short circuit)\n  3. Dissolution: HF from LiPF6 hydrolysis attacks Li2CO3 in SEI\n     -> SEI thinning -> more electrolyte decomposition -> continued fade\n  4. Impedance rise: SEI thickens over lifetime -> higher resistance -> power fade\n```"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#054",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#055",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "## Electrolyte Requirements"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#056",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "```\nBATTERY ELECTROLYTE REQUIREMENTS\n==================================="
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#057",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "1. IONIC CONDUCTIVITY (sigma_i):\n   Must transport Li+ ions between electrodes\n   Target: >1 mS/cm (10^-3 S/cm)\n   LiPF6 in EC/DMC (1 M): sigma ~ 10-11 mS/cm (excellent)\n   Solid electrolyte (ceramic): 1-10 mS/cm (depends on type)\n   Polymer PEO at 25 C: 0.01-0.1 mS/cm (too low for fast charging)\n   PEO at 80 C: 1+ mS/cm (used in Bolloré Bluecar)"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#058",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "2. ELECTROCHEMICAL STABILITY WINDOW:\n   Must be stable (not oxidized or reduced) at electrode potentials\n   Graphite anode: ~0.1 V vs. Li/Li+\n   NMC cathode: ~4.0-4.3 V vs. Li/Li+\n   Required window: 0 to 4.3 V vs. Li/Li+ (or wider for high-voltage cathodes)\n   LiPF6/EC/DMC: stable 1-4.5 V vs. Li/Li+\n     Below 1 V: forms SEI (useful but consumes Li)\n     Above 4.5 V: electrolyte oxidizes at cathode\n   High-voltage electrolytes (LiNi0.5Mn1.5O4 at 4.7 V): requires additives"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#059",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "3. LITHIUM TRANSFERENCE NUMBER (t+):\n   Fraction of ionic current carried by Li+ (vs. anion PF6-)\n   LiPF6 in EC/DMC: t+ ~ 0.3-0.4 (Li+ carries only ~35% of current)\n   Remaining current from PF6- movement (anion does not react at electrode)\n   -> Concentration gradients build -> concentration overpotential\n   Single-ion conductors (polymers with bound anion): t+ -> 1.0 (ideal)\n   Better: solid electrolyte with t+ ~ 1 (all charge carried by Li+)"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#060",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "4. THERMAL STABILITY:\n   Must not decompose or ignite at operating temperature\n   LiPF6: decomposes above 60 C: LiPF6 -> LiF + PF5 (Lewis acid, reacts with moisture)\n   EC/DMC: flash point ~25 C (flammable) -- the source of battery fire risk\n   Solid electrolyte: nonflammable -- key safety advantage"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#061",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "ELECTROLYTE TYPES:\n  Liquid organic: LiPF6 in EC/EMC/DMC -- current commercial standard\n  Liquid ionic: ionic liquids (nonflammable, low vapor pressure, poor conductivity at RT)\n  Gel polymer: PEO + Li salt + plasticizer -- lithium-metal batteries\n  Solid oxide: LLZO, LATP -- see 03-ADVANCED-BATTERIES.md\n  Solid sulfide: LGPS, Li6PS5Cl -- see 03-ADVANCED-BATTERIES.md\n```"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#062",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#063",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "## Capacity, Energy, and Power"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#064",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "```\nKEY ELECTROCHEMICAL QUANTITIES\n================================"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#065",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "CAPACITY:\n  Q = n * F * m / M_w\n  where n = electrons per formula unit, m = mass (g), M_w = molar mass (g/mol)"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#066",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "Specific capacity (mAh/g):\n    Graphite (LiC6): n=1, M_w(C6)=72 -> Q = F/72 = 96485/(72*3600) = 372 mAh/g\n    LiFePO4:         n=1, M_w=158    -> Q = 96485/(158*3600) = 170 mAh/g\n    LiCoO2 (practical): n=0.5, M_w=98 -> Q = 137 mAh/g (only half Li can be used)\n    Silicon (Li15Si4): n=3.75, M_w=28 -> Q = 3579 mAh/g (theoretical max)"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#067",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "ENERGY DENSITY:\n  E = Q * V_avg\n  Specific energy (Wh/kg): = (capacity mAh/g) * (V_avg) / 1000\n  NMC811 cathode paired with graphite at cell level: ~300 Wh/kg\n    Cell adds inactive mass: current collectors, separator, electrolyte, packaging"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#068",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "C-RATE:\n  Normalized discharge current relative to capacity\n  1C rate: fully discharge in 1 hour\n    If capacity = 3 Ah, 1C = 3 A; 2C = 6 A; C/2 = 1.5 A\n  Effect on capacity: higher C-rate -> more losses -> apparent capacity lower\n    NMC cell: 0.1C capacity = 100%, 1C capacity = 95%, 3C capacity = 85% (typical)\n    This is concentration overpotential limiting capacity at high rates"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#069",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "STATE OF CHARGE (SOC) ESTIMATION:\n  Coulomb counting: integrate current over time\n    SOC(t) = SOC(0) - integral(I dt) / Q_rated\n    Problem: cumulative error from small measurement offset\n  OCV method: measure open-circuit voltage -> look up in OCV-SOC curve\n    Problem: equilibration time needed; hysteresis between charge/discharge\n  Kalman filter: combines both, models cell dynamics\n    Extended Kalman Filter (EKF): standard BMS approach\n    SOC accuracy: +/- 1-3% with EKF\n```"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#070",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#071",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "## Cross-References"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#072",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "- `electrical-grid/01-GENERATION.md` — storage value depends on generation mix, dispatchability, and load shape.\n- `energy-systems/01-SOLAR-PV.md` — canonical variable-generation partner for batteries.\n- `chemical-eng/01-THERMO.md` — electrochemical potential and phase behavior foundation."
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#073",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "01-ELECTROCHEMICAL.md#074",
+      "path": [
+        "01-ELECTROCHEMICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-storage:01-electrochemical, git-history:energy-storage:01-electrochemical]",
+        "canonical_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "concepts": "[electrochemical]",
+        "current_path": "energy-storage/01-ELECTROCHEMICAL.md",
+        "id": "maxim:energy-storage:electrochemical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-storage",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[electrochemical]",
+        "section": "energy-storage",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrochemical Fundamentals: Nernst Equation, Electrode Kinetics, SEI Layer",
+        "updated": "null"
+      },
+      "text": "| Electrochemical concept | What it determines |\n|------------------------|-------------------|\n| Standard electrode potential (E°) | Maximum theoretical cell voltage |\n| Nernst equation | How voltage changes with SOC and temperature |\n| Exchange current density (i_0) | Kinetic speed of electrode reaction |\n| Tafel slope | How much overpotential per decade of current |\n| Ohmic resistance | IR drop (immediate voltage loss under load) |\n| SEI first-cycle loss | Irreversible capacity consumed on formation |\n| Electrolyte stability window | Maximum cathode/anode voltage limits |\n| Transference number | Concentration gradient buildup, limiting high rates |"
+    }
+  ],
+  "refs": [
+    "01-ELECTROCHEMICAL.md"
+  ]
+}

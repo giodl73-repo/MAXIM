@@ -46,10 +46,10 @@ Get-Content human-computer-interaction\STATUS.md
 # Integration + reciprocal-pointer targets (read before editing)
 Get-Content sections\computing-software.md, .mkdocs\mkdocs.yml, TRACKER.md
 Get-Content industrial-design\06-INTERACTION-DESIGN.md, cognitive-science\09-APPLIED-BRIDGE.md
-# Backfill mechanics + PROOF surface
+# Backfill mechanics + MDLOOM surface
 Get-Content .claude\skills\maxim-source-backfill\SKILL.md
 Get-Content .claude\skills\maxim-source-backfill\scripts\module_source_backfill.py
-Get-Content proof.toml | Select-Object -First 92
+Get-Content mdloom.toml | Select-Object -First 92
 ```
 
 ## Scope Inventory
@@ -61,7 +61,7 @@ Get-Content proof.toml | Select-Object -First 92
 | Navigation / section | `.mkdocs/mkdocs.yml` (HCI nav entry); `sections/computing-software.md` (Directories row, landscape human-interaction layer, adjacent-section bridge, count) |
 | Library tracker | `TRACKER.md` (Summary Dashboard row, ✅ complete; totals include HCI) |
 | Reciprocal pointers | `industrial-design/06-INTERACTION-DESIGN.md` (→ HCI `02`/`05`; physical-product entry preserved); `cognitive-science/09-APPLIED-BRIDGE.md` (→ HCI applied; mechanism/law derivations retained) |
-| Source corpus (regenerated) | `.proof/backfill/**`, `.crop/views/**`, `.pebble/packs/**`, `.fletch/registries/**` for `human-computer-interaction`, `cognitive-science`, `industrial-design` |
+| Source corpus (regenerated) | `.mdloom/backfill/**`, `.crop/views/**`, `.mdport/packs/**`, `.fletch/registries/**` for `human-computer-interaction`, `cognitive-science`, `industrial-design` |
 | Wave tracking | this pulse; `WAVE.md` Pulse Sequence (Pulse 02 → DONE; Pulse 03 next) |
 | **Final Pulse-02 gate** | PASS; no unresolved BLOCK/WARN |
 | **Out of scope / future work** | any Gold-tier / Da Vinci-invariant work; `human-factors/` (Pulse 03); any legal content in `law/` |
@@ -105,7 +105,7 @@ no manipulation playbook, no legal ruling, no safety certification, conformance 
       `psychology/`, `law/`, `statistics-applied/`) were untouched.
 - [x] Source-corpus backfill (`--validate`) for `human-computer-interaction` and the two changed
       siblings (`cognitive-science`, `industrial-design`); all 12 HCI guides graduated to
-      `status: source-custody` / `source_custody: partial` with `proof-backfill` backsources.
+      `status: source-custody` / `source_custody: partial` with `mdloom-backfill` backsources.
 - [x] **Full-module R1 adversarial panel** over all 12 guides — recorded at `panels/hci-full-r1/`
       (expert-skeptic + reference-editor + consolidated + `R2-gold-rubric.md`); **5 BLOCK + 13 WARN**
       conservative findings **all repaired**; every guide **Silver**, **no Gold / no registry row**.
@@ -128,12 +128,12 @@ foreach ($m in "human-computer-interaction","cognitive-science","industrial-desi
   python .claude\skills\maxim-source-backfill\scripts\module_source_backfill.py --module-dir $m --module-id $m --validate
 }
 
-# Focused PROOF over the touched content guides (00-OVERVIEW is proof.toml-excluded)
+# Focused MDLOOM over the touched content guides (00-OVERVIEW is mdloom.toml-excluded)
 cargo run --manifest-path C:\src\TRACKER\repos\tools-infra\proof\Cargo.toml --quiet -- check `
   human-computer-interaction\01-*.md human-computer-interaction\02-*.md human-computer-interaction\03-*.md `
   human-computer-interaction\04-*.md human-computer-interaction\06-*.md human-computer-interaction\07-*.md `
   human-computer-interaction\09-*.md human-computer-interaction\10-*.md human-computer-interaction\11-*.md `
-  cognitive-science\09-APPLIED-BRIDGE.md industrial-design\06-INTERACTION-DESIGN.md --config proof.toml
+  cognitive-science\09-APPLIED-BRIDGE.md industrial-design\06-INTERACTION-DESIGN.md --config mdloom.toml
 
 git --no-pager diff --check
 ```
@@ -142,7 +142,7 @@ Results recorded in this pulse and STATUS. The final reviewer subsequently retur
 **PASS** after all content and record repairs; the current adversarial ledger is
 **0 unresolved BLOCK/WARN**, and all 12 guides remain honestly tiered **Silver**.
 The source-corpus backfill regenerates
-PROOF/CROP/PEBBLE/FLETCH from the canonical numbered guides; the two sibling backfills
+MDLOOM/CROP/MDPORT/FLETCH from the canonical numbered guides; the two sibling backfills
 include the reciprocal pointers and panel-required taxonomy/claim-boundary repairs. No
 commit or push; no submodule pointer update.
 

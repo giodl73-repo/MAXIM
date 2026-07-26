@@ -1,0 +1,1721 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-remote-sensing-satellite-orbits",
+  "source": "../../remote-sensing",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "05-SATELLITE-ORBITS.md#000",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "# Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#001",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#002",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "The orbit a satellite occupies determines what it can see, when, and how often. Remote sensing missions are mostly in Low Earth Orbit (LEO), with a subset in Geosynchronous (GEO). The dominant LEO design for Earth observation is the **Sun-Synchronous Orbit (SSO)**: a near-polar orbit whose precession exactly compensates for Earth's revolution around the Sun, ensuring the satellite always crosses the equator at the same local solar time."
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#003",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "```\nORBIT ALTITUDE CLASSES"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#004",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "GEO 35,786 km  +-----------+  Full disk coverage, fixed position\n                 |  GOES     |  5 min refresh, ~2km resolution\n                 |  Meteosat |  Cannot see poles well\n  +-----------+  |  Himawari |\n                 +-----------+"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#005",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "MEO 2,000-   +-----------+  GPS, GLONASS (nav, not EO)\n   35,786 km    |  GPS      |\n                +-----------+"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#006",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "SSO 400-     +-----------+  Most EO missions\n   1000 km      |  Landsat  |  Near-polar sun-synchronous\n                |  Sentinel |  10-16 day full coverage\n                |  Planet   |\n                +-----------+"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#007",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "ISS 408 km   +-----------+  Inclined orbit (51.6 deg)\n                |  ISS      |  Not sun-synchronous\n                |  EMIT     |  Limited to 51.6 deg N/S latitude\n                |  GEDI     |\n                +-----------+\n```"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#008",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#009",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "## Keplerian Orbital Elements"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#010",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "Six numbers completely specify an orbit:"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#011",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "```\n  a = semi-major axis (size: determines period via Kepler's 3rd law)\n  e = eccentricity (shape: 0=circle, 1=parabola)\n  i = inclination (tilt relative to equatorial plane)\n  RAAN = right ascension of ascending node (longitude of ascending node)\n  omega = argument of perigee (where in orbit is closest approach)\n  nu = true anomaly (where the satellite is now along the orbit)"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#012",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "For circular LEO EO missions:\n  e ~ 0 (circular orbit)\n  a ~ 6778 km (= 6371 km Earth radius + 407 km altitude)\n  i ~ 97-99 degrees (retrograde! slightly more than 90 deg for SSO)\n```"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#013",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "**Kepler's Third Law for circular orbit**:\n```\n  T^2 = (4*pi^2 / mu) * a^3"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#014",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "mu = G * M_Earth = 3.986e14 m^3/s^2\n  T = 2*pi * sqrt(a^3 / mu)"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#015",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "At a = 6778 km:  T = 92.6 minutes (~15 orbits/day)\n  At a = 7178 km:  T = 100 minutes (~14.4 orbits/day)\n```"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#016",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#017",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "## Sun-Synchronous Orbit: The Engineering"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#018",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "The Earth is not a perfect sphere -- the equatorial bulge (J2 perturbation) causes orbital plane precession. SSO exploits this:"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#019",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "```\nNATURAL PRECESSION (J2 effect)"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#020",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "For a satellite at inclination i and altitude h:\n  dRAAN/dt = -3/2 * (R_E/a)^2 * (J2/T) * cos(i)"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#021",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "where J2 = 1.08263e-3 (Earth's oblateness coefficient)"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#022",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "To match Earth's orbital rate around Sun: dRAAN/dt = +360 deg/year\n    = +0.9856 deg/day (eastward)"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#023",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "For prograde orbits (i < 90 deg), precession is westward (-cos).\n  Need RETROGRADE orbit (i > 90 deg) to get positive precession."
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#024",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "Typical SSO parameters:\n    h = 705 km, i = 98.2 deg -> precession = +0.986 deg/day  [Landsat]\n    h = 786 km, i = 98.6 deg -> precession = +0.986 deg/day  [Sentinel-2]\n    h = 693 km, i = 98.2 deg -> precession = +0.986 deg/day  [Sentinel-1]\n```"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#025",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "The result: the orbital plane maintains a fixed angle relative to the Sun-Earth line. The satellite crosses the equator at the same **Local Solar Time (LST)** on every pass."
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#026",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "```\nWHY SAME LOCAL SOLAR TIME MATTERS"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#027",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "Without SSO:\n  Pass 1: 10:30 AM -- shadows point southwest, sun angle 45 deg\n  Pass 2 (3 months later): 4:00 PM -- shadows point east, sun angle 30 deg\n  -> Images incomparable due to different illumination geometry"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#028",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "With SSO (e.g., 10:30 AM descending node):\n  Every pass: 10:30 AM local solar time\n  Sun angle, shadow length, illumination direction: consistent\n  -> Time series analysis is valid\n  -> Seasonal changes not confused with illumination changes\n```"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#029",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "**Descending vs. ascending node**: Most optical EO satellites use a descending (south-going) daytime pass with local solar time ~10-11 AM. Sentinel-1 SAR uses ascending (north-going) pass. The morning (10 AM) time was chosen to minimize cloud cover (clouds tend to build in the afternoon)."
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#030",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#031",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "## Repeat Cycle and Ground Track Geometry"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#032",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "A sun-synchronous satellite does not cover the same ground track every orbit. It has a repeat cycle after which the ground tracks exactly repeat:"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#033",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "```\nGROUND TRACK GEOMETRY"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#034",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "Each orbit advances by delta_lambda (deg) in longitude:\n    delta_lambda = 360 / (orbits_per_day) - precession_per_orbit"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#035",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "For Landsat 9 (16-day repeat, 233 orbits per cycle):\n    Day 1: tracks 1, 18, 35, 52... (every 233rd track spacing)\n    Day 2: tracks shifted by 1/16 of total ground width\n    Day 16: full coverage achieved"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#036",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "Landsat WRS-2: 233 paths (north-south strips), each 185km wide\n    Adjacent paths overlap at equator: ~7.6 km overlap\n    Adjacent paths overlap at 60 deg latitude: ~50%\n    Polar regions: maximum overlap"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#037",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "SWATH vs SPATIAL RESOLUTION TRADE:\n    Wide swath (low GSD): MODIS 2330km, daily global\n    Moderate swath (moderate GSD): Landsat 185km, 16-day global\n    Narrow swath (high GSD): WorldView-3 13km, 1-4 day (opportunistic)\n```"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#038",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "### Revisit Time vs. Resolution: Fundamental Trade-off"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#039",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "```\n+------------------+--------+----------+---------+\n| Sensor           | GSD    | Swath    | Revisit |\n+------------------+--------+----------+---------+\n| MODIS            | 250m   | 2330km   | daily   |\n| Sentinel-2 A+B   | 10m    | 290km    | 5 days  |\n| Landsat 9        | 30m    | 185km    | 16 days |\n| SPOT-6/7         | 6m     | 60km     | 26 days |\n| Planet Dove      | 3-5m   | 24km     | daily*  |\n| SkySat           | 0.5m   | 6km      | 2-7 days*|\n| WorldView-3      | 0.31m  | 13km     | 1-4 days*|\n+------------------+--------+----------+---------+\n* Constellation: many satellites, not single-orbit coverage\n```"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#040",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "The fundamental trade-off exists because a satellite moves at fixed speed (~7.5 km/s). Wider field of view = larger image per pass = more ground covered = faster global repeat. But wider FOV means smaller telescope focal length for the same detector area = coarser GSD. You cannot escape this geometric constraint."
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#041",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "**Planet's solution**: launch hundreds of small satellites. 200+ Doves = daily global 3-5m coverage. The trade-off is dodged by adding more platforms, not changing per-satellite physics."
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#042",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#043",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "## Geostationary Orbit (GEO)"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#044",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "At 35,786 km, orbital period = 24 hours exactly. Satellite appears stationary relative to Earth."
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#045",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "```\nGEO SATELLITES FOR REMOTE SENSING"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#046",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "GOES (Geostationary Operational Environmental Satellites):\n    GOES-West (135.4 W): covers western Americas + Pacific\n    GOES-East (75.2 W):  covers eastern Americas + Atlantic\n    Sensor: ABI (Advanced Baseline Imager), 16 channels\n    Full disk every 15 min, CONUS every 5 min, mesoscale 60 sec"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#047",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "ADVANTAGES:\n    - Continuous temporal coverage (minutes to seconds)\n    - Severe weather monitoring, hurricane tracking\n    - Diurnal cycle resolved (watch clouds form and dissipate)\n    - No revisit gap -- always staring at same area"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#048",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "DISADVANTAGES:\n    - Pixel size at nadir: 500m (visible), 2km (thermal)\n    - Polar areas poorly observed (high off-nadir angle)\n    - Parallax error for clouds at altitude (cloud top vs. bottom different position)\n    - High orbit = weak signal -> requires large telescope for same SNR\n    - Cannot do InSAR or lidar from GEO (not yet operational)\n```"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#049",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#050",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "## Orbit Determination and GPS in Orbit"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#051",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "Modern EO satellites carry onboard GPS receivers for precision orbit determination (POD):"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#052",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "```\nGNSS-based POD for EO satellites"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#053",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "Onboard GPS receiver: records pseudorange + carrier phase\n  Post-processing (ground): precise orbit determination\n  Accuracy: 1-5 cm (for InSAR-quality orbits, key for Sentinel-1)"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#054",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "Sentinel-1 POD specifications:\n    Restituted orbit (3h after pass): 5 cm RMS\n    Precise orbit (20 days after): 1 cm RMS\n    -> Used for InSAR processing where orbit error = phase error"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#055",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "Orbit error effect on InSAR:\n    1 cm orbit error at 700km altitude -> ~0.5 mm phase error\n    For mm-level deformation detection: precise orbits required\n```"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#056",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#057",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "## Cross-References"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#058",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "- `08-PLATFORMS.md` maps orbits to real satellite programs.\n- `02-PASSIVE-SENSORS.md` depends on orbit geometry for revisit and illumination.\n- `03-ACTIVE-SENSORS-SAR.md` depends on orbit geometry for coverage and interferometry."
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#059",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "05-SATELLITE-ORBITS.md#060",
+      "path": [
+        "05-SATELLITE-ORBITS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:remote-sensing:05-satellite-orbits, git-history:remote-sensing:05-satellite-orbits]",
+        "canonical_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "concepts": "[satellite, orbits]",
+        "current_path": "remote-sensing/05-SATELLITE-ORBITS.md",
+        "id": "maxim:remote-sensing:satellite-orbits",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "remote-sensing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[satellite, orbits]",
+        "section": "remote-sensing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Satellite Orbits: Mechanics, Sun-Synchronous, Revisit Trade-offs",
+        "updated": "null"
+      },
+      "text": "| If you need to diagnose... | Start With | Key Caveat |\n|---|---|---|\n| Daily global optical | Low sun-synchronous orbit with wide swath | Wide swath means coarse spatial resolution. |\n| Daily 3-5 m optical | LEO SSO constellation | Revisit comes from fleet size, not one satellite. |\n| 5-day 10 m optical | Sentinel-2 A+B SSO geometry | Revisit differs from repeat cycle and can be cloud-limited. |\n| 16-day archive continuity | Landsat SSO ground track | Cross-sensor calibration matters across decades. |\n| Minute-scale weather refresh | Geostationary orbit | GEO sacrifices high-latitude geometry and fine resolution. |\n| Sub-meter tasking | Narrow-swath commercial SSO | Tasking priority and off-nadir angle affect data quality. |\n| All-weather 6-day radar | Sentinel-1-style SSO C-band SAR | Radar repeat does not guarantee interferometric coherence. |\n| L-band 12-day radar | NISAR-style SSO L-band SAR | Longer wavelength helps vegetation but not all decorrelation. |\n| Polar cryosphere coverage | Near-polar SSO | Orbit coverage does not imply constant illumination. |\n| Continuous ocean/SST | GEO or daily-global LEO | Clouds still limit passive thermal ocean retrieval. |"
+    }
+  ],
+  "refs": [
+    "05-SATELLITE-ORBITS.md"
+  ]
+}

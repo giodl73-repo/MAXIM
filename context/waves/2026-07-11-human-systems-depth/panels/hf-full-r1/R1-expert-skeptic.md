@@ -123,7 +123,7 @@ independent residual part), addressing the same finding's dependency clause.
 module holds the peer-depth bar and the honesty invariants; the conservative pass surfaced four
 quantitative/model BLOCKs (`05` EF/ceiling/trigger, `07` L1-takeover/model, `10` overlapping strata,
 `09` prescriptions) and one WARN (`08` barrier ranking + dust advice), all repaired in the guides and
-validated by focused module-scope PROOF (**12 files, 0 errors, 0 warnings**). Because every fix was
+validated by focused module-scope MDLOOM (**12 files, 0 errors, 0 warnings**). Because every fix was
 made in this same pass, an **independent final re-review is still required**, so the wave stays **IN
 REVIEW**. The reference-editor lens and `R2-gold-rubric.md` carry the tier decision (**Silver**, no
 registry).

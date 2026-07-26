@@ -37,7 +37,7 @@ commit/push.
 | Margins (10 §6, §10, Task 4, Confusions) | Margin status = **tumor presence/absence/distance at the examined inked specimen margins**; **evidence about, not proof of, complete excision** (sampled planes of the inked surface, not the whole resection bed). §6 bullet + axis table, report payload (field/Comment/note), Task 4, and the Confusion Point reworded. |
 | Thyroid FNA (10 §3) | Distinguishes **unavailable tissue-level architecture/invasion** (capsule/stroma/invasion/growth pattern) from **diagnostically meaningful cytologic group arrangements** (microfollicular groups, papillary fragments, syncytial sheets). Cytoarchitecture is available; the two must not be conflated. |
 | Scaling contracts (architecture, STATUS) | `09`/`11` mini-contracts expanded to a **two-stage gate**: Stage 1 on **representative high-risk draft sections** (`09` grossing/orientation + staining/frozen/cytology; `11` governance/accreditation + the total-testing-process `08`↔`11` seam) before authoring; Stage 2 a **completed-guide whole-procedure/whole-seam review** before sign-off. MAXIM-PATH-19/24, Scaling Mini-Contracts, QR-12, STATUS rows/paragraph updated. |
-| Prototype metadata (08/10 frontmatter, architecture) | Generated `proof-backfill`/`git-history` backsource IDs **removed**; frontmatter set to the truthful pre-backfill state `status: prototype` / `source_custody: needs-source` / `backsource_ids: []`. Forward-compatible with the deferred backfill. Recorded as **MAXIM-PATH-25** + **QR-14**; Gaps notes updated. |
+| Prototype metadata (08/10 frontmatter, architecture) | Generated `mdloom-backfill`/`git-history` backsource IDs **removed**; frontmatter set to the truthful pre-backfill state `status: prototype` / `source_custody: needs-source` / `backsource_ids: []`. Forward-compatible with the deferred backfill. Recorded as **MAXIM-PATH-25** + **QR-14**; Gaps notes updated. |
 
 ## Findings ledger
 
@@ -54,14 +54,14 @@ commit/push.
 
 ## Validation
 
-- Focused PROOF (MAXIM `proof.toml`) via the `tools-infra/proof` Cargo manifest, scoped to
+- Focused MDLOOM (MAXIM `mdloom.toml`) via the `tools-infra/proof` Cargo manifest, scoped to
   the two prototype guides, re-run after the R2 repairs: **2 files checked, 0 errors, 0
   warnings**.
 - `git diff --check`: clean (no whitespace/conflict markers). The pathology module is still
-  **untracked** (not integrated), so PROOF was run against the two guides explicitly.
+  **untracked** (not integrated), so MDLOOM was run against the two guides explicitly.
 - Structural spot-check: each guide has a single H1, a landscape diagram, a Decision Cheat
   Sheet, balanced code fences, no `@editor` tags, and **0** `you/your`.
-- Source backfill (PROOF sources / CROP / PEBBLE / FLETCH) **not** run — this is a prototype
+- Source backfill (MDLOOM sources / CROP / MDPORT / FLETCH) **not** run — this is a prototype
   boundary re-review, and the frontmatter is at the truthful pre-backfill state. `medicine/`,
   `clinical-medicine/`, `sections/`, `.mkdocs/`, and `TRACKER.md` untouched. No commit or push.
 

@@ -1,0 +1,1581 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-languages-c",
+  "source": "../../languages",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "02-C.md#000",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "# Language: C"
+    },
+    {
+      "id": "02-C.md#001",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "> The systems programming substrate — every major language either compiles to C, borrows from C syntax, or was designed in reaction to C's problems."
+    },
+    {
+      "id": "02-C.md#002",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-C.md#003",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "## Type System Snapshot"
+    },
+    {
+      "id": "02-C.md#004",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "| Axis | C |\n|------|---|\n| Binding | Early (static dispatch always) |\n| Typing | Static |\n| Strength | **Weak** — implicit int↔pointer, silent truncation, sign coercions |\n| Type system | Nominal (struct names; no inheritance) |\n| Type inference | None — must annotate everything |\n| Memory model | **Manual** — malloc/free; stack via automatic storage |"
+    },
+    {
+      "id": "02-C.md#005",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-C.md#006",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "## Conceptual Map"
+    },
+    {
+      "id": "02-C.md#007",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "### Compilation Pipeline"
+    },
+    {
+      "id": "02-C.md#008",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "Every `.c` file passes through four distinct tools before becoming executable code. This is not abstracted away — understanding the pipeline explains `#include`, symbol errors, and `-D` flags."
+    },
+    {
+      "id": "02-C.md#009",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "```\n  source.c        source.h\n     │                │\n     ▼                ▼\n┌──────────────────────────────────────┐\n│  PREPROCESSOR  (cpp / cc -E)         │\n│  #include → paste text               │\n│  #define → substitute tokens         │\n│  #ifdef → strip excluded blocks      │\n│  No type checking — pure text subs   │\n└──────────────────┬───────────────────┘\n                   │  preprocessed .c (pure C, no directives)\n                   ▼\n┌──────────────────────────────────────┐\n│  COMPILER  (cc -S)                   │\n│  Parse + type-check                  │\n│  AST → IR → optimization passes      │\n│  Undefined behavior exploited here   │\n│  One .c → one .s                     │\n└──────────────────┬───────────────────┘\n                   │  assembly .s\n                   ▼\n┌──────────────────────────────────────┐\n│  ASSEMBLER  (as)                     │\n│  .s → machine code                   │\n│  Symbols still unresolved            │\n│  Produces relocatable object (.o)    │\n└──────────────────┬───────────────────┘\n                   │  object file(s) .o + libraries .a / .so\n                   ▼\n┌──────────────────────────────────────┐\n│  LINKER  (ld, invoked by cc)         │\n│  Resolve symbol references           │\n│  Combine .o files + libc             │\n│  Lay out text/data/bss segments      │\n└──────────────────┬───────────────────┘\n                   │\n                   ▼\n              executable\n              (ELF / Mach-O / PE)\n```"
+    },
+    {
+      "id": "02-C.md#010",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "> **C# parallel**: MSBuild → Roslyn → IL → ngen/JIT is the analogous pipeline; the key difference is C has no runtime — the linker's output is the final artifact."
+    },
+    {
+      "id": "02-C.md#011",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "### Process Memory Layout"
+    },
+    {
+      "id": "02-C.md#012",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "When the executable runs, the OS maps it into a virtual address space with four distinct regions. Pointers are just addresses into this space — knowing which region an address lives in tells you its lifetime and ownership rules."
+    },
+    {
+      "id": "02-C.md#013",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "```\nHigh address\n┌───────────────────────────────────────┐\n│              STACK                    │\n│  Local variables, function params     │\n│  Return addresses, saved registers    │\n│  Grows DOWNWARD ↓                     │\n│  Lifetime: function call duration     │\n│  Size: fixed (default ~1–8 MB)        │\n├───────────────────────────────────────┤\n│         (unmapped / grows)            │\n├───────────────────────────────────────┤\n│               HEAP                    │\n│  malloc() / calloc() / realloc()      │\n│  Grows UPWARD ↑                       │\n│  Lifetime: explicit — malloc to free  │\n│  You own it; forget free = leak       │\n├───────────────────────────────────────┤\n│          DATA SEGMENT                 │\n│  .bss  — zero-initialized globals     │\n│  .data — initialized globals/statics  │\n│  Lifetime: program lifetime           │\n│  static int x = 5;  lives here        │\n├───────────────────────────────────────┤\n│          CODE SEGMENT (.text)         │\n│  Machine instructions                 │\n│  Read-only (writing → segfault)       │\n│  \"hello\" string literals live here    │\n│  char *s = \"hello\"; → points here     │\n└───────────────────────────────────────┘\nLow address\n```"
+    },
+    {
+      "id": "02-C.md#014",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "**Region-to-declaration mapping:**"
+    },
+    {
+      "id": "02-C.md#015",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "| Declaration | Region | Lifetime | Writable? |\n|-------------|--------|----------|-----------|\n| `int x;` inside function | Stack | Function call | Yes |\n| `int *p = malloc(n)` | Heap | Until `free(p)` | Yes |\n| `static int x = 0;` | Data (.bss/.data) | Program lifetime | Yes |\n| `char *s = \"hello\";` | Code (.text) | Program lifetime | **No** — writing = UB |\n| `char s[] = \"hello\";` | Stack (copy) | Function call | Yes |"
+    },
+    {
+      "id": "02-C.md#016",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-C.md#017",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "## Syntax Reference Card"
+    },
+    {
+      "id": "02-C.md#018",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "### Variables & Types\n```c\nint x = 5;              // declare + init\nint x;                  // declare (indeterminate value on stack — UB to read before assign)\nconst int MAX = 100;    // compile-time constant\nstatic int count = 0;   // static storage duration (lives for program lifetime)\nint a, b, c;            // multiple declarations"
+    },
+    {
+      "id": "02-C.md#019",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "// Integer types\nchar      c = 'A';      // typically 1 byte, may be signed or unsigned\nshort     s = 32767;\nint       i = 2147483647;\nlong      l = 2147483647L;\nlong long ll = 9223372036854775807LL;\nunsigned int u = 4294967295U;"
+    },
+    {
+      "id": "02-C.md#020",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "// Fixed-width (prefer these)\n#include <stdint.h>\nint8_t  int16_t  int32_t  int64_t\nuint8_t uint16_t uint32_t uint64_t"
+    },
+    {
+      "id": "02-C.md#021",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "// Floats\nfloat  f = 3.14f;\ndouble d = 3.14;\n```"
+    },
+    {
+      "id": "02-C.md#022",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "### Equality & Comparison\n```c\nx == y      // value equality (primitives); pointer ADDRESS equality (pointers)\nx != y\nx < y  x > y  x <= y  x >= y"
+    },
+    {
+      "id": "02-C.md#023",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "// Pointer comparison\nint *p = &x, *q = &y;\np == q          // true only if same address (same variable)\n*p == *q        // compare values they point to"
+    },
+    {
+      "id": "02-C.md#024",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "// No .equals() — no objects\n// memcmp(a, b, n) for byte-by-byte struct comparison\n```"
+    },
+    {
+      "id": "02-C.md#025",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "### Logical Operators\n```c\n&&    // logical AND  (short-circuit)\n||    // logical OR   (short-circuit)\n!     // logical NOT"
+    },
+    {
+      "id": "02-C.md#026",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "&     // bitwise AND  (no short-circuit)\n|     // bitwise OR   (no short-circuit)\n^     // bitwise XOR\n~     // bitwise NOT (complement)\n<<    // left shift\n>>    // right shift (arithmetic or logical depending on signedness)\n```"
+    },
+    {
+      "id": "02-C.md#027",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "### Collections\n```c\n// Array (fixed size, stack or static)\nint a[] = {1, 2, 3};          // size inferred\nint a[5] = {1, 2, 3};         // a[3]=0, a[4]=0 (zero-padded)\nint a[3];                     // uninitialized — UB to read"
+    },
+    {
+      "id": "02-C.md#028",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "// Struct\nstruct Point { int x; int y; };\nstruct Point p = {1, 2};      // positional init\nstruct Point p = {.x=1, .y=2}; // designated initializer (C99+)\np.x = 5;"
+    },
+    {
+      "id": "02-C.md#029",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "// No built-in map, set, list — use library or implement\n// Common: uthash.h, khash.h, stb_ds.h"
+    },
+    {
+      "id": "02-C.md#030",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "// Dynamic array (heap)\nint *arr = malloc(n * sizeof(int));\narr[i] = val;\nfree(arr);\n```"
+    },
+    {
+      "id": "02-C.md#031",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "### Control Flow\n```c\n// If\nif (cond) {\n    ...\n} else if (cond2) {\n    ...\n} else {\n    ...\n}"
+    },
+    {
+      "id": "02-C.md#032",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "// Ternary\nint max = (a > b) ? a : b;"
+    },
+    {
+      "id": "02-C.md#033",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "// Switch (fall-through by default!)\nswitch (x) {\n    case 1:\n        printf(\"one\");\n        break;       // without break, falls through\n    case 2: case 3:  // multiple cases\n        printf(\"two or three\");\n        break;\n    default:\n        printf(\"other\");\n}"
+    },
+    {
+      "id": "02-C.md#034",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "// Loops\nfor (int i = 0; i < n; i++) { }\nwhile (cond) { }\ndo { } while (cond);\n```"
+    },
+    {
+      "id": "02-C.md#035",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "### Strings & Characters\n```c\n// char: 1 byte — ASCII/extended ASCII\nchar c = 'A';           // single quotes\nint code = (int)'A';    // 65"
+    },
+    {
+      "id": "02-C.md#036",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "// String: null-terminated char array\nchar *s = \"hello\";            // string literal — READ ONLY (undefined if you write to it)\nchar s[] = \"hello\";           // copies into array — mutable\nchar s[10] = \"hello\";         // 10-byte buffer"
+    },
+    {
+      "id": "02-C.md#037",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "// String operations (stdlib)\n#include <string.h>\nstrlen(s)           // length (not including \\0)\nstrcpy(dst, src)    // copy — dangerous (no bounds)\nstrncpy(dst, src, n)\nstrcat(dst, src)\nstrcmp(a, b)        // 0 if equal, <0 or >0 otherwise\nstrstr(haystack, needle)"
+    },
+    {
+      "id": "02-C.md#038",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "// No interpolation — use printf/sprintf\nprintf(\"Hello, %s! Age: %d\\n\", name, age);\nchar buf[256];\nsnprintf(buf, sizeof(buf), \"Hello, %s!\", name);\n```"
+    },
+    {
+      "id": "02-C.md#039",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "### Null / Pointers\n```c\n#include <stddef.h>\nNULL        // null pointer constant (expands to 0 or (void*)0)"
+    },
+    {
+      "id": "02-C.md#040",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "int *p = NULL;\nif (p != NULL) {    // always check before dereference\n    *p = 5;\n}\n// Dereferencing NULL = segfault (undefined behavior)"
+    },
+    {
+      "id": "02-C.md#041",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "// No Option type — pointers ARE your nullable type\n// Return NULL to signal failure\nint *find(int *arr, int n, int target) {\n    for (int i = 0; i < n; i++)\n        if (arr[i] == target) return &arr[i];\n    return NULL;\n}\n```"
+    },
+    {
+      "id": "02-C.md#042",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "### Functions\n```c\n// Declaration (prototype)\nint add(int a, int b);"
+    },
+    {
+      "id": "02-C.md#043",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "// Definition\nint add(int a, int b) {\n    return a + b;\n}"
+    },
+    {
+      "id": "02-C.md#044",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "// Function pointers (late binding mechanism)\nint (*fn_ptr)(int, int) = &add;\nfn_ptr(1, 2);   // call through pointer"
+    },
+    {
+      "id": "02-C.md#045",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "// Variadic\n#include <stdarg.h>\nint sum(int count, ...) {\n    va_list args;\n    va_start(args, count);\n    int total = 0;\n    for (int i = 0; i < count; i++) total += va_arg(args, int);\n    va_end(args);\n    return total;\n}\n```"
+    },
+    {
+      "id": "02-C.md#046",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "### Error Handling\n```c\n// Convention: return 0 or positive on success, negative on error\n// errno (from <errno.h>) for system call errors"
+    },
+    {
+      "id": "02-C.md#047",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "#include <errno.h>\nFILE *f = fopen(\"file.txt\", \"r\");\nif (f == NULL) {\n    perror(\"fopen\");        // prints: \"fopen: No such file or directory\"\n    fprintf(stderr, \"Error %d: %s\\n\", errno, strerror(errno));\n    return -1;\n}"
+    },
+    {
+      "id": "02-C.md#048",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "// Multiple return values via output parameters\nint divide(int a, int b, int *result) {\n    if (b == 0) return -1;    // error code\n    *result = a / b;\n    return 0;                  // success\n}\n```"
+    },
+    {
+      "id": "02-C.md#049",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-C.md#050",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "## What Makes It Distinct"
+    },
+    {
+      "id": "02-C.md#051",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "1. **No runtime** — compiled directly to machine code; no GC, no runtime type info, no bounds checking\n2. **Undefined behavior (UB)** — a class of \"the standard says anything can happen\" errors: buffer overflow, signed integer overflow, null deref, use-after-free; compilers exploit UB for optimization\n3. **Manual memory** — `malloc`/`free`; no destructor; forget to free = leak; double-free = UB\n4. **Pointers are first-class** — pointer arithmetic, pointer to functions, pointer to pointers; this power is also the danger\n5. **Preprocessor** — `#define`, `#include`, `#ifdef` — textual substitution that runs before compilation; not part of the type system"
+    },
+    {
+      "id": "02-C.md#052",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-C.md#053",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "## Ecosystem"
+    },
+    {
+      "id": "02-C.md#054",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "| Tool | Purpose |\n|------|---------|\n| gcc / clang | Compilers (clang preferred for better diagnostics) |\n| make / cmake | Build systems |\n| gdb / lldb | Debuggers |\n| valgrind | Memory error detection (slow, thorough) |\n| AddressSanitizer | Compiler-instrumented memory checks (fast) |\n| clang-format | Code formatter |\n| cppcheck | Static analysis |"
+    },
+    {
+      "id": "02-C.md#055",
+      "path": [
+        "02-C.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:02-c, git-history:languages:02-c]",
+        "canonical_path": "languages/02-C.md",
+        "concepts": "[c]",
+        "current_path": "languages/02-C.md",
+        "id": "maxim:languages:c",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[c]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: C",
+        "updated": "null"
+      },
+      "text": "No package manager in the Unix tradition — system packages or vendor-in source."
+    }
+  ],
+  "refs": [
+    "02-C.md"
+  ]
+}

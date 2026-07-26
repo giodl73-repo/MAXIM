@@ -70,14 +70,14 @@ commit/push.
 
 ## Validation
 
-- Focused PROOF (MAXIM `proof.toml`) via the `tools-infra/proof` Cargo manifest, scoped to
+- Focused MDLOOM (MAXIM `mdloom.toml`) via the `tools-infra/proof` Cargo manifest, scoped to
   the two prototype guides, re-run after the R1 repairs: **2 files checked, 0 errors, 0
   warnings**.
 - `git diff --check`: clean (no whitespace/conflict markers). The pathology module is still
-  **untracked** (not integrated), so PROOF was run against the two guides explicitly.
+  **untracked** (not integrated), so MDLOOM was run against the two guides explicitly.
 - Structural spot-check: each guide has a single H1, a landscape diagram, a Decision Cheat
   Sheet, balanced code fences, no `@editor` tags, and **0** `you/your`.
-- Source backfill (PROOF sources / CROP / PEBBLE / FLETCH) **not** run — this is a prototype
+- Source backfill (MDLOOM sources / CROP / MDPORT / FLETCH) **not** run — this is a prototype
   boundary review. `medicine/`, `clinical-medicine/`, `sections/`, `.mkdocs/`, and
   `TRACKER.md` untouched. No commit or push.
 

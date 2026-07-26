@@ -1,0 +1,125 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-graph-algorithms-shortest-paths",
+  "source": "../../graph-algorithms",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "03-SHORTEST-PATHS.md#000",
+      "path": [
+        "03-SHORTEST-PATHS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:03-shortest-paths, git-history:graph-algorithms:03-shortest-paths]",
+        "canonical_path": "graph-algorithms/03-SHORTEST-PATHS.md",
+        "concepts": "[Dijkstra, Bellman-Ford, Floyd-Warshall, A-star, shortest paths, relaxation]",
+        "current_path": "graph-algorithms/03-SHORTEST-PATHS.md",
+        "id": "maxim:graph-algorithms:shortest-paths",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[shortest paths]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Shortest Paths",
+        "updated": "null"
+      },
+      "text": "# Shortest Paths — Preconditions Are Everything"
+    },
+    {
+      "id": "03-SHORTEST-PATHS.md#001",
+      "path": [
+        "03-SHORTEST-PATHS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:03-shortest-paths, git-history:graph-algorithms:03-shortest-paths]",
+        "canonical_path": "graph-algorithms/03-SHORTEST-PATHS.md",
+        "concepts": "[Dijkstra, Bellman-Ford, Floyd-Warshall, A-star, shortest paths, relaxation]",
+        "current_path": "graph-algorithms/03-SHORTEST-PATHS.md",
+        "id": "maxim:graph-algorithms:shortest-paths",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[shortest paths]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Shortest Paths",
+        "updated": "null"
+      },
+      "text": "Shortest-path algorithms are distinguished almost entirely by their\n**preconditions**, not their mechanics — which is exactly why they are so easy to misapply. Every one of them is built from a single\noperation — *relaxation* — but each makes a different assumption (non-negative\nweights, acyclicity, no negative cycle) that, if violated, makes the algorithm not\nslow but *incorrect*. The decision tree is the whole content."
+    },
+    {
+      "id": "03-SHORTEST-PATHS.md#002",
+      "path": [
+        "03-SHORTEST-PATHS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:03-shortest-paths, git-history:graph-algorithms:03-shortest-paths]",
+        "canonical_path": "graph-algorithms/03-SHORTEST-PATHS.md",
+        "concepts": "[Dijkstra, Bellman-Ford, Floyd-Warshall, A-star, shortest paths, relaxation]",
+        "current_path": "graph-algorithms/03-SHORTEST-PATHS.md",
+        "id": "maxim:graph-algorithms:shortest-paths",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[shortest paths]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Shortest Paths",
+        "updated": "null"
+      },
+      "text": "```\n  PICK A SHORTEST-PATH ALGORITHM BY ITS PRECONDITION\n  =================================================="
+    },
+    {
+      "id": "03-SHORTEST-PATHS.md#003",
+      "path": [
+        "03-SHORTEST-PATHS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:graph-algorithms:03-shortest-paths, git-history:graph-algorithms:03-shortest-paths]",
+        "canonical_path": "graph-algorithms/03-SHORTEST-PATHS.md",
+        "concepts": "[Dijkstra, Bellman-Ford, Floyd-Warshall, A-star, shortest paths, relaxation]",
+        "current_path": "graph-algorithms/03-SHORTEST-PATHS.md",
+        "id": "maxim:graph-algorithms:shortest-paths",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "graph-algorithms",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[shortest paths]",
+        "section": "mathematics-physics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Shortest Paths",
+        "updated": "null"
+      },
+      "text": "+------------------------------+\n                        | Do you need ALL pairs?        |\n                        +------------------------------+\n                         | yes                  | no (single source)\n                         v                      v\n              +---------------------+   +-------------------------------+\n              | Floyd-Warshall      |   | Are any edge weights NEGATIVE?|\n              | O(V^3), any weights |   +-------------------------------+\n              | no neg cycle (detects|    | no                    | yes\n              | them on diagonal)   |    v                       v\n              +---------------------+  +----------------+  +----------------------+\n                                       | Is graph a DAG?|  | Bellman-Ford         |\n                                       +----------------+  | O(V*E), detects a    |\n                                        | yes      | no    | NEGATIVE CYCLE        |\n                                        v          v       +----------------------+\n                              +----------------+ +-------------------------+\n                              | DAG relaxation | | DIJKSTRA                |\n                              | O(V+E),        | | O((V+E) log V) heap     |\n                              | topo order     | | REQUIRES weights >= 0   |\n                              +----------------+ +-------------------------+\n                                                       |  have a goal + heuristic?\n                                                       v\n                                                  +------------------+\n                                                  | A* : Dijkstra +  |\n                                                  | admissible h(v)  |\n                                                  +------------------+\n```"
+    }
+  ],
+  "refs": [
+    "03-SHORTEST-PATHS.md"
+  ]
+}

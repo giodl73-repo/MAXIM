@@ -17,20 +17,20 @@ This is a guide-specific review, not a cohort score copied across the module. Ev
 content-side threshold used here: average at least 4.5, no dimension below 4, at least three reader
 tasks pass, and no unresolved adversarial BLOCK/WARN. That does **not** establish Certified Gold.
 
-- **Ordinary focused PROOF:** PASS — `14 files checked, 0 errors, 0 warnings` (twelve HCI guides plus
+- **Ordinary focused MDLOOM:** PASS — `14 files checked, 0 errors, 0 warnings` (twelve HCI guides plus
   the two touched siblings).
 - **Adversarial review:** prototype R1/R2 (`05`, `08`) and **full-module R1 (all 12 guides)** complete;
   all findings repaired; final reviewer **PASS**; Pulse 02 **DONE**.
-- **Da Vinci:** **no HCI-specific invariant** exists in `proof.toml`; ordinary PROOF cleanliness must
+- **Da Vinci:** **no HCI-specific invariant** exists in `mdloom.toml`; ordinary MDLOOM cleanliness must
   not be represented as Da Vinci coverage.
-- **Source custody:** `partial` for all twelve. PROOF literal backfill is recorded for 12/12; Git
+- **Source custody:** `partial` for all twelve. MDLOOM literal backfill is recorded for 12/12; Git
   provenance is recorded for 0/12 and **pending for 12/12** because `human-computer-interaction/` is
   untracked; authentic external/primary-source custody remains incomplete.
 - **Registry:** **no row** is added to `context/gold/REGISTRY.md`; no Certified Gold or
   Candidate-Hardened claim.
 
 The strongest honest tier is **Silver**: the guides are editorially strong, adversarially repaired,
-and ordinary-PROOF-clean, but lack HCI-specific Da Vinci protection and complete source custody.
+and ordinary-MDLOOM-clean, but lack HCI-specific Da Vinci protection and complete source custody.
 Those gaps are future optional promotion work; the completed Pulse-02 module remains **Silver**.
 
 ---
@@ -59,7 +59,7 @@ Those gaps are future optional promotion work; the completed Pulse-02 module rem
 | Split a high-consequence interface three ways. | **PASS** — Task 4 divides an infusion-pump UI across HCI, `human-factors/`, and `law/`. |
 
 **Adversarial status:** RE-04 (lineage ownership) repaired; no finding open.
-**Ordinary PROOF:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial (proof-backfill;
+**Ordinary MDLOOM:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial (mdloom-backfill;
 Git pending). **Tier: Silver.**
 
 ---
@@ -88,7 +88,7 @@ Git pending). **Tier: Silver.**
 | Explain a persistence honestly. | **PASS** — Task 3 answers "why files and folders on phones?" with installed-base/relearning-cost logic, and (post-ES-01) *not* a clean optimality claim. |
 
 **Adversarial status:** ES-01 (QWERTY clean verdict) repaired; no finding open.
-**Ordinary PROOF:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial. **Tier: Silver.**
+**Ordinary MDLOOM:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial. **Tier: Silver.**
 
 ---
 
@@ -116,7 +116,7 @@ Git pending). **Tier: Silver.**
 | Match the model to the right evidence. | **PASS** — the new Task 6 routes a team-coordination claim to a field study (`06`) + `09` outcomes, not a single-user think-aloud, per the repaired banner. |
 
 **Adversarial status:** ES-02 (unit-of-analysis mismatch) repaired; no finding open.
-**Ordinary PROOF:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial. **Tier: Silver.**
+**Ordinary MDLOOM:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial. **Tier: Silver.**
 
 ---
 
@@ -144,7 +144,7 @@ Git pending). **Tier: Silver.**
 | Demand a complete text-entry claim. | **PASS** — Task 3 lists WPM + error rate + sample + corpus for "our keyboard is 15% faster." |
 
 **Adversarial status:** RE-10 (effective throughput; QWERTY aside) repaired; no finding open.
-**Ordinary PROOF:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial. **Tier: Silver.**
+**Ordinary MDLOOM:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial. **Tier: Silver.**
 
 ---
 
@@ -172,7 +172,7 @@ Git pending). **Tier: Silver.**
 | Catch a self-validating design. | **PASS** — Task 3 rejects "the persona proves it" and "the demo wowed execs" and names what would validate. |
 
 **Adversarial status:** RE-02 (six principles; self-contained task) repaired; no finding open.
-**Ordinary PROOF:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial. **Tier: Silver.**
+**Ordinary MDLOOM:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial. **Tier: Silver.**
 
 ---
 
@@ -200,7 +200,7 @@ Git pending). **Tier: Silver.**
 | Interpret a SUS score correctly. | **PASS** — Task 3 treats SUS 72 as a scaled score (not 72% satisfied), roughly average-plus, perceived and non-diagnostic. |
 
 **Adversarial status:** prototype R1/R2 signed off; full-module ES-07 (0.31 vs ~35%; n=8) repaired;
-no finding open. **Ordinary PROOF:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial.
+no finding open. **Ordinary MDLOOM:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial.
 **Tier: Silver.**
 
 ---
@@ -229,7 +229,7 @@ no finding open. **Ordinary PROOF:** PASS, 0/0. **Da Vinci:** missing. **Source 
 | Refuse to treat a diary as ground truth. | **PASS** — Task 3 names missingness/reactivity at 55% compliance rather than reading logs as complete. |
 
 **Adversarial status:** no guide-specific full-module finding; unit-of-analysis discipline consistent
-with `02`/`09`. **Ordinary PROOF:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial.
+with `02`/`09`. **Ordinary MDLOOM:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial.
 **Tier: Silver.**
 
 ---
@@ -258,7 +258,7 @@ with `02`/`09`. **Ordinary PROOF:** PASS, 0/0. **Da Vinci:** missing. **Source c
 | Scrutinize a high-risk chart. | **PASS** — the repaired Task 4 separates the truncated-baseline distortion from the high-risk/manipulable dual axis and gives the honest redesign. |
 
 **Adversarial status:** ES-06 (dual axes) and RE-05 (search depth; first-click source) repaired; no
-finding open. **Ordinary PROOF:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial.
+finding open. **Ordinary MDLOOM:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial.
 **Tier: Silver.**
 
 ---
@@ -287,7 +287,7 @@ finding open. **Ordinary PROOF:** PASS, 0/0. **Da Vinci:** missing. **Source cus
 | Place responsibility on the right owner. | **PASS** — Task 3 splits "no accessible name" / "operator overloaded" / "legally required?" across HCI, `human-factors/`, `law/`. |
 
 **Adversarial status:** prototype R1/R2 signed off; full-module RE-09 (overlay source) repaired; no
-finding open. **Ordinary PROOF:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial.
+finding open. **Ordinary MDLOOM:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial.
 **Tier: Silver.**
 
 ---
@@ -316,7 +316,7 @@ finding open. **Ordinary PROOF:** PASS, 0/0. **Da Vinci:** missing. **Source cus
 | Measure the right (group) outcome. | **PASS** — the worked case measures handoff completeness, dropped/unacknowledged items, awareness accuracy, and participation — not clicks or a lone SUS. |
 
 **Adversarial status:** ES-04 (patient-safety coupling) repaired; no finding open.
-**Ordinary PROOF:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial. **Tier: Silver.**
+**Ordinary MDLOOM:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial. **Tier: Silver.**
 
 ---
 
@@ -344,7 +344,7 @@ finding open. **Ordinary PROOF:** PASS, 0/0. **Da Vinci:** missing. **Source cus
 | Hold a tangible/ubicomp claim to the bar. | **PASS** — the new Task 6 credits affordances/periphery and keeps a "calm ambient" claim formative until field-proven. |
 
 **Adversarial status:** ES-05 (BCI dating) and RE-06 (tangible task/row) repaired; no finding open.
-**Ordinary PROOF:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial. **Tier: Silver.**
+**Ordinary MDLOOM:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial. **Tier: Silver.**
 
 ---
 
@@ -372,7 +372,7 @@ finding open. **Ordinary PROOF:** PASS, 0/0. **Da Vinci:** missing. **Source cus
 | Make a sustainability default call. | **PASS** — the new Task 7 names the environmental + inclusion cost of auto-play-4K-on-cellular and gives the honest low-consumption default. |
 
 **Adversarial status:** RE-03 (ACM duty vs right) and RE-07 (sustainability microcase) repaired; no
-finding open. **Ordinary PROOF:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial.
+finding open. **Ordinary MDLOOM:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial.
 **Tier: Silver.**
 
 ---
@@ -381,8 +381,8 @@ finding open. **Ordinary PROOF:** PASS, 0/0. **Da Vinci:** missing. **Source cus
 
 - **Tier:** **Silver** for all twelve guides — average ≥ 4.5, no dimension < 4, ≥ 3 reader tasks pass,
   no unresolved adversarial BLOCK/WARN.
-- **Not Gold:** no HCI-specific Da Vinci invariant in `proof.toml`; source custody `partial`
-  (proof-backfill literal only; Git provenance pending on an untracked module; external custody
+- **Not Gold:** no HCI-specific Da Vinci invariant in `mdloom.toml`; source custody `partial`
+  (mdloom-backfill literal only; Git provenance pending on an untracked module; external custody
   incomplete).
 - **Registry:** **no row** added to `context/gold/REGISTRY.md`; no Certified Gold / Candidate-Hardened.
 - **Pulse gate:** **PASS; Pulse 02 DONE.** The conservative full-module findings are repaired and the

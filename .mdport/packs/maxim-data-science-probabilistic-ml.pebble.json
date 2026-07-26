@@ -1,0 +1,237 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-data-science-probabilistic-ml",
+  "source": "../../data-science",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "08-PROBABILISTIC-ML.md#000",
+      "path": [
+        "08-PROBABILISTIC-ML.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:08-probabilistic-ml, git-history:data-science:08-probabilistic-ml]",
+        "canonical_path": "data-science/08-PROBABILISTIC-ML.md",
+        "concepts": "[probabilistic, ml]",
+        "current_path": "data-science/08-PROBABILISTIC-ML.md",
+        "id": "maxim:data-science:probabilistic-ml",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probabilistic, ml]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Probabilistic Machine Learning",
+        "updated": "null"
+      },
+      "text": "# Probabilistic Machine Learning\n## Uncertainty as a First-Class Citizen"
+    },
+    {
+      "id": "08-PROBABILISTIC-ML.md#001",
+      "path": [
+        "08-PROBABILISTIC-ML.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:08-probabilistic-ml, git-history:data-science:08-probabilistic-ml]",
+        "canonical_path": "data-science/08-PROBABILISTIC-ML.md",
+        "concepts": "[probabilistic, ml]",
+        "current_path": "data-science/08-PROBABILISTIC-ML.md",
+        "id": "maxim:data-science:probabilistic-ml",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probabilistic, ml]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Probabilistic Machine Learning",
+        "updated": "null"
+      },
+      "text": "```\nPROBABILISTIC ML LANDSCAPE\n                                                 tractable?\n                              ┌──────────────────────────────────────────────┐\n                              │  EXACT                     APPROXIMATE       │\n                              ├──────────────────────────────────────────────┤\n         parametric  ─────►  │  Conjugate Bayes  │  MAP (point)             │\n         (fixed H)            │  (closed-form     │  Variational Inference   │\n                              │   posterior)      │  (ELBO optimization)     │\n                              │                   │  VAE (amortized VI)      │\n                              │                   │  Normalizing Flows       │\n                              ├───────────────────┼──────────────────────────┤\n        non-parametric ────►  │  GP (exact for    │  MCMC / HMC / NUTS       │\n        (H grows w/ data)     │   small n)        │  (sampling approx.)      │\n                              │                   │  Sparse GP (inducing pts)│\n                              └───────────────────┴──────────────────────────┘\n                                    ↑ O(n³)           ↑ O(cost per sample)"
+    },
+    {
+      "id": "08-PROBABILISTIC-ML.md#002",
+      "path": [
+        "08-PROBABILISTIC-ML.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:08-probabilistic-ml, git-history:data-science:08-probabilistic-ml]",
+        "canonical_path": "data-science/08-PROBABILISTIC-ML.md",
+        "concepts": "[probabilistic, ml]",
+        "current_path": "data-science/08-PROBABILISTIC-ML.md",
+        "id": "maxim:data-science:probabilistic-ml",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probabilistic, ml]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Probabilistic Machine Learning",
+        "updated": "null"
+      },
+      "text": "Generation quality axis:  Diffusion models (DDPM/DDIM) — score-based, SOTA quality\n  Explicit density:         VAE (lower bound) · Flow (exact) · Diffusion (tractable score)\n  Implicit density:         GAN (no density, just samples)\n```"
+    },
+    {
+      "id": "08-PROBABILISTIC-ML.md#003",
+      "path": [
+        "08-PROBABILISTIC-ML.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:08-probabilistic-ml, git-history:data-science:08-probabilistic-ml]",
+        "canonical_path": "data-science/08-PROBABILISTIC-ML.md",
+        "concepts": "[probabilistic, ml]",
+        "current_path": "data-science/08-PROBABILISTIC-ML.md",
+        "id": "maxim:data-science:probabilistic-ml",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probabilistic, ml]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Probabilistic Machine Learning",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-PROBABILISTIC-ML.md#004",
+      "path": [
+        "08-PROBABILISTIC-ML.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:08-probabilistic-ml, git-history:data-science:08-probabilistic-ml]",
+        "canonical_path": "data-science/08-PROBABILISTIC-ML.md",
+        "concepts": "[probabilistic, ml]",
+        "current_path": "data-science/08-PROBABILISTIC-ML.md",
+        "id": "maxim:data-science:probabilistic-ml",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probabilistic, ml]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Probabilistic Machine Learning",
+        "updated": "null"
+      },
+      "text": "## Frequentist ↔ Bayesian Bridge"
+    },
+    {
+      "id": "08-PROBABILISTIC-ML.md#005",
+      "path": [
+        "08-PROBABILISTIC-ML.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:08-probabilistic-ml, git-history:data-science:08-probabilistic-ml]",
+        "canonical_path": "data-science/08-PROBABILISTIC-ML.md",
+        "concepts": "[probabilistic, ml]",
+        "current_path": "data-science/08-PROBABILISTIC-ML.md",
+        "id": "maxim:data-science:probabilistic-ml",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probabilistic, ml]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Probabilistic Machine Learning",
+        "updated": "null"
+      },
+      "text": "The same quantities appear in both frameworks under different names and with different\nsemantics. Neither is more \"correct\" — they answer different questions:"
+    },
+    {
+      "id": "08-PROBABILISTIC-ML.md#006",
+      "path": [
+        "08-PROBABILISTIC-ML.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:08-probabilistic-ml, git-history:data-science:08-probabilistic-ml]",
+        "canonical_path": "data-science/08-PROBABILISTIC-ML.md",
+        "concepts": "[probabilistic, ml]",
+        "current_path": "data-science/08-PROBABILISTIC-ML.md",
+        "id": "maxim:data-science:probabilistic-ml",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probabilistic, ml]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Probabilistic Machine Learning",
+        "updated": "null"
+      },
+      "text": "```\nFrequentist                                 Bayesian\n──────────────────────────────────────────  ────────────────────────────────────────────\nθ is fixed and unknown                      θ is random with prior distribution p(θ)"
+    },
+    {
+      "id": "08-PROBABILISTIC-ML.md#007",
+      "path": [
+        "08-PROBABILISTIC-ML.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:08-probabilistic-ml, git-history:data-science:08-probabilistic-ml]",
+        "canonical_path": "data-science/08-PROBABILISTIC-ML.md",
+        "concepts": "[probabilistic, ml]",
+        "current_path": "data-science/08-PROBABILISTIC-ML.md",
+        "id": "maxim:data-science:probabilistic-ml",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probabilistic, ml]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Probabilistic Machine Learning",
+        "updated": "null"
+      },
+      "text": "MLE: θ̂ = argmax p(D | θ)                   MAP: θ̂ = argmax p(θ|D) = argmax[log p(D|θ)+log p(θ)]\n→ maximizes data likelihood                 → MLE with a regularization term (log prior)\n→ MLE = MAP with flat (uniform) prior"
+    }
+  ],
+  "refs": [
+    "08-PROBABILISTIC-ML.md"
+  ]
+}

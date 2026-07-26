@@ -1,0 +1,1441 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-number-theory-modular-arithmetic",
+  "source": "../../number-theory",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#000",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "# Modular Arithmetic"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#001",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#002",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "```\n+====================================================================+\n|              MODULAR ARITHMETIC — THE RING Z/nZ                    |\n+====================================================================+\n|                                                                    |\n|  Z/nZ = {0, 1, 2, ..., n-1} with + and × defined mod n           |\n|                                                                    |\n|  STRUCTURE DEPENDS ON n:                                          |\n|                                                                    |\n|  n = p (prime)           n = p^k              n composite         |\n|  +-----------------+    +------------------+ +------------------+ |\n|  |Z/pZ is a FIELD  |    |Z/p^kZ is a ring  | |Z/nZ is a ring    | |\n|  |every nonzero    |    |not a field       | |may have zero     | |\n|  |element has      |    |(p is a zero      | |divisors          | |\n|  |multiplicative   |    |divisor mod p^k   | |e.g. 2·3≡0(mod 6) | |\n|  |inverse          |    |but not a unit)   | |                  | |\n|  +-----------------+    +------------------+ +------------------+ |\n|          |                                           |            |\n|          v                                           v            |\n|  (Z/pZ)* is cyclic               CRT: Z/mnZ ≅ Z/mZ × Z/nZ       |\n|  order p-1                       when gcd(m,n)=1                  |\n+====================================================================+\n```"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#003",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "**The key question for any n**: what is the multiplicative structure of\n(Z/nZ)*? Answer: it's abelian, and its exact structure determines everything\nfrom RSA correctness to discrete logarithm hardness."
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#004",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#005",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "## Congruences"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#006",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "```\na ≡ b (mod n)  ⟺  n | (a - b)  ⟺  a = b + kn for some k ∈ Z"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#007",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "Equivalence relation:\n  Reflexive:   a ≡ a (mod n)\n  Symmetric:   a ≡ b → b ≡ a\n  Transitive:  a ≡ b, b ≡ c → a ≡ c"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#008",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "Congruences respect + and ×:\n  If a ≡ b (mod n) and c ≡ d (mod n), then:\n  a + c ≡ b + d (mod n)\n  a · c ≡ b · d (mod n)"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#009",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "This is the ring homomorphism Z → Z/nZ."
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#010",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "Division is NOT always valid:\n  6 ≡ 2 (mod 4)  but  3 ≡ 1 (mod 2)  (divide by 2, halve modulus)\n  ac ≡ bc (mod n) does NOT imply a ≡ b (mod n) in general.\n  It implies a ≡ b (mod n/gcd(c,n)).\n```"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#011",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#012",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "## Linear Congruences"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#013",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "```\nSolve: ax ≡ b (mod n)"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#014",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "Step 1: d = gcd(a, n)\nStep 2: If d ∤ b → NO solution\nStep 3: If d | b → exactly d solutions mod n\n        Divide through by d: (a/d)x ≡ (b/d) (mod n/d)\n        Solve using extended Euclidean (now gcd(a/d, n/d) = 1)\n        Solutions: x₀, x₀ + n/d, x₀ + 2n/d, ..., x₀ + (d-1)n/d"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#015",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "Special case: a·x ≡ 1 (mod n) — the modular inverse\n  Exists iff gcd(a,n) = 1\n  Unique mod n\n  Computed by Extended Euclidean\n```"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#016",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#017",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "## Chinese Remainder Theorem (CRT)"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#018",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "```\nTHEOREM: If n = n₁·n₂·...·nₖ with nᵢ pairwise coprime, then:\n  Z/nZ ≅ Z/n₁Z × Z/n₂Z × ... × Z/nₖZ\nas rings."
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#019",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "CONSEQUENCE: The system\n  x ≡ a₁ (mod n₁)\n  x ≡ a₂ (mod n₂)\n  ...\n  x ≡ aₖ (mod nₖ)\nhas a UNIQUE solution mod n = n₁·n₂·...·nₖ."
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#020",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "CONSTRUCTION:\n  N = n₁·n₂·...·nₖ\n  Nᵢ = N/nᵢ\n  Mᵢ = Nᵢ⁻¹ mod nᵢ  (compute via Extended Euclidean)\n  x = Σ aᵢ·Nᵢ·Mᵢ  (mod N)\n```"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#021",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "### CRT Example"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#022",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "```\nx ≡ 2 (mod 3)\nx ≡ 3 (mod 5)\nx ≡ 2 (mod 7)"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#023",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "N = 105, N₁=35, N₂=21, N₃=15\nM₁ = 35⁻¹ mod 3 = 2⁻¹ mod 3 = 2  (since 2·2=4≡1)\nM₂ = 21⁻¹ mod 5 = 1⁻¹ mod 5 = 1  (since 21≡1 mod 5)\nM₃ = 15⁻¹ mod 7 = 1⁻¹ mod 7 = 1  (since 15≡1 mod 7)"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#024",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "x = 2·35·2 + 3·21·1 + 2·15·1 = 140 + 63 + 30 = 233 ≡ 23 (mod 105)"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#025",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "Check: 23 mod 3 = 2 ✓, 23 mod 5 = 3 ✓, 23 mod 7 = 2 ✓\n```"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#026",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "### CRT Applications"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#027",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "```\nRSA speedup:\n  Decryption: m = c^d mod n (n = pq)\n  Without CRT: one big exponentiation mod n\n  With CRT:\n    m_p = c^{d mod (p-1)} mod p  ← small modulus\n    m_q = c^{d mod (q-1)} mod q  ← small modulus\n    Combine via CRT\n  Speedup: ~4× (two quarter-size exponentiations vs one full-size)\n  This is how all real RSA implementations work."
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#028",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "Integer arithmetic in multi-precision:\n  Represent big integer as residues mod several small primes.\n  Arithmetic is parallel, no carries.\n  Recover result via CRT.\n  Used in: NTT-based polynomial multiplication (cryptography).\n```"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#029",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#030",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "## Euler's Phi Function"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#031",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "```\nφ(n) = |{k : 1 ≤ k ≤ n, gcd(k,n) = 1}|"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#032",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "Multiplicative: φ(mn) = φ(m)φ(n) when gcd(m,n) = 1\nFormula: φ(n) = n · ∏_{p|n} (1 - 1/p)"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#033",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "Examples:\n  φ(1) = 1\n  φ(p) = p-1  (for prime p)\n  φ(p^k) = p^k - p^{k-1} = p^{k-1}(p-1)\n  φ(12) = φ(4)·φ(3) = 2·2 = 4  → {1,5,7,11}\n  φ(pq) = (p-1)(q-1)  for distinct primes p,q  ← RSA key formula"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#034",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "Sum formula: Σ_{d|n} φ(d) = n\n  (Proof: partition {1,...,n} by gcd(k,n))\n```"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#035",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#036",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "## Fermat's Little Theorem and Euler's Theorem"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#037",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "```\nFERMAT'S LITTLE THEOREM (1640, proved Euler 1736):\n  If p is prime and p ∤ a, then:\n  a^{p-1} ≡ 1 (mod p)\n  Equivalently: a^p ≡ a (mod p) for ALL a."
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#038",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "Proof: Consider {a, 2a, 3a, ..., (p-1)a} mod p.\n  These are all distinct and nonzero (since p ∤ a and p prime).\n  So they're a permutation of {1, 2, ..., p-1}.\n  Product: a^{p-1}·(p-1)! ≡ (p-1)! (mod p)\n  Cancel (p-1)!: a^{p-1} ≡ 1.  □"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#039",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "EULER'S THEOREM (generalization):\n  If gcd(a,n) = 1, then:\n  a^{φ(n)} ≡ 1 (mod n)"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#040",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "Proof: same argument with (Z/nZ)* (the invertible elements mod n).\n  |((Z/nZ)*)| = φ(n). The set {a·k : k ∈ (Z/nZ)*} permutes (Z/nZ)*.\n  Product argument gives a^{φ(n)} ≡ 1.  □"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#041",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "RSA CORRECTNESS:\n  Choose e,d with ed ≡ 1 (mod φ(n)).  [n=pq, φ(n)=(p-1)(q-1)]\n  Encryption: c = m^e mod n\n  Decryption: c^d = m^{ed} = m^{1+kφ(n)} = m·(m^{φ(n)})^k ≡ m·1^k = m\n  (using Euler's theorem, valid when gcd(m,n)=1 — almost always true)\n```"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#042",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "### Wilson's Theorem"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#043",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "```\np is prime  ⟺  (p-1)! ≡ -1 (mod p)"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#044",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "Left to right: (p-1)! mod p. Elements with self-inverse:\n  x² ≡ 1 (mod p) → x ≡ ±1. Only 1 and p-1.\n  All other elements pair off with distinct inverses.\n  Product = 1·...·(paired terms each = 1)·...(p-1) = (p-1) ≡ -1."
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#045",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "Right to left: If p composite, p = ab with 1 < a,b < p.\n  Then a | (p-1)!, so (p-1)! ≡ 0 (mod a), not ≡ -1 (mod p)."
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#046",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "Practical: Wilson's theorem is not useful for testing primality\n  (computing (p-1)! requires exponential time in digits of p).\n  But it's a clean characterization.\n```"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#047",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#048",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "## Structure of (Z/nZ)*"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#049",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "```\nSTRUCTURE THEOREM:\n  (Z/nZ)* ≅\n    trivial                          if n = 1\n    Z/2                              if n = 2\n    Z/(p-1)                          if n = p (prime) — CYCLIC\n    Z/(p^{k-1}(p-1))                 if n = p^k (odd prime)\n    Z/2 × Z/2^{k-2}                  if n = 2^k, k ≥ 3\n    product of above                  if n = p₁^{a₁}·...·pₖ^{aₖ}"
+    },
+    {
+      "id": "02-MODULAR-ARITHMETIC.md#050",
+      "path": [
+        "02-MODULAR-ARITHMETIC.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:number-theory:02-modular-arithmetic, git-history:number-theory:02-modular-arithmetic]",
+        "canonical_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "concepts": "[modular, arithmetic]",
+        "current_path": "number-theory/02-MODULAR-ARITHMETIC.md",
+        "id": "maxim:number-theory:modular-arithmetic",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "number-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[modular, arithmetic]",
+        "section": "number-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modular Arithmetic",
+        "updated": "null"
+      },
+      "text": "CRITICAL FACT: (Z/pZ)* is cyclic of order p-1.\n  A generator is called a PRIMITIVE ROOT mod p.\n  Its powers hit every nonzero element mod p.\n  This is the foundation of Diffie-Hellman."
+    }
+  ],
+  "refs": [
+    "02-MODULAR-ARITHMETIC.md"
+  ]
+}

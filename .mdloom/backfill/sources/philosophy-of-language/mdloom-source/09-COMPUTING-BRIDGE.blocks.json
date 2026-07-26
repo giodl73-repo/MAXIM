@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "philosophy-of-language\\09-COMPUTING-BRIDGE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Deep Connection",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n|                    PHIL OF LANGUAGE ↔ COMPUTING                       |\n|                                                                       |\n|  PHILOSOPHY                          COMPUTING                        |\n|  -----------                         --------                         |\n|                                                                       |\n|  Frege's sense/reference  ─────────→ Lambda calculus (Church 1936)    |\n|  Function/argument form               Types (Church's STT 1940)       |\n|                                                                       |\n|  Compositionality ─────────────────→ Denotational semantics           |\n|  (meaning from parts)                (Scott/Strachey 1970s)           |\n|                                                                       |\n|  Montague grammar ─────────────────→ Semantic parsing / NLU           |\n|  (NL as formal language)             Type-theoretic semantics         |\n|                                                                       |\n|  Truth conditions ─────────────────→ Formal verification, Hoare logic |\n|  (what makes statements true)        (pre/post conditions)            |\n|                                                                       |\n|  Possible worlds semantics ────────→ Modal logics in CS:              |\n|  (necessity, possibility)             temporal logic, dynamic logic   |\n|                                       epistemic logic for knowledge   |\n|                                       representation                  |\n|                                                                       |\n|  Speech acts / pragmatics ─────────→ API design, protocol specs,      |\n|  (what utterances DO)                 command languages               |\n|                                                                       |\n|  Private language argument ────────→ Public interfaces, type systems, |\n|  (meaning requires public criteria)   contracts, specifications       |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 66,
+      "heading_context": "### The Curry-Howard Correspondence",
+      "confidence": "candidate",
+      "text": "  PROPOSITIONS AS TYPES / MDLOOMS AS PROGRAMS:\n\n  LOGIC                         TYPE THEORY / PROGRAMMING\n  -----                         -------------------------\n  Proposition A                 Type A\n  Proof of A                    Term of type A (a program)\n  A → B (implication)           A → B (function type)\n  A ∧ B (conjunction)           A × B (product type / tuple)\n  A ∨ B (disjunction)           A + B (sum type / Either)\n  ⊥ (false)                     Void (empty type / never)\n  ¬A (negation A → ⊥)           A → Void\n  ∀x:A.B(x) (universal)         Π-type / dependent function type\n  ∃x:A.B(x) (existential)        Σ-type / dependent pair type\n\n  LOGICAL OPERATIONS:\n  Modus ponens (A, A→B ⊢ B)    Function application (f a : B)\n  Proof combination             Tuple construction\n  Curry-Howard:  proving a proposition = writing a program of that type\n  A proof that doesn't terminate corresponds to a diverging proof.\n  Proof normalization = program evaluation (β-reduction).\n\n  LANGUAGES EXPLOITING THIS:\n  Coq, Agda, Lean: dependent type theory as proof assistant.\n  Idris, F*: dependently typed programming with proofs.\n  Haskell: Hindley-Milner type system (intuitionistic logic fragment).\n  Rust: linear types (intuitionistic linear logic fragment).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 137,
+      "heading_context": "### Types as Meanings",
+      "confidence": "candidate",
+      "text": "  IN MONTAGUE GRAMMAR:\n  \"walks\" has type e → t\n  This tells us: \"walks\" MEANS a function from individuals to truth values.\n  The TYPE encodes the meaning's SHAPE.\n\n  IN PROGRAMMING LANGUAGES:\n  f : Int → Int → Bool\n  This tells us: f takes two integers and returns a boolean.\n  The TYPE encodes the computation's SHAPE.\n\n  HOWARD'S OBSERVATION:\n  Types ARE propositions.\n  A function of type A → B is a proof that A implies B.\n  Writing a program of type A is constructing evidence of A.\n\n  DEPENDENT TYPES EXTEND THIS:\n  Π (x : Nat). Vec Nat x   → \"for all n, a vector of length n\"\n  Σ (x : Nat). Vec Nat x   → \"some n and a vector of length n\"\n  = types that DEPEND on values\n  = propositions with quantifiers over values\n  = the full predicate calculus encoded in types\n\n  ML's POLYMORPHISM (∀ a. a → a):\n  The type ∀a.a→a (the identity function's type).\n  This is a second-order formula: for all types a, a function a→a.\n  Girard/Reynolds parametricity: the ONLY inhabitant is the identity.\n  Types are propositions; polymorphic types are second-order propositions.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 173,
+      "heading_context": "## Reference, Scope, and Binding",
+      "confidence": "candidate",
+      "text": "  NAMES IN PHILOSOPHY:           IDENTIFIERS IN PLs:\n  --------------------           -------------------\n  Rigid designator                 Free variable (refers to something)\n  (Kripke: name → object)          x in \"x + 1\" refers to x's binding\n\n  Definite description             Expression with implicit existential:\n  (Russell: the F)                 \"array[i]\" = \"the element at index i\"\n                                   — implicitly requires i to be valid\n\n  Sense (Frege)                    Name in an expression: has type\n  = mode of presentation           (how the compiler \"sees\" it)\n  (how the object is accessed)\n\n  Reference                        The value bound to the identifier\n  = the actual object              at runtime\n\n  Non-referring names              Null/undefined/void\n  (\"the present king of            = the failure of a name to bind\n  France has no reference\")        to a valid value\n\n  SCOPE AND BINDING:\n  \"∀x.P(x)\" — x is BOUND inside P(x).\n  \"λx. body\" — x is bound in body. β-reduction substitutes.\n  A free variable in a term = an unresolved reference.\n  A closed term = no free variables = self-contained meaning.\n  A well-typed closed term = a complete, meaningful program.\n\n  SHADOWING: inner x shadows outer x = same surface syntax,\n  different binding context. Exactly the referent/sense split:\n  same \"name,\" different reference contexts.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 212,
+      "heading_context": "## Modal Logic in Computer Science",
+      "confidence": "candidate",
+      "text": "  TEMPORAL LOGIC:\n  Worlds = program states (or time points).\n  Accessibility = \"next state\" / \"reachable state\" relation.\n\n  LTL (Linear Temporal Logic):\n  □P   = P holds now and in all future states\n  ◇P   = P holds now or at some future state\n  Xp   = P holds at the NEXT state\n  P U Q = P holds until Q holds\n\n  CTL (Computation Tree Logic):\n  AG P  = Along All paths, Globally P (for all futures)\n  EF P  = there Exists a path where eventually P\n  AF P  = Along all paths, eventually P (liveness)\n  EG P  = there Exists a path where Globally P\n\n  MODEL CHECKING (Clarke, Emerson, Sifakis — Turing Award 2007):\n  Given: a Kripke model M and a temporal formula φ.\n  Check: M ⊨ φ  (does the model satisfy the formula?)\n  Used in: hardware verification, protocol verification,\n  operating system correctness proofs.\n  Azure Service Fabric: uses model checking for protocol validation.\n\n  DYNAMIC LOGIC:\n  [α]P = \"after program α, P holds\" (all executions)\n  ⟨α⟩P = \"after program α, P holds\" (some execution)\n  Hoare triple: {P} α {Q} = [α under P → Q]\n  = Pre/post condition reasoning for programs.\n  This is Hoare logic expressed as dynamic modal logic.\n\n  EPISTEMIC LOGIC:\n  Worlds = possible situations an agent considers possible.\n  KiP = \"agent i knows P\"\n  = P is true in all worlds agent i cannot distinguish from actual.\n  Used in: multi-agent systems, cryptographic protocol verification,\n  game theory, distributed systems consensus reasoning.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 257,
+      "heading_context": "## Pragmatics and API Design",
+      "confidence": "candidate",
+      "text": "  SPEECH ACTS → API SEMANTICS:\n\n  Austin's felicity conditions:\n  For a speech act to succeed: right person, right context,\n  right procedure, complete execution.\n\n  API PRECONDITIONS (same structure):\n  List.RemoveAt(i):\n  - Object must be initialized (right context)\n  - i must be in bounds (precondition / felicity condition)\n  - Caller must have appropriate access (right person)\n  = Violation → exception (like a misfire)\n\n  PERFORMATIVE DECLARATIONS → SIDE-EFFECTING OPERATIONS:\n  \"I hereby fire you\" = declarative that changes institutional state.\n  db.SaveChanges() = declarative that changes database state.\n  Thread.Start() = performative that creates a new thread.\n\n  LOCUTIONARY / ILLOCUTIONARY / PERLOCUTIONARY:\n  Method call (locutionary) → its intended effect (illocutionary) →\n  actual side effects on the system (perlocutionary).\n\n  GRICE'S MAXIMS → GOOD API DESIGN:\n  Quantity: provide necessary information, not more\n  = minimal API surface; no spurious parameters\n  Quality: say what is true\n  = accurate documentation; no misleading method names\n  Relation: be relevant\n  = methods grouped by concern; no leaky abstractions\n  Manner: be clear and orderly\n  = consistent naming conventions; no surprise behaviors\n\n  \"API DESIGN IS COMMUNICATION DESIGN.\"\n  An API is a language with a syntax (signatures), a semantics\n  (what calls do), and pragmatics (how they are used in context).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 334,
+      "heading_context": "## Frege's Sense/Reference in Type Systems",
+      "confidence": "candidate",
+      "text": "  FREGE:\n  \"Hesperus\" (sense) → Venus (reference)\n  \"Phosphorus\" (sense) → Venus (same reference, different sense)\n\n  PROGRAMMING:\n  List<int> (type = sense) → the runtime list object (reference)\n  object (base type sense) → same runtime object (same reference)\n\n  TYPE COVARIANCE:\n  \"Hesperus = Phosphorus\" is informative (different senses, same ref).\n  string = IEnumerable<char> is informative\n  (different types, but one is the other's implementation).\n\n  NOMINAL vs STRUCTURAL TYPING:\n  Nominal (Java/C#): types are identified by NAME (= Fregean sense).\n  Two classes with identical structure but different names = different types.\n  Structural (Go interfaces, TypeScript): types are identified by STRUCTURE.\n  Two types with the same structure are interchangeable.\n  = Closer to reference than to sense.\n\n  NEWTYPE / OPAQUE TYPES:\n  newtype Email = Email String  -- Haskell\n  record Email(string Value); // C# record struct\n  Same underlying representation (sense = same structure)\n  But DIFFERENT types in the type system.\n  = Frege's insight: same reference (string) but different senses (Email, Name).\n  The purpose of newtype/opaque types IS Frege's distinction,\n  applied to the domain of values and types.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

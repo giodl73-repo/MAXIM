@@ -1,0 +1,125 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-numerical-methods-numerical-integration",
+  "source": "../../numerical-methods",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "05-NUMERICAL-INTEGRATION.md#000",
+      "path": [
+        "05-NUMERICAL-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:05-numerical-integration, git-history:numerical-methods:05-numerical-integration]",
+        "canonical_path": "numerical-methods/05-NUMERICAL-INTEGRATION.md",
+        "concepts": "[numerical, integration]",
+        "current_path": "numerical-methods/05-NUMERICAL-INTEGRATION.md",
+        "id": "maxim:numerical-methods:numerical-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[numerical, integration]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Numerical Integration (Quadrature)",
+        "updated": "null"
+      },
+      "text": "# Numerical Integration (Quadrature)"
+    },
+    {
+      "id": "05-NUMERICAL-INTEGRATION.md#001",
+      "path": [
+        "05-NUMERICAL-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:05-numerical-integration, git-history:numerical-methods:05-numerical-integration]",
+        "canonical_path": "numerical-methods/05-NUMERICAL-INTEGRATION.md",
+        "concepts": "[numerical, integration]",
+        "current_path": "numerical-methods/05-NUMERICAL-INTEGRATION.md",
+        "id": "maxim:numerical-methods:numerical-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[numerical, integration]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Numerical Integration (Quadrature)",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "05-NUMERICAL-INTEGRATION.md#002",
+      "path": [
+        "05-NUMERICAL-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:05-numerical-integration, git-history:numerical-methods:05-numerical-integration]",
+        "canonical_path": "numerical-methods/05-NUMERICAL-INTEGRATION.md",
+        "concepts": "[numerical, integration]",
+        "current_path": "numerical-methods/05-NUMERICAL-INTEGRATION.md",
+        "id": "maxim:numerical-methods:numerical-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[numerical, integration]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Numerical Integration (Quadrature)",
+        "updated": "null"
+      },
+      "text": "Numerical integration approximates Integral_a^b f(x) dx when the antiderivative is unknown or inconvenient. The key tradeoff: more evaluation points = more accuracy = more work."
+    },
+    {
+      "id": "05-NUMERICAL-INTEGRATION.md#003",
+      "path": [
+        "05-NUMERICAL-INTEGRATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:05-numerical-integration, git-history:numerical-methods:05-numerical-integration]",
+        "canonical_path": "numerical-methods/05-NUMERICAL-INTEGRATION.md",
+        "concepts": "[numerical, integration]",
+        "current_path": "numerical-methods/05-NUMERICAL-INTEGRATION.md",
+        "id": "maxim:numerical-methods:numerical-integration",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[numerical, integration]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Numerical Integration (Quadrature)",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|              NUMERICAL INTEGRATION LANDSCAPE                     |\n+------------------------------------------------------------------+\n|                                                                  |\n|  NEWTON-COTES (equally-spaced)    GAUSSIAN QUADRATURE            |\n|  +------------------------+        +-----------------------+     |\n|  | Midpoint: O(h^2)       |        | n points: O(h^{2n})   |     |\n|  | Trapezoid: O(h^2)      |        | (degree 2n-1 exact)   |     |\n|  | Simpson's: O(h^4)      |        | OPTIMAL node placement|     |\n|  | Composite rules        |        | Gauss-Legendre, etc.  |     |\n|  +------------------------+        +-----------------------+     |\n|                                                                  |\n|  ADAPTIVE INTEGRATION              MONTE CARLO                  |\n|  +------------------------+        +-----------------------+     |\n|  | Refine where f complex |        | Dim-independent rate  |     |\n|  | Error control          |        | O(n^{-1/2})           |     |\n|  | scipy.integrate.quad   |        | High-dimensional ints |     |\n|  +------------------------+        +-----------------------+     |\n|                                                                  |\n|  ROMBERG / EXTRAPOLATION                                        |\n|  +------------------------+                                      |\n|  | Richardson extrapol.   |                                      |\n|  | Higher from lower      |                                      |\n|  +------------------------+                                      |\n+------------------------------------------------------------------+\n```"
+    }
+  ],
+  "refs": [
+    "05-NUMERICAL-INTEGRATION.md"
+  ]
+}

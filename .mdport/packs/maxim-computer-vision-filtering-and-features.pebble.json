@@ -1,0 +1,321 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-computer-vision-filtering-and-features",
+  "source": "../../computer-vision",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "02-FILTERING-AND-FEATURES.md#000",
+      "path": [
+        "02-FILTERING-AND-FEATURES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:02-filtering-and-features, git-history:computer-vision:02-filtering-and-features]",
+        "canonical_path": "computer-vision/02-FILTERING-AND-FEATURES.md",
+        "concepts": "[convolution, correlation, edge detection, corner detection, SIFT, ORB, scale space]",
+        "current_path": "computer-vision/02-FILTERING-AND-FEATURES.md",
+        "id": "maxim:computer-vision:filtering-and-features",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[image features]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Filtering and Features",
+        "updated": "null"
+      },
+      "text": "# Filtering and Features"
+    },
+    {
+      "id": "02-FILTERING-AND-FEATURES.md#001",
+      "path": [
+        "02-FILTERING-AND-FEATURES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:02-filtering-and-features, git-history:computer-vision:02-filtering-and-features]",
+        "canonical_path": "computer-vision/02-FILTERING-AND-FEATURES.md",
+        "concepts": "[convolution, correlation, edge detection, corner detection, SIFT, ORB, scale space]",
+        "current_path": "computer-vision/02-FILTERING-AND-FEATURES.md",
+        "id": "maxim:computer-vision:filtering-and-features",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[image features]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Filtering and Features",
+        "updated": "null"
+      },
+      "text": "## The Big Picture: From Pixels to Repeatable Points"
+    },
+    {
+      "id": "02-FILTERING-AND-FEATURES.md#002",
+      "path": [
+        "02-FILTERING-AND-FEATURES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:02-filtering-and-features, git-history:computer-vision:02-filtering-and-features]",
+        "canonical_path": "computer-vision/02-FILTERING-AND-FEATURES.md",
+        "concepts": "[convolution, correlation, edge detection, corner detection, SIFT, ORB, scale space]",
+        "current_path": "computer-vision/02-FILTERING-AND-FEATURES.md",
+        "id": "maxim:computer-vision:filtering-and-features",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[image features]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Filtering and Features",
+        "updated": "null"
+      },
+      "text": "Raw pixels are too low-level to match across images or feed a classifier. This guide is\nthe classical signal-processing layer of vision: it convolves the image with kernels to\nexpose structure (edges, corners), then summarizes that structure into **features** —\ndescriptors that are repeatable under viewpoint and lighting change. SIFT is the\ncanonical endpoint; a CNN (guide 05) is the learned successor."
+    },
+    {
+      "id": "02-FILTERING-AND-FEATURES.md#003",
+      "path": [
+        "02-FILTERING-AND-FEATURES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:02-filtering-and-features, git-history:computer-vision:02-filtering-and-features]",
+        "canonical_path": "computer-vision/02-FILTERING-AND-FEATURES.md",
+        "concepts": "[convolution, correlation, edge detection, corner detection, SIFT, ORB, scale space]",
+        "current_path": "computer-vision/02-FILTERING-AND-FEATURES.md",
+        "id": "maxim:computer-vision:filtering-and-features",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[image features]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Filtering and Features",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------------------+\n|              FROM PIXELS TO MATCHABLE FEATURES  (the early-vision flow)      |\n|                                                                              |\n|   IMAGE          FILTERING            DETECTION           DESCRIPTION        |\n|   I(x,y)   --->  convolve with  --->  find edges /  --->  encode local       |\n|                  kernels h            corners / blobs     patch -> vector    |\n|     |                |                    |                   |              |\n|     v                v                    v                   v              |\n|  .------.      .-----------.        .-----------.       .-----------.        |\n|  |pixels|      | gradients |        | keypoints |       |descriptor |        |\n|  |grid  |      | Gx, Gy    |        |(x,y,scale,|       |128-dim    |        |\n|  |      |      | smoothed  |        | orient)   |       |SIFT vector|        |\n|  '------'      '-----------'        '-----------'       '-----------'        |\n|                                                                              |\n|   Goal: points that survive rotation, scale, illumination -> MATCHING        |\n+------------------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "02-FILTERING-AND-FEATURES.md#004",
+      "path": [
+        "02-FILTERING-AND-FEATURES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:02-filtering-and-features, git-history:computer-vision:02-filtering-and-features]",
+        "canonical_path": "computer-vision/02-FILTERING-AND-FEATURES.md",
+        "concepts": "[convolution, correlation, edge detection, corner detection, SIFT, ORB, scale space]",
+        "current_path": "computer-vision/02-FILTERING-AND-FEATURES.md",
+        "id": "maxim:computer-vision:filtering-and-features",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[image features]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Filtering and Features",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-FILTERING-AND-FEATURES.md#005",
+      "path": [
+        "02-FILTERING-AND-FEATURES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:02-filtering-and-features, git-history:computer-vision:02-filtering-and-features]",
+        "canonical_path": "computer-vision/02-FILTERING-AND-FEATURES.md",
+        "concepts": "[convolution, correlation, edge detection, corner detection, SIFT, ORB, scale space]",
+        "current_path": "computer-vision/02-FILTERING-AND-FEATURES.md",
+        "id": "maxim:computer-vision:filtering-and-features",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[image features]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Filtering and Features",
+        "updated": "null"
+      },
+      "text": "## Layer 1: Convolution vs Correlation (Get This Exactly Right)"
+    },
+    {
+      "id": "02-FILTERING-AND-FEATURES.md#006",
+      "path": [
+        "02-FILTERING-AND-FEATURES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:02-filtering-and-features, git-history:computer-vision:02-filtering-and-features]",
+        "canonical_path": "computer-vision/02-FILTERING-AND-FEATURES.md",
+        "concepts": "[convolution, correlation, edge detection, corner detection, SIFT, ORB, scale space]",
+        "current_path": "computer-vision/02-FILTERING-AND-FEATURES.md",
+        "id": "maxim:computer-vision:filtering-and-features",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[image features]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Filtering and Features",
+        "updated": "null"
+      },
+      "text": "Both slide a kernel over the image and accumulate weighted sums. The *only* difference\nis whether the kernel is flipped. This distinction matters because the literature uses\nthe terms loosely and CNNs actually compute correlation."
+    },
+    {
+      "id": "02-FILTERING-AND-FEATURES.md#007",
+      "path": [
+        "02-FILTERING-AND-FEATURES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:02-filtering-and-features, git-history:computer-vision:02-filtering-and-features]",
+        "canonical_path": "computer-vision/02-FILTERING-AND-FEATURES.md",
+        "concepts": "[convolution, correlation, edge detection, corner detection, SIFT, ORB, scale space]",
+        "current_path": "computer-vision/02-FILTERING-AND-FEATURES.md",
+        "id": "maxim:computer-vision:filtering-and-features",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[image features]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Filtering and Features",
+        "updated": "null"
+      },
+      "text": "```\n   CROSS-CORRELATION  (no flip):\n       (I * h)[m,n] = SUM_{i,j} I[m+i, n+j] * h[i, j]"
+    },
+    {
+      "id": "02-FILTERING-AND-FEATURES.md#008",
+      "path": [
+        "02-FILTERING-AND-FEATURES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:02-filtering-and-features, git-history:computer-vision:02-filtering-and-features]",
+        "canonical_path": "computer-vision/02-FILTERING-AND-FEATURES.md",
+        "concepts": "[convolution, correlation, edge detection, corner detection, SIFT, ORB, scale space]",
+        "current_path": "computer-vision/02-FILTERING-AND-FEATURES.md",
+        "id": "maxim:computer-vision:filtering-and-features",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[image features]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Filtering and Features",
+        "updated": "null"
+      },
+      "text": "CONVOLUTION  (kernel flipped in both axes):\n       (I . h)[m,n] = SUM_{i,j} I[m-i, n-j] * h[i, j]\n                    = correlation with h flipped 180 degrees"
+    },
+    {
+      "id": "02-FILTERING-AND-FEATURES.md#009",
+      "path": [
+        "02-FILTERING-AND-FEATURES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:02-filtering-and-features, git-history:computer-vision:02-filtering-and-features]",
+        "canonical_path": "computer-vision/02-FILTERING-AND-FEATURES.md",
+        "concepts": "[convolution, correlation, edge detection, corner detection, SIFT, ORB, scale space]",
+        "current_path": "computer-vision/02-FILTERING-AND-FEATURES.md",
+        "id": "maxim:computer-vision:filtering-and-features",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[image features]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Filtering and Features",
+        "updated": "null"
+      },
+      "text": "If h is SYMMETRIC (e.g. a Gaussian), convolution == correlation.\n```"
+    },
+    {
+      "id": "02-FILTERING-AND-FEATURES.md#010",
+      "path": [
+        "02-FILTERING-AND-FEATURES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:02-filtering-and-features, git-history:computer-vision:02-filtering-and-features]",
+        "canonical_path": "computer-vision/02-FILTERING-AND-FEATURES.md",
+        "concepts": "[convolution, correlation, edge detection, corner detection, SIFT, ORB, scale space]",
+        "current_path": "computer-vision/02-FILTERING-AND-FEATURES.md",
+        "id": "maxim:computer-vision:filtering-and-features",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[image features]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Filtering and Features",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------------------+\n|                    CONVOLUTION vs CORRELATION                                |\n|                                                                              |\n|  CONVOLUTION                          CORRELATION                            |\n|  -----------                          -----------                            |\n|  kernel flipped 180 deg               kernel used as-is                      |\n|  commutative, associative             not commutative                        |\n|  LTI-system output (signal theory)    template matching                      |\n|  the \"true\" linear filter             \"does this patch look like h?\"         |\n|                                                                              |\n|  KEY FACT: a CNN \"convolution\" layer computes CORRELATION (no flip).         |\n|  It learns the kernel, so the flip is irrelevant -- the learned weights      |\n|  simply absorb it. The name is a historical misnomer.                        |\n+------------------------------------------------------------------------------+\n```"
+    }
+  ],
+  "refs": [
+    "02-FILTERING-AND-FEATURES.md"
+  ]
+}

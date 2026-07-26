@@ -1,0 +1,1777 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-abstract-algebra-category-theory",
+  "source": "../../abstract-algebra",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "09-CATEGORY-THEORY.md#000",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "# Category Theory"
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#001",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#002",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "```\n+====================================================================+\n|          CATEGORY THEORY — THE LANGUAGE OF STRUCTURE               |\n+====================================================================+\n|                                                                    |\n|  CATEGORY C:                                                       |\n|  - Objects: Ob(C)                                                  |\n|  - Morphisms: Hom(A,B) for each pair A, B                         |\n|  - Composition: f: A→B, g: B→C  ↦  g∘f: A→C                      |\n|  - Identity: id_A: A→A for each object A                          |\n|  - Associativity: (h∘g)∘f = h∘(g∘f)                              |\n|  - Unit laws: id∘f = f, f∘id = f                                  |\n|                                                                    |\n|  FUNCTOR F: C → D: maps objects to objects, morphisms to           |\n|  morphisms, preserving composition and identity.                   |\n|                                                                    |\n|  NATURAL TRANSFORMATION η: F ⟹ G: for each object A, a           |\n|  morphism η_A: F(A) → G(A), natural in A (commuting square).      |\n|                                                                    |\n|  ADJUNCTION: F ⊣ G means Hom(F(A),B) ≅ Hom(A,G(B)) natural.     |\n|                                                                    |\n|  YONEDA LEMMA: Nat(Hom(A,-), F) ≅ F(A) — objects are determined  |\n|  by how other objects map into them.                               |\n+====================================================================+\n```"
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#003",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "Category theory is the \"mathematics of mathematics.\" It doesn't study any\nparticular structure but rather the relationships between structures.\nIts language permeates modern algebra, topology, logic, and computer science."
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#004",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#005",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "## Categories"
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#006",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "```\nEXAMPLES OF CATEGORIES:"
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#007",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "Set:   Objects = sets, morphisms = functions.\nGrp:   Objects = groups, morphisms = group homomorphisms.\nAb:    Objects = abelian groups, morphisms = group homomorphisms.\nRing:  Objects = rings, morphisms = ring homomorphisms.\nVect_k: Objects = k-vector spaces, morphisms = linear maps.\nTop:   Objects = topological spaces, morphisms = continuous maps.\nPos:   Objects = posets, morphisms = order-preserving maps.\nCat:   Objects = (small) categories, morphisms = functors."
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#008",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "DEGENERATE CASES:\n  Monoid as category: one object *, Hom(*,*) = elements of monoid.\n    Composition = monoid multiplication.\n  Group as category: one object, all morphisms invertible.\n  Poset as category: objects = elements, Hom(a,b) has one element iff a ≤ b.\n    The morphism is the \"evidence that a ≤ b.\""
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#009",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "OPPOSITE CATEGORY C^op: same objects, morphisms reversed.\n  f: A→B in C becomes f^op: B→A in C^op.\n  Every concept in category theory has a \"dual\" obtained by C → C^op.\n  Dual of \"product\" = \"coproduct\". Dual of \"limit\" = \"colimit\".\n```"
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#010",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#011",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "## Functors"
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#012",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "```\nFUNCTOR F: C → D:\n  F maps: Ob(C) → Ob(D) and Hom_C(A,B) → Hom_D(F(A),F(B)).\n  Preserves: F(g∘f) = F(g)∘F(f) and F(id_A) = id_{F(A)}."
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#013",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "COVARIANT vs CONTRAVARIANT:\n  Covariant: F(f: A→B) = F(f): F(A)→F(B).\n  Contravariant: F(f: A→B) = F(f): F(B)→F(A). (Reverses arrows.)\n  Contravariant functor C→D = covariant functor C^op→D."
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#014",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "EXAMPLES:\n  Forgetful functor U: Grp → Set (forget group structure).\n  Free functor F: Set → Grp (free group on a set).\n  Powerset: Set → Set (covariant: f↦f(−), contravariant: f↦f^{-1}(−)).\n  Hom(A,-): C → Set: B ↦ Hom(A,B). Covariant. (Representable functor.)\n  Hom(-,B): C → Set: A ↦ Hom(A,B). Contravariant.\n  Tensor: M ⊗_R -: R-Mod → R-Mod.\n  Homology: Top → Ab (a covariant functor from spaces to abelian groups).\n  Galois correspondence: subfields ↔ subgroups is a contravariant functor.\n  K-theory: C* algebras → Ab (topological K-theory)."
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#015",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "FULL, FAITHFUL, ESSENTIALLY SURJECTIVE:\n  Full: each Hom(A,B) → Hom(FA,FB) is surjective.\n  Faithful: each Hom(A,B) → Hom(FA,FB) is injective.\n  Equivalence of categories: F is full, faithful, and essentially surjective.\n    (Essentially surjective: every D-object is isomorphic to some F(C).)\n```"
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#016",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#017",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "## Natural Transformations"
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#018",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "```\nNATURAL TRANSFORMATION η: F ⟹ G (between functors F,G: C → D):\n  For each A ∈ Ob(C): a morphism η_A: F(A) → G(A) in D.\n  Naturality condition: for every f: A → B in C:\n    G(f) ∘ η_A = η_B ∘ F(f)\n  (The square commutes: both paths from F(A) to G(B) agree.)"
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#019",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "NATURAL ISOMORPHISM: η is a natural transformation where every η_A is an isomorphism.\n  F ≅ G means they're naturally isomorphic."
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#020",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "EXAMPLES:\n  Double dual: V → V** (for f.d. vector spaces).\n    The map v ↦ (φ ↦ φ(v)) is natural in V.\n    Compare: V ≅ V* (for f.d. inner product spaces) but NOT naturally.\n  Determinant: GL_n(-): Ring → Grp, with det a natural transformation.\n  Group cohomology: H^n(-,M): Grp → Ab."
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#021",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "THE NATURALITY OF DETERMINANT:\n  For ring homomorphism φ: R → S:\n    GL_n(R) → GL_n(S)  (apply φ entrywise)\n    det_R: GL_n(R) → R*   det_S: GL_n(S) → S*\n  Naturality: φ(det_R(A)) = det_S(φ(A)).\n  (Applying ring map then taking determinant = taking determinant then applying ring map.)\n```"
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#022",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#023",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "## Adjunctions"
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#024",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "```\nADJUNCTION F ⊣ G (F left adjoint, G right adjoint):\n  F: C → D,  G: D → C.\n  Natural bijection: Hom_D(F(A), B) ≅ Hom_C(A, G(B)).\n  \"Maps out of FA ↔ maps into GB.\""
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#025",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "UNIT AND COUNIT:\n  Unit: η_A: A → G(F(A)) (from C to C, \"universal map into adjoint\")\n  Counit: ε_B: F(G(B)) → B (from D to D, \"universal map from adjoint\")\n  Triangle identities: G(ε)∘η_G = id_G and ε_F∘F(η) = id_F."
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#026",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "EXAMPLES OF ADJUNCTIONS (pervasive in mathematics):\n  Free ⊣ Forgetful: Free(S) ⊣ U(G).\n    Hom_Grp(Free(S), G) ≅ Hom_Set(S, U(G)).\n    \"Group maps from free group = functions from generating set.\""
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#027",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "Product ⊣ Diagonal: (- × A) ⊣ Hom(A,-).\n    Hom(B×A, C) ≅ Hom(B, Hom(A,C)).  [Curry-Howard!]\n    This is the tensor-hom adjunction for sets/vector spaces."
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#028",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "Tensor ⊣ Hom: M⊗_R - ⊣ Hom_R(M,-).\n    Hom_R(M⊗N, P) ≅ Hom_R(N, Hom_R(M,P))."
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#029",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "Colimit ⊣ Constant: (computing colimit) ⊣ (sending to constant diagram)."
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#030",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "Suspension ⊣ Loop: Σ ⊣ Ω in homotopy theory."
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#031",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "Sheafification ⊣ Inclusion: in sheaf theory/algebraic geometry."
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#032",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "CURRY-HOWARD CORRESPONDENCE (PROGRAMMING):\n  Products × correspond to conjunction ∧.\n  Functions A→B correspond to implication A⟹B.\n  The adjunction Hom(B×A, C) ≅ Hom(B, A→C) is \"currying.\"\n  In Haskell: curry :: ((a,b) -> c) -> a -> b -> c.\n```"
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#033",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#034",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "## Limits and Colimits"
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#035",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "```\nDIAGRAM: A functor J → C (from small category J to category C)."
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#036",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "LIMIT (= \"cone over the diagram\"):\n  An object L with maps L → J(i) for each i ∈ J, universal with this property.\n  \"Best approximation to the whole diagram from the outside.\""
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#037",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "COLIMIT (= \"cocone over the diagram\"):\n  An object C with maps J(i) → C for each i, universal with this property.\n  \"Best approximation from the inside.\""
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#038",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "SPECIFIC LIMITS:\n  Product: diagram = two objects A, B (no morphisms between them).\n    Limit = A × B (with projections). Exists in Set, Grp, Top, etc."
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#039",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "Pullback (fiber product): diagram A →^f C ←^g B.\n    Limit = A ×_C B = {(a,b) : f(a)=g(b)}.\n    In algebraic geometry: fiber product of schemes = intersection."
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#040",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "Equalizer: diagram A ⇉ B (two parallel arrows).\n    Limit = {a ∈ A : f(a) = g(a)}."
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#041",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "Terminal object: limit of empty diagram.\n    Set: {*}. Grp: {e}. Top: {*}."
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#042",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "SPECIFIC COLIMITS:\n  Coproduct: two objects A, B.\n    Set: disjoint union A ⊔ B.\n    Grp: free product A * B (most general group containing A and B).\n    Ab: A ⊕ B (direct sum = product for abelian groups).\n    Top: disjoint union."
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#043",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "Pushout (amalgamated product): C →^f A, C →^g B.\n    Colimit = A *_C B = (A * B) / (f(c) = g(c) for all c ∈ C).\n    Van Kampen theorem: π₁(X∪Y) = π₁(X) *_{π₁(X∩Y)} π₁(Y). [Pushout of groups!]"
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#044",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "Coequalizer: A ⇉ B.\n    B / (f(a) ~ g(a) for all a ∈ A)."
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#045",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "Initial object: colimit of empty diagram.\n    Set: ∅. Grp: {e}. Ring: Z (initial ring).\n```"
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#046",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#047",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "## Yoneda Lemma"
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#048",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "```\nYONEDA LEMMA: For functor F: C → Set and object A ∈ Ob(C):\n  Nat(Hom_C(A, -), F) ≅ F(A)   naturally in both A and F."
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#049",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "Natural transformations from the representable functor Hom(A,-) to F\n  are in bijection with elements of F(A)."
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#050",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "YONEDA EMBEDDING: The functor y: C → [C^op, Set] by A ↦ Hom(-,A).\n  This functor is FULL and FAITHFUL (an embedding).\n  \"An object A is completely determined by the functor Hom(-,A).\"\n  = \"Objects are determined by how other things map into them.\""
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#051",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "COROLLARY: If Hom(X, A) ≅ Hom(X, B) naturally in X, then A ≅ B.\n  Universal properties determine objects uniquely up to isomorphism."
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#052",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "APPLICATIONS:\n  Universal properties are all instances of Yoneda.\n  Products: Hom(X, A×B) ≅ Hom(X,A)×Hom(X,B) naturally.\n  Tensor products: defined by universal bilinear map.\n  Group cohomology: H^n(G, M) ≅ Nat(F_n, M) for appropriate F_n."
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#053",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "REPRESENTABLE FUNCTORS:\n  F: C → Set is representable if F ≅ Hom(A,-) for some A.\n  \"A\" represents F. Universal property = representation.\n  Yoneda says: representation is unique up to isomorphism."
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#054",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "ENGINEERING CONNECTION:\n  The Yoneda lemma is the mathematical foundation of \"programming to interfaces.\"\n  An object A is fully determined by Hom(-, A) — i.e., by how every other object\n  maps into it. In software terms: an object is fully determined by its observable\n  behavior (its API / interface), not its internal implementation."
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#055",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "This is exactly the behavioral/structural equivalence:\n    Two objects with the same interface (same Hom(-, A) functor) are isomorphic.\n    Two classes implementing the same interface with identical behavior are\n    interchangeable — regardless of internal state representation."
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#056",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "In database theory: a schema is characterized by its queries (the morphisms\n  into it). The Yoneda embedding is the \"lossless representation\" theorem:\n  you can reconstruct the object from its probe responses without losing information.\n```"
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#057",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#058",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "## Monads"
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#059",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "```\nMONAD (T, η, μ) on category C:\n  T: C → C  (endofunctor)\n  η: Id ⟹ T  (unit, natural transformation)\n  μ: T∘T ⟹ T  (multiplication/join, natural transformation)\n  Satisfying: μ ∘ Tη = id_T = μ ∘ ηT  and  μ ∘ μT = μ ∘ Tμ.\n  (Just like a monoid: unit and associative multiplication.)"
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#060",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "\"A monad is just a monoid in the category of endofunctors.\"\n  (Famously quoted; this is technically precise.)"
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#061",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "EXAMPLES:\n  List monad (in Haskell: [] monad):\n    T(A) = List(A) = A* (all finite lists of A's).\n    η(a) = [a] (singleton list).\n    μ([[a,b],[c,d]]) = [a,b,c,d] (concatenation/flatten)."
+    },
+    {
+      "id": "09-CATEGORY-THEORY.md#062",
+      "path": [
+        "09-CATEGORY-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:09-category-theory, git-history:abstract-algebra:09-category-theory]",
+        "canonical_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "concepts": "[category, theory]",
+        "current_path": "abstract-algebra/09-CATEGORY-THEORY.md",
+        "id": "maxim:abstract-algebra:category-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[category, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Category Theory",
+        "updated": "null"
+      },
+      "text": "Maybe monad: T(A) = A ⊔ {Nothing}.\n    Models failure/partiality."
+    }
+  ],
+  "refs": [
+    "09-CATEGORY-THEORY.md"
+  ]
+}

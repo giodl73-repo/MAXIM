@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "number-theory\\05-DIOPHANTINE-EQUATIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+====================================================================+\n|           DIOPHANTINE EQUATIONS — CLASSES AND METHODS              |\n+====================================================================+\n|                                                                    |\n|  LINEAR           QUADRATIC          CUBIC / ELLIPTIC  GENERAL    |\n|  ax + by = c      x² - Dy² = 1       y² = x³ + ax + b  xⁿ+yⁿ=zⁿ |\n|  +-----------+    +-----------+       +---------------+ +-------+ |\n|  |Bezout     |    |Pell eq.   |       |Elliptic curves| |Fermat | |\n|  |condition  |    |continued  |       |finite/infinite| |Last   | |\n|  |gcd(a,b)|c |    |fractions  |       |rational pts   | |Theorem| |\n|  |           |    |fund. sol. |       |Mordell-Weil   | |(1994) | |\n|  +-----------+    +-----------+       +---------------+ +-------+ |\n|                                                                    |\n|  PYTHAGOREAN      SUMS OF SQUARES     WARING'S PROBLEM            |\n|  a²+b²=c²        x₁²+...+xₖ²=n       every n = sum of k kth pows |\n|  +----------+    +-------------+      +-----------------+         |\n|  |param.    |    |Fermat-Euler |      |g(k): min k works|         |\n|  |solution  |    |2 squares iff|      |g(2)=4, g(3)=9   |         |\n|  |family    |    |no p≡3(mod 4)|      |all g(k) known   |         |\n|  +----------+    +-------------+      +-----------------+         |\n+====================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 52,
+      "heading_context": "## Linear Diophantine Equations",
+      "confidence": "candidate",
+      "text": "PROBLEM: Find integer solutions to ax + by = c.\n\nEXISTENCE: Solutions exist ⟺ gcd(a,b) | c.\n\nGENERAL SOLUTION: If (x₀, y₀) is one solution:\n  x = x₀ + (b/d)t\n  y = y₀ - (a/d)t\n  for any t ∈ Z, where d = gcd(a,b).\n\nFINDING x₀, y₀:\n  Extended Euclidean gives sa + tb = d.\n  Multiply by c/d: s(c/d)·a + t(c/d)·b = c.\n  So x₀ = sc/d, y₀ = tc/d.\n\nExample: 6x + 10y = 14\n  d = gcd(6,10) = 2. Does 2|14? Yes (14/2=7). ✓\n  Extended Euclidean: 6(-1) + 10(1) = 4... wait, gcd(6,10):\n  10 = 1·6 + 4  →  gcd(6,4)\n   6 = 1·4 + 2  →  gcd(4,2)\n   4 = 2·2 + 0  →  gcd = 2\n  Back-substitute: 2 = 6 - 1·4 = 6 - 1·(10-1·6) = 2·6 - 1·10\n  So s=2, t=-1, d=2.\n  x₀ = 2·7 = 14, y₀ = -1·7 = -7.\n  Check: 6·14 + 10·(-7) = 84 - 70 = 14 ✓\n  General: x = 14 + 5t, y = -7 - 3t.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 93,
+      "heading_context": "## The Pell Equation",
+      "confidence": "candidate",
+      "text": "PROBLEM: Find positive integer solutions to x² - Dy² = 1 (D > 0, not a perfect square).\n\nNamed after John Pell, but actually studied by Brahmagupta (628 AD) and solved by\nFermat, then formalized by Lagrange.\n\nFUNDAMENTAL THEOREM:\n  For any non-square D > 0, x² - Dy² = 1 has infinitely many positive solutions.\n  The smallest positive solution (x₁, y₁) is the FUNDAMENTAL SOLUTION.\n  All solutions are:\n    xₙ + yₙ√D = (x₁ + y₁√D)ⁿ  for n = 1, 2, 3, ...\n\nExample: D=2.  x² - 2y² = 1.\n  Fundamental: (x₁,y₁) = (3,2). Check: 9 - 8 = 1 ✓\n  (3+2√2)² = 17+12√2 → (17,12). Check: 289 - 288 = 1 ✓\n  (3+2√2)³ = 99+70√2 → (99,70). Check: 9801 - 9800 = 1 ✓",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 135,
+      "heading_context": "### Connection to Algebraic Number Theory",
+      "confidence": "candidate",
+      "text": "Z[√D] = {a + b√D : a,b ∈ Z}  (ring of integers for D ≡ 2,3 mod 4)\n\nx² - Dy² = 1 ⟺ N(x + y√D) = 1  (the NORM map: a+b√D ↦ a²-Db²)\nUnits of Z[√D] = {±1} × {fundamental unit}^Z\n\nPell equation = finding units in real quadratic fields.\nDirichlet's unit theorem: O_K has finitely generated unit group\n  of rank r₁ + r₂ - 1 (r₁ = real embeddings, r₂ = complex embedding pairs).\nFor Q(√D), D>0: r₁=2, r₂=0 → rank 1. One fundamental unit generates all.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 151,
+      "heading_context": "## Pythagorean Triples",
+      "confidence": "candidate",
+      "text": "PROBLEM: Find all positive integer solutions to a² + b² = c².\n\nCOMPLETE PARAMETERIZATION:\n  Every primitive Pythagorean triple (gcd(a,b,c)=1) is:\n    a = m² - n²,  b = 2mn,  c = m² + n²\n  for integers m > n > 0 with gcd(m,n) = 1 and m-n odd.\n  (Swap a,b for the other orientation.)\n\nAll triples: multiply any primitive triple by a common factor k.\n\nExamples:\n  m=2, n=1: (3, 4, 5)\n  m=3, n=2: (5, 12, 13)\n  m=4, n=1: (15, 8, 17)\n  m=4, n=3: (7, 24, 25)\n  m=5, n=2: (21, 20, 29)\n\nMDLOOM SKETCH:\n  a² = c² - b² = (c-b)(c+b).\n  Since gcd(a,b,c)=1 and c,b are opposite parity (one even, one odd):\n  gcd(c-b, c+b) = 2.\n  Let c-b = 2n², c+b = 2m² → c = m²+n², b = m²-n², a = 2mn.\n  (Wait — swap: if b is even, then b = 2mn, a = m²-n².)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 179,
+      "heading_context": "### Geometric Interpretation",
+      "confidence": "candidate",
+      "text": "Pythagorean triples ↔ rational points on the unit circle.\n\na² + b² = c²  ⟺  (a/c)² + (b/c)² = 1\n\nSo: parametrize rational points on x² + y² = 1.\n  Line through (-1, 0) with slope t (rational):\n    y = t(x+1)\n    Substitute: x² + t²(x+1)² = 1\n    Solve: x = (1-t²)/(1+t²), y = 2t/(1+t²)\n\nSetting t = n/m: a/c = (m²-n²)/(m²+n²), b/c = 2mn/(m²+n²).\nThis is the same as the parametric formula above.\n\nThis technique generalizes: rational points on any conic via pencil of lines.\nFor higher-degree curves (elliptic curves), it fails — no simple parametrization.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

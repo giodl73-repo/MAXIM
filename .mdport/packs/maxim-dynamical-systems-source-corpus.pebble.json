@@ -1,0 +1,1469 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-dynamical-systems-source-corpus",
+  "source": "../../dynamical-systems",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "00-OVERVIEW.md#000",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "# Dynamical Systems — The Landscape"
+    },
+    {
+      "id": "00-OVERVIEW.md#001",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "A dynamical system is a rule for evolving a **state** forward in time. That is all. The state\nlives in a space (the **phase space**); the rule is either a vector field (continuous time) or a\nmap (discrete time). Everything in this directory — fixed points, limit cycles, bifurcations,\nchaos, strange attractors — is the study of the *long-term geometry* of trajectories under that\nrule, **without** demanding a closed-form solution."
+    },
+    {
+      "id": "00-OVERVIEW.md#002",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "```\n                         THE DYNAMICAL SYSTEMS LANDSCAPE\n                         ==============================="
+    },
+    {
+      "id": "00-OVERVIEW.md#003",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "CONTINUOUS TIME (FLOWS)                       DISCRETE TIME (MAPS)\n   x' = f(x),  x in R^n                          x_{n+1} = F(x_n)\n        |                                              |\n        |  integrate / iterate                         |\n        v                                              v\n   +---------------------------------------------------------------------+\n   |                          PHASE SPACE  R^n                           |\n   |                                                                     |\n   |   LINEAR              -->   NONLINEAR          -->   CHAOTIC        |\n   |   x' = Ax                   x' = f(x)               sensitive to    |\n   |   solvable in closed        no closed form;         initial conds   |\n   |   form; eigenvalues         linearize near          (positive       |\n   |   of A decide              fixed points             Lyapunov exp.)  |\n   |   everything                                                        |\n   |     |                          |                        |           |\n   |     v                          v                        v           |\n   |  fixed points              fixed pts + limit       strange          |\n   |  (nodes/spirals/           cycles + bifurca-       attractors,      |\n   |  saddles/centers)          tions + manifolds       fractal sets     |\n   +---------------------------------------------------------------------+\n        |                          |                        |\n        v                          v                        v\n    EIGENVALUES               JACOBIAN +               LYAPUNOV EXPONENTS\n    Re(λ) signs               NORMAL FORMS             + FRACTAL DIM\n    (Ch. 02)                  (Ch. 02-03)              (Ch. 05-07)"
+    },
+    {
+      "id": "00-OVERVIEW.md#004",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "DIMENSION GATES WHAT CAN HAPPEN (continuous flows):\n     n = 1:  only monotone approach to fixed points (no oscillation)\n     n = 2:  fixed points + limit cycles ONLY  (Poincare-Bendixson rules out chaos)\n     n >= 3: chaos becomes possible (Lorenz, Rossler)\n   Discrete maps escape this: even 1D maps (logistic) are chaotic.\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#005",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "Read top-to-bottom: a system is continuous or discrete; its phase space is linear, nonlinear, or\nchaotic; the diagnostic tool sharpens as you move right. The **dimension** of phase space is the\nmaster gate — it determines what behaviors are even *possible*."
+    },
+    {
+      "id": "00-OVERVIEW.md#006",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#007",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "## The Two Kinds of Time"
+    },
+    {
+      "id": "00-OVERVIEW.md#008",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "```\n   FLOWS (continuous)                     MAPS (discrete)\n   ------------------                     ---------------\n   x'(t) = f(x(t))                        x_{n+1} = F(x_n)\n   t in R (real time)                     n in Z (tick count)"
+    },
+    {
+      "id": "00-OVERVIEW.md#009",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "trajectory = smooth curve              trajectory = sequence of points\n   \"phase portrait\"                       \"orbit\" / cobweb"
+    },
+    {
+      "id": "00-OVERVIEW.md#010",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "arises from:                           arises from:\n     physical laws (F = ma)                 Poincare sections of flows\n     reaction kinetics                      every-T sampling\n     RC/RL circuits                         iterated numerical schemes\n     population ODEs                        population census per season"
+    },
+    {
+      "id": "00-OVERVIEW.md#011",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "a flow induces a map                   a map can be \"suspended\"\n   (time-T map, Poincare map)             into a flow (one dim higher)\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#012",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "The two views are not rivals — they convert into each other. The **Poincaré map** turns an\n`n`-dimensional flow into an `(n-1)`-dimensional map by recording successive crossings of a\nsurface. This is why a 3D continuous flow (Lorenz) and a 2D map (Hénon) sit in the same family,\nand why a 1D map (logistic) can model a 2D flow's return behavior. Chapter 08 develops maps;\nChapter 06 builds Poincaré sections."
+    },
+    {
+      "id": "00-OVERVIEW.md#013",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "### Old world → new world bridges"
+    },
+    {
+      "id": "00-OVERVIEW.md#014",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "| You already know | Dynamical-systems framing |\n|---|---|\n| Linear ODE `x' = Ax` solved by `e^{At}` | Eigenvalues of `A` *are* the stability classification (Ch. 02) |\n| State-space control `x' = Ax + Bu` | Same phase space; feedback `u = -Kx` moves eigenvalues = pole placement (`control-theory/02`) |\n| Lyapunov function `V` proving stability | Identical object here; LaSalle extends it (`control-theory/06`, Ch. 02) |\n| Gradient descent `θ_{n+1} = θ_n - η∇L` | A discrete map; its continuous limit `θ' = -∇L` is a **gradient flow** (Ch. 09) |\n| Eigenvalue stability of a numerical scheme | Same algebra; the integrator *is* a map and inherits its dynamics (`numerical-methods/06`) |\n| Phase transitions in stat-mech | Bifurcations of an order-parameter ODE; symmetry breaking = pitchfork (Ch. 03, `statistical-mechanics/`) |"
+    },
+    {
+      "id": "00-OVERVIEW.md#015",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#016",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "## What This Field Actually Asks"
+    },
+    {
+      "id": "00-OVERVIEW.md#017",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "The defining move of dynamical systems is **qualitative analysis**: answer the questions below\n*without* integrating the equations."
+    },
+    {
+      "id": "00-OVERVIEW.md#018",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "```\n   +--------------------------------------------------------------+\n   |  THE CENTRAL QUESTIONS                                       |\n   |                                                              |\n   |  1. WHERE does the system settle?                            |\n   |     fixed points, limit cycles, tori, strange attractors     |\n   |                                                              |\n   |  2. Is that destination STABLE?                              |\n   |     linearize -> Jacobian eigenvalues -> Re(lambda) signs    |\n   |                                                              |\n   |  3. How does the answer CHANGE as a parameter varies?        |\n   |    bifurcations: saddle-node, transcritical, pitchfork, Hopf |\n   |                                                              |\n   |  4. Can the system be CHAOTIC?                               |\n   |     positive Lyapunov exponent, SDIC, fractal attractor      |\n   |                                                              |\n   |  5. What is the GEOMETRY of the attracting set?              |\n   |     fractal dimension, stable/unstable manifolds             |\n   +--------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#019",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "Question 1–2 are **local** and largely **linear-algebraic** (Ch. 01–02). Question 3 is the theory\nof **bifurcations** (Ch. 03). Questions 4–5 are the **nonlinear/chaotic** regime (Ch. 05–07).\nLimit cycles (Ch. 04) are the bridge: genuinely nonlinear yet still well-behaved in 2D."
+    },
+    {
+      "id": "00-OVERVIEW.md#020",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#021",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "## Existence, Uniqueness, and the Flow"
+    },
+    {
+      "id": "00-OVERVIEW.md#022",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "Before any geometry, the foundational guarantee. For `x' = f(x)`, `x(0) = x_0`:"
+    },
+    {
+      "id": "00-OVERVIEW.md#023",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "> **Picard–Lindelöf theorem.** If `f` is Lipschitz continuous on a neighborhood of `x_0` (e.g.\n> `f ∈ C^1`), then a unique solution exists on some interval `(-τ, τ)` around `t = 0`."
+    },
+    {
+      "id": "00-OVERVIEW.md#024",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "Two consequences shape *all* of the geometry that follows:"
+    },
+    {
+      "id": "00-OVERVIEW.md#025",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "```\n   CONSEQUENCE 1: trajectories cannot cross.\n     Two distinct trajectories never intersect in phase space.\n     (If they did, the crossing point would have two futures -> non-unique.)\n     => phase portraits are foliations; this is WHY 2D rules out chaos."
+    },
+    {
+      "id": "00-OVERVIEW.md#026",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "CONSEQUENCE 2: the flow phi_t is a one-parameter group.\n     phi_t(x_0) = state at time t starting from x_0\n     phi_0 = identity,   phi_{t+s} = phi_t o phi_s,   phi_{-t} = (phi_t)^{-1}\n     A smooth, invertible, time-shiftable family of maps.\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#027",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "Lipschitz can fail: `x' = x^{2/3}` from `x(0)=0` has infinitely many solutions (not Lipschitz at\n0). Finite-time blowup is also allowed: `x' = x^2` reaches `+∞` at finite `t`. Existence is\n*local*; global existence needs extra control (boundedness, a Lyapunov function — Ch. 02)."
+    },
+    {
+      "id": "00-OVERVIEW.md#028",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#029",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "## The Dimension Hierarchy (the single most useful fact)"
+    },
+    {
+      "id": "00-OVERVIEW.md#030",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "```\n   FLOW DIMENSION   WHAT CAN HAPPEN                 WHY\n   --------------   ---------------                 ---\n   n = 1            monotone -> fixed point         x' = f(x) on a line;\n                    NO oscillation, NO overshoot    x can only move one way\n                                                    between zeros of f"
+    },
+    {
+      "id": "00-OVERVIEW.md#031",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "n = 2            fixed points + LIMIT CYCLES     trajectories can't cross\n                    NO chaos                        (Poincare-Bendixson, Ch. 04)\n                                                    -> trapped orbits must be\n                                                    periodic"
+    },
+    {
+      "id": "00-OVERVIEW.md#032",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "n >= 3           CHAOS possible                  enough room for trajectories\n                    strange attractors             to stretch + fold without\n                    (Lorenz needs exactly 3)       self-intersecting"
+    },
+    {
+      "id": "00-OVERVIEW.md#033",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "DISCRETE MAPS    chaos at ANY dimension          F need not be invertible;\n                    1D logistic map is chaotic      no \"can't cross\" constraint\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#034",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "This table is the spine of the directory. Continuous 1D and 2D are *tame* for a deep topological\nreason (Jordan curve theorem + no-crossing); only 3D+ flows and maps of any dimension can be\nchaotic. Memorize it — it tells you instantly whether to even look for chaos."
+    },
+    {
+      "id": "00-OVERVIEW.md#035",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#036",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "## Conservative vs Dissipative"
+    },
+    {
+      "id": "00-OVERVIEW.md#037",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "A second master dichotomy, orthogonal to dimension, governed by **phase-space volume**:"
+    },
+    {
+      "id": "00-OVERVIEW.md#038",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "```\n   Take a blob of initial conditions. Track its volume V(t) under the flow.\n   Divergence theorem:  dV/dt = integral of (div f) over the blob."
+    },
+    {
+      "id": "00-OVERVIEW.md#039",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "div f = 0   everywhere   ->  CONSERVATIVE (volume-preserving)\n                                Hamiltonian systems, frictionless mechanics\n                                NO attractors; centers, tori, KAM\n                                Liouville's theorem (stat-mech!)"
+    },
+    {
+      "id": "00-OVERVIEW.md#040",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "div f < 0   on average   ->  DISSIPATIVE (volume-contracting)\n                                friction, resistance, real engineering\n                                attractors EXIST; volume -> 0 onto them\n                                strange attractors live here (Lorenz: div f = -(sigma+1+b))\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#041",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "This is why the Lorenz attractor has zero volume yet positive dimension — dissipation crushes\nvolume to nothing while chaos forbids it collapsing to a point. Conservative systems (Hamiltonian)\nconnect directly to `statistical-mechanics/` (Liouville, ergodicity) and analytical mechanics;\ndissipative systems are the home of the strange attractors in Chapter 06."
+    },
+    {
+      "id": "00-OVERVIEW.md#042",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#043",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "## How the Chapters Fit Together"
+    },
+    {
+      "id": "00-OVERVIEW.md#044",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "```\n   01 FLOWS & FIXED POINTS  -- the objects: vector fields, fixed pts, 1D lines\n        |\n        v\n   02 STABILITY             -- linearize: Jacobian eigenvalues, 2D zoo, Lyapunov\n        |\n        +--> 03 BIFURCATIONS -- how stability CHANGES with a parameter (normal forms)\n        |\n        v\n   04 LIMIT CYCLES          -- genuine nonlinear oscillation; Poincare-Bendixson caps 2D\n        |\n        v   (cross the dimension-3 threshold)\n   05 CHAOS                 -- logistic map, Feigenbaum, Lyapunov exponents, SDIC\n        |\n        +--> 06 STRANGE ATTRACTORS -- Lorenz, Rossler; the geometry of chaos\n        |         |\n        |         v\n        +--> 07 FRACTALS    -- the geometry itself: dimension, Mandelbrot, IFS\n        |\n        v\n   08 DISCRETE MAPS         -- the map theory in full: symbolic dynamics, Henon\n        |\n        v\n   09 APPLICATIONS          -- synchronization, networks, gradient flows (ML), chaos control\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#045",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#046",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "00-OVERVIEW.md#047",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "| I want to... | Tool / chapter |\n|---|---|\n| Decide if a fixed point is stable | Jacobian eigenvalues, signs of `Re(λ)` — Ch. 02 |\n| Classify a 2D fixed point | Trace–determinant plane — Ch. 02 |\n| Prove stability when linearization is inconclusive | Lyapunov function — Ch. 02 |\n| Understand how behavior flips as a knob turns | Bifurcation normal forms — Ch. 03 |\n| Show a system oscillates persistently | Poincaré–Bendixson / van der Pol — Ch. 04 |\n| Rule out chaos | Check `n ≤ 2` for flows (Poincaré–Bendixson) — Ch. 04 |\n| Detect chaos | Positive largest Lyapunov exponent — Ch. 05 |\n| Quantify a chaotic attractor's geometry | Box / correlation dimension — Ch. 06–07 |\n| Model seasonal/iterated data | Discrete map, cobweb, symbolic dynamics — Ch. 08 |\n| Connect to ML training dynamics | Gradient flow / discretized descent — Ch. 09 |\n| Connect to feedback control | Lyapunov, Hopf, pole placement — `control-theory/` |\n| Actually integrate the ODE numerically | RK / stiff solvers — `numerical-methods/06` |"
+    },
+    {
+      "id": "00-OVERVIEW.md#048",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#049",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "## Common Confusion Points"
+    },
+    {
+      "id": "00-OVERVIEW.md#050",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "### \"Dynamical systems vs differential equations — same thing?\""
+    },
+    {
+      "id": "00-OVERVIEW.md#051",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:00-overview, git-history:dynamical-systems:00-overview]",
+        "canonical_path": "dynamical-systems/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "dynamical-systems/00-OVERVIEW.md",
+        "id": "maxim:dynamical-systems:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dynamical Systems - The Landscape",
+        "updated": "null"
+      },
+      "text": "Differential-equations courses teach you to **solve** `x' = f(x)` (separation, integrating\nfactors, Laplace, series). Dynamical systems asks what trajectories **do** when you *can't* solve —\nwhich is the generic nonlinear case. Closed-form solution is the exception; qualitative geometry\nis the rule. The `mathematics/` differential material covers solution techniques; this directory\ncovers the asymptotic/geometric theory."
+    }
+  ],
+  "refs": [
+    "00-OVERVIEW.md"
+  ]
+}

@@ -1,0 +1,331 @@
+---
+tags: [backfill]
+ops: [backfill]
+content_tags: [markdown]
+proof_original: "05-JWST-DETECTION.md"
+---
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:astrobiology:jwst-detection
+kind: guide
+module: astrobiology
+section: astrobiology
+title: JWST and Atmospheric Characterization
+status: source-custody
+source_custody: partial
+current_path: astrobiology/05-JWST-DETECTION.md
+canonical_path: astrobiology/05-JWST-DETECTION.md
+backsource_ids: [mdloom-backfill:astrobiology:05-jwst-detection, git-history:astrobiology:05-jwst-detection]
+concepts: [jwst, detection]
+root_concepts: [jwst, detection]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
+# JWST and Atmospheric Characterization
+
+## The Big Picture
+
+```
++-----------------------------------------------------------------------+
+|                    JWST EXOPLANET SCIENCE                             |
++-----------------------------------------------------------------------+
+|                                                                       |
+|  TRANSIT SPECTROSCOPY          EMISSION SPECTROSCOPY                  |
+|  +----------------------+      +------------------------+             |
+|  | Planet crosses star  |      | Planet behind star     |             |
+|  | Starlight through    |      | Difference = planet    |             |
+|  | limb atmosphere      |      | thermal emission       |             |
+|  | --> absorption lines |      | --> temperature profile|             |
+|  +----------------------+      +------------------------+             |
+|          |                              |                             |
+|          v                              v                             |
+|  Transmission spectrum          Emission spectrum                     |
+|  (limb composition)             (dayside T-P profile)                 |
+|                                                                       |
+|  DIRECT IMAGING (coronagraphy)                                        |
+|  JWST NIRCam: too small for Earth-twins around sun-like stars         |
+|  Future: HWO / LUVOIR for direct imaging of Earth-analogs             |
++-----------------------------------------------------------------------+
+```
+
+---
+
+## Transit Spectroscopy: The Method
+
+```
+TRANSIT SPECTROSCOPY
+=====================
+
+                        STAR
+                         *
+                        / \
+                       /   \
+Planet -->  O         /     \
+             \       /       \
+              ----*-- chord ------  (transit path)
+
+During transit:
+  Flux_out = Flux_star
+  Flux_in  = Flux_star * (1 - (Rplanet/Rstar)^2)
+  + atmosphere contribution
+
+Wavelength-dependent:
+  At absorption wavelength of CO2 (4.3 micron):
+    Effective planet radius is LARGER (atmosphere absorbs)
+    Transit depth is slightly deeper
+  At window wavelength:
+    Effective planet radius is smaller (no atmosphere)
+    Transit depth is shallower
+
+  Plot (Rplanet/Rstar)^2 vs wavelength --> transmission spectrum
+  Peaks at molecular absorption wavelengths
+
+WHAT YOU MEASURE:
+Not the spectrum of the atmosphere directly.
+The DIFFERENCE in planet apparent size with wavelength.
+This constrains atmospheric composition and scale height.
+
+SCALE HEIGHT:
+H = kT / (mu * g)
+k = Boltzmann constant
+T = temperature
+mu = mean molecular weight
+g = gravity
+
+High scale height = puffier atmosphere = easier to detect.
+Hot Jupiter: H ~ 500-1000 km (huge signal)
+Super-Earth: H ~ 20-50 km (tiny signal)
+Earth around Sun: H ~ 8 km (almost undetectable with JWST)
+```
+
+---
+
+## Emission Spectroscopy and Secondary Eclipse
+
+```
+SECONDARY ECLIPSE METHOD
+=========================
+
+     [1]              [2]              [3]
+  Planet visible    Planet behind    Planet emerges
+  beside star       star             again
+    *O               *               *  O
+
+  [1] = star + planet flux
+  [2] = star flux only
+  Difference [1] - [2] = planet flux
+
+  This gives: PLANET EMISSION SPECTRUM (dayside)
+  Temperature-pressure (T-P) profile
+  Dayside chemical composition
+  Thermal phase curves: longitude-resolved temperature map
+
+WHAT JWST HAS ACHIEVED WITH SECONDARY ECLIPSE:
+- TRAPPIST-1b: secondary eclipse measured (2023, Greene et al.)
+  No thermal emission redistribution --> no thick atmosphere?
+  Or bare rock or very thin atmosphere
+- TRAPPIST-1c: secondary eclipse (2023, Zieba et al.)
+  Not consistent with Venus-like CO2 atmosphere
+  Consistent with bare rock or thin atmosphere
+  Both 1b and 1c: negative results, narrowing parameter space
+```
+
+---
+
+## TRAPPIST-1 System: The Prime Target
+
+```
+TRAPPIST-1 SYSTEM
+==================
+
+Star: TRAPPIST-1 (2MASS J23062928-0502285)
+  Type: M8 ultracool dwarf
+  Mass: 0.089 solar masses
+  Temperature: 2,550 K (very red/infrared)
+  Distance: 12.43 pc (40.5 light-years)
+  Age: 7.6 +/- 2.2 Gyr
+
+PLANETS:
++--------+------+--------+-----+------------------+----------------+
+| Planet | Rp   | Mp     | Porb| Flux (vs Earth)  | Status (2025)  |
++--------+------+--------+-----+------------------+----------------+
+| b      | 1.12 | 1.37   | 1.5d| 4.2x (hot)       | No thick atm   |
+| c      | 1.10 | 1.31   | 2.4d| 2.3x (hot)       | Not Venus-like |
+| d      | 0.79 | 0.39   | 4.0d| 1.1x (HZ inner)  | Awaiting obs.  |
+| e      | 0.92 | 0.69   | 6.1d| 0.66x (HZ)       | Best HZ target |
+| f      | 1.04 | 1.04   |  9d | 0.38x (HZ)       | HZ target      |
+| g      | 1.13 | 1.32   | 12d | 0.26x (HZ outer) | HZ target      |
+| h      | 0.77 | 0.33   | 19d | 0.17x (cold)     | Cold           |
++--------+------+--------+-----+------------------+----------------+
+(Rp in R_Earth, Mp in M_Earth, Flux relative to Earth)
+
+BEST HZ CANDIDATES: TRAPPIST-1e, 1f, 1g
+  - Inside or near circumstellar HZ
+  - Rocky (density consistent with Earth-like composition)
+  - 1e is the most Earth-like in terms of flux
+  - Requires many transits to build up signal
+
+JWST OBSERVATION TIMELINE:
+  2022-2023: 1b, 1c secondary eclipses -- no thick CO2 atmosphere
+  2024-2025: 1d primary transit campaigns beginning
+  2025-2030: 1e, 1f, 1g will require 20-50+ transits each
+  Approximate JWST time: 100-200 hours per planet for weak detection
+
+M-DWARF HABITABILITY DEBATE:
+  PRO:
+  - Many M-dwarf planets in HZ are close-in -> many transits per year
+  - M-dwarfs are most common star type (75% of all stars)
+  - Long stellar lifetimes (>100 Gyr) -> more time for evolution
+
+  CON:
+  - Flaring: M-dwarfs are active, especially young
+    XUV flares can strip atmospheric oxygen
+    TRAPPIST-1 is older (7.6 Gyr) and less active now
+  - Tidal locking: synchronous rotation likely
+    One side always facing star, one always dark
+    Climate models: may still be habitable with thick enough atmosphere
+  - Pre-main-sequence luminosity: during early phase, M-dwarf
+    was much brighter -- inner planets may have lost water before
+    the star dimmed to current luminosity
+    TRAPPIST-1b and 1c may have lost their water this way
+```
+
+---
+
+## JWST Atmospheric Detection Milestones
+
+```
+JWST EXOPLANET DETECTIONS (key results through 2025):
+
+2022:
+CO2 in WASP-39b (transmission spectrum, NIRSpec PRISM):
+- WASP-39b: hot Jupiter, Saturn mass, ~1 atm pressure
+- 4.3 micron CO2 absorption detected at >25 sigma
+- First definitive CO2 detection in any exoplanet atmosphere
+- Also: SO2, H2O, CO, K (photochemistry of SO2 was unexpected)
+
+2023:
+TRAPPIST-1b: secondary eclipse, no thick CO2 atmosphere
+TRAPPIST-1c: secondary eclipse, not Venus-like
+K2-18b: CO2, CH4 confirmed; tentative DMS
+VHS 1256b: CO2, H2O, CH4, CO in brown dwarf (photochemistry)
+55 Cancri e: secondary eclipse suggests possible silicate/SiO atmosphere
+  ("lava world" with magma ocean on dayside)
+
+2024-2025:
+WASP-121b: chemical gradients -- day-night temperature differences
+Multiple hot Jupiters: cloud properties, chemistry
+L 98-59 d: sub-Neptune with water vapor constraints
+
+THE NOISE FLOOR PROBLEM:
+Earth twin around Sun = 1 R_Earth around 1 R_Sun
+(Rp/Rs)^2 = (6,371 km / 695,700 km)^2 = 84 ppm
+Scale height of Earth atmosphere: 8 km
+Atmospheric transit depth = 2 * H * Rp / Rs^2 ~ 2 ppm
+JWST precision: ~10-30 ppm per transit for bright stars
+Conclusion: ~100 transits needed to detect Earth's atmosphere
+At 365-day period: 100 years of observation
+NOT FEASIBLE WITH JWST.
+
+FEASIBLE WITH JWST:
+- Gas giants: large transit depths (1-2%), detectable easily
+- Sub-Neptunes around small stars: K2-18b, LP 890-9c
+- Super-Earths around M-dwarfs: TRAPPIST-1 system (requires many transits)
+- Lava worlds (very hot, thin high-T atmosphere): 55 Cnc e
+```
+
+---
+
+## Signal Processing and Information Theory Parallels
+
+**The noise floor problem as an SNR engineering constraint.** An Earth twin around a sun-like star produces an atmospheric transit signal of ~2 ppm (atmospheric scale height contribution to transit depth). JWST's photometric precision is ~10-30 ppm per transit. Detecting a 2 ppm signal against a 10-30 ppm noise floor requires combining ~100 transits to average down the noise by √N — the same root-N averaging argument that applies to any signal buried in Gaussian noise. At Earth's 365-day period, this would take ~100 years of JWST time. For M-dwarf targets with shorter orbital periods (6-12 day orbits), the same number of transits accumulates in months rather than centuries, which is precisely why the TRAPPIST-1 system is the priority target.
+
+**The scale height equation as dimensional analysis.** H = kT/(μg) — atmospheric scale height is proportional to temperature and inversely proportional to molecular weight and gravity. This is pure dimensional analysis: the only combination of the relevant physical quantities (thermal energy kT, molecular mass μ, gravitational acceleration g) with dimensions of length. "Hotter, lighter-composition, lower-gravity atmospheres are puffier and easier to detect" falls directly from inspection of this expression. It also explains why hot Jupiters are easy targets (H ~1000 km, high temperature, low mean molecular weight) while super-Earths are hard (H ~30 km, lower temperature, higher g).
+
+**The coronagraph contrast requirement as a dynamic range problem.** Direct imaging of an Earth twin requires suppressing the star's light by a factor of 10⁻¹⁰ at visible wavelengths — the planet/star contrast ratio for Earth/Sun at 550 nm. JWST's coronagraph achieves ~10⁻⁴. The required improvement is six orders of magnitude. This is a dynamic range challenge identical to the problem of detecting a microvolt signal in the presence of a 1-volt reference — solved in electronics by combining high dynamic range ADCs, differential measurement, and active cancellation. In coronagraphy, the equivalent techniques are shaped-pupil masks, deformable mirror wavefront correction, and starshade external occulters. The Habitable Worlds Observatory targets 10⁻¹⁰ contrast, which requires all of these simultaneously.
+
+## Future Telescopes: The Path to Earth Twins
+
+```
+FUTURE TELESCOPE CAPABILITIES
+================================
+
+CURRENT (JWST, 2021-):
+  Mirror: 6.5 m gold-coated beryllium
+  Wavelength: 0.6 - 28 micron (near/mid-IR)
+  Coronagraph: limited (contrast ~10^-4 for NIRCam)
+  Earth-twin: NOT FEASIBLE (noise floor)
+
+NEAR-TERM:
+  ELT (Extremely Large Telescope, 2028?): 39m primary
+    High-resolution spectroscopy (R~100,000)
+    High-contrast coronagraphy
+    Could detect O2 in TRAPPIST-1e (many hours)
+
+HABITABLE WORLDS OBSERVATORY (HWO, 2040s):
+  Recommended by Astro2020 Decadal Survey
+  Mirror: ~6 m UV/optical/near-IR (UVOIR)
+  Coronagraph: contrast ~10^-10 (required for Earth-twin)
+  Goal: direct imaging of 25 nearby Earth-like planets
+         transmission spectroscopy of ~100 exoplanets
+  Can detect: O2, O3, H2O, CO2, CH4 in Earth-analogs around
+              sun-like stars within 10-20 pc
+
+LUVOIR (Large UV/Optical/IR Surveyor):
+  Earlier proposal to HWO; now subsumed into HWO concept
+  15 m mirror (LUVOIR-A) or 8 m (LUVOIR-B)
+  LUVOIR-A: could detect biosignatures on ~50 Earth-like planets
+
+WHAT HWO NEEDS (contrast requirements):
+  Planet/star contrast at 550 nm: ~10^-10 for Earth/Sun
+  JWST coronagraph: ~10^-4
+  Current ground-based: ~10^-6
+  Required improvement: 10,000x over JWST
+  Technology: shaped-pupil coronagraph + starshade (external occulter)
+```
+
+---
+
+## Cross-References
+
+- `astrobiology/04-BIOSIGNATURES.md` — what the detection pipeline is trying to identify.
+- `astronomy/09-EXOPLANETS.md` — exoplanet discovery and characterization background.
+- `remote-sensing/02-PASSIVE-SENSORS.md` — passive spectral measurement logic.
+
+## Decision Cheat Sheet
+
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a transiting planet's atmosphere is measurable | Transit spectroscopy | Works best for large/close planets; retrieval is inverse modeling with cloud/haze degeneracies. |
+| Whether a hot planet's dayside chemistry is accessible | Secondary eclipse | Strong for hot planets, not Earth analog biosignatures. |
+| Whether longitudinal heat transport matters | Phase curves | Best for hot Jupiters and strongly irradiated planets. |
+| Whether full-disk reflected light is possible | Direct imaging | JWST is marginal; Earth analogs need future coronagraph/starshade-class missions. |
+| Whether narrow molecular lines can be separated | High-resolution ground-based spectroscopy | O2/CO2/H2O at very high resolution needs ELT-class instruments, not JWST. |
+
+| If you need to diagnose target priority... | Start With | Key Caveat |
+|---|---|---|
+| Best near-term rocky HZ candidates | TRAPPIST-1e/f/g | Dozens of transits are needed and stellar activity complicates retrieval. |
+| Most publicized tentative biosignature case | K2-18b | DMS remains unconfirmed and the planet is a sub-Neptune, not an Earth twin. |
+| Quiet-star rocky super-Earth opportunity | LHS 1140b | High value, but still transit-expensive. |
+| Non-HZ atmospheric laboratory | 55 Cancri e | Useful for lava-world chemistry, not life detection. |
+
+---
+
+## Common Confusion Points
+
+**"JWST is designed to look for life on exoplanets."**
+JWST was designed as a general astrophysics telescope, optimized for infrared. Exoplanet atmospheric spectroscopy is one capability among many. It can detect atmospheres of hot giant planets easily and rocky planet atmospheres of M-dwarf systems with many transits. It cannot detect life on Earth analogs around sun-like stars.
+
+**"TRAPPIST-1b and 1c results were negative so the HZ planets are probably bare rocks too."**
+1b and 1c are *inside* the inner edge of the HZ — they receive more flux than Venus and likely experienced runaway greenhouse or atmospheric escape. Their rocky nature says nothing about 1e, 1f, 1g which are in the HZ and have had different evolution. The negative results are informative but not generalizable to the HZ planets.
+
+**"The transmission spectrum directly gives you the atmosphere composition."**
+Transit spectroscopy measures the wavelength-dependent apparent size of the planet. This gives you absorption features, which constrain chemical abundances. But there are degeneracies: clouds/hazes can flatten spectra (K2-18b initially showed flat featureless spectrum until JWST), multiple molecules can overlap, and retrieval models introduce uncertainties. It is inverse modeling, not direct measurement.
+
+**"HWO/LUVOIR will definitively detect life."**
+HWO aims to detect biosignature gases (O2, O3, H2O, CO2, CH4) in the *atmospheres* of nearby Earth-like planets. Even a full atmospheric spectrum showing multiple biosignatures would be highly suggestive but not absolutely definitive — each gas has an abiotic explanation. The combination of multiple biosignatures would represent the strongest evidence achievable with remote sensing. Definitive proof likely requires in-situ measurement or returned samples.
+
+**"The K2-18b DMS result is confirmed."**
+As of 2025-2026, the DMS signal in K2-18b is tentative (~2 sigma), unconfirmed, and requires additional observations. The journal paper (Madhusudhan et al. 2023) explicitly describes it as requiring confirmation. This is not a detection; it is a data point that justifies more telescope time.

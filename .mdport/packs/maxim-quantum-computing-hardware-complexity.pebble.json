@@ -1,0 +1,2309 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-quantum-computing-hardware-complexity",
+  "source": "../../quantum-computing",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#000",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "# Quantum Hardware, Complexity & Path to Fault Tolerance"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#001",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#002",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|         FROM PHYSICS TO COMPUTATION: QC STACK                    |\n+------------------------------------------------------------------+\n|                                                                    |\n|  PHYSICAL LAYER         CONTROL LAYER         LOGICAL LAYER       |\n|                                                                   |\n|  Transmon qubit         Microwave pulses       Logical qubits      |\n|  Trapped ion            RF/laser control       Error correction    |\n|  Photon                 FPGA classical         Clifford + T gates  |\n|  Neutral atom           signal proc.           Algorithms          |\n|                                                                    |\n|  DiVincenzo criteria    Calibration +          Surface code        |\n|  Coherence times        optimal control        MWPM decoder        |\n|  Gate fidelity          pulse shaping          Magic state distil. |\n|                                                                    |\n|  COMPLEXITY LAYER                                                  |\n|                                                                   |\n|  BPP ⊆ BQP ⊆ QMA ⊆ PP ⊆ PSPACE                                  |\n|  Factoring ∈ BQP (Shor) — the key result                         |\n|  NP vs BQP: open; believed incomparable                           |\n+------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#003",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#004",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "## DiVincenzo Criteria (2000)"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#005",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "The checklist for any physical QC implementation:"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#006",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "```\nFIVE CRITERIA FOR COMPUTATION:"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#007",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "1. SCALABLE QUBIT REPRESENTATION\n   Well-defined, distinct, controllable 2-level quantum systems.\n   Must scale to 10³–10⁶+ qubits for useful computation.\n   Challenge: fabrication uniformity, crosstalk, classical control scaling."
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#008",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "2. ABILITY TO INITIALIZE\n   Reset each qubit to |0⟩ reliably before computation.\n   Superconducting: wait for T₁ decay (10–100× T₁) or active reset via measurement.\n   Trapped ion: optical pumping to ground state.\n   Required fidelity: >99.9% for fault tolerance."
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#009",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "3. COHERENCE TIMES ≫ GATE TIMES\n   Ratio T₂ / T_gate determines \"useful circuit depth.\"\n   Superconducting: T₂~100μs, T_gate~100ns → ~1000 gates before decoherence.\n   Trapped ion: T₂~10s, T_gate~100μs → ~100,000 gates.\n   (Trapped ions slower clock, but longer coherence.)"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#010",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "4. UNIVERSAL GATE SET\n   Implement {CNOT, H, T} or equivalent with high fidelity.\n   1Q gates: > 99.9% fidelity achievable today.\n   2Q gates: > 99.5% best labs; > 99.9% required for practical QEC."
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#011",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "5. QUBIT-SPECIFIC MEASUREMENT\n   Read out each qubit efficiently (high fidelity, fast).\n   Superconducting: dispersive readout ~1μs, ~99% fidelity.\n   Trapped ion: fluorescence detection ~1ms, ~99.9% fidelity."
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#012",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "TWO ADDITIONAL FOR QUANTUM NETWORKS:\n6. Interconvert stationary ↔ flying qubits (quantum transducer)\n7. Faithfully transmit flying qubits between locations\n```"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#013",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#014",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "## Platform Deep Dives"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#015",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "### Superconducting Qubits (IBM, Google)"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#016",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "```\nPHYSICS:\n  Josephson junction: nonlinear inductor from two superconductors\n  separated by thin insulator. Cooper pairs tunnel through.\n  Creates nonlinear LC oscillator → anharmonic energy levels.\n  |0⟩ and |1⟩ = ground and first excited state of transmon."
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#017",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "Transmon: Josephson junction + shunting capacitor (reduces charge noise)\n  Frequency: 4–8 GHz  (microwave control)\n  Operating temperature: 10–20 mK (dilution refrigerator)"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#018",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "OPERATIONS:\n  Single-qubit gates: microwave pulses (50–200 ns)\n  Two-qubit gate (CZ/CNOT): tunable coupling or cross-resonance (~200-500 ns)\n  Measurement: dispersive readout via microwave resonator (~1 μs)"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#019",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "STRENGTHS:\n  Fast gates (100s of ns → high clock rate)\n  Scalable fabrication (semiconductor fab processes)\n  Well-understood physics\n  IBM and Google leading this platform"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#020",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "WEAKNESSES:\n  T₂ limited (~100 μs, improving but constrained by substrate noise)\n  Nearest-neighbor connectivity (grid topology) → SWAP overhead\n  Cryogenic infrastructure expensive and bulky\n  No two identical chips (fabrication variation)"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#021",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "KEY METRICS (IBM Heron, 2023):\n  Qubits: 133\n  T₁: ~300 μs, T₂: ~200 μs\n  CX gate error: ~0.2% (EPLG: ~0.14%)\n  Readout fidelity: ~99%\n  Quantum volume: 512 (2022 Falcon)\n```"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#022",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "### Trapped Ion Qubits (IonQ, Quantinuum)"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#023",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "```\nPHYSICS:\n  Single ions (⁴⁰Ca⁺, ¹⁷¹Yb⁺) suspended in Paul (RF) trap.\n  Qubit: hyperfine levels of ground state (spin states)\n  or optical qubit (ground ↔ long-lived excited state).\n  Immense T₁, T₂: minutes to hours (no substrate noise)."
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#024",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "OPERATIONS:\n  Single-qubit gates: laser pulses (~1 μs)\n  Two-qubit gate (Mølmer-Sørensen, Cirac-Zoller): laser-mediated\n    via shared motional mode of trapped ion chain (~100 μs–1 ms)\n  Measurement: fluorescence photon counting (~1 ms)"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#025",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "STRENGTHS:\n  Highest gate fidelities (~99.9% 2Q), record-holder\n  All-to-all connectivity (any pair of ions can interact)\n  Long coherence times (hours)\n  Homogeneous (all ions identical)"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#026",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "WEAKNESSES:\n  Slow clock rate (ms gates vs ns for SC)\n  Scaling beyond ~100 ions per trap challenging\n  Modular architecture required for large systems\n  Laser control system complex and expensive"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#027",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "KEY METRICS (Quantinuum H2, 2024):\n  Qubits: 56\n  T₂: >10 s (spin echo)\n  2Q gate fidelity: 99.9%\n  Quantum volume: record-setting (best in industry)\n  Circuit depth: can run much deeper than SC\n```"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#028",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "### Neutral Atom Qubits (QuEra, Pasqal)"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#029",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "```\nPHYSICS:\n  Neutral Rb or Cs atoms trapped in optical tweezer arrays.\n  Qubit: hyperfine ground state.\n  Gates use Rydberg state excitation (n~60 principal quantum number):\n    Rydberg atoms have huge van der Waals interaction → blockade\n    \"Rydberg blockade\": two atoms within ~10 μm can't both be Rydberg excited\n    → natural conditional gate"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#030",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "OPERATIONS:\n  Single-qubit gates: microwave or Raman laser (~1 μs)\n  Two-qubit (CZ via Rydberg blockade): ~1 μs (fast!)\n  Reconfigurable: physically move atom arrays mid-circuit\n  Measurement: fluorescence imaging"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#031",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "STRENGTHS:\n  Reconfigurable connectivity (move atoms between shots)\n  High coherence (~seconds)\n  Large arrays (100s–1000s of atoms demonstrated)\n  Analog simulation mode (Hamiltonian simulation)"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#032",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "WEAKNESSES:\n  ~1% loss per site per shot (vacuum)\n  Gate fidelities lagging SC/ion trap (~99.5%)\n  Still maturing as gate-based platform"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#033",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "KEY MILESTONE (QuEra 2023, Nature):\n  48 logical qubits, fault-tolerant circuits, 99.5% logical gate fidelity\n  First demonstration of logical qubit advantage over physical qubits\n```"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#034",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "### Photonic (PsiQuantum, Xanadu)"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#035",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "```\nPHYSICS:\n  Quantum information in photon states (polarization, path, squeezed light).\n  Linear optical QC (KLM protocol 2001): CNOT gates with photons, ancilla, detection.\n  Measurement-based QC: generate resource state (cluster/graph state), measure."
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#036",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "STRENGTHS:\n  Room temperature operation\n  Fiber/integrated optic integration\n  Photons naturally mobile (quantum networking)"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#037",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "WEAKNESSES:\n  Photon loss is primary error\n  Deterministic 2-photon gates hard (need ancilla + postselection)\n  Large overhead for fault tolerance vs qubit platforms"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#038",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "XANADU (GBS — Gaussian Boson Sampling):\n  Special-purpose sampling device, not universal gate-based.\n  Claimed quantum advantage for molecular vibronic spectra simulation.\n```"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#039",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "### Topological (Microsoft Majorana)"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#040",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "```\nGOAL: Use non-Abelian anyons (Majorana zero modes) as inherently\n      fault-tolerant qubits."
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#041",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "THEORY:\n  Majorana fermions: particle = antiparticle.\n  In topological superconductors, zero-energy Majorana modes emerge\n  at boundaries. Qubit is encoded in pair of Majorana modes (nonlocal).\n  Errors must physically move Majorana modes around each other to\n  affect qubit state → topological protection."
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#042",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "STATUS (2025):\n  2018: Initial Majorana evidence paper (Delft/Microsoft) — later retracted (2021)\n        due to data handling concerns. Significant credibility damage.\n  2023: New paper (Nature) reporting Majorana signatures in InAs-Al\n        heterostructures using improved measurement protocols.\n        Distinct from retracted work — different device, different team leadership.\n  2025: Microsoft announced \"topological qubit\" milestone (February 2025),\n        claiming first demonstration of a topological qubit based on\n        Majorana zero modes in an InAs-Al nanowire device.\n  Key distinction: evidence for topological gap signatures ≠ operational qubit.\n  No quantum gate operations or error correction demonstrated on topological qubits.\n  The field remains cautious given the 2018 retraction history."
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#043",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "POTENTIAL ADVANTAGE:\n  Physical error rate could be ~1% (vs 0.1% for SC) to reach threshold.\n  Fewer physical qubits needed per logical qubit.\n  T gates may be implementable via anyon braiding (cheaper distillation).\n```"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#044",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#045",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "## Qubit Quality Metrics"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#046",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "```\nMETRIC            DEFINITION                           WHY IT MATTERS"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#047",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "T₁ (ms)           Energy relaxation time               |1⟩ → |0⟩ spontaneous decay\nT₂ (ms)           Phase coherence time (T₂ ≤ 2T₁)     Random phase kicks\nGate fidelity     Avg P(correct) over unitaries         Directly bounds error rate\nSPAM error        State prep + measurement error        Initialization + readout\nQuantum Volume    Max n: n×n circuit passes 2/3         IBM's holistic single number\n                  heavy output test\nEPLG              Error per layered gate                Benchmarks deep circuits\n                  (layer = all gates in parallel)\nCircuit layer ops Max gates before decoherence kills    Depth × width trade-off\n```"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#048",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#049",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "## Complexity Theory Deep Dive"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#050",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "### Key Classes"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#051",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "| Class | Definition | Complete problem |\n|-------|-----------|-----------------|\n| **P** | Poly-time deterministic | Sorting, LP, primality testing |\n| **BPP** | Poly-time randomized (2/3 success) | Miller-Rabin? (believed = P) |\n| **BQP** | Poly-time quantum (2/3 success) | Factoring (Shor) |\n| **QMA** | Quantum-verifiable NP analog | k-local Hamiltonian (k≥2) |\n| **PP** | Majority vote quantum | Permanent (counting #P-hard) |\n| **PSPACE** | Poly-space | QBF, Quantified Boolean Formula |\n| **QIP** | Quantum interactive proofs | QIP = PSPACE (Jain et al. 2009) |"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#052",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "### Critical Separations and Open Questions"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#053",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "```\nKNOWN:\n  P ⊆ BPP ⊆ BQP ⊆ QMA ⊆ PP ⊆ PSPACE\n  P ⊂ PSPACE (strict separation, TQSAT ∉ P)\n  BQP ⊄ NP  (BQP can solve sampling problems NP can't verify)\n  Factoring ∈ BQP ∩ NP (NOT known NP-complete)"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#054",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "OPEN:\n  P vs BPP  (believed equal; derandomization)\n  P vs BQP  (believed BQP ⊋ P but unproven)\n  BQP vs NP  (likely incomparable but unproven)\n  BQP vs PSPACE  (BQP ⊂ PSPACE but strict?)\n  NP vs QMA  (NP ⊆ QMA trivially; proper subset?)"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#055",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "KEY IMPLICATION:\n  If BQP ⊇ NP, polynomial hierarchy collapses.\n  This is considered very unlikely.\n  Quantum computers probably can't solve NP-complete problems in poly time.\n```"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#056",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "### Oracle Separations"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#057",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "```\nRelative to oracles:\n  ∃ oracle A: P^A ≠ BPP^A (oracles can separate)\n  ∃ oracle A: BQP^A ⊄ PH^A (Raz-Tal 2019 — strongest known structural result)\n    → Relative to an oracle, BQP contains problems outside the ENTIRE\n      polynomial hierarchy. This is an unconditional oracle separation —\n      no unproven complexity assumptions needed (unlike P vs NP barriers).\n    → Caveat: oracle separations don't directly imply non-relativizing\n      separations. BGS (1975) showed oracles can't resolve P vs NP.\n      Raz-Tal is evidence for BQP ⊄ PH, not a proof."
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#058",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "Forrelation problem (Aaronson-Ambainis):\n    BQP query complexity: 1\n    Randomized query complexity: Ω(√N/log N)\n    → concrete separation BQP vs BPP in query model\n```"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#059",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#060",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "## Hardware Roadmaps"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#061",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "### IBM Quantum Roadmap"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#062",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "```\n2021: Eagle (127 qubits)\n2022: Osprey (433 qubits), Heron architecture announced\n2023: Heron (133q, heavy-hex, EPLG 0.14%)\n      Condor (1121 qubits, exploratory)\n2024: Flamingo + modular systems\n2025: 2000 qubit target\n2029: 200,000 qubit target\n2033: 100,000 qubit + error correction target"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#063",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "Key innovations:\n  Heavy-hex lattice: each qubit has ≤3 neighbors (reduced crosstalk)\n  Tunable couplers (Heron): faster gates, lower residual ZZ coupling\n  Quantum communication links: connect separate processors\n```"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#064",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "### Google Quantum AI"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#065",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "```\n2019: Sycamore (54q) — \"quantum supremacy\" claim\n2022: surface code below threshold demonstration (Nature)\n2023: Willow (105q) — below threshold, improved RCS performance\n2024: Willow milestone: logical error suppressed below physical\n      as code distance increases (key theoretical requirement met)"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#066",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "Goal: Error-corrected quantum computer within decade\nKey metric: Logical qubit lifetime > physical qubit lifetime ✓ (Willow)\n```"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#067",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#068",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "## Post-Quantum Cryptography"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#069",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "The immediate practical consequence of quantum computing for industry:"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#070",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "```\nTHREAT MODEL:\n  Shor's algorithm breaks: RSA, ECC (all elliptic curve), Diffie-Hellman\n  Grover's algorithm weakens: AES (halves effective key length)\n  No known quantum speedup for: AES (symmetric), SHA-2/3 (hashing)"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#071",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "HARVEST-NOW-DECRYPT-LATER:\n  Adversaries capturing encrypted traffic NOW to decrypt LATER\n  when CRQC available. Relevant for: state secrets, health records,\n  long-term contracts, anything with >10-year confidentiality."
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#072",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "NIST PQC STANDARDS (2024):\n  Algorithm          Type            Based on        FIPS"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#073",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "ML-KEM (Kyber)     KEM            Module-LWE      203\n  ML-DSA (Dilithium) Signature      Module-LWE      204\n  SLH-DSA (SPHINCS+) Signature      Hash functions  205\n  FALCON             Signature (alt) NTRU lattice    206"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#074",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "LWE (Learning With Errors): believed hard for quantum computers.\n  Hash-based: security from collision resistance of hash functions.\n  Lattice problems: believed in BQP's complement (hard for QC)."
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#075",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "MIGRATION STRATEGY:\n  Phase 1 (now): Inventory all cryptographic usage\n  Phase 2 (2025-2027): Hybrid deployment (classical + PQC)\n  Phase 3 (2027-2030): Full PQC deployment\n  Priority: TLS certificates, VPN, code signing, long-lived secrets"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#076",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "TLS 1.3 + PQC:\n  X25519Kyber768 (hybrid): deployed by Cloudflare, Google, Chrome since 2023\n  FIPS 203 implementations shipping in 2025\n```"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#077",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#078",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "## Cross-References"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#079",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "- `quantum-computing/03-ERROR-CORRECTION.md` — error-correction overhead dominates hardware scale.\n- `semiconductor-manufacturing/01-SILICON-SUBSTRATE.md` — fabrication substrate analogy for scalable physical systems.\n- `quantum-computing/06-QUANTUM-COMMUNICATION.md` — hardware constraints for transmitting quantum states."
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#080",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "04-HARDWARE-COMPLEXITY.md#081",
+      "path": [
+        "04-HARDWARE-COMPLEXITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:quantum-computing:04-hardware-complexity, git-history:quantum-computing:04-hardware-complexity]",
+        "canonical_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "concepts": "[hardware, complexity]",
+        "current_path": "quantum-computing/04-HARDWARE-COMPLEXITY.md",
+        "id": "maxim:quantum-computing:hardware-complexity",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "quantum-computing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[hardware, complexity]",
+        "section": "quantum-computing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Quantum Hardware, Complexity and Path to Fault Tolerance",
+        "updated": "null"
+      },
+      "text": "| If you need to diagnose... | Start With | Key Caveat |\n|---|---|---|\n| Gate-fidelity leader | Trapped ions near `99.9%` two-qubit fidelity; superconducting improving | Fidelity without speed/connectivity is not a full platform comparison. |\n| Qubit-count leader | Superconducting platforms in the hundreds to low thousands | Raw qubit count is weaker than logical quality, depth, and error rates. |\n| Winning platform claims | Problem-dependent or hybrid hardware outlook | No platform has proven a fault-tolerant, scalable endgame. |\n| D-Wave claims | Quantum annealer, not universal fault-tolerant QC | Specialized annealing has no general proven quantum speedup. |\n| RSA-break timeline | Millions of physical qubits plus error correction, often forecast 2035-2040+ | Forecasts are dominated by scaling and QEC assumptions. |\n| PQC urgency | Harvest-now-decrypt-later risk today | Migration lead time matters even before CRQC exists. |\n| NIST PQC standards | ML-KEM, ML-DSA, and SLH-DSA FIPS tracks | Standards adoption still requires protocol, inventory, and lifecycle work. |\n| Factoring complexity | Factoring in `BQP` and `NP`; not known NP-complete | \"Quantum speedup\" is not the same as solving NP-complete problems. |\n| NP-complete expectations | Grover gives square-root search over assignments | No known polynomial-time quantum algorithm for NP-complete problems. |"
+    }
+  ],
+  "refs": [
+    "04-HARDWARE-COMPLEXITY.md"
+  ]
+}

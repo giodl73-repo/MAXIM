@@ -1,0 +1,3653 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-electrical-grid-distribution",
+  "source": "../../electrical-grid",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "04-DISTRIBUTION.md#000",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "# Electrical Grid — Distribution Systems\n## Last-Mile Delivery: From Substation to Meter"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#001",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#002",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "## The Big Picture: Distribution System Hierarchy"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#003",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "```\nTRANSMISSION GRID (69–500 kV)\n        │\n        │ Bulk Power Transformer (e.g., 230/69 kV, or 115/12.47 kV)\n        │\n┌────────────────────────────────────────────────────────────────────────────┐\n│   DISTRIBUTION SUBSTATION (boundary between transmission & distribution)   │\n│   Typical: 69 kV or 115 kV → 12.47 kV (most common US) or 34.5 kV          │\n│   Equipment: Power transformer(s), circuit breakers, protective relays,    │\n│              bus, capacitor banks, voltage regulators, SCADA               │\n└──────────────────────────────────┬─────────────────────────────────────────┘\n                                   │\n        Primary distribution feeders (12.47 kV three-phase, 3-wire or 4-wire)\n                                   │\n   ┌──────────────────────────────────────────────────────────┐\n   │         PRIMARY DISTRIBUTION FEEDER (~8 miles average)   │\n   │  OH/UG conductors, reclosers, sectionalizing switches,   │\n   │  capacitor banks, voltage regulators, laterals           │\n   └───┬──────────────────┬────────────────────┬──────────────┘\n       │                  │                    │\n       ▼                  ▼                    ▼\n   Pole TX            Pad TX              Network vault TX\n   Single phase       3-phase             (urban)\n   5-100 kVA          25-500 kVA          120/208V dense urban\n   120/240V           208/480V            network\n   Residential        Commercial/Ind.\n   single-phase       three-phase\n```"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#004",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#005",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "## Distribution Substation: The Grid Gateway"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#006",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "The distribution substation is where transmission ends and distribution begins. It's the most common substation type by count (thousands in a US utility territory vs dozens of transmission substations)."
+    },
+    {
+      "id": "04-DISTRIBUTION.md#007",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "### Typical Configuration"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#008",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "```\nDISTRIBUTION SUBSTATION — ONE-LINE DIAGRAM (simplified):"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#009",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "115 kV from transmission ────────────────────────────────\n                              |                    |\n                            [OCB]                [OCB]      115 kV breakers\n                              |                    |        (Oil/SF₆ Circuit Breaker)\n                  115 kV Bus ─┴────────────────────┘\n                              |\n                       ┌──────────────┐\n                       │  115 kV /    │\n                       │  12.47 kV    │\n                       └──────┬───────┘\n                          (Power transformer, e.g., 50 MVA)\n                              |\n              12.47 kV Bus ───┴───────────────────────\n                        |         |         |         |\n                      [OCB]     [OCB]     [OCB]     [OCB]   Feeder breakers\n                        |         |         |         |\n                    Feeder 1  Feeder 2  Feeder 3  Feeder 4\n                    (to NE)   (to NW)   (to SE)   (to SW)"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#010",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "KEY EQUIPMENT:\n  Power transformer: 25–300 MVA, with OLTC (on-load tap changer) for voltage regulation\n  OLTC: steps through ±16 taps of ±1.25% each → ±20% voltage range adjustment\n  Breakers: modern SF₆ puffer or vacuum types; can interrupt 20-50 kA fault current\n  Protective relays: overcurrent (51), distance (21), transformer differential (87T)\n  SCADA RTU: reports status to utility operations center every 2-4 seconds\n  Battery: 125V DC station battery for relay/breaker operation during power loss\n  Capacitor banks: 600 kVAR to 10 MVAR, switchable, for voltage/VAR support\n```"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#011",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "**Substation automation:** Modern substations have IEDs (intelligent electronic devices) following IEC 61850 standard. The IEDs communicate via GOOSE (Generic Object Oriented Substation Event) messages — deterministic, < 4ms delivery for protection applications. Digital substations are replacing analog meters and hardwired relay logic with software-defined protection and Ethernet communications."
+    },
+    {
+      "id": "04-DISTRIBUTION.md#012",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#013",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "## Primary Distribution Voltages"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#014",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "Different voltages around the world, with trade-offs:"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#015",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "| Voltage | Markets | Feeder Radius | Capacity | Notes |\n|---------|---------|--------------|---------|-------|\n| 4.16 kV | Legacy US urban | 1–3 miles | Low | Very old; being eliminated |\n| 12.47 kV (7.2 kV phase-ground) | US (most common, ~60%) | 5–15 miles | 10–30 MW | Phase-to-phase/phase-to-neutral |\n| 13.2 kV | Some US | 5–15 miles | 10–30 MW | Close to 12.47 in practice |\n| 25 kV | Rural US, Canada | 15–40 miles | 20–50 MW | Two-step down required |\n| 34.5 kV | Large US industrial | 10–30 miles | 40–80 MW | Often for large commercial loads |\n| 11 kV | UK, Australia, Asia | 5–10 miles | 8–20 MW | UK standard |\n| 6.6 kV | Japan | 3–8 miles | Low | Japan standard (being upgraded) |\n| 20 kV | France, Germany | 8–15 miles | 15–35 MW | Common in continental Europe |"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#016",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "**Why 12.47 kV dominates US:** It's a legacy of the 7.2/12.47 kV class insulation evolution from earlier 4.16 kV systems. Most US utilities standardized on this through the 1950s–1970s and the infrastructure investment keeps it dominant. The 12.47 kV (phase-to-phase) = 7.2 kV (phase-to-neutral) design allows single-phase laterals to tap off individual phases at 7.2 kV to single-phase distribution transformers."
+    },
+    {
+      "id": "04-DISTRIBUTION.md#017",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#018",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "## Feeder Design: Radial, Loop, and Network"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#019",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "The feeder topology progression — radial (N), loop (N+1), network (2N) — mirrors datacenter power path redundancy: radial = single path, any fault = outage; loop = alternate path available; network = fully meshed with multiple simultaneous paths. The same reliability vs. cost trade-off applies."
+    },
+    {
+      "id": "04-DISTRIBUTION.md#020",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "```\n1. RADIAL FEEDER (most common US suburban/rural):"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#021",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "Substation\n      │\n    ┌─┴──────────┬─────────────┬────────────────┐\n    │            │             │                │\n   Load         Load          Load            Load\n    │\n   (each load has exactly ONE path from substation)"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#022",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "ADVANTAGE: Simple, cheap, easy protection (one-directional current flow)\n   DISADVANTAGE: Any single fault = outage for all downstream customers\n   RELIABILITY: SAIDI ~100-300 min/yr\n   USE: Low-density residential and rural areas"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#023",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "2. LOOP FEEDER (common US suburban):"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#024",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "Substation\n      │\n    ┌─┴──────────────────────────────────┐\n    │                                    │ Normally-Open switch (NO)\n    │                                    │\n   Loads along feeder A            Loads along feeder B"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#025",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "During normal: open switch at midpoint, each feeder serves its section\n   During fault on feeder A: open at fault, close NO switch → feeder B serves both\n   Customer restoration: 30-60 minutes (manual) to ~30 seconds (automated FDIR)"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#026",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "ADVANTAGE: Much better reliability than radial\n   DISADVANTAGE: 2× the feeder infrastructure cost\n   COMMON PATTERN: Residential subdivisions, commercial corridors"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#027",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "3. NETWORK (GRID) DISTRIBUTION (urban centers only):"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#028",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "┌────────────────────────────────────────┐\n   │Substation A│  │Substation B│  │Sub C│  │\n   └──┬──────────────────┬───────────┬──────┘\n      │    ╔═════════╗   │    ╔══╗   │\n      ├────╣ Network ╠───┤    ║  ║   ├──── loads\n      │    ║ protector║   │    ╚══╝   │     (served from multiple\n      ├────╣ (NP)    ╠───┤           │      directions)\n      │    ╚═════════╝   │           │\n      │                  │           │\n   Network Bus ──────────────────────────────\n   (low voltage, 120/208V or 265/460V)\n      │\n   Load loads loads loads loads (restaurants, offices, apartments)"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#029",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "Network protectors (NP): automatic switches that allow power to flow\n   from transformer to network bus but not reverse (prevents backfeed)"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#030",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "ADVANTAGE: Extremely reliable — any single transformer failure → no customer outage\n              (multiple paths → automatic switching)\n   DISADVANTAGE: Very expensive (multiple transformers, network protectors)\n   USE: Manhattan, downtown Chicago, downtown DC — dense urban with 24/7 critical loads\n   RELIABILITY: SAIDI < 30 min/yr in mature network areas\n```"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#031",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#032",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "## Distribution Transformers"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#033",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "The final voltage step-down to customer service voltage. There are approximately 100 million distribution transformers in the US."
+    },
+    {
+      "id": "04-DISTRIBUTION.md#034",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "### Types"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#035",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "```\nPOLE-MOUNTED SINGLE-PHASE (US rural/suburban):\n  ┌──────────────┐\n  │  [XFMR]      │\n  │  25 kVA      │\n  │  7200/120-240│\n  └──────┬───────┘\n  Mounted on distribution pole (5-167 kVA typical range)\n         │ Service drop (to house)\n         ▼ 120/240V split-phase\n  Three wires to meter:\n    L1: 120V to neutral (top half of 240V)\n    L2: 120V to neutral (bottom half of 240V)\n    N: neutral (center tap of secondary)\n  → 240V for ranges, dryers, EV chargers\n  → 120V for receptacles and lighting\n  Serves: 2-10 houses typically (varies)"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#036",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "PAD-MOUNTED THREE-PHASE (commercial/industrial):\n  Ground-level, padlocked steel enclosure\n  Typically: 75-2,500 kVA\n  Primary: 12.47 kV (loop-feed — cable enters and exits, allowing bypass)\n  Secondary: 480/277V three-phase 4-wire (most commercial) or 208/120V\n  Oil-filled: mineral oil immersed core and coils\n  Standard: IEEE C57.12.34"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#037",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "NETWORK VAULT TRANSFORMER (dense urban):\n  Below-grade vault installation (under sidewalk)\n  Primary: 13.8 kV or 4.16 kV\n  Secondary: 265/460V (commercial network) or 120/208V (residential network)\n  \"Network protector\" integral or adjacent\n  Submerged in periodic flooding → special insulation systems\n```"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#038",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "### Distribution Transformer Efficiency"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#039",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "US DOE standards (10 CFR 431) for pole-mounted transformers:\n- 25 kVA single-phase: ≥ 98.0% efficiency at full load\n- 100 kVA single-phase: ≥ 98.7%\n- 500 kVA three-phase: ≥ 99.0%"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#040",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "These look good but the loss accumulates over millions of units. The US has ~100M distribution transformers. If average loss = 1.5% × average loading of 30% = 0.45% of rating wasted continuously. Total waste: significant GW-scale power loss."
+    },
+    {
+      "id": "04-DISTRIBUTION.md#041",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "**Amorphous metal core transformers:** Using amorphous rather than grain-oriented silicon steel reduces core losses by 70-80%. More expensive upfront ($50-100 extra per unit) but pays back in energy savings. Increasingly mandated in DOE efficiency standards."
+    },
+    {
+      "id": "04-DISTRIBUTION.md#042",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#043",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "## Secondary Service Configurations"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#044",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "Different service voltages serve different needs:"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#045",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "```\nUS SERVICE VOLTAGE CONFIGURATIONS:"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#046",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "1. RESIDENTIAL (single-phase, split-phase):\n   ●──────────────────────────── L1 (hot): 120V to neutral, 240V to L2\n   ●──────────────────────────── N (neutral): 0V\n   ●──────────────────────────── L2 (hot): 120V to neutral, 240V to L1\n   → 120V: wall outlets, lights, small appliances\n   → 240V: range, dryer, AC, water heater, EV Level 2 charger"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#047",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "2. SMALL COMMERCIAL (three-phase, 4-wire wye, 120/208V):\n   Phase A: 120V to neutral ─┐\n   Phase B: 120V to neutral  ├─▶ 208V phase-to-phase\n   Phase C: 120V to neutral ─┘\n   Neutral: 0V\n   → 120V single-phase: outlets, lighting\n   → 208V: small three-phase motors, small HVAC\n   → Used: small offices, retail, restaurants"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#048",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "3. COMMERCIAL/INDUSTRIAL (three-phase, 4-wire wye, 277/480V):\n   Phase A: 277V to neutral ─┐\n   Phase B: 277V to neutral  ├─▶ 480V phase-to-phase\n   Phase C: 277V to neutral ─┘\n   → 277V: fluorescent/LED commercial lighting (277V ballasts common)\n   → 480V three-phase: large motors (HVAC, elevators, industrial machines)\n   → Often add 120V via separate transformer (K-rated) for outlets/IT\n   → Used: offices, hospitals, warehouses, factories"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#049",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "4. LARGE INDUSTRIAL (> 5 MW demand):\n   Often served at primary voltage (12.47 kV, 34.5 kV, or higher)\n   Customer-owned substations with their own transformers\n   Utility responsibility ends at the primary voltage meter\n```"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#050",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#051",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "## Reliability Metrics: SAIDI, SAIFI, CAIDI"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#052",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "These are the universal metrics for distribution reliability, mandated by NERC and state PUCs."
+    },
+    {
+      "id": "04-DISTRIBUTION.md#053",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "### Definitions"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#054",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "```\nSAIDI = System Average Interruption Duration Index\n      = Σ(Customer Interruption Durations) / Total Customers Served\n      Units: minutes per customer per year\n      Measures: how many minutes, on average, each customer is without power"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#055",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "SAIFI = System Average Interruption Frequency Index\n      = Total Customer Interruptions / Total Customers Served\n      Units: interruptions per customer per year\n      Measures: how often, on average, each customer loses power"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#056",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "CAIDI = Customer Average Interruption Duration Index\n      = SAIDI / SAIFI\n      = Average duration of each outage\n      Units: minutes per interruption\n      Measures: once an outage starts, how long does it take to restore?"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#057",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "MAIFI = Momentary Average Interruption Frequency Index\n      = Total Momentary Interruptions / Total Customers Served\n      Measures: recloser operations (brief < 1 minute interruptions)\n      Not always reported; matters for sensitive equipment\n```"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#058",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "### Typical Values"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#059",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "```\nRELIABILITY BENCHMARKS (US utilities, SAIDI minutes/yr, excluding major events):"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#060",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "Top Quartile (suburban, underground, automated):\n  SAIDI: 30–60 min/yr\n  SAIFI: 0.5–0.8 interruptions/yr\n  CAIDI: 60–90 min"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#061",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "Middle (typical suburban OH):\n  SAIDI: 100–180 min/yr\n  SAIFI: 1.0–1.5\n  CAIDI: 80–120 min"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#062",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "Lower Quartile (rural, aging infrastructure):\n  SAIDI: 250–400 min/yr\n  SAIFI: 2.0–3.0\n  CAIDI: 100–150 min"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#063",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "Including Major Event Days (MED — storms, ice, wildfires):\n  Can triple SAIDI in some years\n  Utilities often report separately: \"SAIDI excluding MEDs\""
+    },
+    {
+      "id": "04-DISTRIBUTION.md#064",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "INTERNATIONAL COMPARISON (approximate):\n  Japan:       SAIDI ~4 min/yr (exceptional — densely undergrounded, aggressive maintenance)\n  South Korea: SAIDI ~12 min/yr\n  Germany:     SAIDI ~15 min/yr\n  UK:          SAIDI ~45 min/yr\n  USA average: SAIDI ~110 min/yr (excluding MEDs)\n  Puerto Rico (pre-Maria): ~200 min/yr; post-Maria recovery: years of issues\n```"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#065",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "**Why does Japan achieve SAIDI ~4 min/yr?** Very high underground cable penetration (>70% urban), aggressive vegetation management, aggressive equipment replacement programs, and granular fault isolation (many sectionalizing switches). The cost is high — underground distribution is 5-10× more expensive than overhead per km."
+    },
+    {
+      "id": "04-DISTRIBUTION.md#066",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "### Causes of Outages"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#067",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "```\nTYPICAL SAIDI CONTRIBUTION BY CAUSE (US, IEEE 1366 reporting):"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#068",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "Equipment failure (transformers, cables, connectors): ~20-25%\n  Aging equipment; thermal overload; insulation degradation"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#069",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "Tree contact / vegetation:                           ~30-35%\n  Branches fall on lines; trees fall; storm damage"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#070",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "Other overhead line (animals, vehicles, etc.):       ~15-20%\n  Squirrels, raccoons shorting at transformer;\n  cars hitting poles; vandalism; kite strings"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#071",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "Lightning:                                           ~10-15%\n  Direct strikes; flashover; induced surges"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#072",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "Planned outages (maintenance):                       ~5-10%\n  Scheduled switching, equipment work"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#073",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "Unknown/miscellaneous:                               ~5-10%\n```"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#074",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "**Vegetation management** is the single largest controllable factor in reliability improvement. Most utilities spend $400M–$1B+ annually on tree trimming. NERC FAC-003 mandates transmission ROW vegetation management; distribution standards are state PUC regulated."
+    },
+    {
+      "id": "04-DISTRIBUTION.md#075",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#076",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "## Feeder Automation: FDIR"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#077",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "Manual switching (lineman drives to a switch, operates it) takes 30-60 minutes to restore customers after a fault isolation. Automated FDIR (Fault Detection, Isolation, and Restoration) can do it in seconds."
+    },
+    {
+      "id": "04-DISTRIBUTION.md#078",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "```\nFDIR SEQUENCE (automated):"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#079",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "1. FAULT OCCURS on feeder segment A-B\n   │ Fault current → substation breaker trips (feeder de-energized)\n   │ Time: 0 seconds"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#080",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "2. RECLOSER ATTEMPTS (automatic):\n   │ Breaker closes (auto-reclose): 0.5 seconds\n   │ If fault still there → trips again\n   │ Tries 2-3 more times with increasing time delays\n   │ Purpose: 80% of faults are transient (tree branch, animal)\n   │         → automatic reclose restores without any SAIDI impact\n   │ If fault persists after 3-4 attempts: LOCKOUT\n   │ Time: 0-30 seconds"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#081",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "3. FAULT LOCATION, ISOLATION, RESTORATION (FDIR):\n   │ Substation IED detects fault current direction and magnitude\n   │ Automated switches detect fault passage (current direction sensors)\n   │ Fault location algorithm narrows to segment\n   │ ISOLATION: Open automated switches around faulted segment\n   │            (isolate just the faulted cable/line section)\n   │ RESTORATION:\n   │   Section upstream of fault: restore by closing main breaker\n   │   Section downstream of fault: restore via normally-open tie\n   │           (closes tie switch from neighboring feeder)\n   │ Time: 10-60 seconds (automated) vs 30-60 minutes (manual)"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#082",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "4. CREW DISPATCHED to repair the fault (physical repair still needed)\n   Time: 2-8 hours (permanent repair)"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#083",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "SAIDI IMPACT:\n  Without FDIR: all customers on feeder out 2-8 hours\n  With FDIR: customers on faulted segment out 2-8 hours (unavoidable)\n             all other customers restored in 10-60 seconds\n             Only a fraction of customers count toward SAIDI\n```"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#084",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#085",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "## Voltage Regulation Along Feeders"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#086",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "Voltage drops as current flows through feeder impedance. The customer at the end of a feeder gets lower voltage than the customer at the substation end. Utilities must maintain voltage within ±5% of nominal (ANSI C84.1: service voltage 114V–126V for 120V nominal)."
+    },
+    {
+      "id": "04-DISTRIBUTION.md#087",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "```\nVOLTAGE PROFILE ALONG FEEDER:"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#088",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "Voltage\n(pu)    1.05 ─── Allowable high limit\n        1.025\n        1.00 ─── Nominal\n        0.975\n        0.95 ─── Allowable low limit"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#089",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "│         ╲ (voltage sags as current draws through impedance)\n        │          ╲\n        │           ╲___ (without compensation: end-of-feeder too low)\n        │\n        │     ╔═══════════╗ Voltage regulator (±10% range)\n        │     ║ regulator ║ raises voltage for rest of feeder\n        │     ╚═══════════╝\n        │               ╲___\n        └─────────────────────────────────▶ distance from substation"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#090",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "VOLTAGE REGULATION TOOLS:\n  1. Substation LTC (Load Tap Changer): ±16 steps × 1.25% each = ±20% range\n     Adjusts the entire feeder voltage up/down based on load\n     Slow: 30-90 second response (motor-operated tap changer)"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#091",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "2. Line Voltage Regulators: Autotransformers installed on the feeder\n     ±10% range, typically placed 1/2 to 2/3 way down the feeder\n     Boost voltage for the downstream section\n     Typical location: every 5-8 miles on rural feeders"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#092",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "3. Capacitor Banks: Switchable capacitor banks at feeder intervals\n     Inject reactive current → reduce reactive drop → raise voltage\n     Also improve power factor → reduce real losses\n     Two types: fixed (always connected) + switched (connected by relay)\n     Switched caps: close when reactive load high (daytime), open at night\n     Cost: $25-60k per 1.2 MVAR bank (typical distribution size)"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#093",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "4. Conservation Voltage Reduction (CVR):\n     Lower feeder voltage slightly (within limits) → reduce energy consumption\n     Rule of thumb: 1% voltage reduction → 0.5-1% energy reduction\n     (loads that scale with V² — resistance heating, incandescent)\n     Modern buildings with switching power supplies: less responsive to CVR\n```"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#094",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#095",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "## Underground vs Overhead Distribution"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#096",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "```\nCOMPARISON TABLE:"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#097",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "OVERHEAD              UNDERGROUND\n──────────────────────────────────────────────────────────────────────\nCapital cost         $100-300k/mile        $500k-2M/mile\n  (new installation)  (varies: rural/urban)  (trenching cost dominant)\n                     1× baseline           3-8× baseline"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#098",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "Failure rate         Higher (weather,      Lower (protected)\n                     animals, vehicles)\n                     1-3 faults/100        0.1-0.5 faults/100\n                     circuit-miles/yr      circuit-miles/yr"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#099",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "Fault location       Easy (visual patrol)  Hard (TDR, tone equipment\n                                          needed; specialized crew)"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#100",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "Repair time          Shorter (accessible)  Longer (excavation needed)\n                     2-6 hours            4-24+ hours"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#101",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "Asset life           40-80 years           30-50 years (TR-XLPE)\n                     (wood pole 40-60yr;    but often limited by\n                      conductor longer)     insulation degradation"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#102",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "Storm resilience     Poor (vulnerable)     Excellent (buried)\n                     Ice, wind, falling    Protected from weather\n                     trees, flooding"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#103",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "Heat dissipation     Air-cooled            Soil-limited (ampacity\n                     (high ampacity)        derating 20-40% in poor\n                                           soil or summer)"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#104",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "Visual impact        Significant           None (buried)"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#105",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "Best use case        Rural, low density,   Urban, high density,\n                     low land cost         aesthetic requirements,\n                                          storm-hardening programs\n```"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#106",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "**The economics of undergrounding:** Utilities in Florida, Carolinas, and coastal areas that face frequent hurricane damage have analyzed undergrounding distribution. Cost per mile: $500k–$2M. SAIDI improvement: typically 40-60% reduction. Payback: often 40-100 years at current storm frequencies. Not economic unless storm damage costs are severe or property values / aesthetics drive regulatory mandates."
+    },
+    {
+      "id": "04-DISTRIBUTION.md#107",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "**Underground cable technology:** Modern underground distribution uses TR-XLPE (tree-retardant cross-linked polyethylene) cable. Older installations used EPR or direct-buried XLPE. Primary failure mode: \"water treeing\" — moisture penetrates insulation over decades, creating conductive paths → eventual insulation failure. Modern TR-XLPE dramatically slows this but doesn't eliminate it. Cable life: 30-50 years before replacement recommended."
+    },
+    {
+      "id": "04-DISTRIBUTION.md#108",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#109",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "## DER Integration at Distribution Level"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#110",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "Distributed energy resources (rooftop solar, home batteries, EV chargers) are inverting the traditional one-directional power flow assumption of distribution design."
+    },
+    {
+      "id": "04-DISTRIBUTION.md#111",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "```\nTRADITIONAL DISTRIBUTION (one direction):"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#112",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "Substation ──▶ Feeder ──▶ Loads (all power flows substation→customer)"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#113",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "MODERN DISTRIBUTION WITH DERs:"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#114",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "Substation ◀─▶ Feeder ◀─▶ Loads/Generators (bidirectional)"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#115",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "──── 12.47 kV Distribution Feeder ─────────────────────────────\n                          │                            │\n                      ┌───────┐                   ┌───────┐\n                      │ 5 MW  │                   │ 200kW │\n                      │ Solar │                   │ BESS  │\n                      │ Farm  │                   │       │\n                      └───────┘                   └───────┘\n                                                  (export to grid)"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#116",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "PROBLEMS CREATED:\n  1. Overvoltage: solar generation pushes voltage above 126V (ANSI limit)\n     at end-of-feeder when it was designed for voltage DROP only\n  2. Reverse flow: feeder protection assumes fault current flows FROM substation\n     DER generation → fault current can flow BOTH directions → protection miscoordination\n  3. Islanding: if feeder trips (breaker opens), DER may continue energizing\n     the feeder → electrocution hazard for linemen, equipment damage\n  4. Voltage flicker: cloud transients cause rapid voltage changes → power quality\n  5. Harmonics: switching power supplies + inverters inject harmonic currents"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#117",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "IEEE 1547-2018: Standard for interconnection of DERs\n  Updated 2018 to require DERs to:\n  - Ride through voltage/frequency disturbances (not trip offline immediately)\n  - Provide voltage regulation support (active/reactive power control)\n  - Support abnormal frequency response\n  - Anti-islanding protection (mandatory)"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#118",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "This was a major update from 2003 version which required DERs to trip at ANY\n  disturbance — a rule that made sense for 1% solar penetration but would cause\n  cascading collapse at 30%+ penetration (all solar trips → grid can't recover)\n```"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#119",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#120",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#121",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "| If you need to diagnose... | Start With | Key Caveat |\n|---|---|---|\n| A primary-voltage decision | Compare existing assets, feeder length, load density, loss, voltage drop, insulation class, and conversion outage cost. | Higher primary voltage can extend feeders, but legacy conversion is a capital and operational program, not a nameplate swap. |\n| A reliability claim | Separate SAIDI, SAIFI, CAIDI, MAIFI, major-event exclusion, vegetation exposure, automation, and customer density. | Cross-country or utility averages are not directly comparable without event definitions and geography. |\n| Whether undergrounding is justified | Compare storm exposure, fault repair time, lateral density, trenching cost, flood risk, aesthetics, and regulatory cost recovery. | Underground improves some outage modes but can be slower and costlier to repair when faults occur. |\n| Whether FDIR helps | Identify normally-open tie points, remote switches, fault indicators, feeder capacity, communications, and protection coordination. | Automation restores unfaulted sections; it cannot eliminate the faulted segment outage. |\n| An end-of-feeder voltage problem | Check load current, conductor impedance, regulator/LTC settings, capacitor placement, DER backfeed, and voltage standard. | DER can create overvoltage and reverse-flow problems in feeders designed for one-way voltage drop. |\n| A service-voltage question | Determine customer class, phase count, transformer connection, service size, and local utility standard. | Nominal service voltages are standardized, but actual delivered voltage is regulated within tolerance bands. |\n| A DER interconnection issue | Review IEEE 1547 settings, anti-islanding, ride-through, fault current, grounding, voltage regulation, and protection coordination. | DER compliance is necessary but not sufficient; feeder-level hosting capacity still depends on local topology. |"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#122",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#123",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "## Cross-References"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#124",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "- `03-TRANSMISSION.md` contrasts the high-voltage bulk system with local delivery networks.\n- `07-SMART-GRID.md` adds sensors, automation, and distributed control to distribution.\n- `09-RESILIENCE.md` covers outage hardening and recovery at the local grid edge."
+    },
+    {
+      "id": "04-DISTRIBUTION.md#125",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "## Common Confusion Points"
+    },
+    {
+      "id": "04-DISTRIBUTION.md#126",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "**Why does residential US use 120V AND 240V from the same service?** The secondary winding of the pole transformer has a center tap. The two halves each supply 120V to neutral; the full winding supplies 240V between the two hots. This is \"split-phase\" single-phase service. Not the same as European 230V service, which is a different transformer configuration."
+    },
+    {
+      "id": "04-DISTRIBUTION.md#127",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "**SAIDI excluding major events:** Many utilities report SAIDI two ways — with and without \"major event days.\" An MED is a day where the system-wide SAIDI impact exceeds a threshold (typically 2× normal daily SAIDI). This allows comparison of base reliability performance separate from extreme weather. Both numbers matter — the \"excluding MEDs\" figure reflects normal operations; the total figure shows vulnerability to weather."
+    },
+    {
+      "id": "04-DISTRIBUTION.md#128",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "**Feeder \"capacity\" is not transformer capacity:** A feeder's capacity is limited by the minimum of: (1) transformer size, (2) conductor ampacity, (3) voltage drop limits, (4) protection coordination. Often the binding constraint is voltage drop at the end of the feeder, not thermal limits of the conductors."
+    },
+    {
+      "id": "04-DISTRIBUTION.md#129",
+      "path": [
+        "04-DISTRIBUTION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electrical-grid:04-distribution, git-history:electrical-grid:04-distribution]",
+        "canonical_path": "electrical-grid/04-DISTRIBUTION.md",
+        "concepts": "[distribution]",
+        "current_path": "electrical-grid/04-DISTRIBUTION.md",
+        "id": "maxim:electrical-grid:distribution",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electrical-grid",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[distribution]",
+        "section": "electrical-grid",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electrical Grid - Distribution Systems",
+        "updated": "null"
+      },
+      "text": "**Network distribution (urban) vs network utility (business term):** When utility people say \"network distribution,\" they mean the multiple-source, low-voltage grid system used in dense urban areas. This is different from \"network utility\" (a business model term). Dense urban US (Manhattan, Loop Chicago) uses network distribution; suburban and rural use radial or loop feeders."
+    }
+  ],
+  "refs": [
+    "04-DISTRIBUTION.md"
+  ]
+}

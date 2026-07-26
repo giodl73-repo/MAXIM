@@ -1,0 +1,4717 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-mathematics-measure-theory",
+  "source": "../../mathematics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "21-MEASURE-THEORY.md#000",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "# Measure Theory — Complete Reference"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#001",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#002",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Measure theory is the rigorous foundation for integration, probability, and functional analysis. It resolves the pathologies that plagued 19th-century analysis: non-measurable sets, exchanging limits and integrals, and the proper definition of \"almost everywhere.\" If you know Riemann integration from calculus, this guide will show you exactly where it fails and why Lebesgue's construction fixes it."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#003",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "```\n┌─────────────────────────────────────────────────────────────────────────────┐\n│  MEASURE THEORY ARCHITECTURE                                                │\n│                                                                             │\n│  Foundations                         Integration                            │\n│  ──────────────────────────────       ─────────────────────────────────     │\n│  Set theory + σ-algebra              Measurable functions                   │\n│  Measure space (Ω, ℱ, μ)            Simple functions → Lebesgue integral    │\n│  Borel σ-algebra on ℝ               Dominated/Monotone Convergence          │\n│  Lebesgue measure on ℝⁿ             Fubini-Tonelli theorem                  │\n│                                                                             │\n│  Lᵖ Spaces                           Probability Foundations                │\n│  ──────────────────────────────       ─────────────────────────────────     │\n│  Lᵖ(μ): norms, completeness          Probability space (Ω, ℱ, P)            │\n│  L²: inner product, Hilbert space     Random variables as measurable fns    │\n│  L∞: essential supremum              Conditional expectation E[X|ℱ]         │\n│  Dense subspaces                      Characteristic functions              │\n│                                                                             │\n│  Radon-Nikodym                        Convergence                           │\n│  ──────────────────────────────       ─────────────────────────────────     │\n│  Absolute continuity                  Almost sure convergence               │\n│  Radon-Nikodym derivative            Convergence in measure                 │\n│  Change of variables                  Lᵖ convergence                        │\n│  Conditional expectation              Weak convergence / CLT rigorous       │\n└─────────────────────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#004",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#005",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "## 1. σ-Algebras and Measurable Spaces"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#006",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "### Why σ-Algebras?"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#007",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "The Banach-Tarski paradox and Vitali's construction show that not every subset of ℝ can be assigned a consistent \"length.\" We restrict to **measurable** sets — those to which we can assign measure consistently."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#008",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "```\nProblems with naive measure assignment to ALL subsets of ℝ:\n  Vitali set (using Axiom of Choice): subsets of [0,1] that cannot be measured.\n  Banach-Tarski: decompose sphere into 5 pieces, reassemble into two spheres.\n  → We cannot extend Lebesgue measure to all subsets of ℝ.\n  → We must specify which sets are measurable.\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#009",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "### σ-Algebra Definition"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#010",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "A **σ-algebra** ℱ on a set Ω is a collection of subsets satisfying:\n```\n(S1) Ω ∈ ℱ\n(S2) A ∈ ℱ → Aᶜ ∈ ℱ                           [closed under complement]\n(S3) A₁, A₂, ... ∈ ℱ → ∪ₙ Aₙ ∈ ℱ             [closed under countable unions]"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#011",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Closure under countable intersections follows from (S2)+(S3): ∩Aₙ = (∪Aₙᶜ)ᶜ\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#012",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "The pair (Ω, ℱ) is a **measurable space**."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#013",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "### The Borel σ-Algebra"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#014",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "```\n𝒝(ℝ) = σ-algebra generated by all open sets of ℝ"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#015",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Equivalent generating sets:\n  - All open sets\n  - All closed sets (by complement)\n  - All open intervals (a,b)\n  - All half-open intervals (-∞, a]\n  - All half-open intervals (a, ∞)"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#016",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Borel sets: all sets in 𝒝(ℝ). Contains all \"reasonable\" subsets of ℝ.\nIncludes: every open, closed, Gδ (countable intersections of opens), Fσ sets.\nDoes NOT include Vitali sets (not provably Borel from ZFC)."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#017",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Borel hierarchy:\n  Σ⁰₁ = open sets\n  Π⁰₁ = closed sets\n  Σ⁰₂ = Fσ sets (countable unions of closed)\n  Π⁰₂ = Gδ sets (countable intersections of open)\n  ... → 𝒝(ℝ) is the union of all levels\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#018",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "### Generated σ-Algebras"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#019",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "For any collection 𝒞 of subsets of Ω:\n```\nσ(𝒞) = smallest σ-algebra containing 𝒞\n      = intersection of all σ-algebras containing 𝒞"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#020",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "This is well-defined because ℙ(Ω) is a σ-algebra, and\narbitrary intersection of σ-algebras is a σ-algebra.\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#021",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Product σ-algebra**: For measurable spaces (Ω₁,ℱ₁) and (Ω₂,ℱ₂):\n```\nℱ₁ ⊗ ℱ₂ = σ({A×B : A∈ℱ₁, B∈ℱ₂})\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#022",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#023",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "## 2. Measures"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#024",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "### Measure Definition"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#025",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "A **measure** μ on (Ω, ℱ) is a function μ: ℱ → [0,∞] satisfying:\n```\n(M1) μ(∅) = 0\n(M2) Countable additivity: for disjoint A₁, A₂, ... ∈ ℱ:\n     μ(∪ₙ Aₙ) = Σₙ μ(Aₙ)\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#026",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "The triple (Ω, ℱ, μ) is a **measure space**."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#027",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Immediate consequences**:\n```\nMonotonicity:   A ⊆ B → μ(A) ≤ μ(B)\nSubadditivity:  μ(∪ₙ Aₙ) ≤ Σₙ μ(Aₙ)  [even without disjointness]\nContinuity from below: Aₙ ↑ A → μ(Aₙ) → μ(A)\nContinuity from above: Aₙ ↓ A and μ(A₁)<∞ → μ(Aₙ) → μ(A)\n  (Finiteness condition needed: μ((0,1/n)) → 0, but μ((n,∞)) = ∞ doesn't → 0)\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#028",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "### Types of Measures"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#029",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Probability measure**: μ(Ω) = 1. Then μ = P, a probability."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#030",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**σ-finite measure**: Ω = ∪ₙ Ωₙ where μ(Ωₙ) < ∞.\n- Lebesgue measure on ℝ is σ-finite: ℝ = ∪ₙ [-n,n].\n- Required for Fubini's theorem."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#031",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Lebesgue measure on ℝ**: μ((a,b)) = b-a (length), extended via σ-additivity.\n- Exists (Carathéodory extension theorem).\n- Translation-invariant.\n- Assigns measure 0 to all countable sets (including ℚ).\n- Assigns positive measure to many uncountable sets (Cantor set has measure 0; fat Cantor sets can have positive measure)."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#032",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Dirac measure**: δₓ(A) = 1 if x ∈ A, else 0. Models a point mass at x."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#033",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Counting measure**: μ(A) = |A| (cardinality). On ℕ, gives natural number-counting."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#034",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "### Null Sets and Completion"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#035",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "A set N is a **null set** if ∃ measurable M ⊇ N with μ(M) = 0."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#036",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Completed measure space**: Add all null sets to ℱ. For Lebesgue measure, the completed σ-algebra is the **Lebesgue σ-algebra** (strictly larger than Borel)."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#037",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Almost everywhere (a.e.)** / **almost surely (a.s.)**: Property holds on Ω \\ N where μ(N) = 0."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#038",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#039",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "## 3. Measurable Functions"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#040",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "### Definition"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#041",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "f: (Ω,ℱ) → (Λ,𝒢) is **measurable** if:\n```\nf⁻¹(B) = {ω ∈ Ω : f(ω) ∈ B} ∈ ℱ  for all B ∈ 𝒢"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#042",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "For f: Ω → ℝ: f⁻¹((-∞, a]) ∈ ℱ for all a ∈ ℝ suffices (generates 𝒝(ℝ)).\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#043",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Measurability-preserving operations**:\n```\nIf f, g measurable then: f+g, fg, |f|, max(f,g), min(f,g) all measurable.\nIf fₙ measurable then: sup fₙ, inf fₙ, limsup fₙ, liminf fₙ all measurable.\nComposition: g measurable, f continuous → f∘g measurable.\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#044",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Simple functions**: φ = Σᵢ aᵢ 1_{Aᵢ} where Aᵢ ∈ ℱ, aᵢ ∈ ℝ. Finite linear combination of indicators."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#045",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Approximation theorem**: For any measurable f ≥ 0, there exist simple functions φₙ with 0 ≤ φₙ ↑ f pointwise. If f bounded, convergence is uniform."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#046",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "### Random Variables"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#047",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "A random variable X on probability space (Ω, ℱ, P) is a measurable function X: (Ω,ℱ) → (ℝ, 𝒝(ℝ))."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#048",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Distribution**: P_X = P∘X⁻¹ is a probability measure on (ℝ, 𝒝(ℝ)).\n```\nP_X(B) = P(X ∈ B) = P(X⁻¹(B))\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#049",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Independence**: X, Y independent iff σ(X) and σ(Y) are independent σ-algebras (all events in σ(X) independent of all events in σ(Y))."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#050",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#051",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "## 4. Lebesgue Integration"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#052",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "### Construction (Building up in stages)"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#053",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Stage 1: Simple functions**:\n```\nIf φ = Σᵢ aᵢ 1_{Aᵢ} ≥ 0 (aᵢ ≥ 0, Aᵢ disjoint):\n∫ φ dμ = Σᵢ aᵢ · μ(Aᵢ)\n(with convention 0·∞ = 0)\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#054",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Stage 2: Non-negative measurable functions**:\n```\n∫ f dμ = sup { ∫ φ dμ : 0 ≤ φ ≤ f, φ simple }\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#055",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Stage 3: General measurable functions**:\n```\nf = f⁺ - f⁻ where f⁺ = max(f,0), f⁻ = max(-f,0) ≥ 0.\n∫ f dμ = ∫ f⁺ dμ - ∫ f⁻ dμ\nDefined (and finite) when ∫ f⁺ dμ < ∞ or ∫ f⁻ dμ < ∞.\nf is integrable (f ∈ L¹(μ)) if ∫ |f| dμ < ∞.\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#056",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "### Lebesgue vs Riemann"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#057",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "```\nRiemann: partition the domain [a,b] into intervals.\n  ∫_Riemann f = lim (Σ f(xᵢ*) Δxᵢ) as partition gets fine.\n  Fails for: f = 1_ℚ (Dirichlet function). Upper Riemann sum = 1, lower = 0."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#058",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Lebesgue: partition the RANGE into intervals.\n  ∫_Lebesgue f = lim Σ yᵢ · μ(f⁻¹([yᵢ, yᵢ₊₁)))\n  Works for f = 1_ℚ: ∫ 1_ℚ dμ = μ(ℚ) = 0 (countable set has measure 0)."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#059",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "If f is Riemann integrable on [a,b], then f is Lebesgue integrable and integrals agree.\nLebesgue integrable ⊃ Riemann integrable (strictly).\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#060",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Key insight**: Lebesgue measures sets where f takes certain values. This is more natural for probability (P(a < X < b)) and works for much more irregular functions."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#061",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "### The Convergence Theorems"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#062",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "These are the main payoff of Lebesgue theory — conditions under which ∫ lim fₙ = lim ∫ fₙ."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#063",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Monotone Convergence Theorem (MCT)**:\n```\nIf 0 ≤ fₙ ↑ f pointwise (fₙ increasing, converging to f):\n  ∫ fₙ dμ → ∫ f dμ   (including if both are ∞)"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#064",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Proof idea: ∫fₙ monotone increasing, bounded above by ∫f. Show lim ≥ ∫f via simple function approx.\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#065",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Fatou's Lemma**:\n```\nIf fₙ ≥ 0 measurable:\n  ∫ liminf fₙ dμ ≤ liminf ∫ fₙ dμ"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#066",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Inequality can be strict: fₙ = 1_{[n,n+1]} on ℝ with Lebesgue measure.\n  ∫ fₙ = 1 for all n, but liminf fₙ = 0, so ∫ liminf fₙ = 0 < 1.\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#067",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Dominated Convergence Theorem (DCT)** (the workhorse):\n```\nIf fₙ → f pointwise a.e.\nAND |fₙ| ≤ g a.e. for some integrable g (∫ g dμ < ∞):\n  ∫ fₙ dμ → ∫ f dμ"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#068",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Also: ||fₙ - f||₁ = ∫ |fₙ - f| dμ → 0   (L¹ convergence)"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#069",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "The dominating function g is crucial — need uniform integrability.\nWithout domination, limit and integral need not commute.\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#070",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Uniform Integrability** (generalized DCT condition):\n```\n{fₙ} uniformly integrable if:\n  sup_n ∫_{|fₙ|>M} |fₙ| dμ → 0  as M → ∞."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#071",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Vitali Convergence Theorem: fₙ → f in measure + UI ⟺ fₙ → f in L¹.\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#072",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "### Fubini-Tonelli Theorem"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#073",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "For product measure spaces:"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#074",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "```\nTonelli (non-negative functions):\n  If f ≥ 0 measurable on (X×Y, ℱ⊗𝒢, μ×ν):\n  ∫_{X×Y} f d(μ×ν) = ∫_X (∫_Y f(x,y) dν(y)) dμ(x)\n                    = ∫_Y (∫_X f(x,y) dμ(x)) dν(y)"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#075",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Fubini (integrable functions):\n  If ∫_{X×Y} |f| d(μ×ν) < ∞:\n  Same iterated integral formula holds."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#076",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Warning: Without integrability or non-negativity, iterated integrals may disagree.\nExample: f(x,y) = (x²-y²)/(x²+y²)². ∫₀¹∫₀¹f dx dy = π/4, ∫₀¹∫₀¹f dy dx = -π/4.\nAlways check Tonelli/Fubini conditions before swapping integrals.\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#077",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#078",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "## 5. Lᵖ Spaces"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#079",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "### Definition and Norms"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#080",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "For (Ω, ℱ, μ) and p ∈ [1,∞):\n```\nLᵖ(μ) = {f measurable : ∫ |f|ᵖ dμ < ∞}  (equivalence classes: f=g a.e.)"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#081",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Norm: ||f||_p = (∫ |f|ᵖ dμ)^{1/p}"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#082",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "L∞(μ) = {f measurable : esssup|f| < ∞}\nNorm: ||f||_∞ = inf{M : μ(|f| > M) = 0}  [essential supremum]\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#083",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "These are norms on equivalence classes (identify f=g a.e.):\n- Positive definiteness: ||f||_p = 0 iff f = 0 a.e.\n- Homogeneity: ||αf||_p = |α| ||f||_p\n- Triangle inequality: Minkowski's inequality: ||f+g||_p ≤ ||f||_p + ||g||_p"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#084",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "### Key Inequalities"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#085",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Hölder's inequality** (p and q are conjugate: 1/p + 1/q = 1):\n```\n∫ |fg| dμ ≤ ||f||_p · ||g||_q"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#086",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Special case p=q=2: Cauchy-Schwarz:\n  ∫ |fg| dμ ≤ (∫ f²)^{1/2} · (∫ g²)^{1/2} = ||f||₂ · ||g||₂"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#087",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Proof: Young's inequality: ab ≤ aᵖ/p + bᵍ/q for a,b ≥ 0.\nApply pointwise with a = |f|/||f||_p, b = |g|/||g||_q, integrate.\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#088",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Jensen's inequality**: For convex φ and random variable X:\n```\nφ(E[X]) ≤ E[φ(X)]\n```\nProof: By convexity, ∃ supporting hyperplane φ(x) ≥ φ(μ) + c(x-μ) at μ=E[X]. Integrate."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#089",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Lᵖ inclusion**: If μ(Ω) < ∞: for p ≤ q, Lᵍ(μ) ⊆ Lᵖ(μ).\nFor μ = counting measure on ℕ: inclusion reverses (ℓᵖ ⊆ ℓᵍ for p ≤ q)."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#090",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "### Completeness (Riesz-Fischer Theorem)"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#091",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "```\nLᵖ(μ) is complete for p ∈ [1,∞]: every Cauchy sequence has a limit in Lᵖ."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#092",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Proof sketch (p=1):\n  Cauchy {fₙ}: find subsequence with ||f_{n_{k+1}} - f_{n_k}||₁ < 2⁻ᵏ.\n  Define g = Σₖ |f_{n_{k+1}} - f_{n_k}|. By MCT, ||g||₁ ≤ 1.\n  So g < ∞ a.e. → telescoping series converges a.e.\n  Limit function f ∈ L¹; use DCT to show fₙ → f in L¹.\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#093",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "L²(μ) is a **Hilbert space** with inner product ⟨f,g⟩ = ∫ fḡ dμ."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#094",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "### Dense Subspaces"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#095",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "```\nIn Lᵖ(ℝ, Lebesgue):\n  - Continuous compactly supported functions C_c(ℝ) are dense in Lᵖ for p<∞\n  - Step functions (simple functions on intervals) are dense\n  - Polynomials are dense on bounded intervals (Weierstrass + DCT)\n  - C_c∞ (smooth compactly supported) are dense — used in distribution theory"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#096",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Practical: can approximate any Lᵖ function by smooth functions.\nThis underlies: Fourier series convergence in L², spectral theory, PDE solutions.\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#097",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#098",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "## 6. Radon-Nikodym Theorem"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#099",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "### Absolute Continuity"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#100",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Measure ν is **absolutely continuous** with respect to μ (ν ≪ μ) if:\n```\nμ(A) = 0 → ν(A) = 0  for all measurable A.\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#101",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Intuition: ν cannot assign positive measure to sets that μ says have zero measure. ν is \"dominated\" by μ."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#102",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Mutual singularity** (ν ⊥ μ): ∃ disjoint A, B with Ω = A ∪ B, μ(A) = 0, ν(B) = 0."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#103",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Lebesgue decomposition**: Any σ-finite measure ν decomposes uniquely:\n```\nν = νₐ_c + ν_s\nwhere νₐ_c ≪ μ (absolutely continuous part)\nand ν_s ⊥ μ (singular part)\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#104",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "### Radon-Nikodym Theorem"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#105",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "```\nIf ν ≪ μ and both σ-finite, there exists a measurable function f ≥ 0 such that:\n  ν(A) = ∫_A f dμ  for all measurable A."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#106",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "f is called the Radon-Nikodym derivative: f = dν/dμ.\nUnique up to μ-null sets."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#107",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Chain rule: if λ ≪ ν ≪ μ, then dλ/dμ = (dλ/dν)(dν/dμ) μ-a.e.\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#108",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Why it matters**:\n1. **Probability densities**: If X has distribution P_X ≪ Lebesgue measure, then f = dP_X/dλ is the density function (pdf). Existence guaranteed by Radon-Nikodym.\n2. **Change of measure**: If P, Q are probabilities with P ≪ Q, then dP/dQ exists and ∫ f dP = ∫ f(dP/dQ) dQ.\n3. **Conditional expectation**: Construction of E[X|ℱ] uses Radon-Nikodym."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#109",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "### Conditional Expectation"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#110",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "```\nLet X ∈ L¹(Ω,ℱ,P) and 𝒢 ⊆ ℱ a sub-σ-algebra.\nE[X|𝒢] is the unique 𝒢-measurable Y such that:\n  ∫_A Y dP = ∫_A X dP  for all A ∈ 𝒢."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#111",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Existence: Define measure ν(A) = ∫_A X dP on (Ω,𝒢).\n  ν ≪ P|_𝒢.\n  By Radon-Nikodym: Y = dν/d(P|_𝒢) exists."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#112",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Properties:\n  E[E[X|𝒢]] = E[X]                          [tower law / law of total expectation]\n  If X is 𝒢-measurable: E[X|𝒢] = X          [nothing new to learn]\n  E[X|𝒢] = E[X] if X ⊥ 𝒢                  [independence]\n  E[XY|𝒢] = Y·E[X|𝒢] if Y is 𝒢-measurable  [pulling out known factors]\n  Jensen's: φ(E[X|𝒢]) ≤ E[φ(X)|𝒢] for convex φ\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#113",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#114",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "## 7. Convergence Theorems"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#115",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "### Four Types of Convergence"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#116",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "```\na.s. (almost sure) convergence:\n  P(fₙ → f) = 1, i.e., fₙ(ω) → f(ω) for a.e. ω.\n  Pointwise convergence on full-measure set."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#117",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Convergence in measure (in probability):\n  P(|fₙ - f| > ε) → 0 for all ε > 0."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#118",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Lᵖ convergence:\n  ||fₙ - f||_p = (E|fₙ-f|ᵖ)^{1/p} → 0."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#119",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Weak convergence (distributions):\n  E[φ(Xₙ)] → E[φ(X)] for all bounded continuous φ.\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#120",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "### Relationships"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#121",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "```\n   Lᵖ convergence (p ≥ 1)\n         │  (Markov / Chebyshev)\n         ▼\n   a.s. convergence ──(finite measure space)──▶ convergence in measure\n         ▲                                            │\n         └────────── along a subsequence ─────────────┤\n                                                       ▼\n                                       convergence in distribution (weakest)"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#122",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "• a.s. ⇒ in measure only on a FINITE measure space.\n  • Lᵖ ⇒ in measure always; the converse needs uniform integrability.\n  • in measure ⇒ a.s. only along a subsequence.\n  • a.s. + a dominating function ⇒ Lᵖ (DCT)."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#123",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "None of these arrows reverse in general (without the extra hypotheses noted).\nCounterexamples:\n  • Convergence in measure but not a.s.: \"typewriter sequence\" on [0,1]\n    f₁=1_{[0,1]}, f₂=1_{[0,1/2]}, f₃=1_{[1/2,1]}, f₄=1_{[0,1/4]}, ...\n    ||fₙ||₁ → 0, but fₙ(x) ≢ 0 for any x.\n  • a.s. convergence but not L¹: fₙ = n·1_{[0,1/n]}. fₙ → 0 a.s., but ∫fₙ = 1.\n    (Needs DCT's dominating function, which doesn't exist here.)\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#124",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Subsequence principle**: fₙ → f in measure iff every subsequence has a further subsequence converging a.s."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#125",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "### Weak Convergence (in Distribution)"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#126",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "```\nXₙ →_d X if F_{Xₙ}(x) → F_X(x) at all continuity points of F_X."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#127",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Equivalently: E[φ(Xₙ)] → E[φ(X)] for all bounded continuous φ."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#128",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Portmanteau theorem (equivalent characterizations):\n  (1) E[φ(Xₙ)] → E[φ(X)] for all bounded continuous φ\n  (2) E[φ(Xₙ)] → E[φ(X)] for all bounded Lipschitz φ\n  (3) limsup P(Xₙ ∈ F) ≤ P(X ∈ F) for all closed F\n  (4) liminf P(Xₙ ∈ G) ≥ P(X ∈ G) for all open G\n  (5) P(Xₙ ∈ B) → P(X ∈ B) for all B with P(X ∈ ∂B) = 0"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#129",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Characteristic functions (Lévy continuity theorem):\n  Xₙ →_d X iff φ_{Xₙ}(t) → φ_X(t) for all t.\n  φ_X(t) = E[e^{itX}] is the characteristic function.\n  This is how CLT is proved rigorously.\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#130",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "### CLT — Measure-Theoretic Proof Sketch"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#131",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "```\nLet X₁, X₂, ... iid with mean 0, variance σ².\nSₙ = (X₁+...+Xₙ)/(σ√n)."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#132",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Characteristic function of Sₙ:\n  φ_{Sₙ}(t) = [φ_X(t/(σ√n))]ⁿ"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#133",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Taylor expand φ_X near 0:\n  φ_X(t) = 1 + E[X]·it - E[X²]t²/2 + o(t²) = 1 - σ²t²/2 + o(t²)"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#134",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Substituting:\n  φ_{Sₙ}(t) = [1 - σ²(t/σ√n)²/2 + o(t²/n)]ⁿ\n             = [1 - t²/(2n) + o(1/n)]ⁿ\n             → e^{-t²/2}   (as n → ∞)"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#135",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "e^{-t²/2} is characteristic function of N(0,1).\nBy Lévy continuity: Sₙ →_d N(0,1). □\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#136",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#137",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "## 8. Product Measures and Integration"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#138",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "### Product Measure Construction"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#139",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "For σ-finite (Xᵢ, ℱᵢ, μᵢ):\n```\nProduct measure μ₁×μ₂ on ℱ₁⊗ℱ₂:\n  (μ₁×μ₂)(A×B) = μ₁(A)·μ₂(B)  for A∈ℱ₁, B∈ℱ₂.\nExtends uniquely to ℱ₁⊗ℱ₂ by Carathéodory."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#140",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Lebesgue measure on ℝⁿ = Lebesgue ⊗ ... ⊗ Lebesgue (n times).\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#141",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "### Change of Variables (substitution)"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#142",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "For diffeomorphism T: U → V (open subsets of ℝⁿ):\n```\n∫_V f(y) dy = ∫_U f(T(x)) |det DT(x)| dx"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#143",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "|det DT(x)|: absolute value of Jacobian determinant."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#144",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "This is Radon-Nikodym in disguise:\n  Push-forward measure: (T₊μ)(A) = μ(T⁻¹(A))\n  d(T₊μ)/dμ = 1/|det DT| ∘ T\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#145",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Polar coordinates**: T: (r,θ) → (r cos θ, r sin θ). |det DT| = r.\n```\n∫∫_{ℝ²} f(x,y) dx dy = ∫₀^∞ ∫₀^{2π} f(r cos θ, r sin θ) r dθ dr\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#146",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#147",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "## 9. Applications and ML Connections"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#148",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "### Ergodic Theory and MCMC"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#149",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Ergodic theory** studies measure-preserving transformations — dynamical systems that preserve volume. The central result connects time averages to space averages."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#150",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Setup**: (Ω, ℱ, μ) is a probability space. T: Ω → Ω is **measure-preserving** if μ(T⁻¹(A)) = μ(A) for all A ∈ ℱ. Think of T as \"advance the system by one time step.\""
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#151",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "T is **ergodic** if the only T-invariant sets are trivial: T⁻¹(A) = A ⟹ μ(A) = 0 or 1. Ergodicity means the system cannot be decomposed into independent subsystems — it explores the whole space."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#152",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Birkhoff Ergodic Theorem** (time average = space average):\n```\nIf T is measure-preserving on (Ω, ℱ, μ) and f ∈ L¹(μ):"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#153",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "(1/n) Σ_{k=0}^{n-1} f(Tᵏω) → E_μ[f | ℐ]   μ-a.s. and in L¹"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#154",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "where ℐ = σ-algebra of T-invariant sets."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#155",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "If T is ergodic: ℐ is trivial → E_μ[f | ℐ] = ∫ f dμ."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#156",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "So for ergodic T:  (1/n) Σ_{k=0}^{n-1} f(Tᵏω) → ∫_Ω f dμ  a.s."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#157",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Time average of f along a single trajectory = space average of f over Ω.\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#158",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**MCMC connection**: A Markov chain with stationary distribution π defines a (random) measure-preserving transformation. The chain is ergodic on (Ω, π) iff it is irreducible and aperiodic. The Birkhoff theorem is precisely why MCMC works: time-averages along the chain converge to expectations under π. Convergence rate is governed by the spectral gap of the transition operator — the gap between 1 and the second-largest eigenvalue of the Markov transition kernel acting on L²(π)."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#159",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "```\nMCMC algorithm → generates trajectory ω₀, ω₁, ω₂, ...\nEstimator: (1/n) Σ f(ωₖ) → ∫ f dπ  by ergodic theorem.\nSpeed of convergence ← spectral gap of transition kernel P on L²(π).\nMixing time ∝ 1 / spectral gap.\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#160",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Statistical mechanics**: The ergodic hypothesis (Boltzmann) is the physical claim that a gas system is ergodic — time averages of macroscopic observables equal ensemble averages over the microcanonical measure. This justifies thermodynamics from Hamiltonian mechanics. The hypothesis is false for most Hamiltonian systems (KAM theory), but true for sufficiently chaotic ones."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#161",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "### KL Divergence and Radon-Nikodym"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#162",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**KL divergence** (Kullback-Leibler) between probability measures P and Q:\n```\nKL(P || Q) = ∫ log(dP/dQ) dP    when P ≪ Q  (P absolutely continuous w.r.t. Q)\n           = +∞                  when P ⊄ Q"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#163",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "The integrand is exactly the Radon-Nikodym derivative dP/dQ (log-likelihood ratio).\n```"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#164",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "This makes precise several properties that are otherwise opaque:"
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#165",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Asymmetry**: KL(P||Q) ≠ KL(Q||P) because dP/dQ and dQ/dP are different functions. Swapping them changes the measure you integrate against (P vs Q), not just the integrand."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#166",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Why P ≪ Q is required**: If P(A) > 0 but Q(A) = 0 for some set A, then dP/dQ is undefined (or +∞) on A, and log(dP/dQ) = +∞ on a P-positive set → KL = +∞. KL divergence detects whether Q has full support relative to P."
+    },
+    {
+      "id": "21-MEASURE-THEORY.md#167",
+      "path": [
+        "21-MEASURE-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:21-measure-theory, git-history:mathematics:21-measure-theory]",
+        "canonical_path": "mathematics/21-MEASURE-THEORY.md",
+        "concepts": "[measure, theory]",
+        "current_path": "mathematics/21-MEASURE-THEORY.md",
+        "id": "maxim:mathematics:measure-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[measure, theory]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Measure Theory - Complete Reference",
+        "updated": "null"
+      },
+      "text": "**Connection to log-likelihood**: For parametric family {P_θ}, the score function is ∇_θ log(dP_θ/dμ) where μ is a reference measure. Fisher information = variance of the score = second derivative of KL at zero. Maximum likelihood estimation minimizes KL(P_data || P_θ) over θ."
+    }
+  ],
+  "refs": [
+    "21-MEASURE-THEORY.md"
+  ]
+}

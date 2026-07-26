@@ -1,0 +1,153 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-query-languages-analytical",
+  "source": "../../query-languages",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "07-ANALYTICAL.md#000",
+      "path": [
+        "07-ANALYTICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:07-analytical, git-history:query-languages:07-analytical]",
+        "canonical_path": "query-languages/07-ANALYTICAL.md",
+        "concepts": "[analytical]",
+        "current_path": "query-languages/07-ANALYTICAL.md",
+        "id": "maxim:query-languages:analytical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[analytical]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Analytical SQL - BigQuery, Snowflake, Databricks, Synapse",
+        "updated": "null"
+      },
+      "text": "# Cloud Analytical SQL — BigQuery, Snowflake, Databricks, Synapse"
+    },
+    {
+      "id": "07-ANALYTICAL.md#001",
+      "path": [
+        "07-ANALYTICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:07-analytical, git-history:query-languages:07-analytical]",
+        "canonical_path": "query-languages/07-ANALYTICAL.md",
+        "concepts": "[analytical]",
+        "current_path": "query-languages/07-ANALYTICAL.md",
+        "id": "maxim:query-languages:analytical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[analytical]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Analytical SQL - BigQuery, Snowflake, Databricks, Synapse",
+        "updated": "null"
+      },
+      "text": "Cloud data warehouses replaced on-prem Hadoop clusters and SQL Server Analysis Services. The query language is SQL with analytical extensions — but the execution model is distributed columnar at petabyte scale. These four dominate: BigQuery (Google), Snowflake (AWS/Azure/GCP), Databricks (Delta Lake), Synapse Analytics (Azure). All speak SQL. All have proprietary extensions."
+    },
+    {
+      "id": "07-ANALYTICAL.md#002",
+      "path": [
+        "07-ANALYTICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:07-analytical, git-history:query-languages:07-analytical]",
+        "canonical_path": "query-languages/07-ANALYTICAL.md",
+        "concepts": "[analytical]",
+        "current_path": "query-languages/07-ANALYTICAL.md",
+        "id": "maxim:query-languages:analytical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[analytical]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Analytical SQL - BigQuery, Snowflake, Databricks, Synapse",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-ANALYTICAL.md#003",
+      "path": [
+        "07-ANALYTICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:07-analytical, git-history:query-languages:07-analytical]",
+        "canonical_path": "query-languages/07-ANALYTICAL.md",
+        "concepts": "[analytical]",
+        "current_path": "query-languages/07-ANALYTICAL.md",
+        "id": "maxim:query-languages:analytical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[analytical]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Analytical SQL - BigQuery, Snowflake, Databricks, Synapse",
+        "updated": "null"
+      },
+      "text": "## 1. BIG PICTURE — The Cloud DW Landscape"
+    },
+    {
+      "id": "07-ANALYTICAL.md#004",
+      "path": [
+        "07-ANALYTICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:07-analytical, git-history:query-languages:07-analytical]",
+        "canonical_path": "query-languages/07-ANALYTICAL.md",
+        "concepts": "[analytical]",
+        "current_path": "query-languages/07-ANALYTICAL.md",
+        "id": "maxim:query-languages:analytical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[analytical]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Cloud Analytical SQL - BigQuery, Snowflake, Databricks, Synapse",
+        "updated": "null"
+      },
+      "text": "```\n┌──────────────────────────────────────────────────────────────────────────────┐\n│                         Data Warehouse Evolution                             │\n│                                                                              │\n│  ON-PREM ERA (the old world)                                                 │\n│  ──────────────────────────                                                  │\n│  SQL Server DW ──► SSIS (ETL) ──► SSAS (cubes/tabular) ──► SSRS / Excel      │\n│  Fixed capacity. Scale up (bigger box). MOLAP cubes pre-aggregate.           │\n│                                                                              │\n│  HADOOP ERA                                                                  │\n│  ──────────                                                                  │\n│  HDFS ──► MapReduce ──► Hive ──► Impala / Presto                             │\n│  Cheap commodity hardware. Disk-based. Slow. Good for raw archive.           │\n│                                                                              │\n│  CLOUD DW ERA (now)                                                          │\n│  ──────────────────                                                          │\n│  Object Storage (S3 / ADLS Gen2 / GCS)                                       │\n│       │                                                                      │\n│       ├──► BigQuery (Google)       ─ serverless, on-demand                   │\n│       ├──► Snowflake                ─ virtual warehouses, multi-cloud        │\n│       ├──► Databricks (Delta Lake) ─ Spark + SQL unified                     │\n│       └──► Synapse Analytics       ─ Azure-native, T-SQL familiar            │\n│                                                                              │\n│  KEY SHIFT: Storage and compute are SEPARATED and scaled independently.      │\n│  No more \"buy bigger SQL Server.\" Pay for compute when you use it.           │\n│                                                                              │\n│  MODERN DATA PATTERN (Medallion Architecture)                                │\n│  ─────────────────────────────────────────────                               │\n│  Raw Sources ──► BRONZE (raw) ──► SILVER (clean) ──► GOLD (biz layer)        │\n│                                                            │                 │\n│                                              Power BI / Tableau / Looker     │\n│                                              ML / AI / Feature Stores        │\n└──────────────────────────────────────────────────────────────────────────────┘\n```"
+    }
+  ],
+  "refs": [
+    "07-ANALYTICAL.md"
+  ]
+}

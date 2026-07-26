@@ -1,0 +1,3485 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-probability-statistics-limit-theorems",
+  "source": "../../probability-statistics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "03-LIMIT-THEOREMS.md#000",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "# Limit Theorems"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#001",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#002",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "Limit theorems explain why statistical practice works. They are the mathematical bedrock under every sample mean, every confidence interval, and every SGD training run."
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#003",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|                     LIMIT THEOREM HIERARCHY                      |\n+------------------------------------------------------------------+\n|                                                                  |\n|  LAWS OF LARGE NUMBERS (LLN)                                     |\n|  \"Sample means converge to population means\"                    |\n|  Weak LLN: convergence in probability                           |\n|  Strong LLN: convergence almost surely                          |\n|                          |                                       |\n|                          v                                       |\n|  CENTRAL LIMIT THEOREM (CLT)                                    |\n|  \"The fluctuations around the mean are Normal\"                  |\n|  Rate of convergence: 1/sqrt(n)                                 |\n|                          |                                       |\n|                          v                                       |\n|  DERIVED RESULTS                                                 |\n|  Slutsky's theorem    -- combine convergence types              |\n|  Continuous mapping   -- apply continuous functions             |\n|  Delta method         -- CLT for transformed statistics         |\n|  Berry-Esseen         -- quantify CLT error rate               |\n|                                                                  |\n+------------------------------------------------------------------+\n|                  APPLICATIONS                                    |\n|  Algorithm average-case analysis   Monte Carlo integration       |\n|  SGD convergence theory            Confidence intervals          |\n|  A/B test sample sizes             Extreme value theory          |\n+------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#004",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#005",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "## Law of Large Numbers — Weak Form"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#006",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "**Setup**: X_1, X_2, ... i.i.d. with E[X_1] = mu < inf."
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#007",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "**Weak LLN** (Chebyshev version, requires finite variance):"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#008",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "```\n  Define X_bar_n = (1/n) Sum_{i=1}^n X_i"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#009",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "For all epsilon > 0:\n  P(|X_bar_n - mu| > epsilon) -> 0   as n -> inf"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#010",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "\"Convergence in probability\": the sample mean is close\n  to mu with high probability, for large n."
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#011",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "MDLOOM SKETCH (finite variance case):\n  E[X_bar_n] = mu                        (linearity)\n  Var(X_bar_n) = sigma^2 / n             (independence)\n  By Chebyshev: P(|X_bar_n - mu| > eps) <= sigma^2 / (n eps^2) -> 0\n```"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#012",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "The Chebyshev proof is short but needs finite variance. The LLN holds under much weaker conditions."
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#013",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "**Weak LLN (Kolmogorov, finite mean only)**:"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#014",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "Requires only E|X_1| < inf. The proof uses truncation and characteristic functions — the finiteness of the first moment is the essential condition."
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#015",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#016",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "## Law of Large Numbers — Strong Form"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#017",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "**Strong LLN** (Kolmogorov):"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#018",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "```\n  P(X_bar_n -> mu) = 1                  (almost sure convergence)"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#019",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "Stronger than weak: not just high probability for each n,\n  but the entire sequence converges on a probability-1 set."
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#020",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "Condition: E|X_1| < inf.\n  If E|X_1| = inf, the sample mean can diverge almost surely.\n```"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#021",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "**The Borel-Cantelli Lemma** (key tool in the proof):"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#022",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "```\n  If Sum_{n=1}^inf P(A_n) < inf,\n  then P(A_n occurs infinitely often) = 0."
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#023",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "Conversely (with independence):\n  If Sum P(A_n) = inf and A_n independent,\n  then P(A_n occurs infinitely often) = 1."
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#024",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "Intuition: \"infinitely often\" is controlled by the series of probabilities.\n```"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#025",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "**Algorithm analysis connection**: Average-case complexity uses strong LLN. If an algorithm has expected cost mu per operation (with finite variance), and you run it on n independent inputs, the total cost converges to n*mu almost surely. Monte Carlo algorithms rely on this: the empirical average of f(X_i) converges to E[f(X)] for any f with finite expectation."
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#026",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#027",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "## Central Limit Theorem"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#028",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "**Setup**: X_1, X_2, ... i.i.d. with E[X_1] = mu, Var(X_1) = sigma^2 < inf."
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#029",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "**CLT**:"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#030",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "```\n  sqrt(n) (X_bar_n - mu) / sigma  --d-->  Normal(0, 1)"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#031",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "Equivalently:\n  sqrt(n) (X_bar_n - mu)  --d-->  Normal(0, sigma^2)"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#032",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "Or in CDF terms:\n  P(sqrt(n)(X_bar_n - mu)/sigma <= x)  ->  Phi(x)"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#033",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "Where Phi = standard normal CDF.\n```"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#034",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "**Proof via characteristic functions**: This is the cleanest proof."
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#035",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "```\n  Let Y_i = (X_i - mu)/sigma.  Then E[Y_i] = 0, E[Y_i^2] = 1."
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#036",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "S_n = (1/sqrt(n)) Sum Y_i"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#037",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "phi_{S_n}(t) = [phi_{Y}(t/sqrt(n))]^n"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#038",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "Taylor expand phi_Y(t) = 1 - t^2/2 + o(t^2) near t=0\n  (using E[Y]=0, E[Y^2]=1)"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#039",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "phi_{S_n}(t) = [1 - t^2/(2n) + o(1/n)]^n  ->  e^{-t^2/2}"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#040",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "And e^{-t^2/2} is the CF of Normal(0,1). QED.\n```"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#041",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "**What the CLT says geometrically**: No matter what shape the original distribution has, summing n i.i.d. copies and centering/scaling produces something that looks increasingly Normal. The Normal is the attractor of the convolution semigroup."
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#042",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#043",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "## Berry-Esseen Theorem — Quantifying CLT Error"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#044",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "The CLT says convergence happens; Berry-Esseen says how fast:"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#045",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "```\n  If E|X_1|^3 = rho < inf, then:"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#046",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "sup_x |P(S_n <= x) - Phi(x)| <= C * rho / (sigma^3 * sqrt(n))"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#047",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "Where C is a universal constant (best known: C < 0.4748)."
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#048",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "Rate: O(1/sqrt(n))."
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#049",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "For n=100 with typical distributions: error ~ 0.05 or less.\n  For n=1000: error ~ 0.015."
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#050",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "This quantifies when CLT-based confidence intervals are accurate.\n```"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#051",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#052",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "## Generalizations of the CLT"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#053",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "**Non-identically distributed (Lindeberg-Feller CLT)**:"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#054",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "```\n  For independent (NOT necessarily identically distributed) X_i:\n  The CLT holds if the Lindeberg condition holds:\n  For all eps > 0:\n  (1/s_n^2) Sum_i E[(X_i - mu_i)^2 * 1{|X_i - mu_i| > eps s_n}] -> 0"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#055",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "Where s_n^2 = Sum_i Var(X_i)."
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#056",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "Informal: No single term dominates the variance of the sum.\n```"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#057",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "**Heavy-tailed CLT (Stable distributions)**:"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#058",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "```\n  If X has a heavy tail (|x|^{-alpha} decay, 0 < alpha < 2):\n  The normalized sum S_n / n^{1/alpha} converges to an alpha-stable distribution.\n  For alpha=2: recovers the Gaussian CLT.\n  For alpha=1: sum / n*log(n) -> Cauchy.\n  These are the Levy stable distributions.\n```"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#059",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#060",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "## Slutsky's Theorem"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#061",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "**Slutsky**: If X_n -d-> X and Y_n -p-> c (constant), then:"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#062",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "```\n  X_n + Y_n  --d-->  X + c\n  X_n * Y_n  --d-->  cX\n  X_n / Y_n  --d-->  X/c   (if c != 0)\n```"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#063",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "**Why it matters**: Statistical estimators often involve plugging in estimated quantities. If you have a CLT for X_n and a consistent estimator Y_n -> c, you can combine them. Used constantly for t-statistics, estimated standard errors, etc."
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#064",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "**Example — Student t-statistic**:"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#065",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "```\n  sqrt(n)(X_bar - mu)/sigma  --d-->  Normal(0,1)    (CLT)"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#066",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "Sample standard deviation: s_n -> sigma in probability  (consistency)"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#067",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "By Slutsky:\n  sqrt(n)(X_bar - mu)/s_n  --d-->  Normal(0,1)/1 = Normal(0,1)"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#068",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "(Exact finite-n distribution is t_{n-1}; CLT gives the limit.)\n```"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#069",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#070",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "## Continuous Mapping Theorem"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#071",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "If X_n -d-> X and g is continuous (or continuous a.e. w.r.t. the law of X):"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#072",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "```\n  g(X_n)  --d-->  g(X)"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#073",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "Works for:\n  - a.s. convergence -> a.s. convergence\n  - in probability -> in probability\n  - in distribution -> in distribution\n```"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#074",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "**Example**: If X_n -d-> Normal(0,1), then X_n^2 -d-> Chi-squared(1)."
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#075",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#076",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "## The Delta Method"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#077",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "The delta method applies the CLT + continuous mapping to derive asymptotic distributions for transformed statistics."
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#078",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "**Setup**: sqrt(n)(T_n - theta) -d-> Normal(0, sigma^2) and g is differentiable at theta."
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#079",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "```\n  Delta method:\n  sqrt(n)(g(T_n) - g(theta))  --d-->  Normal(0, [g'(theta)]^2 * sigma^2)"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#080",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "Proof sketch: First-order Taylor expansion g(T_n) ≈ g(theta) + g'(theta)(T_n - theta)\n  Then apply Slutsky."
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#081",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "Multivariate version:\n  sqrt(n)(g(T_n) - g(theta))  --d-->  Normal(0, gradient_g^T * Sigma * gradient_g)\n```"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#082",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "**Example — log transform**:"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#083",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "```\n  If sqrt(n)(X_bar - mu) --d-> Normal(0, sigma^2), then:\n  sqrt(n)(log(X_bar) - log(mu)) --d-> Normal(0, sigma^2/mu^2)"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#084",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "This gives asymptotic CI for log(mu): log(X_bar) ± z_{alpha/2} * s/(sqrt(n) * X_bar)\n```"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#085",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "**Application — MLE asymptotics**: The delta method with the information inequality gives asymptotic distributions for functions of MLEs."
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#086",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#087",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "## Law of the Iterated Logarithm"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#088",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "Stronger than the CLT — tells you the exact rate of fluctuations in the almost sure limit:"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#089",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "```\n  limsup_{n->inf}  S_n / sqrt(2n log log n)  =  sigma     a.s.\n  liminf_{n->inf}  S_n / sqrt(2n log log n)  = -sigma     a.s."
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#090",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "Where S_n = Sum_{i=1}^n (X_i - mu)."
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#091",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "The sample mean fluctuates at rate sqrt(log log n / n), which is\n  slightly faster than 1/sqrt(n) but much slower than any power of n.\n```"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#092",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "This is the \"sharp\" result beyond the CLT: the CLT tells you the distribution of fluctuations, the LIL tells you how large they get almost surely."
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#093",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#094",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "## Large Deviations Theory"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#095",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "While LLN and CLT describe typical behavior, large deviations theory quantifies the probability of rare events far from the mean."
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#096",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "```\n  Cramer's theorem: For i.i.d. X_i with log-MGF Lambda(t) = log E[e^{tX}]:"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#097",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "P(X_bar_n >= x)  ≈  exp(-n I(x))   for x > mu"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#098",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "Where I(x) = sup_t {tx - Lambda(t)}  is the Legendre transform of Lambda.\n  I(x) is called the rate function or Cramer transform."
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#099",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "I(x) = 0 at x = mu, I(x) > 0 for x != mu, I is convex.\n  Rate of exponential decay: e^{-n I(x)}.\n```"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#100",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "**Connection to information theory**: The rate function I(x) is the KL divergence between the distribution \"tilted\" to have mean x and the original distribution. Large deviations and relative entropy are deeply related."
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#101",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "**Gärtner-Ellis theorem**: Extends Cramér's theorem to dependent sequences. If Lambda(t) = lim (1/n) log E[exp(t S_n)] exists and is differentiable, then the large deviation principle holds with rate function I(x) = sup_t {tx − Lambda(t)} (the Legendre transform), even without independence."
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#102",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "**Algorithm analysis payoff**: The rate function formulation directly gives failure probabilities for randomized algorithms. For a randomized algorithm with bounded random cost X_i ∈ [0,1]:"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#103",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "```\n  P(average cost exceeds mu + eps) <= exp(-n I(mu + eps))\n  where I(mu + eps) = sup_t {t(mu+eps) - log E[e^{tX}]}"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#104",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "For Bernoulli (success/failure): I(p+eps) = (p+eps)log((p+eps)/p) + (1-p-eps)log((1-p-eps)/(1-p))\n  This is the KL divergence D_KL(Bernoulli(p+eps) || Bernoulli(p)).\n  Rate ~ 2 eps^2 for small eps (recovering Hoeffding)."
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#105",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "Concrete: Randomized algorithm with E[cost] = 0.3, want P(avg > 0.5) < delta.\n  Need n >= log(1/delta) / I(0.5) where I(0.5) ≈ 0.087.\n  n >= log(1/delta) / 0.087 ≈ 11.5 log(1/delta).\n```"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#106",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "**Statistical physics connection**: The rate function I(x) is the negative entropy (or free energy) of the tilted distribution. The Legendre transform relating Lambda and I is the thermodynamic Legendre transform between free energy and entropy."
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#107",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#108",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "## PAC Learning and VC Dimension"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#109",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "The connection between concentration inequalities and computational learning theory — the single most important bridge to TCS."
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#110",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "**PAC (Probably Approximately Correct) framework** (Valiant, 1984):"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#111",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "```\n  SETUP: Hypothesis class H, unknown distribution D over X × {0,1}.\n  GOAL: Find h ∈ H with low generalization error R(h) = P_{(x,y)~D}[h(x) ≠ y].\n  Given: n i.i.d. samples (x_1,y_1), ..., (x_n,y_n) ~ D."
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#112",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "DEFINITION: H is PAC-learnable if ∃ algorithm A such that:\n  For all eps > 0, delta > 0, for all distributions D:\n  Given n >= n_0(eps, delta) samples, with probability >= 1-delta:\n  R(A(S)) <= min_{h ∈ H} R(h) + eps"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#113",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "\"Probably\" = with probability 1-delta.\n  \"Approximately correct\" = within eps of optimal.\n```"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#114",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "**Finite hypothesis class — via Hoeffding + union bound**:"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#115",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "```\n  If |H| is finite, the empirical risk minimizer (ERM) satisfies:\n  P(sup_{h ∈ H} |R_n(h) - R(h)| > eps) <= 2|H| exp(-2n eps^2)"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#116",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "Setting RHS = delta: n >= (log(2|H|/delta)) / (2 eps^2)"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#117",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "Sample complexity for finite H: O(log|H| / eps^2)\n  This is the simplest sample complexity bound.\n```"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#118",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "**VC dimension** — when H is infinite:"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#119",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "```\n  VC DIMENSION d_VC(H):\n  The largest n such that H can shatter some set of n points.\n  \"Shatter\" = realize all 2^n labelings on those n points."
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#120",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "EXAMPLES:\n  Half-lines on R: d_VC = 1\n  Linear classifiers on R^d: d_VC = d + 1\n  k-nearest neighbors (all of {0,1}^X): d_VC = ∞\n  Decision stumps on R^d: d_VC = 2d"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#121",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "FUNDAMENTAL THEOREM OF STATISTICAL LEARNING:\n  For binary classification with 0-1 loss:\n  H is PAC-learnable ⟺ d_VC(H) < ∞"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#122",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "Sample complexity: n = O(d_VC / eps^2 + log(1/delta) / eps^2)\n  (Vapnik-Chervonenkis, 1971; sharpened by many since)"
+    },
+    {
+      "id": "03-LIMIT-THEOREMS.md#123",
+      "path": [
+        "03-LIMIT-THEOREMS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:03-limit-theorems, git-history:probability-statistics:03-limit-theorems]",
+        "canonical_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "concepts": "[limit, theorems]",
+        "current_path": "probability-statistics/03-LIMIT-THEOREMS.md",
+        "id": "maxim:probability-statistics:limit-theorems",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[limit, theorems]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Limit Theorems",
+        "updated": "null"
+      },
+      "text": "VC INEQUALITY (uniform convergence):\n  P(sup_{h ∈ H} |R_n(h) - R(h)| > eps) <= O(n^{d_VC}) exp(-n eps^2)\n  The n^{d_VC} factor is the growth function / Sauer-Shelah lemma.\n```"
+    }
+  ],
+  "refs": [
+    "03-LIMIT-THEOREMS.md"
+  ]
+}
