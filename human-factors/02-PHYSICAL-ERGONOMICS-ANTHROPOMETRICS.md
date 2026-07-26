@@ -947,7 +947,7 @@ safety & accessibility contract**. Each gate is written to be marked pass/fail, 
 5. **Boundary test** — an explicit ownership/defer statement naming what the guide does
    **not** own (the sibling/domain module) plus a case that exercises the boundary.
 6. **Conceptual diagram** — at least one terminal-readable diagram doing real conceptual
-   work (not decoration), in the PROOF-safe open idiom.
+   work (not decoration), in the MDLOOM-safe open idiom.
 7. **Worked fictional case** — one fully worked, explicitly fictional, non-operational case
    demonstrating the reasoning end to end.
 8. **3–5 reader tasks** — answerable from the guide and requiring **calculation /
@@ -956,7 +956,7 @@ safety & accessibility contract**. Each gate is written to be marked pass/fail, 
 **The closure gates (a guide is signed off only when ALL of these also hold).** Gates 1–8
 prove the *content*; these prove the guide is genuinely *done, truthful, and independently
 cleared*, not merely drafted:
-9. **Ordinary PROOF passes** — the guide passes the repo's **standard** PROOF run (not only a
+9. **Ordinary MDLOOM passes** — the guide passes the repo's **standard** MDLOOM run (not only a
    focused subset), with **no unresolved BLOCK or WARN** anywhere in the guide.
 10. **Truthful metadata & source-custody transition** — frontmatter matches reality at each
     stage: `status: prototype` / `source_custody: needs-source` / `backsource_ids: []` while
@@ -975,7 +975,7 @@ cleared*, not merely drafted:
 13. **Records & integration closure** — STATUS, the architecture record, the pulse/wave
     records, `sections/`, `.mkdocs/mkdocs.yml`, `TRACKER.md`, and the reciprocal sibling
     pointers are all updated and mutually consistent, and the source-corpus artifacts
-    (PROOF/CROP/PEBBLE/FLETCH) are regenerated and agree with the guide.
+    (MDLOOM/CROP/MDPORT/FLETCH) are regenerated and agree with the guide.
 
 **Per-guide specifics (the parts that vary).**
 

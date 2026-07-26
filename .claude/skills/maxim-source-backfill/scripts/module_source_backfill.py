@@ -19,14 +19,14 @@ ROOT = Path.cwd()
 # config rather than hardcoded paths. The map records where every repo lives
 # locally; we walk up from the current module checkout to find the portfolio
 # root that defines the tool crates, then build each Cargo manifest path.
-TOOL_CRATES = {"proof": "proof", "crop": "crop", "fletch": "fletch"}
+TOOL_CRATES = {"mdloom": "mdloom", "crop": "crop", "fletch": "fletch"}
 
 
 def resolve_tool_manifests() -> dict[str, Path | None]:
     """Resolve MDLOOM/CROP/FLETCH Cargo manifests from repo-map.toml.
 
     Searches upward from the current working directory for a `repo-map.toml`
-    that defines `[repos.proof]`; the directory holding that map is the
+    that defines `[repos.mdloom]`; the directory holding that map is the
     portfolio root. Returns a dict mapping tool name -> manifest Path (or None
     if the map or an entry is missing).
     """
@@ -40,7 +40,7 @@ def resolve_tool_manifests() -> dict[str, Path | None]:
         except (OSError, tomllib.TOMLDecodeError):
             continue
         repos = data.get("repos", {})
-        if "proof" not in repos:
+        if "mdloom" not in repos:
             continue
         resolved: dict[str, Path | None] = {}
         for tool, key in TOOL_CRATES.items():
@@ -288,7 +288,7 @@ def main() -> None:
     parser.add_argument("--module-dir", required=True, help="Module directory containing numbered markdown guides.")
     parser.add_argument("--module-id", required=True, help="Stable MAXIM module id, e.g. computing-software.")
     parser.add_argument("--section", help="Section id; defaults to --module-id.")
-    parser.add_argument("--proof-manifest", default=None, help="Override MDLOOM Cargo.toml (default: from repo-map.toml).")
+    parser.add_argument("--mdloom-manifest", default=None, help="Override MDLOOM Cargo.toml (default: from repo-map.toml).")
     parser.add_argument("--crop-manifest", default=None, help="Override CROP Cargo.toml (default: from repo-map.toml).")
     parser.add_argument("--fletch-manifest", default=None, help="Override FLETCH Cargo.toml (default: from repo-map.toml).")
     parser.add_argument("--validate", action="store_true")
@@ -318,9 +318,9 @@ def main() -> None:
     module_dir = Path(args.module_dir)
     module_id = args.module_id
     section = args.section or module_id
-    source_store = Path(".proof") / "backfill" / "sources" / module_id
+    source_store = Path(".mdloom") / "backfill" / "sources" / module_id
     mdloom_source = source_store / "mdloom-source"
-    module_ledger = Path(".proof") / "backfill" / "modules" / f"{module_id}.json"
+    module_ledger = Path(".mdloom") / "backfill" / "modules" / f"{module_id}.json"
     view_store = Path(".crop") / "views"
     pack_store = Path(".mdport") / "packs"
     module_view = view_store / f"maxim-{module_id}-source-corpus.json"
