@@ -667,6 +667,7 @@ implementation failures. ISMP publishes many infusion-pump-related medication er
 - `biomedical-engineering/02-BIOMATERIALS.md` — device material and biocompatibility constraints.
 - `biomedical-engineering/04-BIOSENSORS.md` — diagnostic device measurement architecture.
 - `systems-engineering/01-REQUIREMENTS.md` — requirements and risk-control discipline.
+- [`human-factors/06-DISPLAY-CONTROL-INTERFACE-DESIGN.md`](../human-factors/06-DISPLAY-CONTROL-INTERFACE-DESIGN.md) and [`human-factors/09-DOMAIN-APPLICATIONS.md`](../human-factors/09-DOMAIN-APPLICATIONS.md) — this guide owns the device **engineering and regulation** (incl. the human-factors/usability *validation requirement*, 21 CFR 820.30(g)/HE75); human factors owns the **use-safety science** the validation applies — alarm philosophy, mode/state visibility, workload/error evidence, and the use-error methods (with `human-computer-interaction/` owning the interaction/accessibility method). Device engineering here; operator-safety evidence there; **acceptance** remains the manufacturer's and its regulator's.
 
 ## Decision Cheat Sheet — Regulatory Strategy
 

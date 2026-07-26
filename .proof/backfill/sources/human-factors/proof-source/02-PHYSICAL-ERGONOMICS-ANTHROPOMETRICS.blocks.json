@@ -1,0 +1,270 @@
+{
+  "schema_version": "1",
+  "source_markdown": "human-factors\\02-PHYSICAL-ERGONOMICS-ANTHROPOMETRICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 74,
+      "heading_context": "## The Big Picture: You Are Not Designing for a Person — You Are Designing for a Distribution",
+      "confidence": "candidate",
+      "text": "PHYSICAL ERGONOMICS = FIT  x  LOAD    (this guide owns the quantitative-systems view)\n================================================================================\n   AXIS 1 -- FIT / ACCOMMODATION            AXIS 2 -- LOAD / INJURY RISK\n   which body dimension constrains,         what physical demand does the task\n   toward which tail of the distribution?   impose, vs a bounded population limit?\n\n   CLEARANCE -> high percentile (95/99th)   FORCE / LIFT -> NIOSH eqn, Snook tables\n   REACH     -> low  percentile (5/1st)     POSTURE      -> RULA / REBA / OWAS bands\n   STRENGTH  -> low  percentile of capacity  REPETITION / DURATION -> work-rest, MSD\n   ADJUST    -> span the accommodated range  ENVIRONMENT  -> heat / vibration / noise\n================================================================================\n   Read it as: pick the constraining dimension + tail (FIT), then check the modeled\n   load against a dated, bounded limit (LOAD). A body that fits can still be overloaded;\n   a light load can still exclude bodies that do not fit. Both must pass.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 91,
+      "heading_context": "## The Big Picture: You Are Not Designing for a Person — You Are Designing for a Distribution",
+      "confidence": "candidate",
+      "text": "       THE ACCOMMODATION FRAME                boundary with product-form design\n   ----------------------------------     ------------------------------------------\n   population  ->  distribution  ->  design    industrial-design/05  = compact\n   (who, when,     (mean, SD,        limit     product-form entry (handle, seat,\n    which survey)   percentiles)     + adjust   knob, affordance, universal design)\n        |                |              |\n        v                v              v        human-factors/02 (this guide) =\n   provenance      z = (x - mu)/sigma  who is    quantitative systems depth:\n   matters:        5th  z = -1.645     excluded  population modeling, occupational\n   dated, sampled  95th z = +1.645     and at    biomechanics, lifting/posture\n   estimates       1st  z = -2.326     what cost  models, work-rest, MSD risk\n================================================================================",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 120,
+      "heading_context": "## 1. The Population Is a Distribution, Not a Person",
+      "confidence": "candidate",
+      "text": "PERCENTILE = mu + z * sigma        (x-th percentile of one dimension, one population)\n--------------------------------------------------------------------------------\n   z(1st)  = -2.326      z(5th)  = -1.645      z(50th) =  0.000\n   z(95th) = +1.645      z(99th) = +2.326      (standard-normal quantiles)\n\n   Example (illustrative): if adult male stature ~ N(mu = 176 cm, sigma = 7 cm),\n      5th  percentile = 176 - 1.645*7  ~= 164.5 cm\n      95th percentile = 176 + 1.645*7  ~= 187.5 cm\n   The MEAN (176) is a summary of the curve, not a target you build for.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 132,
+      "heading_context": "## 1. The Population Is a Distribution, Not a Person",
+      "confidence": "candidate",
+      "text": "### 1.1 The \"average person\" is empty",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 167,
+      "heading_context": "### 1.1 The \"average person\" is empty",
+      "confidence": "candidate",
+      "text": "### 1.2 Structural vs functional, and why posture changes the number",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 184,
+      "heading_context": "## 2. Design-Limit Logic — Clearance, Reach, Strength, Adjust",
+      "confidence": "candidate",
+      "text": "THE FOUR DESIGN-LIMIT MOVES\n--------------------------------------------------------------------------------\n   CLEARANCE  (a minimum space/opening: hatch, legroom, aisle, PPE inner size)\n      -> design to a HIGH percentile (95th / 99th) of the constraining dimension.\n      -> if the largest accommodated body fits, every smaller body fits.\n\n   REACH  (max distance to a control that MUST be operable)\n      -> design to a LOW percentile (5th / 1st) of reach.\n      -> if the shortest-reach body can reach it, everyone with longer reach can.\n\n   STRENGTH / FORCE  (force an actuator or task demands)\n      -> design to a LOW percentile of CAPACITY (the weakest accommodated user).\n      -> if the weakest can operate it, the stronger can; do NOT size to the mean.\n\n   ADJUSTABILITY  (one fixed size cannot satisfy both tails)\n      -> provide a RANGE spanning, e.g., 5th-percentile-female to 95th-percentile-male\n         on the governing dimension; seat height, monitor arm, steering column.\n\n   ONE-SIDED vs TWO-SIDED:\n      clearance and reach are usually ONE-SIDED (one tail governs).\n      a fixed seat height is TWO-SIDED (too high excludes short legs -> dangling feet;\n      too low excludes long legs -> knees up) -> this is where adjustability earns its cost.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 209,
+      "heading_context": "## 2. Design-Limit Logic — Clearance, Reach, Strength, Adjust",
+      "confidence": "candidate",
+      "text": "### 2.1 The accommodation cost curve",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 218,
+      "heading_context": "### 2.1 The accommodation cost curve",
+      "confidence": "candidate",
+      "text": "ACCOMMODATION vs COST  (schematic -- the tails are expensive)\n--------------------------------------------------------------------------------\n   cost / complexity\n      ^\n      |                                             * 99%   <- steep: rare bodies,\n      |                                        *              wide adjust range,\n      |                              *   95%                  mass/cost/other reqs\n      |                    *  90%\n      |            *  80%\n      |     *  (design decision: choose the truncation KNOWINGLY,\n      |  *          name who is excluded and why)\n      +------------------------------------------------> % population accommodated\n   Rule: state the accommodation target, the governing dimensions, and the excluded\n   tail as an explicit design record -- not an accident of building for the mean.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 243,
+      "heading_context": "## 3. Anthropometric Data Is a Dated, Sampled Estimate",
+      "confidence": "candidate",
+      "text": "MAJOR ANTHROPOMETRIC DATA SETS  (attributed, dated -- context, not a universal table)\n--------------------------------------------------------------------------------\n   ANSUR II (2012)   US Army, 6,068 personnel, 93 measures. Military, fit,\n                     age/selection-biased -- NOT a civilian or global sample.\n   CAESAR (~1998-2000) US/Canada + NL + Italy civilians, 3D scans; ~4,431 TOTAL\n                     (~2,400 North America, ~1,200 NL, ~775 Italy) -- 3D-shape\n                     reference, late-1990s Western civilians, not a global sample.\n   NHANES (ongoing)  US civilian health survey; stature/weight/BMI trends over decades.\n   DINED (TU Delft)  Curated Dutch + international tables; the Dutch skew TALL.\n   Regional surveys  SizeChina, Indian/Japanese/Brazilian national studies -- each\n                     differs; no single set transfers to another population unadjusted.\n\n   THREE QUESTIONS TO ASK OF ANY PERCENTILE:\n     WHOSE body?  (population, sex, age, occupation, selection)\n     WHEN?        (secular trend: historical growth ~1 cm/decade in stature, now\n                   plateauing/reversing in some countries -- a 1970 table is stale)\n     HOW MEASURED? (posture, clothing, landmarks, instrument -- structural vs functional)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 278,
+      "heading_context": "## 4. Reach, Clearance & the Workspace Envelope",
+      "confidence": "candidate",
+      "text": "WORKSPACE ENVELOPE  (functional reach, seated operator -- schematic plan view)\n--------------------------------------------------------------------------------\n                       . . . . . . . . . . .\n                   .        MAXIMUM REACH       .     full arm extension + torso\n                 .     (occasional controls,      .   rotation; sized to LOW\n                .        acceptable to lean)        .  percentile of reach (5th/1st)\n               .        - - - - - - - - - - -        .\n              .      /      NORMAL REACH       \\      .   forearm pivot at the elbow;\n              .     |   (frequent / critical     |     .  no torso movement; the ZONE\n              .     |    controls live here)      |     .  for anything used often or\n              .      \\    [ operator seat ]      /      .  under time pressure\n               .       - - - - - - - - - - - -        .\n                .                                     .   PRINCIPLE:\n                 .                                   .    frequency + criticality ->\n                   .                              .       inner zone; sized so the\n                       . . . . . . . . . . . .           SHORTEST-reach user reaches.\n   Vision cone and neutral head/eye line constrain DISPLAY placement the same way ->\n   see 06-DISPLAY-CONTROL-INTERFACE-DESIGN for the display/control layout half.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 322,
+      "heading_context": "## 5. Posture & Occupational Biomechanical Load",
+      "confidence": "candidate",
+      "text": "WHY POSTURE MULTIPLIES LOAD  (moment balance about the L5/S1 disc -- schematic)\n--------------------------------------------------------------------------------\n   external load W at horizontal distance D from the spine\n      -> external moment  = W * D\n   internal muscle force Fm acts at a SHORT moment arm d (a few cm)\n      -> Fm ~= (W * D) / d          (d small  =>  Fm large)\n   spinal COMPRESSION ~= Fm + upper-body weight component\n\n        held CLOSE (D small)              held FAR (D large)\n            |  W                                        W\n            | /  small D                    __________/  large D\n        [spine]-- d                         [spine]-- d (unchanged, small)\n        Fm modest                           Fm LARGE -> high disc compression\n\n   Lesson: the SAME weight is a different load depending on posture and distance.\n   This is why the lifting model (Sec.6) is dominated by HORIZONTAL distance.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "chart_like",
+      "line": 341,
+      "heading_context": "## 5. Posture & Occupational Biomechanical Load",
+      "confidence": "candidate",
+      "text": "### 5.1 Static vs dynamic load, and the tissue-tolerance model",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "chart_like",
+      "line": 355,
+      "heading_context": "### 5.1 Static vs dynamic load, and the tissue-tolerance model",
+      "confidence": "candidate",
+      "text": "### 5.2 Posture screening indices — bounded tools, attributed and dated",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "ascii_table_candidate",
+      "line": 361,
+      "heading_context": "### 5.2 Posture screening indices — bounded tools, attributed and dated",
+      "confidence": "candidate",
+      "text": "POSTURE / LOAD SCREENING INDICES  (bounded models -- flag, do not certify)\n--------------------------------------------------------------------------------\n   RULA  (McAtamney & Corlett, 1993)  upper-limb posture+force+use -> score 1-7\n         1-2 acceptable | 3-4 investigate | 5-6 investigate & change soon | 7 now\n   REBA  (Hignett & McAtamney, 2000)  whole-body incl. legs/trunk -> score 1-15 bands\n   OWAS  (Karhu et al., 1977)         back/arms/legs/load posture categories, sampled\n   Snook tables (Liberty Mutual;      psychophysical \"acceptable weights/forces\" for a\n     Snook & Ciriello, 1991)          % of the working population by task geometry\n   NIOSH lifting eqn (Sec.6)          a physics+psychophysics+physiology composite model\n\n   HOW TO READ A SCORE: it is an ordinal FLAG for a population, computed from a defined\n   input set, valid only inside that input domain. A \"2\" is not \"safe for this person\";\n   a \"7\" is not a legal finding. Different indices disagree by design -- they weight\n   different hazards. Use them to PRIORITIZE study, not to rule on a job or a worker.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "chart_like",
+      "line": 412,
+      "heading_context": "## 6. The NIOSH Lifting Equation as a Bounded Model",
+      "confidence": "candidate",
+      "text": "### 6.1 The validity domain — where the model is silent, not conservative",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "diagram_like",
+      "line": 445,
+      "heading_context": "## 7. Work–Rest, Fatigue & Environmental Load",
+      "confidence": "candidate",
+      "text": "LOAD MODIFIERS OVER TIME AND ENVIRONMENT  (conceptual)\n--------------------------------------------------------------------------------\n   WORK-REST:  fatigue accumulates with exertion and DISSIPATES with recovery.\n      How recovery is DISTRIBUTED over a shift is a design VARIABLE, not a rule:\n      whether many short recovery periods or fewer long ones better clear a\n      given accumulated load is a hypothesis to MODEL and validate locally, not\n      a schedule this guide sets. The Sec.6 FM multiplier discounts RWL for lift\n      frequency and duration; it does NOT prescribe a rest schedule.\n   STATIC HOLD:  even light postures held long occlude perfusion -> earlier fatigue\n      than the raw force suggests; \"no motion\" is not \"no load.\"\n   THERMAL:  heat raises cardiovascular strain and lowers usable strength/endurance;\n      cold lowers dexterity and grip -> the SAME task is a heavier load in the heat.\n   VIBRATION:  hand-arm vibration (power tools) and whole-body vibration (vehicles)\n      are independent MSD/comfort hazards that compound posture/force load.\n   NOISE / LIGHTING:  environmental stressors that raise overall strain and error\n      (auditory/visual load) -- their PERFORMANCE effects tie to guide 03; their\n      role here is as physical-load modifiers.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-17",
+      "kind": "diagram_like",
+      "line": 477,
+      "heading_context": "## 8. The Product ↔ Workplace Boundary (with `industrial-design/05`)",
+      "confidence": "candidate",
+      "text": "WHO OWNS WHAT  (product-form vs quantitative-systems depth)\n--------------------------------------------------------------------------------\n   industrial-design/05-ERGONOMICS  (COMPACT PRODUCT-FORM ENTRY)\n      the object in the hand / under the body: handle diameter, grip type, seat\n      shape, knob, doorknob; Norman affordances & anti-affordances; the 7 principles\n      of universal design; \"design for 5th/95th\" stated at product scale.\n      Audience: a designer shaping a consumer product's FORM.\n\n   human-factors/02  (THIS GUIDE -- QUANTITATIVE SYSTEMS DEPTH)\n      the DISTRIBUTION and the SYSTEM OF WORK: z-scores and multivariate\n      accommodation; the design-limit + accommodation-cost logic; occupational\n      biomechanics (moment arms, spinal load); the lifting model and its validity\n      domain; posture indices; work-rest/environment; population MSD-risk dose-response.\n      Audience: an engineer accommodating a POPULATION doing a TASK over time.\n\n   SHARED OBJECT (e.g., a workstation with a graspable handle at a bench):\n      industrial-design/05 owns the handle's FORM and affordance;\n      human-factors/02 owns population ACCOMMODATION and recovery/load evidence;\n      the accountable organization owns any implemented work-rest schedule.\n   Rule of thumb: if the question is \"what does the body touch and how is it shaped?\"\n      -> industrial-design/05. If it is \"what fraction of which population can do this\n      task, at what modeled load, over what schedule?\" -> human-factors/02.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-18",
+      "kind": "chart_like",
+      "line": 528,
+      "heading_context": "## A Worked Quantitative Pass — Percentiles, Joint Accommodation & a Bounded Lifting-Index Sensitivity (synthetic)",
+      "confidence": "candidate",
+      "text": "### Q1. Percentiles from a synthetic distribution (reproducible)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-19",
+      "kind": "ascii_table_candidate",
+      "line": 532,
+      "heading_context": "### Q1. Percentiles from a synthetic distribution (reproducible)",
+      "confidence": "candidate",
+      "text": "SYNTHETIC INPUTS  (illustrative -- not a real survey)\n--------------------------------------------------------------------------------\n   stature            X ~ N(mu_X = 170 cm, sigma_X = 10 cm)\n   functional reach   Y ~ N(mu_Y =  75 cm, sigma_Y =  5 cm)\n   correlation        rho(X, Y) = 0.50   (partial, positive -- typical of body dims)\n\n   PERCENTILE = mu + z*sigma        z(5th) = -1.645     z(95th) = +1.645\n   -----------------------------------------------------------------------------\n   stature  5th = 170 - 1.645*10 = 153.6 cm    95th = 170 + 1.645*10 = 186.5 cm\n   reach    5th =  75 - 1.645*5  =  66.8 cm    95th =  75 + 1.645*5  =  83.2 cm",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-20",
+      "kind": "chart_like",
+      "line": 548,
+      "heading_context": "### Q1. Percentiles from a synthetic distribution (reproducible)",
+      "confidence": "candidate",
+      "text": "### Q2. Joint accommodation is not the product of the marginals",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-21",
+      "kind": "diagram_like",
+      "line": 553,
+      "heading_context": "### Q2. Joint accommodation is not the product of the marginals",
+      "confidence": "candidate",
+      "text": "JOINT ACCOMMODATION  (why \"90% each\" is not \"90% of people\") -- bivariate schematic\n--------------------------------------------------------------------------------\n   reach Y\n   95th ^         . .                    the univariate BOX = [5th,95th] on EACH\n        |     . :::::: .                 dim; its CORNERS are nearly empty --\n        |   . ::::::::::: .              almost nobody is 95th-stature AND\n   50th |    . ::::::@::::: .            5th-reach at once when rho = 0.5.\n        |      . ::::::::: .\n        |        . :::: .                the real ACCOMMODATION HULL is the\n    5th +--------------------------->    TILTED ellipse, not the axis-aligned box.\n           5th       50th       95th  stature\n   -----------------------------------------------------------------------------\n   INDEPENDENT (rho = 0):     P(both central) = 0.90 * 0.90        = 0.8100\n   POS. CORRELATED (rho=0.5): standard-bivariate-normal box mass  ~= 0.8245\n   -> the JOINT fraction is BELOW 90%; multiplying or averaging the marginals does\n      NOT recover it. Accommodate the JOINT hull (boundary manikins / a PCA family).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-22",
+      "kind": "ascii_table_candidate",
+      "line": 576,
+      "heading_context": "### Q2. Joint accommodation is not the product of the marginals",
+      "confidence": "candidate",
+      "text": "`[-1.645, +1.645] x [-1.645, +1.645]`, read from the bivariate-normal CDF `F2(a, b; rho)` by",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-23",
+      "kind": "chart_like",
+      "line": 595,
+      "heading_context": "### Q2. Joint accommodation is not the product of the marginals",
+      "confidence": "candidate",
+      "text": "### Q3. A bounded NIOSH lifting-index sensitivity (synthetic inputs)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-24",
+      "kind": "diagram_like",
+      "line": 616,
+      "heading_context": "### Q3. A bounded NIOSH lifting-index sensitivity (synthetic inputs)",
+      "confidence": "candidate",
+      "text": "ILLUSTRATIVE LOOKUP EXCERPT  (public-domain NIOSH 94-110; cells used here)\n--------------------------------------------------------------------------------\n   FREQUENCY MULTIPLIER FM   (short duration <= 1 h, recovery >= work time,\n                              V >= 75 cm column)\n      F = 1 /min -> 0.94     F = 2 /min -> 0.91     F = 3 /min -> 0.88\n   COUPLING MULTIPLIER CM\n      GOOD            -> 1.00 (any V)\n      FAIR, V >= 75   -> 1.00        FAIR, V < 75 -> 0.95\n      POOR            -> 0.90 (any V)\n   => at V = 75 cm (which is >= 75) with FAIR coupling, CM = 1.00 -- the V < 75\n      value 0.95 would be WRONG for this stated height.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

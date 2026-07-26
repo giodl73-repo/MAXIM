@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "human-factors\\06-DISPLAY-CONTROL-INTERFACE-DESIGN.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 489,
+      "heading_context": "## A Worked Quantitative Pass — Before/After Alarm Metrics (synthetic)",
+      "headers": [
+        "Metric (per operator)",
+        "Before",
+        "After (modeled)",
+        "Benchmark (guideline)"
+      ],
+      "rows": [
+        [
+          "Steady-state alarm rate (alarms/hr)",
+          "62",
+          "9",
+          "order of a few / hr"
+        ],
+        [
+          "Peak flood (alarms / 10 min)",
+          "220",
+          "14",
+          "\"flood\" > 10 / 10 min"
+        ],
+        [
+          "Standing (stale) alarms (count)",
+          "45",
+          "6",
+          "as low as practicable"
+        ],
+        [
+          "Alarms with a defined operator ACTION (%)",
+          "40",
+          "100",
+          "an alarm should require action"
+        ],
+        [
+          "Informational msgs mis-carried as alarms (/hr)",
+          "8",
+          "0",
+          "belong in a notification channel"
+        ],
+        [
+          "Priority mix of the ACTIONABLE alarms, P1/P2/P3 (%)",
+          "32 / 28 / 40",
+          "11 / 22 / 67",
+          "few high-priority"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 600,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Move",
+        "Why (this guide)"
+      ],
+      "rows": [
+        [
+          "Placing a control that acts on a display",
+          "make it **S-R compatible**; Warrick movement",
+          "expectation-matching cuts error under stress (§1)"
+        ],
+        [
+          "Choosing a direction-of-effect",
+          "use the **real population's** stereotype; verify it",
+          "stereotypes are cultural, dated, variable (§2)"
+        ],
+        [
+          "Encoding a safety distinction",
+          "**redundant** color + shape + position + label",
+          "any single channel can fail (color-blind, mono) (§3)"
+        ],
+        [
+          "Tempted to \"add an alarm\"",
+          "**rationalize** first: no action -> not an alarm",
+          "more alarms usually means less safety (§4)"
+        ],
+        [
+          "Alarms chatter / stand / flood",
+          "propose deadbands/shelving/state-suppression as **candidates** (hazard review, MoC, validation); measure",
+          "alarm system is its own hazard (§4)"
+        ],
+        [
+          "Everything is red/loud",
+          "**budget salience** by urgency x consequence",
+          "dilution + cry-wolf erode response (§5)"
+        ],
+        [
+          "Same control means different things",
+          "make the **active mode** + transitions visible; fewer modes",
+          "mode error / automation surprise (§6)"
+        ],
+        [
+          "Operator faces a novel, off-script fault",
+          "add an **EID** layer (abstraction hierarchy)",
+          "support knowledge-based reasoning (§7)"
+        ],
+        [
+          "Arranging a crowded panel",
+          "**importance** first, then frequency/sequence/function",
+          "resolve placement conflicts safety-first (§8)"
+        ],
+        [
+          "\"Is this interactive system usable?\"",
+          "route to **`human-computer-interaction/`**",
+          "general digital usability is HCI's (§9)"
+        ],
+        [
+          "\"How does the reactor/aircraft/device work?\"",
+          "route to **nuclear/05, aero/04, bme/07**",
+          "domain systems belong to their owners (§9)"
+        ],
+        [
+          "Certify the console / write the procedure",
+          "**out of scope** — principles only",
+          "safety contract, banner"
+        ]
+      ]
+    }
+  ]
+}

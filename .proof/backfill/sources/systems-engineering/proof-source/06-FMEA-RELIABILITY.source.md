@@ -51,6 +51,17 @@ QUANTITATIVE RELIABILITY:
 
 FMEA is the physical-systems equivalent of distributed systems failure analysis: for each component (service/node/link), what happens if it fails? How does that cascade? Is there a SPOF? The "local effect -> next-higher effect -> end effect" chain maps to "service failure -> dependency cascade -> user-visible impact." The RPN (Severity x Occurrence x Detection) parallels SLO/error-budget thinking: severity = impact on user; occurrence = failure rate; detection = monitoring coverage. High-RPN items are the reliability equivalent of high-severity, low-detection service risks.
 
+> **Boundary — the human as a failure mode.** This guide owns the **reliability
+> mathematics and hardware formalism**: FMEA/RPN mechanics, fault-tree/event-tree gates and
+> cut sets, and MTBF/availability. When the failing element is a **human operator**, the
+> *human* extension lives in human factors:
+> [`human-factors/05-HUMAN-RELIABILITY-ANALYSIS`](../human-factors/05-HUMAN-RELIABILITY-ANALYSIS.md)
+> supplies the **human-error probability (HEP)** as a bounded estimate (THERP/HEART/SPAR-H)
+> for a human *basic event*, and
+> [`human-factors/08-SAFETY-SYSTEMS-AND-HAZARD-ANALYSIS`](../human-factors/08-SAFETY-SYSTEMS-AND-HAZARD-ANALYSIS.md)
+> adds human-inclusive FMEA, bow-tie, and STAMP/STPA. Those guides **borrow** the tree/RPN
+> math from here and do not re-derive it; the combination math stays this guide's.
+
 ## FMEA (Failure Mode and Effects Analysis)
 
 ### FMEA Process

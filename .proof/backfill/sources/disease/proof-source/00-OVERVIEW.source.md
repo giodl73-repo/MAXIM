@@ -54,6 +54,14 @@ The "infection vs non-infection" binary is also not sharp: H. pylori → peptic 
 
 ## Pathology Fundamentals: Cellular Response to Injury
 
+> **Cross-reference — mechanism depth.** This section is a **compact** summary of the
+> cell-injury, inflammation, and hemodynamic fundamentals, sized for the disease catalog. The
+> standalone, mechanism-first treatment at peer depth lives in the `pathology/` module:
+> [`pathology/01-CELL-INJURY-ADAPTATION-AND-DEATH.md`](../pathology/01-CELL-INJURY-ADAPTATION-AND-DEATH.md),
+> [`pathology/02-INFLAMMATION-AND-TISSUE-REPAIR.md`](../pathology/02-INFLAMMATION-AND-TISSUE-REPAIR.md),
+> and [`pathology/03-HEMODYNAMIC-DISORDERS-THROMBOSIS-AND-SHOCK.md`](../pathology/03-HEMODYNAMIC-DISORDERS-THROMBOSIS-AND-SHOCK.md).
+> `disease/` owns the disease **entities**; `pathology/` owns the general **mechanism**.
+
 ### Reversible vs Irreversible Injury
 
 ```

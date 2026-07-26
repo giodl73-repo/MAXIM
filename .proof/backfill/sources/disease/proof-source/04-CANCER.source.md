@@ -275,6 +275,16 @@ ONCOFUSION TRANSCRIPTION FACTORS:
 
 ## Tumor Staging: TNM System
 
+> **Cross-reference — pathology depth.** The **mechanism** of tumor grading
+> (differentiation/anaplasia), the benign/malignant and invasion/metastasis biology, the
+> hallmarks framework, and tumor-nomenclature principles live in
+> [`pathology/05-NEOPLASIA-CARCINOGENESIS-AND-TUMOR-BIOLOGY.md`](../pathology/05-NEOPLASIA-CARCINOGENESIS-AND-TUMOR-BIOLOGY.md);
+> the **report-level** treatment — pathologic TNM elements (pT/pN/pM) vs the overall stage
+> group, grading and margin *principles*, and immunohistochemistry integration — lives in
+> [`pathology/10-DIAGNOSIS-PATTERN-RECOGNITION-AND-REPORTING.md`](../pathology/10-DIAGNOSIS-PATTERN-RECOGNITION-AND-REPORTING.md).
+> `disease/` owns the entity-specific systems (WHO/UICC/AJCC editions, dated); `pathology/`
+> owns grade-as-differentiation and stage-as-extent as principles.
+
 ```
 T — Primary Tumor
   Tis: carcinoma in situ (no invasion through basement membrane)

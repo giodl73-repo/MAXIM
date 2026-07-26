@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "clinical-medicine\\01-CLINICAL-ENCOUNTER.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 58,
+      "heading_context": "## The Big Picture: The Encounter Is an ETL Pipeline, Not a Recording",
+      "confidence": "candidate",
+      "text": "THE ENCOUNTER AS AN INFORMATION PIPELINE  (this guide owns the transforms)\n==========================================================================\n  RAW SIGNAL                 EXTRACT + PROBE            STRUCTURE + INDEX\n  the person's story          (hypothesis-driven)        (decision-ready)\n\n  [ NARRATIVE ]  -------->  [ HISTORY ]  ----------->  [ PROBLEM REPRESENTATION ]\n   words, worry,             targeted questions          one-sentence abstract:\n   context, timeline         chosen to discriminate      \"an <epi> patient with\n        |                    among live hypotheses        <tempo> <system> <syndrome>\"\n        v                          |                             |\n  [ BODY ]  ------------->  [ PHYSICAL EXAM ]  ------->          | uses SEMANTIC\n   observable signs          targeted maneuvers with            v  QUALIFIERS\n                             known signal properties     [ MATCH vs ILLNESS SCRIPTS ]\n                                   |                       stored disease templates\n                                   v                             |\n                             [ SERIALIZE: note / oral present ]  v\n                                                          feeds 02 (differential)\n==========================================================================\n  Read left-to-right: raw human signal in, abstracted + indexed representation out.\n  The gather step is a QUERY PLANNER, not a full table scan; the output is a compressed\n  key that illness scripts are looked up by. Collection and reasoning run together.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 110,
+      "heading_context": "## 1. Hypothesis-Driven Data Gathering",
+      "confidence": "candidate",
+      "text": "  NOVICE (exhaustive)                 EXPERT (hypothesis-driven)\n  ------------------                  --------------------------\n  ask every question on the form  ->  form 2-4 hypotheses early\n  collect a large flat record     ->  ask the question that best DISCRIMINATES them\n  reason only at the end          ->  update after each answer; re-plan the next question\n  high volume, low signal density ->  low volume, high signal density",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 160,
+      "heading_context": "## 2. The Physical Exam as Targeted Measurement",
+      "confidence": "candidate",
+      "text": "  EACH EXAM MANEUVER = ONE MEASUREMENT\n  -------------------------------------------------------------\n  finding present  -> multiply pretest odds by LR+  (guide 03)\n  finding absent   -> multiply pretest odds by LR-\n  -------------------------------------------------------------\n  A maneuver with LR near 1 is ritual, not measurement: it changes no belief.\n  A maneuver is worth doing when its result can cross a decision threshold.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 235,
+      "heading_context": "## 4. Semantic Qualifiers — The Abstraction Layer",
+      "confidence": "candidate",
+      "text": "  SEMANTIC QUALIFIER PAIRS  (the abstraction vocabulary)\n  ----------------------------------------------------------------\n  acute            <-> chronic\n  sudden           <-> gradual\n  constant         <-> intermittent / episodic\n  localized        <-> diffuse\n  proximal         <-> distal\n  unilateral       <-> bilateral\n  progressive      <-> stable / resolving\n  painful          <-> painless\n  exertional       <-> at-rest\n  ----------------------------------------------------------------\n  \"It comes and goes\" -> INTERMITTENT.  \"It's spreading\" -> PROGRESSIVE + DIFFUSE.\n  The same word set maps every complaint onto a small abstract space that scripts index.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

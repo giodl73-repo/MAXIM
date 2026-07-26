@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "human-factors\\03-COGNITIVE-WORKLOAD-SITUATION-AWARENESS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 78,
+      "heading_context": "## The Big Picture: Two Constructs — Supply of Attention, and Model of the Situation",
+      "confidence": "candidate",
+      "text": "THE OPERATOR IN CONTEXT   (this guide owns the MEASUREMENT + DESIGN, not the mechanism)\n================================================================================\n   task DEMAND ---> [ limited attentional RESOURCES ] ---> PERFORMANCE\n        ^                    |  (multiple pools)                ^\n        |                    v                                  |\n   environment          WORKLOAD: demand-vs-supply         SITUATION AWARENESS\n   (heat, noise,        (schematic; how much reserve?)     (how good is the operator's\n    time pressure)                                          model of what's going on?)\n\n   WORKLOAD  measured by:  subjective (NASA-TLX) | performance (2nd task) | physiological\n   SA        measured by:  freeze-probe (SAGAT)  | real-time probe (SPAM) | self-rate (SART)\n\n   MECHANISM (why attention/memory behave this way) -> cognitive-science/09  (DEFERRED)\n   THIS GUIDE -> measure workload & SA in real operational context, and design for them.\n================================================================================",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 113,
+      "heading_context": "## 1. Workload Is Supply vs Demand — Multiple Resource Theory",
+      "confidence": "candidate",
+      "text": "MULTIPLE RESOURCE THEORY  (Wickens) -- 4 dimensions of separate-ish resource pools\n--------------------------------------------------------------------------------\n   STAGE (processing):     perception/cognition   vs  responding\n   MODALITY (perceptual):  visual                 vs  auditory\n   VISUAL CHANNEL:         focal (detail/reading)  vs  ambient (motion/orient)\n   CODE (processing):      spatial                vs  verbal\n\n   Response modality (manual vs vocal) is a RELATED but separate OUTPUT distinction\n   that maps onto the CODE dimension -- treat it alongside, not as a 5th pool. The\n   four Wickens dimensions are STAGE, perceptual MODALITY, VISUAL CHANNEL, and CODE.\n\n   PREDICTION: two concurrent tasks interfere MORE the more dimensions they SHARE.\n      drive (visual-spatial) + talk (auditory-verbal)   -> low interference\n      drive (visual-spatial) + text (visual-spatial)    -> HIGH interference\n      steer by peripheral flow (visual-AMBIENT) + read a gauge (visual-FOCAL)\n                                                        -> less than two FOCAL tasks\n\n   DESIGN LEVER: offload a saturated channel onto a free one\n      (e.g., an auditory alert when the eyes are saturated) -- but only if the FREE\n      channel is truly free; adding audio into an auditory-saturated cockpit backfires.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 147,
+      "heading_context": "## 2. Workload ≠ Performance — The Dissociation",
+      "confidence": "candidate",
+      "text": "THE PERFORMANCE-RESOURCE FUNCTION  (schematic -- positions are task-dependent)\n--------------------------------------------------------------------------------\n   performance\n      ^     region A: RESERVE      region B: near the \"redline\"\n      |     (adding load does      (reserve exhausted; more load\n      |      not hurt output --      -> performance drops steeply)\n      |      output is FLAT)                   ______\n      | ________________________             /      \\  overload\n      |/                        \\___________/         \\____ performance collapses\n      |\n      | region C: UNDERLOAD (too little demand -> boredom,\n      |           mind-wandering, vigilance loss -- ALSO bad)\n      +-------------------------------------------------> task demand / load\n   SCHEMATIC: the curve shape, and where the \"redline\" sits, depend on TASK,\n   STRATEGY, expertise, and CONTEXT -- there is NO universal redline value.\n   Reusable point: in region A performance is FLAT while load CLIMBS, so output\n   reads \"fine\" until the drop-off -- measure the RESERVE, not just output.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 207,
+      "heading_context": "## 3. Measuring Workload — Three Families, Each Bounded",
+      "confidence": "candidate",
+      "text": "### 3.1 NASA-TLX — Raw vs Weighted, and the Limits",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 247,
+      "heading_context": "## 4. Vigilance & the Vigilance Decrement",
+      "confidence": "candidate",
+      "text": "THE VIGILANCE DECREMENT  (sustained attention to rare signals degrades over time)\n--------------------------------------------------------------------------------\n   detection rate\n      ^  high  \\___\n      |            \\_____ decrement sets in ~20-35 min (task-dependent)\n      |                  \\________________\n      |                                    \\____ misses rise, latency grows\n      +----------------------------------------------> time on watch\n   PARADOX: low event rate feels like LOW load but is COGNITIVELY DEMANDING to sustain.\n   COMPETING ACCOUNTS (mechanism deferred to cognitive-science):\n      resource-depletion  (watch drains a finite resource) vs\n      mindlessness/underload (too little to do -> disengagement)\n   HF STUDYING IT (offline, not live): characterize the decrement OFFLINE, via\n      SIMULATION or REPLAY of recorded signals, or DESCRIPTIVE detection-vs-time\n      measurement -- NOT by injecting signals into a live watch or altering\n      shift rotations. Automation MONITORING is a vigilance task (guide 07:\n      humans are poor rare-event monitors of reliable automation); candidate\n      mitigations (salience, keeping the human in the loop) are design\n      HYPOTHESES to validate, not prescriptions.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

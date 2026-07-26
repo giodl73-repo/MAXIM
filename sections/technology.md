@@ -1,6 +1,6 @@
 # Technology
 
-*9 directories current + Batch 12 · ~870 pp current · T·I, T·II, T·III, T·IV*
+*10 directories current + Batch 12 + `human-factors/` (🔬 in review) · ~940 pp current · T·I, T·II, T·III, T·IV*
 
 Modern engineering — the electronic age through the systems age. Technology covers the disciplines that emerged or were transformed by electronics, computation, and large-scale systems thinking: the semiconductor fab, the 5G protocol stack, the autonomous robot, the medical scanner, and the software verification proof.
 
@@ -35,6 +35,13 @@ The word became a department name when the disciplines it covered were too new f
  │  imaging · biosignals  │  │  Hoare logic           │  │  requirements      │
  │  tissue engineering    │  │  proof assistants      │  │  V-model · FMEA    │
  └────────────────────────┘  └────────────────────────┘  └────────────────────┘
+ ┌────────────────────────────────────────────────────────────────────────────┐
+ │                            human-factors/                                  │
+ │  physical ergonomics/anthropometrics · cognitive workload & SA · human     │
+ │  error taxonomies · human-reliability (HEP) · display/control & control     │
+ │  rooms · automation & the ironies · hazard analysis (bow-tie/STAMP) ·       │
+ │  domain applications · methods/measurement · organizational safety culture  │
+ └────────────────────────────────────────────────────────────────────────────┘
 
  INFRASTRUCTURE & ENVIRONMENT TRACK
  ┌────────────────────────┐  ┌──────────────────────────────────────────────┐
@@ -69,6 +76,7 @@ The word became a department name when the disciplines it covered were too new f
 | [`biomedical-engineering/`](../biomedical-engineering/00-OVERVIEW.md) | Biomechanics, medical device design (regulatory/biocompatibility), medical imaging (X-ray/CT/MRI/US), biosignals, tissue engineering | [`01-BIOMECHANICS.md`](../biomedical-engineering/01-BIOMECHANICS.md) | `mechanical/` · `electronics/` · `medicine/` |
 | [`formal-methods/`](../formal-methods/00-OVERVIEW.md) | Propositional/predicate logic, temporal logic (LTL/CTL), model checking, SAT/SMT, Hoare logic, proof assistants (Coq/Lean) | [`01-LOGIC-FOUNDATIONS.md`](../formal-methods/01-LOGIC-FOUNDATIONS.md) | `mathematics/` · `languages/` · `computing/` |
 | [`systems-engineering/`](../systems-engineering/00-OVERVIEW.md) | SE process/lifecycle, requirements engineering, system architecture/trade studies, V-model, SysML, FMEA, MBSE | [`01-SE-PROCESS.md`](../systems-engineering/01-SE-PROCESS.md) | `formal-methods/` · `robotics/` |
+| [`human-factors/`](../human-factors/00-OVERVIEW.md) | The operator-and-safety layer: physical ergonomics/anthropometrics, cognitive workload & situation awareness, human-error taxonomies, human-reliability analysis (HEP), safety-critical display/control/control-room design, automation & the ironies, hazard analysis (bow-tie/STAMP-STPA), domain applications, methods/measurement, organizational safety culture | [`00-OVERVIEW.md`](../human-factors/00-OVERVIEW.md) | `human-computer-interaction/` · `systems-engineering/` · `cognitive-science/` |
 | [`urban-planning/`](../urban-planning/00-OVERVIEW.md) | Land use/zoning (Euclidean→form-based), transportation planning (LOS/VMT), housing policy, urban design | [`01-LAND-USE.md`](../urban-planning/01-LAND-USE.md) | `transportation/` · `environmental-engineering/` |
 | [`environmental-engineering/`](../environmental-engineering/00-OVERVIEW.md) | Water/wastewater treatment, air pollution control, site remediation, lifecycle assessment (LCA), sustainability metrics | [`01-WATER-TREATMENT.md`](../environmental-engineering/01-WATER-TREATMENT.md) | `chemical-eng/` · `urban-planning/` |
 | [`materials-processing/`](../materials-processing/00-OVERVIEW.md) | TTT/CCT diagrams, heat treatment, solidification, fracture mechanics, fatigue, deformation processing, surface treatments, characterization | [`01-PHASE-TRANSFORMATIONS.md`](../materials-processing/01-PHASE-TRANSFORMATIONS.md) | `materials/` · `manufacturing/` |
@@ -80,7 +88,7 @@ The word became a department name when the disciplines it covered were too new f
 | Volume | Directories | Target |
 |--------|-------------|--------|
 | T·I | semiconductor-manufacturing/ · telecommunications/ · robotics/ | ~240 pp |
-| T·II | biomedical-engineering/ · formal-methods/ · systems-engineering/ | ~220 pp |
+| T·II | biomedical-engineering/ · formal-methods/ · systems-engineering/ · human-factors/ | ~290 pp |
 | T·III | urban-planning/ · environmental-engineering/ · materials-processing/ | ~210 pp |
 | T·IV | *Batch 12: nanotechnology/ · energy-storage/ · infrastructure-systems/* | ~200 pp |
 
@@ -108,4 +116,5 @@ The word became a department name when the disciplines it covered were too new f
 |---------|------------|
 | Mechanics | Technology picks up where Mechanics ends. `semiconductor-manufacturing/` is downstream of `electrical-grid/`. `robotics/` builds on `mechanical/` dynamics and `transportation/` AV context. `materials-processing/` extends `construction-materials/` into metallurgical depth. |
 | Mathematics & Physics | `control-theory/` is the mathematical engine inside `robotics/` and process control. `signal-processing/` underlies `telecommunications/` and sensor fusion in `robotics/`. `formal-methods/` connects directly to mathematical logic. |
-| Computing & Software | `semiconductor-manufacturing/` is the physical layer `computing/` runs on. `formal-methods/` connects to type theory in `languages/` and software verification in `computing/`. `robotics/` consumes the software stack (ROS, real-time OS, sensor fusion). |
+| Computing & Software | `semiconductor-manufacturing/` is the physical layer `computing/` runs on. `formal-methods/` connects to type theory in `languages/` and software verification in `computing/`. `robotics/` consumes the software stack (ROS, real-time OS, sensor fusion). `human-factors/` shares the reciprocal HCI↔HF seam with `human-computer-interaction/`: HCI owns interactive digital usability/accessibility; human factors owns operator workload/error and safety-critical integration. |
+| Life Sciences | `human-factors/` builds on `cognitive-science/` (which owns the cognitive *mechanism* and SA/NDM theory) while owning the operator-in-context *measurement*; `biomedical-engineering/` bridges to `medicine/`. |

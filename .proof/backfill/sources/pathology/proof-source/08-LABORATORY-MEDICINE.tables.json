@@ -1,0 +1,231 @@
+{
+  "schema_version": "1",
+  "source_markdown": "pathology\\08-LABORATORY-MEDICINE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 194,
+      "heading_context": "## 1. What a Result *Is*: Measurand, Signal, and Traceability",
+      "headers": [
+        "Concept",
+        "One-line meaning",
+        "Systems analogue"
+      ],
+      "rows": [
+        [
+          "Measurand",
+          "The exact quantity intended: analyte + system/matrix + kind of quantity (method only if method-defined)",
+          "The precise type, not the field name"
+        ],
+        [
+          "Measurement procedure",
+          "Signal → number, including reagents and calibration",
+          "The transform + its config"
+        ],
+        [
+          "Calibration",
+          "Learned inverse mapping signal to concentration",
+          "A fitted model / lookup"
+        ],
+        [
+          "Traceability",
+          "Unbroken chain to a higher-order reference",
+          "Reproducible build / pinned deps"
+        ],
+        [
+          "Standardization",
+          "Traceable to a true reference method/material",
+          "Conformance to a spec with a golden implementation"
+        ],
+        [
+          "Harmonization",
+          "Aligned to consensus without a reference material",
+          "De-facto interop without a formal standard"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 294,
+      "heading_context": "## 2. Imprecision, Bias, and the Total Error Budget",
+      "headers": [
+        "Quantity",
+        "Captures",
+        "Estimated from",
+        "Analogue"
+      ],
+      "rows": [
+        [
+          "CV (imprecision)",
+          "Random scatter",
+          "Repeated QC over time",
+          "Jitter / variance"
+        ],
+        [
+          "Bias (trueness)",
+          "Systematic offset",
+          "Reference method / EQA",
+          "Clock skew / constant offset"
+        ],
+        [
+          "TEcalc (calculated total error)",
+          "Worst plausible single-result error of the method",
+          "bias + z·SD (abs) or bias% + z·CV% (percent)",
+          "Measured error"
+        ],
+        [
+          "TEa (allowable total error)",
+          "The tolerance a result is *allowed* to have (`TEa_abs`/`TEa_%`)",
+          "A spec: biological variation / EQA / clinical need",
+          "Error budget / SLO target"
+        ],
+        [
+          "Expanded uncertainty U",
+          "Dispersion band around the value",
+          "Top-down QC + calibrator (k≈2)",
+          "Confidence interval"
+        ],
+        [
+          "Sigma metric",
+          "Process headroom",
+          "(TEa% − bias%)/CV% (matched % terms)",
+          "Cpk / margin"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 388,
+      "heading_context": "## 4. Analytical vs Clinical Sensitivity/Specificity — The Central Confusion",
+      "headers": [
+        "Term",
+        "Belongs to",
+        "Definition",
+        "Fails when…"
+      ],
+      "rows": [
+        [
+          "Analytical sensitivity",
+          "The assay",
+          "Smallest reliably detected amount / response slope",
+          "It is conflated with disease detection"
+        ],
+        [
+          "Analytical specificity",
+          "The assay",
+          "Measures only the measurand (selectivity)",
+          "An interferent or cross-reactant is present"
+        ],
+        [
+          "Clinical sensitivity",
+          "A threshold + population",
+          "P(pos \\| disease)",
+          "Applied without prevalence/spectrum context"
+        ],
+        [
+          "Clinical specificity",
+          "A threshold + population",
+          "P(neg \\| no disease)",
+          "Spectrum shifts across populations"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 750,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation / signal",
+        "The concept is…",
+        "Where it lives"
+      ],
+      "rows": [
+        [
+          "\"The machine was working, so the result is fine\"",
+          "Error surface is dominated by pre-/post-analytic stages",
+          "Total testing process (§Big Picture)"
+        ],
+        [
+          "Two \"calcium\" methods disagree",
+          "Different **measurand** or method bias, not error",
+          "§1, §6"
+        ],
+        [
+          "\"How wrong can this number be?\"",
+          "**Calculated** total error (CV + bias) judged against its **allowable** bound / expanded **uncertainty**",
+          "§2"
+        ],
+        [
+          "A value reported below LoQ",
+          "Outside the valid measuring range",
+          "§3"
+        ],
+        [
+          "An impossibly high value reads normal",
+          "**Hook (prozone)** effect",
+          "§3, §5"
+        ],
+        [
+          "\"This assay is more sensitive\"",
+          "Specify **analytical** (LoD) vs **clinical** (P(pos\\|disease))",
+          "§4"
+        ],
+        [
+          "High K⁺ with a hemolysis flag",
+          "Signed, mechanism-specific **interference**",
+          "§5"
+        ],
+        [
+          "Odd immunoassay result, patient on supplements",
+          "**Biotin** / heterophile / macro-analyte interference",
+          "§5"
+        ],
+        [
+          "Same analyte differs across hospitals",
+          "**Traceability / harmonization**, method bias",
+          "§1, §6"
+        ],
+        [
+          "\"Is this change from last time real?\"",
+          "**Reference Change Value** / delta check",
+          "§6"
+        ],
+        [
+          "A Ct value quoted as an \"amount\"",
+          "Ct is **not** a standardized quantity",
+          "§7"
+        ],
+        [
+          "Analyzer \"flags\" a blood count",
+          "Counting layer → **smear morphology** escalation",
+          "§7"
+        ],
+        [
+          "Result auto-released vs held",
+          "**Autoverification** rules (CLSI AUTO10)",
+          "§8"
+        ],
+        [
+          "An \"H\" flag vs an instrument flag",
+          "Reference-interval position vs **analytical** suspicion",
+          "§8"
+        ],
+        [
+          "A phoned result with read-back",
+          "**Critical value** notification loop",
+          "§8"
+        ],
+        [
+          "What the number *means* for a person",
+          "Not here — belief update + action",
+          "`clinical-medicine/03`"
+        ],
+        [
+          "Which panel / what the reference range is",
+          "Not here — the catalog",
+          "`medicine/10`"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "chemistry\\06-NMR-SPECTROSCOPY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 30,
+      "heading_context": "# NMR Spectroscopy — Small-Molecule Structure Determination",
+      "confidence": "candidate",
+      "text": "NMR = MAP A MOLECULE FROM ITS NUCLEI'S ENVIRONMENTS\n==========================================================================\n  external field B0 splits nuclear spin states; RF flips them;\n  each chemically distinct nucleus resonates at a slightly shifted freq\n\n  FOUR OBSERVABLES, FOUR QUESTIONS:\n\n  1. CHEMICAL SHIFT (delta, ppm)  -> \"what kind of environment?\"\n        electron shielding; higher delta = more deshielded\n  2. INTEGRATION (1H area)        -> \"how many H of this type?\"\n  3. MULTIPLICITY / J-COUPLING    -> \"how many neighbors, how far?\"\n        n+1 rule; J in Hz encodes geometry\n  4. 2D CORRELATIONS              -> \"which atom is bonded to which?\"\n        COSY / HSQC / HMBC / NOESY build the whole graph\n\n  OUTPUT: the covalent connectivity graph + relative stereochemistry\n==========================================================================",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 62,
+      "heading_context": "## ¹H NMR: Shift, Integration, Coupling",
+      "confidence": "candidate",
+      "text": "   1H SHIFT MAP (delta, ppm)\n   12   11   10    9    8    7    6    5    4    3    2    1    0\n   |----|----|----|----|----|----|----|----|----|----|----|----|\n   COOH      CHO     Ar-H    C=C-H  O-CH  N-CH  C(=O)-CH  C-CH   TMS\n                     (6.5-8) (4.5-  (3.3- (2.3- (2.0-2.6) (0.9-  (0)\n                              6.5)   4.5)  3.0)             1.7)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 109,
+      "heading_context": "## ¹³C NMR and DEPT",
+      "confidence": "candidate",
+      "text": "   13C SHIFT MAP (delta, ppm)\n   220        190      160      130       90       60       30        0\n   |-----------|--------|--------|---------|--------|--------|---------|\n   ketone/     acid/   aromatic / alkene   C-O      C-N     aliphatic  TMS\n   aldehyde    ester    (100-150)          (50-90)  (40-60) C  (0-40)\n   (190-220)   (160-185)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 121,
+      "heading_context": "## ¹³C NMR and DEPT",
+      "confidence": "candidate",
+      "text": "   DEPT-135:   CH and CH3  -> POSITIVE peaks\n               CH2         -> NEGATIVE peak\n               quaternary C -> ABSENT (no attached H)\n   -> subtract DEPT from the full 13C to find the quaternary carbons.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 138,
+      "heading_context": "## The 2D Toolbox: Building the Bond Graph",
+      "confidence": "candidate",
+      "text": "   COSY   1H <-> 1H, through-bond (2-3 bonds)   -> which H's are neighbors\n          cross-peak (Hx,Hy) means Hx couples to Hy -> trace the H-H chain\n\n   HSQC   1H <-> 13C, ONE bond                  -> which H sits on which C\n          (edited HSQC also gives CH2 vs CH/CH3 sign)\n\n   HMBC   1H <-> 13C, 2-3 bonds (long range)    -> connect across quaternary C\n          and heteroatoms; stitches fragments over carbonyls, O, N\n\n   NOESY  1H <-> 1H, through-SPACE (< ~5 A)     -> stereochemistry / conformation\n   ROESY  (small/medium molecules)              -> which H's are close in 3D",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "clinical-medicine\\05-ACUTE-AND-CHRONIC-CARE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 61,
+      "heading_context": "## The Big Picture: An Interrupt Handler and a Control Loop",
+      "confidence": "candidate",
+      "text": "TWO CONTROL LOGICS  (this guide owns the shapes, not the clinical execution)\n==========================================================================\n  ACUTE / UNDIFFERENTIATED  (interrupt handler)     CHRONIC / LONGITUDINAL (control loop)\n  --------------------------------------------      -------------------------------------\n  trigger:  a new, time-critical problem            trigger:  an ongoing condition over time\n  priority: WORST-CASE first (must-not-miss)        priority: track a SETPOINT / goal\n  order:    STABILIZE, then diagnose (inverted)     order:    monitor -> adjust -> monitor\n  horizon:  minutes to hours; hard deadlines        horizon:  months to years; continuity\n  output:   a DISPOSITION (admit/observe/refer)     output:   a managed TRAJECTORY\n  failure:  missing a time-critical threat          failure:  drift, gaps, fragmentation\n  --------------------------------------------      -------------------------------------\n             \\                                              /\n              \\___ acute-on-chronic: the SAME patient _____/\n                   crosses between loops (exacerbations);\n                   the CROSSING is a care transition (guide 07)\n==========================================================================\n  Different objectives, different tempos, different failure modes. Confusing one logic\n  for the other -- running chronic deliberation in an acute window, or acute reflexes in\n  a chronic condition -- is itself an error.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 104,
+      "heading_context": "## 1. The Acute Logic — Prioritization as Architecture (conceptual only)",
+      "confidence": "candidate",
+      "text": "  THE ACUTE INVERSION  (conceptual)\n  ----------------------------------------------------------------\n  NORMAL:   gather -> differential -> test -> act        (guides 01-04)\n  ACUTE:    [ stabilize the fastest-killing problem ]  ||  [ diagnose ]   <- concurrent\n            worst-case-first, by SYNDROME, before a label exists\n  ----------------------------------------------------------------\n  The concept: address the problem with the shortest time-to-harm first, in parallel with\n  working out what it is. This is a PRIORITIZATION ordering, described here as architecture,\n  not a set of actions for any reader to take.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 160,
+      "heading_context": "## 2. The Chronic Logic — Continuity and Control Over Years",
+      "confidence": "candidate",
+      "text": "  THE CHRONIC CONTROL LOOP\n  ----------------------------------------------------------------\n        [ set goals with the patient ]  <-- values-driven setpoint (guide 09/10)\n                    |\n                    v\n        [ monitor ] --> [ assess vs goal ] --> [ adjust the plan ] --+\n            ^                                                         |\n            +---------------------------------------------------------+\n                    (repeat over months/years; the LOOP is the care)\n  ----------------------------------------------------------------\n  The care IS the loop, not any single visit. Continuity is what makes the loop stable;\n  fragmentation (many uncoordinated visits, no owner) is what makes it drift.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 240,
+      "heading_context": "## 4. The Chronic Care Model — Engineering the Loop for Reliability",
+      "confidence": "candidate",
+      "text": "  CHRONIC CARE MODEL  (the system produces the productive interaction)\n  ----------------------------------------------------------------\n   HEALTH SYSTEM / ORGANIZATION  +  COMMUNITY RESOURCES        <- the context\n        |                                    |\n        v                                    v\n   [ self-management ]  [ delivery-system ]  [ decision ]  [ clinical information ]\n   [   support        ]  [   design         ]  [ support  ]  [   systems (registry) ]\n        \\                     |                   |                   /\n         \\____________________|___________________|__________________/\n                                     v\n        INFORMED, ACTIVATED PATIENT  <--productive interaction-->  PREPARED, PROACTIVE TEAM\n                                     v\n                            IMPROVED OUTCOMES\n  ----------------------------------------------------------------\n  Six elements; the two that most distinguish it from acute care are PROACTIVE (reach out\n  before the crisis) and POPULATION/REGISTRY (manage the whole panel, not just who shows up).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 355,
+      "heading_context": "## Reader Tasks (answerable from this guide)",
+      "confidence": "candidate",
+      "text": "   owns it. (Worked case → guide 07.)",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    }
+  ]
+}

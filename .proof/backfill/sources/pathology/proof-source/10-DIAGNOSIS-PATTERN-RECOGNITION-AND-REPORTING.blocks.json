@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "pathology\\10-DIAGNOSIS-PATTERN-RECOGNITION-AND-REPORTING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 81,
+      "heading_context": "## The Big Picture: Diagnosis Is an Inference Pipeline, Not a Lookup",
+      "confidence": "candidate",
+      "text": "SPECIMEN-TO-SIGNED-REPORT  (this guide owns the reasoning + the report)\n=======================================================================\n  [ 09: GROSS-TO-GLASS ]  substrate: fixed, processed, stained slide\n        |   (technique is 09; here we start from the image)\n        v\n  [ PATTERN ]     low-level morphology: architecture + cytology + context\n        |            \"what am I looking at?\"  (Section 1-2)\n        v\n  [ DIFFERENTIAL BY PATTERN CLASS ]  pattern -> a FAMILY of hypotheses\n        |            prune the space to a short list  (Section 3)\n        v\n  [ ANCILLARY EVIDENCE ]  IHC / stains / flow / cytogenetics / molecular\n        |            each a TEST with its own Sn/Sp -> combine  (Section 4)\n        v\n  [ CERTAINTY: 4 DIMENSIONS ]  adequacy · assertion strength · negative\n        |            scope · residual doubt (local lexicon, not one ladder)\n        v            (Section 5)\n  [ CLASSIFY ]  grade (how it looks) x stage (how far) + margins (edge)\n        |            orthogonal axes, principles only  (Section 6)\n        v\n  [ REPORT ]  synoptic (structured) + narrative + comment  (Section 7)\n        |\n        +---> [ CRITICAL? ] active notify + read-back  (Section 8)\n        |\n        v\n  SIGNED REPORT  ---> clinical-medicine/03 (belief + action, NOT here)\n        |\n        +---< [ AMEND / ADDEND ]  versioned correction loop  (Section 9)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 181,
+      "heading_context": "## 2. From Pattern to a Short List: The Discipline of the Differential",
+      "confidence": "candidate",
+      "text": "RANKING TWO AXES AT ONCE  (borrowed from clinical-medicine/02, localized)\n=========================================================================\n                 high consequence if missed\n                        ^\n        must-not-miss   |   top priority\n        (rare mimic)    |   (likely AND dangerous)\n     -------------------+-------------------> high probability\n        low-yield       |   most likely\n        (ignore)        |   (common, benign)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 325,
+      "heading_context": "## 4. Ancillary Tests: Analytical Validity, Then Diagnostic Evidence",
+      "confidence": "candidate",
+      "text": "TWO GATES FOR AN ANCILLARY RESULT\n=================================\n  raw stain / assay\n        |\n  [ GATE 1: ANALYTICAL VALIDITY ]   controls, antigen detectability,\n        |    fixation, probe/antibody performance\n        |    fail -> UNINFORMATIVE (neither \"negative\" nor \"positive\")\n        v\n  [ GATE 2: DIAGNOSTIC EVIDENCE ]   given a VALID result, its Sn/Sp/LR\n        |    CONTRIBUTION varies with the DIFFERENTIAL / spectrum\n        |    (strong here, weak there); prevalence drives PPV/NPV/\n        |    posterior downstream, NOT Sn/Sp/LR\n        v\n  weighted evidence -> combined in a PANEL (never a single switch)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 390,
+      "heading_context": "## 5. Diagnostic Certainty: Independent Dimensions, Locally Governed Words",
+      "confidence": "candidate",
+      "text": "FOUR INDEPENDENT DIMENSIONS  (not one ladder; each stated on its own axis)\n==========================================================================\n  MATERIAL ADEQUACY        is the specimen representative enough to\n   (gates the rest)        support ANY assertion?  inadequate -> stop\n        |\n  POSITIVE ASSERTION       how strongly does THIS material assert a\n   STRENGTH                positive finding?  descriptive -> committed\n        |                  (words governed by a LOCAL lexicon / system)\n  NEGATIVE-FINDING SCOPE   what does a \"negative\" actually cover?\n        |                  \"not identified in the material examined\" --\n        |                  never a universal absence\n  RESIDUAL UNCERTAINTY     the explicitly stated floor on doubt: what\n                           cannot be excluded, and why",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 450,
+      "heading_context": "## 6. Classification: Grading, Staging, and Margins (Principles)",
+      "confidence": "candidate",
+      "text": "TWO ORTHOGONAL AXES + A BOUNDARY CONDITION\n==========================================\n  GRADE  (how it LOOKS)                 STAGE  (how FAR it has spread)\n  intrinsic aggressiveness:             anatomic extent at a point in time:\n  differentiation, pleomorphism,        size / depth (T), nodes (N),\n  mitotic rate, necrosis                distant spread (M)   [pT·pN·pM elements]\n        |                                     |\n        +----------------+--------------------+\n                         v\n             MARGINS (the EDGE / boundary condition)\n             is the lesion transected at the cut surface?\n             \"involved\" vs \"clear\" (with a measured distance)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 565,
+      "heading_context": "## 8. Critical and Urgent Diagnosis Communication",
+      "confidence": "candidate",
+      "text": "CRITICAL DIAGNOSIS LOOP  (push, don't just publish)\n===================================================\n  a diagnosis that is unexpected AND/OR urgent to act on\n        |\n        v\n  [ ACTIVE NOTIFY ]  reach the responsible clinician directly\n        |\n        v\n  [ READ-BACK ]  receiver repeats the finding -> confirms transfer\n        |\n        v\n  [ DOCUMENT ]  who / when / what, recorded in the report\n        |\n        v\n  the loop is CLOSED (delivery is verified, not assumed)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 640,
+      "heading_context": "## 10. End-to-End Fictional Case: The Report Payload",
+      "confidence": "candidate",
+      "text": "### Version 1 — initial sign-out",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 699,
+      "heading_context": "### Version 1 — initial sign-out",
+      "confidence": "candidate",
+      "text": "### Version 2 — amendment (the pending molecular result returns)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 707,
+      "heading_context": "### Version 2 — amendment (the pending molecular result returns)",
+      "confidence": "candidate",
+      "text": "========================= SURGICAL PATHOLOGY REPORT =========================\nAccession:   S-00-00000 (fictional)          Report status: AMENDED v2\n                                             (v1 retained; change flagged)\n\n--- AMENDMENT NOTICE ---\n  Reason:  pending molecular assay returned and is entity-decisive.\n  Change:  assertion strength upgraded from \"favoring [family]\" (v1) to a\n           committed lineage-level diagnosis under [named system].\n  Prior version (v1) retained and viewable; interpretation changed.\n\n--- DIAGNOSIS LINE (amended) ---\n  Low-grade [entity of mesenchymal family], confirmed by molecular result\n  (see disease/ for the entity's criteria and current system/edition).\n\n--- SYNOPTIC DELTAS (v1 -> v2) ---\n  Molecular ............. PENDING -> POSITIVE, entity-decisive\n  Assertion strength .... \"Favoring\" -> committed (lineage level)\n  (All other fields unchanged; margin still reported as 0.8 mm, a measured fact.)\n\n--- CRITICAL-COMMUNICATION RECORD (amendment) ---\n  Amended interpretation actively communicated to the responsible clinician;\n  read-back obtained; who / when / what documented (verified delivery, per §8/§9).\n=============================================================================",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

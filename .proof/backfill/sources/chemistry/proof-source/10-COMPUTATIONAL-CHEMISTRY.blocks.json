@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "chemistry\\10-COMPUTATIONAL-CHEMISTRY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 150,
+      "heading_context": "## Molecular Mechanics and Dynamics",
+      "confidence": "candidate",
+      "text": "   FEP  : Delta A = -kT ln <exp(-Delta U / kT)>_0   (alchemical mutation A->B)\n   TI   : Delta A = INT_0^1 <dU/d.lambda>_lambda d.lambda\n   Umbrella sampling + WHAM : PMF along a reaction coordinate\n   Metadynamics : history-dependent bias fills wells to escape them",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 207,
+      "heading_context": "## End-to-End Workflow: From Molecule to a Validated Number",
+      "confidence": "candidate",
+      "text": "END-TO-END: A DEFENSIBLE RELATIVE-ENERGY CALCULATION\n  case: 2-hydroxypyridine  <=>  2-pyridone   (a tautomer equilibrium)\n\n  0. STATE the species  : charge 0, singlet (mult 1); neutral microspecies\n                          at ~pH 7 ; enumerate BOTH tautomers (that IS the Q)\n  1. CONFORMERS         : generate + prune rotamers (here O-H syn/anti; ring\n                          is rigid) -> keep low-E set (RDKit ETKDG / CREST)\n  2. METHOD + BASIS     : dispersion-corrected DFT (wB97X-D or M06-2X) /\n                          def2-TZVP ; plan a CCSD(T)/CBS or expt check\n  3. SOLVENT            : implicit continuum (SMD or CPCM) -- REQUIRED here;\n                          gas and water give DIFFERENT answers\n  4. OPT + FREQ         : optimize each; freq check = 0 imaginary (a minimum);\n                          freq -> ZPE + thermal -> compare GIBBS energies\n  5. DIAGNOSTICS        : SCF + tight geometry convergence; fine grid;\n                          single-reference OK (small T1); <S^2>~0 (closed shell)\n  6. VALIDATE           : reproduce experiment / a higher level (table below)\n  7. ARCHIVE            : functional+dispersion, basis, solvation model+radii,\n                          grid, T, software+version, xyz, energies (FAIR record)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 280,
+      "heading_context": "## Reader Tasks",
+      "confidence": "candidate",
+      "text": "   hybrid functionals lack long-range correlation → no London dispersion; add",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    }
+  ]
+}

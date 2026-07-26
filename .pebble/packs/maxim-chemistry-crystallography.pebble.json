@@ -1,0 +1,1329 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-chemistry-crystallography",
+  "source": "../../chemistry",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#000",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "# Crystallography — Small-Molecule and Powder X-ray Structure"
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#001",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "**This guide owns** small-molecule X-ray structure determination: Bragg diffraction,\nspace groups and systematic absences, the phase problem and its small-molecule\nsolutions (direct methods/Patterson, SHELX), refinement metrics, absolute\nconfiguration by the Flack parameter, the Cambridge Structural Database, and powder\nXRD/Rietveld. **It defers** protein crystallography (MR/SAD phasing, PDB, PHENIX/\nREFMAC) to `biophysics/03`, and Bravais lattices / Miller indices / crystal defects\nto `materials/01`. Under favorable conditions — a good single crystal, near-atomic\nresolution, and (for chirality) anomalous scattering — diffraction is the most\ndirect route to a full 3D atomic model and absolute configuration, and the usual\ncourt of last appeal for a structure that `06`/`07` argued. Its reach is real but\n**bounded**: X-rays scatter off electrons, so hydrogen positions, disorder, and\nlight-atom-only data each limit what can honestly be claimed (detailed below)."
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#002",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "```\nX-RAY STRUCTURE = INVERSE FOURIER OF A DIFFRACTION PATTERN\n==========================================================================\n  crystal (3D periodic)  --X-ray-->  diffraction spots (reciprocal)\n                                            |\n  each spot hkl has:  INTENSITY (measured, |F|^2)  +  PHASE (LOST)\n                                            |\n                          THE PHASE PROBLEM |\n                                            v\n  solve phases (direct methods / Patterson) -> electron density map\n                                            |\n                                 refine (SHELXL, least squares on F^2)\n                                            v\n  ATOMIC MODEL: xyz + thermal params -> bond lengths, angles, ABS CONFIG"
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#003",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "QUALITY: R1, wR2, GOF, Rint, completeness, redundancy\n==========================================================================\n```"
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#004",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#005",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "## Bragg's Law and the Structure Factor"
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#006",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "A crystal is a 3D grating; constructive interference occurs when path differences are\ninteger wavelengths — **Bragg's law**:"
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#007",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "```\n   n*lambda = 2 d sin(theta)          d = interplanar spacing; theta = half the 2theta angle\n   Cu K-alpha lambda = 1.5406 A (1.54178 A weighted) | Mo K-alpha = 0.71073 A\n```"
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#008",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "Cu radiation (longer λ) spreads the pattern to higher angle — good for organics and\npowder; Mo (shorter λ) gives more reflections and less absorption — the single-\ncrystal default. Each reflection hkl carries an amplitude from the **structure\nfactor**, the Fourier transform of the electron density:"
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#009",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "```\n   F(hkl) = SUM_j  f_j * exp[ 2*pi*i*(h*x_j + k*y_j + l*z_j) ]\n        f_j = atomic scattering factor (heavier atom -> scatters more)\n   MEASURED: intensity  I(hkl)  proportional to |F(hkl)|^2   (amplitude only)\n   LOST:     the PHASE of F(hkl)   <-- the entire difficulty of crystallography\n```"
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#010",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "You measure |F| but need both |F| and phase to invert the transform back to electron\ndensity ρ(xyz). Recovering the missing phases is *the phase problem*."
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#011",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#012",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "## Space Groups and Systematic Absences"
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#013",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "The 3D symmetry of a crystal is one of the **230 space groups** (combinations of the\n32 point groups with the 14 Bravais lattices and translational elements: screw axes,\nglide planes, centering). Translational symmetry causes **systematic absences** —\nwhole classes of reflections that are extinguished — and reading them backwards\nidentifies the symmetry:"
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#014",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "| Absence condition | Symmetry element | Meaning |\n|---|---|---|\n| hkl present only if h+k+l = even | body-centering (I) | |\n| hkl present only if h+k, k+l, h+l even | face-centering (F) | |\n| **h00 absent for h odd** | 2₁ screw along a | translation of a/2 |\n| 0k0 absent for k odd | 2₁ screw along b | |\n| 00l absent for l odd | 2₁ screw along c | |\n| 0kl absent for k odd | b-glide ⊥ a | glide plane |"
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#015",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "**Worked space-group ID:** absences of **h00 (h odd), 0k0 (k odd), 00l (l odd)**\nindicate three mutually perpendicular **2₁ screw axes** with a primitive lattice →\nspace group **P2₁2₁2₁** (No. 19) — the most common space group for enantiopure\n(chiral) small molecules, which is exactly why it matters for absolute-configuration\nwork below."
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#016",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#017",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "## Solving and Refining the Structure"
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#018",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "**Phasing (small molecule):**"
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#019",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "- **Direct methods** (SHELXT, SHELXD): exploit statistical phase relationships among\n  strong reflections (Sayre's equation; positivity and atomicity of ρ). They work\n  because small structures have few atoms and near-atomic-resolution data.\n- **Patterson methods**: a Fourier of |F|² (no phases needed) gives interatomic\n  vectors; a heavy atom stands out, seeding the phases — the fallback when direct\n  methods stall."
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#020",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "**Refinement (SHELXL):** least-squares fit of the atomic model (positions + isotropic\nthen anisotropic displacement parameters) to the data, minimizing on **F²**. Quality\nis reported as a small set of numbers you must be able to read — as *diagnostics*,\nnot universal pass/fail constants:"
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#021",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "| Metric | What it is | Indicative value — context-dependent |\n|---|---|---|\n| **R₁** | Σ‖F_o\\|−\\|F_c‖ / Σ\\|F_o\\| (on F) | often a few % for good data; not a hard cutoff |\n| **wR₂** | weighted, on F² | ~0.10–0.15 (larger by definition) |\n| **GOF (S)** | goodness of fit | ~1.0 (weighting-scheme dependent) |\n| **R_int** | merging R of equivalent reflections | small; grows with absorption/decay |\n| completeness | fraction of unique reflections measured | high; high-angle shells matter |\n| redundancy | average measurements per reflection | more is better; extra for Flack |"
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#022",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "**These are diagnostics, not pass/fail constants.** What counts as a \"good\" R₁\ndepends on resolution, the crystal's scattering power, collection temperature,\ndisorder, and how much of the density is heavy atoms — a well-behaved light-atom\nstructure at room temperature can honestly refine higher than a heavy-atom one at\n100 K. Completeness and redundancy targets likewise depend on the question:\nabsolute-configuration work wants high redundancy of Friedel pairs and strong\nhigh-angle completeness, while a connectivity check tolerates less. Read these\nnumbers together with the difference map, the displacement parameters, and the IUCr\n**checkCIF** alerts — which are prompts to *explain*, not automatic failures."
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#023",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "**What the model does and does not pin down.** X-rays scatter off *electrons*, so\n**hydrogen atoms are located poorly** — X–H vectors come out systematically short\n(density is drawn into the bond) and H is usually placed by a *riding model* rather\nthan freely refined; accurate H positions need **neutron diffraction**. **Disordered**\ngroups (solvent, flexible chains, fractional occupancies) may have no single\nposition and are modelled as split sites or absorbed by SQUEEZE. And\n**light-atom-only** structures carry little anomalous signal, capping absolute-\nconfiguration certainty (next section). A refined structure is a best fit to the data\nunder these limits, not a photograph of every nucleus."
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#024",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "**SQUEEZE** (PLATON) models diffuse, disordered solvent as a bulk contribution when\nit cannot be modeled atom-by-atom. The deposited result is a **CIF** (Crystallographic\nInformation File), the machine-checkable standard that carries the coordinates,\nmetrics, and instrument metadata."
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#025",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#026",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "## Absolute Configuration: the Flack Parameter"
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#027",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "Ordinary diffraction cannot tell a molecule from its mirror image (Friedel's law:\nI(hkl) = I(−h−k−l)) — *unless* there is **anomalous dispersion**, a resonant\nscattering term that breaks the symmetry near an absorption edge. The **Flack\nparameter x** quantifies the fraction of the inverted structure:"
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#028",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "```\n   x = 0  ->  the model has the CORRECT absolute configuration\n   x = 1  ->  the model is INVERTED (invert all coordinates and re-refine)\n   x = 0.5 ->  approximately equal inversion (racemic) twin fractions\n   reliable only with a good standard uncertainty and anomalous scatterers present\n```"
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#029",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "So a refined **x = 0.02(3)** means the absolute configuration as modeled is correct\n(x is zero within three standard deviations). Light-atom (C,H,N,O-only) structures\nhave weak anomalous signal at Mo Kα; switching to **Cu Kα** boosts the anomalous\ndispersion of O/N and makes light-atom absolute configuration determinable — the\npractical reason natural-product chemists run Cu data."
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#030",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#031",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "## The Cambridge Structural Database"
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#032",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "The **CSD** is the curated repository of >1.3 million experimentally determined\norganic and metal-organic crystal structures. It is the *reference implementation* of\nmolecular geometry: search a substructure in **ConQuest**, retrieve real bond\nlengths/angles/conformations, validate a new structure's geometry against the\npopulation, and visualize/pack in **Mercury**. Uses range from checking that a refined\nbond length is normal, to conformational and hydrogen-bond statistics, to seeding\ncrystal-structure prediction. (The protein analog is the PDB, `biophysics/03`.)"
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#033",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#034",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "## Powder X-ray Diffraction (PXRD)"
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#035",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "When you have a microcrystalline powder rather than a single crystal, the reflections\ncollapse onto **Debye-Scherrer cones**, recorded as a 1D intensity-vs-2θ pattern —\na fingerprint of the phase."
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#036",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "```\n   single crystal: 3D array of spots   ->   full structure\n   powder:         1D pattern of peaks  ->   phase ID, cell, size, quantification\n```"
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#037",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "- **Phase identification:** match peak positions/intensities against the **ICDD PDF**\n  database — the standard way to say \"this is anatase, not rutile.\"\n- **Rietveld refinement:** fit the *entire* calculated profile (peak shapes,\n  background, cell, atomic model) to the pattern, extracting accurate lattice\n  parameters and **quantitative phase fractions** from a mixture.\n- **Crystallite size** from peak broadening via the **Scherrer equation**:"
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#038",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "```\n   tau = K * lambda / (beta * cos(theta))\n        tau = mean crystallite size ; K ~ 0.9 (shape factor) ;\n        beta = FWHM in RADIANS (instrument-corrected) ; theta in radians\n   -> broader peaks => smaller crystallites (or microstrain; separate via\n      Williamson-Hall if both contribute).\n```"
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#039",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "PXRD is also the tool for **polymorph screening** (critical in pharma: different\ncrystal forms of the same drug have different solubility, stability, and\nbioavailability), co-crystal identification, and in-situ studies of phase transitions."
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#040",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#041",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "## Reader Tasks"
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#042",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "1. **Assign the space group from absences h00 (h odd), 0k0 (k odd), 00l (l odd).**\n   Three orthogonal 2₁ screw axes, primitive lattice → **P2₁2₁2₁** (No. 19), the\n   canonical chiral small-molecule space group.\n2. **Interpret Flack x = 0.02(3).** The modeled **absolute configuration is correct**\n   (x indistinguishable from 0 within 3σ); no inversion needed — valid *because* the\n   small standard uncertainty implies adequate anomalous signal and redundancy.\n   Without those (e.g., light atoms at Mo Kα), a near-zero x is not decisive.\n3. **d-spacing for a peak at 2θ = 26.5° with Cu Kα?** Bragg: d = λ/(2 sinθ) =\n   1.5406/(2 sin 13.25°) = 1.5406/0.4584 ≈ **3.36 Å**.\n4. **Light-atom absolute configuration is ambiguous at Mo Kα — what do you do?** Switch\n   to **Cu Kα** to amplify anomalous dispersion of O/N (or introduce a heavier atom),\n   and collect high-redundancy Friedel pairs.\n5. **You have a powder mixture and need phase fractions.** Run PXRD, identify phases\n   against the ICDD PDF, then **Rietveld-refine** the full profile to quantify each\n   phase; use Scherrer on the widths for crystallite size."
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#043",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#044",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "| Goal | Method | Key relation / tool |\n|---|---|---|\n| Full 3D structure + config | single-crystal XRD | Bragg + phasing + SHELXL |\n| Identify the space group | systematic absences | screw/glide/centering rules |\n| Phase a small structure | direct methods (SHELXT) | statistical phase relations |\n| Phase with a heavy atom | Patterson | interatomic-vector map |\n| Judge a refinement | R₁, wR₂, GOF, R_int + maps | context-dependent; GOF ≈ 1, low R₁ *for the data*, clean difference map, checkCIF |\n| Absolute configuration | Flack parameter | x ≈ 0 correct; Cu Kα for light atoms |\n| Check geometry is normal | CSD / Mercury | substructure search |\n| Identify a crystalline phase | PXRD + ICDD PDF | peak-position fingerprint |\n| Quantify phases in a mixture | Rietveld | full-profile fit |\n| Crystallite size | Scherrer | τ = Kλ/(β cosθ), β in radians |"
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#045",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "## Common Confusion Points"
+    },
+    {
+      "id": "08-CRYSTALLOGRAPHY.md#046",
+      "path": [
+        "08-CRYSTALLOGRAPHY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:chemistry:08-crystallography, git-history:chemistry:08-crystallography]",
+        "canonical_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "concepts": "[x-ray-diffraction, space-groups, structure-refinement, powder-xrd, absolute-configuration]",
+        "current_path": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "id": "maxim:chemistry:crystallography",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "chemistry",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[crystallography]",
+        "section": "chemistry",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Crystallography - Small-Molecule and Powder X-ray Structure",
+        "updated": "null"
+      },
+      "text": "- **You measure intensities, not phases.** |F|² comes straight from the data; the\n  phases must be reconstructed. Everything hard about crystallography is the phase\n  problem.\n- **R-factor is a fit statistic, not proof of correctness.** A low R₁ on a wrong or\n  disordered model is possible; always validate geometry (CSD, PLATON checks) and the\n  difference map.\n- **Refinement metrics are context-dependent, not universal thresholds.** \"Good\"\n  R₁/R_int/completeness/redundancy scale with resolution, scattering power,\n  temperature, and the question (absolute config demands more redundancy). Read them\n  with the maps and checkCIF alerts, not as fixed pass/fail lines.\n- **X-ray barely sees hydrogens and can't place disordered atoms uniquely.** H\n  positions are approximate (riding model; use neutron diffraction for real X–H\n  geometry), and disordered/solvent regions may have no single position — don't\n  over-read X–H distances or a partially modelled solvent pocket.\n- **Flack needs anomalous scatterers.** For C/H/N/O-only structures at Mo Kα the Flack\n  uncertainty can be too large to decide configuration — the value alone is\n  meaningless without its standard uncertainty and adequate redundancy.\n- **Powder ≠ single crystal.** PXRD identifies and quantifies phases and refines cells;\n  it rarely yields a full novel structure (structure solution from powder is possible\n  but hard). For atomic positions of a new molecule, grow a single crystal.\n- **Scherrer β is in radians and instrument-corrected.** Plugging FWHM in degrees, or\n  ignoring instrumental broadening, gives nonsense sizes; large crystallites also\n  saturate the method (>~100–200 nm).\n- **This is not protein crystallography.** Small molecules diffract to atomic\n  resolution and phase by direct methods; macromolecules phase by MR/SAD and deposit\n  in the PDB — that workflow is `biophysics/03`."
+    }
+  ],
+  "refs": [
+    "08-CRYSTALLOGRAPHY.md"
+  ]
+}

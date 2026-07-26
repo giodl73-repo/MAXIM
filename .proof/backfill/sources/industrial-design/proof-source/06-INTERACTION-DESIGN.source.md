@@ -37,7 +37,7 @@ Interaction design (IxD) is the discipline of designing the behavior of products
 |  (pure hardware)           (hardware + software)   (pure software)   |
 |                                                                      |
 |  Dial on radio             iPhone home screen      Web application   |
-|  Ergonomics: primary       Both: co-equal          Cognitive: primary|
+|  Ergonomics: primary       Both: co-equal         Cognitive: primary |
 |  Materials: constrain      SW mediates HW          Pixels: constrain |
 |  Manufacturing: limits     OS constrains both      Framework: limits |
 |                                                                      |
@@ -58,6 +58,18 @@ KEY CONTRIBUTORS:
 ```
 
 ---
+
+> **See also — digital interaction (MAXIM cross-reference).** This guide covers interaction design
+> from its **industrial-design origins through the product-to-digital transition** — the origin of
+> affordances, feedback, mapping, and Norman's action model, and how IxD emerged as products became
+> software-mediated (the spectrum above spans physical → hybrid → digital). It does **not** exclusively
+> own "digital": the **dedicated depth** of digital interaction design and the **evaluation of
+> interactive computing systems** live in `human-computer-interaction/` — the action model and gulfs
+> used as software-*diagnosis* instruments in `human-computer-interaction/02-INTERACTION-MODELS`, and
+> usability *evaluation* in `human-computer-interaction/05-USABILITY-EVALUATION`. The two are
+> **complementary, not a clean physical-vs-digital partition**: this guide keeps the product framing
+> and the transition; HCI owns the peer-depth digital interaction/evaluation treatment. Neither
+> exclusively owns the boundary.
 
 ## Norman's Framework: The Foundation
 

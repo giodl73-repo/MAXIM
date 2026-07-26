@@ -288,6 +288,10 @@ that changed the library.
 | 2026-05-15 | Gold Reset Wave 20 Final Remediation | Repair and re-panel Boundary Layers, Turbulence, Compressible Flow, and Hydrodynamics before restoring their Certified Gold claims. | done |
 | 2026-05-15 | Gold Reset Wave 19 Sample 1 Remediation | Repair and re-panel Web Writing, Social Platforms, Content Strategy, and UX Writing before restoring their Certified Gold claims. | done |
 | 2026-05-15 | Gold Reset Wave 19 Sample 2 Remediation | Repair and re-panel Search Algorithms, Attention Economy, Digital Storytelling, and Misinformation before restoring their Certified Gold claims. | done |
+| 2026-07-11 | Clinical and Chemical Foundations | Add first-class chemistry, clinical medicine, and pathology at MAXIM's established peer-level editorial bar. | done |
+| 2026-07-11 | Human Systems Depth | Add HCI and human factors, deepen neuroscience and economics, and establish public-policy coverage. | active |
+| 2026-07-11 | World and Arts Rebalance | Add world history, musicology, and studio-art practice while correcting avoidable Western-default framing. | queued |
+| 2026-07-11 | Infrastructure and Complexity | Add civil engineering, supply-chain/logistics, and complexity/network science as cross-domain systems modules. | queued |
 
 ## Operating Model
 

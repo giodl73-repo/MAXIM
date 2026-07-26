@@ -1,6 +1,6 @@
 # Reference Library — Tracker
 
-**Status key:** ✅ Complete | 🔜 Stubs (files exist, content to write) | ❌ Not started
+**Status key:** ✅ Complete | 🔬 In review (authored work awaiting final review or sign-off) | 🔜 Stubs (files exist, content to write) | ❌ Not started
 
 Each directory has a `STATUS.md` with its full file list.
 
@@ -25,6 +25,9 @@ Each directory has a `STATUS.md` with its full file list.
 | [`economics/`](economics/STATUS.md) | 5 | ✅ |
 | [`information-theory/`](information-theory/STATUS.md) | 10 | ✅ |
 | [`natural-sciences/`](natural-sciences/STATUS.md) | 18 | ✅ |
+| [`chemistry/`](chemistry/STATUS.md) | 12 | ✅ |
+| [`clinical-medicine/`](clinical-medicine/STATUS.md) | 12 | ✅ |
+| [`pathology/`](pathology/STATUS.md) | 12 | ✅ |
 | [`astronomy/`](astronomy/STATUS.md) | 12 | ✅ |
 | [`biology/`](biology/STATUS.md) | 7 | ✅ |
 | [`quantum-computing/`](quantum-computing/STATUS.md) | 10 | ✅ |
@@ -243,9 +246,13 @@ Each directory has a `STATUS.md` with its full file list.
 | [`veterinary-medicine/`](veterinary-medicine/STATUS.md) | 10 | ✅ | 19 |
 | [`library-information-science/`](library-information-science/STATUS.md) | 10 | ✅ | 19 |
 | [`naval-architecture/`](naval-architecture/STATUS.md) | 10 | ✅ | 19 |
+| [`human-computer-interaction/`](human-computer-interaction/STATUS.md) | 12 | ✅ | HSD |
+| [`human-factors/`](human-factors/STATUS.md) | 12 | 🔬 | HSD |
 
-**Complete: Batches 1–13 ✅ + Batches 14–18 (14) + Batch 19 (4, non-computing) — 235 directories, ~2,350 files**
-**Final target: 235 directories · 13 sections · ~2,350 content files · ~15,200 pages · 52 bound volumes**
+**Complete: Batches 1–13 ✅ + Batches 14–18 (14) + Batch 19 (4, non-computing) + `chemistry/` + `clinical-medicine/` + `pathology/` + `human-computer-interaction/` — 239 directories, ~2,398 files. The clinical-and-chemical-foundations wave is complete; Pathology Pulse 05 and HCI Pulse 02 received final PASS on 2026-07-12 with no unresolved BLOCK/WARN. HCI is Silver for all 12 guides; Gold/Da Vinci and registry work remain optional future scope.**
+
+**In review (🔬): `human-factors/` — 12/12 guides authored and wired (Human Systems Depth, Pulse 04). The three prototypes (`02` scaling-gate, `03`/`06` review-gated) were ratified in Pulse 03; the remaining nine (`00`,`01`,`04`,`05`,`07`,`08`,`09`,`10`,`11`) were authored in Pulse 04, each meeting its per-guide Definition of Done and the common safety/accessibility contract. Module integrated into `sections/technology.md`, `.mkdocs/mkdocs.yml`, and this dashboard; minimal reciprocal pointers added to the six boundary siblings; source-corpus backfill run for `human-factors`; focused PROOF clean (12 files, 0/0). The independent full-module adversarial panel ([`panels/hf-full-r1/`](context/waves/2026-07-11-human-systems-depth/panels/hf-full-r1/R1-consolidated.md)) ran, surfaced a conservative superset of findings (6 BLOCK + 6 WARN), and drove their repair in the guides and records; the `R2-gold-rubric` scores every guide **Silver** with **no registry row**. Because that panel both raised and repaired the findings, a final independent re-review is still pending, so the wave stays IN REVIEW, not closed. No Gold/Da Vinci, no registry row.**
+**Complete total stays 239 (HCI counted; `human-factors/` tracked separately as in review). Final target: 240 directories · 13 sections · ~2,410 content files · ~15,200 pages · 52 bound volumes** — 239 complete today plus `human-factors/` (12 guides), which closes the count to **240 / ~2,410** once its full-module panel finishes its final re-review.
 *13 × 4 = 52. A deck of cards. People (●) at center. Batches 12–13 complete the deck.*
 
 **Batch 1 agent groups (complete):**

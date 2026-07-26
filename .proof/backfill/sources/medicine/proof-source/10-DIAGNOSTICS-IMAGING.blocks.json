@@ -115,7 +115,7 @@
     {
       "id": "block-11",
       "kind": "diagram_like",
-      "line": 471,
+      "line": 473,
       "heading_context": "## 11. Diagnostic Reasoning",
       "confidence": "candidate",
       "text": "MEDICAL TERM          ML / STATISTICS EQUIVALENT\n──────────────────────────────────────────────────────────────────────────\nSensitivity           Recall / True Positive Rate (TPR)\n                      TP/(TP+FN) — of all true positives, what fraction\n                      did the test catch?\n\nSpecificity           True Negative Rate (TNR) = 1 - FPR\n                      TN/(TN+FP) — of all true negatives, what fraction\n                      did the test correctly exclude?\n\nPositive predictive   Precision\nvalue (PPV)           TP/(TP+FP) — of positive test results, fraction\n                      that are true positives (prevalence-dependent)\n\nNegative predictive   NPV: TN/(TN+FN) — of negatives, fraction correct\nvalue (NPV)\n\nROC curve             Identical to ML ROC curve — TPR vs FPR at all\n                      thresholds; AUC is the same AUC used in ML model\n                      evaluation\n\nPre-test probability  Prior probability P(disease) before test\nPost-test probability Posterior probability P(disease|test result)\nBayesian updating     Bayes' theorem: posterior = prior × likelihood\n                      Post-test odds = Pre-test odds × LR\n                      (this IS posterior inference; LR is the likelihood\n                      ratio of the evidence)\n\nCalibration curve     PPV vs predicted probability — same concept used\n                      to evaluate ML classifier calibration",
@@ -126,7 +126,7 @@
     {
       "id": "block-12",
       "kind": "diagram_like",
-      "line": 505,
+      "line": 507,
       "heading_context": "## 11. Diagnostic Reasoning",
       "confidence": "candidate",
       "text": "  Sensitivity (Sn): TP/(TP+FN) = P(test+|disease)\n  Specificity (Sp): TN/(TN+FP) = P(test-|no disease)\n\n  SnNout / SpPin:\n    High Sensitivity → Negative test rules OUT (screening; FN is costly)\n    High Specificity → Positive test rules IN (confirmation; FP is costly)\n\n  ROC curve: plot TPR vs FPR at all thresholds; AUC = overall discrimination\n  Threshold choice: move cutoff → trade off Sn vs Sp (exactly as in ML\n    threshold tuning — depends on cost of FP vs FN in clinical context)",
@@ -137,7 +137,7 @@
     {
       "id": "block-13",
       "kind": "ascii_table_candidate",
-      "line": 519,
+      "line": 521,
       "heading_context": "## 11. Diagnostic Reasoning",
       "confidence": "candidate",
       "text": "  LR+ = Sensitivity / (1-Specificity) = P(test+|disease) / P(test+|no disease)\n  LR- = (1-Sensitivity) / Specificity = P(test-|disease) / P(test-|no disease)\n  Interpretation: LR+ >10 = large increase; LR- <0.1 = large decrease (in post-test probability)\n  Moderate: LR+ 5-10 or LR- 0.1-0.2 = moderate change",
@@ -148,7 +148,7 @@
     {
       "id": "block-14",
       "kind": "diagram_like",
-      "line": 527,
+      "line": 529,
       "heading_context": "## 11. Diagnostic Reasoning",
       "confidence": "candidate",
       "text": "  Pre-test odds = Pre-test probability / (1 - Pre-test probability)\n  Post-test odds = Pre-test odds × LR\n  Post-test probability = Post-test odds / (1 + Post-test odds)\n\n  Example: DVT\n    Clinical assessment (Wells score high): pre-test prob = 60%\n    D-dimer positive: LR+ ≈ 2 (not very useful to confirm — low specificity)\n    D-dimer negative: LR- ≈ 0.08 (very useful to exclude — high sensitivity)\n    → D-dimer is a rule-out test (high Sn); not a rule-in test\n\n  Why PPV varies with prevalence: In a low-prevalence population, even a\n  high-specificity test has low PPV (many false positives relative to true\n  positives) — the \"screening paradox.\" This is precisely why the same ML\n  model applied to a rare-event dataset performs differently than on a\n  balanced dataset. Pre-test probability = prevalence in the tested\n  population; the model's performance is always conditional on it.",
@@ -159,7 +159,7 @@
     {
       "id": "block-15",
       "kind": "ascii_table_candidate",
-      "line": 558,
+      "line": 560,
       "heading_context": "## 11. Diagnostic Reasoning",
       "confidence": "candidate",
       "text": "\n---\n\n## 12. Decision Cheat Sheet\n\n| Question | Answer |\n|----------|--------|\n| Anemia: microcytic + low ferritin? | Iron deficiency anemia (IDA) |\n| Anemia: macrocytic + hypersegmented neutrophils? | B12 or folate deficiency (megaloblastic) |\n| Prolonged PT + normal aPTT? | Factor VII deficiency or early warfarin; extrinsic pathway only |\n| Prolonged aPTT + normal PT? | Hemophilia A/B (VIII/IX); heparin (UFH); lupus anticoagulant (paradoxically thrombotic) |\n| DIC lab pattern? | ↑PT/INR + ↑aPTT + ↓platelets + ↓fibrinogen + ↑D-dimer |\n| Troponin elevation in non-MI? | PE (RV strain), myocarditis, sepsis, renal failure, demand ischemia |\n| CT Hounsfield Units: blood vs water? | Blood ~50 HU; water 0 HU; bone +1000; air -1000 |\n| MRI: T1 bright tissue? | Fat, gadolinium enhancement, subacute hemorrhage (metHgb) |\n| MRI: T2 bright tissue? | Water (edema, CSF, pathology); \"water is bright on T2\" |\n| DWI MRI bright = ? | Restricted diffusion; acute ischemic stroke, abscess, highly cellular tumors |\n| US anechoic with posterior enhancement? | Simple fluid (cyst, bile, effusion); benign finding |\n| PET tracer for cancer staging? | FDG (¹⁸F-fluorodeoxyglucose); metabolically active tumors |\n| D-dimer: rule in or rule out PE? | Rule OUT (high sensitivity, low specificity); negative in low-prob clinical context |\n| High Sn test negative = ? | SnNout: rules out disease; e.g., d-dimer negative in low-prob PE = excluded |\n\n---\n\n## Common Confusion Points\n\n**AST vs ALT in liver disease:** Both are hepatocellular damage markers, but ALT is more liver-specific. AST also rises in cardiac/muscle injury. AST:ALT ratio >2:1 classically suggests alcoholic hepatitis (alcohol depletes pyridoxine needed for ALT more than AST). ALT > AST: non-alcoholic liver disease, viral hepatitis, medications.\n\n**Troponin is sensitive but not specific for MI:** Any myocardial cell death elevates troponin — ischemia, myocarditis, direct injury, or metabolic stress. \"Troponin elevation\" ≠ \"STEMI.\" Clinical context + EKG + imaging determine whether it's an acute coronary syndrome vs demand ischemia vs myocarditis vs PE-related RV strain. The serial rise pattern (delta troponin) is more specific for acute MI than single elevated value.\n\n**CT contrast phases — getting the timing right:** Arterial phase is for vascular anatomy (dissection, arterial bleed, tumor arterial supply). Portal venous phase is for most abdominal parenchymal lesions (liver, spleen, pancreas). A single-phase post-contrast scan defaults to portal venous phase. Ordering \"CT abdomen with contrast\" without specifying phase may not answer your clinical question.\n\n**MRI T1 vs T2: what's white?** Quick rule: T1 = \"fat is bright, water is dark\"; T2 = \"water is bright, fat can be dark.\" Pathology (edema, tumor, inflammation) contains water → usually bright on T2. Post-gadolinium T1 images show enhancement where BBB or blood vessels are abnormal. Fat suppression helps separate fat brightness from pathologic enhancement.\n\n**D-dimer is not a rule-IN test:** D-dimer has high sensitivity (~99%) but very low specificity for PE. Almost any illness (infection, cancer, recent surgery, pregnancy) elevates D-dimer. A positive d-dimer means almost nothing. A NEGATIVE d-dimer in a low-probability patient means PE is very unlikely (LR- ~0.08). The test is only useful as a rule-out, not a rule-in.\n\n**Ultrasound posterior enhancement vs shadow:** Posterior acoustic enhancement = sound passes easily through a fluid-filled structure → tissues deep to it receive more sound → appear brighter. This confirms fluid. Acoustic shadow = dense structure (stone, bone) blocks sound → dark shadow deep to it. These two patterns are opposites and key to US interpretation.",

@@ -1,6 +1,6 @@
 # Computing & Software
 
-10 directories · The full modern software engineering stack — from bare metal to intelligence layer
+20 directories · The full modern software engineering stack — from bare metal to the human-interaction layer
 
 ---
 
@@ -41,6 +41,13 @@
  │  cryptography/  ·  symmetric · asymmetric · TLS 1.3 · Signal protocol       │
  │                 ·  zero-knowledge proofs · post-quantum (ML-KEM/SLH-DSA)    │
  └─────────────────────────────────────────────────────────────────────────────┘
+
+ HUMAN-INTERACTION LAYER  (the top of the stack — where systems meet people)
+ ┌─────────────────────────────────────────────────────────────────────────────┐
+ │  human-computer-interaction/  ·  design↔evaluate loop · interaction models  │
+ │       ·  I/O modalities · usability evaluation · research methods · IA/viz  │
+ │       ·  accessibility · CSCW · emerging interfaces · practice & ethics     │
+ └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -68,6 +75,7 @@
 | [`computer-vision/`](../computer-vision/00-OVERVIEW.md) | Vision from image formation to deep models: the pinhole camera model and intrinsics/extrinsics, filtering and features (convolution, edges, Harris/SIFT/ORB), segmentation, classical recognition (HOG, bag-of-words, Viola-Jones), deep vision (CNNs, ResNet/ViT, transfer learning), multiview geometry (epipolar constraint, fundamental/essential matrices, RANSAC, triangulation), detection and tracking (R-CNN/YOLO, NMS, IoU/mAP, Kalman/optical flow), 3D and SLAM (structure-from-motion, bundle adjustment, NeRF), and applications | [`01-IMAGE-FORMATION.md`](../computer-vision/01-IMAGE-FORMATION.md) — the pinhole model and camera matrix | `ai-engineering/`/`machine-learning-theory/` for the ML core; `signal-processing/` for filtering; `computer-graphics/` for the inverse problem |
 | [`embedded-systems/`](../embedded-systems/00-OVERVIEW.md) | Bare-metal and real-time systems: microcontrollers (MCU/MPU/SoC, ARM Cortex-M, the memory map), bare-metal programming (registers, GPIO, `volatile`, startup/linker), interrupts and timers (NVIC, ISR discipline, latency), RTOS (tasks, rate-monotonic vs EDF scheduling, priority inversion/inheritance), memory and DMA, peripherals and buses (UART/SPI/I2C/CAN/USB), hard/soft real-time constraints and WCET, power management (sleep modes, energy budgets), and the debug toolchain (JTAG/SWD, OTA) | [`04-RTOS.md`](../embedded-systems/04-RTOS.md) — schedulers, the RM utilization bound, and priority inversion | `computer-architecture/` for the CPU; `os/` for general scheduling; `robotics/` and `electronics/` for the physical layer |
 | [`reinforcement-learning/`](../reinforcement-learning/00-OVERVIEW.md) | Learning to act from reward: MDP foundations and the Bellman equations, dynamic programming (policy/value iteration), Monte-Carlo and temporal-difference learning (TD(λ), the bias/variance trade-off), model-free control (SARSA vs Q-learning, exploration), function approximation (the deadly triad, DQN), policy gradients (the policy gradient theorem, REINFORCE, actor-critic, GAE), deep RL (TRPO/PPO, DDPG/TD3, SAC), model-based RL and planning (Dyna, MCTS, AlphaZero/MuZero), and frontiers (offline RL, multi-agent, RLHF) | [`01-MDP-FOUNDATIONS.md`](../reinforcement-learning/01-MDP-FOUNDATIONS.md) — MDPs, value functions, and the Bellman equations | `machine-learning-theory/` and `ai-engineering/` for the ML core; `operations-research/` for MDP/DP; `control-theory/` for optimal control |
+| [`human-computer-interaction/`](../human-computer-interaction/00-OVERVIEW.md) | The interaction layer of the computing vertical: the design↔evaluate lifecycle plus cross-cutting concerns — interaction models (Norman's gulfs applied to computing), I/O modalities (Fitts/Hick applied), the design process, usability evaluation (heuristics vs measurement, SUS limits, the sample-size ceiling), HCI research methods, information architecture & interactive visualization, interactive accessibility (WCAG dated/bounded, the accessibility tree, conformance≠usability), sociotechnical/CSCW, emerging interfaces under an evidence bar, and professional practice & ethics (recognize-and-refuse dark patterns) | [`00-OVERVIEW.md`](../human-computer-interaction/00-OVERVIEW.md) — discipline map, ownership/defer matrix, and the design↔evaluate loop | `cognitive-science/` (Life Sciences) for the mechanisms/laws; `industrial-design/` (Arts) for the product-level action model; `statistics-applied/` for study statistics |
 
 ---
 
@@ -94,3 +102,4 @@
 | Mathematics & Physics | `information-theory/` underpins compression, entropy, and channel capacity — directly relevant to LLM tokenization and coding theory. `signal-processing/` sits beneath audio/image ML pipelines. `number-theory/` and `abstract-algebra/` are the mathematical substrate for everything in `cryptography/`. |
 | Engineering | `semiconductor-manufacturing/` is the physical layer that computing runs on — Moore's Law economics, lithography, CMOS logic. `telecommunications/` explains the network substrate that distributed systems assume. `formal-methods/` connects type theory (from `languages/`) to software verification. |
 | Mathematics & Physics → Quantum | `quantum-computing/` is the successor architecture to classical computing; `cryptography/` post-quantum track is the direct response. |
+| Life Sciences & Arts | `human-computer-interaction/` bridges *out* of this section: it **defers** cognitive mechanisms and the psychophysical laws (Fitts, Hick, Miller, GOMS) to `cognitive-science/09-APPLIED-BRIDGE` (Life Sciences) and the product-level Norman action model / ergonomics to `industrial-design/` (Arts & Culture), while owning the design and evaluation of interactive computing systems. |

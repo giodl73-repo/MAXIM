@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "clinical-medicine\\05-ACUTE-AND-CHRONIC-CARE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 118,
+      "heading_context": "## 1. The Acute Logic — Prioritization as Architecture (conceptual only)",
+      "headers": [
+        "Concept",
+        "What it means (architecturally)",
+        "Systems analog"
+      ],
+      "rows": [
+        [
+          "**Triage**",
+          "order patients by **acuity, not arrival** — a priority queue",
+          "scheduling by severity, not FIFO"
+        ],
+        [
+          "**Worst-case-first framing**",
+          "manage by the most dangerous plausible cause until excluded",
+          "fail-safe / defensive default"
+        ],
+        [
+          "**Stabilize-then-diagnose**",
+          "keep physiology viable *while* the cause is worked out",
+          "mitigate before root-cause; keep the service up"
+        ],
+        [
+          "**Disposition**",
+          "the routing decision: admit / observe / refer / discharge",
+          "request routing to the right tier (guide 08)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 261,
+      "heading_context": "## 4. The Chronic Care Model — Engineering the Loop for Reliability",
+      "headers": [
+        "CCM element",
+        "What it provides",
+        "Systems analog"
+      ],
+      "rows": [
+        [
+          "**Self-management support**",
+          "patient capability to run their part of the loop",
+          "empowering the on-call user; good runbooks"
+        ],
+        [
+          "**Delivery-system design**",
+          "proactive, planned, team-based visits and roles",
+          "designing the process, not ad-hoc heroics"
+        ],
+        [
+          "**Decision support**",
+          "evidence + guidelines embedded at the point of care",
+          "policy-as-code / linting at commit time"
+        ],
+        [
+          "**Clinical information systems**",
+          "registries, reminders, feedback on the panel",
+          "dashboards + alerting over the fleet"
+        ],
+        [
+          "**Health-system organization**",
+          "leadership, incentives aligned to chronic care",
+          "org design; SLOs that reward reliability"
+        ],
+        [
+          "**Community resources**",
+          "linkage beyond the clinic walls",
+          "external dependencies wired in deliberately"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 361,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "What the care architecture does",
+        "Why (this guide)"
+      ],
+      "rows": [
+        [
+          "A new time-critical problem",
+          "switches to the **acute loop**: worst-case-first, stabilize-while-diagnosing",
+          "some harms outpace diagnosis (§1)"
+        ],
+        [
+          "Many patients, limited capacity",
+          "serves a **priority queue by acuity**, not arrival order",
+          "triage is severity scheduling (§1)"
+        ],
+        [
+          "An ongoing condition over years",
+          "runs the **chronic control loop**: monitor → adjust → monitor",
+          "the loop *is* the care; continuity stabilizes it (§2)"
+        ],
+        [
+          "Planning proactively",
+          "reasons from the **trajectory shape** (the forecast)",
+          "anticipatory care plans against the load curve (§3)"
+        ],
+        [
+          "A chronic loop keeps drifting/gapping",
+          "applies **CCM** proactivity + registry/panel management",
+          "the system, not heroics, closes the loop (§4)"
+        ],
+        [
+          "An acute event in a chronic patient",
+          "treats the **crossing between loops** as the key risk",
+          "acute-on-chronic transitions drop state (§0, guide 07)"
+        ],
+        [
+          "A real emergency",
+          "**out of scope here** — trained clinical + emergency-services work",
+          "this guide is architecture, not instructions (banner)"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "chemistry\\08-CRYSTALLOGRAPHY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 35,
+      "heading_context": "# Crystallography — Small-Molecule and Powder X-ray Structure",
+      "confidence": "candidate",
+      "text": "X-RAY STRUCTURE = INVERSE FOURIER OF A DIFFRACTION PATTERN\n==========================================================================\n  crystal (3D periodic)  --X-ray-->  diffraction spots (reciprocal)\n                                            |\n  each spot hkl has:  INTENSITY (measured, |F|^2)  +  PHASE (LOST)\n                                            |\n                          THE PHASE PROBLEM |\n                                            v\n  solve phases (direct methods / Patterson) -> electron density map\n                                            |\n                                 refine (SHELXL, least squares on F^2)\n                                            v\n  ATOMIC MODEL: xyz + thermal params -> bond lengths, angles, ABS CONFIG\n\n  QUALITY: R1, wR2, GOF, Rint, completeness, redundancy\n==========================================================================",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 71,
+      "heading_context": "## Bragg's Law and the Structure Factor",
+      "confidence": "candidate",
+      "text": "   F(hkl) = SUM_j  f_j * exp[ 2*pi*i*(h*x_j + k*y_j + l*z_j) ]\n        f_j = atomic scattering factor (heavier atom -> scatters more)\n   MEASURED: intensity  I(hkl)  proportional to |F(hkl)|^2   (amplitude only)\n   LOST:     the PHASE of F(hkl)   <-- the entire difficulty of crystallography",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 167,
+      "heading_context": "## Absolute Configuration: the Flack Parameter",
+      "confidence": "candidate",
+      "text": "   x = 0  ->  the model has the CORRECT absolute configuration\n   x = 1  ->  the model is INVERTED (invert all coordinates and re-refine)\n   x = 0.5 ->  approximately equal inversion (racemic) twin fractions\n   reliable only with a good standard uncertainty and anomalous scatterers present",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 200,
+      "heading_context": "## Powder X-ray Diffraction (PXRD)",
+      "confidence": "candidate",
+      "text": "   single crystal: 3D array of spots   ->   full structure\n   powder:         1D pattern of peaks  ->   phase ID, cell, size, quantification",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 212,
+      "heading_context": "## Powder X-ray Diffraction (PXRD)",
+      "confidence": "candidate",
+      "text": "   tau = K * lambda / (beta * cos(theta))\n        tau = mean crystallite size ; K ~ 0.9 (shape factor) ;\n        beta = FWHM in RADIANS (instrument-corrected) ; theta in radians\n   -> broader peaks => smaller crystallites (or microstrain; separate via\n      Williamson-Hall if both contribute).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

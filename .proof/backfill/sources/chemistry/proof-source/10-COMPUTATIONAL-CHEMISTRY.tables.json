@@ -1,0 +1,200 @@
+{
+  "schema_version": "1",
+  "source_markdown": "chemistry\\10-COMPUTATIONAL-CHEMISTRY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 61,
+      "heading_context": "## Ab Initio Quantum Chemistry",
+      "headers": [
+        "Method",
+        "Adds",
+        "Scaling",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "HF",
+          "mean field",
+          "O(N⁴)",
+          "no correlation; wrong energetics"
+        ],
+        [
+          "MP2",
+          "2nd-order perturbation",
+          "O(N⁵)",
+          "cheap correlation; good for closed shells; fails near-degeneracy"
+        ],
+        [
+          "CCSD",
+          "coupled-cluster singles+doubles",
+          "O(N⁶)",
+          "size-consistent"
+        ],
+        [
+          "**CCSD(T)**",
+          "+ perturbative triples",
+          "O(N⁷)",
+          "**\"gold standard\"**; ~1 kcal/mol with CBS"
+        ],
+        [
+          "CASSCF/CASPT2",
+          "multireference",
+          "steep",
+          "biradicals, bond breaking, excited states"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 111,
+      "heading_context": "## Density Functional Theory (for molecules)",
+      "headers": [
+        "Family",
+        "Examples",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Minimal / split-valence (Pople)",
+          "STO-3G, 6-31G*, 6-311G**",
+          "* = polarization (d on heavy); ** adds p on H"
+        ],
+        [
+          "Diffuse-augmented",
+          "6-31+G, aug-cc-pVXZ",
+          "anions, excited states, weak interactions"
+        ],
+        [
+          "Dunning correlation-consistent",
+          "cc-pVDZ → cc-pVTZ → cc-pVQZ",
+          "systematic **CBS extrapolation**"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 141,
+      "heading_context": "## Molecular Mechanics and Dynamics",
+      "headers": [
+        "Component",
+        "Rigorous choice",
+        "Equilibration-only"
+      ],
+      "rows": [
+        [
+          "Thermostat (NVT)",
+          "Nosé-Hoover chains, V-rescale",
+          "Berendsen (wrong fluctuations)"
+        ],
+        [
+          "Barostat (NPT)",
+          "Parrinello-Rahman",
+          "Berendsen"
+        ],
+        [
+          "Long-range electrostatics",
+          "PME (Ewald), O(N log N)",
+          "plain cutoff (artifacts)"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 240,
+      "heading_context": "## End-to-End Workflow: From Molecule to a Validated Number",
+      "headers": [
+        "Phase",
+        "Computed ΔG (pyridone − hydroxy)",
+        "Experiment",
+        "Verdict"
+      ],
+      "rows": [
+        [
+          "Gas",
+          "expected small **positive** ΔG: 2-hydroxypyridine slightly favored",
+          "2-hydroxy slightly favored",
+          "target sign for a pinned run"
+        ],
+        [
+          "Water (SMD)",
+          "expected **negative** ΔG: 2-pyridone strongly favored",
+          "2-pyridone strongly favored",
+          "target solvent reversal"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 303,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Task",
+        "Method",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Geometry / vibrational frequencies",
+          "DFT (B3LYP-D3 / ωB97X-D, 6-31+G*)",
+          "cheap, reliable structures"
+        ],
+        [
+          "Benchmark thermochemistry / barriers",
+          "CCSD(T)/CBS",
+          "chemical accuracy"
+        ],
+        [
+          "Biradical / bond-breaking / many excited states",
+          "CASSCF/CASPT2",
+          "multireference needed"
+        ],
+        [
+          "Non-covalent / conformers",
+          "dispersion-corrected DFT",
+          "uncorrected functionals fail"
+        ],
+        [
+          "Excited states / UV-Vis",
+          "TDDFT (range-separated for CT)",
+          "affordable spectra"
+        ],
+        [
+          "10³–10⁶ atoms, dynamics",
+          "MM/MD (AMBER/CHARMM/OPLS)",
+          "QM infeasible"
+        ],
+        [
+          "Enzyme mechanism",
+          "QM/MM (ONIOM)",
+          "reactive core + environment"
+        ],
+        [
+          "Confirm a transition state",
+          "IRC (+ 1 imaginary freq)",
+          "proves connectivity"
+        ],
+        [
+          "Rank analog binding",
+          "FEP/TI (RBFE)",
+          "rigorous ΔΔG"
+        ],
+        [
+          "Screen druglikeness at scale",
+          "QSAR + Rule of Five",
+          "descriptor models"
+        ],
+        [
+          "Store/search molecules",
+          "SMILES/InChI + RDKit",
+          "canonical, searchable"
+        ],
+        [
+          "Run a defensible calculation",
+          "the 8-step workflow",
+          "state→conformers→method/basis→solvent→opt+freq→diagnostics→validate→archive"
+        ]
+      ]
+    }
+  ]
+}

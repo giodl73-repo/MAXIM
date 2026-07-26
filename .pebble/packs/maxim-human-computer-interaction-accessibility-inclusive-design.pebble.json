@@ -1,0 +1,2785 @@
+{
+  "schema": "pebble.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-human-computer-interaction-accessibility-inclusive-design",
+  "source": "../../human-computer-interaction",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#000",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "# Accessibility and Inclusive Design — Interactive Systems for the Full Range of Human Ability"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#001",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "**This guide owns** the *interactive accessibility* of computing systems: how disabled\npeople perceive, operate, and understand interactive systems, and how to design and\nevaluate for that. It covers models of disability; the distinction between\naccessibility, usability, and inclusive/universal design; the WCAG standard (dated and\nbounded); how assistive technology interacts with a system through the accessibility\ntree; keyboard/focus/semantics; access by sensory/motor/cognitive channel; accessible\nresearch; the gap between conformance and actual usability; the inclusive dimensions\nbeyond disability (localization, literacy, bandwidth); and accessibility governance.\n**It builds on** `03-INPUT-OUTPUT-MODALITIES` (the modality substrate),\n`02-INTERACTION-MODELS`, and `05-USABILITY-EVALUATION` (accessible evaluation extends\nthose methods). **It explicitly defers** three things by a hard three-way boundary:"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#002",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "```\n  THE THREE-WAY OWNERSHIP BOUNDARY (memorize this seam)\n  --------------------------------------------------------------\n  HCI (this guide)   -> interactive accessibility DESIGN & EVALUATION:\n                        can a disabled person perceive/operate/understand\n                        this interface, and how do we build & test that?\n  human-factors/     -> OPERATOR PERFORMANCE & SAFETY EVIDENCE:\n                        workload, human-error, safety-critical human-system\n                        integration -- performance under load, not interface reach\n  law/               -> LEGAL OBLIGATION: statutes, liability, compliance duty.\n                        Named here as dated landscape only; never adjudicated.\n  --------------------------------------------------------------\n  Rule: this guide describes how to MAKE and MEASURE accessible interaction.\n  It does not rule on legal compliance and does not model operator safety.\n```"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#003",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "It further defers *clinical/medical* models of disability to `medicine/`/`disease/`;\n*cognitive mechanisms* of perception/attention/memory to `cognitive-science/`;\n*physical anthropometry and product ergonomics* to `industrial-design/05` and\n`human-factors/`; and *writing-system/type mechanics* behind localization to\n`linguistics/`/`typography/`."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#004",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "> **This module is an educational reference on *how to design and evaluate accessible\n> interactive systems*. It is **not legal or compliance advice** — it names standards\n> and laws as dated landscape, and never tells a reader whether they are compliant or\n> what their legal obligations are (that is `law/`). It contains **no instructions for\n> defeating, exploiting, or manipulating** assistive technology or users. Standards and\n> \"laws\" are attributed and dated, and conformance is treated as a floor, never as a\n> synonym for usability.**"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#005",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "*Per-guide banner: WCAG version/level references are dated to their published\nRecommendation and are bounded technical claims, not compliance rulings. Prevalence and\ntooling figures are attributed and treated as estimates that vary by region and year.*"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#006",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#007",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "## The Big Picture: Five Independent Axes, Not One Nested Word"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#008",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "\"Accessibility\" gets collapsed into a single word, and that conflation is the root of\nmost bad practice. It is better read as **five independent axes** — a design *process*,\na *conformance* check, a *task-capability* outcome, a *usability* outcome, and an\n*equity* outcome — each measured differently and, crucially, **not contained inside one\nanother**. A product can score high on one axis and low on another; none of them is a\n\"floor\" the rest are stacked on."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#009",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "```\n  FIVE INDEPENDENT AXES  (not one nested word)\n  ==============================================================\n   1  PARTICIPATORY / INCLUSIVE DESIGN PROCESS\n      -> did disabled people shape discovery, design, evaluation?\n   2  TECHNICAL CONFORMANCE\n      -> does it meet the standard (WCAG)?   [audit: auto + manual]\n   3  TASK ACCESSIBILITY\n      -> can a disabled person perceive/operate/understand the\n         real task with their own AT?        [AT walkthrough, tasks]\n   4  USABILITY OUTCOMES\n      -> effective / efficient / satisfying for disabled users?\n   5  INCLUSION / EQUITY\n      -> does it reduce exclusion across the whole population?\n  ==============================================================\n   INDEPENDENT, not nested: high conformance (2) with low task\n   accessibility (3) is the classic \"passes WCAG, unusable with a\n   screen reader\" state. No axis is a \"floor\" the others sit on.\n```"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#010",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "- **Participatory / inclusive design process** — *how it was made*: did disabled people\n  shape discovery, design, and evaluation (co-design and shared authority, not\n  consultation-theatre)? A process axis, evidenced by *who* actually held decision\n  authority (Sections 2, 7).\n- **Technical conformance** — *does it meet the standard*: WCAG and related criteria,\n  established by audit (automated + manual). A necessary scaffold, and only a scaffold\n  (Sections 5–6).\n- **Task accessibility** — *can a disabled person actually perceive, operate, and\n  understand the real task with their assistive technology?* An outcome measured by AT\n  walkthrough and task completion — related to conformance but not the same thing, and\n  **not a single binary flag**: it is per person, per task, per AT, per context (§2–4).\n- **Usability outcomes** — *is it effective, efficient, and satisfying for disabled\n  users* as a first-class group (the `05` triad), not merely operable (Section 6).\n- **Inclusion / equity** — *does it reduce exclusion across the whole population*,\n  including the non-disability dimensions (language, literacy, bandwidth, age) of\n  Section 8?"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#011",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "These axes interact but are **independent**: conformance without task accessibility is\nthe classic \"passes WCAG, unusable with a screen reader\" state (Section 6); usability for\nmost without inclusion still leaves definable groups out. Do not treat any one of them as\na floor the others automatically clear, and do not read accessibility as a single\nbinary flag — every axis is graded, contextual, and separately evidenced."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#012",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "The second load-bearing idea is the **interaction/mismatch model** of disability\n(Section 1): disability is not (only) a property of a person's body but a **mismatch\nbetween a person's abilities and the demands of an environment** — which means the\n*interface*, not the person, is frequently the thing that is \"disabled,\" and is the\nthing a designer can change."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#013",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "**Bridge (software).** **Technical conformance** is your **public API contract**: a\nscreen reader is just another *client* consuming your interface through a defined\nprotocol (the accessibility tree, Section 3). Meeting the contract (conformance) is like\npassing your **type checks and lint** — necessary, catches whole classes of breakage, and\nabsolutely *not* proof the product is fast, correct, or pleasant. Green CI ≠ good\nproduct; WCAG-pass ≠ task-accessible-and-usable with a screen reader (Section 6). The\ncontract is one axis, not the whole product."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#014",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#015",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "## 1. Models of Disability — The Model Decides What You Build"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#016",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "The model of disability you hold silently determines where you locate the problem and\ntherefore what you build. Four models, roughly historical:"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#017",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "| Model | Locates disability in | \"Fix\" implied | Design consequence |\n|---|---|---|---|\n| **Medical** | the individual's body/impairment | cure/rehabilitate the person | disability is someone else's (clinical) problem; nothing to design |\n| **Social** (Oliver 1983) | society's barriers/exclusion | remove the barriers | the *environment/interface* is the problem to change |\n| **Biopsychosocial / ICF** (WHO 2001) | interaction of body, activity, participation, context | reduce barriers *and* support function | function is contextual; measure participation, not just impairment |\n| **Interaction / mismatch** (Microsoft Inclusive Design 2016) | the person↔environment *mismatch* | redesign the environment to fit more people | reframes disability as a *design* variable you control |"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#018",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "The interaction model adds the practically vital **permanent / temporary / situational**\nspectrum: a mismatch with \"one arm\" can be *permanent* (limb difference), *temporary*\n(a broken arm), or *situational* (holding a baby). Designing for the permanent case\nserves the far larger temporary and situational populations too."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#019",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "```\n  THE PERSONA SPECTRUM (one ability, three durations) -- Microsoft 2016\n  --------------------------------------------------------------\n   ability      PERMANENT        TEMPORARY          SITUATIONAL\n   ----------   --------------   ----------------   ----------------------\n   see          blindness        cataract/dilation  bright sun / eyes on road\n   hear         deafness         ear infection      loud bar / open office\n   speak        non-verbal       laryngitis         heavy accent to an ASR\n   touch/reach  limb difference  broken arm         holding a bag / a baby\n  --------------------------------------------------------------\n   The curb-cut effect: a ramp cut for wheelchairs serves strollers,\n   carts, luggage, and delivery bikes. Access built for the edge\n   improves the middle -- captions used by the hearing in noisy rooms.\n```"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#020",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "This is why the honest framing is not charity but **coverage**: the \"edge case\" is a\nduration of a state most people pass through, and building for it widens the usable\npopulation. *(The clinical/medical dimension of any specific condition is\n`medicine/`/`disease/`; this guide uses the model, not the diagnosis.)*"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#021",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#022",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "## 2. The Five Axes — Formalized"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#023",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "Making the Big-Picture axes precise, because reviews and contracts turn on them. They\nare **independent dimensions**, not layers of a stack — read each on its own scale:"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#024",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "- **Participatory / inclusive design process.** *Who shaped it, and with how much\n  authority?* Disabled people involved across discovery, design, and evaluation as\n  co-designers and decision-makers, not late-stage consultees (Section 7). British\n  Standard **BS 7000-6** and Microsoft's Inclusive Design toolkit codify the stance\n  (*\"solve for one, extend to many\"*); ability-based design (Wobbrock et al. 2011)\n  inverts the framing to design *to the abilities a person has*.\n- **Technical conformance.** *Does it meet the standard?* WCAG and related criteria,\n  established by audit. Testable and standard-referenced — but conformance is a property\n  of the artifact against a checklist, **not** a claim that anyone can actually use it.\n- **Task accessibility.** *Can a person using assistive technology X perceive, operate,\n  and understand — and complete — task T?* A capability *outcome*, and **not binary**: it\n  is graded and contextual (which person, which task, which AT, which setting), measured\n  by AT walkthrough and task completion, not inferred from a conformance pass.\n- **Usability outcomes.** A graded measure (from `05`): effectiveness × efficiency ×\n  satisfaction, *for disabled users as a first-class user group*, not an afterthought.\n- **Inclusion / equity.** *Does the design reduce exclusion across the whole population*,\n  including the non-disability dimensions of Section 8 (language, literacy, bandwidth,\n  age, situation)?"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#025",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "**Universal design (the principles).** Ronald Mace / Center for Universal Design\n(NC State, **1997**) — **seven principles**: equitable use; flexibility in use; simple\nand intuitive; perceptible information; tolerance for error; low physical effort; size\nand space for approach and use. These are *design principles*, dated and general, **not\na conformance standard** — do not cite them as pass/fail criteria; they inform the\nprocess axis, they do not measure the conformance one."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#026",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "The distinction that keeps a team honest: **you can conform (axis 2) without being\ntask-accessible or usable (axes 3–4), and be usable-for-most without being inclusive\n(axis 5).** Section 6 is the whole argument that conformance ≠ the outcome axes; keep the\naxes separate and score them separately."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#027",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#028",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "## 3. How Assistive Technology Interacts — The Accessibility Tree"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#029",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "The mechanical heart of interactive accessibility. Assistive technologies (AT) do not\nread your pixels; they consume a **semantic model** of your UI called the\n**accessibility tree**, exposed through a platform **accessibility API**."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#030",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "```\n  THE ACCESSIBILITY PIPELINE (how AT reaches the user)\n  --------------------------------------------------------------\n   UI element tree        semantic contract          platform bridge\n   (DOM / native views)   name / role / value /       OS a11y API\n        |                 state / relationships       (UIA, AX, AT-SPI)\n        |  compute              |                          |\n        v                       v                          v\n   [ ACCESSIBILITY TREE ] --> [ PLATFORM A11Y API ] --> [ ASSISTIVE TECH ] --> user\n                                                         screen reader,\n                                                         magnifier, switch,\n                                                         voice control, braille\n  --------------------------------------------------------------\n   If the semantic contract is wrong, EVERY layer downstream is wrong.\n   A <div> styled to look like a button has role=none: AT sees nothing\n   to announce, nothing to focus, nothing to \"press\".\n```"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#031",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "An interactive element needs an accessible **name** and a correct **role**; **value** and\n**state** are exposed **only when they apply**; and **descriptions** and **relationships**\ncomplete the semantic contract when present. Name and role are the non-negotiable\ninteractive semantics — value/state on a control that has neither is noise:"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#032",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "| Property | When | Question it answers | Failure mode |\n|---|---|---|---|\n| **Name** | required (interactive) | what is this? (\"Submit\", \"Search\") | unlabeled icon button → announced as \"button\" |\n| **Role** | required (interactive) | what kind of control? (button, link, checkbox) | `<div onclick>` → no role → invisible to AT |\n| **Value** | when applicable | current content/setting (slider, textbox) | custom slider with no exposed value |\n| **State** | when applicable | checked? expanded? disabled? selected? | menu that looks open but reports collapsed |\n| **Description** | when present | extra help beyond the name (`aria-describedby`) | error/help text not tied to its field |\n| **Relationships** | when present | grouping & associations (label↔field, header↔cell, owns) | radio group with no group; header not tied to cell |"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#033",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "- **Semantics before ARIA.** Native semantic elements (`<button>`, `<a href>`,\n  `<input>`, `<nav>`) carry the correct **role and state behavior**, keyboard operability,\n  and value where it applies *for free* — but the accessible **name** must still be\n  supplied where the element does not derive one from its content (an icon-only\n  `<button>`, an `<input>` without an associated `<label>`). **WAI-ARIA** (Accessible Rich\n  Internet Applications; W3C\n  Recommendation, ARIA 1.2, 2023) *supplements* semantics for custom widgets — but the\n  **first rule of ARIA is \"don't use ARIA if a native element will do,\"** and **\"no ARIA\n  is better than bad ARIA\":** incorrect ARIA actively lies to the accessibility tree and\n  is worse than none. ARIA changes the *semantics*, never the *behavior*; you still must\n  wire the keyboard and focus yourself.\n- **Three distinct mechanisms, not one — \"it's all the keyboard\" is wrong.** Keep the\n  operating mechanisms separate, because an app can satisfy one and fail another:\n  - **Keyboard operability** — a **logical focus order**, a **visible focus indicator**,\n    and no **keyboard traps**. This carries keyboard users *and* the ATs that emulate a\n    keyboard (many switch setups, some voice commands) — but it is not what *every* AT\n    uses.\n  - **Accessibility API / semantic tree** — the name/role/value/state (+ description/\n    relationships) that screen readers, voice control, and switch scanners *read* to\n    perceive and target elements. Voice control (\"click Submit\") resolves by **name**; a\n    touch screen reader announces by **role and name** — neither is a keypress.\n  - **Touch / pointer / voice / switch input** — each has its own operable requirements:\n    touch-screen-reader **gestures** (swipe / double-tap on iOS/Android), **pointer**\n    gestures that must have single-pointer alternatives (no path- or multipoint-only\n    action), **voice** targeting by visible label, and **switch** scanning. A\n    keyboard-perfect app can still be unusable by touch AT or by voice if names/roles or\n    touch targets are wrong.\n  Focus management (moving focus to opened dialogs, restoring it on close, exposing focus\n  to the a11y tree) remains among the highest-leverage engineering work — but it lives on\n  the *keyboard-operability* mechanism and does not, by itself, deliver the semantic tree\n  or the touch/pointer/voice/switch mechanisms."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#034",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "**Bridge (software).** The accessibility tree is a **semantic API / typed AST over your\nrendered UI**, and a screen reader is a **headless client** consuming it. `<div>`-soup is\n**stringly-typed UI** — it renders but carries no contract; ARIA is **type annotations**\nyou add to a custom widget to restore the contract, with the same danger as a wrong type\nannotation: a lie the whole toolchain now trusts. Building an inaccessible custom control\nand bolting ARIA on is re-implementing `<button>` badly; using the native element is\nusing the standard library."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#035",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#036",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "## 4. Access by Channel — Barrier → Mechanism → Design Response"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#037",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "Accessibility is concrete per sensory/motor/cognitive channel. For each: the barrier, the\nAT that mediates, and the interface's responsibility."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#038",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "**Visual.**\n- *Blind* → screen reader (JAWS, NVDA, Narrator, VoiceOver, TalkBack) and/or refreshable\n  **braille** display consuming the a11y tree (Section 3). Responsibility: complete name\n  and role (with value/state where applicable) plus descriptions and relationships; text\n  alternatives for images; structure (headings, landmarks, lists) so\n  navigation-by-structure works.\n- *Low vision* → magnification, high contrast, and **reflow**. Responsibility: don't\n  break on 200–400% zoom; support reflow to a single column (WCAG 1.4.10); meet the\n  contrast criteria — **WCAG 1.4.3** (Contrast (Minimum), AA) governs **text**: **4.5:1**\n  for normal text, **3:1** for large text; **WCAG 1.4.11** (Non-text Contrast, AA)\n  governs **non-text**: **3:1** for UI components and graphical objects — never hard-code\n  tiny fonts.\n- *Color vision deficiency* → responsibility: **never encode meaning by color alone**\n  (WCAG 1.4.1) — pair color with text, icon, or pattern (the red/green status dot needs a\n  label)."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#039",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "**Auditory.**\n- *Deaf / hard of hearing* → responsibility: **captions** for pre-recorded and live audio\n  (WCAG 1.2.2/1.2.4), **transcripts**, and — for some users whose first language is a\n  signed language — sign-language interpretation. Never make sound the *only* signal\n  (pair an alert beep with a visual cue)."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#040",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "**Motor / dexterity.**\n- *Limited or no fine motor control* → keyboard-only, **switch access** (scanning),\n  **voice control** (speak commands/labels), eye-gaze, alternative keyboards.\n  Responsibility: full keyboard operability (Section 3); adequate **target size** (WCAG\n  2.2 **2.5.8** Target Size (Minimum), AA: **24×24 CSS px**) — but this is **not** a\n  blanket rule: SC 2.5.8 carries defined **exceptions** (adequate **spacing** around a\n  smaller target, an **equivalent** control elsewhere on the page, **inline** targets\n  within a sentence, sizing left to the **user agent**, or where a specific presentation\n  is **essential**); no motion-only or drag-only operations (WCAG 2.2 Dragging\n  Movements); generous timing and the ability to extend or disable time limits (WCAG\n  2.2.1)."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#041",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "**Cognitive / learning.**\n- *Attention, memory, language, executive-function differences* → the least\n  standard-covered, most under-served channel (the W3C **COGA** task force addresses it).\n  Responsibility: **plain language**; consistency and predictability (WCAG 2.2 Consistent\n  Help); reduced memory load (recognition over recall); error tolerance and clear\n  recovery; reduced distraction; not requiring a cognitive test to log in (WCAG 2.2\n  Accessible Authentication). *Why* a given design taxes working memory is\n  `cognitive-science/`'s to explain; this guide owns the design response."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#042",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "```\n  ONE BARRIER, MANY ACCOMMODATIONS -- e.g. \"status is shown only in red\"\n  --------------------------------------------------------------\n   channel        who it blocks          the same fix that helps everyone\n   ------------   -------------------     --------------------------------\n   visual/color   color-blind users      add a text label + icon to the color\n   visual/blind   screen-reader users    expose status as text in the a11y tree\n   cognitive      low-literacy/stressed   use a plain, unambiguous status word\n  --------------------------------------------------------------\n   One inclusive fix (label + icon + accessible text) closes three gaps.\n```"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#043",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#044",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "## 5. WCAG 2.2 — What the Standard Is, Dated and Bounded"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#045",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "The **Web Content Accessibility Guidelines** are the dominant technical standard.\nVersions and dates matter and must be cited:"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#046",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "- **WCAG 2.0** — W3C Recommendation, **11 December 2008**.\n- **WCAG 2.1** — **5 June 2018** (added mobile, low-vision, cognitive criteria).\n- **WCAG 2.2** — **5 October 2023** (current 2.x Recommendation; added 9 success\n  criteria, e.g., Focus Not Obscured, Dragging Movements, Target Size Minimum,\n  Accessible Authentication, Consistent Help; **removed 4.1.1 Parsing** as obsolete).\n- **WCAG 3.0** — an **early Working Draft**, *not* a Recommendation, with a *different*\n  (scored, not pass/fail) conformance model. Do not cite 3.0 as a current requirement."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#047",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "Structure — the **POUR** principles, then guidelines, then testable success criteria at\nthree levels:"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#048",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "```\n  WCAG STRUCTURE (2.x)\n  --------------------------------------------------------------\n   4 PRINCIPLES (POUR)\n     Perceivable   -- can they sense the content? (alt text, contrast, captions)\n     Operable      -- can they operate it? (keyboard, timing, target size)\n     Understandable-- can they understand it? (readable, predictable, input help)\n     Robust        -- does it work with AT now and later? (name/role/value)\n        |\n        v  13 GUIDELINES\n        v  success criteria, each tagged a LEVEL:\n     A    = minimum / essential\n     AA   = the common target and typical legal reference threshold\n     AAA  = enhanced; W3C says do NOT require AAA across a whole site as policy\n  --------------------------------------------------------------\n   Conformance is per level and (mostly) all-or-nothing: to claim AA you meet\n   ALL A and AA criteria for full pages/flows, incl. \"accessibility supported\"\n   (works with the AT your users actually have).\n```"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#049",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "**Bounding the standard — read these honestly:**"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#050",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "- WCAG is a **web-content** standard (native mobile/desktop map to it via EN 301 549 and\n  platform guidance, imperfectly). It is a **necessary scaffold**, not a sufficient\n  definition of an accessible experience.\n- Coverage is **uneven across disabilities**: strong on perceivable/operable for\n  sensory/motor access, **comparatively weak on cognitive** accessibility (an active gap\n  the COGA work addresses).\n- Success criteria are **testable minimums**, which is their strength and their trap: a\n  page can satisfy every criterion mechanically and still be hostile to use (Section 6).\n- **AAA is not \"better compliance\"**; W3C explicitly advises against blanket AAA\n  requirements because some AAA criteria are impossible for some content."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#051",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "*(Whether any standard is legally required, for whom, and where — Section 508, ADA, EN\n301 549, the European Accessibility Act — is `law/`'s domain. Section 9 names them as\ndated landscape only.)*"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#052",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#053",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "## 6. Conformance vs Actual Usability — The Central Honesty"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#054",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "This is the accessibility twin of `05`'s \"SUS is not usability,\" and the single most\nimportant professional judgment in the guide: **passing WCAG is a floor and a proxy, not\na measure of whether disabled people can actually use the thing.**"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#055",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "```\n  CONFORMANCE  is NOT  USABILITY\n  --------------------------------------------------------------\n   AUTOMATED CHECK passes ...... only a MINORITY of WCAG issues are\n                                 machine-detectable at all (see the\n                                 recall note below) -> \"0 errors\" means\n                                 \"no MACHINE-FOUND errors\", not \"accessible\"\n   MANUAL AUDIT passes (AA) .... every criterion met on paper, yet the\n                                 screen-reader task can still take 10x longer,\n                                 or dead-end, or be technically-labelled noise\n   ACTUAL USABILITY ........... a disabled user completes the real task\n                                 effectively, efficiently, without agony\n  --------------------------------------------------------------\n   Each layer is necessary and none is sufficient. The bottom layer is\n   the strongest evidence -- but still BOUNDED (Section 7), not ground truth.\n```"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#056",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "Concretely: alt text can be present *and* useless (\"image123.png\"); every control can be\nlabeled *and* the focus order can scramble the flow; an ARIA live region can be *valid*\nand announce so much that the user turns it off. The empirical backdrop: automated\nanalyses like the annual **WebAIM Million** report have found detectable WCAG failures on\nthe large majority of top home pages (WebAIM Million 2024: ~96%), and automated tools\nreliably catch only a **minority** of real barriers — so \"our scanner is green\" is a\nstatement about the scanner, not the experience."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#057",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "**A note on the \"recall\" figure.** *Recall* here means the share of *genuine*\naccessibility barriers that an automated tool detects. It is a **minority** — automated\ntooling reliably catches only a fraction of real barriers, well below 100% — but no single\nprecise figure is defensible: recall depends heavily on the tool, its ruleset, the page,\nand how \"a barrier\" is counted, and the available tool-comparison and audit analyses do\nnot share a common denominator that would pin one number. Absent a **named primary\ncomparison and its denominator**, state it qualitatively — **a minority / limited\nrecall** — not as a measured rate; the load-bearing claim is only that automated recall is\nwell below 100%."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#058",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "The correction is method, from `05`, extended: **conformance testing (automated + manual\nexpert audit) tells you about the floor; usability testing with disabled participants\ngives you bounded evidence about actual use** — evidence for the specific people, tasks,\nAT, and contexts you sampled, **never ground truth.** Treat them as different instruments,\nreport both, and state the bounds of the sample."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#059",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "**Bridge (software).** This is exactly **green CI vs a good product**. Your accessibility\nlinter is a **static analyzer with limited recall**: it flags provable violations (missing\nalt, low contrast) and is blind to semantic wrongness (unhelpful alt, illogical order),\njust as a linter can't tell you your correct-compiling function returns the wrong answer.\nYou still run integration tests with real users — here, users with disabilities."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#060",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#061",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "## 7. Participatory Practice & Accessible Research — With, and By, Disabled People"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#062",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "The discipline here is **\"nothing about us without us\":** disabled people are not just\n*subjects* at the end of the process but **participants and decision-makers throughout\nit** — and even the best evaluation yields **bounded evidence**, never ground truth.\nThree things, and mature teams do all three."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#063",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "**(a) Disabled-led participatory / co-design across the lifecycle.** Involve disabled\npeople (and disabled designers and engineers on the team) at every stage, not as a final\naudit:"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#064",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "- **Discovery** — lived experience defines the real barriers and priorities *before*\n  requirements are set; the problem framing itself is co-owned.\n- **Design** — co-design sessions where disabled participants shape solutions (the\n  process axis of §2), not merely react to finished mockups.\n- **Evaluation** — testing *with* disabled users (part (b)), closing the loop.\n- **Community authority.** On decisions that affect a disabled community, that community\n  holds real authority — a voice that can change or stop the design, not a comment box.\n  Consulting disabled people and then overriding them is participation-theatre.\n- **Compensation.** Pay disabled participants and co-designers fairly for their expertise\n  and time; lived-experience and AT expertise are skilled labor, not a favor to be\n  extracted. Unpaid \"advocacy\" and emotional labor are an equity failure, not a saving."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#065",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "**(b) Evaluating the product's accessibility.** A layered method:"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#066",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "```\n  ACCESSIBILITY EVALUATION STACK (cheap/shallow -> expensive/deep)\n  --------------------------------------------------------------\n   1. AUTOMATED scan .......... fast, CI-friendly, low recall (§6), false sense of done\n   2. MANUAL EXPERT AUDIT ..... criterion-by-criterion vs WCAG; keyboard + AT walkthrough\n   3. AT WALKTHROUGH .......... operate the real flow with NVDA/VoiceOver/switch/voice\n   4. USABILITY TEST w/ ....... disabled participants, real tasks = strong but BOUNDED\n      DISABLED USERS          evidence (extends guide 05's methods), not ground truth\n  --------------------------------------------------------------\n   Stop-short at 1-2 and you ship \"conformant but unusable\" (Section 6).\n```"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#067",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "**(c) Making the research itself accessible** — because a study that excludes disabled\nparticipants (inaccessible consent forms, mouse-only tasks, uncaptioned sessions) cannot\nevaluate accessibility. Practical discipline, all from `05`/`06` extended:"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#068",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "- **Recruit for AT diversity, and don't treat disabled users as a monolith.** Screen-\n  reader users are not interchangeable with low-vision or cognitive-disability users;\n  even among screen-reader users, JAWS/NVDA/VoiceOver expertise differs. Over-recruit per\n  segment (the per-segment discovery-sample logic from `05` §6 applies here too).\n- **Respect AT expertise.** Test with the participant's *own* AT and configuration where\n  possible; a lab screen reader at default verbosity is not their setup.\n- **Welfare, consent, compensation, privacy.** Accessible consent materials; fair\n  compensation (part (a)); no fatigue-inducing marathon sessions; careful handling of\n  disability data (sensitive). These are *research-ethics principles this guide flags* —\n  not an IRB substitute and not legal advice.\n- **Remote vs in-person trade-offs.** Remote widens reach but adds setup friction and\n  selection bias (who has the device/bandwidth/AT and the literacy to join)."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#069",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "**Bounded evidence, not ground truth.** However well you do all of this, a usability test\nis evidence about **the specific people, tasks, AT versions, and contexts you sampled** —\nnot a universal verdict. A different disabled user, a newer AT build, a different task or\na slower network can surface what your sample could not. Report *who* and *what* you\ncovered, and treat the result as strong-but-bounded evidence, never proof that the system\nis \"accessible\" for everyone."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#070",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#071",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "## 8. Beyond Disability — Inclusive Dimensions That Are Not Optional"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#072",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "Inclusive design's \"reduce exclusion\" mandate extends past disability, and for a global\nsystem these dimensions are *central*, not caveats:"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#073",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "- **Localization & internationalization.** Language, script direction (RTL), text\n  expansion, locale formats, culturally variable icons. (Script/type *mechanism* is\n  `linguistics/`/`typography/`; the *interaction* responsibility — does the UI reflow for\n  RTL, does the ASR accept the accent — is here.)\n- **Literacy & numeracy.** Plain language and clear numbers serve low-literacy users,\n  non-native speakers, stressed users, *and* cognitive-accessibility users at once — the\n  curb-cut effect again.\n- **Bandwidth & device.** Low-end devices, metered/intermittent connectivity, small\n  screens, feature phones. A 6 MB \"accessible\" page is inaccessible to a user on a slow\n  metered connection. Progressive enhancement and graceful degradation are *inclusion*\n  techniques, not just performance ones.\n- **Age & situational constraints.** Older adults (often multiple mild, co-occurring\n  impairments) and situational limits (sunlight, noise, one-handed, distracted) are the\n  large populations that access work quietly serves."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#074",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "**Bridge (software).** Situational disability *is* **degraded-mode operation**: bright sun\n= temporary low vision; a loud room = temporary deafness; carrying a bag = temporary\none-handed. You already design services for degraded networks and partial failures;\ninclusive design is the same fault-tolerance stance pointed at the human side of the\nsystem."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#075",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#076",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "## 9. Procurement and Governance — Accessibility as an Organizational Capability"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#077",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "Accessibility fails as heroics and succeeds as a *system*. The governance mechanisms\n(described as mechanisms, **not** as legal obligations):"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#078",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "- **Shift left.** The cheapest accessibility is designed-in: an **accessible design\n  system / component library** makes the accessible path the default path, so product\n  teams inherit correct semantics, focus, and contrast. This is the single highest-\n  leverage governance move — fix `<button>` once, fix it everywhere.\n- **Automated gates in CI**, understood for what they are (Section 6): a low-recall\n  regression guard, not a sign-off.\n- **Conformance artifacts.** A **VPAT** (Voluntary Product Accessibility Template),\n  produced as an **ACR** (Accessibility Conformance Report), is the industry document a\n  buyer requests to see a product's claimed conformance. Named here as an *artifact and a\n  process*; its truthfulness depends on the audit behind it, and it is not a usability\n  guarantee.\n- **Procurement.** Organizations bake accessibility requirements into purchasing so they\n  don't buy inaccessible tools. The *mechanism* is a requirement in a contract; the\n  *legal force* of any such requirement is `law/`.\n- **Roles, ownership, maturity.** A named owner, training, and a maturity model move an\n  org from reactive-remediation to designed-in accessibility."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#079",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "**Overlays are not governance.** Third-party \"accessibility overlay\" widgets that promise\none-line compliance are widely rejected by the accessibility community and disabled users\n(see the *Overlay Fact Sheet*, overlayfactsheet.com, first published **2021**) — they can\n*degrade* AT interaction and do not deliver actual usability. The absence of a shortcut is\nitself a governance fact."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#080",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#081",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "## A Worked Inclusive-Design Case (illustrative, fictional)"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#082",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "*Fictional throughout, to show the three-way boundary and the conformance-vs-usability\ngap in motion. No real jurisdiction, product, or law is described, and nothing here is\nlegal advice.*"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#083",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "**System.** *Rivergate Benefits*, a fictional government portal where residents apply for\nan income-support benefit. It is used by a population skewed toward older adults, people\nwith disabilities, low-literacy and multilingual users, and people on low-end phones over\nmetered data — i.e., the exact population access work serves."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#084",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "**Boundary in action (the three-way split).**\n- *HCI (this guide)* owns: designing the application flow so it is perceivable/operable/\n  understandable, and *evaluating* that with disabled users.\n- *human-factors/* would own (deferred): if caseworkers use a high-throughput internal\n  triage console under time pressure, their **workload and error rates** under load — an\n  operator-performance question, not an interface-reach question.\n- *law/* owns (deferred): whether the portal is legally *required* to meet a given\n  standard, and any liability. This guide does **not** rule on that."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#085",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "**Design.** Built on an accessible design system: native semantics, keyboard-first, 4.5:1\ncontrast, plain-language labels, no color-only status, captions on the help videos,\ngenerous timeouts, target sizes ≥ 24×24 px, RTL support for one official language, and a\nlow-bandwidth mode that drops to a lightweight page."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#086",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "**Evaluation — and the conformance-vs-usability gap.** An automated scan is green, and a\nmanual expert audit finds the flow meets **WCAG 2.2 AA** on paper. But a **usability test\nwith disabled participants** (Section 7) surfaces what conformance missed:\n- A screen-reader user *can* complete the income step (it's labeled and reaches AA) but it\n  takes ~4× longer because a valid-but-noisy ARIA live region re-announces the whole\n  summary on every keystroke. **Conformant, not usable.**\n- A low-literacy user abandons at a legally-worded eligibility question that is\n  *technically* \"understandable\" per the criteria but not in practice.\n- A user on a metered connection times out on the document-upload step because the\n  \"accessible\" page still ships a heavy script bundle."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#087",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "**Fixes.** Throttle/summarize the live region; rewrite the eligibility question in tested\nplain language; make upload work on the low-bandwidth path. None of these were WCAG\n*failures* — they are the gap between conformance and the experience, caught only because\nthe team tested with the actual excluded users."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#088",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "**Reading.** Rivergate reached **conformance** (AA) before it reached **task accessibility\nand usability** (disabled users completing the real task without agony), and it aimed for\n**inclusion** (the same plain-language and low-bandwidth fixes that helped disabled users\nhelped everyone). The team scores those axes **separately** (§2), defers the\nlegal-requirement question to counsel, and defers any caseworker-console workload question\nto a future human-factors review — the three-way boundary held."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#089",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "**A non-Western, low-bandwidth branch (same benefit, a different deployment).** Now deploy\nthe same benefit in a low-income, largely rural region: most residents reach it on\n**shared or low-end Android phones over metered 2G/3G**, in **languages with limited\ndigital-type and complex-script or RTL needs**, with **low text literacy in the official\nlanguage**, and where **commercial screen readers are unaffordable** — the common AT is\nfree/bundled (TalkBack, community text-to-speech) or none. The five axes do not change;\nthe design responses do, and this is a *branch to work*, not a caveat to note:"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#090",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "- **AT access is not assumable.** Do not design for JAWS-on-desktop; the realistic AT is\n  TalkBack on a budget phone — or a feature-phone **USSD/IVR** channel with no screen\n  reader at all. Audio-first flows and an **SMS/USSD fallback** are accessibility\n  features here, not extras.\n- **Bandwidth is an access barrier, not a performance nicety.** A \"conformant\" page that\n  ships megabytes fails a metered 2G user as surely as a missing label fails a\n  screen-reader user. Ship a genuinely light path, offline-tolerant forms, and resumable\n  uploads.\n- **Literacy and language.** Plain language is load-bearing, not polish; pair every\n  critical step with **icons, audio, and the user's own language** (not only the official\n  one), and test comprehension *with* low-literacy users rather than trusting a\n  readability score.\n- **Participatory, locally.** Co-design and testing must be **with residents of that\n  region on their actual devices and AT** (Section 7); a capital-city lab on office\n  Wi-Fi measures a different system. Community authority and fair compensation apply here\n  too."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#091",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "The reading is the same shape as Rivergate but for a population the WEIRD default silently\nexcludes: the same five axes, **re-evidenced** for this context — not a paragraph of\napology appended to a Western design."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#092",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "**On the legal deferral — an honesty note.** This guide routes every \"are we legally\nrequired to?\" question to `law/`. As of this prototype, the `law/` module does **not yet\ndeeply cover digital-accessibility statutes** (it treats the ADA only in the *employment*\ncontext and does not yet address Section 508, the EAA, EN 301 549, or web/app\naccessibility duty). So the deferral target is currently incomplete: the legal-obligation\nquestion is **deferred, not answered** — this guide still names the standards landscape as\ndated context only and routes duty and compliance to `law/` and qualified counsel, which\nis exactly why it must not be read as legal advice."
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#093",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#094",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "## Reader Tasks (answerable from this guide)"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#095",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "1. **Diagnose a barrier across the stack.** Given \"order status is shown only as a red\n   dot,\" name the channel(s) blocked (color-blind and screen-reader and low-literacy\n   users), the WCAG principle at stake (Perceivable; 1.4.1 use of color), and one\n   inclusive fix that closes all three (label + icon + accessible text). (§4, §5.)\n2. **Explain conformant-but-unusable.** Given \"we pass WCAG 2.2 AA and the scanner is\n   green,\" explain why a screen-reader user can still be unable to use the flow, what\n   evaluation would catch it (AT walkthrough + usability test with disabled users), and\n   why a \"green scan\" catches only a minority of real barriers (its *recall*; §6). (§6, §7.)\n3. **Place responsibility on the right owner.** Given three concerns — \"the button has no\n   accessible name,\" \"the ER-console operator is overloaded at peak,\" \"are we legally\n   required to conform?\" — assign them to HCI, human-factors, and law respectively, and\n   justify from the three-way boundary. (Header, §9, worked case.)\n4. **Design an accessible study.** Sketch a usability test that evaluates a checkout for\n   accessibility: recruit for AT diversity (don't treat disabled users as one segment),\n   test with participants' own AT, provide accessible consent, and size discovery per\n   segment. (§7.)\n5. **Scope inclusion for a global rollout.** For a benefits portal used on low-end phones\n   in several languages, list the inclusive dimensions beyond disability that must be\n   addressed (localization/RTL, literacy, bandwidth/device, age/situational) and one\n   design response to each. (§8, worked case.)"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#096",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#097",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md#098",
+      "path": [
+        "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[proof-backfill:human-computer-interaction:08-accessibility-inclusive-design]",
+        "canonical_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "concepts": "[accessibility, inclusive-design, disability-models, wcag, assistive-technology, accessibility-tree, conformance-vs-usability]",
+        "current_path": "human-computer-interaction/08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+        "id": "maxim:human-computer-interaction:accessibility-inclusive-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[accessibility]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Accessibility and Inclusive Design - Interactive Systems for the Full Range of Human Ability",
+        "updated": "null"
+      },
+      "text": "| Situation | What to do | Why (this guide) |\n|---|---|---|\n| \"Is it accessible?\" | ask **for whom, doing what, with which AT** | accessibility is a per-user, per-task capability, not a global flag (Big Picture, §2) |\n| Building a custom control | use the **native element** first; add ARIA only to fill gaps | no ARIA is better than bad ARIA; native semantics give **role/state behavior + keyboard** for free, but you still supply the accessible **name** where needed (icon buttons, inputs), **value/state only when applicable**, and **relationships/descriptions** where required (§3) |\n| Any interactive element | verify **name + role** (value/state when applicable; + description/relationships) and keyboard operability | AT reads the a11y tree; keyboard, touch/pointer/voice/switch are distinct mechanisms (§3) |\n| Status shown by color | add **text + icon**; never color-alone | WCAG 1.4.1; serves color-blind + screen-reader + low-literacy (§4) |\n| Automated scan is green | treat as **low recall** (a minority of barriers; §6); run manual audit + AT walkthrough + user test | conformance is a scaffold, not usability (§6, §7) |\n| Claiming \"WCAG AA\" | it means **all A+AA criteria on full flows**, dated to WCAG 2.2 (2023) | conformance is per-level, mostly all-or-nothing (§5) |\n| \"AAA to be safe\" | **don't** blanket-require AAA | W3C advises against it; some AAA is impossible for some content (§5) |\n| Testing accessibility | test **with disabled users on their own AT** | lived-usability evidence beats the checklist — but is bounded, not ground truth (§7) |\n| A vendor sends a VPAT/ACR | read it as a **claim**, verify the audit, still test usability | an artifact ≠ a usable product (§9) |\n| Someone pitches an a11y \"overlay\" | **decline**; invest in the design system | overlays don't deliver usability and can harm AT (§9) |\n| \"Are we legally required to?\" | **route to `law/`** | this guide names standards, never adjudicates obligation (header, §5, §9) |\n| Operator overloaded under time pressure | **route to `human-factors/`** | operator performance/safety is HF, not interface reach (header) |"
+    }
+  ],
+  "refs": [
+    "08-ACCESSIBILITY-INCLUSIVE-DESIGN.md"
+  ]
+}

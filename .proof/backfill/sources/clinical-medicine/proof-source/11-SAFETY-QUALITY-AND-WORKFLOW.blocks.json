@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "clinical-medicine\\11-SAFETY-QUALITY-AND-WORKFLOW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 91,
+      "heading_context": "## 1. The Swiss-Cheese Model — Defense in Depth",
+      "confidence": "candidate",
+      "text": "  THE SWISS-CHEESE MODEL  (harm passes only when holes ALIGN)\n  ----------------------------------------------------------------\n   hazard --> [ layer 1 ] [ layer 2 ] [ layer 3 ] [ layer 4 ] --> HARM\n                 O   O        O            O   O        O\n                  \\           |            /\n                   `---- holes align ------'   (a rare, correlated alignment)\n  ----------------------------------------------------------------\n   ACTIVE failures:  the sharp-end slip/mistake, immediate, visible (Section 2)\n   LATENT conditions: the blunt-end holes -- design, staffing, defaults, culture -- dormant,\n                      built in long before, waiting for an active failure to line up with them\n  ----------------------------------------------------------------\n  Blaming the sharp end (the active failure) leaves every LATENT hole in place, so the next\n  person hits the same aligned holes. The fix is closing holes, especially latent ones.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 136,
+      "heading_context": "## 2. Error Taxonomy — Naming the Failure Precisely",
+      "confidence": "candidate",
+      "text": "  ERROR TAXONOMY  (execution vs planning -- they need different fixes)\n  ----------------------------------------------------------------\n  SLIPS + LAPSES  (execution failure: RIGHT plan, WRONG execution)\n     slip  = attentional (did the wrong action)   -> fix with forcing functions, design\n     lapse = memory (omitted a step)              -> fix with checklists, reminders\n  MISTAKES  (planning failure: WRONG plan, executed faithfully)\n     rule-based      = applied a wrong/mis-fitting rule  -> fix with training, decision support\n     knowledge-based = wrong reasoning in a novel case   -> fix with expertise, consultation\n  ----------------------------------------------------------------\n  Slips are failures of a good plan; mistakes are failures OF the plan. A checklist fixes a lapse,\n  not a knowledge-based mistake -- matching the fix to the type is the whole point of classifying.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 177,
+      "heading_context": "## 3. Just Culture — Blameless, But Accountable",
+      "confidence": "candidate",
+      "text": "  JUST CULTURE  (judge the BEHAVIOR, not the outcome)\n  ----------------------------------------------------------------\n   HUMAN ERROR      inadvertent slip/lapse         -> CONSOLE + fix the system (Section 1-2)\n   AT-RISK BEHAVIOR drifted from safe practice,     -> COACH + remove the incentive to drift\n                    risk not recognized\n   RECKLESS BEHAVIOR conscious disregard of a        -> ACCOUNTABLE (disciplinary)\n                    substantial, unjustifiable risk\n  ----------------------------------------------------------------\n  Same bad outcome can arise from any of the three; the RESPONSE depends on the behavior that\n  produced it, NOT on how badly it turned out. Punishing human error just drives it underground.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 213,
+      "heading_context": "## 4. Learning and Staying Alert — RCA and HRO",
+      "confidence": "candidate",
+      "text": "  RCA: PAST-FACING (learn from an event)   |   FMEA: FUTURE-FACING (find risk first)\n  --------------------------------------   |   -----------------------------------\n  event -> \"5 whys\" past the sharp end     |   map a process -> for each step, ask\n        -> contributing factors (fishbone) |   how could it fail, how bad, how likely,\n        -> SYSTEM causes (latent holes)     |   how detectable -> prioritize + mitigate\n        -> assigned, verifiable ACTIONS     |   (a prospective threat model)\n  --------------------------------------   |   -----------------------------------\n  RCA is the postmortem; FMEA is the pre-mortem. Both target latent conditions (Section 1).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 246,
+      "heading_context": "## 5. Donabedian — Measuring Quality as Structure, Process, Outcome",
+      "confidence": "candidate",
+      "text": "  DONABEDIAN SPO  (three layers of quality measurement)\n  ----------------------------------------------------------------\n  STRUCTURE   the setting + resources: staffing, equipment, systems, training\n                -> \"do we have what good care requires?\"    (necessary, not sufficient)\n  PROCESS     what is actually DONE: the care delivered vs what should be\n                -> \"are we doing the right things right?\"    (actionable, but a proxy)\n  OUTCOME     what RESULTS for patients: mortality, function, experience, harm\n                -> \"did patients end up better?\"             (what matters; hard to attribute)\n  ----------------------------------------------------------------\n  Structure enables Process enables Outcome. Outcomes are the goal but are noisy and slow and need\n  risk-adjustment; process measures are faster and more actionable but only matter if linked to\n  outcomes. Good measurement uses all three deliberately.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 280,
+      "heading_context": "## 6. Improving — PDSA and the Aims",
+      "confidence": "candidate",
+      "text": "  MODEL FOR IMPROVEMENT + PDSA\n  ----------------------------------------------------------------\n  Three questions:\n     1 what are we trying to accomplish?   (aim)\n     2 how will we know a change is an improvement?  (measure -- Section 5)\n     3 what change might we test?           (idea)\n  then iterate PDSA:\n     PLAN  a small test of change + prediction\n     DO    run it on a small scale\n     STUDY compare results to the prediction (run charts / SPC over time)\n     ACT   adopt / adapt / abandon -> next cycle\n  ----------------------------------------------------------------\n  Small, fast, iterative tests beat big-bang rollouts: you learn from each cycle and limit blast\n  radius. Run charts track change over time and separate signal (real shift) from noise.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 318,
+      "heading_context": "## 7. Diagnostic Safety — Guide 02's Errors as a System Problem",
+      "confidence": "candidate",
+      "text": "  DIAGNOSTIC SAFETY  (guide 02's cognition + this guide's systems)\n  ----------------------------------------------------------------\n  cognitive contributors (guide 02)   -> debiasing, calibration, forcing functions\n  system contributors (this guide)    -> workload/fatigue, teamwork, health-IT (Section 8),\n                                          time pressure, follow-up loops (Section 8)\n  communication contributors (guide 07) -> handoffs, transmit uncertainty, result loops\n  ----------------------------------------------------------------\n  A large share of diagnostic error is the aligned-holes pattern (Section 1): a cognitive slip\n  meeting a latent system hole (no result follow-up, a rushed handoff). The fix spans all three.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 350,
+      "heading_context": "## 8. The EHR and the Order/Result Closed Loops",
+      "confidence": "candidate",
+      "text": "  THE RESULT LOOP  (the latent hole that safety systems must close)\n  ----------------------------------------------------------------\n   order placed -> test performed -> result returns -> [ NAMED OWNER acknowledges ] -> ACT / record\n                                                              ^\n                                                              |\n                              if no owner is assigned here, the loop is OPEN -> missed result\n  ----------------------------------------------------------------\n  Same closed-loop invariant as guides 07 and 08. The EHR can CLOSE this loop (route to an owner,\n  track acknowledgment) or LEAVE it open (a result in an unmonitored inbox). Design decides which.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

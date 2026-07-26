@@ -1,0 +1,187 @@
+{
+  "schema_version": "1",
+  "source_markdown": "chemistry\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 99,
+      "heading_context": "## What Each Guide Owns (and Where NOT to Look Here)",
+      "headers": [
+        "#",
+        "Guide",
+        "Uniquely owns",
+        "Explicitly defers to"
+      ],
+      "rows": [
+        [
+          "01",
+          "Inorganic",
+          "CFT/LFT, CFSE, Jahn-Teller, 18e rule, organometallics, Pd catalysis, bioinorganic",
+          "element trends → `periodic-table/`; band theory → `materials/02`"
+        ],
+        [
+          "02",
+          "Acid-Base/Solution",
+          "HSAB, polyprotic, buffer capacity, Ksp, EDTA conditional constants, superacids",
+          "ΔG/K basics → `natural-sciences/03`"
+        ],
+        [
+          "03",
+          "Organic Synthesis",
+          "retrosynthesis, named reactions, pericyclic/FMO, protecting groups, asymmetric, green metrics",
+          "SN1/SN2/E1/E2, stereo basics → `natural-sciences/17`"
+        ],
+        [
+          "04",
+          "Analytical/Quantitative",
+          "gravimetry, titrimetry, voltammetry, calibration, ICH validation",
+          "cell EMF/Nernst → `natural-sciences/05`"
+        ],
+        [
+          "05",
+          "Separation Science",
+          "van Deemter, GC, HPLC, TLC, CE, SPE, hyphenated MS",
+          "distillation/process → `chemical-eng/04`"
+        ],
+        [
+          "06",
+          "NMR",
+          "¹H/¹³C, DEPT, COSY/HSQC/HMBC/NOESY, small-molecule elucidation",
+          "protein NMR → `biophysics/03`"
+        ],
+        [
+          "07",
+          "Optical + MS",
+          "IR/UV-Vis interpretation, photochemistry, MS fragmentation, combined elucidation",
+          "Beer-Lambert physics, IR/Raman rules → `optics/07`"
+        ],
+        [
+          "08",
+          "Crystallography",
+          "space groups/absences, SHELX, Flack, CSD, powder XRD/Rietveld",
+          "protein XRD/PDB → `biophysics/03`; lattices → `materials/01`"
+        ],
+        [
+          "09",
+          "Physical Chemistry Depth",
+          "partition functions → thermochem, Debye-Hückel/activity, adsorption, surface kinetics",
+          "Ising/phase transitions → `statistical-mechanics/`"
+        ],
+        [
+          "10",
+          "Computational",
+          "molecular QM ladder, DFT functionals, MD for solutions, QM/MM, cheminformatics",
+          "periodic DFT for solids → `materials/09`"
+        ],
+        [
+          "11",
+          "Measurement + Safety",
+          "GUM uncertainty, GLP, GHS/SDS, reactive handling, waste",
+          "— (module-unique)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 124,
+      "heading_context": "## Bridge: Software Mental Models → Chemistry",
+      "headers": [
+        "Software / systems concept",
+        "Chemistry analog"
+      ],
+      "rows": [
+        [
+          "Type system / schema",
+          "Bonding + valence: what combinations are even legal"
+        ],
+        [
+          "Compiler optimization passes",
+          "Retrosynthetic analysis: rewrite target → simpler precursors"
+        ],
+        [
+          "Static vs. dynamic dispatch",
+          "Thermodynamic control (most stable product) vs. kinetic control (fastest to form)"
+        ],
+        [
+          "Rate limiter / critical path",
+          "Rate-determining step; turnover-limiting step in catalysis"
+        ],
+        [
+          "Unit/integration test",
+          "Titration, NMR, MS, XRD — orthogonal assays that must agree"
+        ],
+        [
+          "Numerical precision / error bars",
+          "Measurement uncertainty (GUM), LOD/LOQ, significant figures"
+        ],
+        [
+          "Approximation ladder (O(1)→O(n³))",
+          "QM method ladder (MM → DFT → MP2 → CCSD(T)); accuracy costs compute"
+        ],
+        [
+          "Canonical serialization (JSON)",
+          "SMILES / InChI: canonical text encoding of a molecular graph"
+        ],
+        [
+          "Determinism vs. stochastic sim",
+          "Static structure (XRD) vs. ensemble sampling (molecular dynamics)"
+        ],
+        [
+          "Reference implementation",
+          "The Cambridge Structural Database / spectral libraries as ground truth"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 191,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I need to...",
+        "Go to"
+      ],
+      "rows": [
+        [
+          "Predict a transition-metal complex's color/magnetism",
+          "`01` (CFT: Δ_oct, high/low spin)"
+        ],
+        [
+          "Choose a buffer and predict its capacity",
+          "`02` (Henderson-Hasselbalch, β)"
+        ],
+        [
+          "Plan a multistep synthesis of a target",
+          "`03` (retrosynthesis + named reactions)"
+        ],
+        [
+          "Quantify an analyte with known uncertainty",
+          "`04` (calibration, standard addition) + `11` (GUM)"
+        ],
+        [
+          "Pick GC vs. HPLC vs. CE for a mixture",
+          "`05` (van Deemter + selectivity table)"
+        ],
+        [
+          "Elucidate an organic structure from spectra",
+          "`06` + `07` (NMR + MS + IR fusion)"
+        ],
+        [
+          "Determine an absolute configuration in the solid",
+          "`08` (Flack parameter)"
+        ],
+        [
+          "Get activity coefficients for an ionic solution",
+          "`09` (Debye-Hückel/Davies)"
+        ],
+        [
+          "Choose a QM method for a target accuracy",
+          "`10` (method-vs-cost table)"
+        ],
+        [
+          "Handle a pyrophoric or peroxide-forming reagent safely",
+          "`11` (reactive-class reference)"
+        ]
+      ]
+    }
+  ]
+}

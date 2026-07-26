@@ -1,0 +1,164 @@
+{
+  "schema_version": "1",
+  "source_markdown": "human-computer-interaction\\08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 143,
+      "heading_context": "## 1. Models of Disability — The Model Decides What You Build",
+      "headers": [
+        "Model",
+        "Locates disability in",
+        "\"Fix\" implied",
+        "Design consequence"
+      ],
+      "rows": [
+        [
+          "**Medical**",
+          "the individual's body/impairment",
+          "cure/rehabilitate the person",
+          "disability is someone else's (clinical) problem; nothing to design"
+        ],
+        [
+          "**Social** (Oliver 1983)",
+          "society's barriers/exclusion",
+          "remove the barriers",
+          "the *environment/interface* is the problem to change"
+        ],
+        [
+          "**Biopsychosocial / ICF** (WHO 2001)",
+          "interaction of body, activity, participation, context",
+          "reduce barriers *and* support function",
+          "function is contextual; measure participation, not just impairment"
+        ],
+        [
+          "**Interaction / mismatch** (Microsoft Inclusive Design 2016)",
+          "the person↔environment *mismatch*",
+          "redesign the environment to fit more people",
+          "reframes disability as a *design* variable you control"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 244,
+      "heading_context": "## 3. How Assistive Technology Interacts — The Accessibility Tree",
+      "headers": [
+        "Property",
+        "When",
+        "Question it answers",
+        "Failure mode"
+      ],
+      "rows": [
+        [
+          "**Name**",
+          "required (interactive)",
+          "what is this? (\"Submit\", \"Search\")",
+          "unlabeled icon button → announced as \"button\""
+        ],
+        [
+          "**Role**",
+          "required (interactive)",
+          "what kind of control? (button, link, checkbox)",
+          "`<div onclick>` → no role → invisible to AT"
+        ],
+        [
+          "**Value**",
+          "when applicable",
+          "current content/setting (slider, textbox)",
+          "custom slider with no exposed value"
+        ],
+        [
+          "**State**",
+          "when applicable",
+          "checked? expanded? disabled? selected?",
+          "menu that looks open but reports collapsed"
+        ],
+        [
+          "**Description**",
+          "when present",
+          "extra help beyond the name (`aria-describedby`)",
+          "error/help text not tied to its field"
+        ],
+        [
+          "**Relationships**",
+          "when present",
+          "grouping & associations (label↔field, header↔cell, owns)",
+          "radio group with no group; header not tied to cell"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 703,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "What to do",
+        "Why (this guide)"
+      ],
+      "rows": [
+        [
+          "\"Is it accessible?\"",
+          "ask **for whom, doing what, with which AT**",
+          "accessibility is a per-user, per-task capability, not a global flag (Big Picture, §2)"
+        ],
+        [
+          "Building a custom control",
+          "use the **native element** first; add ARIA only to fill gaps",
+          "no ARIA is better than bad ARIA; native semantics give **role/state behavior + keyboard** for free, but you still supply the accessible **name** where needed (icon buttons, inputs), **value/state only when applicable**, and **relationships/descriptions** where required (§3)"
+        ],
+        [
+          "Any interactive element",
+          "verify **name + role** (value/state when applicable; + description/relationships) and keyboard operability",
+          "AT reads the a11y tree; keyboard, touch/pointer/voice/switch are distinct mechanisms (§3)"
+        ],
+        [
+          "Status shown by color",
+          "add **text + icon**; never color-alone",
+          "WCAG 1.4.1; serves color-blind + screen-reader + low-literacy (§4)"
+        ],
+        [
+          "Automated scan is green",
+          "treat as **low recall** (a minority of barriers; §6); run manual audit + AT walkthrough + user test",
+          "conformance is a scaffold, not usability (§6, §7)"
+        ],
+        [
+          "Claiming \"WCAG AA\"",
+          "it means **all A+AA criteria on full flows**, dated to WCAG 2.2 (2023)",
+          "conformance is per-level, mostly all-or-nothing (§5)"
+        ],
+        [
+          "\"AAA to be safe\"",
+          "**don't** blanket-require AAA",
+          "W3C advises against it; some AAA is impossible for some content (§5)"
+        ],
+        [
+          "Testing accessibility",
+          "test **with disabled users on their own AT**",
+          "lived-usability evidence beats the checklist — but is bounded, not ground truth (§7)"
+        ],
+        [
+          "A vendor sends a VPAT/ACR",
+          "read it as a **claim**, verify the audit, still test usability",
+          "an artifact ≠ a usable product (§9)"
+        ],
+        [
+          "Someone pitches an a11y \"overlay\"",
+          "**decline**; invest in the design system",
+          "overlays don't deliver usability and can harm AT (§9)"
+        ],
+        [
+          "\"Are we legally required to?\"",
+          "**route to `law/`**",
+          "this guide names standards, never adjudicates obligation (header, §5, §9)"
+        ],
+        [
+          "Operator overloaded under time pressure",
+          "**route to `human-factors/`**",
+          "operator performance/safety is HF, not interface reach (header)"
+        ]
+      ]
+    }
+  ]
+}

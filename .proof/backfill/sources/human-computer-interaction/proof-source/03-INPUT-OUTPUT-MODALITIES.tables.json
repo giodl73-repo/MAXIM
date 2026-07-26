@@ -1,0 +1,112 @@
+{
+  "schema_version": "1",
+  "source_markdown": "human-computer-interaction\\03-INPUT-OUTPUT-MODALITIES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 173,
+      "heading_context": "## 3. Text Entry — Measures Before Claims",
+      "headers": [
+        "Measure",
+        "What it is",
+        "Trap"
+      ],
+      "rows": [
+        [
+          "**WPM** (words/min)",
+          "throughput; 1 \"word\" = 5 characters by convention",
+          "must state entry method, corpus, and whether errors were corrected"
+        ],
+        [
+          "**KSPC** (keystrokes/char)",
+          "effort per character (predictive text lowers it)",
+          "low KSPC ≠ fast if each key is slow or error-prone"
+        ],
+        [
+          "**error rate** (e.g., MSD / total error rate, Soukoreff & MacKenzie, CHI **2003**)",
+          "uncorrected + corrected errors, from the minimum string distance",
+          "reporting speed without an error rate is meaningless (speed–accuracy trade-off)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 262,
+      "heading_context": "## 7. Output — Displays, Audio, Haptics",
+      "headers": [
+        "Channel",
+        "Carries well",
+        "Design contract (owned by HCI; bounds noted)"
+      ],
+      "rows": [
+        [
+          "**Visual display**",
+          "dense, parallel, spatial, persistent information",
+          "legibility, contrast (WCAG 1.4.3 text 4.5:1 / 1.4.11 non-text 3:1, from `08`), reflow, not-by-color-alone; rendering internals → `computer-graphics/`"
+        ],
+        [
+          "**Audio** (speech, earcons, auditory icons)",
+          "alerts, eyes-free status, ambient awareness",
+          "audio is **transient and serial** — never the *only* channel for critical info (`08`); earcons (abstract) vs auditory icons (Gaver, 1986: everyday-sound metaphors)"
+        ],
+        [
+          "**Haptics** (vibration, force feedback)",
+          "private, eyes-free confirmation; texture/force in VR",
+          "low bandwidth; strong as a *redundant* confirmation, weak as a sole carrier"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 321,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "The task/context is…",
+        "Prefer",
+        "Because (bounded)"
+      ],
+      "rows": [
+        [
+          "acquire a visible target fast",
+          "pointing/touch with **big targets, short travel**",
+          "Fitts: lower ID → lower MT (aimed movement only)"
+        ],
+        [
+          "choose among genuine equiprobable options",
+          "one **flat, organized** menu",
+          "Hick–Hyman: decide in log(n), not linear stepping"
+        ],
+        [
+          "enter lots of text, hands free",
+          "**voice** + visible transcript + typing fallback",
+          "fast for prose, but budget WER (population-dependent) + alternative"
+        ],
+        [
+          "precise drawing / CJK handwriting",
+          "**pen/stylus**",
+          "absolute, high-precision, pressure/hover DOF"
+        ],
+        [
+          "hands-busy / eyes-busy confirmation",
+          "**audio + haptic** (redundant)",
+          "eyes-free, private; never the sole critical channel"
+        ],
+        [
+          "user cannot use hands",
+          "**gaze / switch / voice** (from `08`)",
+          "access channels; mind Midas-touch (gaze), WER (voice)"
+        ],
+        [
+          "compare two input techniques",
+          "run **ISO 9241-411**, report **throughput + n**",
+          "a bare \"faster\" is not a measurement"
+        ],
+        [
+          "the *why* behind Fitts/Hick",
+          "`cognitive-science/09`",
+          "HCI applies; it does not derive"
+        ]
+      ]
+    }
+  ]
+}
