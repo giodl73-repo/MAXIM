@@ -1,0 +1,1133 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-probability-statistics-random-variables",
+  "source": "../../probability-statistics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "02-RANDOM-VARIABLES.md#000",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "# Random Variables and Distributions"
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#001",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#002",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|                   DISTRIBUTION FAMILIES                          |\n+------------------------------------------------------------------+\n|                                                                  |\n|  DISCRETE                      CONTINUOUS                        |\n|  +--------------------+        +--------------------+           |\n|  | Bernoulli          |        | Uniform            |           |\n|  | Binomial           |        | Normal (Gaussian)  |           |\n|  | Geometric          |        | Exponential        |           |\n|  | Negative Binomial  |        | Gamma              |           |\n|  | Poisson            |        | Beta               |           |\n|  | Hypergeometric     |        | Cauchy             |           |\n|  | Categorical        |        | Student-t          |           |\n|  | Multinomial        |        | Chi-squared        |           |\n|  +--------------------+        | Log-normal         |           |\n|                                | Pareto (heavy tail)|           |\n|  DERIVED FROM NORMAL           +--------------------+           |\n|  +-----------------------------+                                |\n|  | Chi-squared: sum of sq normal r.v.s                         |\n|  | t-distribution: normal / sqrt(chi-sq / n)                   |\n|  | F-distribution: ratio of chi-squareds                       |\n|  | Wishart: multivariate chi-squared (for covariances)         |\n|  +-----------------------------+                                 |\n   |                                                               |\n   |  EXPONENTIAL FAMILY (unified framework)                       |\n   |  Normal, Poisson, Exponential, Binomial, Gamma, Beta, ...     |\n+------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#003",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#004",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "## Characterizing a Distribution"
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#005",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "Four equivalent ways to specify the distribution of a real-valued r.v. X:"
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#006",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "```\n  1. CDF (Cumulative Distribution Function)\n     F(x) = P(X <= x)\n     Always exists. Right-continuous, non-decreasing, F(-inf)=0, F(+inf)=1.\n     Works for discrete, continuous, and mixed."
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#007",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "2. PMF (Probability Mass Function) -- discrete only\n     p(x) = P(X = x)\n     F(x) = Sum_{k <= x} p(k)"
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#008",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "3. PDF (Probability Density Function) -- absolutely continuous\n     f(x) such that P(X in A) = Integral_A f(x) dx\n     f >= 0, Integral f = 1.  Note: f(x) is NOT P(X = x)."
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#009",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "4. Characteristic function\n     phi_X(t) = E[e^{itX}]    (Fourier transform of the distribution)\n     Always exists. Uniquely determines the distribution.\n     phi_{X+Y}(t) = phi_X(t) phi_Y(t)  if X, Y independent.\n```"
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#010",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "**The characteristic function** is the probability theorist's tool of choice for proving the CLT and computing distributions of sums. The moment generating function E[e^{tX}] (the Laplace transform of the distribution) works when it exists in a neighborhood of 0, but the CF always exists."
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#011",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#012",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "## Moments and Cumulants"
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#013",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "```\n  MOMENTS (raw and central)\n  E[X^k]          = k-th raw moment\n  E[(X - mu)^k]   = k-th central moment  (mu = E[X])"
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#014",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "mu = E[X]        mean (1st raw moment)\n  Var(X) = E[(X-mu)^2] = E[X^2] - mu^2  (2nd central moment)\n  sigma = sqrt(Var(X))   standard deviation"
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#015",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "Skewness = E[(X-mu)^3] / sigma^3    (3rd standardized moment)\n  Kurtosis = E[(X-mu)^4] / sigma^4    (4th standardized moment)\n             Excess kurtosis = kurtosis - 3\n             Normal has excess kurtosis 0."
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#016",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "CUMULANTS (cleaner for sums)\n  log E[e^{tX}] = Sum_k kappa_k t^k / k!\n  kappa_1 = mean, kappa_2 = variance, kappa_3 = skewness x sigma^3\n  For independent X,Y: kappa_k(X+Y) = kappa_k(X) + kappa_k(Y)  (all k)\n  For Normal: all cumulants beyond kappa_2 are zero.\n```"
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#017",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#018",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "## The Normal Distribution — Central Object"
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#019",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "```\n  X ~ Normal(mu, sigma^2)"
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#020",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "PDF:   f(x) = (1 / sqrt(2 pi sigma^2)) exp(-(x-mu)^2 / (2 sigma^2))\n  CDF:   Phi((x-mu)/sigma)  where Phi = standard normal CDF\n  MGF:   exp(mu*t + sigma^2*t^2/2)\n  CF:    exp(i*mu*t - sigma^2*t^2/2)\n  E[X] = mu,  Var(X) = sigma^2"
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#021",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "KEY PROPERTIES:\n  1. Stable: Normal + Normal = Normal (same family under convolution)\n  2. Maximum entropy given fixed mean and variance\n  3. Closed under linear transformations: aX + b ~ Normal(a*mu+b, a^2*sigma^2)\n  4. Sum of n i.i.d. Normal: X_bar ~ Normal(mu, sigma^2/n)\n```"
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#022",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "**Multivariate Normal**:"
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#023",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "```\n  X ~ N(mu, Sigma)   where mu in R^n, Sigma is n x n PSD matrix"
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#024",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "PDF: (2 pi)^{-n/2} |Sigma|^{-1/2} exp(-1/2 (x-mu)^T Sigma^{-1} (x-mu))"
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#025",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "Key: Marginals and conditionals of multivariate Normal are Normal.\n  Conditional: (X_1 | X_2 = x_2) ~ Normal(mu_1 + Sigma_12 Sigma_22^{-1}(x_2 - mu_2),\n                                            Sigma_11 - Sigma_12 Sigma_22^{-1} Sigma_21)\n```"
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#026",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#027",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "## Common Distribution Reference"
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#028",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "### Discrete Distributions"
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#029",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "| Distribution | Parameters | Mean | Variance | Key Use |\n|---|---|---|---|---|\n| Bernoulli(p) | p in [0,1] | p | p(1-p) | Binary outcome |\n| Binomial(n,p) | n>=1, p in [0,1] | np | np(1-p) | k successes in n trials |\n| Geometric(p) | p in (0,1] | 1/p | (1-p)/p^2 | Trials until first success |\n| NegBin(r,p) | r>=1, p in (0,1] | r/p | r(1-p)/p^2 | Trials until r-th success |\n| Poisson(lambda) | lambda > 0 | lambda | lambda | Counts in fixed interval |\n| Hypergeometric | N,K,n | nK/N | --- | Sampling without replacement |"
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#030",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "**Poisson as Binomial limit**: Bin(n, lambda/n) -> Poisson(lambda) as n -> inf. The Poisson distribution models rare events in a large number of trials."
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#031",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "### Continuous Distributions"
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#032",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "| Distribution | Parameters | Mean | Variance | Key Use |\n|---|---|---|---|---|\n| Uniform(a,b) | a < b | (a+b)/2 | (b-a)^2/12 | No information prior |\n| Exponential(lambda) | lambda > 0 | 1/lambda | 1/lambda^2 | Waiting times |\n| Gamma(alpha, beta) | alpha,beta > 0 | alpha/beta | alpha/beta^2 | Sum of exponentials |\n| Beta(alpha, beta) | alpha,beta > 0 | alpha/(alpha+beta) | --- | Probabilities, Bayesian priors |\n| Normal(mu, sigma^2) | sigma > 0 | mu | sigma^2 | Universal via CLT |\n| Log-Normal(mu, sigma^2) | --- | e^{mu + sigma^2/2} | --- | Multiplicative processes |\n| Cauchy(x_0, gamma) | --- | undefined | undefined | Heavy tails, no moments |\n| Pareto(x_m, alpha) | x_m,alpha > 0 | depends | depends | Power law tails |\n| Student-t(nu) | nu > 0 | 0 (nu>1) | nu/(nu-2) | Inference with unknown variance |\n| Chi-squared(k) | k > 0 | k | 2k | Sum of squared normals |"
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#033",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#034",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "## The Exponential Family"
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#035",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "Many distributions share a common structure — the exponential family:"
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#036",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "```\n  p(x | theta) = h(x) exp(eta(theta)^T T(x) - A(theta))"
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#037",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "Where:\n  h(x)      = base measure (often 1)\n  eta(theta) = natural parameters\n  T(x)      = sufficient statistics\n  A(theta)  = log-partition function (cumulant generating function of T)"
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#038",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "Examples:\n  Normal(mu, sigma^2):   eta = (mu/sigma^2, -1/(2 sigma^2))\n                         T(x) = (x, x^2)\n  Poisson(lambda):       eta = log(lambda), T(x) = x\n  Binomial(n, p):        eta = log(p/(1-p)), T(x) = x  (logit!)\n  Exponential(lambda):   eta = -lambda, T(x) = x\n```"
+    },
+    {
+      "id": "02-RANDOM-VARIABLES.md#039",
+      "path": [
+        "02-RANDOM-VARIABLES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:02-random-variables, git-history:probability-statistics:02-random-variables]",
+        "canonical_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "concepts": "[random, variables]",
+        "current_path": "probability-statistics/02-RANDOM-VARIABLES.md",
+        "id": "maxim:probability-statistics:random-variables",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[random, variables]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Random Variables and Distributions",
+        "updated": "null"
+      },
+      "text": "**Why the exponential family matters**:\n1. **Sufficient statistics**: T(X) contains all information about theta (Fisher-Neyman factorization)\n2. **Conjugate priors**: The Bayesian prior for an exponential family likelihood is itself in the exponential family\n3. **Information geometry**: The natural parameters eta form coordinates on the statistical manifold\n4. **MLE**: The MLE equation reduces to E_theta[T(X)] = T_bar (sample average of sufficient statistics)\n5. **GLMs**: Generalized linear models use exponential family distributions as response distributions"
+    }
+  ],
+  "refs": [
+    "02-RANDOM-VARIABLES.md"
+  ]
+}

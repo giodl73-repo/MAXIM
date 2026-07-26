@@ -1,0 +1,226 @@
+{
+  "schema_version": "1",
+  "source_markdown": "clinical-medicine\\02-DIFFERENTIAL-DIAGNOSIS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 108,
+      "heading_context": "## 1. Dual-Process Reasoning",
+      "headers": [
+        "",
+        "System 1 (intuitive)",
+        "System 2 (analytic)"
+      ],
+      "rows": [
+        [
+          "Speed / cost",
+          "fast, low-effort, parallel",
+          "slow, effortful, serial"
+        ],
+        [
+          "Mechanism",
+          "illness-script pattern match (guide 01)",
+          "hypothetico-deductive, schema search"
+        ],
+        [
+          "Strength",
+          "accurate + efficient for typical presentations",
+          "robust for atypical, novel, or high-stakes cases"
+        ],
+        [
+          "Failure mode",
+          "bias, premature closure on a familiar pattern",
+          "analysis paralysis; still anchored if inputs are wrong"
+        ],
+        [
+          "When it dominates",
+          "experienced clinician, common problem",
+          "trainee, or expert on a case that \"doesn't fit\""
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 146,
+      "heading_context": "## 2. Diagnostic Schemas",
+      "headers": [
+        "Schema type",
+        "Partitions by",
+        "Example axis (abstract)"
+      ],
+      "rows": [
+        [
+          "**Anatomic**",
+          "location along a structure",
+          "a symptom's possible sources traced organ by organ"
+        ],
+        [
+          "**Physiologic / mechanistic**",
+          "the deranged process",
+          "overproduction vs underclearance; obstruction vs secretion"
+        ],
+        [
+          "**Etiologic (surgical sieve)**",
+          "cause category",
+          "e.g., VINDICATE / VITAMINCD mnemonics as category checklists"
+        ],
+        [
+          "**Timeframe**",
+          "tempo",
+          "hyperacute vs acute vs subacute vs chronic branches"
+        ],
+        [
+          "**Probabilistic**",
+          "base rate in this setting",
+          "common-things-common vs the rare tail"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 225,
+      "heading_context": "## 4. Cognitive Bias and Debiasing",
+      "headers": [
+        "Bias",
+        "What happens",
+        "Systems analog"
+      ],
+      "rows": [
+        [
+          "**Anchoring**",
+          "fixate on an initial impression; under-adjust to new data",
+          "stuck local optimum; no re-planning"
+        ],
+        [
+          "**Confirmation bias**",
+          "seek data that supports the anchor, discount refuting data",
+          "biased sampling of the log"
+        ],
+        [
+          "**Premature closure**",
+          "stop searching once a plausible label is attached",
+          "early `return` before alternatives evaluated"
+        ],
+        [
+          "**Availability**",
+          "over-weight a diagnosis that comes easily to mind (recent, vivid)",
+          "cache hit mistaken for base rate"
+        ],
+        [
+          "**Base-rate neglect**",
+          "ignore prevalence when judging probability",
+          "ignoring the prior in Bayes (guide 03)"
+        ],
+        [
+          "**Search satisficing**",
+          "stop at the first finding; miss a second, coexisting problem",
+          "first match returned; second bug unshipped"
+        ],
+        [
+          "**Diagnosis momentum**",
+          "a label, once attached (often at handoff), hardens into fact",
+          "unverified assumption propagated downstream"
+        ],
+        [
+          "**Framing**",
+          "the way the case is presented steers the conclusion",
+          "prompt/representation bias"
+        ],
+        [
+          "**Representativeness**",
+          "judge by resemblance to a prototype, neglecting base rate",
+          "overfitting to the exemplar"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 357,
+      "heading_context": "## Fully Worked Case — Generating, Ranking, and Catching a Bias (illustrative, fictional)",
+      "headers": [
+        "Hypothesis (abstract)",
+        "Probability",
+        "Cost-of-miss",
+        "Placement"
+      ],
+      "rows": [
+        [
+          "Common benign cause",
+          "high",
+          "low",
+          "leading working diagnosis"
+        ],
+        [
+          "Dangerous cause A (treatable if caught)",
+          "low–moderate",
+          "very high",
+          "**must-not-miss**: evaluate actively"
+        ],
+        [
+          "Dangerous cause B (treatable if caught)",
+          "low",
+          "very high",
+          "**must-not-miss**: evaluate actively"
+        ],
+        [
+          "Alternative benign cause",
+          "moderate",
+          "low",
+          "note; do not chase with broad testing"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 406,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "What the reasoner does",
+        "Why (this guide)"
+      ],
+      "rows": [
+        [
+          "A familiar presentation",
+          "runs **System 1** script match by default",
+          "fast is usually accurate for typical cases (§1)"
+        ],
+        [
+          "An atypical or high-stakes case",
+          "**switches to System 2** schema search on a trigger",
+          "the skill is the switch, not the speed (§1–2)"
+        ],
+        [
+          "\"What else could this be?\"",
+          "walks a **diagnostic schema** (anatomic/mechanistic/tempo)",
+          "schemas give coverage against premature closure (§2)"
+        ],
+        [
+          "Ordering the differential",
+          "ranks on **probability AND cost-of-miss**",
+          "must-not-miss earns evaluation at low prior (§3)"
+        ],
+        [
+          "An early label is already attached",
+          "runs a **diagnostic timeout** / consider-the-opposite",
+          "counters anchoring + diagnosis momentum (§4)"
+        ],
+        [
+          "Judging own certainty",
+          "treats confidence as **weakly correlated** with accuracy",
+          "overconfidence is systematic; seek feedback (§5)"
+        ],
+        [
+          "Handing the case on",
+          "transmits a **working diagnosis with uncertainty** + can't-miss list",
+          "prevents momentum; NASEM communication (§6)"
+        ],
+        [
+          "Reducing error at scale",
+          "prefers **system guardrails** over \"think harder\"",
+          "biases are predictable and engineerable (§4, §6)"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,349 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-control-theory-nonlinear-control",
+  "source": "../../control-theory",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "06-NONLINEAR-CONTROL.md#000",
+      "path": [
+        "06-NONLINEAR-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:06-nonlinear-control, git-history:control-theory:06-nonlinear-control]",
+        "canonical_path": "control-theory/06-NONLINEAR-CONTROL.md",
+        "concepts": "[nonlinear, control]",
+        "current_path": "control-theory/06-NONLINEAR-CONTROL.md",
+        "id": "maxim:control-theory:nonlinear-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nonlinear, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Nonlinear Control",
+        "updated": "null"
+      },
+      "text": "# Nonlinear Control"
+    },
+    {
+      "id": "06-NONLINEAR-CONTROL.md#001",
+      "path": [
+        "06-NONLINEAR-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:06-nonlinear-control, git-history:control-theory:06-nonlinear-control]",
+        "canonical_path": "control-theory/06-NONLINEAR-CONTROL.md",
+        "concepts": "[nonlinear, control]",
+        "current_path": "control-theory/06-NONLINEAR-CONTROL.md",
+        "id": "maxim:control-theory:nonlinear-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nonlinear, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Nonlinear Control",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "06-NONLINEAR-CONTROL.md#002",
+      "path": [
+        "06-NONLINEAR-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:06-nonlinear-control, git-history:control-theory:06-nonlinear-control]",
+        "canonical_path": "control-theory/06-NONLINEAR-CONTROL.md",
+        "concepts": "[nonlinear, control]",
+        "current_path": "control-theory/06-NONLINEAR-CONTROL.md",
+        "id": "maxim:control-theory:nonlinear-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nonlinear, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Nonlinear Control",
+        "updated": "null"
+      },
+      "text": "```\n┌─────────────────────────────────────────────────────────────────────┐\n│                NONLINEAR PHENOMENA — A TAXONOMY                     │\n│                                                                     │\n│  LINEAR WORLD          vs.      NONLINEAR WORLD                     │\n│  ──────────────────────         ───────────────────────────         │\n│  Single equilibrium             Multiple equilibria                 │\n│  Stability = global             Stability = local (Lyapunov)        │\n│  No limit cycles                Limit cycles (self-sustained osc.)  │\n│  Superposition holds            No superposition                    │\n│  Freq. response meaningful      Harmonics generated                 │\n│  Phase portrait: rays/spirals   Rich phase portrait geometry        │\n│                                                                     │\n│  TOOLS:                                                             │\n│  Phase plane ──► Lyapunov ──► Feedback lin ──► Sliding mode         │\n│  (2D analysis)  (stability)   (exact cancel) (robustness)           │\n│                                                                     │\n│  REALITY CHECK: Most engineered systems are nonlinear.              │\n│  Linear control works when: operating near equilibrium, small       │\n│  disturbances, adequate gain/phase margins for the linearization.   │\n│  Nonlinear control needed when: large excursions, saturation,       │\n│  time-varying operating point, need for global guarantees.          │\n└─────────────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "06-NONLINEAR-CONTROL.md#003",
+      "path": [
+        "06-NONLINEAR-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:06-nonlinear-control, git-history:control-theory:06-nonlinear-control]",
+        "canonical_path": "control-theory/06-NONLINEAR-CONTROL.md",
+        "concepts": "[nonlinear, control]",
+        "current_path": "control-theory/06-NONLINEAR-CONTROL.md",
+        "id": "maxim:control-theory:nonlinear-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nonlinear, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Nonlinear Control",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-NONLINEAR-CONTROL.md#004",
+      "path": [
+        "06-NONLINEAR-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:06-nonlinear-control, git-history:control-theory:06-nonlinear-control]",
+        "canonical_path": "control-theory/06-NONLINEAR-CONTROL.md",
+        "concepts": "[nonlinear, control]",
+        "current_path": "control-theory/06-NONLINEAR-CONTROL.md",
+        "id": "maxim:control-theory:nonlinear-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nonlinear, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Nonlinear Control",
+        "updated": "null"
+      },
+      "text": "## Phase Plane Analysis (2D Systems)"
+    },
+    {
+      "id": "06-NONLINEAR-CONTROL.md#005",
+      "path": [
+        "06-NONLINEAR-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:06-nonlinear-control, git-history:control-theory:06-nonlinear-control]",
+        "canonical_path": "control-theory/06-NONLINEAR-CONTROL.md",
+        "concepts": "[nonlinear, control]",
+        "current_path": "control-theory/06-NONLINEAR-CONTROL.md",
+        "id": "maxim:control-theory:nonlinear-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nonlinear, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Nonlinear Control",
+        "updated": "null"
+      },
+      "text": "### Equilibria and Their Classification"
+    },
+    {
+      "id": "06-NONLINEAR-CONTROL.md#006",
+      "path": [
+        "06-NONLINEAR-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:06-nonlinear-control, git-history:control-theory:06-nonlinear-control]",
+        "canonical_path": "control-theory/06-NONLINEAR-CONTROL.md",
+        "concepts": "[nonlinear, control]",
+        "current_path": "control-theory/06-NONLINEAR-CONTROL.md",
+        "id": "maxim:control-theory:nonlinear-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nonlinear, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Nonlinear Control",
+        "updated": "null"
+      },
+      "text": "```\nSYSTEM: ẋ₁ = f₁(x₁, x₂),  ẋ₂ = f₂(x₁, x₂)\nEQUILIBRIUM: f₁(x*) = 0, f₂(x*) = 0"
+    },
+    {
+      "id": "06-NONLINEAR-CONTROL.md#007",
+      "path": [
+        "06-NONLINEAR-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:06-nonlinear-control, git-history:control-theory:06-nonlinear-control]",
+        "canonical_path": "control-theory/06-NONLINEAR-CONTROL.md",
+        "concepts": "[nonlinear, control]",
+        "current_path": "control-theory/06-NONLINEAR-CONTROL.md",
+        "id": "maxim:control-theory:nonlinear-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nonlinear, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Nonlinear Control",
+        "updated": "null"
+      },
+      "text": "LINEARIZATION at x*:\n  A = Jacobian[f](x*) = [∂f₁/∂x₁  ∂f₁/∂x₂]\n                         [∂f₂/∂x₁  ∂f₂/∂x₂]"
+    },
+    {
+      "id": "06-NONLINEAR-CONTROL.md#008",
+      "path": [
+        "06-NONLINEAR-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:06-nonlinear-control, git-history:control-theory:06-nonlinear-control]",
+        "canonical_path": "control-theory/06-NONLINEAR-CONTROL.md",
+        "concepts": "[nonlinear, control]",
+        "current_path": "control-theory/06-NONLINEAR-CONTROL.md",
+        "id": "maxim:control-theory:nonlinear-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nonlinear, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Nonlinear Control",
+        "updated": "null"
+      },
+      "text": "CLASSIFICATION from eigenvalues λ₁, λ₂ of A:\n  ┌──────────────────────────────────────────────────────────────┐\n  │ EIGENVALUES           │ TYPE       │ STABILITY               │\n  ├───────────────────────┼────────────┼─────────────────────────┤\n  │ λ₁, λ₂ < 0 (real)    │ Stable node│ Asymptotically stable   │\n  │ λ₁, λ₂ > 0 (real)    │ Unstable   │ Unstable                │\n  │                       │ node       │                         │\n  ├───────────────────────┼────────────┼─────────────────────────┤\n  │ λ₁ < 0 < λ₂ (real)    │ Saddle     │ Unstable (saddle)       │\n  ├───────────────────────┼────────────┼─────────────────────────┤\n  │ λ = α ± jβ, α < 0    │ Stable     │ Asymptotically stable   │\n  │                       │ spiral     │                         │\n  │ λ = α ± jβ, α > 0    │ Unstable   │ Unstable                │\n  │                       │ spiral     │                         │\n  ├───────────────────────┼────────────┼─────────────────────────┤\n  │ λ = ±jβ (purely imag.)│ Center     │ Stable (Lyapunov) but   │\n  │                       │            │ NOT asymptotically —    │\n  │                       │            │ linearization ambiguous │\n  └───────────────────────┴────────────┴─────────────────────────┘"
+    },
+    {
+      "id": "06-NONLINEAR-CONTROL.md#009",
+      "path": [
+        "06-NONLINEAR-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:06-nonlinear-control, git-history:control-theory:06-nonlinear-control]",
+        "canonical_path": "control-theory/06-NONLINEAR-CONTROL.md",
+        "concepts": "[nonlinear, control]",
+        "current_path": "control-theory/06-NONLINEAR-CONTROL.md",
+        "id": "maxim:control-theory:nonlinear-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nonlinear, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Nonlinear Control",
+        "updated": "null"
+      },
+      "text": "NOTE: Center is ambiguous — nonlinear terms determine actual behavior\n  (could be stable focus, unstable focus, or true center depending on\n  higher-order terms). Hartman-Grobman theorem fails here.\n```"
+    },
+    {
+      "id": "06-NONLINEAR-CONTROL.md#010",
+      "path": [
+        "06-NONLINEAR-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:06-nonlinear-control, git-history:control-theory:06-nonlinear-control]",
+        "canonical_path": "control-theory/06-NONLINEAR-CONTROL.md",
+        "concepts": "[nonlinear, control]",
+        "current_path": "control-theory/06-NONLINEAR-CONTROL.md",
+        "id": "maxim:control-theory:nonlinear-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nonlinear, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Nonlinear Control",
+        "updated": "null"
+      },
+      "text": "### Limit Cycles and Poincaré-Bendixson"
+    },
+    {
+      "id": "06-NONLINEAR-CONTROL.md#011",
+      "path": [
+        "06-NONLINEAR-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:06-nonlinear-control, git-history:control-theory:06-nonlinear-control]",
+        "canonical_path": "control-theory/06-NONLINEAR-CONTROL.md",
+        "concepts": "[nonlinear, control]",
+        "current_path": "control-theory/06-NONLINEAR-CONTROL.md",
+        "id": "maxim:control-theory:nonlinear-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nonlinear, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Nonlinear Control",
+        "updated": "null"
+      },
+      "text": "**Distributed systems analog:** Limit cycles are the mathematical name for resource contention oscillations. A service pool that oscillates between \"all threads busy, requests queuing\" and \"threads freed, burst dispatches\" is a self-sustained limit cycle — the Van der Pol energy balance (negative damping at low load pulls in more work; positive damping at high load sheds work) maps directly to this queue oscillation pattern."
+    }
+  ],
+  "refs": [
+    "06-NONLINEAR-CONTROL.md"
+  ]
+}

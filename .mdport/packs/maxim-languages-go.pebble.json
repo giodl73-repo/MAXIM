@@ -1,0 +1,2057 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-languages-go",
+  "source": "../../languages",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "10-GO.md#000",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "# Language: Go"
+    },
+    {
+      "id": "10-GO.md#001",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "> Simplicity as a design principle — a small language that says no to everything except what's needed for cloud-native services: structural interfaces, goroutines, and explicit error returns."
+    },
+    {
+      "id": "10-GO.md#002",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "10-GO.md#003",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "## Type System Snapshot"
+    },
+    {
+      "id": "10-GO.md#004",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "| Axis | Go |\n|------|-----|\n| Binding | Early + interface dispatch (structural) |\n| Typing | Static |\n| Strength | Strong — no implicit conversions |\n| Type system | Structural for interfaces; nominal for everything else |\n| Type inference | Partial — `:=` short declaration, function args |\n| Memory model | GC (concurrent tri-color mark-sweep) |"
+    },
+    {
+      "id": "10-GO.md#005",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "10-GO.md#006",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "## Concurrency Model — Conceptual Landscape"
+    },
+    {
+      "id": "10-GO.md#007",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "```\nGOROUTINE SCHEDULER — M:N multiplexing\n┌─────────────────────────────────────────────────────────────────────┐\n│                                                                     │\n│  Goroutines (G) — lightweight, 2KB stack, thousands are normal      │\n│  ┌──┐ ┌──┐ ┌──┐ ┌──┐ ┌──┐ ┌──┐ ┌──┐ ┌──┐                            │\n│  │G1│ │G2│ │G3│ │G4│ │G5│ │G6│ │G7│ │G8│  ... (many)                │\n│  └──┘ └──┘ └──┘ └──┘ └──┘ └──┘ └──┘ └──┘                            │\n│       │           │           │           │                         │\n│       └─────┬─────┘           └─────┬─────┘                         │\n│             ▼                       ▼                               │\n│      ┌─────────────┐         ┌─────────────┐                        │\n│      │  Go runtime │         │  Go runtime │  ← work-stealing       │\n│      │  scheduler  │◄───────►│  scheduler  │    scheduler           │\n│      └──────┬──────┘         └──────┬──────┘                        │\n│             ▼                       ▼                               │\n│      ┌──────────┐             ┌──────────┐                          │\n│      │ OS thread│             │ OS thread│  ← few (≈ GOMAXPROCS)    │\n│      │    M1    │             │    M2    │                          │\n│      └──────────┘             └──────────┘                          │\n│                                                                     │\n│  C# parallel: Task → ThreadPool → OS threads  (same shape!)         │\n│  Key difference: goroutine startup cost ≈ 2KB vs Task ≈ 1MB+        │\n└─────────────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "10-GO.md#008",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "CHANNEL — typed communication pipe between goroutines\n┌─────────────────────────────────────────────────────────────────────┐\n│                                                                     │\n│  Goroutine A          channel ch           Goroutine B              │\n│  ┌─────────┐         ┌───────────┐        ┌─────────┐               │\n│  │         │ ch <- v │  [v][v][] │ <- ch  │         │               │\n│  │ sender  │────────►│  buffered │───────►│receiver │               │\n│  │         │         │  (cap=3)  │        │         │               │\n│  └─────────┘         └───────────┘        └─────────┘               │\n│                                                                     │\n│  Unbuffered (cap=0): send BLOCKS until receiver is ready            │\n│  Buffered (cap=N):   send blocks only when buffer is full           │\n│                                                                     │\n│  C# equivalent: Channel<T> from System.Threading.Channels           │\n│  Key difference: Go channels can be used in select (see below)      │\n└─────────────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "10-GO.md#009",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "SELECT — non-deterministic channel multiplexer\n┌─────────────────────────────────────────────────────────────────────┐\n│                                                                     │\n│  select {                                                           │\n│  case v := <-ch1:   ← ready?  ──────────────┐                       │\n│  case v := <-ch2:   ← ready?  ──── pick     │ one ready case        │\n│  case ch3 <- x:     ← ready?  ──── at       │ chosen at random      │\n│  case <-time.After(t): timeout ──── random  │ if multiple ready     │\n│  default:           ← non-blocking fallback ┘                       │\n│  }                                                                  │\n│                                                                     │\n│  C# equivalent: Task.WhenAny(task1, task2, task3)                   │\n│  Key difference: select is a first-class language keyword,          │\n│  not a library call; works symmetrically for send and receive       │\n└─────────────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "10-GO.md#010",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "C# vs GO CONCURRENCY CONCEPTS\n┌─────────────────────┬─────────────────────┬───────────────────────┐\n│ C# concept          │ Go equivalent       │ Key difference        │\n├─────────────────────┼─────────────────────┼───────────────────────┤\n│ Task / async method │ goroutine (go func) │ Goroutine is cheaper; │\n│                     │                     │ no await keyword      │\n├─────────────────────┼─────────────────────┼───────────────────────┤\n│ Channel<T>          │ chan T              │ Go select built-in;   │\n│                     │                     │ bidirectional default │\n├─────────────────────┼─────────────────────┼───────────────────────┤\n│ Task.WhenAny        │ select              │ select handles sends  │\n│                     │                     │ AND receives; random  │\n├─────────────────────┼─────────────────────┼───────────────────────┤\n│ Parallel.ForEach    │ goroutine+WaitGroup │ Manual fan-out; no    │\n│                     │                     │ built-in parallelism  │\n├─────────────────────┼─────────────────────┼───────────────────────┤\n│ CancellationToken   │ context.Context     │ Passed explicitly as  │\n│                     │                     │ first arg, convention │\n└─────────────────────┴─────────────────────┴───────────────────────┘\n```"
+    },
+    {
+      "id": "10-GO.md#011",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "10-GO.md#012",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "## Syntax Reference Card"
+    },
+    {
+      "id": "10-GO.md#013",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "### Variables & Types\n```go\n// Short declaration (inside functions only — most common)\nx := 5                  // type inferred: int\nname := \"Alice\"\nx, y := 1, 2            // multiple assignment"
+    },
+    {
+      "id": "10-GO.md#014",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// Var declaration (package or function level)\nvar x int               // zero value: 0\nvar x int = 5\nvar x = 5               // inferred"
+    },
+    {
+      "id": "10-GO.md#015",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// Constants\nconst MAX = 100         // untyped constant\nconst MAX int = 100     // typed constant\nconst (                 // iota enumeration\n    A = iota            // 0\n    B                   // 1\n    C                   // 2\n)"
+    },
+    {
+      "id": "10-GO.md#016",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// Zero values — every type has a zero value (no uninitialized variables)\n// int: 0, float: 0.0, bool: false, string: \"\", pointer: nil, struct: all zeros"
+    },
+    {
+      "id": "10-GO.md#017",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// Integer types\nint   int8   int16   int32   int64\nuint  uint8  uint16  uint32  uint64\nbyte  = uint8        // alias\nrune  = int32        // alias — Unicode code point\nuintptr              // pointer-sized uint"
+    },
+    {
+      "id": "10-GO.md#018",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "float32  float64\ncomplex64  complex128\nbool\nstring                 // immutable, UTF-8 bytes\n```"
+    },
+    {
+      "id": "10-GO.md#019",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "### Equality & Comparison\n```go\n// == works on all comparable types\nx == y\nx != y\nx < y  x > y  x <= y  x >= y"
+    },
+    {
+      "id": "10-GO.md#020",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// Comparable types: all basic types, pointers, channels, interfaces, arrays (not slices/maps!)\nvar a [3]int = [3]int{1,2,3}\nvar b [3]int = [3]int{1,2,3}\na == b          // true (arrays are comparable!)"
+    },
+    {
+      "id": "10-GO.md#021",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// Slices are NOT comparable with ==\ns1 := []int{1,2,3}\ns2 := []int{1,2,3}\n// s1 == s2  ERROR — invalid operation\nreflect.DeepEqual(s1, s2)   // true (but slow, uses reflection)\nslices.Equal(s1, s2)        // true (Go 1.21+ stdlib)"
+    },
+    {
+      "id": "10-GO.md#022",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// Maps are NOT comparable with ==\n// reflect.DeepEqual(m1, m2)  // works but slow"
+    },
+    {
+      "id": "10-GO.md#023",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// Struct comparison (if all fields are comparable)\ntype Point struct { X, Y int }\nPoint{1,2} == Point{1,2}    // true"
+    },
+    {
+      "id": "10-GO.md#024",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// Nil comparison\nvar p *int = nil\np == nil                    // true"
+    },
+    {
+      "id": "10-GO.md#025",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// Interface comparison (compares type + value)\nvar i interface{} = 42\ni == 42                     // true\n```"
+    },
+    {
+      "id": "10-GO.md#026",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "### Logical Operators\n```go\n&&    // short-circuit AND\n||    // short-circuit OR\n!     // NOT"
+    },
+    {
+      "id": "10-GO.md#027",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "&     // bitwise AND\n|     // bitwise OR\n^     // bitwise XOR (also unary bitwise complement when used as ^x)\n&^    // AND NOT (bit clear) — unique to Go\n<<    // left shift\n>>    // right shift\n```"
+    },
+    {
+      "id": "10-GO.md#028",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "### Collections\n```go\n// Array — fixed size (value type, not a pointer!)\nvar a [3]int\na := [3]int{1, 2, 3}\na := [...]int{1, 2, 3}      // size inferred\na[0]  len(a)\n// Passing array to function copies it (use slice instead)"
+    },
+    {
+      "id": "10-GO.md#029",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// Slice — dynamic, reference type (pointer + len + cap)\ns := []int{1, 2, 3}\ns := make([]int, 5)          // len=5, cap=5\ns := make([]int, 0, 10)      // len=0, cap=10\ns = append(s, 4)             // may reallocate\ns = append(s, 4, 5, 6)\ns = append(s, other...)       // spread\ns[0]  len(s)  cap(s)\ns[1:3]                        // slice of slice (shared backing array!)\ncopy(dst, src)                // copy elements"
+    },
+    {
+      "id": "10-GO.md#030",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// Map — hash table\nm := map[string]int{\"a\": 1, \"b\": 2}\nm := make(map[string]int)\nm[\"key\"] = 1\nv := m[\"key\"]                 // zero value if key missing\nv, ok := m[\"key\"]             // ok is false if key missing\ndelete(m, \"key\")\nfor k, v := range m { }"
+    },
+    {
+      "id": "10-GO.md#031",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// Struct\ntype Point struct {\n    X, Y int                  // exported: uppercase\n    name  string              // unexported: lowercase\n}\np := Point{X: 1, Y: 2}\np := Point{1, 2}              // positional (avoid for clarity)\np.X = 5"
+    },
+    {
+      "id": "10-GO.md#032",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// Pointer\np := &Point{1, 2}             // *Point\np.X                           // auto-deref (no need for p->X)\nvar p *Point = nil"
+    },
+    {
+      "id": "10-GO.md#033",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// Channel\nch := make(chan int, 10)      // buffered\nch <- 1                       // send\nv := <-ch                     // receive\nclose(ch)\n```"
+    },
+    {
+      "id": "10-GO.md#034",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "### Control Flow\n```go\n// If — no parens, braces required\nif x > 0 {\n    ...\n} else if x < 0 {\n    ...\n} else {\n    ...\n}"
+    },
+    {
+      "id": "10-GO.md#035",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// If with initialization (scoped to the if block)\nif err := doSomething(); err != nil {\n    return err\n}"
+    },
+    {
+      "id": "10-GO.md#036",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "if v, ok := m[key]; ok {\n    use(v)\n}"
+    },
+    {
+      "id": "10-GO.md#037",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// No ternary operator in Go — write the if/else\nvar max int\nif a > b {\n    max = a\n} else {\n    max = b\n}"
+    },
+    {
+      "id": "10-GO.md#038",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// Switch — no fall-through by default\nswitch x {\ncase 1:\n    ...\ncase 2, 3:          // multiple values\n    ...\ndefault:\n    ...\n}"
+    },
+    {
+      "id": "10-GO.md#039",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// Switch with no condition (= if-else chain)\nswitch {\ncase x < 0:\n    ...\ncase x == 0:\n    ...\ndefault:\n    ...\n}"
+    },
+    {
+      "id": "10-GO.md#040",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// Type switch\nswitch v := x.(type) {\ncase int:\n    fmt.Printf(\"int: %d\\n\", v)\ncase string:\n    fmt.Printf(\"string: %s\\n\", v)\ndefault:\n    fmt.Printf(\"other: %T\\n\", v)\n}"
+    },
+    {
+      "id": "10-GO.md#041",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// For — the only loop keyword\nfor i := 0; i < 10; i++ { }         // C-style\nfor i < 10 { i++ }                  // while-style\nfor { }                              // infinite\nfor i, v := range slice { }         // range over slice\nfor k, v := range m { }             // range over map\nfor i, r := range str { }           // range over string (i=byte index, r=rune)\nfor v := range ch { }               // range over channel\n```"
+    },
+    {
+      "id": "10-GO.md#042",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "### Strings & Characters\n```go\n// string — immutable sequence of bytes (UTF-8 encoded)\ns := \"hello\"\ns := \"hello\" + \" \" + \"world\"    // concatenation\ns := `raw string\nmulti-line\nno \\n escaping`"
+    },
+    {
+      "id": "10-GO.md#043",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "len(s)                          // BYTE count, not rune count\nutf8.RuneCountInString(s)       // Unicode code point count"
+    },
+    {
+      "id": "10-GO.md#044",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// Byte vs rune\ns[0]                            // byte (uint8)\nfor i, r := range s { }        // i = byte index, r = rune (int32)\n[]byte(s)                       // convert to byte slice\n[]rune(s)                       // convert to rune slice\nstring(65)                      // \"A\" (from int)"
+    },
+    {
+      "id": "10-GO.md#045",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// rune (int32) — Unicode code point\nr := 'A'                        // rune literal\nr := '\\U0001F60A'         // emoji rune literal (Unicode escape)\nfmt.Printf(\"%c\", r)            // print as character"
+    },
+    {
+      "id": "10-GO.md#046",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// String formatting (no interpolation — use fmt)\ns := fmt.Sprintf(\"Hello, %s! Age: %d\", name, age)\ns := fmt.Sprintf(\"%.2f\", 3.14159)"
+    },
+    {
+      "id": "10-GO.md#047",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// strings package\nstrings.Contains(s, \"sub\")\nstrings.HasPrefix(s, \"prefix\")\nstrings.ToUpper(s)  strings.ToLower(s)\nstrings.TrimSpace(s)\nstrings.Split(s, \",\")           // []string\nstrings.Join([]string{...}, \",\")\nstrings.Replace(s, \"old\", \"new\", n)  // n=-1 for all\nstrings.Builder{}               // efficient concatenation\n```"
+    },
+    {
+      "id": "10-GO.md#048",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "### Null / Nil\n```go\n// nil — the zero value for pointer, interface, func, slice, map, channel\nvar p *int          // nil pointer\nvar s []int         // nil slice (len=0, cap=0 — usable!)\nvar m map[string]int // nil map (readable: m[\"k\"]=0; WRITE panics)\nvar i interface{}   // nil interface\nvar f func()        // nil function"
+    },
+    {
+      "id": "10-GO.md#049",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// Nil check\nif p != nil { *p = 5 }\nif s != nil { ... }     // often unnecessary — nil slice has len 0"
+    },
+    {
+      "id": "10-GO.md#050",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// No Option<T> — use pointer or (T, bool) pattern\nfunc findUser(id int) (*User, bool) {\n    u, ok := db[id]\n    return &u, ok\n}\nu, found := findUser(42)\nif !found { return }"
+    },
+    {
+      "id": "10-GO.md#051",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// Common nil-safe pattern\ntype Config struct { ... }\nfunc (c *Config) Name() string {\n    if c == nil { return \"\" }    // nil receiver is OK in Go\n    return c.name\n}\n```"
+    },
+    {
+      "id": "10-GO.md#052",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "### Functions\n```go\nfunc add(a, b int) int {         // multiple params of same type\n    return a + b\n}"
+    },
+    {
+      "id": "10-GO.md#053",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// Multiple return values\nfunc divide(a, b float64) (float64, error) {\n    if b == 0 {\n        return 0, errors.New(\"division by zero\")\n    }\n    return a / b, nil\n}"
+    },
+    {
+      "id": "10-GO.md#054",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "result, err := divide(10, 2)\nif err != nil {\n    return fmt.Errorf(\"divide: %w\", err)  // wrap error\n}"
+    },
+    {
+      "id": "10-GO.md#055",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// Named return values\nfunc minMax(a, b int) (min, max int) {\n    if a < b { return a, b }\n    return b, a\n}"
+    },
+    {
+      "id": "10-GO.md#056",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// Variadic\nfunc sum(nums ...int) int {\n    total := 0\n    for _, n := range nums { total += n }\n    return total\n}\nsum(1, 2, 3, 4)\nsum(nums...)    // spread slice"
+    },
+    {
+      "id": "10-GO.md#057",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// First-class functions\nf := func(x int) int { return x * 2 }\napply := func(f func(int) int, x int) int { return f(x) }"
+    },
+    {
+      "id": "10-GO.md#058",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// Defer (cleanup — runs LIFO when function returns)\nfunc readFile(path string) error {\n    f, err := os.Open(path)\n    if err != nil { return err }\n    defer f.Close()             // guaranteed to run\n    // ... use f\n}"
+    },
+    {
+      "id": "10-GO.md#059",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// Method\nfunc (p Point) Distance() float64 {\n    return math.Sqrt(float64(p.X*p.X + p.Y*p.Y))\n}\nfunc (p *Point) Scale(factor int) {\n    p.X *= factor\n    p.Y *= factor\n}"
+    },
+    {
+      "id": "10-GO.md#060",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// Interface — satisfied implicitly\ntype Stringer interface {\n    String() string\n}\n// Any type with String() string method satisfies Stringer\n```"
+    },
+    {
+      "id": "10-GO.md#061",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "### Error Handling\n```go\n// Go errors are values — always check them\nresult, err := someOperation()\nif err != nil {\n    return fmt.Errorf(\"context: %w\", err)  // wrap with context\n}"
+    },
+    {
+      "id": "10-GO.md#062",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// Error wrapping and unwrapping (Go 1.13+)\nvar pathErr *os.PathError\nif errors.As(err, &pathErr) {\n    fmt.Println(pathErr.Path)\n}"
+    },
+    {
+      "id": "10-GO.md#063",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "if errors.Is(err, os.ErrNotExist) {\n    // file not found\n}"
+    },
+    {
+      "id": "10-GO.md#064",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// Custom errors\ntype AppError struct {\n    Code    int\n    Message string\n}\nfunc (e *AppError) Error() string {\n    return fmt.Sprintf(\"error %d: %s\", e.Code, e.Message)\n}"
+    },
+    {
+      "id": "10-GO.md#065",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// Panic/recover (for truly exceptional situations — not normal errors)\ndefer func() {\n    if r := recover(); r != nil {\n        log.Printf(\"recovered: %v\", r)\n    }\n}()\npanic(\"unrecoverable\")\n```"
+    },
+    {
+      "id": "10-GO.md#066",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "### Concurrency\n```go\n// Goroutines — lightweight threads (managed by Go runtime)\ngo func() {\n    result := compute()\n    ch <- result\n}()"
+    },
+    {
+      "id": "10-GO.md#067",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// Channels — communication between goroutines\nch := make(chan int)        // unbuffered — send blocks until receive\nch := make(chan int, 10)    // buffered — send blocks when full"
+    },
+    {
+      "id": "10-GO.md#068",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// Select — multiplex channels\nselect {\ncase v := <-ch1:\n    fmt.Println(\"from ch1:\", v)\ncase ch2 <- x:\n    fmt.Println(\"sent to ch2\")\ncase <-time.After(1 * time.Second):\n    fmt.Println(\"timeout\")\ndefault:\n    fmt.Println(\"non-blocking\")\n}"
+    },
+    {
+      "id": "10-GO.md#069",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "// sync.WaitGroup\nvar wg sync.WaitGroup\nfor _, item := range items {\n    wg.Add(1)\n    go func(item Item) {\n        defer wg.Done()\n        process(item)\n    }(item)\n}\nwg.Wait()\n```"
+    },
+    {
+      "id": "10-GO.md#070",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "10-GO.md#071",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "## What Makes It Distinct"
+    },
+    {
+      "id": "10-GO.md#072",
+      "path": [
+        "10-GO.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:languages:10-go, git-history:languages:10-go]",
+        "canonical_path": "languages/10-GO.md",
+        "concepts": "[go]",
+        "current_path": "languages/10-GO.md",
+        "id": "maxim:languages:go",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[go]",
+        "section": "languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Language: Go",
+        "updated": "null"
+      },
+      "text": "1. **Structural interfaces — implicit satisfaction** — a type satisfies an interface just by having the right methods. No `implements` declaration. This enables retroactive interface implementation and reduces coupling.\n2. **Goroutines + channels = CSP** — Communicating Sequential Processes. Goroutines are cheap (2KB stack, grows on demand). Channels are the idiomatic way to share state. \"Share memory by communicating.\"\n3. **Error as value** — Go has no exceptions. Every error-producing function returns `(T, error)`. You handle it or propagate it with `fmt.Errorf(\"context: %w\", err)`. Verbose but explicit.\n4. **No generics (until Go 1.18)** — Go resisted generics for 12 years. Now they exist but are simpler than Rust/Java. Type parameters with constraints.\n5. **Small language surface** — 25 keywords. One way to do most things. Easy to read other people's Go code. The Go team famously says no to features."
+    }
+  ],
+  "refs": [
+    "10-GO.md"
+  ]
+}

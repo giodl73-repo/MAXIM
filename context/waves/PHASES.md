@@ -17,13 +17,13 @@ that changed the library.
 | 2026-02-24 | Library Completion and Card Identity | Finish the 217-directory deck, add section architecture, Read This First, card identities, archetypes, and flairs. | archived |
 | 2026-02-26 | Editorial Sweep and Healing | Sweep, tag, bridge, and repair the reference library until every tracked guide graduated clean. | archived |
 | 2026-02-26 | Indices, Atlas, and Publishing Strategy | Catalog the full library, build concept layers, launch atlas design, and score the 52-volume publishing plan. | archived |
-| 2026-02-27 | Jokers, Invariants, and Puzzle Proof | Design and test the Joker puzzle system, execute improvement waves, author Red puzzles, and protect answers with the periodic-table protocol. | archived |
-| 2026-04-25 | Proof and ASCII Repair | Introduce proof-driven Markdown/ASCII validation and repair diagram/table/link issues across the library. | archived |
+| 2026-02-27 | Jokers, Invariants, and Puzzle Mdloom | Design and test the Joker puzzle system, execute improvement waves, author Red puzzles, and protect answers with the periodic-table protocol. | archived |
+| 2026-04-25 | Mdloom and ASCII Repair | Introduce proof-driven Markdown/ASCII validation and repair diagram/table/link issues across the library. | archived |
 | 2026-05-14 | MAXIM Quality Control Spine | Import wave/pulse execution discipline and raise the proof/editorial bar for gold-standard reference quality. | done |
 | 2026-05-14 | Pilot Gold Remediation | Resolve the three concrete WARN findings from the first Gold Rubric pilot audit. | done |
 | 2026-05-14 | Gold Figure Invariants | Pin canonical Package, Consensus, and Global Winds figures with Da Vinci invariants and repair atlas ASCII defects exposed by proof. | done |
 | 2026-05-14 | Gold Rubric Promotion | Promote Gold Rubric v2 from wave artifact into `/reference-review` so future reviews use the raised bar for Gold candidates. | done |
-| 2026-05-14 | Proof Scope Hygiene | Exclude wave/skill process docs from guide proof and record the live editor-tag baseline. | done |
+| 2026-05-14 | Mdloom Scope Hygiene | Exclude wave/skill process docs from guide proof and record the live editor-tag baseline. | done |
 | 2026-05-14 | Pilot Invariant Completion | Add Da Vinci invariants for Hydrogen identity and Pitch frequency-to-scale diagrams, completing pilot-set figure coverage. | done |
 | 2026-05-14 | Pilot Gold Rescore | Rescore the five pilot guides after remediation and invariants; identify two true Gold guides and three explicit candidates. | done |
 | 2026-05-14 | Gold Candidate Polish | Close Hydrogen mechanism-visual and Pitch cross-reference carry-forwards from the R2 Gold rescore. | done |
@@ -288,6 +288,10 @@ that changed the library.
 | 2026-05-15 | Gold Reset Wave 20 Final Remediation | Repair and re-panel Boundary Layers, Turbulence, Compressible Flow, and Hydrodynamics before restoring their Certified Gold claims. | done |
 | 2026-05-15 | Gold Reset Wave 19 Sample 1 Remediation | Repair and re-panel Web Writing, Social Platforms, Content Strategy, and UX Writing before restoring their Certified Gold claims. | done |
 | 2026-05-15 | Gold Reset Wave 19 Sample 2 Remediation | Repair and re-panel Search Algorithms, Attention Economy, Digital Storytelling, and Misinformation before restoring their Certified Gold claims. | done |
+| 2026-07-11 | Clinical and Chemical Foundations | Add first-class chemistry, clinical medicine, and pathology at MAXIM's established peer-level editorial bar. | done |
+| 2026-07-11 | Human Systems Depth | Add HCI and human factors, deepen neuroscience and economics, and establish public-policy coverage. | active |
+| 2026-07-11 | World and Arts Rebalance | Add world history, musicology, and studio-art practice while correcting avoidable Western-default framing. | queued |
+| 2026-07-11 | Infrastructure and Complexity | Add civil engineering, supply-chain/logistics, and complexity/network science as cross-domain systems modules. | queued |
 
 ## Operating Model
 

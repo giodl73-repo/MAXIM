@@ -1,0 +1,125 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-numerical-methods-overview",
+  "source": "../../numerical-methods",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "00-OVERVIEW.md#000",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:00-overview, git-history:numerical-methods:00-overview]",
+        "canonical_path": "numerical-methods/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "numerical-methods/00-OVERVIEW.md",
+        "id": "maxim:numerical-methods:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Numerical Methods - Landscape Overview",
+        "updated": "null"
+      },
+      "text": "# Numerical Methods — Landscape Overview"
+    },
+    {
+      "id": "00-OVERVIEW.md#001",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:00-overview, git-history:numerical-methods:00-overview]",
+        "canonical_path": "numerical-methods/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "numerical-methods/00-OVERVIEW.md",
+        "id": "maxim:numerical-methods:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Numerical Methods - Landscape Overview",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "00-OVERVIEW.md#002",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:00-overview, git-history:numerical-methods:00-overview]",
+        "canonical_path": "numerical-methods/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "numerical-methods/00-OVERVIEW.md",
+        "id": "maxim:numerical-methods:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Numerical Methods - Landscape Overview",
+        "updated": "null"
+      },
+      "text": "Numerical methods are algorithms for approximating the solutions of mathematical problems that cannot be solved analytically. The fundamental challenge: computers work with floating-point approximations to real numbers, and the errors accumulate."
+    },
+    {
+      "id": "00-OVERVIEW.md#003",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:numerical-methods:00-overview, git-history:numerical-methods:00-overview]",
+        "canonical_path": "numerical-methods/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "numerical-methods/00-OVERVIEW.md",
+        "id": "maxim:numerical-methods:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "numerical-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "numerical-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Numerical Methods - Landscape Overview",
+        "updated": "null"
+      },
+      "text": "```\n+===================================================================+\n|              NUMERICAL METHODS LANDSCAPE                          |\n+===================================================================+\n|                                                                   |\n|  SCIENTIFIC COMPUTING STACK (09)                                  |\n|  NumPy/SciPy/Julia/MATLAB → LAPACK/BLAS → cuBLAS/cuSPARSE → HW  |\n|       ▲              ▲             ▲              ▲               |\n|       |              |             |              |               |\n|  +----------+  +----------+  +-----------+  +-------------+      |\n|  | LINEAR   |  | EIGEN /  |  | INTEGRA-  |  | DIFF. EQUNS |      |\n|  | SYSTEMS  |  | SVD      |  | TION      |  | ODE + PDE   |      |\n|  | Ax = b   |  | Av=λv    |  | ∫f dx     |  | y'=f, Lu=f  |      |\n|  | (02)     |  | (03)     |  | (05)      |  | (06, 07)    |      |\n|  +----------+  +----------+  +-----------+  +-------------+      |\n|    LU, QR,    Power iter,   Newton-Cotes,   RK4, BDF,            |\n|    Cholesky   QR algo,      Gauss quad,     FD, FEM,             |\n|    CG, GMRES  Lanczos, SVD  Monte Carlo     spectral             |\n|       ▲           ▲                ▲              ▲              |\n|       |     Cholesky               |         inner solves        |\n|       +---- reduction ----+       MC for       use (02)          |\n|       |                   |      high-d         + (03)           |\n|  +----+----------------------------------------------+           |\n|  | INTERPOLATION / APPROXIMATION (04)                |           |\n|  | Splines, Chebyshev, RBF, GP / Kriging             |           |\n|  +---------------------------------------------------+           |\n|       ▲                                                          |\n|  +---------------------------------------------------+           |\n|  | OPTIMIZATION (08)                                 |           |\n|  | GD, L-BFGS, SGD/Adam, convex, Bayesian opt        |           |\n|  | ← AD (reverse-mode = backprop) computes gradients |           |\n|  +---------------------------------------------------+           |\n|       ▲                                                          |\n|  +===================================================+           |\n|  | FOUNDATION (01)                                   |           |\n|  | IEEE 754, rounding, cancellation, conditioning,   |           |\n|  | backward stability, interval arithmetic           |           |\n|  +===================================================+           |\n+===================================================================+\n```"
+    }
+  ],
+  "refs": [
+    "00-OVERVIEW.md"
+  ]
+}

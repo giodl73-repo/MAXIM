@@ -1,0 +1,149 @@
+{
+  "schema_version": "1",
+  "source_markdown": "database-systems\\09-DISTRIBUTED-SQL.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 197,
+      "heading_context": "## How the marquee systems actually achieve it",
+      "headers": [
+        "System",
+        "Consensus",
+        "Storage",
+        "Default isolation/consistency",
+        "Distinguishing mechanism"
+      ],
+      "rows": [
+        [
+          "**Spanner**",
+          "Paxos per split",
+          "Colossus/tablets",
+          "External consistency (linearizable txns)",
+          "**TrueTime** (GPS+atomic clocks) + commit-wait"
+        ],
+        [
+          "**CockroachDB**",
+          "Raft per range",
+          "Mdport (LSM)",
+          "**SERIALIZABLE**",
+          "HLC + clock-offset + txn restarts; PG wire"
+        ],
+        [
+          "**YugabyteDB**",
+          "Raft per tablet",
+          "DocDB (RocksDB)",
+          "Serializable / snapshot",
+          "PG-compatible (YSQL)"
+        ],
+        [
+          "**TiDB**",
+          "Raft (per region)",
+          "TiKV (RocksDB)",
+          "Snapshot / serializable opt-in",
+          "MySQL-compatible; Percolator-style txns"
+        ],
+        [
+          "**Cosmos DB**",
+          "(internal)",
+          "LSM-family",
+          "**Session** (5 tunable levels)",
+          "Per-request consistency dial + SLAs"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 235,
+      "heading_context": "## Old World → New World Bridges",
+      "headers": [
+        "You already know",
+        "Distributed-SQL concept",
+        "Azure / SQL Server anchor"
+      ],
+      "rows": [
+        [
+          "Scale-up SQL Server hitting a ceiling",
+          "Horizontal scale-out without losing ACID",
+          "Azure SQL Hyperscale (scale-out storage), Cosmos"
+        ],
+        [
+          "\"Pick 2 of 3\" CAP slogan",
+          "The corrected CAP: **C xor A only during a partition**; PACELC",
+          "Cosmos consistency levels embody PACELC"
+        ],
+        [
+          "ACID consistency (constraints)",
+          "CAP consistency = **linearizability** (different!)",
+          "—"
+        ],
+        [
+          "MSDTC / 2PC",
+          "2PC **over a consensus group** (no coordinator SPOF)",
+          "Spanner/Cockroach distributed txns"
+        ],
+        [
+          "Read replicas with lag",
+          "Bounded-staleness / session consistency",
+          "Cosmos Bounded Staleness / Session"
+        ],
+        [
+          "Always On AG failover",
+          "Consensus-driven leader election per shard",
+          "Raft/Paxos leader per range"
+        ],
+        [
+          "Cosmos \"strong vs eventual\" toggle",
+          "The consistency spectrum, dialed per request",
+          "The five Cosmos levels"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 249,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Reach for"
+      ],
+      "rows": [
+        [
+          "Single-node RDBMS hitting write/storage ceiling, need ACID + SQL",
+          "**Distributed SQL** (Spanner / CockroachDB / Yugabyte)"
+        ],
+        [
+          "Need strongest cross-region guarantee, have the budget",
+          "**Spanner** (external consistency)"
+        ],
+        [
+          "Want Postgres compatibility + serializable, no special hardware",
+          "**CockroachDB** / **YugabyteDB**"
+        ],
+        [
+          "Need MySQL compatibility at scale",
+          "**TiDB**"
+        ],
+        [
+          "Want to dial consistency vs latency per request",
+          "**Cosmos DB** (five levels)"
+        ],
+        [
+          "Workload tolerates eventual consistency, max availability",
+          "**NoSQL** (Cassandra/DynamoDB) — not NewSQL"
+        ],
+        [
+          "Reads can be slightly stale but must be ordered",
+          "**Bounded staleness** / consistent-prefix"
+        ],
+        [
+          "Must read your own writes in a session",
+          "**Session** consistency"
+        ],
+        [
+          "Still fits one big replicated leader",
+          "**Don't** go distributed-SQL yet — keep Postgres/SQL Server"
+        ]
+      ]
+    }
+  ]
+}

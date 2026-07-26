@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "industrial-design\\06-INTERACTION-DESIGN.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+----------------------------------------------------------------------+\n|           THE SPECTRUM FROM PRODUCT TO INTERACTION DESIGN            |\n|                                                                      |\n|  PHYSICAL PRODUCT         HYBRID PRODUCT         DIGITAL INTERFACE   |\n|  (pure hardware)           (hardware + software)   (pure software)   |\n|                                                                      |\n|  Dial on radio             iPhone home screen      Web application   |\n|  Ergonomics: primary       Both: co-equal         Cognitive: primary |\n|  Materials: constrain      SW mediates HW          Pixels: constrain |\n|  Manufacturing: limits     OS constrains both      Framework: limits |\n|                                                                      |\n|  Don Norman's work     <-- ORIGIN OF KEY CONCEPTS -->                |\n|  \"Design of Everyday       \"The Design of               UX design    |\n|  Things\" (1988)            Everyday Things\"             (1990s-)     |\n|  applies to: doors,        first applied digital                     |\n|  faucets, switches         HCI (Human-Computer Interaction)          |\n+----------------------------------------------------------------------+\n\nKEY CONTRIBUTORS:\n  Don Norman:    \"Design of Everyday Things\" (1988, 2013 revised)\n                 Affordances, feedback, mapping, constraints, conceptual model\n  Bruce Tognazzini: \"Tog on Interface\" (Apple Human Interface guidelines author)\n  Alan Cooper:   \"The Inmates are Running the Asylum\" (1999) -- Personas, Goal-Directed Design\n  Bill Moggridge: coined \"interaction design\" (1984, IDEO co-founder)\n  Jef Raskin:    Macintosh UI designer; \"The Humane Interface\" (2000)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 74,
+      "heading_context": "### The Seven Stages of Action",
+      "confidence": "candidate",
+      "text": "NORMAN'S ACTION CYCLE\n\n  +---> GOAL (what I want to achieve)\n  |          |\n  |          v\n  |     PLAN (decide on action sequence)\n  |          |\n  |          v\n  |     SPECIFY (sequence of actions to take)\n  |          |\n  |          v\n  |     PERFORM (execute the actions)\n  |          |\n  |          v\n  |     PERCEIVE (what happened to the world?)\n  |          |\n  |          v\n  |     INTERPRET (what does the state mean?)\n  |          |\n  |          v\n  +---- EVALUATE (did I achieve my goal?)\n\nGULF OF EXECUTION: gap between goal and how to achieve it\n  User doesn't know what actions are available or how to do them.\n  Design solution: make actions visible and their effects predictable.\n\nGULF OF EVALUATION: gap between system state and user understanding\n  User can't tell if their action succeeded or what the current state is.\n  Design solution: make system state visible and understandable.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 268,
+      "heading_context": "## Designing Interactions Over Time: States and Transitions",
+      "confidence": "candidate",
+      "text": "PRODUCT STATE DESIGN\n\nFINITE STATE MACHINE AS DESIGN TOOL:\n  Every product at any moment is in exactly one STATE.\n  TRANSITIONS between states are triggered by user actions or time.\n  The design problem: how does the user know which state they're in?\n                     how are transitions triggered?\n                     are all transitions valid?\n\nEXAMPLE: MICROWAVE OVEN STATE MACHINE\n\n  [IDLE] --> (door open) --> [DOOR OPEN]\n    |         <------------ (door close)\n    |\n    --> (time set) --> [TIME SET]\n                          |\n                          --> (start) --> [RUNNING]\n                                             |\n                                             --> (time elapses) --> [DONE]\n                                             |\n                                             --> (cancel) --> [IDLE]\n\nFEEDBACK REQUIRED AT EACH STATE:\n  IDLE: display \"0:00\"; light off\n  DOOR OPEN: light on; display unchanged; start disabled\n  TIME SET: display shows entered time; start enabled\n  RUNNING: countdown visible; magnetron light; sound\n  DONE: beep x3; display \"END\"; light off\n\nDESIGN FAILURE: \"BLINKING 12:00\" PROBLEM\n  Many microwaves in the 1980s-90s had blinking 12:00.\n  This occurred because: power outage created ambiguous state\n  State: \"time has been set\" vs \"time has been erased\" was not visible\n  Design fix: dedicated \"CLOCK\" button; indicator light for clock set state\n\nBRIDGE TO SOFTWARE: State machine design is literally finite state machine\ndesign in software. Every button, form, modal, and page transition\nis a state machine. Design the states before writing code.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 313,
+      "heading_context": "## Interaction Design in Physical Controls",
+      "confidence": "candidate",
+      "text": "PHYSICAL CONTROL VOCABULARY\n\nCONTROL TYPE        INFORMATION ENCODED      DESIGN CONSIDERATIONS\n-------------------+------------------------+------------------------\nPUSH BUTTON         Momentary ON/off         Tactile click; clear state\n                    (returns to rest)        feedback; antiglare\n\nTOGGLE SWITCH       Two stable states        Position indicates state;\n                    (stays in position)      up/down meaning consistent\n\nROTARY KNOB         Continuous range         Detents signal positions;\n                    (indefinite turns)       hard stops at limits\n\nROTARY DIAL         Discrete positions       Click for each position;\n                    (limited travel)         labels at each stop\n\nSLIDER              Linear range             Thumb position = current value;\n                                             scale visible alongside\n\nROCKER SWITCH       Two states (rocking)     Labeled + / - or I / O;\n                    (no center neutral)      tactile difference pressed/not\n\nJOYSTICK            2D directional           Spring return to neutral typical;\n                    (continuous or 8-way)    deflection = speed/direction\n\nTOUCHPAD            2D absolute or relative  Lack of physical feedback\n                    position                 = must compensate with audio/visual\n\nTOUCHSCREEN         Direct manipulation      Minimum 44pt targets;\n                    (2D position + gesture)  no hover state possible",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

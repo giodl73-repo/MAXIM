@@ -1,0 +1,2029 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-naval-architecture-seakeeping",
+  "source": "../../naval-architecture",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "05-SEAKEEPING.md#000",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "# Seakeeping"
+    },
+    {
+      "id": "05-SEAKEEPING.md#001",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "05-SEAKEEPING.md#002",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "Hydrostatics [01] treats the ship at rest in calm water. Seakeeping treats the ship as a\n*dynamic* system being shaken by waves. A floating body is a mass on a spring (buoyancy is\nthe spring) with damping (it radiates waves), driven by an irregular forcing function (the\nseaway). The whole field is the theory of a damped, driven oscillator — extended to six\ndegrees of freedom and a random input. For a reader fluent in linear systems and Fourier\nanalysis, seakeeping is the most familiar territory in this module: it is signals and\nsystems applied to a hull."
+    },
+    {
+      "id": "05-SEAKEEPING.md#003",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "```\nSEAKEEPING = A DAMPED, DRIVEN OSCILLATOR (x6 degrees of freedom)\n==============================================================================="
+    },
+    {
+      "id": "05-SEAKEEPING.md#004",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "THE SEA (random waves)         THE SHIP (a 6-DOF dynamic system)\n   ----------------------         --------------------------------\n   irregular wave elevation       mass-spring-damper in each mode:\n   = sum of many regular waves      mass  = inertia + added mass\n   (a spectrum S(omega))            spring= buoyancy / metacentric restoring\n        |                           damping= wave radiation + viscous\n        v                                |\n   .----------.      transfer       .----------.      .-------------.\n   | WAVE     | --- function ----> | SHIP     | --->  | MOTIONS:    |\n   | SPECTRUM |     (the RAO)       | DYNAMICS |      | heave,roll, |\n   | S_wave(w)|                     |          |      | pitch ...   |\n   '----------'                     '----------'      '-------------'"
+    },
+    {
+      "id": "05-SEAKEEPING.md#005",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "OUTPUT spectrum = |RAO(w)|^2 x INPUT spectrum   (linear superposition)\n   S_motion(w) = |RAO(w)|^2 x S_wave(w)\n```"
+    },
+    {
+      "id": "05-SEAKEEPING.md#006",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "That last line is the entire workflow: decompose the sea into a spectrum, multiply by the\nship's transfer function (the RAO), and read off the motion statistics. It is the input →\ntransfer-function → output pipeline, exactly as in linear systems theory."
+    },
+    {
+      "id": "05-SEAKEEPING.md#007",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-SEAKEEPING.md#008",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "## Layer 1: The Six Degrees of Freedom"
+    },
+    {
+      "id": "05-SEAKEEPING.md#009",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "A rigid ship in the sea has six rigid-body motions — three translations and three\nrotations. Three are *restored* (they have a stiffness and oscillate); three are *free*\n(no restoring force, the ship just drifts)."
+    },
+    {
+      "id": "05-SEAKEEPING.md#010",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "```\nTHE SIX SHIP MOTIONS (6-DOF)\n==============================================================================="
+    },
+    {
+      "id": "05-SEAKEEPING.md#011",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "z (up)\n                        |   yaw (about z)\n                        |  /\n                        | /\n            roll <------+------> (about x, longitudinal)\n           (about x)   /|\n                      / |\n                 surge  |  y (transverse)\n            x ---------- pitch (about y)\n         (forward)"
+    },
+    {
+      "id": "05-SEAKEEPING.md#012",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "+----------+-----------+----------------------------+--------------+\n   | Motion   | Type      | Restoring force?           | Matters for  |\n   |----------|-----------|----------------------------|--------------|\n   | SURGE    | translate | NO (free) - x, fore/aft    | added resist.|\n   | SWAY     | translate | NO (free) - y, sideways    | maneuvering  |\n   | YAW      | rotate z  | NO (free) - heading change | course-keep  |\n   |----------|-----------|----------------------------|--------------|\n   | HEAVE    | translate | YES - buoyancy spring (z)  | comfort,deck |\n   | ROLL     | rotate x  | YES - GM x displacement    | comfort,cargo|\n   | PITCH    | rotate y  | YES - long. GM (huge)      | slamming,bow |\n   +----------+-----------+----------------------------+--------------+\n```"
+    },
+    {
+      "id": "05-SEAKEEPING.md#013",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "The three *restored* motions — **heave, roll, pitch** — are oscillators with natural\nfrequencies, and they are where seakeeping does its work. The three *free* motions — surge,\nsway, yaw — have no restoring stiffness and are handled by maneuvering and control, not\noscillation theory. (Roll is the troublesome one: its restoring spring is the GM from\n[01], and GM is small, so roll is lightly stiffened and lightly damped — a recipe for large\nresonant response.)"
+    },
+    {
+      "id": "05-SEAKEEPING.md#014",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-SEAKEEPING.md#015",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "## Layer 2: Each Motion Is a Mass-Spring-Damper"
+    },
+    {
+      "id": "05-SEAKEEPING.md#016",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "Take heave as the cleanest example. The vertical equation of motion is a textbook damped\noscillator, with two marine twists: **added mass** and **wave-radiation damping**."
+    },
+    {
+      "id": "05-SEAKEEPING.md#017",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "```\nHEAVE AS A DAMPED OSCILLATOR\n==============================================================================="
+    },
+    {
+      "id": "05-SEAKEEPING.md#018",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "(m + a) z'' + b z' + c z  =  F(t)\n    \\___/      |     |          |\n   inertia   damping spring   wave forcing\n   + ADDED              \\\n     MASS                c = rho x g x A_w  (waterplane area = the spring rate)\n        \\\n         a = ADDED MASS: water that must be accelerated WITH the hull.\n             A ship heaving drags a slug of surrounding water along; its\n             inertia ADDS to the ship's own. Can be ~the ship's own mass."
+    },
+    {
+      "id": "05-SEAKEEPING.md#019",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "b = RADIATION DAMPING: the ship makes waves as it heaves; that radiated\n       wave energy is lost from the motion -> damping. (Plus viscous damping.)"
+    },
+    {
+      "id": "05-SEAKEEPING.md#020",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "Natural frequency:  omega_n = sqrt( c / (m + a) )\n```"
+    },
+    {
+      "id": "05-SEAKEEPING.md#021",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "Two ideas a dynamics reader should pin down:"
+    },
+    {
+      "id": "05-SEAKEEPING.md#022",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "- **Added mass** is not a fudge; it is the kinetic energy of the entrained fluid expressed\n  as an effective inertia. It can roughly equal the ship's own mass, so it shifts natural\n  frequencies substantially. (It is the hydrodynamic cousin of the effective-mass terms in\n  any fluid-loaded oscillator.)\n- **Radiation damping** is the *useful* damping: the ship dumps motion energy into radiated\n  waves. Roll, however, radiates very weakly (a rolling hull is a poor wavemaker), so roll\n  damping is small and mostly viscous — which is exactly why roll needs help (Layer 5)."
+    },
+    {
+      "id": "05-SEAKEEPING.md#023",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "The roll and pitch natural periods follow the same form:"
+    },
+    {
+      "id": "05-SEAKEEPING.md#024",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "```\n   Roll natural period:   T_roll  ~  2pi x k_xx / sqrt(g x GM)\n        k_xx = roll radius of gyration (~0.35-0.40 B). Note 1/sqrt(GM):\n        a STIFF ship (big GM) has a SHORT, snappy roll period.\n   Pitch natural period:  T_pitch ~ similar form with longitudinal GM_L,\n        which is huge -> pitch is much stiffer and shorter-period than roll.\n```"
+    },
+    {
+      "id": "05-SEAKEEPING.md#025",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-SEAKEEPING.md#026",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "## Layer 3: The Response Amplitude Operator (RAO)"
+    },
+    {
+      "id": "05-SEAKEEPING.md#027",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "The **RAO** is the ship's transfer function: for a regular wave of unit amplitude at\nfrequency ω (and a given heading), it gives the amplitude (and phase) of each motion. It is\nthe marine name for |H(ω)| — the frequency response of the hull-as-oscillator."
+    },
+    {
+      "id": "05-SEAKEEPING.md#028",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "```\nA ROLL RAO (transfer function of the ship in roll)\n==============================================================================="
+    },
+    {
+      "id": "05-SEAKEEPING.md#029",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "roll\n  amplitude\n  per wave  |\n  slope     |              /\\  <- RESONANCE PEAK at omega = omega_n_roll\n  (deg/m)   |             /  \\    (wave encounter period = roll natural period)\n            |            /    \\   height of peak set by DAMPING (low damping\n            |           /      \\   = tall sharp peak = dangerous)\n            |          /        \\\n            |   ______/          \\________\n            |  /                          \\_____\n            | /                                  ----____\n            +----------------------------------------------> encounter freq w_e\n            0      low freq (long waves):       high freq (short waves):\n                   ship follows the wave        ship can't respond, RAO -> 0\n                   like a cork, RAO -> 1\n```"
+    },
+    {
+      "id": "05-SEAKEEPING.md#030",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "Three regimes, exactly as for any second-order system:"
+    },
+    {
+      "id": "05-SEAKEEPING.md#031",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "| Regime | Wave vs. ship | Behavior |\n|--------|---------------|----------|\n| Low frequency (long waves) | Wave ≫ ship period | Ship rides the wave like a cork; RAO → 1 (it just follows the surface) |\n| Resonance (ω_e ≈ ω_n) | Encounter period = natural period | RAO peaks — the dangerous regime; magnification set by damping |\n| High frequency (short waves) | Wave ≪ ship period | Ship too sluggish to respond; RAO → 0 |"
+    },
+    {
+      "id": "05-SEAKEEPING.md#032",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "The **encounter frequency** ω_e is what the moving ship actually feels, Doppler-shifted by\nits own speed and heading. Steaming into the waves raises ω_e; running with them lowers it.\nThis is operationally huge: a captain can dodge roll resonance by **changing speed or\nheading** to move ω_e off the roll natural frequency — tuning the forcing frequency away\nfrom the system's resonance, in real time."
+    },
+    {
+      "id": "05-SEAKEEPING.md#033",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "```\n   Encounter frequency (the Doppler shift the ship feels):\n        omega_e = omega - (omega^2 / g) x V x cos(mu)\n        mu = heading angle (0 = following seas, 180 = head seas)\n        -> head seas (mu=180): omega_e INCREASES (waves hit faster)\n        -> following seas (mu=0): omega_e DECREASES (can even go to ~0)\n```"
+    },
+    {
+      "id": "05-SEAKEEPING.md#034",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "> Old world -> new world bridge. The RAO is |H(jω)|, the magnitude of a transfer function;\n> resonance is a lightly-damped pole; the encounter frequency is a Doppler shift on the\n> input. Predicting motions is `output spectrum = |H|² × input spectrum` — Wiener-Khinchin\n> applied to a hull. A reader from signal processing already owns the entire mathematical\n> machinery of seakeeping; only the vocabulary (RAO, added mass, encounter frequency) is new."
+    },
+    {
+      "id": "05-SEAKEEPING.md#035",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-SEAKEEPING.md#036",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "## Layer 4: From Regular Waves to the Real Sea — Spectra"
+    },
+    {
+      "id": "05-SEAKEEPING.md#037",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "The real ocean is irregular, but (to first order) it is a *linear superposition* of regular\nwaves — a random Gaussian process described by a **wave spectrum** S(ω) giving the energy at\neach frequency. Standard spectra (Pierson-Moskowitz for fully-developed seas, JONSWAP for\nfetch-limited) are parameterized by significant wave height and period."
+    },
+    {
+      "id": "05-SEAKEEPING.md#038",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "```\nTHE SEAKEEPING WORKFLOW (linear, spectral)\n==============================================================================="
+    },
+    {
+      "id": "05-SEAKEEPING.md#039",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "WAVE SPECTRUM            RAO (ship transfer fn)        MOTION SPECTRUM\n   S_wave(omega)      x        |RAO(omega)|^2        =    S_motion(omega)\n   (energy vs freq)         (response vs freq)            (motion energy)"
+    },
+    {
+      "id": "05-SEAKEEPING.md#040",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "/\\                         /\\                            /\\\n     /  \\  many                 /  \\ resonance               /  \\ motion\n    /    \\ frequencies   --->   /    \\ filter        --->    /    \\ concentrated\n   /______\\ in the sea        _/      \\_                   _/      \\_ near where\n                                                              wave x RAO overlap"
+    },
+    {
+      "id": "05-SEAKEEPING.md#041",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "Then INTEGRATE the motion spectrum for statistics:\n     area m0 = variance -> significant motion = 4 x sqrt(m0)\n     (e.g. significant roll amplitude, probability of exceeding a limit)\n```"
+    },
+    {
+      "id": "05-SEAKEEPING.md#042",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "This is the payoff of linearity: you never have to time-simulate a storm. Multiply the wave\nspectrum by |RAO|², integrate, and out come the motion statistics — significant roll, RMS\nvertical acceleration, the probability of slamming this hour. **Significant** anything (wave\nheight, roll) is conventionally the mean of the highest third, ≈ 4√(variance). The whole\nedifice rests on superposition holding; in extreme seas the response goes nonlinear and you\nfall back to direct simulation or model tests."
+    },
+    {
+      "id": "05-SEAKEEPING.md#043",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-SEAKEEPING.md#044",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "## Layer 5: The Nasty Nonlinear Events — Slamming, Green Water, Parametric Roll"
+    },
+    {
+      "id": "05-SEAKEEPING.md#045",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "Linear theory predicts comfort and fatigue loads. The *dangerous* events are nonlinear."
+    },
+    {
+      "id": "05-SEAKEEPING.md#046",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "```\nTHE THREE VIOLENT EVENTS\n==============================================================================="
+    },
+    {
+      "id": "05-SEAKEEPING.md#047",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "SLAMMING                 GREEN WATER              PARAMETRIC ROLL\n  --------                 -----------              ---------------\n  bow lifts clear in       a wave boards the        head/following seas, no\n  pitch, then crashes      deck (not spray --        beam wave at all, yet\n  down onto the next       solid \"green\" water)      the ship rolls violently\n  wave: huge impact        sweeping the deck"
+    },
+    {
+      "id": "05-SEAKEEPING.md#048",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "bow ___                  wave over the bow         restoring GM PULSATES as\n     \\  out of water       ~~~~~/~~~~ floods         the wave crest/trough moves\n      \\                    over deck                 along the hull -> GM(t).\n   ~~~~\\~~~  SLAM down ->                            If GM oscillates at ~2x the\n        |   #IMPACT#       damages hatches,          roll natural freq, energy\n        v                  containers, fittings      pumps INTO roll -> blow-up\n   peak pressure can                                 (Mathieu-equation instability)\n   exceed 10 bar\n```"
+    },
+    {
+      "id": "05-SEAKEEPING.md#049",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "Three failure modes worth knowing precisely:"
+    },
+    {
+      "id": "05-SEAKEEPING.md#050",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "- **Slamming.** In head seas the bow emerges and re-enters, generating an impulsive\n  pressure (whipping the hull girder — a transient that excites the structural modes of\n  [04]). Mitigated by reducing speed (\"voluntary speed loss\") and by flare/bow design.\n- **Green water.** Solid water on deck, not spray — heavy and destructive. Drives\n  freeboard, hatch-cover strength, and forecastle design.\n- **Parametric roll.** The subtle one. In head or following seas with no beam excitation,\n  the **GM itself oscillates** as crests and troughs pass (the waterplane changes), at\n  roughly twice the roll frequency. This is a **Mathieu-equation parametric instability** —\n  energy is pumped into roll from the heave/pitch input, and roll can grow to 40° from\n  nothing. It famously hit a post-Panamax containership (APL China, 1998) and is now a\n  required check. A dynamical-systems reader will recognize it instantly as parametric\n  resonance: the *coefficient* of the oscillator, not the forcing, is being modulated."
+    },
+    {
+      "id": "05-SEAKEEPING.md#051",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "> Old world -> new world bridge. Parametric roll is the swinging-child-on-a-swing\n> phenomenon — you pump energy in by changing the *system parameter* (effective pendulum\n> length, here GM) at twice the natural frequency, not by pushing at the natural frequency.\n> It is the Mathieu equation, the same parametric instability seen in `dynamical-systems/`.\n> Ordinary resonance excites at ω_n; parametric resonance excites by modulating a coefficient\n> at 2ω_n — which is why it can blow up even when there is no direct rolling moment at all."
+    },
+    {
+      "id": "05-SEAKEEPING.md#052",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-SEAKEEPING.md#053",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "## Layer 6: Stabilization — Fighting Roll"
+    },
+    {
+      "id": "05-SEAKEEPING.md#054",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "Roll is the motion that ruins comfort, shifts cargo, and (at worst) capsizes. Because roll\nis lightly damped, small added damping or counter-moment makes a large difference at\nresonance. The toolkit:"
+    },
+    {
+      "id": "05-SEAKEEPING.md#055",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "| Stabilizer | How it works | Trade-off |\n|------------|--------------|-----------|\n| Bilge keels | Long fins along the bilge add viscous damping | Cheap, passive, always-on; small drag; ~30% roll cut |\n| Anti-roll tanks | Water in a tank sloshes out of phase with roll | Works at zero speed; costs space/weight; tuned to T_roll |\n| Active fins | Retractable wings generate counter-moment via lift | Strong; need forward speed; cost, complexity |\n| Gyroscopic | Spinning flywheel precesses to oppose roll | Good at zero speed (yachts); heavy, power-hungry |\n| Rudder roll stabilization | High-speed rudder use induces counter-roll | Free hardware; couples with steering |"
+    },
+    {
+      "id": "05-SEAKEEPING.md#056",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "Bilge keels are nearly universal because they are passive, cheap, and add the scarce\ncommodity — roll damping — at the resonance where it matters most. Anti-roll tanks and\ngyros work at *zero speed* (cruise ships at anchor, yachts), where speed-dependent fins are\nuseless. The choice maps directly onto the RAO: damping devices lower and broaden the\nresonant peak; tuned tanks add a second absorber mode that splits the peak — the marine\nform of a tuned-mass damper."
+    },
+    {
+      "id": "05-SEAKEEPING.md#057",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-SEAKEEPING.md#058",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "## Worked Example: Roll Resonance and Tuning Out of It"
+    },
+    {
+      "id": "05-SEAKEEPING.md#059",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "A ferry with GM = 1.2 m, beam B = 22 m, roll radius of gyration k = 0.38·B. Find its roll\nnatural period, then show how the captain avoids resonance in a beam swell of period 8 s."
+    },
+    {
+      "id": "05-SEAKEEPING.md#060",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "```\n   STEP 1 -- roll radius of gyration:\n     k_xx = 0.38 x 22 = 8.36 m"
+    },
+    {
+      "id": "05-SEAKEEPING.md#061",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "STEP 2 -- roll natural period:\n     T_roll = 2 pi x k_xx / sqrt(g x GM)\n            = 2 pi x 8.36 / sqrt(9.81 x 1.2)\n            = 52.5 / sqrt(11.77) = 52.5 / 3.43 = 15.3 s"
+    },
+    {
+      "id": "05-SEAKEEPING.md#062",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "STEP 3 -- the threat:\n     A beam swell of period 8 s. In BEAM seas (mu = 90 deg) the ship is not\n     moving relative to the wave crests, so encounter period ~ wave period\n     ~ 8 s. That is well off the 15.3 s natural period -> little roll. Good."
+    },
+    {
+      "id": "05-SEAKEEPING.md#063",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "STEP 4 -- the trap (why heading matters):\n     Suppose instead a long swell of 15 s period in QUARTERING seas. The\n     encounter period could stretch toward T_roll = 15.3 s -> RESONANCE ->\n     violent roll. The fix:"
+    },
+    {
+      "id": "05-SEAKEEPING.md#064",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "STEP 5 -- tune out of resonance (operational control):\n     Change HEADING (alter mu) or SPEED (alter V) to shift the encounter\n     period away from 15.3 s:\n        omega_e = omega - (omega^2/g) V cos(mu)\n     Increasing speed or turning toward head seas RAISES omega_e (shortens\n     encounter period), pulling the forcing off the roll resonance."
+    },
+    {
+      "id": "05-SEAKEEPING.md#065",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "STEP 6 -- note on GM (links to [01]):\n     A STIFFER ship (raise GM) shortens T_roll (T ~ 1/sqrt(GM)) -- but a\n     short snappy roll is uncomfortable and high-acceleration. Stability and\n     seakeeping pull GM in OPPOSITE directions: [01] wants enough GM for\n     safety, [05] wants it modest for a long, gentle roll. The design spiral\n     [00] arbitrates.\n```"
+    },
+    {
+      "id": "05-SEAKEEPING.md#066",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "The structural insight: roll safety is not only a hardware problem (stabilizers) but a\n*control* problem — the master detunes the forcing frequency from the system's resonance by\nchanging speed and heading, in real time, exactly as you would move an excitation off a\nlightly-damped pole."
+    },
+    {
+      "id": "05-SEAKEEPING.md#067",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-SEAKEEPING.md#068",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "## Common Confusion Points"
+    },
+    {
+      "id": "05-SEAKEEPING.md#069",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "### A stiff ship (high GM) is not a comfortable ship"
+    },
+    {
+      "id": "05-SEAKEEPING.md#070",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "```\n   HIGH GM:  short roll period, fast snappy roll, HIGH accelerations\n             -> safe against capsize but miserable and cargo-damaging\n   LOW GM:   long roll period, gentle slow roll, low accelerations\n             -> comfortable but closer to the stability margin\n```"
+    },
+    {
+      "id": "05-SEAKEEPING.md#071",
+      "path": [
+        "05-SEAKEEPING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:naval-architecture:05-seakeeping, git-history:naval-architecture:05-seakeeping]",
+        "canonical_path": "naval-architecture/05-SEAKEEPING.md",
+        "concepts": "[seakeeping, ship motions, response amplitude operator, slamming, roll stabilization, resonance]",
+        "current_path": "naval-architecture/05-SEAKEEPING.md",
+        "id": "maxim:naval-architecture:seakeeping",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "naval-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[seakeeping]",
+        "section": "naval-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Seakeeping",
+        "updated": "null"
+      },
+      "text": "Stability [01] and seakeeping [05] want opposite GM. The design is a compromise, not a\nmaximization — the same Goldilocks point flagged in [01]."
+    }
+  ],
+  "refs": [
+    "05-SEAKEEPING.md"
+  ]
+}

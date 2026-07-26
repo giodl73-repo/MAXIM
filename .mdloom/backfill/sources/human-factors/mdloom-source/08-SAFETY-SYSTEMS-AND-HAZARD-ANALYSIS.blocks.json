@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "human-factors\\08-SAFETY-SYSTEMS-AND-HAZARD-ANALYSIS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 66,
+      "heading_context": "## The Big Picture: Two Views of Failure — Chains and Control",
+      "confidence": "candidate",
+      "text": "TWO VIEWS OF FAILURE  (use both; each sees what the other misses)\n================================================================================\n   LINEAR / BARRIER VIEW (Reason, Hollnagel)     SYSTEMIC / CONTROL VIEW (Leveson STAMP)\n   -----------------------------------------     ---------------------------------------\n   hazard -> a TRAJECTORY passes through holes    accident = inadequate CONTROL of the\n   in successive barriers (defense-in-depth):     socio-technical system: unsafe control\n                                                   actions + missing feedback, even when\n     [barrier][barrier][barrier] -> LOSS          every COMPONENT is \"working\"\n        holes line up  ^                          controller -> (control action) -> process\n                                                   process  -> (feedback) -> controller\n   Good for: energy/containment, clear barriers   Good for: software/automation/coordination,\n   Tools: bow-tie, HAZOP, FMEA, FTA/ETA           where \"nothing failed\" but the system did\n   ================================================================================\n   HUMAN ROLE in both: the human is a BARRIER (a fallible one -- its failure prob is the\n   HEP of guide 05) AND a CONTROLLER (whose unsafe control actions STPA hunts) AND a source\n   of the LATENT CONDITIONS (guide 04) that pre-open the holes.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 188,
+      "heading_context": "## 5. STAMP / STPA — Accidents as Inadequate Control",
+      "confidence": "candidate",
+      "text": "STPA IN ONE PICTURE  (the human is a CONTROLLER, not just a barrier)\n--------------------------------------------------------------------------------\n   CONTROLLER (human or automation) --- control action ---> CONTROLLED PROCESS\n        ^                                                        |\n        |------------------ feedback (may be missing/wrong) -----|\n   UNSAFE CONTROL ACTIONS (UCA):\n      (1) provided when unsafe   (2) NOT provided when needed\n      (3) wrong timing/order     (4) applied too long / stopped too soon\n   CAUSAL SCENARIOS include: wrong MENTAL MODEL (04), missing/late FEEDBACK, MODE\n   confusion (06/07), and coordination gaps between multiple controllers.\n   -----------------------------------------------------------------------------\n   Why it matters for HF: STPA treats the operator's mental model and the interface's\n   feedback as first-class safety-control elements -- exactly the module's concerns.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 244,
+      "heading_context": "## A Worked Bow-Tie Pass — One Quantified Branch (reproducible)",
+      "confidence": "candidate",
+      "text": "BOW-TIE (synthetic; one threat branch quantified)\n--------------------------------------------------------------------------------\n   THREAT                PREVENTIVE BARRIERS         TOP EVENT      MITIGATIVE   CONSEQUENCE\n   overfill  --> [HW high-level TRIP] [OPERATOR alarm  loss of  --> [BUND]  --> env. release\n   demand         PFD = 0.01           response]        contain-      fails\n   f = 0.1/yr                          HEP ~ 0.29        ment          0.05\n                                       (guide 05, bounded)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 276,
+      "heading_context": "## A Worked Bow-Tie Pass — One Quantified Branch (reproducible)",
+      "confidence": "candidate",
+      "text": "WITH COMMON-CAUSE  (decompose each barrier: shared-instrument part + independent part)\n--------------------------------------------------------------------------------\n   Both barriers READ THE SAME LEVEL INSTRUMENT. Decompose each barrier's failure into:\n     (i)  a SHARED-instrument failure  -> defeats BOTH barriers together (common-cause)\n     (ii) an INDEPENDENT failure       -> the trip's own logic/actuator, or the operator's\n                                          own diagnosis/action, GIVEN a working instrument\n   f(top) ~= f(demand) x [ P(shared-instrument CCF)                 (defeats BOTH)\n                          + PFD_indep(trip) x HEP_indep(operator) ] (both fail on their own)\n   e.g. P(shared CCF) = 0.005 ; PFD_indep x HEP_indep ~ 0.01 x 0.29 = 0.0029\n        f(top) ~= 0.1 x (0.005 + 0.0029) ~= 0.1 x 0.0079 = 7.9e-4 /yr\n   -----------------------------------------------------------------------------\n   Reading: the common-cause term (0.005) now DOMINATES the independent term (0.0029) and\n   nearly TRIPLES the top-event frequency vs the independent-only 2.9e-4. \"Two barriers\"\n   that share an instrument are closer to ONE. Defense-in-depth requires INDEPENDENCE, which\n   this design lacks. (A fuller model uses a beta-factor split; this screening decomposition\n   suffices to show the direction and the dominance.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

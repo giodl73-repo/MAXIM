@@ -1,0 +1,546 @@
+---
+tags: [backfill]
+ops: [backfill]
+content_tags: [markdown]
+proof_original: "06-STAGECRAFT.md"
+---
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:theater-performance:stagecraft
+kind: guide
+module: theater-performance
+section: theater-performance
+title: Stagecraft and Production Design
+status: source-custody
+source_custody: partial
+current_path: theater-performance/06-STAGECRAFT.md
+canonical_path: theater-performance/06-STAGECRAFT.md
+backsource_ids: [mdloom-backfill:theater-performance:06-stagecraft, git-history:theater-performance:06-stagecraft]
+concepts: [stagecraft]
+root_concepts: [stagecraft]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
+# Stagecraft and Production Design
+
+## The Big Picture
+
+Stagecraft is the technical art of making theater happen: scene design, lighting, sound, costume, and the organizational structure (production management, dramaturgy) that integrates them. It is simultaneously art (vision), engineering (execution), and project management (coordination).
+
+```
++------------------------------------------------------------------+
+|              STAGECRAFT — LANDSCAPE                              |
++------------------------------------------------------------------+
+|                                                                  |
+|  DESIGN ELEMENTS                                                 |
+|  Scene design: the physical world of the production             |
+|  Lighting design: time, mood, focus, revelation                 |
+|  Sound design: atmosphere, music, practical effects             |
+|  Costume design: character, period, social status               |
+|                                                                  |
+|  STAGE ARCHITECTURE                                              |
+|  Proscenium: picture frame stage (dominant form)               |
+|  Thrust: stage projects into audience (3-sided)                 |
+|  In-the-round: audience on all sides                            |
+|  Black box: flexible space (variable configurations)           |
+|  Environmental: audience and performers share same space        |
+|                                                                  |
+|  LIGHTING TECHNOLOGY EVOLUTION                                   |
+|  Candles (pre-1800) → Gas (1820s) → Electricity (1882+)        |
+|  Followspot → Ellipsoidal → PAR cans → Moving lights (1990s+) |
+|  LED (2000s+) → Automated LED (present)                         |
+|                                                                  |
+|  PRODUCTION ORGANIZATION                                         |
+|  Director + Designers + Stage Manager = production team         |
+|  Dramaturgy: textual/research support for production           |
++------------------------------------------------------------------+
+```
+
+---
+
+## Layer 1: Stage Architecture — The Configuration Is the Dramaturgy
+
+The shape of the theatrical space is not neutral — it determines what kind of drama is possible.
+
+```
+STAGE CONFIGURATIONS
+---------------------
+
+PROSCENIUM (picture frame):
+  +---------------------------+
+  |   STAGE (performance)     |
+  +===========================+
+  |         AUDIENCE          |
+  +---------------------------+
+  (= = proscenium arch)
+  Audience: ONE direction only
+  Stage: behind the arch, like a picture
+  Strengths: rich illusionistic scenic design; clear sightlines
+  Weaknesses: distance from audience; soliloquy awkward;
+              the actor cannot look directly at the audience
+              without looking "into the house" (formal)
+  History: developed in Italy (16th-17th c.); dominant
+           in commercial theater worldwide
+
+THRUST:
+  +---------------------------+
+  |    AUDIENCE               |
+  +---------------------------+
+  |  AUD | STAGE  | AUDIENCE  |
+  +------+--------+-----------+
+  |        AUDIENCE           |
+  +---------------------------+
+  Audience: THREE sides
+  Stage: projects into audience
+  Strengths: intimacy; soliloquy is natural (you speak
+             into surrounding audience); no "front"
+  Weaknesses: every design choice must work from 3 angles;
+              limited scenic flying capacity
+  History: Shakespeare's Globe; RST (Royal Shakespeare
+           Theatre) thrust version; many regional theaters
+
+IN-THE-ROUND (arena):
+  ==== AUDIENCE ====
+  |                   |
+  A                   A
+  U   [PERFORMANCE]   U
+  D                   D
+  |                   |
+  ==== AUDIENCE ====
+  Audience: ALL FOUR sides
+  Strengths: maximum intimacy; pure actor-audience focus
+  Weaknesses: cannot have scenic walls; no flying;
+              some audience always sees backs of actors
+  History: many black box theaters; Chichester Festival;
+           some Greek theaters
+
+BLACK BOX:
+  A flexible, neutral space. No fixed configuration.
+  Audience and stage can be arranged any way:
+  thrust, proscenium, in-the-round, traverse (two sides),
+  promenade (audience moves through), environmental.
+  The choice of configuration IS the first design decision.
+
+ENVIRONMENTAL THEATER (Schechner):
+  The distinction between performance space and
+  audience space is dissolved. Audience and performers
+  share the same space.
+  See 09-PERFORMANCE-STUDIES.md for theory.
+```
+
+---
+
+## Layer 2: Scene Design — A History
+
+### Design Philosophy Through History
+
+```
+HISTORICAL SCENE DESIGN PROGRESSION
+--------------------------------------
+GREEK (5th c. BCE):
+  Virtually no scenery. The skene is a building;
+  pinakes (painted panels) in doorway slots.
+  The "scenery" is verbal (text) and architectural (theater).
+
+MEDIEVAL:
+  "Mansions" (small structures representing locations
+  placed around the performance area — Heaven at one end,
+  Hell at the other, earthly locations between).
+  The "platea" (neutral performance area between mansions)
+  = anywhere.
+
+RENAISSANCE ITALY (Serlio, 1545; perspective scenery):
+  Single-point perspective painted backdrops.
+  Wing-and-drop system: flat painted panels in slots
+  to the side (wings) + painted backdrop at rear.
+  Changeable by sliding wings and flying/dropping cloths.
+  Spectacle becomes possible.
+
+18th-19th CENTURY:
+  Wing-and-drop increasingly elaborate.
+  Charles Kean (1850s): archaeological accuracy
+    (historically researched sets for Shakespeare).
+  Gas lighting allows dimming (late 19th c.) →
+    more subtle scenic illusion possible.
+  "Box set" (Madame Vestris, 1832): a room with three
+    walls and a ceiling, representing the interior
+    realistically. The naturalist scene design.
+
+APPIA AND CRAIG (c. 1900):
+  Adolphe Appia (Swiss) and Gordon Craig (English):
+  React against the flat painted scene.
+  Three-dimensional platforms, ramps, steps.
+  Lighting as design element (Appia especially).
+  Selective, non-realistic: suggest rather than depict.
+  Huge influence on 20th-c. design.
+
+20th CENTURY:
+  Unit set: a single design serves all scenes (more
+    practical for repertory and touring).
+  Environmental: no separation (Schechner, Living Theatre)
+  Projections: slides, film, video projected onto stage
+  Robert Wilson: pure design theater; slow movement;
+    image as primary element, not story or character.
+
+CONTEMPORARY:
+  Digital projection (mapping): full 3D video mapping
+  onto stage surfaces. The "set" can be a single white
+  form onto which any environment is projected.
+  LEDs as set elements (not just lighting instruments).
+  Immersive: the entire building as set.
+  Technical architecture: a media server (disguise/d3,
+  Resolume) renders video in real-time; output is warped
+  and edge-blended to correct for non-planar surface
+  geometry (mesh calibration — computational geometry
+  of mapping 2D video to arbitrary 3D surfaces). SMPTE
+  timecode sync locks the media server to lighting console
+  and audio playback, making the full production a
+  synchronized multi-stream system. High-lumen projectors
+  (20,000+ ANSI lumens) required to compete with stage
+  lighting on scenic surfaces.
+```
+
+---
+
+## Layer 3: Lighting Design — Technology and Art
+
+Lighting is perhaps the most technically sophisticated design element. Its history is also a story of enabling dramatically new theatrical possibilities.
+
+```
+LIGHTING TECHNOLOGY HISTORY
+-----------------------------
+PRE-ELECTRICITY:
+  Candles: uniform, warm, dim. No directional control.
+    Chandeliers over the stage AND the audience (both lit).
+    The audience and stage were in the same light.
+    → No separation of audience from performance.
+    → Performance was partly social (you could see who else
+      was in the audience; they could see you).
+
+  Oil lamps: brighter; controllable somewhat via wick.
+  Limelight (1820s): calcium oxide heated to incandescence
+    by oxyhydrogen flame. Very bright spot.
+    The first instrument to create a "spotlight effect."
+    "In the limelight" = exposed, celebrated.
+
+GAS LIGHTING (from 1820s):
+  Gas pipes to each light; centralized control possible.
+  The DIMMER: reduce gas pressure to dim all lights.
+  First systematic lighting control.
+  The possibility of dimming changed what theater could do:
+  scenes could begin and end in light/darkness.
+
+ELECTRICITY (from 1882):
+  Edison demonstrates practical electric light, 1879.
+  The Savoy Theatre, London (1881) = first fully electric
+  theater. Richard D'Oyly Carte, for Gilbert and Sullivan.
+  Electric lighting was safer (no gas; fewer fires),
+  brighter, and more controllable.
+
+ELLIPSOIDAL (LEKO):
+  The "Leko" (brand name from Levy and Kook — the inventors):
+  An ellipsoidal reflector spotlight with a lens system
+  that can project a sharp-edged beam.
+  Gobos (cutout patterns) can create textures and shapes.
+  The workhorse of theatrical lighting.
+
+MOVING LIGHTS (from 1990s):
+  Computer-controlled instruments with motorized pan,
+  tilt, color, gobo rotation, iris, zoom.
+  A single instrument can do in seconds what previously
+  required manually refocusing many fixtures.
+  The "intelligent light" revolution.
+
+LED (from 2000s):
+  Low power, cool, long life, no color gels needed
+  (RGB or RGBW mixing). Eliminated many practical problems.
+  Color mixing digitally vs. physical gel changes.
+
+CONTEMPORARY:
+  Full DMX/wireless control; the lighting console is
+  a software application. The designer programs cues
+  (states, transitions, timing) in advance; the stage
+  manager executes them in performance.
+  DMX512: serial control protocol, 512 channels per universe,
+  0-255 values per channel, ~44 Hz refresh rate.
+  Systems parallel: DMX universe = control bus;
+  moving light = intelligent actuator with address;
+  console = state machine with programmed cue stack;
+  "go" = state transition trigger with no rollback.
+  The show is a sequence of pre-validated state transitions
+  executed live. Modern: sACN (streaming ACN) replaces DMX
+  for large installations — Ethernet-based, unlimited universes.
+```
+
+### Lighting Functions
+
+```
+WHAT LIGHTING DOES
+-------------------
+1. VISIBILITY: the audience must be able to see the actors
+   (fundamental; everything else follows)
+
+2. FOCUS: what draws the eye? Where in the picture is
+   the audience looking?
+   Bright area draws attention; dark areas recede.
+   A shaft of light isolates a single actor.
+
+3. TIME OF DAY AND SEASON:
+   Amber/warm → late afternoon, sunset
+   Cold blue → night, moonlight, winter
+   Neutral/white → noon, interior day
+   Side-lighting → raking light, dawn or dusk angle
+
+4. MOOD:
+   Underlit face (light from below) → menace
+   High side light → drama and form
+   Front light → flatness, openness, vulnerability
+   Top light → isolation, loneliness
+
+5. REVELATION AND CONCEALMENT:
+   Lighting brings things into being; darkness makes
+   them not exist. A world is created and destroyed
+   by the lighting states.
+
+6. STYLE:
+   Naturalistic (motivated sources: window, lamp)
+   Non-naturalistic (arbitrary colored pools, isolations)
+   Abstract (pure color and geometry; no naturalism)
+```
+
+---
+
+## Layer 4: Sound Design
+
+### Signal Chain Architecture
+
+```
+THEATER SOUND SIGNAL CHAIN
+----------------------------
+SOURCES                  PROCESSING              OUTPUT
+Microphones ──┐          ┌── EQ/dynamics ──┐     ┌── Main L/R speakers
+  (wireless   │          │   per channel   │     │   (FOH PA system)
+  body mics,  ├──→ PREAMPS → MIXING CONSOLE → DSP → Center cluster
+  area mics,  │          │   (digital:     │     │   Subwoofers
+  floor mics) ┘          │   Yamaha CL/QL, │     │   Delay speakers
+                         │   DiGiCo, Midas)│     │   Surround speakers
+Playback ─────┐          │                 │     │   Monitor wedges
+  (QLab,      ├──→ LINE IN │   Matrix routing:│  └── (stage monitors)
+  SFX server) ┘          │   any input to   │
+                         │   any output     │     FOH = Front of House
+Live music ───┐          │   at any level   │     (audience hears this)
+  (orchestra  ├──→ PREAMPS │                 │
+  pit, band)  ┘          └──────────────────┘     MONITOR MIX = separate
+                                                  mix for performers
+                                                  (what actors hear)
+
+FOH engineer: mixes for the audience
+Monitor engineer: mixes for the performers
+(In smaller productions, one person does both)
+```
+
+The distinction between FOH (front of house) and monitor mixing is critical: performers need to hear themselves and their cue sources; the audience needs to hear the designed sound world. These are often different mixes running from the same console via matrix routing.
+
+Sound design was the last of the main design elements to be systematized (only recognized as a professional credit in major theater from the 1960s–70s):
+
+```
+SOUND DESIGN FUNCTIONS
+-----------------------
+1. LIVE MUSIC vs. RECORDED SOUND
+   Live music (pit orchestra, stage musicians) = presence
+   Recorded sound (playback) = control and repeatability
+   Many productions mix both.
+
+2. PRACTICAL SOUND EFFECTS
+   "Practical" = sounds from visible sources
+     (telephone rings, thunder, door knock)
+   "Non-practical" = sounds with no visible source
+     (underscoring, ambient, atmospheric)
+
+3. ATMOSPHERIC SOUND
+   Room tone: silence is not silent.
+   A forest has birds, wind, insects.
+   A city has traffic, voices, sirens.
+   Ambient sound creates the world.
+
+4. REINFORCEMENT
+   Amplification of actors' voices.
+   Controversial in classical theater (should voices
+   be amplified? The "natural voice" tradition resists this).
+   Musical theater: always amplified.
+   Opera: almost never amplified.
+   Drama: increasingly amplified, especially in large venues.
+
+5. UNDERSCORING
+   Music under dialogue (like film scoring).
+   Manipulates emotional response.
+   Used in musical theater; in drama more selectively.
+
+SPATIAL SOUND:
+   Surround sound systems in theaters allow sound to
+   move through space: rain from above, traffic from
+   the right, a crowd approaching from behind.
+   Immersive theater makes extensive use of this.
+```
+
+---
+
+## Layer 4b: Rigging and Fly Systems
+
+The fly system is the vertical infrastructure of a theater — the mechanism for moving scenery, lighting, and drapery above the stage.
+
+```
+FLY SYSTEM TYPES
+-----------------
+HEMP HOUSE (oldest):
+  Manila rope through pulleys at the grid level.
+  Operator hauls lines by hand, cleats rope to the pin rail.
+  Weight of scenery balanced by sandbags on the opposite end.
+  Skill: fly crew must coordinate line speeds by feel.
+
+COUNTERWEIGHT SYSTEM (standard since ~1900):
+  Arbor (metal frame) holds steel counterweights.
+  Line set: steel cables run from batten through loft blocks
+  to headblock, down to arbor, creating a closed loop.
+  Load batten with scenery, then add matching counterweights
+  to arbor. System balanced = operator can move with one hand.
+  Single-purchase: arbor travels same distance as batten.
+  Double-purchase: arbor travels half the distance (2:1 ratio),
+  requires twice the counterweight. Used in short fly towers.
+
+  CRITICAL CONSTRAINT: counterweight must match load.
+  Unbalanced system = runaway (dangerous).
+  Loading gallery: where weights are added, typically 15-20m up.
+  Pin rail: where lines are locked off after movement.
+
+MOTORIZED/AUTOMATED (modern):
+  Computer-controlled variable-speed electric winches.
+  Each line set independently driven.
+  Programmable movement profiles: acceleration, speed, decel.
+  Position accuracy: ±1mm (modern automation systems).
+  Safety: load cells monitor weight continuously, emergency
+  stops if parameters exceeded.
+  Control: integrated with lighting/sound via network
+  (ETC, Tait, Stage Technologies automation systems).
+```
+
+The fly tower above the stage is typically 2.5× the proscenium height — enough to fly scenery completely out of sight. The grid (steel lattice at the top) supports all loft blocks. The loading gallery (typically at grid level or intermediate) is where counterweights are added. The pin rail (stage level or fly gallery) is where line sets are locked.
+
+---
+
+## Layer 5: Production Organization
+
+### The Production Team
+
+```
+PRODUCTION HIERARCHY
+--------------------
+ARTISTIC DIRECTOR (in a producing organization)
+  |
+DIRECTOR (production)
+  |
+  +---> SCENE DESIGNER -----> Technical Director (builds)
+  |       (creates visual world)     | --> Scenic Artists (paint)
+  |                                  | --> Carpenters (construct)
+  |
+  +---> LIGHTING DESIGNER --> Master Electrician (hangs, focuses)
+  |       (creates light world)
+  |
+  +---> SOUND DESIGNER -----> A1 (sound board op)
+  |       (creates sound world)
+  |
+  +---> COSTUME DESIGNER ---> Wardrobe Supervisor
+  |       (creates clothing)          | --> Costume Shop
+  |
+  +---> CHOREOGRAPHER (if musical/dance)
+  |
+  STAGE MANAGER
+    The spine of the production:
+    - Schedules rehearsals
+    - Maintains blocking records
+    - Runs rehearsals (with director)
+    - Calls cues in performance
+    - The point of communication between all departments
+    - The production's institutional memory
+
+  SYSTEMS ENGINEERING PARALLEL:
+    The SM calling cues is the runtime coordinator of a
+    distributed system with no rollback capability: lighting,
+    sound, fly, automation, and performance subsystems all
+    execute on verbal "go" signals with no compensating
+    transactions. The prompt copy = execution plan. Tech
+    rehearsals = integration testing. Production run =
+    deployment under SLA. A missed cue cannot be un-called;
+    a fly cue at wrong timing has physical consequences.
+    This is the operational model of a no-rollback system.
+
+DRAMATURGY:
+  The dramaturg provides research support, text analysis,
+  historical context, consultation on translation.
+  May help select/adapt texts.
+  "The director's intellectual partner."
+```
+
+### Production Dramaturgy
+
+```
+WHAT A DRAMATURG DOES
+----------------------
+1. RESEARCH: historical context, biography, primary sources
+   that inform the production's world-building
+
+2. TEXT ANALYSIS: structural analysis, thematic mapping,
+   identification of cruxes/problems in the text
+
+3. ADAPTATION: if the production involves adapting a
+   novel, historical document, or classic text, the
+   dramaturg often does or supervises this work
+
+4. AUDIENCE COMMUNICATION: program notes, study guides,
+   pre-show talks
+
+5. PRODUCTION SUPPORT: attends rehearsals; the "second pair
+   of eyes" for the director; asks "why are we telling
+   this story this way, for this audience, now?"
+
+The dramaturg position is more established in German
+and Scandinavian theater (where it was developed) than
+in Anglo-American theater (where it is newer and more contested).
+
+German: every major theater company has a Dramaturgie
+  department with several dramaturgists.
+English/American: the role varies enormously between
+  institutions.
+```
+
+---
+
+## Decision Cheat Sheet
+
+| I want to understand... | Key section |
+|------------------------|-------------|
+| The different stage configurations and their dramatic consequences | Stage Architecture section |
+| How scene design evolved from ancient to contemporary | Scene Design History section |
+| What "limelight" means historically | Lighting Technology section |
+| How moving lights work and why they changed theater | LED/Moving lights section |
+| What lighting actually does dramatically | Lighting Functions section |
+| What a stage manager does | Production Hierarchy section |
+| What a dramaturg is | Production Dramaturgy section |
+
+---
+
+## Common Confusion Points
+
+**"Scenery" in Greek theater was minimal**
+The grand pictures of Greek theater we imagine are largely projections from the Roman and Renaissance theaters. Greek theater had a skene building, possibly some painted panels, and the elaborate architecture of the theater of Dionysus itself. The "scene" was largely verbal and architectural.
+
+**Electric lighting did not immediately replace gas**
+The transition from gas to electricity in theaters was gradual (1880s–1910s). Some theaters used both for a period. The advantages of electricity (safety, controllability, brightness) were obvious, but the investment was substantial and gas lighting was already sophisticated by the 1880s.
+
+**"Black box" is not a style, it is a format**
+A black box theater is a neutral space. What happens inside it can be any style — naturalistic, environmental, thrust, in-the-round. The flexibility is the point: the configuration is chosen per production, not fixed by the architecture.
+
+**The stage manager in theater vs. film**
+In theater, the stage manager is crucial throughout: they run rehearsals (director's right hand), maintain all records, and CALL THE SHOW in performance (saying "go" for every cue from a prompt copy). In film, the "stage manager" role splits between the 1st AD (on set) and the script supervisor (continuity). Theater stage managers have more authority and responsibility per production than their film equivalents.

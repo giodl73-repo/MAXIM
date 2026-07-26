@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "philosophy\\01-LOGIC.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 28,
+      "heading_context": "## Big Picture: Logic Landscape",
+      "confidence": "candidate",
+      "text": "┌──────────────────────────────────────────────────────────────────────────┐\n│                         LOGIC LANDSCAPE                                  │\n├────────────────────────────────────────┬─────────────────────────────────┤\n│  CLASSICAL LOGIC                       │  NON-CLASSICAL LOGICS            │\n│  ──────────────                        │  ─────────────────               │\n│  Propositional (PL)                    │  Modal (K, T, S4, S5)            │\n│  First-order predicate (FOL)           │  Intuitionistic (BHK)            │\n│  Second-order (SOL)                    │  Temporal (LTL, CTL)             │\n│  Higher-order type theory              │  Description logics (OWL)        │\n│                                        │  Paraconsistent (tolerate ⊥)     │\n│                                        │  Relevance logic                 │\n├────────────────────────────────────────┴─────────────────────────────────┤\n│  MDLOOM THEORY                          │  MODEL THEORY                   │\n│  Natural deduction                     │  Interpretations/structures     │\n│  Sequent calculus                      │  Soundness + completeness       │\n│  Resolution (automated)                │  Compactness theorem            │\n│  Hilbert systems                       │  Löwenheim-Skolem               │\n└────────────────────────────────────────┴─────────────────────────────────┘",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 55,
+      "heading_context": "### Syntax and Semantics",
+      "confidence": "candidate",
+      "text": "WELL-FORMED FORMULAS (WFF):\n  Atoms: p, q, r, ... (propositional variables)\n  Compound: ¬φ, (φ ∧ ψ), (φ ∨ ψ), (φ → ψ), (φ ↔ ψ)\n\nTRUTH-FUNCTIONAL CONNECTIVES:\n  ¬ (negation): ¬T = F, ¬F = T\n  ∧ (conjunction): T only when both true\n  ∨ (disjunction): F only when both false (inclusive or)\n  → (material conditional): F only when antecedent T and consequent F\n    Controversy: \"if p then q\" is true when p is false — vacuous truth\n    \"If the moon is cheese, then 2+2=5\" is TRUE (vacuously)\n    This is not how \"if...then\" works in natural language; logic idealizes it\n  ↔ (biconditional): T when both have same truth value\n\nTAUTOLOGY: true under all valuations (¬(p ∧ ¬p), p ∨ ¬p, (p → q) ↔ (¬q → ¬p))\nCONTRADICTION: false under all valuations (p ∧ ¬p)\nSATISFIABLE: true under some valuation\n\nNORMAL FORMS:\n  CNF (conjunctive normal form): conjunction of clauses (each clause = disjunction of literals)\n    (p ∨ q) ∧ (¬p ∨ r) ∧ (q ∨ ¬r)\n    Key for SAT solvers (DPLL, CDCL)\n  DNF (disjunctive normal form): disjunction of conjunctions\n  Every WFF equivalent to CNF and DNF\n  3-SAT: satisfiability of CNF with exactly 3 literals per clause — NP-complete (Cook-Levin)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 85,
+      "heading_context": "### Proof Systems for PL",
+      "confidence": "candidate",
+      "text": "HILBERT SYSTEM: axiom schemas + modus ponens\n  Axiom schemas (e.g., Łukasiewicz):\n    H1: p → (q → p)\n    H2: (p → (q → r)) → ((p → q) → (p → r))\n    H3: (¬q → ¬p) → (p → q)  [or similar for classical logic]\n  Modus ponens: from φ and φ → ψ, infer ψ\n  Proofs are long but theoretically clean; only one inference rule\n\nNATURAL DEDUCTION (Gentzen/Prawitz):\n  Introduction and elimination rules for each connective\n  ∧I: from φ, ψ, conclude φ ∧ ψ\n  ∧E: from φ ∧ ψ, conclude φ (or ψ)\n  →I: from assuming φ and deriving ψ, conclude φ → ψ (discharge assumption)\n  →E: from φ → ψ and φ, conclude ψ (modus ponens)\n  ¬E: from φ and ¬φ, conclude ψ (ex falso quodlibet — explosion)\n  Classical logic adds: ¬¬E (double negation elimination) or excluded middle (φ ∨ ¬φ)\n  INTUITIONISTIC logic omits ¬¬E / excluded middle (see §3)\n  Curry-Howard: ND proofs ↔ simply typed lambda calculus terms (proof = program)\n\nSEQUENT CALCULUS (Gentzen LK):\n  Sequent: Γ ⊢ Δ (from context Γ, derive one of Δ)\n  Structural rules: weakening, contraction, cut\n  Cut elimination theorem (Gentzen's Hauptsatz):\n    Every proof can be converted to cut-free form\n    → Logic has the subformula property (all subformulas in cut-free proof appear in conclusion)\n    → Consistency follows: no cut-free proof of ⊢ (empty sequent) = no contradiction",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 120,
+      "heading_context": "### Syntax",
+      "confidence": "candidate",
+      "text": "VOCABULARY:\n  Constants: a, b, c, ... (name specific objects)\n  Variables: x, y, z, ... (range over domain)\n  Function symbols: f, g, ... (n-ary functions on domain)\n  Predicate symbols: P, Q, R, ... (n-ary relations)\n  Logical: ∧, ∨, ¬, →, ↔, ∀, ∃, =\n\nTERMS: constants, variables, f(t₁,...,tₙ)\nFORMULAS: P(t₁,...,tₙ), φ ∧ ψ, ¬φ, ∀x φ, ∃x φ\n  Closed formula (sentence): no free variables\n\nEXAMPLE:\n  ∀x(Person(x) → ∃y(Loves(x,y)))\n  \"Every person loves someone\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 139,
+      "heading_context": "### Semantics and Key Theorems",
+      "confidence": "candidate",
+      "text": "STRUCTURE (interpretation): M = ⟨D, I⟩\n  D: non-empty domain (universe of discourse)\n  I: interpretation function (maps constants/predicates/functions to domain objects/sets/functions)\n  Truth of φ in M under variable assignment s: M, s ⊨ φ\n\nVALIDITY: true in all structures\nSATISFIABILITY: true in some structure\n\nCOMPLETENESS THEOREM (Gödel 1930):\n  Every valid FOL sentence has a proof (syntactic derivation)\n  ⊨ φ → ⊢ φ\n  Converse (soundness): ⊢ φ → ⊨ φ (trivial; proofs preserve truth)\n  Combined: the proof system is complete\n\nCOMPACTNESS THEOREM:\n  Σ ⊨ φ iff some FINITE subset of Σ ⊨ φ\n  Equivalently: if every finite subset of Σ is satisfiable, then Σ is satisfiable\n  Proof: via completeness (proofs are finite; use only finitely many premises)\n  Applications: non-standard models of arithmetic; \"overspill\" arguments\n\nLÖWENHEIM-SKOLEM THEOREMS:\n  Downward: if Σ has infinite model, has countable model\n  Upward: if Σ has infinite model, has model of every infinite cardinality\n  Implication: FOL cannot characterize uncountable structures (real numbers are not\n    categorically axiomatizable in FOL — any FOL theory with infinite model has a\n    countable model that satisfies the same sentences)\n  Skolem's paradox: ZFC (which proves uncountable sets exist) has a countable model!\n    Resolution: \"uncountable\" is relative to the model; inside the model, no bijection exists;\n    outside the countable model, a bijection exists that the model can't see\n\nUNDECIDABILITY OF FOL (Church-Turing 1936):\n  No algorithm decides whether an arbitrary FOL sentence is valid\n  Contrast: propositional logic is decidable (DPLL/CDCL; coNP-complete)\n  Semi-decidable: if valid, proof search will eventually find it; if not, may loop\n  TCS bridge: FOL validity ≡ Halting Problem in undecidability class (Σ₁ complete)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 198,
+      "heading_context": "### Modal Axiom Systems",
+      "confidence": "candidate",
+      "text": "MODAL SYSTEMS characterized by properties of accessibility relation R:\n\n  K (no constraints on R):\n    □(φ → ψ) → (□φ → □ψ)  [K axiom: distribution]\n    Base system; all modal logics extend K\n\n  T (reflexive: wRw for all w):\n    □φ → φ  [T axiom: what is necessary is actual]\n    \"If necessarily P, then actually P\" — reasonable for epistemic/alethic modality\n\n  B (symmetric: wRv → vRw):\n    φ → □◇φ  [B axiom: what is actual is necessarily possible]\n\n  S4 (reflexive + transitive):\n    T + □φ → □□φ  [4 axiom: what is necessary is necessarily necessary]\n    Models epistemic logic, provability logic\n\n  S5 (reflexive + transitive + symmetric = equivalence relation):\n    T + ◇φ → □◇φ  [5 axiom: what is possible is necessarily possible]\n    Standard for alethic modality (de dicto necessity)\n    All worlds accessible from all worlds; simplest frame structure\n\nINTERPRETATIONS OF MODALITY:\n  Alethic: □ = necessarily true; ◇ = possibly true\n  Epistemic: □ = known; ◇ = epistemically possible (consistent with knowledge)\n  Deontic: □ = obligatory; ◇ = permissible\n  Temporal: □ = always true; ◇ = sometimes true\n  Provability: □φ = Bew(φ) in arithmetic; S4 = Löb's provability logic\n\nTEMPORAL LOGIC (LTL, CTL) — TCS DOMAIN:\n  LTL operators: ○ (next), □ (always), ◇ (eventually), U (until)\n  CTL: branching time; quantifiers over paths (AF, EF, AG, EG)\n  Model checking: verify temporal logic formula against finite-state system (PSPACE for LTL)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 240,
+      "heading_context": "### The Constructivist Turn",
+      "confidence": "candidate",
+      "text": "BROUWER-HEYTING-KOLMOGOROV (BHK) INTERPRETATION:\n  A proof of φ ∧ ψ = (proof of φ, proof of ψ)\n  A proof of φ ∨ ψ = (left proof of φ) or (right proof of ψ) [with explicit tag]\n  A proof of φ → ψ = function taking proof of φ to proof of ψ\n  A proof of ∀x.φ(x) = function taking x to proof of φ(x)\n  A proof of ∃x.φ(x) = (witness a, proof of φ(a))\n  A proof of ⊥ = none (cannot prove falsity)\n  A proof of ¬φ = proof of φ → ⊥\n\nKEY DIFFERENCE FROM CLASSICAL LOGIC:\n  Excluded middle (φ ∨ ¬φ): NOT provable in general!\n    Why: no constructive proof — you'd need to produce either a proof of φ or a proof of ¬φ\n    For any arbitrary proposition, you can't always do this\n  Double negation elimination (¬¬φ → φ): NOT provable in general!\n    Classical: ¬¬φ → φ by contradiction\n    Intuitionistic: ¬¬φ means \"a proof that there's no proof of ¬φ\" — not the same as a proof of φ\n\nGÖDEL-GENTZEN TRANSLATION:\n  Every classical theorem translates to an intuitionistic theorem (with double negation prefix)\n  Classical logic ≡ intuitionistic logic + excluded middle\n  Classical proof can always be \"embedded\" in intuitionistic framework\n\nCURRY-HOWARD ISOMORPHISM:\n  Propositions ↔ Types\n  Proofs       ↔ Terms/Programs\n  Propositional logic ↔ Simply typed lambda calculus (STLC)\n  Predicate logic    ↔ Dependent type theory (Π-types, Σ-types)\n  Modal logic        ↔ Various type theories (comonadic, monadic)\n  Intuitionistic logic: the \"right\" logic for constructive math and type theory\n  Classical logic + Curry-Howard: control operators (call/cc = Peirce's law)\n\n  CONSEQUENCES FOR MDLOOM ASSISTANTS:\n    Coq, Agda, Lean: based on intuitionistic dependent type theory (CIC/MLTT)\n    To use excluded middle or classical axioms: explicitly import Classical module\n    Proofs in intuitionistic type theory = verified programs\n    Extracting code from Coq proofs: turns proof of ∃x.P(x) into program producing x",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 285,
+      "heading_context": "### Arithmetic and Formal Systems",
+      "confidence": "candidate",
+      "text": "PEANO ARITHMETIC (PA):\n  Language: 0, S (successor), +, ×, = over natural numbers\n  Axioms: zero not successor of any number; S injective; induction schema;\n    recursive definitions of + and ×\n  PA is consistent (we believe; can prove consistency in stronger systems)\n  PA is strong enough to express \"this sentence is not provable in PA\"\n\nGÖDEL NUMBERING:\n  Assign a natural number to each symbol, formula, and sequence of formulas\n  Symbols: 1→'0', 2→'S', 3→'+', ... (any injective coding)\n  Formula: encode as product of primes: if formula uses symbols s₁,...,sₙ:\n    ⌈φ⌉ = 2^s₁ × 3^s₂ × 5^s₃ × ... (unique by fundamental theorem of arithmetic)\n  Proof: sequence of formulas; similarly encoded\n  → Arithmetical relations about formulas become arithmetical relations about numbers\n  Pf(x, y): number y is the Gödel number of a proof of the formula with Gödel number x\n  Provable(x): ∃y Pf(x, y)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 306,
+      "heading_context": "### The First Incompleteness Theorem",
+      "confidence": "candidate",
+      "text": "CONSTRUCTION OF G:\n  Diagonal lemma: for any formula F(x), there is a sentence G such that\n    PA ⊢ G ↔ F(⌈G⌉)\n    (G says \"F holds of my own Gödel number\")\n\n  Apply with F(x) = ¬Provable(x):\n    G ↔ ¬Provable(⌈G⌉)\n    G says: \"G is not provable in PA\"\n\nMDLOOM:\n  Case 1: PA ⊢ G\n    By soundness of PA: G is true in the standard model\n    G says G is not provable → contradiction with PA ⊢ G\n    → If PA is consistent and sound: PA ⊬ G\n\n  Case 2: PA ⊢ ¬G\n    ¬G says G is provable\n    PA proves ¬G → (if PA is ω-consistent): there is no proof of G\n    → If PA is ω-consistent: PA ⊬ ¬G\n\n  Conclusion: PA ⊬ G and PA ⊬ ¬G (assuming consistency / ω-consistency)\n    → G is independent of PA; PA is incomplete\n\n  ω-CONSISTENCY vs CONSISTENCY: Rosser's improvement (1936) only needs simple consistency,\n    not ω-consistency, by using a more refined sentence\n\nTRUE ARITHMETIC (all sentences true in ℕ): not recursively axiomatizable\n  → No effective axiom system can capture all arithmetical truths",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 339,
+      "heading_context": "### Second Incompleteness Theorem",
+      "confidence": "candidate",
+      "text": "CON(PA): arithmetical sentence expressing \"PA is consistent\"\n  Can be expressed in PA's language using Gödel numbering\n  CON(PA) ≡ ¬Provable(⌈⊥⌉)\n\nTHEOREM: If PA is consistent, PA ⊬ CON(PA)\nMDLOOM IDEA:\n  First Incompleteness Theorem formalizes: PA ⊢ CON(PA) → G\n    (if PA is consistent, then G is not provable — provable in PA itself)\n  If PA ⊢ CON(PA): then PA ⊢ G → contradiction (PA ⊬ G by First Theorem)\n  Therefore: PA ⊬ CON(PA)\n\nCONSEQUENCES:\n  You cannot prove the consistency of arithmetic using only arithmetic\n  Hilbert's Program (prove math consistent using finitary methods within math): impossible\n  Relative consistency: can prove Con(PA) in stronger systems (ZFC, PA + Con(PA), etc.)\n  Ordinal analysis: Gentzen proved Con(PA) using transfinite induction up to ε₀\n    (beyond arithmetical induction; uses the first ordinal PA can't reach by recursion)\n\nCOMMON MISUNDERSTANDINGS:\n  \"Gödel proves math is broken\": No. ZFC is sufficient for all of ordinary mathematics.\n    The independent sentences G are mathematically unnatural (self-referential)\n  \"We can't know anything for sure\": PA is sound; G is TRUE; we just can't prove it in PA\n  \"AI can never be as smart as humans\" (Lucas-Penrose): The argument doesn't work.\n    A sufficiently powerful AI system would be subject to its own Gödel sentences too.\n    The argument conflates proof-within-a-system with human mathematical intuition.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 406,
+      "heading_context": "## 7. Description Logics and the Semantic Web",
+      "confidence": "candidate",
+      "text": "DESCRIPTION LOGICS (DL): tractable fragments of FOL optimized for knowledge representation.\n  Core operators: concept constructors over a domain of individuals.\n    Concepts (classes): sets of individuals. C, D, ...\n    Roles (properties): binary relations between individuals. r, s, ...\n    Individuals: specific named objects. a, b, ...\n\n  ALC (Attributive Language with Complement) — the baseline DL:\n    Concept intersection: C ⊓ D (and)\n    Concept union: C ⊔ D (or)\n    Complement: ¬C (not)\n    Existential restriction: ∃r.C (has some r-filler in C)\n    Universal restriction: ∀r.C (all r-fillers are in C)\n\n  SROIQ — the logic underlying OWL 2 DL:\n    Adds: role chains (r ∘ s ⊑ t), inverse roles (r⁻), nominals ({a}),\n    concrete domains (integers, strings), cardinality restrictions.\n\nCOMPLEXITY TRADE-OFFS:\n  ┌─────────────────┬──────────────────────────────┬────────────────┐\n  │ DL Fragment     │ Reasoning (TBox)             │ OWL Profile    │\n  ├─────────────────┼──────────────────────────────┼────────────────┤\n  │ ALC             │ EXPTIME-complete              │ —              │\n  │ EL              │ Polynomial (tractable)        │ OWL 2 EL       │\n  │ DL-Lite         │ NLogSpace (tractable)         │ OWL 2 QL       │\n  │ SROIQ           │ N2EXPTIME-complete            │ OWL 2 DL       │\n  └─────────────────┴──────────────────────────────┴────────────────┘\n  OWL 2 EL: chosen for large biomedical ontologies (SNOMED CT, Gene Ontology)\n    where tractability > expressiveness.\n  OWL 2 QL: designed for query answering over relational databases (SPARQL ↔ SQL).\n  OWL 2 DL: full expressiveness; decidable but expensive.\n\nTHE SEMANTIC WEB STACK:\n  RDF (Resource Description Framework): triple store — subject-predicate-object.\n    (ex:Paris, ex:isCapitalOf, ex:France)\n    Graph data model; each triple is an edge.\n  RDFS (RDF Schema): basic ontology (subClassOf, subPropertyOf, domain, range).\n  OWL (Web Ontology Language): full DL-based ontology; built on RDF triples.\n  SPARQL: query language for RDF graphs (like SQL for triples).\n    SELECT ?capital WHERE { ?capital ex:isCapitalOf ex:France }\n\nOWL REASONING (INFERENCE):\n  Given an OWL ontology (TBox = schema; ABox = instance data):\n    Classification: compute the subsumption hierarchy.\n    Realization: determine which classes each individual belongs to.\n    Consistency checking: detect contradictions.\n    Query answering: answer SPARQL queries using inferred knowledge.\n  Reasoners: HermiT, Pellet, Fact++, ELK (OWL 2 EL only).\n\nKNOWLEDGE GRAPHS (practical deployment):\n  Wikidata, DBpedia, Google Knowledge Graph: RDF-based.\n  Schema.org: lightweight vocabulary for web markup.\n  Enterprise KGs (Microsoft Academic, LinkedIn Graph): blend DL ontologies\n    with probabilistic assertions and property graphs.\n  Property graphs (Neo4j, Amazon Neptune): not RDF; better for traversal\n    queries; weaker formal semantics than OWL.\n\nRELATION TO FOL:\n  DL ontology ≡ a decidable fragment of FOL over unary predicates (classes)\n  and binary predicates (roles). The decision to restrict expressiveness is\n  exactly the decidability/tractability trade-off. Compare: SQL restricts\n  first-order expressiveness (no recursion in standard SQL) to guarantee\n  query optimization; OWL DL profiles restrict FOL to guarantee decidable\n  classification.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

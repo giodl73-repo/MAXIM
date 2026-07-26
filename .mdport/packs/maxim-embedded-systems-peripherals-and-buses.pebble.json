@@ -1,0 +1,125 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-embedded-systems-peripherals-and-buses",
+  "source": "../../embedded-systems",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "06-PERIPHERALS-AND-BUSES.md#000",
+      "path": [
+        "06-PERIPHERALS-AND-BUSES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:embedded-systems:06-peripherals-and-buses, git-history:embedded-systems:06-peripherals-and-buses]",
+        "canonical_path": "embedded-systems/06-PERIPHERALS-AND-BUSES.md",
+        "concepts": "[uart, spi, i2c, can, usb, adc, dac, serial buses]",
+        "current_path": "embedded-systems/06-PERIPHERALS-AND-BUSES.md",
+        "id": "maxim:embedded-systems:peripherals-and-buses",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serial buses]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Peripherals and Buses - UART, SPI, I2C, CAN, USB, ADC, DAC",
+        "updated": "null"
+      },
+      "text": "# Peripherals and Buses — UART, SPI, I2C, CAN, USB, ADC, DAC"
+    },
+    {
+      "id": "06-PERIPHERALS-AND-BUSES.md#001",
+      "path": [
+        "06-PERIPHERALS-AND-BUSES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:embedded-systems:06-peripherals-and-buses, git-history:embedded-systems:06-peripherals-and-buses]",
+        "canonical_path": "embedded-systems/06-PERIPHERALS-AND-BUSES.md",
+        "concepts": "[uart, spi, i2c, can, usb, adc, dac, serial buses]",
+        "current_path": "embedded-systems/06-PERIPHERALS-AND-BUSES.md",
+        "id": "maxim:embedded-systems:peripherals-and-buses",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serial buses]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Peripherals and Buses - UART, SPI, I2C, CAN, USB, ADC, DAC",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "06-PERIPHERALS-AND-BUSES.md#002",
+      "path": [
+        "06-PERIPHERALS-AND-BUSES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:embedded-systems:06-peripherals-and-buses, git-history:embedded-systems:06-peripherals-and-buses]",
+        "canonical_path": "embedded-systems/06-PERIPHERALS-AND-BUSES.md",
+        "concepts": "[uart, spi, i2c, can, usb, adc, dac, serial buses]",
+        "current_path": "embedded-systems/06-PERIPHERALS-AND-BUSES.md",
+        "id": "maxim:embedded-systems:peripherals-and-buses",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serial buses]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Peripherals and Buses - UART, SPI, I2C, CAN, USB, ADC, DAC",
+        "updated": "null"
+      },
+      "text": "Peripherals are how the MCU touches the world: serial buses move bytes to other\nchips, analog converters bridge the continuous and digital domains. Each bus is\na different trade among pin count, speed, distance, multi-drop topology, and\nrobustness. You know networking protocols at a high level; these are the\n*physical-layer, board-level* protocols — measured in pins and microseconds,\nnot packets and milliseconds. Picking the right one is a recurring embedded\ndesign decision."
+    },
+    {
+      "id": "06-PERIPHERALS-AND-BUSES.md#003",
+      "path": [
+        "06-PERIPHERALS-AND-BUSES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:embedded-systems:06-peripherals-and-buses, git-history:embedded-systems:06-peripherals-and-buses]",
+        "canonical_path": "embedded-systems/06-PERIPHERALS-AND-BUSES.md",
+        "concepts": "[uart, spi, i2c, can, usb, adc, dac, serial buses]",
+        "current_path": "embedded-systems/06-PERIPHERALS-AND-BUSES.md",
+        "id": "maxim:embedded-systems:peripherals-and-buses",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "embedded-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[serial buses]",
+        "section": "embedded-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Peripherals and Buses - UART, SPI, I2C, CAN, USB, ADC, DAC",
+        "updated": "null"
+      },
+      "text": "```\n+-----------------------------------------------------------------------+\n|                  THE BUS / PERIPHERAL LANDSCAPE                       |\n|                                                                       |\n|  pins  speed       topology          typical use                      |\n|  ----  -----       --------          -----------                      |\n|  UART   2   ~Mbps   point-to-point   console, GPS, modules            |\n|  SPI   4+   ~10-50M master/multi-slave  flash, displays, fast ADC     |\n|  I2C    2   100k-3.4M  multi-master bus  sensors, EEPROM, config      |\n|  CAN    2   ~1-8Mbps  multi-drop bus    automotive/industrial nets    |\n|  USB   2(+) 12M-5G+  host/device       PC connectivity, mass storage  |\n|                                                                       |\n|  ANALOG BRIDGE                                                        |\n|  ADC: voltage -> number   (sensors in)                                |\n|  DAC: number  -> voltage  (signals out)                               |\n+-----------------------------------------------------------------------+\n```"
+    }
+  ],
+  "refs": [
+    "06-PERIPHERALS-AND-BUSES.md"
+  ]
+}

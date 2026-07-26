@@ -1,0 +1,125 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-programming-language-theory-dependent-types",
+  "source": "../../programming-language-theory",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "06-DEPENDENT-TYPES.md#000",
+      "path": [
+        "06-DEPENDENT-TYPES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:programming-language-theory:06-dependent-types, git-history:programming-language-theory:06-dependent-types]",
+        "canonical_path": "programming-language-theory/06-DEPENDENT-TYPES.md",
+        "concepts": "[dependent, types]",
+        "current_path": "programming-language-theory/06-DEPENDENT-TYPES.md",
+        "id": "maxim:programming-language-theory:dependent-types",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "programming-language-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dependent, types]",
+        "section": "programming-language-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dependent Types: Π/Σ Types, MLTT, Coq, Agda, Idris, Lean",
+        "updated": "null"
+      },
+      "text": "# Dependent Types: Π/Σ Types, MLTT, Coq, Agda, Idris, Lean"
+    },
+    {
+      "id": "06-DEPENDENT-TYPES.md#001",
+      "path": [
+        "06-DEPENDENT-TYPES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:programming-language-theory:06-dependent-types, git-history:programming-language-theory:06-dependent-types]",
+        "canonical_path": "programming-language-theory/06-DEPENDENT-TYPES.md",
+        "concepts": "[dependent, types]",
+        "current_path": "programming-language-theory/06-DEPENDENT-TYPES.md",
+        "id": "maxim:programming-language-theory:dependent-types",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "programming-language-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dependent, types]",
+        "section": "programming-language-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dependent Types: Π/Σ Types, MLTT, Coq, Agda, Idris, Lean",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "06-DEPENDENT-TYPES.md#002",
+      "path": [
+        "06-DEPENDENT-TYPES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:programming-language-theory:06-dependent-types, git-history:programming-language-theory:06-dependent-types]",
+        "canonical_path": "programming-language-theory/06-DEPENDENT-TYPES.md",
+        "concepts": "[dependent, types]",
+        "current_path": "programming-language-theory/06-DEPENDENT-TYPES.md",
+        "id": "maxim:programming-language-theory:dependent-types",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "programming-language-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dependent, types]",
+        "section": "programming-language-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dependent Types: Π/Σ Types, MLTT, Coq, Agda, Idris, Lean",
+        "updated": "null"
+      },
+      "text": "Dependent types are types that depend on *values*. This collapses the distinction between types and terms — a type can mention a runtime value. The result: types can express arbitrary properties of programs, and type-checking becomes theorem-proving."
+    },
+    {
+      "id": "06-DEPENDENT-TYPES.md#003",
+      "path": [
+        "06-DEPENDENT-TYPES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:programming-language-theory:06-dependent-types, git-history:programming-language-theory:06-dependent-types]",
+        "canonical_path": "programming-language-theory/06-DEPENDENT-TYPES.md",
+        "concepts": "[dependent, types]",
+        "current_path": "programming-language-theory/06-DEPENDENT-TYPES.md",
+        "id": "maxim:programming-language-theory:dependent-types",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "programming-language-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dependent, types]",
+        "section": "programming-language-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Dependent Types: Π/Σ Types, MLTT, Coq, Agda, Idris, Lean",
+        "updated": "null"
+      },
+      "text": "```\n+--------------------------------------------------------------------------+\n|                    DEPENDENT TYPES LANDSCAPE                             |\n+--------------------------------------------------------------------------+\n|                                                                          |\n|  THE KEY TYPES:                                                          |\n|  Π (x:A). B(x) — dependent function type                               |\n|    \"the type of a function that takes x:A and returns something of       |\n|     type B(x), where the RETURN TYPE depends on the VALUE x\"             |\n|  Σ (x:A). B(x) — dependent pair type                                    |\n|    \"a pair where the SECOND COMPONENT'S TYPE depends on the FIRST\"       |\n|                                                                          |\n|  EXPRESSIVENESS EXAMPLES:                                                |\n|  Vec A n — vector of length n (n is a VALUE in the type)               |\n|  (n : Nat) → IsPrime n → ... — function only callable with prime n      |\n|  head : Π (n : Nat). Vec A (n+1) → A   (safe head: non-empty by type)  |\n|                                                                          |\n|  TOOLS (from most to least foundational):                               |\n|  Martin-Löf Type Theory (MLTT, 1975) — the foundation                  |\n|  Calculus of Inductive Constructions (CIC) — Coq's foundation           |\n|  Agda — MLTT-based, pattern matching, cubical option                    |\n|  Lean 4 — Mathlib, theorem proving at scale                             |\n|  Idris 2 — practical dependent types, linear types built in             |\n|                                                                          |\n|  DECIDABILITY CAVEAT:                                                    |\n|  Type-checking with dependent types requires deciding type equality     |\n|  Type equality requires deciding term equality                          |\n|  Undecidable in general (Π₂-complete with full computation in types)   |\n|  Solution: termination checker restricts recursive definitions           |\n+--------------------------------------------------------------------------+\n```"
+    }
+  ],
+  "refs": [
+    "06-DEPENDENT-TYPES.md"
+  ]
+}

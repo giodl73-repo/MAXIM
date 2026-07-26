@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "chemistry\\09-PHYSICAL-CHEMISTRY-DEPTH.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 31,
+      "heading_context": "# Physical Chemistry Depth — Stat Thermo, Non-Ideal Solutions, Surfaces",
+      "confidence": "candidate",
+      "text": "FROM ONE MOLECULE'S ENERGY LEVELS TO BULK CHEMISTRY\n==========================================================================\n  quantum energy levels (translation, rotation, vibration, electronic)\n              |\n              v   Boltzmann weighting\n  PARTITION FUNCTION  q = SUM g_i exp(-eps_i / kT)  = q_t q_r q_v q_e\n              |\n              |----->  THERMODYNAMICS (U, S, A, Cv)\n              |----->  EQUILIBRIUM CONSTANT K\n                       |\n                       v\n  REAL SYSTEMS ARE NON-IDEAL:\n    solutions  -> activity a = gamma*x ; Debye-Huckel for ions\n    interfaces -> adsorption (Langmuir/BET) ; surface catalysis\n==========================================================================",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 78,
+      "heading_context": "## Statistical Thermodynamics: q Is the Bridge",
+      "confidence": "candidate",
+      "text": "   Q = q^N / N!                 (N independent, indistinguishable molecules)\n   A - A(0) = -kT ln Q = -kT [ N ln q - ln N! ]\n   Stirling (large N):  ln N! ~ N ln N - N\n     => A - A(0) = -kT [ N ln q - N ln N + N ]\n                 = -N k T [ ln(q/N) + 1 ]\n   U - U(0) = N k T^2 (d ln q / dT)_V           (N! is T-independent)\n   S = [U - U(0)]/T - (A - A(0))/T\n     = [U - U(0)]/T + N k ln(q/N) + N k",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 127,
+      "heading_context": "## Non-Ideal Solutions and Activity",
+      "confidence": "candidate",
+      "text": "   mu = mu^o + RT ln a ,   a = gamma * x    (or gamma * c/c^o)\n   IDEAL (Raoult):  gamma -> 1 as x -> 1     (solvent, and ideal mixtures)\n   DILUTE (Henry):  a_B = K_H x_B            (solute in the dilute limit)\n   GASES:           f = phi * P              (fugacity; phi from an equation of state)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 137,
+      "heading_context": "## Non-Ideal Solutions and Activity",
+      "confidence": "candidate",
+      "text": "   LIMITING LAW (I < ~0.01 M):   log10 gamma_pm = -A |z+ z-| sqrt(I)\n                                 A = 0.509  (water, 25 C)\n   EXTENDED:   log10 gamma_pm = -A |z+ z-| sqrt(I) / (1 + B a sqrt(I))\n   DAVIES (up to I ~ 0.5 M):    log10 gamma_pm = -A |z+ z-| ( sqrt(I)/(1+sqrt(I)) - 0.3 I )",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 164,
+      "heading_context": "## Interfaces and Adsorption Isotherms",
+      "confidence": "candidate",
+      "text": "   adsorption rate = desorption rate:  k_a P (1 - theta) = k_d theta\n   =>  theta = K P / (1 + K P) ,   K = k_a / k_d\n       linearized:  P/(V_ads) = 1/(V_m K) + P/V_m   (plot to get V_m and K)\n   assumptions: monolayer, all sites equal, no lateral interactions",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 189,
+      "heading_context": "## Heterogeneous Catalysis: Surface Kinetics",
+      "confidence": "candidate",
+      "text": "   LANGMUIR-HINSHELWOOD : both reactants adsorbed    rate = k * theta_A * theta_B\n        -> rate can DECREASE at high P (one species crowds the other off)\n   ELEY-RIDEAL          : one adsorbed + one from gas  rate = k * theta_A * P_B\n   MARS-VAN KREVELEN    : substrate reacts with lattice O; catalyst re-oxidized by O2\n        -> common in selective oxidation over metal oxides",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 211,
+      "heading_context": "## Rotational and Vibrational Spectroscopy from QM",
+      "confidence": "candidate",
+      "text": "   RIGID ROTOR:  E_J = B J(J+1) ,  selection rule Delta J = +/-1\n        adjacent line spacing = 2B  ->  B = h/(8*pi^2*I*c)  ->  bond length (from I)\n   HARMONIC OSC: E_v = (v + 1/2) h*nu ,  Delta v = +/-1  (fundamental)\n   ANHARMONIC (Morse): overtones ~ near-integer multiples ; a Birge-Sponer plot\n        of level spacings extrapolates to the DISSOCIATION energy D_0",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 233,
+      "heading_context": "## Reader Tasks",
+      "confidence": "candidate",
+      "text": "   K = [ m_HCl^2 / (m_H2 * m_Cl2) ]^(3/2)                 <- translational (mass)\n       * [ (sig_H2 B_H2)(sig_Cl2 B_Cl2) / (sig_HCl B_HCl)^2 ]    <- rotational\n       * q_vib(HCl)^2 / [ q_vib(H2) q_vib(Cl2) ]          <- vibrational\n       * exp( -Delta E_0 / RT )                            <- ground-state gap\n\n   INPUTS  (m in g/mol; B and nu~ in cm^-1; sigma = symmetry number):\n     H2 :  m=2.016    B=60.85   nu~=4401   sigma=2\n     Cl2:  m=70.906   B=0.2440  nu~=560    sigma=2\n     HCl:  m=36.461   B=10.593  nu~=2991   sigma=1\n     Delta E_0 = -(2 D0(HCl) - D0(H2) - D0(Cl2))\n               = -(2*427.8 - 432.1 - 239.2) = -184.3 kJ/mol   (0 K, from D0)\n\n   EVALUATE at T = 500 K  (Theta_vib = 1.4388*nu~ ; q_vib = 1/(1 - e^-Theta/T)):\n     translational : (36.461^2/(2.016*70.906))^1.5 = 9.300^1.5   = 28.4\n     rotational    : (2*60.85 * 2*0.2440)/(1*10.593)^2 = 59.4/112.2 = 0.529\n     vibrational   : q_vib(HCl)=1.0002, q_vib(H2)=1.0000, q_vib(Cl2)=1.250\n                     -> 1.0002^2 / (1.0000 * 1.250)             = 0.800\n     Boltzmann     : exp(184300/(8.314*500)) = exp(44.33)       = 1.79e19\n\n   K(500 K) = 28.4 * 0.529 * 0.800 * 1.79e19  ~=  2.1e20",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 266,
+      "heading_context": "## Reader Tasks",
+      "confidence": "candidate",
+      "text": "   isotherm for the monolayer capacity, multiply by 0.162 nm²/molecule and N_A →",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    }
+  ]
+}

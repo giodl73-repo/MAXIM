@@ -1,0 +1,741 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-topology-fundamental-group",
+  "source": "../../topology",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "06-FUNDAMENTAL-GROUP.md#000",
+      "path": [
+        "06-FUNDAMENTAL-GROUP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:06-fundamental-group, git-history:topology:06-fundamental-group]",
+        "canonical_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "concepts": "[fundamental, group]",
+        "current_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "id": "maxim:topology:fundamental-group",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fundamental, group]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fundamental Group",
+        "updated": "null"
+      },
+      "text": "# Fundamental Group"
+    },
+    {
+      "id": "06-FUNDAMENTAL-GROUP.md#001",
+      "path": [
+        "06-FUNDAMENTAL-GROUP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:06-fundamental-group, git-history:topology:06-fundamental-group]",
+        "canonical_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "concepts": "[fundamental, group]",
+        "current_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "id": "maxim:topology:fundamental-group",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fundamental, group]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fundamental Group",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "06-FUNDAMENTAL-GROUP.md#002",
+      "path": [
+        "06-FUNDAMENTAL-GROUP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:06-fundamental-group, git-history:topology:06-fundamental-group]",
+        "canonical_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "concepts": "[fundamental, group]",
+        "current_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "id": "maxim:topology:fundamental-group",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fundamental, group]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fundamental Group",
+        "updated": "null"
+      },
+      "text": "```\n+====================================================================+\n|         THE FUNDAMENTAL GROUP — π₁(X, x₀)                          |\n+====================================================================+\n|                                                                    |\n|  LOOPS at x₀: continuous γ: [0,1] → X with γ(0) = γ(1) = x₀.   |\n|  HOMOTOPY: a deformation of one loop to another (fixing endpoints). |\n|  π₁(X,x₀) = {homotopy classes of loops based at x₀}.             |\n|                                                                    |\n|  GROUP OPERATION: [γ][δ] = [γ * δ]  (concatenation of loops).    |\n|                                                                    |\n|  EXAMPLES:                                                         |\n|  π₁(Rⁿ) = 0          (contractible — all loops shrink to point)  |\n|  π₁(S¹) = Z          (winding number counts loops around circle)  |\n|  π₁(Sⁿ) = 0 (n≥2)    (spheres are simply connected)              |\n|  π₁(T²) = Z × Z      (two independent generators on torus)        |\n|  π₁(RP²) = Z/2        (double cover = universal cover)            |\n|  π₁(Figure 8) = F₂   (free group on 2 generators)                |\n|                                                                    |\n|  VAN KAMPEN'S THEOREM:                                            |\n|  π₁(A∪B) = π₁(A) *_{π₁(A∩B)} π₁(B)   (pushout of groups)        |\n+====================================================================+\n```"
+    },
+    {
+      "id": "06-FUNDAMENTAL-GROUP.md#003",
+      "path": [
+        "06-FUNDAMENTAL-GROUP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:06-fundamental-group, git-history:topology:06-fundamental-group]",
+        "canonical_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "concepts": "[fundamental, group]",
+        "current_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "id": "maxim:topology:fundamental-group",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fundamental, group]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fundamental Group",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-FUNDAMENTAL-GROUP.md#004",
+      "path": [
+        "06-FUNDAMENTAL-GROUP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:06-fundamental-group, git-history:topology:06-fundamental-group]",
+        "canonical_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "concepts": "[fundamental, group]",
+        "current_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "id": "maxim:topology:fundamental-group",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fundamental, group]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fundamental Group",
+        "updated": "null"
+      },
+      "text": "## Loops and Homotopy"
+    },
+    {
+      "id": "06-FUNDAMENTAL-GROUP.md#005",
+      "path": [
+        "06-FUNDAMENTAL-GROUP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:06-fundamental-group, git-history:topology:06-fundamental-group]",
+        "canonical_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "concepts": "[fundamental, group]",
+        "current_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "id": "maxim:topology:fundamental-group",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fundamental, group]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fundamental Group",
+        "updated": "null"
+      },
+      "text": "```\nLOOP at x₀ ∈ X:\n  γ: [0,1] → X continuous with γ(0) = γ(1) = x₀."
+    },
+    {
+      "id": "06-FUNDAMENTAL-GROUP.md#006",
+      "path": [
+        "06-FUNDAMENTAL-GROUP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:06-fundamental-group, git-history:topology:06-fundamental-group]",
+        "canonical_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "concepts": "[fundamental, group]",
+        "current_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "id": "maxim:topology:fundamental-group",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fundamental, group]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fundamental Group",
+        "updated": "null"
+      },
+      "text": "HOMOTOPY (RELATIVE TO ENDPOINTS):\n  Two loops γ, δ at x₀ are homotopic (γ ≃ δ rel x₀) if:\n  ∃H: [0,1]×[0,1] → X continuous with:\n    H(t,0) = γ(t), H(t,1) = δ(t)  (start and end are γ and δ)\n    H(0,s) = H(1,s) = x₀  (basepoint fixed throughout)"
+    },
+    {
+      "id": "06-FUNDAMENTAL-GROUP.md#007",
+      "path": [
+        "06-FUNDAMENTAL-GROUP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:06-fundamental-group, git-history:topology:06-fundamental-group]",
+        "canonical_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "concepts": "[fundamental, group]",
+        "current_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "id": "maxim:topology:fundamental-group",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fundamental, group]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fundamental Group",
+        "updated": "null"
+      },
+      "text": "Think: H(t,s) is a continuous family of loops, s ∈ [0,1] is the \"time\" of deformation."
+    },
+    {
+      "id": "06-FUNDAMENTAL-GROUP.md#008",
+      "path": [
+        "06-FUNDAMENTAL-GROUP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:06-fundamental-group, git-history:topology:06-fundamental-group]",
+        "canonical_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "concepts": "[fundamental, group]",
+        "current_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "id": "maxim:topology:fundamental-group",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fundamental, group]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fundamental Group",
+        "updated": "null"
+      },
+      "text": "CONCATENATION:\n  (γ * δ)(t) = γ(2t) for t ∈ [0,1/2]\n               δ(2t-1) for t ∈ [1/2,1]\n  First traverse γ at double speed, then δ at double speed.\n  Well-defined up to homotopy."
+    },
+    {
+      "id": "06-FUNDAMENTAL-GROUP.md#009",
+      "path": [
+        "06-FUNDAMENTAL-GROUP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:06-fundamental-group, git-history:topology:06-fundamental-group]",
+        "canonical_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "concepts": "[fundamental, group]",
+        "current_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "id": "maxim:topology:fundamental-group",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fundamental, group]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fundamental Group",
+        "updated": "null"
+      },
+      "text": "CONSTANT LOOP: cₓ₀(t) = x₀ for all t. The identity element.\nREVERSE LOOP: γ̄(t) = γ(1-t). The inverse element."
+    },
+    {
+      "id": "06-FUNDAMENTAL-GROUP.md#010",
+      "path": [
+        "06-FUNDAMENTAL-GROUP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:06-fundamental-group, git-history:topology:06-fundamental-group]",
+        "canonical_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "concepts": "[fundamental, group]",
+        "current_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "id": "maxim:topology:fundamental-group",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fundamental, group]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fundamental Group",
+        "updated": "null"
+      },
+      "text": "π₁(X, x₀) = {[γ] : γ loops at x₀} with operation [γ][δ] = [γ * δ].\nThis is a group (associativity up to homotopy, identity = [cₓ₀], inverse = [γ̄]).\n```"
+    },
+    {
+      "id": "06-FUNDAMENTAL-GROUP.md#011",
+      "path": [
+        "06-FUNDAMENTAL-GROUP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:06-fundamental-group, git-history:topology:06-fundamental-group]",
+        "canonical_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "concepts": "[fundamental, group]",
+        "current_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "id": "maxim:topology:fundamental-group",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fundamental, group]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fundamental Group",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-FUNDAMENTAL-GROUP.md#012",
+      "path": [
+        "06-FUNDAMENTAL-GROUP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:06-fundamental-group, git-history:topology:06-fundamental-group]",
+        "canonical_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "concepts": "[fundamental, group]",
+        "current_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "id": "maxim:topology:fundamental-group",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fundamental, group]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fundamental Group",
+        "updated": "null"
+      },
+      "text": "## Computing Fundamental Groups"
+    },
+    {
+      "id": "06-FUNDAMENTAL-GROUP.md#013",
+      "path": [
+        "06-FUNDAMENTAL-GROUP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:06-fundamental-group, git-history:topology:06-fundamental-group]",
+        "canonical_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "concepts": "[fundamental, group]",
+        "current_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "id": "maxim:topology:fundamental-group",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fundamental, group]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fundamental Group",
+        "updated": "null"
+      },
+      "text": "### Simply Connected Spaces"
+    },
+    {
+      "id": "06-FUNDAMENTAL-GROUP.md#014",
+      "path": [
+        "06-FUNDAMENTAL-GROUP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:06-fundamental-group, git-history:topology:06-fundamental-group]",
+        "canonical_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "concepts": "[fundamental, group]",
+        "current_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "id": "maxim:topology:fundamental-group",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fundamental, group]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fundamental Group",
+        "updated": "null"
+      },
+      "text": "```\nπ₁(Rⁿ) = 0:\n  Straight-line homotopy: H(t,s) = (1-s)γ(t) + s·x₀ contracts any loop to x₀."
+    },
+    {
+      "id": "06-FUNDAMENTAL-GROUP.md#015",
+      "path": [
+        "06-FUNDAMENTAL-GROUP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:06-fundamental-group, git-history:topology:06-fundamental-group]",
+        "canonical_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "concepts": "[fundamental, group]",
+        "current_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "id": "maxim:topology:fundamental-group",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fundamental, group]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fundamental Group",
+        "updated": "null"
+      },
+      "text": "π₁(Sⁿ) = 0 for n ≥ 2:\n  Any loop misses some point of Sⁿ (by smooth approximation and Sard's theorem).\n  Sⁿ minus a point is homeomorphic to Rⁿ — contractible.\n  So any loop in Sⁿ is contractible. □"
+    },
+    {
+      "id": "06-FUNDAMENTAL-GROUP.md#016",
+      "path": [
+        "06-FUNDAMENTAL-GROUP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:06-fundamental-group, git-history:topology:06-fundamental-group]",
+        "canonical_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "concepts": "[fundamental, group]",
+        "current_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "id": "maxim:topology:fundamental-group",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fundamental, group]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fundamental Group",
+        "updated": "null"
+      },
+      "text": "π₁(convex set) = 0:\n  Straight-line homotopy works for convex subsets of Rⁿ.\n```"
+    },
+    {
+      "id": "06-FUNDAMENTAL-GROUP.md#017",
+      "path": [
+        "06-FUNDAMENTAL-GROUP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:06-fundamental-group, git-history:topology:06-fundamental-group]",
+        "canonical_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "concepts": "[fundamental, group]",
+        "current_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "id": "maxim:topology:fundamental-group",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fundamental, group]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fundamental Group",
+        "updated": "null"
+      },
+      "text": "### The Circle π₁(S¹) = Z"
+    },
+    {
+      "id": "06-FUNDAMENTAL-GROUP.md#018",
+      "path": [
+        "06-FUNDAMENTAL-GROUP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:06-fundamental-group, git-history:topology:06-fundamental-group]",
+        "canonical_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "concepts": "[fundamental, group]",
+        "current_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "id": "maxim:topology:fundamental-group",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fundamental, group]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fundamental Group",
+        "updated": "null"
+      },
+      "text": "```\nWINDING NUMBER: The integer measuring how many times a loop goes around the circle."
+    },
+    {
+      "id": "06-FUNDAMENTAL-GROUP.md#019",
+      "path": [
+        "06-FUNDAMENTAL-GROUP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:06-fundamental-group, git-history:topology:06-fundamental-group]",
+        "canonical_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "concepts": "[fundamental, group]",
+        "current_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "id": "maxim:topology:fundamental-group",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fundamental, group]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fundamental Group",
+        "updated": "null"
+      },
+      "text": "MDLOOM: The universal cover of S¹ is R (unwrap the circle to the real line).\n  Covering map: p: R → S¹ by p(t) = e^{2πit}.\n  Any loop γ in S¹ based at 1 lifts uniquely to a path γ̃ in R starting at 0.\n  γ̃(1) ∈ Z (since γ̃(0) = 0 and p(γ̃(1)) = p(0) = 1, so γ̃(1) ∈ p^{-1}(1) = Z).\n  The winding number: [γ] ↦ γ̃(1) ∈ Z."
+    },
+    {
+      "id": "06-FUNDAMENTAL-GROUP.md#020",
+      "path": [
+        "06-FUNDAMENTAL-GROUP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:06-fundamental-group, git-history:topology:06-fundamental-group]",
+        "canonical_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "concepts": "[fundamental, group]",
+        "current_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "id": "maxim:topology:fundamental-group",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fundamental, group]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fundamental Group",
+        "updated": "null"
+      },
+      "text": "This map Z → π₁(S¹) is an isomorphism.\n  Generator: [e^{2πit}] ↦ 1 (one counterclockwise loop)."
+    },
+    {
+      "id": "06-FUNDAMENTAL-GROUP.md#021",
+      "path": [
+        "06-FUNDAMENTAL-GROUP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:06-fundamental-group, git-history:topology:06-fundamental-group]",
+        "canonical_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "concepts": "[fundamental, group]",
+        "current_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "id": "maxim:topology:fundamental-group",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fundamental, group]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fundamental Group",
+        "updated": "null"
+      },
+      "text": "IMPORTANT IMPLICATION:\n  No retraction D² → S¹.  (Proof: if r: D² → S¹ were a retraction with r|_{S¹} = id,\n  consider r composed with inclusion S¹ → D²: S¹ → D² → S¹.\n  This is id on S¹. But π₁(D²) = 0, π₁(S¹) = Z.\n  A map 0 → Z cannot be surjective → contradiction.)"
+    },
+    {
+      "id": "06-FUNDAMENTAL-GROUP.md#022",
+      "path": [
+        "06-FUNDAMENTAL-GROUP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:06-fundamental-group, git-history:topology:06-fundamental-group]",
+        "canonical_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "concepts": "[fundamental, group]",
+        "current_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "id": "maxim:topology:fundamental-group",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fundamental, group]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fundamental Group",
+        "updated": "null"
+      },
+      "text": "BROUWER'S FIXED POINT THEOREM (from this):\n  Every continuous f: D² → D² has a fixed point.\n  Proof: If f(x) ≠ x for all x, define r(x) = point on ∂D² by extending x to f(x) to\n  the boundary. Then r: D² → S¹ is a retraction with r|_{S¹} = id. Contradiction. □\n```"
+    },
+    {
+      "id": "06-FUNDAMENTAL-GROUP.md#023",
+      "path": [
+        "06-FUNDAMENTAL-GROUP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:06-fundamental-group, git-history:topology:06-fundamental-group]",
+        "canonical_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "concepts": "[fundamental, group]",
+        "current_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "id": "maxim:topology:fundamental-group",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fundamental, group]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fundamental Group",
+        "updated": "null"
+      },
+      "text": "### Torus π₁(T²) = Z × Z"
+    },
+    {
+      "id": "06-FUNDAMENTAL-GROUP.md#024",
+      "path": [
+        "06-FUNDAMENTAL-GROUP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:06-fundamental-group, git-history:topology:06-fundamental-group]",
+        "canonical_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "concepts": "[fundamental, group]",
+        "current_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "id": "maxim:topology:fundamental-group",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fundamental, group]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fundamental Group",
+        "updated": "null"
+      },
+      "text": "```\nTorus T² = S¹ × S¹.\nπ₁(S¹ × S¹) = π₁(S¹) × π₁(S¹) = Z × Z.\n(Product formula: π₁(X×Y) = π₁(X) × π₁(Y) for path-connected spaces.)"
+    },
+    {
+      "id": "06-FUNDAMENTAL-GROUP.md#025",
+      "path": [
+        "06-FUNDAMENTAL-GROUP.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:topology:06-fundamental-group, git-history:topology:06-fundamental-group]",
+        "canonical_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "concepts": "[fundamental, group]",
+        "current_path": "topology/06-FUNDAMENTAL-GROUP.md",
+        "id": "maxim:topology:fundamental-group",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "topology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[fundamental, group]",
+        "section": "topology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Fundamental Group",
+        "updated": "null"
+      },
+      "text": "Generators:\n  a = [loop around one S¹ factor]\n  b = [loop around other S¹ factor]\n  Relation: ab = ba (commute, since torus is abelian)."
+    }
+  ],
+  "refs": [
+    "06-FUNDAMENTAL-GROUP.md"
+  ]
+}

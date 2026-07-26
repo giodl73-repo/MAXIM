@@ -1,0 +1,2085 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-security-engineering-threat-modeling",
+  "source": "../../security-engineering",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "01-THREAT-MODELING.md#000",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "# Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#001",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#002",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "Threat modeling is the structured process of identifying, enumerating, and prioritizing threats to a system. Done at design time, it surfaces the threats you need to address before they become vulnerabilities in production."
+    },
+    {
+      "id": "01-THREAT-MODELING.md#003",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "```\nTHREAT MODELING PROCESS\n+-----------------------------------------------------------------------+\n|                                                                       |\n|  DECOMPOSE          IDENTIFY          PRIORITIZE        MITIGATE      |\n|  +-----------+     +----------+      +----------+      +----------+   |\n|  | What are  |     | What can |      | Which    |      | What     |  |\n|  | the       | --> | go wrong | -->  | threats  | -->  | controls |  |\n|  | components|     | with     |      | matter   |      | address  |  |\n|  | and data  |     | each     |      | most?    |      | each?    |  |\n|  | flows?    |     | piece?   |      | (DREAD,  |      | (Accept, |  |\n|  | (DFD)     |     | (STRIDE) |      |  risk)   |      |  Fix,    |  |\n|  |           |     |          |      |          |      |  Transfer)|  |\n|  +-----------+     +----------+      +----------+      +----------+  |\n|                                                                      |\n|  INPUT:                             OUTPUT:                          |\n|  Architecture diagram               Threat model document            |\n|  Data flow diagram (DFD)            Threat list with risk scores     |\n|  Trust boundary definitions         Mitigations per threat           |\n|  Component inventory                Open items tracked in backlog    |\n+-----------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#004",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#005",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "## STRIDE: Threat Categories"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#006",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "STRIDE is a mnemonic for 6 categories of threats. Developed at Microsoft for the SDL. For each component and data flow in your DFD, ask: which STRIDE categories apply?"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#007",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "### S — Spoofing"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#008",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "**Definition**: Attacker impersonates another identity (user, service, or system)."
+    },
+    {
+      "id": "01-THREAT-MODELING.md#009",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "**Examples**:\n- User submits forged cookie to impersonate another user\n- Service calls an API pretending to be a trusted microservice\n- Attacker serves a malicious endpoint that looks like a legitimate service (ARP spoofing, DNS hijacking)\n- Phishing: user clicks link to attacker-controlled site that looks like the real login page"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#010",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "**Countermeasures**: Authentication (passwords, MFA, certificates, mutual TLS), cryptographic signatures, certificate pinning."
+    },
+    {
+      "id": "01-THREAT-MODELING.md#011",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "### T — Tampering"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#012",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "**Definition**: Attacker modifies data in transit or at rest without authorization."
+    },
+    {
+      "id": "01-THREAT-MODELING.md#013",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "**Examples**:\n- Man-in-the-middle modifies HTTP request/response\n- Attacker modifies log files to hide intrusion evidence\n- SQL injection modifies database records\n- Attacker modifies build artifact after CI produces it (supply chain)\n- Memory corruption modifies program state at runtime"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#014",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "**Countermeasures**: Integrity checking (HMAC, signatures, checksums), TLS for transit, access controls on data stores, immutable audit logs, signed build artifacts (SLSA)."
+    },
+    {
+      "id": "01-THREAT-MODELING.md#015",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "### R — Repudiation"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#016",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "**Definition**: Actor denies having performed an action; system cannot prove otherwise."
+    },
+    {
+      "id": "01-THREAT-MODELING.md#017",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "**Examples**:\n- User transfers funds, claims they did not — no audit trail\n- Admin modifies config, no logging of the change\n- Service processes message but no record of receipt"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#018",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "**Countermeasures**: Tamper-evident audit logging, digital signatures on actions (non-repudiation), secure log storage (write-once logs), centralized SIEM that aggregates before logs can be deleted."
+    },
+    {
+      "id": "01-THREAT-MODELING.md#019",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "### I — Information Disclosure"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#020",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "**Definition**: Attacker gains access to data they should not see."
+    },
+    {
+      "id": "01-THREAT-MODELING.md#021",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "**Examples**:\n- Verbose error messages expose stack traces, internal paths, credentials\n- Unencrypted data in transit (HTTP vs. HTTPS)\n- Overly permissive access controls (reads other users' data)\n- Log files contain PII or secrets\n- API returns more data than needed (over-fetching)\n- Side-channel attacks (timing, memory)"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#022",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "**Countermeasures**: Encryption at rest and in transit, least-privilege access, sanitize error messages, output encoding, data classification."
+    },
+    {
+      "id": "01-THREAT-MODELING.md#023",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "### D — Denial of Service"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#024",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "**Definition**: Attacker degrades or prevents legitimate users from accessing the service."
+    },
+    {
+      "id": "01-THREAT-MODELING.md#025",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "**Examples**:\n- Network-level DDoS (volumetric: exhaust bandwidth)\n- Application-level DoS (algorithmic: slow regex, zip bomb, expensive query)\n- Resource exhaustion (fill disk, exhaust connection pool, OOM)\n- Hash collision attacks on HashMap (algorithmic DoS — fixed in Java/Python)\n- ReDoS: regex with exponential backtracking"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#026",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "**Countermeasures**: Rate limiting, input validation (size limits, complexity limits), resource quotas, circuit breakers, CDN / DDoS protection (Azure DDoS Standard), connection pool limits."
+    },
+    {
+      "id": "01-THREAT-MODELING.md#027",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "### E — Elevation of Privilege"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#028",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "**Definition**: Attacker gains capabilities beyond what they were authorized for."
+    },
+    {
+      "id": "01-THREAT-MODELING.md#029",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "**Examples**:\n- Horizontal: user A accesses user B's data (IDOR — Insecure Direct Object Reference)\n- Vertical: unprivileged user gains admin access\n- SQL injection that runs as DBA role\n- Container escape from pod to node\n- Local privilege escalation via vulnerable SUID binary"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#030",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "**Countermeasures**: Authorization checks (not just authentication), parameter validation, least privilege, input validation, security boundaries (containers, VMs), regular privilege reviews."
+    },
+    {
+      "id": "01-THREAT-MODELING.md#031",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#032",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "## STRIDE-per-Element Methodology"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#033",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "Apply STRIDE to each element in the data flow diagram:"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#034",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "```\nDATA FLOW DIAGRAM ELEMENTS AND APPLICABLE THREATS\n+-----------------------------------------------------------------------+\n| DFD Element              | Applicable STRIDE Threats                  |\n+-----------------------------------------------------------------------+\n| External entities        | Spoofing, Repudiation                       |\n| (users, external systems)|                                             |\n+-----------------------------------------------------------------------+\n| Processes                | Spoofing, Tampering, Repudiation,          |\n| (services, APIs)         | Info Disclosure, DoS, Elevation            |\n+-----------------------------------------------------------------------+\n| Data flows               | Tampering, Info Disclosure, DoS              |\n| (HTTP, gRPC, queue msgs) |                                             |\n+-----------------------------------------------------------------------+\n| Data stores              | Tampering, Repudiation, Info Disclosure,   |\n| (DBs, caches, files)     | DoS (store exhaustion)                     |\n+-----------------------------------------------------------------------+\n| Trust boundaries         | Spoofing, Tampering, Elevation              |\n| (the line between trust  |                                             |\n| zones)                   |                                             |\n+-----------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#035",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#036",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "## DREAD Scoring"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#037",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "DREAD is a risk scoring system for prioritizing identified threats. It has been de-emphasized in recent SDL practice (too subjective) but remains useful for relative ranking."
+    },
+    {
+      "id": "01-THREAT-MODELING.md#038",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "| Factor | Description | Score Range |\n|--------|-------------|-------------|\n| **D**amage | How severe if exploited? (financial, reputational, regulatory) | 1–10 |\n| **R**eproducibility | How reliably can the attacker exploit it? | 1–10 |\n| **E**xploitability | How easy to exploit? (lower effort = higher score) | 1–10 |\n| **A**ffected users | How many users are impacted? | 1–10 |\n| **D**iscoverability | How likely is the attacker to find this? | 1–10 |"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#039",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "**Total DREAD score** = sum or average of the five factors."
+    },
+    {
+      "id": "01-THREAT-MODELING.md#040",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "**Criticism**: DREAD scores are highly subjective and different people score the same threat very differently. CVSS (Common Vulnerability Scoring System) is more reproducible for vulnerabilities. For threat models, CVSS-inspired scoring is preferred over DREAD."
+    },
+    {
+      "id": "01-THREAT-MODELING.md#041",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "**Practical use of DREAD**: Rank threats relative to each other within a single model, not for comparison across models or teams."
+    },
+    {
+      "id": "01-THREAT-MODELING.md#042",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#043",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "## Attack Trees"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#044",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "Attack trees represent all known paths to achieving an attacker's goal."
+    },
+    {
+      "id": "01-THREAT-MODELING.md#045",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "```\nATTACK TREE: Steal customer payment data from Order Service"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#046",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "[ROOT GOAL] Steal payment data\n          │\n    ┌─────┴─────┐\n    │           │\n  [OR]        [OR]\n    │           │\nExfiltrate   Access DB\nfrom app     directly\n    │           │\n  ┌─┴──┐      ┌─┴──┐\n  │    │      │    │\nSQL  API    Creds  Net\nInj  resp   dump   attack\n    leak\n              │\n          ┌───┴───┐\n          │       │\n       [AND]     [AND]\n          │       │\n       Find    Break\n       creds   into\n       in log  network"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#047",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "NOTATION:\n  [OR]  node: any child sufficient to reach parent\n  [AND] node: all children required to reach parent"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#048",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "LEAF NODES: concrete attacker actions\n  Assign probability, difficulty, cost to each leaf\n  Roll up to root: what is overall attack difficulty?\n```"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#049",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "Attack trees help enumerate all paths to a goal (not just the obvious ones) and quantify the relative difficulty."
+    },
+    {
+      "id": "01-THREAT-MODELING.md#050",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#051",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "## PASTA: Process for Attack Simulation and Threat Analysis"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#052",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "PASTA is a risk-centric framework (vs. STRIDE which is threat-centric). 7 stages:"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#053",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "```\nPASTA 7 STAGES\n+------------------------------------------------------------------+\n| Stage 1: DEFINE OBJECTIVES                                       |\n|   Business objectives, security objectives, compliance needs     |\n|   Who are we protecting? What is the business impact of breach?  |\n+------------------------------------------------------------------+\n| Stage 2: DEFINE TECHNICAL SCOPE                                   |\n|   Components, technologies, interfaces, dependencies             |\n+------------------------------------------------------------------+\n| Stage 3: DECOMPOSE APPLICATION                                   |\n|   Data flow diagrams, use cases, trust boundaries                |\n+------------------------------------------------------------------+\n| Stage 4: THREAT ANALYSIS                                          |\n|   Threat intelligence (current threat landscape)                 |\n|   Attack scenarios relevant to the application type             |\n+------------------------------------------------------------------+\n| Stage 5: VULNERABILITY AND WEAKNESS ANALYSIS                     |\n|   Map existing vulnerabilities to identified threats             |\n|   SAST results, pen test findings, known CVEs in dependencies    |\n+------------------------------------------------------------------+\n| Stage 6: ATTACK ENUMERATION AND SIMULATION                        |\n|   Attack trees for each threat                                   |\n|   Simulate attacker steps                                        |\n+------------------------------------------------------------------+\n| Stage 7: RISK AND IMPACT ANALYSIS                                |\n|   Risk = likelihood × impact                                     |\n|   Prioritize mitigations by business risk                        |\n|   Output: risk register with treatment decisions                 |\n+------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#054",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "**PASTA vs. STRIDE**: STRIDE is faster and more developer-accessible. PASTA is more rigorous for high-risk systems and produces a business-risk-aligned output. Most engineering teams use STRIDE; security teams on critical systems may use PASTA."
+    },
+    {
+      "id": "01-THREAT-MODELING.md#055",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#056",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "## Microsoft Threat Modeling Tool"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#057",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "Microsoft provides a free GUI threat modeling tool that:\n- Accepts stencil-based DFD diagrams (drag and drop components)\n- Automatically generates STRIDE threats per element\n- Tracks mitigation status (mitigated, not applicable, needs investigation)\n- Exports threat model document (SDL mandatory deliverable)"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#058",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "```\nTOOL WORKFLOW:\n  1. Create DFD using built-in stencils (process, data store, actor, flow)\n  2. Mark trust boundaries (dashed lines around trust zones)\n  3. Tool auto-generates: \"Spoofing of the external actor User\"\n  4. For each generated threat: mark as Mitigated / Not Applicable / Needs Review\n  5. Export report → attach to SDL deliverable\n  6. Review with security champion before design is finalized\n```"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#059",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "**SDL requirement**: Threat model must be created during design phase, not retrospectively. Changes to DFD (new component, new data flow) require threat model update."
+    },
+    {
+      "id": "01-THREAT-MODELING.md#060",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#061",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "## When to Threat Model"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#062",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "```\nALWAYS THREAT MODEL:\n  New product or service (before first line of code)\n  New authentication or authorization mechanism\n  New network interface or protocol\n  New data store containing sensitive data\n  New external integration or partner connection\n  Architectural change that crosses trust boundaries"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#063",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "OPTIONAL (but valuable):\n  Significant refactor of existing security-critical component\n  New deployment model (on-prem → cloud, monolith → microservices)"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#064",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "ANTI-PATTERN — doing it wrong:\n  Threat modeling after code is written\n  Threat modeling as a checkbox (generate threats, mark all \"mitigated\")\n  No tracking of open threats in the backlog\n  Threat model that is never updated when design changes\n```"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#065",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#066",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "## Common Confusion Points"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#067",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "**\"Threat modeling is a security team activity\"**\nThreat modeling is most effective when done by the feature team (architects, senior engineers) with security team guidance. Feature engineers understand the design; security engineers know the threat categories. Both together produce the most complete result."
+    },
+    {
+      "id": "01-THREAT-MODELING.md#068",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "**\"STRIDE generates the mitigations\"**\nSTRIDE identifies threats. Countermeasures must still be designed. A common mistake is running STRIDE and stopping — the output is threats, not solutions."
+    },
+    {
+      "id": "01-THREAT-MODELING.md#069",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "**\"Threat modeling = pen test\"**\nThreat modeling is proactive (design time). Pen tests are reactive (validate an existing system). They are complementary: threat models identify what to test; pen tests validate whether mitigations work."
+    },
+    {
+      "id": "01-THREAT-MODELING.md#070",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "**\"I need PASTA for enterprise threat models\"**\nPASTA's rigor has diminishing returns for most service-level threat models. STRIDE + DFD is appropriate for most teams. Use PASTA when business risk quantification is needed for executive-level risk decisions."
+    },
+    {
+      "id": "01-THREAT-MODELING.md#071",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#072",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "01-THREAT-MODELING.md#073",
+      "path": [
+        "01-THREAT-MODELING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:01-threat-modeling, git-history:security-engineering:01-threat-modeling]",
+        "canonical_path": "security-engineering/01-THREAT-MODELING.md",
+        "concepts": "[threat, modeling]",
+        "current_path": "security-engineering/01-THREAT-MODELING.md",
+        "id": "maxim:security-engineering:threat-modeling",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[threat, modeling]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Threat Modeling: STRIDE, DREAD, Attack Trees, PASTA",
+        "updated": "null"
+      },
+      "text": "| Situation | Recommended Approach |\n|-----------|---------------------|\n| New service, dev team owns it | STRIDE + Microsoft TM Tool, SDL deliverable |\n| High-risk payment / auth system | PASTA (risk-centric business alignment) |\n| Visual representation of all attack paths | Attack trees |\n| Quick team threat brainstorm | STRIDE categories on whiteboard |\n| Prioritizing 20 threats for backlog | DREAD scoring (relative, same reviewer) |\n| Validating mitigations in production | Pen test (08-RED-BLUE-TEAM.md) |"
+    }
+  ],
+  "refs": [
+    "01-THREAT-MODELING.md"
+  ]
+}

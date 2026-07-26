@@ -1,0 +1,125 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-control-theory-optimal-control",
+  "source": "../../control-theory",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "03-OPTIMAL-CONTROL.md#000",
+      "path": [
+        "03-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:03-optimal-control, git-history:control-theory:03-optimal-control]",
+        "canonical_path": "control-theory/03-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "control-theory/03-OPTIMAL-CONTROL.md",
+        "id": "maxim:control-theory:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control - LQR, LQG, Pontryagin, HJB",
+        "updated": "null"
+      },
+      "text": "# Optimal Control — LQR, LQG, Pontryagin, HJB"
+    },
+    {
+      "id": "03-OPTIMAL-CONTROL.md#001",
+      "path": [
+        "03-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:03-optimal-control, git-history:control-theory:03-optimal-control]",
+        "canonical_path": "control-theory/03-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "control-theory/03-OPTIMAL-CONTROL.md",
+        "id": "maxim:control-theory:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control - LQR, LQG, Pontryagin, HJB",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "03-OPTIMAL-CONTROL.md#002",
+      "path": [
+        "03-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:03-optimal-control, git-history:control-theory:03-optimal-control]",
+        "canonical_path": "control-theory/03-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "control-theory/03-OPTIMAL-CONTROL.md",
+        "id": "maxim:control-theory:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control - LQR, LQG, Pontryagin, HJB",
+        "updated": "null"
+      },
+      "text": "Optimal control asks: **among all admissible inputs u(t), which one minimizes a given\ncost functional J?** This turns control design from an art (where to place poles?) into\nan optimization problem with a rigorous solution. Two main paths:"
+    },
+    {
+      "id": "03-OPTIMAL-CONTROL.md#003",
+      "path": [
+        "03-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:03-optimal-control, git-history:control-theory:03-optimal-control]",
+        "canonical_path": "control-theory/03-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "control-theory/03-OPTIMAL-CONTROL.md",
+        "id": "maxim:control-theory:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control - LQR, LQG, Pontryagin, HJB",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|               OPTIMAL CONTROL PATHS                              |\n|                                                                  |\n|  INDIRECT METHODS (calculus of variations approach)              |\n|  ─────────────────────────────────────────────────               |\n|  Pontryagin Minimum Principle (PMP)                              |\n│  → Necessary conditions for optimality (Hamiltonian system)      |\n|  → Works for constrained inputs, nonlinear systems               |\n|  → Bang-bang control, minimum-time problems                      |\n|                                                                  |\n|  DIRECT METHODS (dynamic programming approach)                   |\n|  ────────────────────────────────────────────                    |\n|  Hamilton-Jacobi-Bellman (HJB) equation                          |\n|  → Sufficient conditions; optimal value function V*(x,t)         |\n|  → LQR: HJB + linear + quadratic = algebraic Riccati equation    |\n|  → Works backward in time; curse of dimensionality in general    |\n|                                                                  |\n|  LQR = Linear Quadratic Regulator                                |\n|  LQG = LQR + Kalman Filter (stochastic version)                  |\n|  H∞  = Minimax (worst-case disturbance)                          |\n+------------------------------------------------------------------+\n```"
+    }
+  ],
+  "refs": [
+    "03-OPTIMAL-CONTROL.md"
+  ]
+}

@@ -1,0 +1,2309 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-control-theory-kalman-filter",
+  "source": "../../control-theory",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "04-KALMAN-FILTER.md#000",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "# Kalman Filter, EKF, UKF & Sensor Fusion"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#001",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#002",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|               STATE ESTIMATION LANDSCAPE                         |\n+------------------------------------------------------------------+\n|                                                                    |\n|  PROBLEM:  Estimate x(t) from noisy measurements y(t)            |\n|            when x(t) evolves according to a dynamic model         |\n|                                                                    |\n|  LINEAR + GAUSSIAN        NONLINEAR          NONLINEAR (precise)  |\n|  ──────────────────       ────────────────   ────────────────     |\n|  Kalman Filter (KF)       Extended KF (EKF)  Unscented KF (UKF)  |\n|  Optimal, closed-form     Linearize around   Sigma-point approx  |\n|                           current estimate   3rd order accurate   |\n|                                                                    |\n|  LARGE STATE / PARTICLES  BAYESIAN FRAMEWORK                      |\n|  ─────────────────────    ─────────────────                       |\n|  Particle Filter (PF)     All estimators are Bayesian filters     |\n|  Sequential Monte Carlo   KF = exact Bayes for linear Gaussian    |\n|  Handles multimodal       PF = exact Bayes (approx via samples)   |\n+------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#003",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "The Kalman filter (1960) is the optimal linear estimator — it solves the\nproblem of estimating state from noisy measurements in closed form.\nIt's a recursive Bayesian filter that maintains a Gaussian belief state."
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#004",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#005",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "## The State Estimation Problem"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#006",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "```\nSYSTEM MODEL:\n  ẋ = Ax + Bu + w     w ~ N(0, Q_w)  process noise (covariance Q_w)\n  y = Cx + v          v ~ N(0, R_v)  measurement noise (covariance R_v)"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#007",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "DISCRETE-TIME VERSION:\n  x[k+1] = A_d x[k] + B_d u[k] + w[k]   w[k] ~ N(0, Q_d)\n  y[k]   = C x[k] + v[k]                 v[k] ~ N(0, R)"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#008",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "WHAT WE WANT:\n  ̂x[k|k] = E[x[k] | y[0], y[1], ..., y[k]]   (posterior mean given all measurements)\n  P[k|k] = Var[x[k] | y[0],...,y[k]]           (posterior covariance)"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#009",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "FOR LINEAR GAUSSIAN SYSTEMS: This posterior is exactly Gaussian.\n  ̂x[k|k], P[k|k] fully characterize the belief state.\n  Kalman filter computes both recursively and optimally.\n```"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#010",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#011",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "## Kalman Filter Algorithm"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#012",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "Two phases: predict and update."
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#013",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "```\nINITIALIZATION:\n  ̂x[0|-1] = x₀  (prior mean)\n  P[0|-1] = P₀   (prior covariance)"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#014",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "────────────────────────────────────────────────────────────────\nPREDICT (time update):\n  ̂x[k|k-1] = A_d ̂x[k-1|k-1] + B_d u[k-1]    (predicted state)\n  P[k|k-1]  = A_d P[k-1|k-1] A_dᵀ + Q_d       (predicted covariance)"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#015",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "────────────────────────────────────────────────────────────────\nUPDATE (measurement update) — when measurement y[k] arrives:"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#016",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "Innovation:   ỹ[k] = y[k] − C ̂x[k|k-1]        (prediction error)\n  Innovation cov: S[k] = C P[k|k-1] Cᵀ + R        (innovation uncertainty)\n  Kalman gain:  K[k] = P[k|k-1] Cᵀ S[k]⁻¹         (optimal weighting)"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#017",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "̂x[k|k] = ̂x[k|k-1] + K[k] ỹ[k]               (updated estimate)\n  P[k|k]  = (I − K[k]C) P[k|k-1]                (updated covariance)"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#018",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "Numerically stable form: P[k|k] = (I−KC)P(I−KC)ᵀ + KRKᵀ (Joseph form)"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#019",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "────────────────────────────────────────────────────────────────\n```"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#020",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "### Interpretation"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#021",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "The Kalman filter is the mathematically optimal answer to \"how do I reconstruct system state from noisy telemetry?\" — exactly what an observability platform does. The Kalman gain K implements the same trust-weighting logic used in Bayesian A/B testing and anomaly detection: when the sensor (metric) is noisy (high R), trust the model prediction; when the sensor is reliable (low R), update aggressively toward the measurement. Anomaly detectors in monitoring systems (including Azure Monitor) use Kalman-type filters for this reason."
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#022",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "```\nKalman gain K mediates between model and measurement:"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#023",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "K → 0  (R large, noisy sensor):    trust the model prediction more\n          ̂x[k|k] ≈ ̂x[k|k-1]"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#024",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "K → C⁻¹ (R small, perfect sensor): trust measurement\n           ̂x[k|k] ≈ C⁻¹ y[k]"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#025",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "K = P Cᵀ (C P Cᵀ + R)⁻¹:\n    Numerator P Cᵀ: how uncertain is state × how it affects output\n    Denominator S: total output uncertainty (model + sensor)"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#026",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "GEOMETRIC VIEW:\n  KF is weighted average of prior prediction and measurement.\n  Weights inversely proportional to uncertainties.\n  P[k|k] ≤ P[k|k-1] always (measurement always helps).\n  (In PSD ordering: more information = smaller covariance.)\n```"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#027",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#028",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "## Steady-State Kalman Filter"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#029",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "For time-invariant systems, P converges to a fixed value P∞:"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#030",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "```\nP∞ satisfies the Algebraic Riccati Equation (dual of LQR ARE):\n  A P∞ + P∞ Aᵀ − P∞ Cᵀ R⁻¹ C P∞ + Q_w = 0"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#031",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "Steady-state Kalman gain:\n  K∞ = P∞ Cᵀ R⁻¹"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#032",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "Once P∞ converges, the filter has constant gain K∞ — can be precomputed.\nThis is the \"steady-state observer\" used in LQG control."
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#033",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "Condition for convergence (P∞ finite and unique):\n  (A, C) detectable  (unstable modes must be observable)\n  (A, Γ) stabilizable where Q_w = ΓΓᵀ  (noise must excite unstable modes)"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#034",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "Python: P∞, K∞ = scipy.linalg.solve_continuous_are(A, C.T, Q_w, R)\n```"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#035",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#036",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "## Continuous-Time Kalman Filter"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#037",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "```\nContinuous-time system:\n  ẋ = Ax + Bu + w     w ~ N(0, Q_w) (power spectral density)\n  y = Cx + v          v ~ N(0, R)   (PSD)"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#038",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "Kalman-Bucy filter:\n  ̂ẋ = Aẑ + Bu + K(t)(y − Cẑ)    (observer ODE)\n  K(t) = P(t) Cᵀ R⁻¹             (time-varying gain)"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#039",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "Riccati ODE for P(t):\n  Ṗ = AP + PAᵀ − PC^T R⁻¹ CP + Q_w,   P(0) = P₀"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#040",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "Steady state: Ṗ = 0 → solves ARE above."
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#041",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "Note: In continuous time, process noise Q_w has units of power spectral\ndensity, not covariance. Discretization: Q_d ≈ Q_w T_s.\n```"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#042",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#043",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "## Extended Kalman Filter (EKF)"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#044",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "For nonlinear systems — linearize around current estimate:"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#045",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "```\nNONLINEAR SYSTEM:\n  x[k+1] = f(x[k], u[k]) + w[k]     f: nonlinear state transition\n  y[k]   = h(x[k]) + v[k]           h: nonlinear measurement model"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#046",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "EKF ALGORITHM:"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#047",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "PREDICT:\n  ̂x[k|k-1] = f(̂x[k-1|k-1], u[k-1])     (nonlinear propagation)\n  F[k] = ∂f/∂x |_{̂x[k-1|k-1]}            (Jacobian of f)\n  P[k|k-1]  = F[k] P[k-1|k-1] F[k]ᵀ + Q_d (linearized covariance)"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#048",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "UPDATE:\n  H[k] = ∂h/∂x |_{̂x[k|k-1]}              (Jacobian of h)\n  ỹ[k] = y[k] − h(̂x[k|k-1])             (innovation)\n  S[k] = H[k] P[k|k-1] H[k]ᵀ + R\n  K[k] = P[k|k-1] H[k]ᵀ S[k]⁻¹\n  ̂x[k|k] = ̂x[k|k-1] + K[k] ỹ[k]\n  P[k|k]  = (I − K[k]H[k]) P[k|k-1]"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#049",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "EKF LIMITATIONS:\n  Jacobians required (analytical or numerical — autograd helps)\n  Linearization error: P can become inconsistent (pessimistic/optimistic)\n  Diverges if initial estimate far from truth (bad linearization)\n  Not optimal (unlike KF for linear systems)"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#050",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "WHEN EKF FAILS:\n  Highly nonlinear f or h (large higher-order terms)\n  Large uncertainty P (linearization around wrong point)\n  Non-Gaussian posterior (multimodal, heavy tails)\n```"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#051",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#052",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "## Unscented Kalman Filter (UKF)"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#053",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "Better nonlinear approximation — no Jacobians, 3rd order accuracy:"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#054",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "```\nUNSCENTED TRANSFORM:\n  Instead of linearizing, propagate carefully chosen \"sigma points\"\n  through the exact nonlinear function."
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#055",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "For state dimension n and state estimate ̂x with covariance P:\n  2n+1 sigma points:\n    χ₀ = ̂x\n    χᵢ = ̂x + (√((n+λ)P))ᵢ    for i = 1,...,n\n    χᵢ = ̂x − (√((n+λ)P))ᵢ₋ₙ  for i = n+1,...,2n"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#056",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "where λ = α²(n+κ) − n (scaling parameter, α ∈ [10⁻⁴,1], κ = 0 or 3-n)"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#057",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "WEIGHTS:\n  W₀ᵐ = λ/(n+λ),  W₀ᶜ = λ/(n+λ) + (1−α²+β),  β=2 for Gaussian\n  Wᵢᵐ = Wᵢᶜ = 1/(2(n+λ))  for i=1,...,2n"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#058",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "UKF PREDICT:\n  Propagate: γᵢ = f(χᵢ)                        (exact nonlinear)\n  ̂x[k|k-1] = Σ Wᵢᵐ γᵢ                         (weighted mean)\n  P[k|k-1] = Σ Wᵢᶜ (γᵢ−̂x)(γᵢ−̂x)ᵀ + Q_d       (weighted covariance)"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#059",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "UKF UPDATE:\n  Measurement sigma points: ζᵢ = h(γᵢ)\n  ŷ = Σ Wᵢᵐ ζᵢ\n  S = Σ Wᵢᶜ (ζᵢ−ŷ)(ζᵢ−ŷ)ᵀ + R\n  Cross-covariance: P_xy = Σ Wᵢᶜ (γᵢ−̂x)(ζᵢ−ŷ)ᵀ\n  K = P_xy S⁻¹\n  ̂x[k|k] = ̂x[k|k-1] + K(y[k] − ŷ)\n  P[k|k] = P[k|k-1] − KSKᵀ"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#060",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "ADVANTAGES OVER EKF:\n  No Jacobians required\n  Captures mean and covariance to 3rd order (EKF: 1st order)\n  More robust for nonlinear systems\n  Similar O(n³) cost (square root implementations: O(n²))"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#061",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "WHEN UKF FAILS:\n  Highly multimodal posteriors (particle filter needed)\n  Dimension n very large (cost prohibitive)\n```"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#062",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#063",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "## Particle Filter (Sequential Monte Carlo)"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#064",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "For highly nonlinear, non-Gaussian systems:"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#065",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "```\nIDEA: Represent p(x[k]|y[0:k]) as weighted samples (particles):\n  {χᵢ[k], wᵢ[k]}ᵢ₌₁ᴺ   (N particles, each a state hypothesis)"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#066",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "SEQUENTIAL IMPORTANCE RESAMPLING (SIR):\n  1. PREDICT: propagate each particle through dynamics (with noise)\n     χᵢ[k|k-1] = f(χᵢ[k-1|k-1]) + w_sample"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#067",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "2. UPDATE: weight by likelihood of measurement:\n     wᵢ[k] ∝ wᵢ[k-1] · p(y[k] | χᵢ[k|k-1])\n             (Gaussian: exp(-½(y-h(χ))ᵀ R⁻¹ (y-h(χ))))"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#068",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "3. NORMALIZE: Σwᵢ = 1"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#069",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "4. RESAMPLE: when effective sample size N_eff = 1/Σwᵢ² drops below N/2:\n     resample N particles with replacement proportional to weights\n     (avoids degeneracy — all weight on one particle)"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#070",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "ESTIMATES:\n  Mean: ̂x[k] = Σ wᵢ χᵢ\n  Covariance: P[k] = Σ wᵢ (χᵢ−̂x)(χᵢ−̂x)ᵀ"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#071",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "COMPLEXITY: O(N·n) per step, N = 100–10000+ particles for reasonable accuracy\nADVANTAGE: Can handle multimodal distributions, any noise model, any f,h\nDISADVANTAGE: High computational cost; degeneracy in high dimensions\n```"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#072",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#073",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "## SLAM (Simultaneous Localization and Mapping)"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#074",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "**Scalability parallel:** EKF-SLAM's O(L^2) cost as landmarks grow mirrors the scaling challenge in distributed tracing: naive correlation of all spans across L services is quadratic. The same argument that drove robotics from EKF-SLAM to Graph SLAM (sparse factored representations) drives observability platforms toward sampling-based and indexed trace strategies."
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#075",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "The flagship application combining Kalman filtering with robotics:"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#076",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "```\nPROBLEM: Robot navigates unknown environment.\n  - Estimate robot pose x_r (position + orientation)\n  - Simultaneously build map of landmarks m = {mᵢ}\n  - Observations: range/bearing to landmarks, odometry"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#077",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "STATE: x = [x_r, m₁, m₂, ..., m_L]ᵀ  (grows as landmarks discovered)"
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#078",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "EKF-SLAM:\n  State covariance P captures correlations between robot pose AND map.\n  As map grows: O(L²) covariance → becomes O(L²) cost per step → not scalable."
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#079",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "GRAPH SLAM (modern):\n  Optimize over all past poses + landmarks together.\n  Factor graph formulation: pose-graph optimization.\n  Solves sparse linear system (sparse Cholesky) → O(n) in practice."
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#080",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "g2o, iSAM2/GTSAM libraries: real-time factor graph optimization."
+    },
+    {
+      "id": "04-KALMAN-FILTER.md#081",
+      "path": [
+        "04-KALMAN-FILTER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:04-kalman-filter, git-history:control-theory:04-kalman-filter]",
+        "canonical_path": "control-theory/04-KALMAN-FILTER.md",
+        "concepts": "[kalman, filter]",
+        "current_path": "control-theory/04-KALMAN-FILTER.md",
+        "id": "maxim:control-theory:kalman-filter",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kalman, filter]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kalman Filter, EKF, UKF and Sensor Fusion",
+        "updated": "null"
+      },
+      "text": "LIDAR SLAM stack (ROS 2):\n  IMU → dead reckoning (high-freq)\n  LIDAR → scan matching (ICP, NDT, LOAM)\n  GNSS → global anchor (if available)\n  EKF/UKF → fuse all sensors (robot_localization package)\n```"
+    }
+  ],
+  "refs": [
+    "04-KALMAN-FILTER.md"
+  ]
+}

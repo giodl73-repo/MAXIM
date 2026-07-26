@@ -1,0 +1,909 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-lie-groups-su2-so3",
+  "source": "../../lie-groups",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "04-SU2-SO3.md#000",
+      "path": [
+        "04-SU2-SO3.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:lie-groups:04-su2-so3, git-history:lie-groups:04-su2-so3]",
+        "canonical_path": "lie-groups/04-SU2-SO3.md",
+        "concepts": "[su2, so3]",
+        "current_path": "lie-groups/04-SU2-SO3.md",
+        "id": "maxim:lie-groups:su2-so3",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[su2, so3]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "SU(2) and SO(3) - Double Cover, Spinors, Angular Momentum",
+        "updated": "null"
+      },
+      "text": "# SU(2) and SO(3) — Double Cover, Spinors, Angular Momentum"
+    },
+    {
+      "id": "04-SU2-SO3.md#001",
+      "path": [
+        "04-SU2-SO3.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:lie-groups:04-su2-so3, git-history:lie-groups:04-su2-so3]",
+        "canonical_path": "lie-groups/04-SU2-SO3.md",
+        "concepts": "[su2, so3]",
+        "current_path": "lie-groups/04-SU2-SO3.md",
+        "id": "maxim:lie-groups:su2-so3",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[su2, so3]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "SU(2) and SO(3) - Double Cover, Spinors, Angular Momentum",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "04-SU2-SO3.md#002",
+      "path": [
+        "04-SU2-SO3.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:lie-groups:04-su2-so3, git-history:lie-groups:04-su2-so3]",
+        "canonical_path": "lie-groups/04-SU2-SO3.md",
+        "concepts": "[su2, so3]",
+        "current_path": "lie-groups/04-SU2-SO3.md",
+        "id": "maxim:lie-groups:su2-so3",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[su2, so3]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "SU(2) and SO(3) - Double Cover, Spinors, Angular Momentum",
+        "updated": "null"
+      },
+      "text": "SU(2) and SO(3) have the same Lie algebra but are different groups. SU(2) is a 2-to-1 cover\nof SO(3). The two sheets correspond to integer-spin vs half-integer-spin representations. This\nis not a mathematical technicality — it is the reason fermions exist."
+    },
+    {
+      "id": "04-SU2-SO3.md#003",
+      "path": [
+        "04-SU2-SO3.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:lie-groups:04-su2-so3, git-history:lie-groups:04-su2-so3]",
+        "canonical_path": "lie-groups/04-SU2-SO3.md",
+        "concepts": "[su2, so3]",
+        "current_path": "lie-groups/04-SU2-SO3.md",
+        "id": "maxim:lie-groups:su2-so3",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[su2, so3]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "SU(2) and SO(3) - Double Cover, Spinors, Angular Momentum",
+        "updated": "null"
+      },
+      "text": "```\n+----------------------------------------------------------------------+\n|             THE SU(2) -> SO(3) DOUBLE COVER                          |\n+----------------------------------------------------------------------+\n|                                                                      |\n|   SU(2) = S^3 ⊂ C^2                  SO(3) = RP^3                  |\n|   unit quaternions                     rotation matrices             |\n|   dim = 3, simply connected            pi_1 = Z/2Z                  |\n|   center = {I, -I} = Z_2              center = {I}                  |\n|                                                                      |\n|         phi: SU(2) --2-to-1--> SO(3)                                |\n|              {A, -A}  |-------> same rotation                        |\n|                                                                      |\n|   REPRESENTATIONS:                                                   |\n|   SU(2) irreps:  j = 0, 1/2, 1, 3/2, 2, ...  (all half-integers)   |\n|   SO(3) irreps:  j = 0, 1, 2, ...             (integers only)       |\n|                                                                      |\n|   Half-integer j reps: lift to SU(2) but NOT to SO(3)               |\n|   Integer j reps: descend to SO(3)                                   |\n|                                                                      |\n|   SPINORS = the j=1/2 representation of SU(2)                       |\n|   A 2pi rotation sends a spinor to its negative.                     |\n|   A 4pi rotation is the identity.                                    |\n|                                                                      |\n+----------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "04-SU2-SO3.md#004",
+      "path": [
+        "04-SU2-SO3.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:lie-groups:04-su2-so3, git-history:lie-groups:04-su2-so3]",
+        "canonical_path": "lie-groups/04-SU2-SO3.md",
+        "concepts": "[su2, so3]",
+        "current_path": "lie-groups/04-SU2-SO3.md",
+        "id": "maxim:lie-groups:su2-so3",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[su2, so3]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "SU(2) and SO(3) - Double Cover, Spinors, Angular Momentum",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-SU2-SO3.md#005",
+      "path": [
+        "04-SU2-SO3.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:lie-groups:04-su2-so3, git-history:lie-groups:04-su2-so3]",
+        "canonical_path": "lie-groups/04-SU2-SO3.md",
+        "concepts": "[su2, so3]",
+        "current_path": "lie-groups/04-SU2-SO3.md",
+        "id": "maxim:lie-groups:su2-so3",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[su2, so3]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "SU(2) and SO(3) - Double Cover, Spinors, Angular Momentum",
+        "updated": "null"
+      },
+      "text": "## SU(2) Explicitly"
+    },
+    {
+      "id": "04-SU2-SO3.md#006",
+      "path": [
+        "04-SU2-SO3.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:lie-groups:04-su2-so3, git-history:lie-groups:04-su2-so3]",
+        "canonical_path": "lie-groups/04-SU2-SO3.md",
+        "concepts": "[su2, so3]",
+        "current_path": "lie-groups/04-SU2-SO3.md",
+        "id": "maxim:lie-groups:su2-so3",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[su2, so3]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "SU(2) and SO(3) - Double Cover, Spinors, Angular Momentum",
+        "updated": "null"
+      },
+      "text": "SU(2) = { [[a, -conj(b)], [b, conj(a)]] : a,b in C, |a|^2 + |b|^2 = 1 }"
+    },
+    {
+      "id": "04-SU2-SO3.md#007",
+      "path": [
+        "04-SU2-SO3.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:lie-groups:04-su2-so3, git-history:lie-groups:04-su2-so3]",
+        "canonical_path": "lie-groups/04-SU2-SO3.md",
+        "concepts": "[su2, so3]",
+        "current_path": "lie-groups/04-SU2-SO3.md",
+        "id": "maxim:lie-groups:su2-so3",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[su2, so3]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "SU(2) and SO(3) - Double Cover, Spinors, Angular Momentum",
+        "updated": "null"
+      },
+      "text": "Writing a = x_0 + i x_3 and b = x_2 + i x_1:\n```\nSU(2) = { x_0 I + x_1 (i sigma_1) + x_2 (i sigma_2) + x_3 (i sigma_3) : x_0^2+x_1^2+x_2^2+x_3^2 = 1}\n```\nThis is the unit sphere S^3 in R^4. So as a smooth manifold, SU(2) iso S^3."
+    },
+    {
+      "id": "04-SU2-SO3.md#008",
+      "path": [
+        "04-SU2-SO3.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:lie-groups:04-su2-so3, git-history:lie-groups:04-su2-so3]",
+        "canonical_path": "lie-groups/04-SU2-SO3.md",
+        "concepts": "[su2, so3]",
+        "current_path": "lie-groups/04-SU2-SO3.md",
+        "id": "maxim:lie-groups:su2-so3",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[su2, so3]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "SU(2) and SO(3) - Double Cover, Spinors, Angular Momentum",
+        "updated": "null"
+      },
+      "text": "**The Pauli matrices** (sigma_i) are:\n```\nsigma_1 = [[0,1],[1,0]]    sigma_2 = [[0,-i],[i,0]]    sigma_3 = [[1,0],[0,-1]]"
+    },
+    {
+      "id": "04-SU2-SO3.md#009",
+      "path": [
+        "04-SU2-SO3.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:lie-groups:04-su2-so3, git-history:lie-groups:04-su2-so3]",
+        "canonical_path": "lie-groups/04-SU2-SO3.md",
+        "concepts": "[su2, so3]",
+        "current_path": "lie-groups/04-SU2-SO3.md",
+        "id": "maxim:lie-groups:su2-so3",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[su2, so3]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "SU(2) and SO(3) - Double Cover, Spinors, Angular Momentum",
+        "updated": "null"
+      },
+      "text": "Properties:\n  sigma_i^2 = I\n  sigma_i sigma_j = delta_{ij} I + i epsilon_{ijk} sigma_k\n  [sigma_i/2, sigma_j/2] = i epsilon_{ijk} sigma_k/2\n```"
+    },
+    {
+      "id": "04-SU2-SO3.md#010",
+      "path": [
+        "04-SU2-SO3.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:lie-groups:04-su2-so3, git-history:lie-groups:04-su2-so3]",
+        "canonical_path": "lie-groups/04-SU2-SO3.md",
+        "concepts": "[su2, so3]",
+        "current_path": "lie-groups/04-SU2-SO3.md",
+        "id": "maxim:lie-groups:su2-so3",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[su2, so3]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "SU(2) and SO(3) - Double Cover, Spinors, Angular Momentum",
+        "updated": "null"
+      },
+      "text": "The Lie algebra su(2) = span_R{i sigma_1/2, i sigma_2/2, i sigma_3/2} with bracket\n[i sigma_a/2, i sigma_b/2] = epsilon_{abc} (i sigma_c/2). Isomorphic to so(3)."
+    },
+    {
+      "id": "04-SU2-SO3.md#011",
+      "path": [
+        "04-SU2-SO3.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:lie-groups:04-su2-so3, git-history:lie-groups:04-su2-so3]",
+        "canonical_path": "lie-groups/04-SU2-SO3.md",
+        "concepts": "[su2, so3]",
+        "current_path": "lie-groups/04-SU2-SO3.md",
+        "id": "maxim:lie-groups:su2-so3",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[su2, so3]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "SU(2) and SO(3) - Double Cover, Spinors, Angular Momentum",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-SU2-SO3.md#012",
+      "path": [
+        "04-SU2-SO3.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:lie-groups:04-su2-so3, git-history:lie-groups:04-su2-so3]",
+        "canonical_path": "lie-groups/04-SU2-SO3.md",
+        "concepts": "[su2, so3]",
+        "current_path": "lie-groups/04-SU2-SO3.md",
+        "id": "maxim:lie-groups:su2-so3",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[su2, so3]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "SU(2) and SO(3) - Double Cover, Spinors, Angular Momentum",
+        "updated": "null"
+      },
+      "text": "## SO(3) Explicitly"
+    },
+    {
+      "id": "04-SU2-SO3.md#013",
+      "path": [
+        "04-SU2-SO3.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:lie-groups:04-su2-so3, git-history:lie-groups:04-su2-so3]",
+        "canonical_path": "lie-groups/04-SU2-SO3.md",
+        "concepts": "[su2, so3]",
+        "current_path": "lie-groups/04-SU2-SO3.md",
+        "id": "maxim:lie-groups:su2-so3",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[su2, so3]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "SU(2) and SO(3) - Double Cover, Spinors, Angular Momentum",
+        "updated": "null"
+      },
+      "text": "SO(3) = 3x3 real orthogonal matrices with det = +1. Every element is a rotation:\n```\nAbout z-axis by angle theta:\nR_z(theta) = [[cos theta, -sin theta, 0],\n              [sin theta,  cos theta, 0],\n              [0,          0,         1]]"
+    },
+    {
+      "id": "04-SU2-SO3.md#014",
+      "path": [
+        "04-SU2-SO3.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:lie-groups:04-su2-so3, git-history:lie-groups:04-su2-so3]",
+        "canonical_path": "lie-groups/04-SU2-SO3.md",
+        "concepts": "[su2, so3]",
+        "current_path": "lie-groups/04-SU2-SO3.md",
+        "id": "maxim:lie-groups:su2-so3",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[su2, so3]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "SU(2) and SO(3) - Double Cover, Spinors, Angular Momentum",
+        "updated": "null"
+      },
+      "text": "General rotation by angle theta about unit axis n:\nR(n,theta) = I + sin(theta) N + (1-cos theta) N^2    (Rodrigues' formula)\nwhere N = [[0,-n_3,n_2],[n_3,0,-n_1],[-n_2,n_1,0]] is the cross-product matrix.\n```"
+    },
+    {
+      "id": "04-SU2-SO3.md#015",
+      "path": [
+        "04-SU2-SO3.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:lie-groups:04-su2-so3, git-history:lie-groups:04-su2-so3]",
+        "canonical_path": "lie-groups/04-SU2-SO3.md",
+        "concepts": "[su2, so3]",
+        "current_path": "lie-groups/04-SU2-SO3.md",
+        "id": "maxim:lie-groups:su2-so3",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[su2, so3]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "SU(2) and SO(3) - Double Cover, Spinors, Angular Momentum",
+        "updated": "null"
+      },
+      "text": "**Topology:** SO(3) iso RP^3. Every rotation is specified by (axis n, angle theta) with theta in [0,pi]\nand the identification (n, pi) ~ (-n, pi). The fundamental group pi_1(SO(3)) = Z/2Z — the nontrivial\nloop is a 2pi rotation. A 2pi rotation is NOT homotopic to the identity; a 4pi rotation IS."
+    },
+    {
+      "id": "04-SU2-SO3.md#016",
+      "path": [
+        "04-SU2-SO3.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:lie-groups:04-su2-so3, git-history:lie-groups:04-su2-so3]",
+        "canonical_path": "lie-groups/04-SU2-SO3.md",
+        "concepts": "[su2, so3]",
+        "current_path": "lie-groups/04-SU2-SO3.md",
+        "id": "maxim:lie-groups:su2-so3",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[su2, so3]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "SU(2) and SO(3) - Double Cover, Spinors, Angular Momentum",
+        "updated": "null"
+      },
+      "text": "This is demonstrable physically with the **Dirac belt trick** (or Philippine wine dance): attach\none end of a belt to a cup, make a 2pi rotation, and the belt is twisted with no untwisting possible\nwithout further rotation. Make a 4pi rotation and you can untwist."
+    },
+    {
+      "id": "04-SU2-SO3.md#017",
+      "path": [
+        "04-SU2-SO3.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:lie-groups:04-su2-so3, git-history:lie-groups:04-su2-so3]",
+        "canonical_path": "lie-groups/04-SU2-SO3.md",
+        "concepts": "[su2, so3]",
+        "current_path": "lie-groups/04-SU2-SO3.md",
+        "id": "maxim:lie-groups:su2-so3",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[su2, so3]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "SU(2) and SO(3) - Double Cover, Spinors, Angular Momentum",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-SU2-SO3.md#018",
+      "path": [
+        "04-SU2-SO3.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:lie-groups:04-su2-so3, git-history:lie-groups:04-su2-so3]",
+        "canonical_path": "lie-groups/04-SU2-SO3.md",
+        "concepts": "[su2, so3]",
+        "current_path": "lie-groups/04-SU2-SO3.md",
+        "id": "maxim:lie-groups:su2-so3",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[su2, so3]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "SU(2) and SO(3) - Double Cover, Spinors, Angular Momentum",
+        "updated": "null"
+      },
+      "text": "## The Double Cover Map phi: SU(2) -> SO(3)"
+    },
+    {
+      "id": "04-SU2-SO3.md#019",
+      "path": [
+        "04-SU2-SO3.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:lie-groups:04-su2-so3, git-history:lie-groups:04-su2-so3]",
+        "canonical_path": "lie-groups/04-SU2-SO3.md",
+        "concepts": "[su2, so3]",
+        "current_path": "lie-groups/04-SU2-SO3.md",
+        "id": "maxim:lie-groups:su2-so3",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[su2, so3]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "SU(2) and SO(3) - Double Cover, Spinors, Angular Momentum",
+        "updated": "null"
+      },
+      "text": "**Construction:** SU(2) acts on the 3-dimensional real vector space:\n```\nV = span_R{i sigma_1, i sigma_2, i sigma_3} iso R^3\n```\nby conjugation: X |-> A X A^{-1} for A in SU(2), X in V."
+    },
+    {
+      "id": "04-SU2-SO3.md#020",
+      "path": [
+        "04-SU2-SO3.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:lie-groups:04-su2-so3, git-history:lie-groups:04-su2-so3]",
+        "canonical_path": "lie-groups/04-SU2-SO3.md",
+        "concepts": "[su2, so3]",
+        "current_path": "lie-groups/04-SU2-SO3.md",
+        "id": "maxim:lie-groups:su2-so3",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[su2, so3]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "SU(2) and SO(3) - Double Cover, Spinors, Angular Momentum",
+        "updated": "null"
+      },
+      "text": "Since conjugation by A preserves V (check: conjugate of a traceless skew-Hermitian matrix is\ntraceless skew-Hermitian) and preserves the inner product B(X,Y) = -tr(XY)/2 on V, each A\ngives a rotation of R^3."
+    },
+    {
+      "id": "04-SU2-SO3.md#021",
+      "path": [
+        "04-SU2-SO3.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:lie-groups:04-su2-so3, git-history:lie-groups:04-su2-so3]",
+        "canonical_path": "lie-groups/04-SU2-SO3.md",
+        "concepts": "[su2, so3]",
+        "current_path": "lie-groups/04-SU2-SO3.md",
+        "id": "maxim:lie-groups:su2-so3",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[su2, so3]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "SU(2) and SO(3) - Double Cover, Spinors, Angular Momentum",
+        "updated": "null"
+      },
+      "text": "**The map:** phi(A)(n_i sigma_i) = A (n_i sigma_i) A^{-1}"
+    },
+    {
+      "id": "04-SU2-SO3.md#022",
+      "path": [
+        "04-SU2-SO3.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:lie-groups:04-su2-so3, git-history:lie-groups:04-su2-so3]",
+        "canonical_path": "lie-groups/04-SU2-SO3.md",
+        "concepts": "[su2, so3]",
+        "current_path": "lie-groups/04-SU2-SO3.md",
+        "id": "maxim:lie-groups:su2-so3",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[su2, so3]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "SU(2) and SO(3) - Double Cover, Spinors, Angular Momentum",
+        "updated": "null"
+      },
+      "text": "**Kernel:** phi(A) = I iff A commutes with all sigma_i. Since {sigma_i} generates all of M_2(C)\nas an algebra (they span the traceless Hermitian matrices), A must commute with all of M_2(C),\nhence A = lambda I. Since A in SU(2): lambda^2 = 1, lambda = pm 1. So ker(phi) = {I, -I} = Z_2."
+    },
+    {
+      "id": "04-SU2-SO3.md#023",
+      "path": [
+        "04-SU2-SO3.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:lie-groups:04-su2-so3, git-history:lie-groups:04-su2-so3]",
+        "canonical_path": "lie-groups/04-SU2-SO3.md",
+        "concepts": "[su2, so3]",
+        "current_path": "lie-groups/04-SU2-SO3.md",
+        "id": "maxim:lie-groups:su2-so3",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[su2, so3]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "SU(2) and SO(3) - Double Cover, Spinors, Angular Momentum",
+        "updated": "null"
+      },
+      "text": "Therefore: SO(3) iso SU(2) / {I, -I} = SU(2) / Z_2."
+    },
+    {
+      "id": "04-SU2-SO3.md#024",
+      "path": [
+        "04-SU2-SO3.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:lie-groups:04-su2-so3, git-history:lie-groups:04-su2-so3]",
+        "canonical_path": "lie-groups/04-SU2-SO3.md",
+        "concepts": "[su2, so3]",
+        "current_path": "lie-groups/04-SU2-SO3.md",
+        "id": "maxim:lie-groups:su2-so3",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[su2, so3]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "SU(2) and SO(3) - Double Cover, Spinors, Angular Momentum",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-SU2-SO3.md#025",
+      "path": [
+        "04-SU2-SO3.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:lie-groups:04-su2-so3, git-history:lie-groups:04-su2-so3]",
+        "canonical_path": "lie-groups/04-SU2-SO3.md",
+        "concepts": "[su2, so3]",
+        "current_path": "lie-groups/04-SU2-SO3.md",
+        "id": "maxim:lie-groups:su2-so3",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[su2, so3]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "SU(2) and SO(3) - Double Cover, Spinors, Angular Momentum",
+        "updated": "null"
+      },
+      "text": "## Why This Means Spinors Exist"
+    },
+    {
+      "id": "04-SU2-SO3.md#026",
+      "path": [
+        "04-SU2-SO3.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:lie-groups:04-su2-so3, git-history:lie-groups:04-su2-so3]",
+        "canonical_path": "lie-groups/04-SU2-SO3.md",
+        "concepts": "[su2, so3]",
+        "current_path": "lie-groups/04-SU2-SO3.md",
+        "id": "maxim:lie-groups:su2-so3",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[su2, so3]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "SU(2) and SO(3) - Double Cover, Spinors, Angular Momentum",
+        "updated": "null"
+      },
+      "text": "**Representations must respect the kernel:** A representation rho: SO(3) -> GL(V) pulls back to\nrho.phi: SU(2) -> GL(V) via the covering map. For this to be a well-defined SO(3) rep, it must\nsatisfy rho(phi(A)) = rho(phi(-A)), i.e., rho.phi(A) = rho.phi(-A), i.e., rho.phi(-I) = I."
+    },
+    {
+      "id": "04-SU2-SO3.md#027",
+      "path": [
+        "04-SU2-SO3.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:lie-groups:04-su2-so3, git-history:lie-groups:04-su2-so3]",
+        "canonical_path": "lie-groups/04-SU2-SO3.md",
+        "concepts": "[su2, so3]",
+        "current_path": "lie-groups/04-SU2-SO3.md",
+        "id": "maxim:lie-groups:su2-so3",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[su2, so3]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "SU(2) and SO(3) - Double Cover, Spinors, Angular Momentum",
+        "updated": "null"
+      },
+      "text": "The SU(2) element -I acts on the spin-j representation V_j by:\n```\nrho_j(-I) = (-1)^{2j} I\n```\n(because -I = exp(2pi i * J_3 / j) up to the right normalization — a full 2pi rotation sends\n|j,m> to e^{2pi i m} |j,m> = |j,m> for integer m and -|j,m> for half-integer m)."
+    },
+    {
+      "id": "04-SU2-SO3.md#028",
+      "path": [
+        "04-SU2-SO3.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:lie-groups:04-su2-so3, git-history:lie-groups:04-su2-so3]",
+        "canonical_path": "lie-groups/04-SU2-SO3.md",
+        "concepts": "[su2, so3]",
+        "current_path": "lie-groups/04-SU2-SO3.md",
+        "id": "maxim:lie-groups:su2-so3",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[su2, so3]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "SU(2) and SO(3) - Double Cover, Spinors, Angular Momentum",
+        "updated": "null"
+      },
+      "text": "**Consequence:**\n- j in {0,1,2,...}: rho_j(-I) = I. The representation descends to SO(3). These are \"tensors.\"\n- j in {1/2, 3/2, 5/2,...}: rho_j(-I) = -I. Does NOT descend to SO(3). These are \"spinors.\""
+    },
+    {
+      "id": "04-SU2-SO3.md#029",
+      "path": [
+        "04-SU2-SO3.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:lie-groups:04-su2-so3, git-history:lie-groups:04-su2-so3]",
+        "canonical_path": "lie-groups/04-SU2-SO3.md",
+        "concepts": "[su2, so3]",
+        "current_path": "lie-groups/04-SU2-SO3.md",
+        "id": "maxim:lie-groups:su2-so3",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[su2, so3]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "SU(2) and SO(3) - Double Cover, Spinors, Angular Momentum",
+        "updated": "null"
+      },
+      "text": "```\nINTEGER SPIN (tensors):\n  2pi rotation = identity\n  These are representations of SO(3)\n  Examples: scalars (j=0), vectors (j=1), symmetric tensors (j=2)"
+    },
+    {
+      "id": "04-SU2-SO3.md#030",
+      "path": [
+        "04-SU2-SO3.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:lie-groups:04-su2-so3, git-history:lie-groups:04-su2-so3]",
+        "canonical_path": "lie-groups/04-SU2-SO3.md",
+        "concepts": "[su2, so3]",
+        "current_path": "lie-groups/04-SU2-SO3.md",
+        "id": "maxim:lie-groups:su2-so3",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[su2, so3]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "SU(2) and SO(3) - Double Cover, Spinors, Angular Momentum",
+        "updated": "null"
+      },
+      "text": "HALF-INTEGER SPIN (spinors):\n  2pi rotation = multiplication by -1\n  These are representations of SU(2) but NOT SO(3)\n  Examples: electrons (j=1/2), protons (j=1/2), quarks (j=1/2)\n```"
+    },
+    {
+      "id": "04-SU2-SO3.md#031",
+      "path": [
+        "04-SU2-SO3.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:lie-groups:04-su2-so3, git-history:lie-groups:04-su2-so3]",
+        "canonical_path": "lie-groups/04-SU2-SO3.md",
+        "concepts": "[su2, so3]",
+        "current_path": "lie-groups/04-SU2-SO3.md",
+        "id": "maxim:lie-groups:su2-so3",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "lie-groups",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[su2, so3]",
+        "section": "lie-groups",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "SU(2) and SO(3) - Double Cover, Spinors, Angular Momentum",
+        "updated": "null"
+      },
+      "text": "Spinors are not a quirk of quantum mechanics — they are forced by the topology of SO(3).\nThe topological obstruction is pi_1(SO(3)) = Z/2Z: the double cover SU(2) exists because of this\nfundamental group. Representations of the cover that do not factor through the base are spinorial."
+    }
+  ],
+  "refs": [
+    "04-SU2-SO3.md"
+  ]
+}

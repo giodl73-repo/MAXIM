@@ -1,0 +1,461 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-abstract-algebra-galois-theory",
+  "source": "../../abstract-algebra",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "06-GALOIS-THEORY.md#000",
+      "path": [
+        "06-GALOIS-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:06-galois-theory, git-history:abstract-algebra:06-galois-theory]",
+        "canonical_path": "abstract-algebra/06-GALOIS-THEORY.md",
+        "concepts": "[galois, theory]",
+        "current_path": "abstract-algebra/06-GALOIS-THEORY.md",
+        "id": "maxim:abstract-algebra:galois-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[galois, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Galois Theory",
+        "updated": "null"
+      },
+      "text": "# Galois Theory"
+    },
+    {
+      "id": "06-GALOIS-THEORY.md#001",
+      "path": [
+        "06-GALOIS-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:06-galois-theory, git-history:abstract-algebra:06-galois-theory]",
+        "canonical_path": "abstract-algebra/06-GALOIS-THEORY.md",
+        "concepts": "[galois, theory]",
+        "current_path": "abstract-algebra/06-GALOIS-THEORY.md",
+        "id": "maxim:abstract-algebra:galois-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[galois, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Galois Theory",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "06-GALOIS-THEORY.md#002",
+      "path": [
+        "06-GALOIS-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:06-galois-theory, git-history:abstract-algebra:06-galois-theory]",
+        "canonical_path": "abstract-algebra/06-GALOIS-THEORY.md",
+        "concepts": "[galois, theory]",
+        "current_path": "abstract-algebra/06-GALOIS-THEORY.md",
+        "id": "maxim:abstract-algebra:galois-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[galois, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Galois Theory",
+        "updated": "null"
+      },
+      "text": "```\n+====================================================================+\n|           GALOIS THEORY — THE CORRESPONDENCE                       |\n+====================================================================+\n|                                                                    |\n|  QUESTION: Can f(x) ∈ Q[x] be solved by radicals?                |\n|  ANSWER: f is solvable by radicals ⟺ Gal(f) is a solvable group. |\n|                                                                    |\n|  THE GALOIS CORRESPONDENCE (for Galois extension K/F):            |\n|                                                                    |\n|  Subfields of K        ←→        Subgroups of Gal(K/F)           |\n|  containing F                                                     |\n|                                                                    |\n|  F = K^G (fixed field) ←→       G = Gal(K/F) (full group)        |\n|  K                    ←→        {e} (trivial group)              |\n|                                                                    |\n|  E₁ ⊆ E₂             ←→        H₂ ⊆ H₁  (REVERSAL of order)    |\n|  [E₂:E₁]             =         [H₁:H₂]  (index)                 |\n|  E/F Galois           ←→        H ◁ G  (H normal subgroup)       |\n|  Gal(E/F)             ≅         G/H    (quotient)                |\n+====================================================================+\n```"
+    },
+    {
+      "id": "06-GALOIS-THEORY.md#003",
+      "path": [
+        "06-GALOIS-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:06-galois-theory, git-history:abstract-algebra:06-galois-theory]",
+        "canonical_path": "abstract-algebra/06-GALOIS-THEORY.md",
+        "concepts": "[galois, theory]",
+        "current_path": "abstract-algebra/06-GALOIS-THEORY.md",
+        "id": "maxim:abstract-algebra:galois-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[galois, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Galois Theory",
+        "updated": "null"
+      },
+      "text": "Galois theory is the deepest tool connecting field theory to group theory.\nThe key insight: automorphisms of K that fix F form a group, and the\nlattice of intermediate fields is exactly (in reverse) the lattice of subgroups."
+    },
+    {
+      "id": "06-GALOIS-THEORY.md#004",
+      "path": [
+        "06-GALOIS-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:06-galois-theory, git-history:abstract-algebra:06-galois-theory]",
+        "canonical_path": "abstract-algebra/06-GALOIS-THEORY.md",
+        "concepts": "[galois, theory]",
+        "current_path": "abstract-algebra/06-GALOIS-THEORY.md",
+        "id": "maxim:abstract-algebra:galois-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[galois, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Galois Theory",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-GALOIS-THEORY.md#005",
+      "path": [
+        "06-GALOIS-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:06-galois-theory, git-history:abstract-algebra:06-galois-theory]",
+        "canonical_path": "abstract-algebra/06-GALOIS-THEORY.md",
+        "concepts": "[galois, theory]",
+        "current_path": "abstract-algebra/06-GALOIS-THEORY.md",
+        "id": "maxim:abstract-algebra:galois-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[galois, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Galois Theory",
+        "updated": "null"
+      },
+      "text": "## Galois Groups"
+    },
+    {
+      "id": "06-GALOIS-THEORY.md#006",
+      "path": [
+        "06-GALOIS-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:06-galois-theory, git-history:abstract-algebra:06-galois-theory]",
+        "canonical_path": "abstract-algebra/06-GALOIS-THEORY.md",
+        "concepts": "[galois, theory]",
+        "current_path": "abstract-algebra/06-GALOIS-THEORY.md",
+        "id": "maxim:abstract-algebra:galois-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[galois, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Galois Theory",
+        "updated": "null"
+      },
+      "text": "```\nDEFINITION: Let K/F be a field extension.\n  Aut(K/F) = {σ: K → K : σ is a field automorphism and σ(a) = a for all a ∈ F}.\n  = field automorphisms of K fixing F pointwise."
+    },
+    {
+      "id": "06-GALOIS-THEORY.md#007",
+      "path": [
+        "06-GALOIS-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:06-galois-theory, git-history:abstract-algebra:06-galois-theory]",
+        "canonical_path": "abstract-algebra/06-GALOIS-THEORY.md",
+        "concepts": "[galois, theory]",
+        "current_path": "abstract-algebra/06-GALOIS-THEORY.md",
+        "id": "maxim:abstract-algebra:galois-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[galois, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Galois Theory",
+        "updated": "null"
+      },
+      "text": "This is a group under composition."
+    },
+    {
+      "id": "06-GALOIS-THEORY.md#008",
+      "path": [
+        "06-GALOIS-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:06-galois-theory, git-history:abstract-algebra:06-galois-theory]",
+        "canonical_path": "abstract-algebra/06-GALOIS-THEORY.md",
+        "concepts": "[galois, theory]",
+        "current_path": "abstract-algebra/06-GALOIS-THEORY.md",
+        "id": "maxim:abstract-algebra:galois-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[galois, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Galois Theory",
+        "updated": "null"
+      },
+      "text": "GALOIS EXTENSION: K/F is Galois if:\n  |Aut(K/F)| = [K:F].\n  Equivalently: K is the splitting field of a separable polynomial f ∈ F[x].\n  (Separable: no repeated roots — automatic in char 0 or over a perfect field; irreducible\n   polynomials over imperfect char-p fields can be inseparable, e.g. x^p − t over 𝔽_p(t).)"
+    },
+    {
+      "id": "06-GALOIS-THEORY.md#009",
+      "path": [
+        "06-GALOIS-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:06-galois-theory, git-history:abstract-algebra:06-galois-theory]",
+        "canonical_path": "abstract-algebra/06-GALOIS-THEORY.md",
+        "concepts": "[galois, theory]",
+        "current_path": "abstract-algebra/06-GALOIS-THEORY.md",
+        "id": "maxim:abstract-algebra:galois-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[galois, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Galois Theory",
+        "updated": "null"
+      },
+      "text": "GALOIS GROUP: Gal(K/F) = Aut(K/F) when K/F is Galois."
+    },
+    {
+      "id": "06-GALOIS-THEORY.md#010",
+      "path": [
+        "06-GALOIS-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:06-galois-theory, git-history:abstract-algebra:06-galois-theory]",
+        "canonical_path": "abstract-algebra/06-GALOIS-THEORY.md",
+        "concepts": "[galois, theory]",
+        "current_path": "abstract-algebra/06-GALOIS-THEORY.md",
+        "id": "maxim:abstract-algebra:galois-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[galois, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Galois Theory",
+        "updated": "null"
+      },
+      "text": "EXAMPLES:\n  Q(√2)/Q: Gal = {id, σ} where σ(√2) = -√2. ≅ Z/2Z.\n  Q(i)/Q: Gal = {id, σ} where σ(i) = -i (complex conjugation restricted). ≅ Z/2Z.\n  Q(ζₙ)/Q (cyclotomic): Gal ≅ (Z/nZ)*, order φ(n).\n    σₐ(ζₙ) = ζₙᵃ for each a ∈ (Z/nZ)*.\n  F_{p^n}/F_p: Gal = ⟨Frobenius⟩ ≅ Z/nZ.\n  Q(∛2, ω)/Q (ω = e^{2πi/3}): Gal = S_3. (Degree 6, symmetric group on roots.)\n```"
+    },
+    {
+      "id": "06-GALOIS-THEORY.md#011",
+      "path": [
+        "06-GALOIS-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:06-galois-theory, git-history:abstract-algebra:06-galois-theory]",
+        "canonical_path": "abstract-algebra/06-GALOIS-THEORY.md",
+        "concepts": "[galois, theory]",
+        "current_path": "abstract-algebra/06-GALOIS-THEORY.md",
+        "id": "maxim:abstract-algebra:galois-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[galois, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Galois Theory",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-GALOIS-THEORY.md#012",
+      "path": [
+        "06-GALOIS-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:06-galois-theory, git-history:abstract-algebra:06-galois-theory]",
+        "canonical_path": "abstract-algebra/06-GALOIS-THEORY.md",
+        "concepts": "[galois, theory]",
+        "current_path": "abstract-algebra/06-GALOIS-THEORY.md",
+        "id": "maxim:abstract-algebra:galois-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[galois, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Galois Theory",
+        "updated": "null"
+      },
+      "text": "## Fixed Fields and the Galois Correspondence"
+    },
+    {
+      "id": "06-GALOIS-THEORY.md#013",
+      "path": [
+        "06-GALOIS-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:06-galois-theory, git-history:abstract-algebra:06-galois-theory]",
+        "canonical_path": "abstract-algebra/06-GALOIS-THEORY.md",
+        "concepts": "[galois, theory]",
+        "current_path": "abstract-algebra/06-GALOIS-THEORY.md",
+        "id": "maxim:abstract-algebra:galois-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[galois, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Galois Theory",
+        "updated": "null"
+      },
+      "text": "### Fixed Field"
+    },
+    {
+      "id": "06-GALOIS-THEORY.md#014",
+      "path": [
+        "06-GALOIS-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:06-galois-theory, git-history:abstract-algebra:06-galois-theory]",
+        "canonical_path": "abstract-algebra/06-GALOIS-THEORY.md",
+        "concepts": "[galois, theory]",
+        "current_path": "abstract-algebra/06-GALOIS-THEORY.md",
+        "id": "maxim:abstract-algebra:galois-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[galois, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Galois Theory",
+        "updated": "null"
+      },
+      "text": "```\nFor H ≤ Gal(K/F):\n  K^H = {α ∈ K : σ(α) = α for all σ ∈ H} = \"fixed field of H.\""
+    },
+    {
+      "id": "06-GALOIS-THEORY.md#015",
+      "path": [
+        "06-GALOIS-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:abstract-algebra:06-galois-theory, git-history:abstract-algebra:06-galois-theory]",
+        "canonical_path": "abstract-algebra/06-GALOIS-THEORY.md",
+        "concepts": "[galois, theory]",
+        "current_path": "abstract-algebra/06-GALOIS-THEORY.md",
+        "id": "maxim:abstract-algebra:galois-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "abstract-algebra",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[galois, theory]",
+        "section": "abstract-algebra",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Galois Theory",
+        "updated": "null"
+      },
+      "text": "K^H is a subfield of K containing F.\n  [K : K^H] = |H|.  (Artin's theorem — key fact)\n  K/K^H is a Galois extension with Gal(K/K^H) = H.\n```"
+    }
+  ],
+  "refs": [
+    "06-GALOIS-THEORY.md"
+  ]
+}

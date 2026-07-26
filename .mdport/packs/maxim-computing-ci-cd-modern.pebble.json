@@ -1,0 +1,3877 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-computing-ci-cd-modern",
+  "source": "../../computing",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "13-CICD.md#000",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "# 13 — CI/CD Modern"
+    },
+    {
+      "id": "13-CICD.md#001",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "13-CICD.md#002",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "This guide covers GitHub Actions and Azure Pipelines YAML syntax. You built VSTS — the concepts are yours. The delta is syntax and ecosystem."
+    },
+    {
+      "id": "13-CICD.md#003",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "```\r\nThe Two Major Platforms\r\n========================"
+    },
+    {
+      "id": "13-CICD.md#004",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "GitHub Actions                       Azure Pipelines\r\n  ==============                       ==============="
+    },
+    {
+      "id": "13-CICD.md#005",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "Runs where your code lives           Microsoft's platform (VSTS lineage)\r\n  yaml in .github/workflows/           yaml in azure-pipelines.yml\r\n  Native GitHub integration            Native Azure / ADO integration\r\n  Marketplace (10,000+ actions)        Tasks, extensions\r\n  Free tier for public repos           Free tier (parallel jobs)\r\n  Minutes charged for private          Self-hosted agents common\r\n  GitHub-hosted runners                Azure DevOps / self-hosted agents"
+    },
+    {
+      "id": "13-CICD.md#006",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "Choose if:                           Choose if:\r\n    Already on GitHub                    ADO is your source of truth\r\n    Want ecosystem simplicity            Azure deployments (ARM/Bicep native)\r\n    OSS or mixed cloud                   Enterprise compliance requirements\r\n                                         Need VSTS release gates / approvals\r\n```"
+    },
+    {
+      "id": "13-CICD.md#007",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "13-CICD.md#008",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "### ADO → GitHub Actions Vocabulary Map"
+    },
+    {
+      "id": "13-CICD.md#009",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "Side-by-side YAML for the same pipeline expressed in both systems:"
+    },
+    {
+      "id": "13-CICD.md#010",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "```\r\nConcept              Azure Pipelines YAML              GitHub Actions YAML\r\n───────              ──────────────────────────────    ──────────────────────────────"
+    },
+    {
+      "id": "13-CICD.md#011",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "Trigger              trigger:                          on:\r\n                       branches:                         push:\r\n                         include: [main]                   branches: [main]"
+    },
+    {
+      "id": "13-CICD.md#012",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "Runner               pool:                             runs-on: ubuntu-latest\r\n                       vmImage: ubuntu-latest"
+    },
+    {
+      "id": "13-CICD.md#013",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "Step (shell)         - script: npm ci                 - run: npm ci\r\n                       displayName: Install deps         name: Install deps"
+    },
+    {
+      "id": "13-CICD.md#014",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "Step (task/action)   - task: NodeTool@0               - uses: actions/setup-node@v4\r\n                         inputs:                          with:\r\n                           versionSpec: '20'               node-version: '20'"
+    },
+    {
+      "id": "13-CICD.md#015",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "Variables            variables:                        env: (job-level)\r\n                       nodeVersion: '20'                 NODE_VERSION: '20'\r\n                     $(nodeVersion)                    ${{ vars.NODE_VERSION }}\r\n                                                       (repo/org variables)"
+    },
+    {
+      "id": "13-CICD.md#016",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "Secrets              $(mySecret)                       ${{ secrets.MY_SECRET }}"
+    },
+    {
+      "id": "13-CICD.md#017",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "Job dependency       dependsOn: Build                  needs: build"
+    },
+    {
+      "id": "13-CICD.md#018",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "Condition            condition: succeeded()            if: success()\r\n                     condition: and(succeeded(),       if: github.ref ==\r\n                       eq(variables['Build.Source       'refs/heads/main'\r\n                       Branch'], 'refs/heads/main'))"
+    },
+    {
+      "id": "13-CICD.md#019",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "Environment          environment: production           environment: production\r\n(approval gate)      (Pipelines → Environments)        (Settings → Environments)"
+    },
+    {
+      "id": "13-CICD.md#020",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "Service connection   serviceConnection: myConn         uses: azure/login@v2\r\n(Azure auth)         (stored credential in ADO)          with:\r\n                                                           client-id: ...\r\n                                                           # OIDC — no stored secret"
+    },
+    {
+      "id": "13-CICD.md#021",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "Build number         $(Build.BuildId)                  ${{ github.run_number }}\r\nCommit SHA           $(Build.SourceVersion)            ${{ github.sha }}"
+    },
+    {
+      "id": "13-CICD.md#022",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "Artifact (publish)   - task: PublishPipelineArtifact  - uses: actions/upload-artifact@v4\r\nArtifact (download)  - task: DownloadPipelineArtifact - uses: actions/download-artifact@v4"
+    },
+    {
+      "id": "13-CICD.md#023",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "Stages               stages: / stage:                  jobs: (no native stage concept;\r\n                     (first-class concept)             use job dependencies instead)"
+    },
+    {
+      "id": "13-CICD.md#024",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "Variable Groups      variables:                        No direct equivalent.\r\n(Key Vault link)       - group: my-vg                  Use OIDC + az keyvault secret\r\n                     (Library → link to KV)            show, or azure/get-keyvault-\r\n                                                       secrets action.\r\n```"
+    },
+    {
+      "id": "13-CICD.md#025",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "**Gaps where ADO is richer than GitHub Actions:**\r\n- ADO Variable Groups linked to Key Vault → no direct GHA equivalent\r\n- ADO Azure Monitor gates, ServiceNow gates, Jira gates → not available in GHA environments\r\n- ADO `deployment` job with `canary` / `rolling` strategy → GHA has no native equivalent (you implement manually)\r\n- ADO exclusive lock (only one deploy to an environment at a time) → GHA environments have concurrency groups, but less granular"
+    },
+    {
+      "id": "13-CICD.md#026",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "13-CICD.md#027",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "## GitHub Actions"
+    },
+    {
+      "id": "13-CICD.md#028",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "### Anatomy of a Workflow"
+    },
+    {
+      "id": "13-CICD.md#029",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "```\r\n.github/\r\n└── workflows/\r\n    ├── ci.yml          runs on every push / PR\r\n    ├── release.yml     runs on tag push\r\n    └── deploy.yml      runs on merge to main\r\n```"
+    },
+    {
+      "id": "13-CICD.md#030",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "```yaml\r\n# .github/workflows/ci.yml"
+    },
+    {
+      "id": "13-CICD.md#031",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "name: CI"
+    },
+    {
+      "id": "13-CICD.md#032",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "on:                                    # what triggers this workflow\r\n  push:\r\n    branches: [main, develop]\r\n  pull_request:\r\n    branches: [main]"
+    },
+    {
+      "id": "13-CICD.md#033",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "jobs:\r\n  test:                                # job name (arbitrary)\r\n    runs-on: ubuntu-latest             # runner — GitHub-hosted VM"
+    },
+    {
+      "id": "13-CICD.md#034",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "steps:\r\n      - name: Checkout code\r\n        uses: actions/checkout@v4      # action from Marketplace"
+    },
+    {
+      "id": "13-CICD.md#035",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "- name: Setup Node\r\n        uses: actions/setup-node@v4\r\n        with:\r\n          node-version: 20\r\n          cache: npm                   # cache node_modules between runs"
+    },
+    {
+      "id": "13-CICD.md#036",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "- name: Install dependencies\r\n        run: npm ci                    # shell command"
+    },
+    {
+      "id": "13-CICD.md#037",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "- name: Lint\r\n        run: npm run lint"
+    },
+    {
+      "id": "13-CICD.md#038",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "- name: Type check\r\n        run: npm run typecheck"
+    },
+    {
+      "id": "13-CICD.md#039",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "- name: Test\r\n        run: npm run test -- --coverage"
+    },
+    {
+      "id": "13-CICD.md#040",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "- name: Upload coverage\r\n        uses: actions/upload-artifact@v4\r\n        with:\r\n          name: coverage\r\n          path: coverage/\r\n```"
+    },
+    {
+      "id": "13-CICD.md#041",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "### Key Concepts"
+    },
+    {
+      "id": "13-CICD.md#042",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "```\r\nTrigger (on:)\r\n  push, pull_request, schedule (cron), workflow_dispatch (manual),\r\n  release, repository_dispatch (webhook)"
+    },
+    {
+      "id": "13-CICD.md#043",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "Runner (runs-on:)\r\n  ubuntu-latest    GitHub-hosted Linux (most common)\r\n  windows-latest   GitHub-hosted Windows\r\n  macos-latest     GitHub-hosted macOS\r\n  self-hosted      Your own machine/VM registered as a runner"
+    },
+    {
+      "id": "13-CICD.md#044",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "Action (uses:)\r\n  Reusable step from Marketplace or local file\r\n  actions/checkout@v4       — clone the repo\r\n  actions/setup-node@v4     — install Node + optional npm cache\r\n  actions/cache@v4          — general-purpose cache\r\n  docker/build-push-action  — build + push Docker image"
+    },
+    {
+      "id": "13-CICD.md#045",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "Job vs Step\r\n  Workflow → Jobs (run in parallel by default) → Steps (run sequentially)\r\n  Jobs run on separate VMs. Steps share one VM and its filesystem.\r\n```"
+    },
+    {
+      "id": "13-CICD.md#046",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "### Matrix Builds"
+    },
+    {
+      "id": "13-CICD.md#047",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "```yaml\r\njobs:\r\n  test:\r\n    runs-on: ubuntu-latest\r\n    strategy:\r\n      matrix:\r\n        node-version: [18, 20, 22]\r\n        os: [ubuntu-latest, windows-latest]\r\n    steps:\r\n      - uses: actions/checkout@v4\r\n      - uses: actions/setup-node@v4\r\n        with:\r\n          node-version: ${{ matrix.node-version }}\r\n      - run: npm ci && npm test\r\n```"
+    },
+    {
+      "id": "13-CICD.md#048",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "Runs 6 jobs (3 versions × 2 OSes) in parallel automatically."
+    },
+    {
+      "id": "13-CICD.md#049",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "### Secrets & Environment Variables"
+    },
+    {
+      "id": "13-CICD.md#050",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "```yaml\r\nsteps:\r\n  - name: Deploy\r\n    env:\r\n      NODE_ENV: production                      # plain env var\r\n      DATABASE_URL: ${{ secrets.DATABASE_URL }} # from repo/org secrets\r\n    run: npm run deploy\r\n```"
+    },
+    {
+      "id": "13-CICD.md#051",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "Secrets are set in Settings → Secrets and Variables → Actions. Never logged even if `echo`'d — GitHub redacts them."
+    },
+    {
+      "id": "13-CICD.md#052",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "### Full CI + Docker Build + Push Pipeline"
+    },
+    {
+      "id": "13-CICD.md#053",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "```yaml\r\nname: CI + Build + Push"
+    },
+    {
+      "id": "13-CICD.md#054",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "on:\r\n  push:\r\n    branches: [main]\r\n  pull_request:\r\n    branches: [main]"
+    },
+    {
+      "id": "13-CICD.md#055",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "env:\r\n  REGISTRY: ghcr.io\r\n  IMAGE_NAME: ${{ github.repository }}"
+    },
+    {
+      "id": "13-CICD.md#056",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "jobs:\r\n  # ── Job 1: Test ────────────────────────────────────────────────\r\n  test:\r\n    runs-on: ubuntu-latest\r\n    steps:\r\n      - uses: actions/checkout@v4\r\n      - uses: actions/setup-node@v4\r\n        with:\r\n          node-version: 20\r\n          cache: npm\r\n      - run: npm ci\r\n      - run: npm run lint && npm run typecheck && npm test"
+    },
+    {
+      "id": "13-CICD.md#057",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "# ── Job 2: Build & Push (only on main merge) ──────────────────\r\n  build-push:\r\n    needs: test                         # only runs if test passes\r\n    runs-on: ubuntu-latest\r\n    if: github.ref == 'refs/heads/main' # only on main, not PRs\r\n    permissions:\r\n      contents: read\r\n      packages: write                   # needed to push to GHCR"
+    },
+    {
+      "id": "13-CICD.md#058",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "steps:\r\n      - uses: actions/checkout@v4"
+    },
+    {
+      "id": "13-CICD.md#059",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "- name: Log in to registry\r\n        uses: docker/login-action@v3\r\n        with:\r\n          registry: ${{ env.REGISTRY }}\r\n          username: ${{ github.actor }}\r\n          password: ${{ secrets.GITHUB_TOKEN }}   # auto-provided"
+    },
+    {
+      "id": "13-CICD.md#060",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "- name: Extract metadata (tags, labels)\r\n        id: meta\r\n        uses: docker/metadata-action@v5\r\n        with:\r\n          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}\r\n          tags: |\r\n            type=sha                              # ghcr.io/org/app:abc1234\r\n            type=raw,value=latest"
+    },
+    {
+      "id": "13-CICD.md#061",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "- name: Build and push\r\n        uses: docker/build-push-action@v5\r\n        with:\r\n          context: .\r\n          push: true\r\n          tags: ${{ steps.meta.outputs.tags }}\r\n          cache-from: type=gha              # GitHub Actions cache for Docker layers\r\n          cache-to: type=gha,mode=max\r\n```"
+    },
+    {
+      "id": "13-CICD.md#062",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "### Deploy to AKS (CD step)"
+    },
+    {
+      "id": "13-CICD.md#063",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "```yaml\r\n  deploy:\r\n    needs: build-push\r\n    runs-on: ubuntu-latest\r\n    environment: production               # requires approval if configured"
+    },
+    {
+      "id": "13-CICD.md#064",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "steps:\r\n      - uses: actions/checkout@v4"
+    },
+    {
+      "id": "13-CICD.md#065",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "- name: Azure login\r\n        uses: azure/login@v1\r\n        with:\r\n          creds: ${{ secrets.AZURE_CREDENTIALS }}"
+    },
+    {
+      "id": "13-CICD.md#066",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "- name: Get AKS credentials\r\n        uses: azure/aks-set-context@v3\r\n        with:\r\n          resource-group: myRG\r\n          cluster-name: myAKS"
+    },
+    {
+      "id": "13-CICD.md#067",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "- name: Deploy to AKS\r\n        run: |\r\n          kubectl set image deployment/api \\\r\n            api=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}\r\n          kubectl rollout status deployment/api\r\n```"
+    },
+    {
+      "id": "13-CICD.md#068",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "13-CICD.md#069",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "## Azure Pipelines"
+    },
+    {
+      "id": "13-CICD.md#070",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "Azure Pipelines is the VSTS Build/Release pipeline evolution. If you used it at Microsoft, most concepts map directly — just YAML now instead of the GUI."
+    },
+    {
+      "id": "13-CICD.md#071",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "### Anatomy"
+    },
+    {
+      "id": "13-CICD.md#072",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "```yaml\r\n# azure-pipelines.yml"
+    },
+    {
+      "id": "13-CICD.md#073",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "trigger:\r\n  branches:\r\n    include:\r\n      - main\r\n      - develop"
+    },
+    {
+      "id": "13-CICD.md#074",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "pool:\r\n  vmImage: ubuntu-latest        # Microsoft-hosted agent"
+    },
+    {
+      "id": "13-CICD.md#075",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "variables:\r\n  nodeVersion: '20'\r\n  imageName: 'myapp'"
+    },
+    {
+      "id": "13-CICD.md#076",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "stages:\r\n  - stage: Build\r\n    jobs:\r\n      - job: Test\r\n        steps:\r\n          - task: NodeTool@0\r\n            inputs:\r\n              versionSpec: $(nodeVersion)"
+    },
+    {
+      "id": "13-CICD.md#077",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "- script: npm ci\r\n            displayName: Install dependencies"
+    },
+    {
+      "id": "13-CICD.md#078",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "- script: npm run lint && npm test\r\n            displayName: Lint and test"
+    },
+    {
+      "id": "13-CICD.md#079",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "- task: PublishTestResults@2\r\n            inputs:\r\n              testResultsFormat: JUnit\r\n              testResultsFiles: '**/test-results.xml'"
+    },
+    {
+      "id": "13-CICD.md#080",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "- stage: Deploy\r\n    dependsOn: Build\r\n    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))\r\n    jobs:\r\n      - deployment: DeployProd              # deployment job (not regular job)\r\n        environment: production             # tracks deployments, approval gates\r\n        strategy:\r\n          runOnce:\r\n            deploy:\r\n              steps:\r\n                - task: KubernetesManifest@0\r\n                  inputs:\r\n                    action: deploy\r\n                    manifests: k8s/*.yaml\r\n                    containers: myregistry.azurecr.io/myapp:$(Build.BuildId)\r\n```"
+    },
+    {
+      "id": "13-CICD.md#081",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "### ADO Classic → ADO YAML → GitHub Actions"
+    },
+    {
+      "id": "13-CICD.md#082",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "```\r\nVSTS / Classic ADO                 ADO YAML                   GitHub Actions\r\n==================                 ========                   =============="
+    },
+    {
+      "id": "13-CICD.md#083",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "GUI-built pipelines                azure-pipelines.yml        .github/workflows/*.yml\r\n\"Build Definition\"                 pipeline (stages/jobs)     workflow (jobs)\r\n\"Release Pipeline\"                 stages + deployment jobs    jobs with environment:\r\nEnvironments as tabs               environment: keyword        environment: keyword\r\nArtifacts dropdown                 pipeline artifacts          upload/download-artifact\r\nVariable Groups (UI)               variables + var groups      secrets + vars context\r\nAgent Queues                       pool: vmImage / name:       runs-on:\r\n```"
+    },
+    {
+      "id": "13-CICD.md#084",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "### Azure-Native Integrations"
+    },
+    {
+      "id": "13-CICD.md#085",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "```yaml\r\n# ACR Docker build\r\n- task: Docker@2\r\n  inputs:\r\n    containerRegistry: myACRServiceConnection\r\n    repository: myapp\r\n    command: buildAndPush\r\n    tags: $(Build.BuildId)"
+    },
+    {
+      "id": "13-CICD.md#086",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "# Key Vault secrets (link variable group to KV in Library)\r\nvariables:\r\n  - group: production-secrets       # maps to Azure Key Vault"
+    },
+    {
+      "id": "13-CICD.md#087",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "# ARM/Bicep deployment\r\n- task: AzureResourceManagerTemplateDeployment@3\r\n  inputs:\r\n    deploymentScope: Resource Group\r\n    azureResourceManagerConnection: myServiceConnection\r\n    resourceGroupName: myRG\r\n    location: eastus\r\n    templateLocation: Linked artifact\r\n    csmFile: infra/main.bicep\r\n    overrideParameters: -appName myapp -env production\r\n```"
+    },
+    {
+      "id": "13-CICD.md#088",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "13-CICD.md#089",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "## Runners / Agents"
+    },
+    {
+      "id": "13-CICD.md#090",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "```\r\nGitHub-Hosted Runners              Self-Hosted Runners\r\n=====================              ==================="
+    },
+    {
+      "id": "13-CICD.md#091",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "VM spun up fresh per job           Your machine/VM registered as runner\r\n2-core CPU, 7GB RAM (standard)     Any spec you want\r\n~2000 free minutes/month           Unlimited, you pay compute\r\nLinux / Windows / macOS            Any OS, any arch\r\nSoftware pre-installed             You control the environment\r\nGone after job completes           Persistent (can cache between runs)"
+    },
+    {
+      "id": "13-CICD.md#092",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "When to self-host:\r\n  - Need private network access (no public internet)\r\n  - Large builds that exhaust free minutes\r\n  - Specialized hardware (GPU for ML, ARM for mobile)\r\n  - Compliance requires no code on shared infra\r\n```"
+    },
+    {
+      "id": "13-CICD.md#093",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "For Azure Pipelines, self-hosted agents run as services. Common pattern: Azure VM Scale Set agents (auto-scale with pipeline queue depth)."
+    },
+    {
+      "id": "13-CICD.md#094",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "13-CICD.md#095",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "## Environments & Approvals"
+    },
+    {
+      "id": "13-CICD.md#096",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "| Concept | ADO | GitHub Actions |\r\n|---|---|---|\r\n| Environment definition | Pipelines → Environments | Settings → Environments |\r\n| Required reviewers | Approvals and checks | Required reviewers |\r\n| Approval timeout | Configurable | Configurable |\r\n| Deployment history | Per-environment timeline | Per-environment timeline |\r\n| Exclusive lock | Yes (one deploy at a time) | Concurrency groups (less granular) |\r\n| Wait timer | Yes | Yes |\r\n| Azure Monitor gate | Yes (built-in) | No native equivalent |\r\n| ServiceNow gate | Yes (extension) | No native equivalent |\r\n| Jira gate | Yes (extension) | No native equivalent |\r\n| Required pipeline template | Yes | No native equivalent |\r\n| Deployment branches filter | Yes | Yes |"
+    },
+    {
+      "id": "13-CICD.md#097",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "**Gap to know:** GitHub Actions environments are simpler than ADO. If you need Azure Monitor quality gates, ServiceNow approval integration, or pipeline template enforcement, stay on Azure Pipelines for the CD stage. A common hybrid: GitHub Actions for CI → Azure Pipelines for CD (deploy stages with ADO-grade gates)."
+    },
+    {
+      "id": "13-CICD.md#098",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "```yaml\r\n# GitHub Actions — environment gate\r\njobs:\r\n  deploy:\r\n    environment:\r\n      name: production\r\n      url: https://myapp.example.com    # shows link in GitHub UI\r\n```"
+    },
+    {
+      "id": "13-CICD.md#099",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "When a job targets a protected environment and required reviewers are configured, the workflow pauses at that job until approved."
+    },
+    {
+      "id": "13-CICD.md#100",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "13-CICD.md#101",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "## Caching"
+    },
+    {
+      "id": "13-CICD.md#102",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "CI is slow when it re-downloads dependencies every run. Cache them."
+    },
+    {
+      "id": "13-CICD.md#103",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "```yaml\r\n# GitHub Actions — npm cache (built into setup-node)\r\n- uses: actions/setup-node@v4\r\n  with:\r\n    node-version: 20\r\n    cache: npm                      # caches ~/.npm based on package-lock.json hash"
+    },
+    {
+      "id": "13-CICD.md#104",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "# Manual cache (for anything else)\r\n- uses: actions/cache@v4\r\n  with:\r\n    path: ~/.cache/pip\r\n    key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}\r\n    restore-keys: |\r\n      ${{ runner.os }}-pip-\r\n```"
+    },
+    {
+      "id": "13-CICD.md#105",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "Cache key strategy: hash the lockfile. If `package-lock.json` changes → cache miss → fresh install. If unchanged → cache hit → skip install entirely. Typical npm install: 60–90s cold, 5–10s cached."
+    },
+    {
+      "id": "13-CICD.md#106",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "13-CICD.md#107",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "## Artifacts"
+    },
+    {
+      "id": "13-CICD.md#108",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "Outputs from one job passed to another, or kept for download."
+    },
+    {
+      "id": "13-CICD.md#109",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "```yaml\r\n# Upload\r\n- uses: actions/upload-artifact@v4\r\n  with:\r\n    name: build-output\r\n    path: dist/\r\n    retention-days: 7"
+    },
+    {
+      "id": "13-CICD.md#110",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "# Download in another job\r\n- uses: actions/download-artifact@v4\r\n  with:\r\n    name: build-output\r\n    path: dist/\r\n```"
+    },
+    {
+      "id": "13-CICD.md#111",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "In Azure Pipelines, the equivalent is `PublishPipelineArtifact` / `DownloadPipelineArtifact`. Artifacts are how CD stages consume what CI built — build once, deploy the same artifact everywhere."
+    },
+    {
+      "id": "13-CICD.md#112",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "13-CICD.md#113",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "## Common Patterns"
+    },
+    {
+      "id": "13-CICD.md#114",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "### Branch Strategy → Pipeline Strategy"
+    },
+    {
+      "id": "13-CICD.md#115",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "```\r\nTrunk-based development (recommended)\r\n=====================================\r\n  feature/* → main (via PR)"
+    },
+    {
+      "id": "13-CICD.md#116",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "PR push:   run CI (test, lint, typecheck)\r\n  Merge:     run CI + build image + deploy to staging\r\n  Tag v*.*:  deploy to production (with approval gate)"
+    },
+    {
+      "id": "13-CICD.md#117",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "GitFlow (more gates, slower)\r\n============================\r\n  feature/* → develop → release/* → main"
+    },
+    {
+      "id": "13-CICD.md#118",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "develop push:   CI + deploy to dev env\r\n  release push:   CI + deploy to staging\r\n  main merge:     CI + deploy to production\r\n```"
+    },
+    {
+      "id": "13-CICD.md#119",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "### Monorepo — Only Run What Changed"
+    },
+    {
+      "id": "13-CICD.md#120",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "```yaml\r\n# GitHub Actions — path filters\r\non:\r\n  push:\r\n    paths:\r\n      - 'apps/api/**'\r\n      - 'packages/shared/**'"
+    },
+    {
+      "id": "13-CICD.md#121",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "# Or use Nx/Turborepo affected commands\r\n- run: npx nx affected --target=test --base=origin/main\r\n```"
+    },
+    {
+      "id": "13-CICD.md#122",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "### Fail Fast vs Fail Safe"
+    },
+    {
+      "id": "13-CICD.md#123",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "```\r\nfail-fast: true (default)          fail-fast: false\r\n======================             ================="
+    },
+    {
+      "id": "13-CICD.md#124",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "Matrix: first failure cancels      All matrix jobs run to completion\r\nall other jobs                     Useful for: cross-browser tests where\r\nSaves runner minutes               you want full picture of failures\r\n```"
+    },
+    {
+      "id": "13-CICD.md#125",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "13-CICD.md#126",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "## Common Confusion Points"
+    },
+    {
+      "id": "13-CICD.md#127",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "**`on: push` fires on every branch, including feature branches.**\r\nIf you only want CI on main and PRs: use `branches` filter under `push` and `pull_request`. Otherwise every `git push` to any branch triggers a run."
+    },
+    {
+      "id": "13-CICD.md#128",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "**Jobs run in parallel by default; steps are sequential.**\r\nIf Job B needs Job A's output, use `needs: job-a`. Without it, both start simultaneously."
+    },
+    {
+      "id": "13-CICD.md#129",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "**`GITHUB_TOKEN` is auto-provided, but has limited permissions by default.**\r\nReading code: always allowed. Pushing packages, creating releases, writing PRs: requires `permissions:` block in the workflow. Don't store a PAT as a secret just to push to GHCR — use `permissions: packages: write` with the built-in token."
+    },
+    {
+      "id": "13-CICD.md#130",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "**Environment protection rules don't apply to `workflow_dispatch`** unless you explicitly set deployment branches. A manual trigger can bypass gates if you don't configure it."
+    },
+    {
+      "id": "13-CICD.md#131",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "**Azure Pipelines `deployment` job vs regular `job`.**\r\nRegular jobs have no deployment semantics. `deployment` jobs are tracked in the Environment, support approval gates, and have a structured `strategy` (runOnce, rolling, canary). Use `deployment` for anything that goes to a real environment."
+    },
+    {
+      "id": "13-CICD.md#132",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "**Pipeline YAML lives in the repo — treat it as code.**\r\nReview changes to CI/CD files in PRs. A compromised pipeline file can exfiltrate secrets or push malicious images. In GitHub Actions, `pull_request` from forks runs with read-only token by default (safe). `pull_request_target` has write access — be careful with untrusted forks."
+    },
+    {
+      "id": "13-CICD.md#133",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "**GitHub Actions environments are not ADO release pipelines.**\r\nGHA lacks: Variable Groups linked to Key Vault, Azure Monitor gates, ServiceNow/Jira integration, pipeline template enforcement, exclusive deployment locks. If you need ADO-grade quality gates on the CD side, use Azure Pipelines for deployment stages and GitHub Actions for CI. The two systems compose well: build in GHA, deploy in ADO by triggering a pipeline via REST or using a self-hosted runner registered in both."
+    },
+    {
+      "id": "13-CICD.md#134",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "**Service connections (ADO) → OIDC (GHA).**\r\nADO stores credentials in service connections (client secret or cert). GHA best practice is OIDC federated identity: no stored secret, the runner gets a short-lived token via identity federation. `azure/login@v2` supports OIDC — no `AZURE_CREDENTIALS` JSON needed, just configure federated credentials on the Azure AD app registration."
+    },
+    {
+      "id": "13-CICD.md#135",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "13-CICD.md#136",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "## Old World Bridge"
+    },
+    {
+      "id": "13-CICD.md#137",
+      "path": [
+        "13-CICD.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:13-ci-cd-modern, git-history:computing-software:13-ci-cd-modern]",
+        "canonical_path": "computing/13-CICD.md",
+        "concepts": "[ci cd, pipelines, build automation, deployment, github actions]",
+        "current_path": "computing/13-CICD.md",
+        "id": "maxim:computing-software:ci-cd-modern",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ci cd, delivery]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CI/CD Modern",
+        "updated": "null"
+      },
+      "text": "| VSTS / Azure DevOps (Classic) | Modern CI/CD Equivalent |\r\n|---|---|\r\n| Build Definition (GUI) | Workflow YAML / azure-pipelines.yml |\r\n| Build Agent Queue | `runs-on:` / `pool:` |\r\n| Hosted Agent | GitHub-hosted runner / Microsoft-hosted agent |\r\n| Private Agent | Self-hosted runner / self-hosted agent |\r\n| Release Pipeline | CD stage in same YAML / `deploy` job |\r\n| Release Environment | `environment:` keyword with approval gates |\r\n| Artifact drop | `upload-artifact` / `PublishPipelineArtifact` |\r\n| Variable Group | `secrets` context / variable group + Key Vault link |\r\n| Variable Group linked to Key Vault | ADO: native. GHA: OIDC + az keyvault secret show |\r\n| Service Connection | ADO: service connection. GHA: OIDC federated identity |\r\n| Gated check-in | Branch protection + required status checks |\r\n| Test Results tab | `PublishTestResults` / Codecov integration |\r\n| Deployment slots swap | Rolling deploy to K8s or App Service slot action |\r\n| Build number | `github.run_number` / `Build.BuildId` |\r\n| Azure Monitor release gate | ADO only — no GHA equivalent |\r\n| ServiceNow approval gate | ADO extension — no GHA equivalent |"
+    }
+  ],
+  "refs": [
+    "13-CICD.md"
+  ]
+}

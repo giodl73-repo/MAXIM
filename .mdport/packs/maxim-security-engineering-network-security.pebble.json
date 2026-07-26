@@ -1,0 +1,125 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-security-engineering-network-security",
+  "source": "../../security-engineering",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "06-NETWORK-SECURITY.md#000",
+      "path": [
+        "06-NETWORK-SECURITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:06-network-security, git-history:security-engineering:06-network-security]",
+        "canonical_path": "security-engineering/06-NETWORK-SECURITY.md",
+        "concepts": "[network, security]",
+        "current_path": "security-engineering/06-NETWORK-SECURITY.md",
+        "id": "maxim:security-engineering:network-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[network, security]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Network Security: Segmentation, Firewall Rules, TLS Pinning, DNSSEC",
+        "updated": "null"
+      },
+      "text": "# Network Security: Segmentation, Firewall Rules, TLS Pinning, DNSSEC"
+    },
+    {
+      "id": "06-NETWORK-SECURITY.md#001",
+      "path": [
+        "06-NETWORK-SECURITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:06-network-security, git-history:security-engineering:06-network-security]",
+        "canonical_path": "security-engineering/06-NETWORK-SECURITY.md",
+        "concepts": "[network, security]",
+        "current_path": "security-engineering/06-NETWORK-SECURITY.md",
+        "id": "maxim:security-engineering:network-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[network, security]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Network Security: Segmentation, Firewall Rules, TLS Pinning, DNSSEC",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "06-NETWORK-SECURITY.md#002",
+      "path": [
+        "06-NETWORK-SECURITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:06-network-security, git-history:security-engineering:06-network-security]",
+        "canonical_path": "security-engineering/06-NETWORK-SECURITY.md",
+        "concepts": "[network, security]",
+        "current_path": "security-engineering/06-NETWORK-SECURITY.md",
+        "id": "maxim:security-engineering:network-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[network, security]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Network Security: Segmentation, Firewall Rules, TLS Pinning, DNSSEC",
+        "updated": "null"
+      },
+      "text": "Network security controls the flow of traffic between systems, enforcing who can talk to what, how, and under what conditions. The evolution: from perimeter-only (firewall at the edge) to zero trust (authenticate and authorize every flow, everywhere)."
+    },
+    {
+      "id": "06-NETWORK-SECURITY.md#003",
+      "path": [
+        "06-NETWORK-SECURITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:06-network-security, git-history:security-engineering:06-network-security]",
+        "canonical_path": "security-engineering/06-NETWORK-SECURITY.md",
+        "concepts": "[network, security]",
+        "current_path": "security-engineering/06-NETWORK-SECURITY.md",
+        "id": "maxim:security-engineering:network-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[network, security]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Network Security: Segmentation, Firewall Rules, TLS Pinning, DNSSEC",
+        "updated": "null"
+      },
+      "text": "```\nNETWORK SECURITY LAYERS\n+-----------------------------------------------------------------------+\n|                                                                       |\n|  LAYER 7 (Application)                                                |\n|  WAF (Web Application Firewall): HTTP/HTTPS inspection                |\n|  API Gateway: auth, rate limiting, routing                            |\n|                                                                       |\n|  LAYER 4-7 (Transport + Application)                                  |\n|  NGFW (Next-Gen Firewall): stateful, TLS inspection, IDS/IPS          |\n|  Zero Trust Network Access (ZTNA): identity-aware access              |\n|                                                                       |\n|  LAYER 3-4 (Network + Transport)                                      |\n|  Classic Firewall: IP/port-based packet filter                        |\n|  Network Segmentation: VLANs, subnets, NSGs                           |\n|                                                                       |\n|  LAYER 2 (Data Link)                                                  |\n|  802.1X port authentication                                           |\n|  VLAN tagging                                                         |\n|                                                                       |\n|  TRANSPORT SECURITY (spans all layers)                                |\n|  TLS 1.3: encryption + authentication for all TCP                     |\n|  DNSSEC: authenticated DNS responses                                  |\n|  mTLS: mutual authentication for service-to-service                   |\n+-----------------------------------------------------------------------+\n```"
+    }
+  ],
+  "refs": [
+    "06-NETWORK-SECURITY.md"
+  ]
+}

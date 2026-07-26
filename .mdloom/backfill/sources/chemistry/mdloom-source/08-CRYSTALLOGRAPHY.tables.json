@@ -1,0 +1,152 @@
+{
+  "schema_version": "1",
+  "source_markdown": "chemistry\\08-CRYSTALLOGRAPHY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 91,
+      "heading_context": "## Space Groups and Systematic Absences",
+      "headers": [
+        "Absence condition",
+        "Symmetry element",
+        "Meaning"
+      ],
+      "rows": [
+        [
+          "hkl present only if h+k+l = even",
+          "body-centering (I)",
+          ""
+        ],
+        [
+          "hkl present only if h+k, k+l, h+l even",
+          "face-centering (F)",
+          ""
+        ],
+        [
+          "**h00 absent for h odd**",
+          "2₁ screw along a",
+          "translation of a/2"
+        ],
+        [
+          "0k0 absent for k odd",
+          "2₁ screw along b",
+          ""
+        ],
+        [
+          "00l absent for l odd",
+          "2₁ screw along c",
+          ""
+        ],
+        [
+          "0kl absent for k odd",
+          "b-glide ⊥ a",
+          "glide plane"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 124,
+      "heading_context": "## Solving and Refining the Structure",
+      "headers": [
+        "Metric",
+        "What it is",
+        "Indicative value — context-dependent"
+      ],
+      "rows": [
+        [
+          "**R₁**",
+          "Σ‖F_o\\|−\\|F_c‖ / Σ\\|F_o\\| (on F)",
+          "often a few % for good data; not a hard cutoff"
+        ],
+        [
+          "**wR₂**",
+          "weighted, on F²",
+          "~0.10–0.15 (larger by definition)"
+        ],
+        [
+          "**GOF (S)**",
+          "goodness of fit",
+          "~1.0 (weighting-scheme dependent)"
+        ],
+        [
+          "**R_int**",
+          "merging R of equivalent reflections",
+          "small; grows with absorption/decay"
+        ],
+        [
+          "completeness",
+          "fraction of unique reflections measured",
+          "high; high-angle shells matter"
+        ],
+        [
+          "redundancy",
+          "average measurements per reflection",
+          "more is better; extra for Flack"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 246,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Goal",
+        "Method",
+        "Key relation / tool"
+      ],
+      "rows": [
+        [
+          "Full 3D structure + config",
+          "single-crystal XRD",
+          "Bragg + phasing + SHELXL"
+        ],
+        [
+          "Identify the space group",
+          "systematic absences",
+          "screw/glide/centering rules"
+        ],
+        [
+          "Phase a small structure",
+          "direct methods (SHELXT)",
+          "statistical phase relations"
+        ],
+        [
+          "Phase with a heavy atom",
+          "Patterson",
+          "interatomic-vector map"
+        ],
+        [
+          "Judge a refinement",
+          "R₁, wR₂, GOF, R_int + maps",
+          "context-dependent; GOF ≈ 1, low R₁ *for the data*, clean difference map, checkCIF"
+        ],
+        [
+          "Absolute configuration",
+          "Flack parameter",
+          "x ≈ 0 correct; Cu Kα for light atoms"
+        ],
+        [
+          "Check geometry is normal",
+          "CSD / Mercury",
+          "substructure search"
+        ],
+        [
+          "Identify a crystalline phase",
+          "PXRD + ICDD PDF",
+          "peak-position fingerprint"
+        ],
+        [
+          "Quantify phases in a mixture",
+          "Rietveld",
+          "full-profile fit"
+        ],
+        [
+          "Crystallite size",
+          "Scherrer",
+          "τ = Kλ/(β cosθ), β in radians"
+        ]
+      ]
+    }
+  ]
+}

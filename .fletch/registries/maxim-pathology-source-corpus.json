@@ -1,0 +1,2798 @@
+{
+  "schema_version": "fletch.registry.v1",
+  "generated_by": "MAXIM source-corpus backfill",
+  "registry_id": "maxim-pathology-source-corpus",
+  "fletches": [
+    {
+      "id": "maxim.pathology.source-corpus.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-pathology-source-corpus.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim-pathology-source-corpus",
+          "kind": "derived-from",
+          "label": "CROP view recipe",
+          "metadata": {
+            "view": ".crop/views/maxim-pathology-source-corpus.json",
+            "module": "pathology",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-pathology-source-corpus.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "distribution": "FLETCH fetch/cache surface for downstream repos",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.overview.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-pathology-overview.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-pathology-overview.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.overview.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-pathology-overview.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.overview.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pathology",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.pathology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-pathology-overview.json",
+            "module": "pathology",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-pathology-overview.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.overview.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/00-OVERVIEW.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.overview.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/00-OVERVIEW.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.overview.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/00-OVERVIEW.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.overview.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/00-OVERVIEW.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.overview.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/00-OVERVIEW.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.overview.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/00-OVERVIEW.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.cell-injury-adaptation-and-death.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-pathology-cell-injury-adaptation-and-death.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/01-CELL-INJURY-ADAPTATION-AND-DEATH.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-pathology-cell-injury-adaptation-and-death.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/01-CELL-INJURY-ADAPTATION-AND-DEATH.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.cell-injury-adaptation-and-death.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-pathology-cell-injury-adaptation-and-death.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.cell-injury-adaptation-and-death.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pathology",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.pathology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-pathology-cell-injury-adaptation-and-death.json",
+            "module": "pathology",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-pathology-cell-injury-adaptation-and-death.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/01-CELL-INJURY-ADAPTATION-AND-DEATH.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.cell-injury-adaptation-and-death.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/01-CELL-INJURY-ADAPTATION-AND-DEATH.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.cell-injury-adaptation-and-death.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/01-CELL-INJURY-ADAPTATION-AND-DEATH.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/01-CELL-INJURY-ADAPTATION-AND-DEATH.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/01-CELL-INJURY-ADAPTATION-AND-DEATH.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.cell-injury-adaptation-and-death.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/01-CELL-INJURY-ADAPTATION-AND-DEATH.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.cell-injury-adaptation-and-death.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/01-CELL-INJURY-ADAPTATION-AND-DEATH.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/01-CELL-INJURY-ADAPTATION-AND-DEATH.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/01-CELL-INJURY-ADAPTATION-AND-DEATH.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.cell-injury-adaptation-and-death.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/01-CELL-INJURY-ADAPTATION-AND-DEATH.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.cell-injury-adaptation-and-death.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/01-CELL-INJURY-ADAPTATION-AND-DEATH.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/01-CELL-INJURY-ADAPTATION-AND-DEATH.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/01-CELL-INJURY-ADAPTATION-AND-DEATH.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.inflammation-and-tissue-repair.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-pathology-inflammation-and-tissue-repair.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/02-INFLAMMATION-AND-TISSUE-REPAIR.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-pathology-inflammation-and-tissue-repair.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/02-INFLAMMATION-AND-TISSUE-REPAIR.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.inflammation-and-tissue-repair.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-pathology-inflammation-and-tissue-repair.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.inflammation-and-tissue-repair.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pathology",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.pathology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-pathology-inflammation-and-tissue-repair.json",
+            "module": "pathology",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-pathology-inflammation-and-tissue-repair.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/02-INFLAMMATION-AND-TISSUE-REPAIR.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.inflammation-and-tissue-repair.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/02-INFLAMMATION-AND-TISSUE-REPAIR.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.inflammation-and-tissue-repair.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/02-INFLAMMATION-AND-TISSUE-REPAIR.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/02-INFLAMMATION-AND-TISSUE-REPAIR.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/02-INFLAMMATION-AND-TISSUE-REPAIR.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.inflammation-and-tissue-repair.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/02-INFLAMMATION-AND-TISSUE-REPAIR.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.inflammation-and-tissue-repair.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/02-INFLAMMATION-AND-TISSUE-REPAIR.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/02-INFLAMMATION-AND-TISSUE-REPAIR.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/02-INFLAMMATION-AND-TISSUE-REPAIR.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.inflammation-and-tissue-repair.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/02-INFLAMMATION-AND-TISSUE-REPAIR.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.inflammation-and-tissue-repair.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/02-INFLAMMATION-AND-TISSUE-REPAIR.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/02-INFLAMMATION-AND-TISSUE-REPAIR.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/02-INFLAMMATION-AND-TISSUE-REPAIR.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.hemodynamic-disorders-thrombosis-and-shock.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-pathology-hemodynamic-disorders-thrombosis-and-shock.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/03-HEMODYNAMIC-DISORDERS-THROMBOSIS-AND-SHOCK.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-pathology-hemodynamic-disorders-thrombosis-and-shock.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/03-HEMODYNAMIC-DISORDERS-THROMBOSIS-AND-SHOCK.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.hemodynamic-disorders-thrombosis-and-shock.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-pathology-hemodynamic-disorders-thrombosis-and-shock.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.hemodynamic-disorders-thrombosis-and-shock.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pathology",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.pathology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-pathology-hemodynamic-disorders-thrombosis-and-shock.json",
+            "module": "pathology",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-pathology-hemodynamic-disorders-thrombosis-and-shock.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/03-HEMODYNAMIC-DISORDERS-THROMBOSIS-AND-SHOCK.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.hemodynamic-disorders-thrombosis-and-shock.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/03-HEMODYNAMIC-DISORDERS-THROMBOSIS-AND-SHOCK.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.hemodynamic-disorders-thrombosis-and-shock.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/03-HEMODYNAMIC-DISORDERS-THROMBOSIS-AND-SHOCK.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/03-HEMODYNAMIC-DISORDERS-THROMBOSIS-AND-SHOCK.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/03-HEMODYNAMIC-DISORDERS-THROMBOSIS-AND-SHOCK.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.hemodynamic-disorders-thrombosis-and-shock.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/03-HEMODYNAMIC-DISORDERS-THROMBOSIS-AND-SHOCK.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.hemodynamic-disorders-thrombosis-and-shock.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/03-HEMODYNAMIC-DISORDERS-THROMBOSIS-AND-SHOCK.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/03-HEMODYNAMIC-DISORDERS-THROMBOSIS-AND-SHOCK.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/03-HEMODYNAMIC-DISORDERS-THROMBOSIS-AND-SHOCK.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.hemodynamic-disorders-thrombosis-and-shock.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/03-HEMODYNAMIC-DISORDERS-THROMBOSIS-AND-SHOCK.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.hemodynamic-disorders-thrombosis-and-shock.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/03-HEMODYNAMIC-DISORDERS-THROMBOSIS-AND-SHOCK.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/03-HEMODYNAMIC-DISORDERS-THROMBOSIS-AND-SHOCK.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/03-HEMODYNAMIC-DISORDERS-THROMBOSIS-AND-SHOCK.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.immunopathology-and-tissue-injury.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-pathology-immunopathology-and-tissue-injury.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/04-IMMUNOPATHOLOGY-AND-TISSUE-INJURY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-pathology-immunopathology-and-tissue-injury.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/04-IMMUNOPATHOLOGY-AND-TISSUE-INJURY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.immunopathology-and-tissue-injury.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-pathology-immunopathology-and-tissue-injury.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.immunopathology-and-tissue-injury.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pathology",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.pathology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-pathology-immunopathology-and-tissue-injury.json",
+            "module": "pathology",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-pathology-immunopathology-and-tissue-injury.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/04-IMMUNOPATHOLOGY-AND-TISSUE-INJURY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.immunopathology-and-tissue-injury.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/04-IMMUNOPATHOLOGY-AND-TISSUE-INJURY.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.immunopathology-and-tissue-injury.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/04-IMMUNOPATHOLOGY-AND-TISSUE-INJURY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/04-IMMUNOPATHOLOGY-AND-TISSUE-INJURY.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/04-IMMUNOPATHOLOGY-AND-TISSUE-INJURY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.immunopathology-and-tissue-injury.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/04-IMMUNOPATHOLOGY-AND-TISSUE-INJURY.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.immunopathology-and-tissue-injury.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/04-IMMUNOPATHOLOGY-AND-TISSUE-INJURY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/04-IMMUNOPATHOLOGY-AND-TISSUE-INJURY.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/04-IMMUNOPATHOLOGY-AND-TISSUE-INJURY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.immunopathology-and-tissue-injury.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/04-IMMUNOPATHOLOGY-AND-TISSUE-INJURY.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.immunopathology-and-tissue-injury.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/04-IMMUNOPATHOLOGY-AND-TISSUE-INJURY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/04-IMMUNOPATHOLOGY-AND-TISSUE-INJURY.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/04-IMMUNOPATHOLOGY-AND-TISSUE-INJURY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.neoplasia-carcinogenesis-and-tumor-biology.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-pathology-neoplasia-carcinogenesis-and-tumor-biology.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/05-NEOPLASIA-CARCINOGENESIS-AND-TUMOR-BIOLOGY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-pathology-neoplasia-carcinogenesis-and-tumor-biology.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/05-NEOPLASIA-CARCINOGENESIS-AND-TUMOR-BIOLOGY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.neoplasia-carcinogenesis-and-tumor-biology.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-pathology-neoplasia-carcinogenesis-and-tumor-biology.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.neoplasia-carcinogenesis-and-tumor-biology.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pathology",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.pathology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-pathology-neoplasia-carcinogenesis-and-tumor-biology.json",
+            "module": "pathology",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-pathology-neoplasia-carcinogenesis-and-tumor-biology.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/05-NEOPLASIA-CARCINOGENESIS-AND-TUMOR-BIOLOGY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.neoplasia-carcinogenesis-and-tumor-biology.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/05-NEOPLASIA-CARCINOGENESIS-AND-TUMOR-BIOLOGY.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.neoplasia-carcinogenesis-and-tumor-biology.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/05-NEOPLASIA-CARCINOGENESIS-AND-TUMOR-BIOLOGY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/05-NEOPLASIA-CARCINOGENESIS-AND-TUMOR-BIOLOGY.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/05-NEOPLASIA-CARCINOGENESIS-AND-TUMOR-BIOLOGY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.neoplasia-carcinogenesis-and-tumor-biology.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/05-NEOPLASIA-CARCINOGENESIS-AND-TUMOR-BIOLOGY.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.neoplasia-carcinogenesis-and-tumor-biology.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/05-NEOPLASIA-CARCINOGENESIS-AND-TUMOR-BIOLOGY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/05-NEOPLASIA-CARCINOGENESIS-AND-TUMOR-BIOLOGY.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/05-NEOPLASIA-CARCINOGENESIS-AND-TUMOR-BIOLOGY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.neoplasia-carcinogenesis-and-tumor-biology.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/05-NEOPLASIA-CARCINOGENESIS-AND-TUMOR-BIOLOGY.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.neoplasia-carcinogenesis-and-tumor-biology.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/05-NEOPLASIA-CARCINOGENESIS-AND-TUMOR-BIOLOGY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/05-NEOPLASIA-CARCINOGENESIS-AND-TUMOR-BIOLOGY.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/05-NEOPLASIA-CARCINOGENESIS-AND-TUMOR-BIOLOGY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.genetic-developmental-and-metabolic-pathology.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-pathology-genetic-developmental-and-metabolic-pathology.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/06-GENETIC-DEVELOPMENTAL-AND-METABOLIC-PATHOLOGY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-pathology-genetic-developmental-and-metabolic-pathology.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/06-GENETIC-DEVELOPMENTAL-AND-METABOLIC-PATHOLOGY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.genetic-developmental-and-metabolic-pathology.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-pathology-genetic-developmental-and-metabolic-pathology.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.genetic-developmental-and-metabolic-pathology.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pathology",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.pathology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-pathology-genetic-developmental-and-metabolic-pathology.json",
+            "module": "pathology",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-pathology-genetic-developmental-and-metabolic-pathology.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/06-GENETIC-DEVELOPMENTAL-AND-METABOLIC-PATHOLOGY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.genetic-developmental-and-metabolic-pathology.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/06-GENETIC-DEVELOPMENTAL-AND-METABOLIC-PATHOLOGY.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.genetic-developmental-and-metabolic-pathology.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/06-GENETIC-DEVELOPMENTAL-AND-METABOLIC-PATHOLOGY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/06-GENETIC-DEVELOPMENTAL-AND-METABOLIC-PATHOLOGY.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/06-GENETIC-DEVELOPMENTAL-AND-METABOLIC-PATHOLOGY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.genetic-developmental-and-metabolic-pathology.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/06-GENETIC-DEVELOPMENTAL-AND-METABOLIC-PATHOLOGY.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.genetic-developmental-and-metabolic-pathology.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/06-GENETIC-DEVELOPMENTAL-AND-METABOLIC-PATHOLOGY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/06-GENETIC-DEVELOPMENTAL-AND-METABOLIC-PATHOLOGY.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/06-GENETIC-DEVELOPMENTAL-AND-METABOLIC-PATHOLOGY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.genetic-developmental-and-metabolic-pathology.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/06-GENETIC-DEVELOPMENTAL-AND-METABOLIC-PATHOLOGY.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.genetic-developmental-and-metabolic-pathology.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/06-GENETIC-DEVELOPMENTAL-AND-METABOLIC-PATHOLOGY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/06-GENETIC-DEVELOPMENTAL-AND-METABOLIC-PATHOLOGY.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/06-GENETIC-DEVELOPMENTAL-AND-METABOLIC-PATHOLOGY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.environmental-nutritional-and-toxic-injury.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-pathology-environmental-nutritional-and-toxic-injury.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/07-ENVIRONMENTAL-NUTRITIONAL-AND-TOXIC-INJURY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-pathology-environmental-nutritional-and-toxic-injury.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/07-ENVIRONMENTAL-NUTRITIONAL-AND-TOXIC-INJURY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.environmental-nutritional-and-toxic-injury.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-pathology-environmental-nutritional-and-toxic-injury.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.environmental-nutritional-and-toxic-injury.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pathology",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.pathology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-pathology-environmental-nutritional-and-toxic-injury.json",
+            "module": "pathology",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-pathology-environmental-nutritional-and-toxic-injury.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/07-ENVIRONMENTAL-NUTRITIONAL-AND-TOXIC-INJURY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.environmental-nutritional-and-toxic-injury.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/07-ENVIRONMENTAL-NUTRITIONAL-AND-TOXIC-INJURY.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.environmental-nutritional-and-toxic-injury.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/07-ENVIRONMENTAL-NUTRITIONAL-AND-TOXIC-INJURY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/07-ENVIRONMENTAL-NUTRITIONAL-AND-TOXIC-INJURY.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/07-ENVIRONMENTAL-NUTRITIONAL-AND-TOXIC-INJURY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.environmental-nutritional-and-toxic-injury.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/07-ENVIRONMENTAL-NUTRITIONAL-AND-TOXIC-INJURY.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.environmental-nutritional-and-toxic-injury.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/07-ENVIRONMENTAL-NUTRITIONAL-AND-TOXIC-INJURY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/07-ENVIRONMENTAL-NUTRITIONAL-AND-TOXIC-INJURY.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/07-ENVIRONMENTAL-NUTRITIONAL-AND-TOXIC-INJURY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.environmental-nutritional-and-toxic-injury.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/07-ENVIRONMENTAL-NUTRITIONAL-AND-TOXIC-INJURY.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.environmental-nutritional-and-toxic-injury.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/07-ENVIRONMENTAL-NUTRITIONAL-AND-TOXIC-INJURY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/07-ENVIRONMENTAL-NUTRITIONAL-AND-TOXIC-INJURY.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/07-ENVIRONMENTAL-NUTRITIONAL-AND-TOXIC-INJURY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.laboratory-medicine.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-pathology-laboratory-medicine.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/08-LABORATORY-MEDICINE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-pathology-laboratory-medicine.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/08-LABORATORY-MEDICINE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.laboratory-medicine.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-pathology-laboratory-medicine.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.laboratory-medicine.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pathology",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.pathology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-pathology-laboratory-medicine.json",
+            "module": "pathology",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-pathology-laboratory-medicine.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/08-LABORATORY-MEDICINE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.laboratory-medicine.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/08-LABORATORY-MEDICINE.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.laboratory-medicine.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/08-LABORATORY-MEDICINE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/08-LABORATORY-MEDICINE.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/08-LABORATORY-MEDICINE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.laboratory-medicine.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/08-LABORATORY-MEDICINE.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.laboratory-medicine.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/08-LABORATORY-MEDICINE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/08-LABORATORY-MEDICINE.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/08-LABORATORY-MEDICINE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.laboratory-medicine.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/08-LABORATORY-MEDICINE.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.laboratory-medicine.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/08-LABORATORY-MEDICINE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/08-LABORATORY-MEDICINE.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/08-LABORATORY-MEDICINE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.anatomic-pathology-technique.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-pathology-anatomic-pathology-technique.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/09-ANATOMIC-PATHOLOGY-TECHNIQUE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-pathology-anatomic-pathology-technique.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/09-ANATOMIC-PATHOLOGY-TECHNIQUE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.anatomic-pathology-technique.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-pathology-anatomic-pathology-technique.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.anatomic-pathology-technique.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pathology",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.pathology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-pathology-anatomic-pathology-technique.json",
+            "module": "pathology",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-pathology-anatomic-pathology-technique.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/09-ANATOMIC-PATHOLOGY-TECHNIQUE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.anatomic-pathology-technique.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/09-ANATOMIC-PATHOLOGY-TECHNIQUE.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.anatomic-pathology-technique.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/09-ANATOMIC-PATHOLOGY-TECHNIQUE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/09-ANATOMIC-PATHOLOGY-TECHNIQUE.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/09-ANATOMIC-PATHOLOGY-TECHNIQUE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.anatomic-pathology-technique.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/09-ANATOMIC-PATHOLOGY-TECHNIQUE.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.anatomic-pathology-technique.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/09-ANATOMIC-PATHOLOGY-TECHNIQUE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/09-ANATOMIC-PATHOLOGY-TECHNIQUE.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/09-ANATOMIC-PATHOLOGY-TECHNIQUE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.anatomic-pathology-technique.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/09-ANATOMIC-PATHOLOGY-TECHNIQUE.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.anatomic-pathology-technique.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/09-ANATOMIC-PATHOLOGY-TECHNIQUE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/09-ANATOMIC-PATHOLOGY-TECHNIQUE.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/09-ANATOMIC-PATHOLOGY-TECHNIQUE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.diagnosis-pattern-recognition-and-reporting.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-pathology-diagnosis-pattern-recognition-and-reporting.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/10-DIAGNOSIS-PATTERN-RECOGNITION-AND-REPORTING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-pathology-diagnosis-pattern-recognition-and-reporting.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/10-DIAGNOSIS-PATTERN-RECOGNITION-AND-REPORTING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.diagnosis-pattern-recognition-and-reporting.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-pathology-diagnosis-pattern-recognition-and-reporting.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.diagnosis-pattern-recognition-and-reporting.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pathology",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.pathology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-pathology-diagnosis-pattern-recognition-and-reporting.json",
+            "module": "pathology",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-pathology-diagnosis-pattern-recognition-and-reporting.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/10-DIAGNOSIS-PATTERN-RECOGNITION-AND-REPORTING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.diagnosis-pattern-recognition-and-reporting.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/10-DIAGNOSIS-PATTERN-RECOGNITION-AND-REPORTING.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.diagnosis-pattern-recognition-and-reporting.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/10-DIAGNOSIS-PATTERN-RECOGNITION-AND-REPORTING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/10-DIAGNOSIS-PATTERN-RECOGNITION-AND-REPORTING.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/10-DIAGNOSIS-PATTERN-RECOGNITION-AND-REPORTING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.diagnosis-pattern-recognition-and-reporting.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/10-DIAGNOSIS-PATTERN-RECOGNITION-AND-REPORTING.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.diagnosis-pattern-recognition-and-reporting.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/10-DIAGNOSIS-PATTERN-RECOGNITION-AND-REPORTING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/10-DIAGNOSIS-PATTERN-RECOGNITION-AND-REPORTING.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/10-DIAGNOSIS-PATTERN-RECOGNITION-AND-REPORTING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.diagnosis-pattern-recognition-and-reporting.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/10-DIAGNOSIS-PATTERN-RECOGNITION-AND-REPORTING.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.diagnosis-pattern-recognition-and-reporting.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/10-DIAGNOSIS-PATTERN-RECOGNITION-AND-REPORTING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/10-DIAGNOSIS-PATTERN-RECOGNITION-AND-REPORTING.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/10-DIAGNOSIS-PATTERN-RECOGNITION-AND-REPORTING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.quality-error-and-the-diagnostic-laboratory-as-system.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-pathology-quality-error-and-the-diagnostic-laboratory-as-system.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/11-QUALITY-ERROR-AND-THE-DIAGNOSTIC-LABORATORY-AS-SYSTEM.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-pathology-quality-error-and-the-diagnostic-laboratory-as-system.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/11-QUALITY-ERROR-AND-THE-DIAGNOSTIC-LABORATORY-AS-SYSTEM.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.quality-error-and-the-diagnostic-laboratory-as-system.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-pathology-quality-error-and-the-diagnostic-laboratory-as-system.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.quality-error-and-the-diagnostic-laboratory-as-system.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "pathology",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.pathology.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-pathology-quality-error-and-the-diagnostic-laboratory-as-system.json",
+            "module": "pathology",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-pathology-quality-error-and-the-diagnostic-laboratory-as-system.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/11-QUALITY-ERROR-AND-THE-DIAGNOSTIC-LABORATORY-AS-SYSTEM.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.quality-error-and-the-diagnostic-laboratory-as-system.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/11-QUALITY-ERROR-AND-THE-DIAGNOSTIC-LABORATORY-AS-SYSTEM.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.quality-error-and-the-diagnostic-laboratory-as-system.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/11-QUALITY-ERROR-AND-THE-DIAGNOSTIC-LABORATORY-AS-SYSTEM.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/11-QUALITY-ERROR-AND-THE-DIAGNOSTIC-LABORATORY-AS-SYSTEM.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/11-QUALITY-ERROR-AND-THE-DIAGNOSTIC-LABORATORY-AS-SYSTEM.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.quality-error-and-the-diagnostic-laboratory-as-system.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/11-QUALITY-ERROR-AND-THE-DIAGNOSTIC-LABORATORY-AS-SYSTEM.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.quality-error-and-the-diagnostic-laboratory-as-system.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/11-QUALITY-ERROR-AND-THE-DIAGNOSTIC-LABORATORY-AS-SYSTEM.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/11-QUALITY-ERROR-AND-THE-DIAGNOSTIC-LABORATORY-AS-SYSTEM.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/11-QUALITY-ERROR-AND-THE-DIAGNOSTIC-LABORATORY-AS-SYSTEM.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.pathology.quality-error-and-the-diagnostic-laboratory-as-system.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/pathology/mdloom-source/11-QUALITY-ERROR-AND-THE-DIAGNOSTIC-LABORATORY-AS-SYSTEM.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.pathology.quality-error-and-the-diagnostic-laboratory-as-system.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "pathology",
+            "guide": "pathology/11-QUALITY-ERROR-AND-THE-DIAGNOSTIC-LABORATORY-AS-SYSTEM.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/pathology/mdloom-source/11-QUALITY-ERROR-AND-THE-DIAGNOSTIC-LABORATORY-AS-SYSTEM.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "pathology",
+        "guide": "pathology/11-QUALITY-ERROR-AND-THE-DIAGNOSTIC-LABORATORY-AS-SYSTEM.md",
+        "publication_state": "partial-source-custody"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1665 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-space-exploration-spacecraft-design",
+  "source": "../../space-exploration",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#000",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "# Spacecraft Design and Subsystems"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#001",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#002",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "A spacecraft is an integrated system of subsystems, each serving a specific function. The challenge is that every subsystem must work perfectly in an environment of vacuum, extreme temperatures, radiation, and microgravity — with no possibility of repair on most missions."
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#003",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|          SPACECRAFT SUBSYSTEM DEPENDENCY GRAPH                   |\n+------------------------------------------------------------------+\n|                                                                  |\n|  MASS BUDGET (links everything — every kg costs Δv)              |\n|  ←——————————————————————————————————————————————→               |\n|                                                                  |\n|  EPS (Power)  ←——— THERMAL constrains max power dissipation     |\n|  Solar + RTG         (radiators must reject waste heat)          |\n|       |                                                          |\n|       v  (powers all)                                            |\n|  +---------+  +---------+  +---------+  +---------+             |\n|  | ADCS    |  | COMMS   |  | PAYLOAD |  | PROP    |             |\n|  | Star    |  | HGA/LGA |  | Science |  | Δv +    |             |\n|  | trackers|  | Transpdr|  | instr.  |  | ACS     |             |\n|  | RWs/CMG |  | Modem   |  |         |  | thrustr.|             |\n|  +---------+  +---------+  +---------+  +---------+             |\n|       |             |                        ^                   |\n|       +——→ ADCS pointing constrains COMMS    |                   |\n|           (HGA must point within 0.1°)       |                   |\n|                                              |                   |\n|  C&DH (flight computer + fault mgmt) ————→ commands all         |\n|  STRUCTURE (primary + mechanisms) — carries all loads            |\n+------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#004",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#005",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "## Power System (EPS)"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#006",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "```\nELECTRICAL POWER SYSTEM\n========================"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#007",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "POWER GENERATION:\n    Solar panels (photovoltaic): most common; 28-33% efficiency (triple-junction GaAs)\n    Near-Sun: ISS generates ~84-120 kW from 2500 m² of panels\n    Far from Sun: power ∝ 1/r²; Jupiter: 1/25× Earth flux; Saturn: 1/90×"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#008",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "RTG (Radioisotope Thermoelectric Generator):\n    ²³⁸Pu → decay heat → thermoelectric conversion\n    Power density: ~4-8 W/kg\n    Cassini: 870 W from 3 RTGs (1997); New Horizons: ~200 W; Perseverance: 110 W\n    Limited Pu supply (DOE production); allocated only to science missions\n    MMRTG (Multi-Mission): standard unit ~125 W initial"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#009",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "Fuel cells: H₂ + O₂ → electricity + water\n    Used: Apollo, Shuttle; not used on current missions (tanks too heavy)"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#010",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "ENERGY STORAGE:\n    Lithium-ion batteries: current standard; ~150-250 Wh/kg\n    NiH₂ (nickel-hydrogen): legacy; ISS uses NiH₂ → being upgraded to LiIon\n    Charging during sunlit period; discharge during eclipse\n    Eclipse fraction: for 400 km LEO orbit, ~35 min eclipse per 92-min orbit"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#011",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "POWER DISTRIBUTION:\n    Regulated bus (constant voltage): most reliable; extra components\n    Unregulated bus: simpler; voltage varies with solar conditions (ripple)\n    Typical bus voltages: 28 V (small), 50 V, 100 V, 120 V (ISS)\n    RTG: direct battery charging; no MPPT (max power point tracking)\n```"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#012",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#013",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "## Thermal Control System (TCS)"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#014",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "```\nTHERMAL ENVIRONMENT\n===================="
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#015",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "HEAT INPUTS:\n    Solar flux: 1361 W/m² at 1 AU (direct solar radiation)\n    Albedo (reflected Earth): ~30% of solar flux; varies with Earth coverage\n    Earth IR: ~230 W/m²; important in LEO\n    Internal dissipation: electronics, batteries, instruments"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#016",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "HEAT REMOVAL:\n    Radiation: only mechanism in vacuum (conduction requires contact; convection needs fluid)\n    P = ε × σ × A × T⁴  (Stefan-Boltzmann law)\n    Radiator temperature determines minimum size needed"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#017",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "THERMAL DESIGN CHALLENGE:\n    Sunlit side: ~120°C (stagnant) or higher if absorber\n    Shadow side: -180°C (can drop to cryogenic temperatures)\n    Electronics: typically 0-50°C operating range\n    Solution: passive + active thermal control"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#018",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "PASSIVE METHODS:\n    Multi-Layer Insulation (MLI): aluminized Mylar/Kapton blankets\n      Reduces radiated heat loss; ~20-30 layers; like thermos bottle\n    Surface coatings: absorptance (α) / emittance (ε) ratio\n      Low α/high ε: radiator (white paint, OSR — optical solar reflectors)\n      High α/low ε: absorber (black paint)\n    Heat pipes: capillary-driven fluid loop; spreads heat passively\n      Ammonia heat pipes: common in spacecraft; no moving parts"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#019",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "ACTIVE METHODS:\n    Heaters: resistance heaters (survival heaters) on cold-sensitive components\n    Thermostat controlled: on if < -10°C; off if > 0°C (example)\n    Louvers: variable-area radiator; bi-metallic strips control opening\n    Cryocoolers: Stirling cycle coolers for IR instruments (cool to 70 K)\n    Fluid loops: pumped fluid (water, Freon) for large heat loads (ISS)"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#020",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "DEEP SPACE THERMAL:\n    Beyond Jupiter: solar flux negligible; RTG heat must be managed\n    Cassini: heat pipes + louvers to distribute RTG heat + reject electronics heat\n    Near Venus/Sun: sunshield (Parker Solar Probe: 11.4 cm carbon foam shield)\n    Parker Solar Probe: perihelion 9 solar radii; heat shield ~1400°C sunward face\n```"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#021",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#022",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "## Attitude Determination and Control (ADCS)"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#023",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "```\nATTITUDE DETERMINATION AND CONTROL\n====================================="
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#024",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "PURPOSE: Point spacecraft (instruments, antennas, solar panels, thrusters)"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#025",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "ATTITUDE DETERMINATION (sensing):\n    STAR TRACKER: most precise; compares star pattern to catalog\n      Accuracy: 0.001° (arcseconds); autonomous identification\n      Works in any attitude; autonomous \"lost in space\" initialization\n    SUN SENSOR: simple; coarse (1°) or fine (0.001°)\n      Course/acquisition: first step after anomaly\n    EARTH SENSOR: horizon scanner; for nadir-pointing in LEO\n    MAGNETOMETER: senses Earth's magnetic field; 0.5-3° accuracy\n    GYROSCOPE (IMU): measures angular rate; drifts over time\n      Fiber optic gyro (FOG): no moving parts; ~0.001°/hr drift\n      Ring laser gyro: similar\n      MEMS gyro: small, cheap; higher drift"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#026",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "ATTITUDE CONTROL (actuation):\n    REACTION WHEELS (RWs): spin up/down to produce torque\n      Conservation of angular momentum: wheel accelerates → body decelerates\n      3 wheels (+ spare) for 3-axis control\n      Max torque: 0.03-0.5 N·m; momentum stored: 1-100 N·m·s\n      Saturation: wheel at max RPM → must desaturate by dumping to magnetorquer or thruster\n    MAGNETORQUERS: interact with Earth's B field → small torque\n      No propellant; limited to Earth-orbiting missions with B field\n      Used for desaturation + coarse control\n    THRUSTERS: hydrazine or cold gas; used for large maneuvers\n      Attitude control = monoprop thrusters in pairs (torque couples)\n    CONTROL MOMENT GYROSCOPES (CMGs): gyroscopes that change axis\n      ISS: 4 CMGs; Hubble: 6 gyroscopes\n      Much higher torque than RWs at same mass\n    MAGNETIC ATTITUDE (passive): permanent magnet aligns with B field\n      Simple + cheap; used on early small satellites"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#027",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "POINTING REQUIREMENTS:\n    Star trackers: ~0.001° accuracy → JWST, Hubble (fine guidance)\n    GEO comms: antenna pointing to <0.1° for high-gain downlink\n    Science imagers: 0.001-0.01° (arcsec level)\n    Solar panels: 5-10° sufficient for power generation\n```"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#028",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#029",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "## Communications (RF)"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#030",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "```\nSPACECRAFT COMMUNICATIONS\n==========================="
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#031",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "LINK BUDGET FUNDAMENTALS:\n    P_received = P_transmit + G_transmit - L_path + G_receive - L_misc"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#032",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "EIRP (Effective Isotropic Radiated Power): P_tx + G_tx antenna (dBW)\n    L_path = free-space path loss = 20 log₁₀(4πR/λ) [dB]\n    G_receive = receive antenna gain\n    Required minimum: S/N ratio for chosen modulation + coding"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#033",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "FREQUENCY BANDS:\n    UHF (300 MHz - 3 GHz):   Low gain; passes through ionosphere poorly;\n                               used for launch/entry telemetry\n    S-band (2-4 GHz):         Low-medium; TDRSS relay; most spacecraft\n    X-band (8-12 GHz):        High gain; deep space (DSN standard); ~500 kbps-10 Mbps\n    Ka-band (26-40 GHz):      Very high gain; broadband downlink; rain fade on ground\n    Optical/Laser:             Gbps+ potential; demonstration stage (LCRD, TBIRD)"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#034",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "ANTENNAS:\n    HGA (High Gain Antenna): parabolic dish; must point at Earth/DSN\n                              High data rate; narrow beamwidth (0.1-1°)\n    MGA (Medium Gain): intermediate; small dish or horn\n    LGA (Low Gain Antenna): omnidirectional; low data rate; always in view\n                              Critical for anomaly recovery (no pointing needed)"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#035",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "DEEP SPACE NETWORK (DSN):\n    NASA's 3-complex network: Goldstone (CA), Madrid (Spain), Canberra (AU)\n    70 m and 34 m dish antennas\n    Supports all NASA planetary missions + others (ESA, JAXA)\n    Bottleneck: limited assets shared among many missions"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#036",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "DATA RATE EXAMPLES:\n    Voyager 1 (now ~23 light-hours away): ~160 bits/sec\n    Mars Reconnaissance Orbiter: 6 Mbps peak\n    Hubble: 1-2 Mbps\n    ISS to ground: 3-450 Mbps (via TDRSS)\n    TBIRD (2022): 200 Gbps optical demo\n```"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#037",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#038",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "## Structures and Mechanisms"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#039",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "```\nSPACECRAFT STRUCTURES\n====================="
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#040",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "PRIMARY STRUCTURE:\n    Carries all loads during launch (axial G + lateral G + vibration)\n    Typical materials: Aluminum alloys (Al-6061, Al-7075)\n                       Carbon fiber composite (CFRP) for high-performance\n                       Titanium for hot structures and fasteners"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#041",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "LOAD CASES (launch environment):\n    Quasi-static: 6-8G axial; 1-2G lateral (sustained)\n    Vibro-acoustic: ~140-145 dB SPL (severe acoustic forcing on large surfaces)\n    Sine sweep: structural modes excited by launch vehicle resonances\n    Random vibration: broadband (0.01-0.05 G²/Hz peak)\n    Shock: pyrotechnic separation events; 1000+ G at brief duration"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#042",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "MECHANISMS:\n    Solar array deployment: spring + motor deployment\n    Antenna deployment: pyrotechnic release + spring/motor\n    Separation system: marman clamp or separation plane\n    Instrument covers: protect during launch; open on-orbit\n    Docking mechanisms: CBM (Common Berthing Mechanism, ISS) or NDS (IDSS standard)"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#043",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "MARGINS (spacecraft design):\n    Design safety factor: 1.5× yield; 2× ultimate\n    Test loads: 1.25-1.5× design loads\n    Mass margin: 20-30% at PDR; 10-15% at CDR; <5% at launch\n    Power margin: 20% minimum"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#044",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "MASS BUDGET:\n    Typical breakdown (science orbiter):\n    Structure: 20-30%\n    Propulsion: 15-25% (incl. propellant)\n    Power: 15-25% (panels + batteries)\n    Comms: 5-10%\n    ADCS: 5-10%\n    Thermal: 3-8%\n    C&DH: 2-5%\n    Payload: 10-30% (science instruments)\n```"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#045",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#046",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "## Radiation Environment"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#047",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "```\nSPACE RADIATION ENVIRONMENT\n=============================="
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#048",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "SOURCES:\n    VAN ALLEN BELTS:\n      Inner belt: ~1000-6000 km altitude; protons (MeV), electrons\n      Outer belt: ~15,000-30,000 km; electrons (MeV)\n      Slot region: ~8,000-15,000 km; relatively benign\n      South Atlantic Anomaly (SAA): Van Allen belt dips at ~200-800 km"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#049",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "SOLAR EVENTS:\n      Solar Flares: X-ray + EUV burst; ionizing dose\n      Solar Energetic Particles (SEPs): proton events; MeV-GeV; days duration\n      Worst SEP events: August 1972, October 2003 (\"Halloween storms\")"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#050",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "GALACTIC COSMIC RAYS (GCRs):\n      Isotropic; ions (H, He, Fe) at near-relativistic energies\n      Blocked by solar wind during solar maximum\n      Peak during solar minimum; 10-100 MeV/nucleon dominant\n      Most penetrating; no shielding fully stops them"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#051",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "EFFECTS ON ELECTRONICS:\n    Total Ionizing Dose (TID): accumulated radiation damage; charge trapping\n    Displacement Damage: atom displacements in crystal structure; dark current\n    Single Event Effects (SEEs):\n      SEU (Single Event Upset): bit flip; recoverable\n      SET (Single Event Transient): glitch in analog circuits\n      SEL (Single Event Latchup): supply-current latch; potentially destructive\n      SEG (Single Event Gate Rupture): gate oxide breakdown → permanent"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#052",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "MITIGATION:\n    Shielding: aluminum + polyethylene absorb protons; electrons scatter\n    Rad-hard parts: radiation-hardened ICs (RH devices); higher cost\n    Error-correcting codes (EDAC): SECDED (single-error correct, double-detect)\n    Watchdog timers: reset after anomalous behavior\n    Redundancy: cold/warm/hot spares; vote logic for critical functions\n    Orbit selection: avoid worst radiation (GEO somewhat worse than LEO in SAA)\n```"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#053",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#054",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#055",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "| Question | Answer |\n|---|---|\n| What is the only heat removal mechanism in space? | Radiation (Stefan-Boltzmann); no atmosphere means no conduction to surroundings and no convection. Radiators must be sized to reject all internal + solar heat. |\n| Why do spacecraft use star trackers? | Most accurate attitude sensor (0.001° = arcseconds); identifies attitude from star patterns autonomously; works in any orientation; required for precision pointing missions |\n| What is reaction wheel saturation? | When a reaction wheel reaches maximum RPM, it can no longer absorb angular momentum from external torques; must desaturate by firing thrusters or using magnetorquers to dump momentum |\n| Why do deep space missions use X-band? | Better than S-band for path loss at deep space distances; Ka-band is even better but requires more precise pointing; X-band is the DSN standard for deep space |\n| What is MLI? | Multi-layer insulation: aluminized Mylar/Kapton blankets that reduce radiated heat loss; works like a thermos; essential for maintaining electronics at operational temperatures in eclipse |\n| What is an SEU? | Single Event Upset: cosmic ray flips a bit in memory; causes software errors; mitigated by EDAC memory and watchdog/recovery logic |\n| Why is the South Atlantic Anomaly a problem? | The inner Van Allen belt dips low over the South Atlantic due to Earth's geomagnetic field asymmetry; LEO satellites pass through higher radiation there; electronics must cope with increased SEE rate |"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#056",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#057",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "## Engineering Parallels"
+    },
+    {
+      "id": "05-SPACECRAFT-DESIGN.md#058",
+      "path": [
+        "05-SPACECRAFT-DESIGN.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:space-exploration:05-spacecraft-design, git-history:space-exploration:05-spacecraft-design]",
+        "canonical_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "concepts": "[spacecraft, design]",
+        "current_path": "space-exploration/05-SPACECRAFT-DESIGN.md",
+        "id": "maxim:space-exploration:spacecraft-design",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "space-exploration",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[spacecraft, design]",
+        "section": "space-exploration",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spacecraft Design and Subsystems",
+        "updated": "null"
+      },
+      "text": "**Spacecraft design as a constraint-satisfaction problem.** Every subsystem has resource requirements (power, mass, volume, data rate) and resource contributions (the EPS provides power, structure provides mass allocation). The design problem is a coupled constraint system: thermal constrains how much power the EPS can deliver (excess heat must be radiated); ADCS constrains comms throughput (HGA must point within fractions of a degree); mass budget couples everything through the rocket equation. This is the same coupled optimization as enterprise capacity planning — compute, memory, network, and storage are all coupled through cost and latency budgets, and optimizing one axis without modeling the others produces locally optimal but globally suboptimal results."
+    }
+  ],
+  "refs": [
+    "05-SPACECRAFT-DESIGN.md"
+  ]
+}

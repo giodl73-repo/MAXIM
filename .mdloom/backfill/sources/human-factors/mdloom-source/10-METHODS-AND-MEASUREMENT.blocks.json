@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "human-factors\\10-METHODS-AND-MEASUREMENT.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 60,
+      "heading_context": "## The Big Picture: From Question to Bounded Evidence",
+      "confidence": "candidate",
+      "text": "THE MEASUREMENT PIPELINE  (and where it breaks)\n================================================================================\n   QUESTION  (e.g., does the new console lower error under upset conditions?)\n        |  (1) TASK ANALYSIS -- decompose the REAL task (HTA/CTA)  <- break: work-as-imagined\n        v\n   CHOOSE MEASURES  (performance / self-report / physiological / observation)\n        |  (2) each measure has validity, sensitivity, INTRUSIVENESS, a construct claim\n        v\n   DESIGN THE STUDY  (who? which tasks? which conditions?)\n        |  (3) SAMPLING & COVERAGE  <- break: convenience sample, critical cases uncovered\n        v\n   COLLECT in a SETTING  (field / simulation at some FIDELITY / lab)\n        |  (4) fidelity vs cost vs ecological validity trade\n        v\n   BOUNDED EVIDENCE  -> hand INFERENCE (significance, power, effect size) to statistics-applied/\n================================================================================\n   This guide OWNS steps 1-4 (how to decompose, measure, sample, and stage). It DEFERS\n   the inferential step -- whether a difference is \"significant\" and with what power -- to\n   statistics-applied/. The signature failure it exists to prevent: generalizing a\n   convenience sample without a COVERAGE argument.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 99,
+      "heading_context": "## 1. Task Analysis — Decompose the Real Task First",
+      "confidence": "candidate",
+      "text": "HTA vs CTA  (decompose the OBSERVABLE vs elicit the HIDDEN)\n--------------------------------------------------------------------------------\n   HTA  goal -> sub-goals -> operations, with PLANS      what is DONE (observable steps)\n        good for procedures, layout (06), FMEA rows (08)\n   CTA  cues -> decisions -> mental models (CDM/ACTA)    what is THOUGHT (hidden expertise)\n        good for diagnosis, novel faults, knowledge work (04, 03)\n   -----------------------------------------------------------------------------\n   CRITICAL: analyze WORK-AS-DONE, not work-as-imagined. The procedure on paper is a\n   hypothesis; the real task includes the adaptations, workarounds, and cues that only\n   observation/CTA reveal (feeds the error/violation distinction of guide 04).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 133,
+      "heading_context": "## 3. Physiological Instrumentation",
+      "confidence": "candidate",
+      "text": "PHYSIOLOGICAL MEASURES  (the how -- each with an artifact/confound)\n--------------------------------------------------------------------------------\n   EYE TRACKING     fixations/dwell/scan path -> attention allocation (06 layout)\n                    artifact: calibration drift, glasses, lighting\n   CARDIAC (HR/HRV) arousal/effort proxy                 confound: physical load, caffeine\n   PUPILLOMETRY     effort proxy (task-evoked response)  confound: LIGHTING dominates -> control it\n   EEG / fNIRS      engagement/workload indices          artifact: motion, muscle, low field-usability\n   -----------------------------------------------------------------------------\n   RULE: a physiological signal is a POPULATION-level proxy with artifacts, never a readout\n   of a person's mind and never a fitness test. Control the confound (lighting for pupil,\n   motion for EEG) or the \"workload effect\" is an artifact.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 154,
+      "heading_context": "## 4. Simulation and Fidelity",
+      "confidence": "candidate",
+      "text": "FIDELITY TYPES AND THE TRADE  (higher fidelity is not always better)\n--------------------------------------------------------------------------------\n   PHYSICAL fidelity   does it LOOK/feel like the real console?\n   FUNCTIONAL fidelity does it BEHAVE like the real system (dynamics, faults)?\n   PSYCHOLOGICAL fidelity  does it induce the real STRESS/stakes/workload?\n   -----------------------------------------------------------------------------\n   TRADE: fidelity costs money and time; the RIGHT fidelity matches the QUESTION.\n      testing alarm salience -> need functional + psychological fidelity, less physical\n      testing reach/layout   -> need physical fidelity (a mock-up), less functional\n   ECOLOGICAL VALIDITY: a high-physical-fidelity sim with LOW psychological fidelity (no\n   real stakes) can measure the wrong thing -- calm performance that vanishes under real stress.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 237,
+      "heading_context": "## A Worked Study-Design Pass — The Coverage Argument (reproducible)",
+      "confidence": "candidate",
+      "text": "COVERAGE OF TWO SAMPLES  (which of the 16 cells are actually touched?)\n--------------------------------------------------------------------------------\n   CONVENIENCE: \"8 experienced, typical-profile operators, routine task, day shift\"\n      cells touched = experienced x typical x routine x day = 1 of 16 -> COVERAGE = 1/16 ~ 6%\n      UNCOVERED: every NOVICE cell, every TAIL-profile cell, every CRITICAL-task cell,\n      every NIGHT cell\n      -> the study answers a question about TYPICAL ROUTINE DAY EXPERTS and says NOTHING\n         about the novice/tail/upset/night cases -- exactly the SAFETY-relevant ones.\n\n   COVERAGE-DESIGNED: sample so every cell (esp. critical x night x novice x tail) is touched\n      target >= 1 (ideally several) participants per cell -> 16 cells covered\n      COVERAGE = 16/16 = 100% of the frame (sample size PER cell is the statistics-applied/\n      question of power; COVERAGE is whether the cell is touched AT ALL)\n   -----------------------------------------------------------------------------\n   KEY DISTINCTION: COVERAGE (are the critical cells represented?) is THIS guide's;\n   POWER/significance (is n-per-cell enough to detect a difference?) is statistics-applied/'s.\n   A convenience sample fails on COVERAGE before any statistics are even run.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

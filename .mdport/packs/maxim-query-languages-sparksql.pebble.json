@@ -1,0 +1,909 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-query-languages-sparksql",
+  "source": "../../query-languages",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "08-SPARKSQL.md#000",
+      "path": [
+        "08-SPARKSQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:08-sparksql, git-history:query-languages:08-sparksql]",
+        "canonical_path": "query-languages/08-SPARKSQL.md",
+        "concepts": "[sparksql]",
+        "current_path": "query-languages/08-SPARKSQL.md",
+        "id": "maxim:query-languages:sparksql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sparksql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spark SQL + Delta Lake",
+        "updated": "null"
+      },
+      "text": "# Spark SQL + Delta Lake"
+    },
+    {
+      "id": "08-SPARKSQL.md#001",
+      "path": [
+        "08-SPARKSQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:08-sparksql, git-history:query-languages:08-sparksql]",
+        "canonical_path": "query-languages/08-SPARKSQL.md",
+        "concepts": "[sparksql]",
+        "current_path": "query-languages/08-SPARKSQL.md",
+        "id": "maxim:query-languages:sparksql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sparksql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spark SQL + Delta Lake",
+        "updated": "null"
+      },
+      "text": "Apache Spark replaced MapReduce as the standard distributed compute engine for big data. Spark SQL is the SQL interface on top — same RDD/DataFrame computation model, different surface. You can write SQL or the DataFrame API and get identical execution plans. Delta Lake adds ACID transactions, time travel, and schema enforcement on top of Parquet files — making Spark suitable for data warehouse workloads, not just batch ETL."
+    },
+    {
+      "id": "08-SPARKSQL.md#002",
+      "path": [
+        "08-SPARKSQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:08-sparksql, git-history:query-languages:08-sparksql]",
+        "canonical_path": "query-languages/08-SPARKSQL.md",
+        "concepts": "[sparksql]",
+        "current_path": "query-languages/08-SPARKSQL.md",
+        "id": "maxim:query-languages:sparksql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sparksql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spark SQL + Delta Lake",
+        "updated": "null"
+      },
+      "text": "### ADF Data Flows ARE Spark"
+    },
+    {
+      "id": "08-SPARKSQL.md#003",
+      "path": [
+        "08-SPARKSQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:08-sparksql, git-history:query-languages:08-sparksql]",
+        "canonical_path": "query-languages/08-SPARKSQL.md",
+        "concepts": "[sparksql]",
+        "current_path": "query-languages/08-SPARKSQL.md",
+        "id": "maxim:query-languages:sparksql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sparksql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spark SQL + Delta Lake",
+        "updated": "null"
+      },
+      "text": "If you've built ADF Data Flows, you've been writing Spark SQL without knowing it. Data Flows are a visual canvas that compiles to a Spark execution plan. The Azure Integration Runtime that runs them is a Spark cluster managed by Microsoft. Every transformation you've dragged onto the canvas generates Spark code:"
+    },
+    {
+      "id": "08-SPARKSQL.md#004",
+      "path": [
+        "08-SPARKSQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:08-sparksql, git-history:query-languages:08-sparksql]",
+        "canonical_path": "query-languages/08-SPARKSQL.md",
+        "concepts": "[sparksql]",
+        "current_path": "query-languages/08-SPARKSQL.md",
+        "id": "maxim:query-languages:sparksql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sparksql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spark SQL + Delta Lake",
+        "updated": "null"
+      },
+      "text": "```\nADF Data Flow Canvas → Spark Execution Plan\n────────────────────────────────────────────────────────────────────────\nADF Transformation    │ Spark DataFrame API     │ Spark SQL equivalent\n──────────────────────┼─────────────────────────┼────────────────────────────\nSelect (column pick)  │ .select(\"col1\",\"col2\")  │ SELECT col1, col2 FROM ...\nFilter                │ .filter(col > 5)         │ WHERE col > 5\nAggregate             │ .groupBy().agg()         │ GROUP BY + aggregates\nJoin                  │ .join(other, key, type)  │ JOIN ... ON ...\nSort                  │ .orderBy(col.desc())     │ ORDER BY col DESC\nDerived Column        │ .withColumn(\"c\", expr)  │ SELECT *, expr AS c\nConditional Split     │ .filter() per branch     │ multiple WHERE clauses\nFlatten               │ .select(explode(...))    │ LATERAL VIEW EXPLODE\nLookup                │ .join(..., \"left\")        │ LEFT JOIN\nExists                │ .join(..., \"left_semi\")   │ WHERE EXISTS (subquery)\nWindow                │ .withColumn(win_fn)      │ OVER (PARTITION BY ...)\nPivot                 │ .groupBy().pivot().agg() │ PIVOT\nUnpivot               │ stack() expression       │ UNPIVOT / UNION ALL\nRank                  │ .withColumn(rank_fn)     │ ROW_NUMBER() OVER (...)\n```"
+    },
+    {
+      "id": "08-SPARKSQL.md#005",
+      "path": [
+        "08-SPARKSQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:08-sparksql, git-history:query-languages:08-sparksql]",
+        "canonical_path": "query-languages/08-SPARKSQL.md",
+        "concepts": "[sparksql]",
+        "current_path": "query-languages/08-SPARKSQL.md",
+        "id": "maxim:query-languages:sparksql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sparksql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spark SQL + Delta Lake",
+        "updated": "null"
+      },
+      "text": "The \"Partition\" setting in a Data Flow Aggregate → \"Optimize\" tab is literally `spark.conf.set(\"spark.sql.shuffle.partitions\", N)`. The debug cluster button spins up an actual Spark cluster (typically a 4-8 node Databricks or HDInsight cluster). The \"publish and run\" action submits a Spark job to the Integration Runtime cluster."
+    },
+    {
+      "id": "08-SPARKSQL.md#006",
+      "path": [
+        "08-SPARKSQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:08-sparksql, git-history:query-languages:08-sparksql]",
+        "canonical_path": "query-languages/08-SPARKSQL.md",
+        "concepts": "[sparksql]",
+        "current_path": "query-languages/08-SPARKSQL.md",
+        "id": "maxim:query-languages:sparksql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sparksql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spark SQL + Delta Lake",
+        "updated": "null"
+      },
+      "text": "This guide teaches you the underlying system you've been operating through a visual abstraction."
+    },
+    {
+      "id": "08-SPARKSQL.md#007",
+      "path": [
+        "08-SPARKSQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:08-sparksql, git-history:query-languages:08-sparksql]",
+        "canonical_path": "query-languages/08-SPARKSQL.md",
+        "concepts": "[sparksql]",
+        "current_path": "query-languages/08-SPARKSQL.md",
+        "id": "maxim:query-languages:sparksql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sparksql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spark SQL + Delta Lake",
+        "updated": "null"
+      },
+      "text": "### Azure Synapse Analytics — Where Spark Lives in Azure"
+    },
+    {
+      "id": "08-SPARKSQL.md#008",
+      "path": [
+        "08-SPARKSQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:08-sparksql, git-history:query-languages:08-sparksql]",
+        "canonical_path": "query-languages/08-SPARKSQL.md",
+        "concepts": "[sparksql]",
+        "current_path": "query-languages/08-SPARKSQL.md",
+        "id": "maxim:query-languages:sparksql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sparksql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spark SQL + Delta Lake",
+        "updated": "null"
+      },
+      "text": "Synapse Analytics is the Azure-managed environment that hosts Spark alongside other compute options:"
+    },
+    {
+      "id": "08-SPARKSQL.md#009",
+      "path": [
+        "08-SPARKSQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:08-sparksql, git-history:query-languages:08-sparksql]",
+        "canonical_path": "query-languages/08-SPARKSQL.md",
+        "concepts": "[sparksql]",
+        "current_path": "query-languages/08-SPARKSQL.md",
+        "id": "maxim:query-languages:sparksql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sparksql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spark SQL + Delta Lake",
+        "updated": "null"
+      },
+      "text": "```\nAzure Synapse Analytics workspace\n├── Spark pools              ← the same Apache Spark runtime described in this guide\n│   └── Attach notebooks, Synapse pipelines, or trigger via REST\n├── Dedicated SQL pool       ← MPP data warehouse (T-SQL, column store, separate from Spark)\n├── Serverless SQL pool      ← query Delta/Parquet in ADLS with T-SQL via OPENROWSET\n└── Data Explorer pool       ← time-series and log analytics (KQL)\n```"
+    },
+    {
+      "id": "08-SPARKSQL.md#010",
+      "path": [
+        "08-SPARKSQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:08-sparksql, git-history:query-languages:08-sparksql]",
+        "canonical_path": "query-languages/08-SPARKSQL.md",
+        "concepts": "[sparksql]",
+        "current_path": "query-languages/08-SPARKSQL.md",
+        "id": "maxim:query-languages:sparksql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sparksql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spark SQL + Delta Lake",
+        "updated": "null"
+      },
+      "text": "Spark pools in Synapse run the same Spark runtime. Spark SQL queries, DataFrames, MLlib, Structured Streaming — all covered in this guide — run identically in a Synapse Spark pool and a Databricks cluster. The difference is the management surface: Synapse is more Azure-native (AAD, ADLS Gen2 managed identity, Synapse Studio UI); Databricks adds Unity Catalog, Delta Live Tables, MLflow, and a richer notebook experience."
+    },
+    {
+      "id": "08-SPARKSQL.md#011",
+      "path": [
+        "08-SPARKSQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:08-sparksql, git-history:query-languages:08-sparksql]",
+        "canonical_path": "query-languages/08-SPARKSQL.md",
+        "concepts": "[sparksql]",
+        "current_path": "query-languages/08-SPARKSQL.md",
+        "id": "maxim:query-languages:sparksql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sparksql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spark SQL + Delta Lake",
+        "updated": "null"
+      },
+      "text": "If you've run a Synapse notebook against an ADLS-backed Delta table, you've already run Spark SQL. This guide is the \"what's actually happening under the hood\" explainer."
+    },
+    {
+      "id": "08-SPARKSQL.md#012",
+      "path": [
+        "08-SPARKSQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:08-sparksql, git-history:query-languages:08-sparksql]",
+        "canonical_path": "query-languages/08-SPARKSQL.md",
+        "concepts": "[sparksql]",
+        "current_path": "query-languages/08-SPARKSQL.md",
+        "id": "maxim:query-languages:sparksql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sparksql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spark SQL + Delta Lake",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-SPARKSQL.md#013",
+      "path": [
+        "08-SPARKSQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:08-sparksql, git-history:query-languages:08-sparksql]",
+        "canonical_path": "query-languages/08-SPARKSQL.md",
+        "concepts": "[sparksql]",
+        "current_path": "query-languages/08-SPARKSQL.md",
+        "id": "maxim:query-languages:sparksql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sparksql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spark SQL + Delta Lake",
+        "updated": "null"
+      },
+      "text": "## 1. ARCHITECTURE"
+    },
+    {
+      "id": "08-SPARKSQL.md#014",
+      "path": [
+        "08-SPARKSQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:08-sparksql, git-history:query-languages:08-sparksql]",
+        "canonical_path": "query-languages/08-SPARKSQL.md",
+        "concepts": "[sparksql]",
+        "current_path": "query-languages/08-SPARKSQL.md",
+        "id": "maxim:query-languages:sparksql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sparksql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spark SQL + Delta Lake",
+        "updated": "null"
+      },
+      "text": "```\n┌──────────────────────────────────────────────────────────────────────────────┐\n│                        Apache Spark Architecture                             │\n│                                                                              │\n│  ┌──────────────────────────────────────────────────────────────────────┐    │\n│  │                   Spark SQL / DataFrame API                          │   │\n│  │   spark.sql(\"SELECT ...\")    df.filter(...).groupBy(...)             │   │\n│  │   Python (PySpark)  /  Scala  /  Java  /  R (SparkR)               │   │\n│  └──────────────────────────────┬───────────────────────────────────────┘   │\n│                                 │  identical execution plan                 │\n│  ┌──────────────────────────────▼───────────────────────────────────────┐   │\n│  │                   Catalyst Query Optimizer                           │   │\n│  │   Parse → Analyze → Optimize → Physical Plan → Codegen               │   │\n│  │   Rule-based + cost-based optimizations (column pruning, pushdown)   │   │\n│  └──────────────────────────────┬───────────────────────────────────────┘   │\n│                                 │                                           │\n│  ┌──────────────────────────────▼───────────────────────────────────────┐   │\n│  │             Distributed Execution (Driver + Executors)               │   │\n│  │   Stage 1 → shuffle → Stage 2 → shuffle → Stage 3                    │   │\n│  │   Each stage = DAG of tasks (1 task per partition)                   │   │\n│  └──────────────────────────────┬───────────────────────────────────────┘   │\n│                                 │                                           │\n│  ┌──────────────────────────────▼───────────────────────────────────────┐   │\n│  │      Storage Layer                                                   │   │\n│  │      Delta Lake / Parquet / ORC / JSON / CSV / Avro                  │   │\n│  │      HDFS / S3 / ADLS Gen2 / GCS                                     │   │\n│  └──────────────────────────────────────────────────────────────────────┘   │\n└──────────────────────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "08-SPARKSQL.md#015",
+      "path": [
+        "08-SPARKSQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:08-sparksql, git-history:query-languages:08-sparksql]",
+        "canonical_path": "query-languages/08-SPARKSQL.md",
+        "concepts": "[sparksql]",
+        "current_path": "query-languages/08-SPARKSQL.md",
+        "id": "maxim:query-languages:sparksql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sparksql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spark SQL + Delta Lake",
+        "updated": "null"
+      },
+      "text": "MapReduce bridge:\n  MapReduce: disk write between EVERY step (Map → disk → Reduce → disk)\n  Spark:     in-memory between steps; disk spill only when memory exhausted\n  Both:      distributed partitioning, shuffle concept, fault tolerance via lineage\n  Speedup:   10–100x for iterative jobs (ML, graph traversal); ~3–5x for single-pass ETL\n```"
+    },
+    {
+      "id": "08-SPARKSQL.md#016",
+      "path": [
+        "08-SPARKSQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:08-sparksql, git-history:query-languages:08-sparksql]",
+        "canonical_path": "query-languages/08-SPARKSQL.md",
+        "concepts": "[sparksql]",
+        "current_path": "query-languages/08-SPARKSQL.md",
+        "id": "maxim:query-languages:sparksql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sparksql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spark SQL + Delta Lake",
+        "updated": "null"
+      },
+      "text": "### Catalyst Optimizer: Tree to DAG Pipeline"
+    },
+    {
+      "id": "08-SPARKSQL.md#017",
+      "path": [
+        "08-SPARKSQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:08-sparksql, git-history:query-languages:08-sparksql]",
+        "canonical_path": "query-languages/08-SPARKSQL.md",
+        "concepts": "[sparksql]",
+        "current_path": "query-languages/08-SPARKSQL.md",
+        "id": "maxim:query-languages:sparksql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sparksql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spark SQL + Delta Lake",
+        "updated": "null"
+      },
+      "text": "SQL Server's query optimizer works on a query tree — a hierarchical plan where each node has one parent. Catalyst works on a DAG (Directed Acyclic Graph) of transformations. The distinction matters when multiple branches of a query share a common sub-expression: Catalyst can represent that sub-expression once and pipe its output to multiple consumers without recomputing it."
+    },
+    {
+      "id": "08-SPARKSQL.md#018",
+      "path": [
+        "08-SPARKSQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:08-sparksql, git-history:query-languages:08-sparksql]",
+        "canonical_path": "query-languages/08-SPARKSQL.md",
+        "concepts": "[sparksql]",
+        "current_path": "query-languages/08-SPARKSQL.md",
+        "id": "maxim:query-languages:sparksql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sparksql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spark SQL + Delta Lake",
+        "updated": "null"
+      },
+      "text": "```\nCatalyst pipeline (4 phases):"
+    },
+    {
+      "id": "08-SPARKSQL.md#019",
+      "path": [
+        "08-SPARKSQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:08-sparksql, git-history:query-languages:08-sparksql]",
+        "canonical_path": "query-languages/08-SPARKSQL.md",
+        "concepts": "[sparksql]",
+        "current_path": "query-languages/08-SPARKSQL.md",
+        "id": "maxim:query-languages:sparksql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sparksql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spark SQL + Delta Lake",
+        "updated": "null"
+      },
+      "text": "SQL string / DataFrame API\n         │\n         ▼\n  1. Parse → Unresolved Logical Plan (AST: no column types, no table validation)\n         │\n         ▼\n  2. Analyze → Resolved Logical Plan (column types resolved, tables validated against catalog)\n         │\n         ▼\n  3. Optimize → Optimized Logical Plan\n         │   Rule-based:  predicate pushdown, column pruning, constant folding,\n         │               subquery elimination, NULL propagation\n         │   Cost-based:  join reordering based on table statistics (if available)\n         ▼\n  4. Physical Planning → one or more Physical Plans (SparkPlan)\n         │   Strategies: BroadcastHashJoin vs SortMergeJoin vs ShuffleHashJoin\n         │   Selected via cost model\n         ▼\n  5. Code Generation (Tungsten / WholeStageCodegen)\n         │   Generates JVM bytecode per stage — not interpreted row-by-row\n         │   LLVM-style loop fusion: multiple operators collapse into one tight loop\n         ▼\n  Execution (RDD partitions → tasks → executors)\n```"
+    },
+    {
+      "id": "08-SPARKSQL.md#020",
+      "path": [
+        "08-SPARKSQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:08-sparksql, git-history:query-languages:08-sparksql]",
+        "canonical_path": "query-languages/08-SPARKSQL.md",
+        "concepts": "[sparksql]",
+        "current_path": "query-languages/08-SPARKSQL.md",
+        "id": "maxim:query-languages:sparksql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sparksql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spark SQL + Delta Lake",
+        "updated": "null"
+      },
+      "text": "SQL Server bridge: SQL Server's optimizer does predicate pushdown and hash join selection too. The difference is Spark's plan is a DAG (shared sub-expressions) while SQL Server's is a tree. Spark's code generation (Tungsten) is Spark's equivalent of SQL Server's batch mode execution on columnstore — vectorized, tight loops, not row-by-row operator evaluation."
+    },
+    {
+      "id": "08-SPARKSQL.md#021",
+      "path": [
+        "08-SPARKSQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:08-sparksql, git-history:query-languages:08-sparksql]",
+        "canonical_path": "query-languages/08-SPARKSQL.md",
+        "concepts": "[sparksql]",
+        "current_path": "query-languages/08-SPARKSQL.md",
+        "id": "maxim:query-languages:sparksql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sparksql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spark SQL + Delta Lake",
+        "updated": "null"
+      },
+      "text": "Inspect the pipeline:"
+    },
+    {
+      "id": "08-SPARKSQL.md#022",
+      "path": [
+        "08-SPARKSQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:08-sparksql, git-history:query-languages:08-sparksql]",
+        "canonical_path": "query-languages/08-SPARKSQL.md",
+        "concepts": "[sparksql]",
+        "current_path": "query-languages/08-SPARKSQL.md",
+        "id": "maxim:query-languages:sparksql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sparksql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spark SQL + Delta Lake",
+        "updated": "null"
+      },
+      "text": "```python\ndf.explain()               # physical plan only\ndf.explain(\"extended\")     # all 4 phases: parsed → analyzed → optimized → physical\ndf.explain(\"cost\")         # physical plan with row count and size estimates\ndf.explain(\"formatted\")    # tree format with node IDs, best readability (Spark 3.x)\n```"
+    },
+    {
+      "id": "08-SPARKSQL.md#023",
+      "path": [
+        "08-SPARKSQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:08-sparksql, git-history:query-languages:08-sparksql]",
+        "canonical_path": "query-languages/08-SPARKSQL.md",
+        "concepts": "[sparksql]",
+        "current_path": "query-languages/08-SPARKSQL.md",
+        "id": "maxim:query-languages:sparksql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sparksql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spark SQL + Delta Lake",
+        "updated": "null"
+      },
+      "text": "### Lazy Evaluation: Nothing Runs Until an Action"
+    },
+    {
+      "id": "08-SPARKSQL.md#024",
+      "path": [
+        "08-SPARKSQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:08-sparksql, git-history:query-languages:08-sparksql]",
+        "canonical_path": "query-languages/08-SPARKSQL.md",
+        "concepts": "[sparksql]",
+        "current_path": "query-languages/08-SPARKSQL.md",
+        "id": "maxim:query-languages:sparksql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sparksql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spark SQL + Delta Lake",
+        "updated": "null"
+      },
+      "text": "T-SQL executes the moment you submit a query. ADF activities execute when triggered. Spark does neither: it builds a DAG of transformations and does not execute anything until you call an **action**."
+    },
+    {
+      "id": "08-SPARKSQL.md#025",
+      "path": [
+        "08-SPARKSQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:08-sparksql, git-history:query-languages:08-sparksql]",
+        "canonical_path": "query-languages/08-SPARKSQL.md",
+        "concepts": "[sparksql]",
+        "current_path": "query-languages/08-SPARKSQL.md",
+        "id": "maxim:query-languages:sparksql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sparksql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spark SQL + Delta Lake",
+        "updated": "null"
+      },
+      "text": "```python\n# None of these lines execute anything — they build a DAG:\ndf = spark.read.parquet(\"/data/orders/\")          # no read\ndf = df.filter(F.col(\"status\") == \"active\")       # no filter\ndf = df.groupBy(\"dept\").agg(F.avg(\"salary\"))      # no aggregation\ndf = df.orderBy(\"dept\")                           # no sort"
+    },
+    {
+      "id": "08-SPARKSQL.md#026",
+      "path": [
+        "08-SPARKSQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:08-sparksql, git-history:query-languages:08-sparksql]",
+        "canonical_path": "query-languages/08-SPARKSQL.md",
+        "concepts": "[sparksql]",
+        "current_path": "query-languages/08-SPARKSQL.md",
+        "id": "maxim:query-languages:sparksql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sparksql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spark SQL + Delta Lake",
+        "updated": "null"
+      },
+      "text": "# THIS executes the entire DAG (read + filter + group + sort):\ndf.show()     # action: triggers execution, displays 20 rows"
+    },
+    {
+      "id": "08-SPARKSQL.md#027",
+      "path": [
+        "08-SPARKSQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:08-sparksql, git-history:query-languages:08-sparksql]",
+        "canonical_path": "query-languages/08-SPARKSQL.md",
+        "concepts": "[sparksql]",
+        "current_path": "query-languages/08-SPARKSQL.md",
+        "id": "maxim:query-languages:sparksql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sparksql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spark SQL + Delta Lake",
+        "updated": "null"
+      },
+      "text": "# Other actions that trigger execution:\ndf.count()          # returns a count (full scan)\ndf.collect()        # returns all rows to driver as Python list — dangerous on large data\ndf.write.parquet()  # writes output to storage\ndf.first()          # returns first row\n```"
+    },
+    {
+      "id": "08-SPARKSQL.md#028",
+      "path": [
+        "08-SPARKSQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:08-sparksql, git-history:query-languages:08-sparksql]",
+        "canonical_path": "query-languages/08-SPARKSQL.md",
+        "concepts": "[sparksql]",
+        "current_path": "query-languages/08-SPARKSQL.md",
+        "id": "maxim:query-languages:sparksql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sparksql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spark SQL + Delta Lake",
+        "updated": "null"
+      },
+      "text": "The consequence: `df.explain()` can be called before any data moves — it inspects the logical/physical plan without triggering execution. A common mistake is calling `df.count()` in a loop to validate each step — every call is a full job. Prefer `.show(5)` for spot-checks; defer execution to a single `.write()` call."
+    },
+    {
+      "id": "08-SPARKSQL.md#029",
+      "path": [
+        "08-SPARKSQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:08-sparksql, git-history:query-languages:08-sparksql]",
+        "canonical_path": "query-languages/08-SPARKSQL.md",
+        "concepts": "[sparksql]",
+        "current_path": "query-languages/08-SPARKSQL.md",
+        "id": "maxim:query-languages:sparksql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sparksql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spark SQL + Delta Lake",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-SPARKSQL.md#030",
+      "path": [
+        "08-SPARKSQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:08-sparksql, git-history:query-languages:08-sparksql]",
+        "canonical_path": "query-languages/08-SPARKSQL.md",
+        "concepts": "[sparksql]",
+        "current_path": "query-languages/08-SPARKSQL.md",
+        "id": "maxim:query-languages:sparksql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sparksql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spark SQL + Delta Lake",
+        "updated": "null"
+      },
+      "text": "## 2. DIALECT SNAPSHOT"
+    },
+    {
+      "id": "08-SPARKSQL.md#031",
+      "path": [
+        "08-SPARKSQL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:query-languages:08-sparksql, git-history:query-languages:08-sparksql]",
+        "canonical_path": "query-languages/08-SPARKSQL.md",
+        "concepts": "[sparksql]",
+        "current_path": "query-languages/08-SPARKSQL.md",
+        "id": "maxim:query-languages:sparksql",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "query-languages",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[sparksql]",
+        "section": "query-languages",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Spark SQL + Delta Lake",
+        "updated": "null"
+      },
+      "text": "| Attribute           | Value                                                              |\n|---------------------|--------------------------------------------------------------------|\n| Origin              | UC Berkeley AMPLab (2009), Apache top-level (2013)                |\n| License             | Apache 2.0                                                         |\n| Current version     | Apache Spark 3.5.x (2024); Databricks Runtime 14.x                |\n| SQL dialect         | HiveQL-compatible + ANSI SQL extensions                            |\n| Execution runtime   | JVM (Scala/Java core) + Python (PySpark) + R (SparkR)              |\n| Managed services    | Databricks, AWS EMR, Azure HDInsight, GCP Dataproc                 |\n| Delta Lake          | Open-source; default format on Databricks; Linux Foundation project |\n| Metastore           | Hive Metastore (legacy) or Unity Catalog (Databricks, 2022+)       |"
+    }
+  ],
+  "refs": [
+    "08-SPARKSQL.md"
+  ]
+}

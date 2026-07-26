@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Backfill a MAXIM module into PROOF/CROP/PEBBLE/FLETCH source-corpus artifacts."""
+"""Backfill a MAXIM module into MDLOOM/CROP/MDPORT/FLETCH source-corpus artifacts."""
 
 from __future__ import annotations
 
@@ -15,7 +15,7 @@ from pathlib import Path
 
 ROOT = Path.cwd()
 
-# Tool crates (PROOF/CROP/FLETCH) are located via the portfolio `repo-map.toml`
+# Tool crates (MDLOOM/CROP/FLETCH) are located via the portfolio `repo-map.toml`
 # config rather than hardcoded paths. The map records where every repo lives
 # locally; we walk up from the current module checkout to find the portfolio
 # root that defines the tool crates, then build each Cargo manifest path.
@@ -23,7 +23,7 @@ TOOL_CRATES = {"proof": "proof", "crop": "crop", "fletch": "fletch"}
 
 
 def resolve_tool_manifests() -> dict[str, Path | None]:
-    """Resolve PROOF/CROP/FLETCH Cargo manifests from repo-map.toml.
+    """Resolve MDLOOM/CROP/FLETCH Cargo manifests from repo-map.toml.
 
     Searches upward from the current working directory for a `repo-map.toml`
     that defines `[repos.proof]`; the directory holding that map is the
@@ -105,7 +105,7 @@ def guide_slug(path: Path, title: str) -> str:
     return slugify(title)
 
 
-def ensure_frontmatter(path: Path, module_id: str, section: str) -> dict[str, str]:
+def ensure_frontmatter(path: Path, module_id: str, section: str, has_history: bool) -> dict[str, str]:
     fields, body = parse_frontmatter(path)
     title = fields.get("title") or heading_title(body, path.stem)
     slug = (fields.get("id") or "").replace(f"maxim:{module_id}:", "")
@@ -125,7 +125,7 @@ def ensure_frontmatter(path: Path, module_id: str, section: str) -> dict[str, st
         "source_custody": "partial",
         "current_path": path.as_posix(),
         "canonical_path": path.as_posix(),
-        "backsource_ids": f"[proof-backfill:{module_id}:{num}-{slug}, git-history:{module_id}:{num}-{slug}]",
+        "backsource_ids": bracket_list(guide_backsource_ids(module_id, num, slug, has_history)),
         "concepts": concepts,
         "root_concepts": roots,
         "index_roles": "[guide, root-concept]",
@@ -134,6 +134,10 @@ def ensure_frontmatter(path: Path, module_id: str, section: str) -> dict[str, st
         "updated": "null",
     }
     merged = {**defaults, **fields}
+    # backsource_ids is *derived* from provenance facts (MDLOOM literal backfill always
+    # applies; git-history applies only when the file has real tracked history), so it must
+    # be recomputed on every run and never preserved stale from existing frontmatter.
+    merged["backsource_ids"] = defaults["backsource_ids"]
     ordered_keys = [
         "maxim_schema",
         "id",
@@ -175,6 +179,41 @@ def git_hashes(path: str) -> list[str]:
     return [line for line in output.splitlines() if line]
 
 
+def guide_backsource_ids(module_id: str, num: str, slug: str, has_history: bool) -> list[str]:
+    """Backsource IDs for a guide's frontmatter.
+
+    The MDLOOM literal-backfill source always applies. A ``git-history`` backsource is
+    included only when the file actually has tracked git history; an untracked or
+    historyless file must not claim git provenance it does not have.
+    """
+    ids = [f"mdloom-backfill:{module_id}:{num}-{slug}"]
+    if has_history:
+        ids.append(f"git-history:{module_id}:{num}-{slug}")
+    return ids
+
+
+def source_record_backsource_ids(module_id: str, num: str, slug: str, has_history: bool) -> list[str]:
+    """Backsource IDs for a generated source-record.
+
+    The source-record's only backsource is git-history provenance, so it is present only
+    when real tracked history exists and empty otherwise (its ``Git provenance`` line then
+    stays ``pending``).
+    """
+    if has_history:
+        return [f"git-history:{module_id}:{num}-{slug}"]
+    return []
+
+
+def module_provenance_note(guides: list[dict[str, object]]) -> str:
+    """Summarize MDLOOM and git provenance without claiming history for untracked guides."""
+    recorded = sum(bool(guide["git_hashes"]) for guide in guides)
+    pending = len(guides) - recorded
+    return (
+        f"MDLOOM literal backfill is recorded for all {len(guides)} guides; "
+        f"Git provenance is recorded for {recorded} guides and pending for {pending}."
+    )
+
+
 def tick_list(values: list[str]) -> str:
     return ", ".join(f"`{value}`" for value in values) if values else "pending"
 
@@ -191,12 +230,65 @@ def format_obj(schema: str, shape: str, preferred: str, media: str = "applicatio
     }
 
 
+def markdown_heading_count(path: Path) -> int:
+    """Count real Markdown headings in a canonical guide body."""
+    _, body = parse_frontmatter(path)
+    return sum(1 for line in body.splitlines() if re.match(r"^#{1,6}\s+\S", line))
+
+
+def read_mdport(path: Path) -> dict:
+    mdport = json.loads(path.read_text(encoding="utf-8"))
+    if mdport.get("schema") != "mdport.v1" or not isinstance(mdport.get("sections"), list):
+        raise ValueError(f"{path}: invalid mdport.v1 document")
+    return mdport
+
+
+def validate_full_guide_mdport(guide_path: Path, pack_path: Path) -> int:
+    """Require the publication pack to preserve every canonical heading section."""
+    expected = markdown_heading_count(guide_path)
+    actual = len(read_mdport(pack_path)["sections"])
+    if actual != expected:
+        raise ValueError(
+            f"{pack_path}: expected {expected} sections from {guide_path}, found {actual}"
+        )
+    return actual
+
+
+def assemble_module_mdport(module_id: str, module_dir: Path, guides: list[dict], output: Path) -> int:
+    """Assemble full guide Mdports into one collision-safe module corpus pack."""
+    sections: list[dict] = []
+    refs: list[str] = []
+    for guide in guides:
+        guide_mdport = read_mdport(Path(guide["pack"]))
+        for section in guide_mdport["sections"]:
+            copied = dict(section)
+            copied["id"] = f"{guide['slug']}:{section['id']}"
+            sections.append(copied)
+        refs.extend(guide_mdport.get("refs", []))
+    module_mdport = {
+        "schema": "mdport.v1",
+        "kind": "corpus-slice",
+        "title": f"MAXIM {module_id} source corpus",
+        "source": module_dir.as_posix(),
+        "format": "markdown",
+        "metadata": {
+            "assembly": "full-guide-proof-mdports",
+            "module": module_id,
+            "guide_count": len(guides),
+        },
+        "sections": sections,
+        "refs": list(dict.fromkeys(refs)),
+    }
+    write_text(output, json.dumps(module_mdport, ensure_ascii=False, separators=(",", ":")) + "\n")
+    return len(sections)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--module-dir", required=True, help="Module directory containing numbered markdown guides.")
     parser.add_argument("--module-id", required=True, help="Stable MAXIM module id, e.g. computing-software.")
     parser.add_argument("--section", help="Section id; defaults to --module-id.")
-    parser.add_argument("--proof-manifest", default=None, help="Override PROOF Cargo.toml (default: from repo-map.toml).")
+    parser.add_argument("--proof-manifest", default=None, help="Override MDLOOM Cargo.toml (default: from repo-map.toml).")
     parser.add_argument("--crop-manifest", default=None, help="Override CROP Cargo.toml (default: from repo-map.toml).")
     parser.add_argument("--fletch-manifest", default=None, help="Override FLETCH Cargo.toml (default: from repo-map.toml).")
     parser.add_argument("--validate", action="store_true")
@@ -227,22 +319,23 @@ def main() -> None:
     module_id = args.module_id
     section = args.section or module_id
     source_store = Path(".proof") / "backfill" / "sources" / module_id
-    proof_source = source_store / "proof-source"
+    mdloom_source = source_store / "mdloom-source"
     module_ledger = Path(".proof") / "backfill" / "modules" / f"{module_id}.json"
     view_store = Path(".crop") / "views"
-    pack_store = Path(".pebble") / "packs"
+    pack_store = Path(".mdport") / "packs"
     module_view = view_store / f"maxim-{module_id}-source-corpus.json"
-    module_pack = pack_store / f"maxim-{module_id}-source-corpus.pebble.json"
+    module_pack = pack_store / f"maxim-{module_id}-source-corpus.mdport.json"
     registry_path = Path(".fletch") / "registries" / f"maxim-{module_id}-source-corpus.json"
 
     guides: list[dict[str, str]] = []
     for path in sorted(module_dir.glob("??-*.md")):
-        fields = ensure_frontmatter(path, module_id, section)
+        hashes = git_hashes(path.as_posix())
+        fields = ensure_frontmatter(path, module_id, section, has_history=bool(hashes))
         slug = fields["id"].replace(f"maxim:{module_id}:", "")
         base = path.stem
         num = path.name[:2]
         view_path = view_store / f"maxim-{module_id}-{slug}.json"
-        pack_path = pack_store / f"maxim-{module_id}-{slug}.pebble.json"
+        pack_path = pack_store / f"maxim-{module_id}-{slug}.mdport.json"
         source_record = source_store / f"{num}-{slug}.source-record.md"
         guide = {
             "num": num,
@@ -253,11 +346,12 @@ def main() -> None:
             "title": fields["title"],
             "concepts": fields["concepts"],
             "roots": fields["root_concepts"],
-            "source_id": f"proof-backfill:{module_id}:{num}-{slug}",
+            "source_id": f"mdloom-backfill:{module_id}:{num}-{slug}",
             "source_record": source_record.as_posix(),
-            "source_md": (proof_source / f"{base}.source.md").as_posix(),
-            "tables": (proof_source / f"{base}.tables.json").as_posix(),
-            "blocks": (proof_source / f"{base}.blocks.json").as_posix(),
+            "source_md": (mdloom_source / f"{base}.source.md").as_posix(),
+            "tables": (mdloom_source / f"{base}.tables.json").as_posix(),
+            "blocks": (mdloom_source / f"{base}.blocks.json").as_posix(),
+            "git_hashes": hashes,
             "view": view_path.as_posix(),
             "pack": pack_path.as_posix(),
         }
@@ -294,13 +388,13 @@ def main() -> None:
             "cargo",
             "run",
             "--manifest-path",
-            args.proof_manifest,
+            args.mdloom_manifest,
             "--quiet",
             "--",
             "backfill",
             *guide_paths,
             "--output-source",
-            str(proof_source),
+            str(mdloom_source),
             "--report",
             str(source_store / "backfill-report.json"),
             "--literal-first",
@@ -309,39 +403,29 @@ def main() -> None:
         ]
     )
 
-    run(
-        [
-            "cargo",
-            "run",
-            "--manifest-path",
-            args.crop_manifest,
-            "--quiet",
-            "--",
-            "view",
-            "--file",
-            str(module_view),
-            "--format",
-            "pebble",
-        ],
-        stdout_path=module_pack,
-    )
     for guide in guides:
         run(
             [
                 "cargo",
                 "run",
                 "--manifest-path",
-                args.crop_manifest,
+                args.mdloom_manifest,
                 "--quiet",
                 "--",
-                "view",
-                "--file",
-                guide["view"],
-                "--format",
-                "pebble",
+                "compile",
+                guide["source_md"],
+                "--target",
+                "mdport",
+                "-o",
+                guide["pack"],
             ],
-            stdout_path=Path(guide["pack"]),
         )
+        guide["pack_sections"] = validate_full_guide_mdport(
+            Path(guide["path"]), Path(guide["pack"])
+        )
+    module_pack_sections = assemble_module_mdport(
+        module_id, module_dir, guides, module_pack
+    )
 
     report = json.loads((source_store / "backfill-report.json").read_text(encoding="utf-8"))
     by_original = {Path(item["original_path"]).name: item for item in report["files"]}
@@ -377,6 +461,9 @@ def main() -> None:
                 )
                 + "\n",
             )
+        record_backsources = source_record_backsource_ids(
+            module_id, guide["num"], guide["slug"], bool(guide["git_hashes"])
+        )
         record = f"""---
 maxim_schema: maxim.frontmatter.v1
 id: {guide['source_id']}
@@ -388,7 +475,7 @@ status: source-custody
 source_custody: partial
 current_path: {guide['source_record']}
 canonical_path: {guide['source_record']}
-backsource_ids: [git-history:{module_id}:{guide['num']}-{guide['slug']}]
+backsource_ids: {bracket_list(record_backsources)}
 concepts: {guide['concepts']}
 root_concepts: {guide['roots']}
 index_roles: [source-map]
@@ -402,19 +489,19 @@ updated: null
 | Field | Value |
 |---|---|
 | Current MAXIM file | `{guide['path']}` |
-| PROOF source artifact | `{guide['source_md']}` |
-| PROOF table sidecar | `{guide['tables']}` |
-| PROOF block sidecar | `{guide['blocks']}` |
+| MDLOOM source artifact | `{guide['source_md']}` |
+| MDLOOM table sidecar | `{guide['tables']}` |
+| MDLOOM block sidecar | `{guide['blocks']}` |
 | Backfill report | `{(source_store / 'backfill-report.json').as_posix()}` |
-| PROOF classification | `literal_markdown` |
-| PROOF confidence | `high` |
+| MDLOOM classification | `literal_markdown` |
+| MDLOOM confidence | `high` |
 | Round trip | `passed` |
 | Structured extraction | `{table_count}` markdown tables, `{block_count}` visual/block candidates |
-| Git provenance | {tick_list(git_hashes(guide['path']))} |
+| Git provenance | {tick_list(guide['git_hashes'])} |
 
 ## Custody note
 
-This first-pass record proves the current file can be regenerated as a PROOF
+This first-pass record proves the current file can be regenerated as a MDLOOM
 literal source artifact and round-tripped without loss. It is still marked
 `partial` because external/authentic backsources for factual claims have not yet
 been attached.
@@ -422,30 +509,39 @@ been attached.
         write_text(Path(guide["source_record"]), record)
 
     module = {
-        "schema_version": "maxim.proof-backfill.module.v1",
+        "schema_version": "maxim.mdloom-backfill.module.v1",
         "module_id": module_id,
         "status": "first-pass-complete",
         "current_root": module_dir.as_posix(),
         "source_store": source_store.as_posix(),
-        "frontmatter_contract": ".proof/backfill/frontmatter-contract.md",
+        "frontmatter_contract": ".mdloom/backfill/frontmatter-contract.md",
         "frontmatter_scope": {
             "mode": "module-only",
-            "proof_output_default": "omit-frontmatter",
-            "proof_output_option": "allow-frontmatter-for-metadata-views",
+            "mdloom_output_default": "omit-frontmatter",
+            "mdloom_output_option": "allow-frontmatter-for-metadata-views",
             "required_kind_values": ["guide", "module-index", "section-index", "concept-index", "source-record", "generated-pack"],
             "first_pass": [guide["path"] for guide in guides],
         },
-        "proof_scope": {"config": "proof.toml", "include": [f"{module_dir.as_posix()}/*.md"], "exclude": [f"{module_dir.as_posix()}/STATUS.md"]},
+        "mdloom_scope": {"config": "mdloom.toml", "include": [f"{module_dir.as_posix()}/*.md"], "exclude": [f"{module_dir.as_posix()}/STATUS.md"]},
         "crop_view": module_view.as_posix(),
-        "distribution": {"pebble_pack": module_pack.as_posix(), "guide_packs": [guide["pack"] for guide in guides], "fletch_registry": registry_path.as_posix()},
+        "distribution": {
+            "mdport_pack": module_pack.as_posix(),
+            "mdport_pack_sections": module_pack_sections,
+            "guide_packs": [guide["pack"] for guide in guides],
+            "guide_pack_sections": {
+                guide["path"]: guide["pack_sections"] for guide in guides
+            },
+            "fletch_registry": registry_path.as_posix(),
+        },
         "source_custody": {
             "policy": "Each guide must map to an authentic backsource record before pack publication.",
             "default_state": "partial",
             "notes": [
                 "Current MAXIM guide paths are not themselves sufficient backsources.",
                 "Backsources can be source notes, cited originals, generated proof artifacts, or reviewed provenance records.",
-                f"All {len(guides)} guides are partial: PROOF literal backfill and git provenance are recorded, but external/authentic factual backsources are still pending.",
-                "PROOF structured sidecars capture markdown tables plus candidate ASCII tables, charts, and diagrams for quality search/indexing.",
+                module_provenance_note(guides),
+                f"All {len(guides)} guides remain partial because external/authentic factual backsources are still pending.",
+                "MDLOOM structured sidecars capture markdown tables plus candidate ASCII tables, charts, and diagrams for quality search/indexing.",
                 "Remaps preserve continuity if guide files move after backfill.",
             ],
         },
@@ -460,19 +556,34 @@ been attached.
             }
             for guide in guides
         ],
-        "gates": ["frontmatter-contract-applied", "source-custody-partial", "proof-module-clean", "crop-pebble-pack-emitted", "fletch-registry-added"],
+        "gates": [
+            "frontmatter-contract-applied",
+            "source-custody-partial",
+            "proof-module-clean",
+            "crop-views-added",
+            "full-proof-mdport-packs-emitted",
+            "fletch-registry-added",
+        ],
     }
     write_text(module_ledger, json.dumps(module, indent=2, ensure_ascii=False) + "\n")
 
     fletches = [
         {
-            "id": f"maxim.{module_id}.source-corpus.pebble",
+            "id": f"maxim.{module_id}.source-corpus.mdport",
             "node_kind": "fletch",
             "shafts": [{"kind": "file", "url": module_pack.as_posix()}],
-            "edges": [{"to": f"maxim-{module_id}-source-corpus", "kind": "derived-from", "label": "CROP view recipe", "metadata": {"view": module_view.as_posix(), "module": module_id, "custody": "partial"}}],
-            "format": format_obj("pebble.v1", "corpus-slice", module_pack.as_posix()),
-            "tags": ["source-corpus", "crop", "pebble", "partial-custody"],
-            "metadata": {"source_repo": "MAXIM", "module": module_id, "distribution": "FLETCH fetch/cache surface for downstream repos", "publication_state": "partial-source-custody"},
+            "edges": [
+                {
+                    "to": f"maxim.{module_id}.{guide['slug']}.mdport",
+                    "kind": "derived-from",
+                    "label": "Full guide MDLOOM Mdport",
+                    "metadata": {"module": module_id, "guide": guide["path"], "custody": "partial"},
+                }
+                for guide in guides
+            ],
+            "format": format_obj("mdport.v1", "corpus-slice", module_pack.as_posix()),
+            "tags": ["source-corpus", "proof", "mdport", "full-module", "partial-custody"],
+            "metadata": {"source_repo": "MAXIM", "module": module_id, "distribution": "FLETCH full-module publication surface for downstream repos", "publication_state": "partial-source-custody"},
         }
     ]
     for guide in guides:
@@ -484,29 +595,26 @@ been attached.
                     "id": f"{prefix}.view",
                     "node_kind": "fletch",
                     "shafts": [{"kind": "file", "url": guide["view"]}],
-                    "edges": [{"to": f"maxim.{module_id}.source-corpus.pebble", "kind": "derived-from", "label": "Guide-level CROP view recipe", "metadata": {"module": module_id, "guide": guide["path"], "custody": "partial"}}],
+                    "edges": [{"to": f"{prefix}.mdloom-source", "kind": "derived-from", "label": "View over canonical guide source", "metadata": {"module": module_id, "guide": guide["path"], "custody": "partial"}}],
                     "format": format_obj("crop.view.v1", "view-recipe", guide["view"]),
                     "tags": ["source-corpus", "crop", "view", "partial-custody", "guide"],
                     "metadata": common,
                 },
                 {
-                    "id": f"{prefix}.pebble",
+                    "id": f"{prefix}.mdport",
                     "node_kind": "fletch",
                     "shafts": [{"kind": "file", "url": guide["pack"]}],
-                    "edges": [
-                        {"to": f"{prefix}.view", "kind": "derived-from", "label": "Guide-level CROP view recipe", "metadata": {"module": module_id, "custody": "partial"}},
-                        {"to": f"maxim.{module_id}.source-corpus.pebble", "kind": "derived-from", "label": "Guide-level CROP view", "metadata": {"view": guide["view"], "module": module_id, "custody": "partial"}},
-                    ],
-                    "format": format_obj("pebble.v1", "corpus-slice", guide["pack"]),
-                    "tags": ["source-corpus", "crop", "pebble", "partial-custody", "guide"],
+                    "edges": [{"to": f"{prefix}.mdloom-source", "kind": "derived-from", "label": "Full guide MDLOOM publication", "metadata": {"module": module_id, "guide": guide["path"], "custody": "partial"}}],
+                    "format": format_obj("mdport.v1", "document", guide["pack"]),
+                    "tags": ["source-corpus", "proof", "mdport", "full-guide", "partial-custody", "guide"],
                     "metadata": common,
                 },
                 {
-                    "id": f"{prefix}.proof-source",
+                    "id": f"{prefix}.mdloom-source",
                     "node_kind": "fletch",
                     "shafts": [{"kind": "file", "url": guide["source_md"]}],
-                    "edges": [{"to": f"{prefix}.view", "kind": "derived-from", "label": "Literal PROOF source for guide view", "metadata": {"module": module_id, "guide": guide["path"], "custody": "partial"}}],
-                    "format": format_obj("proof.source.literal_markdown.v1", "literal-source", guide["source_md"], "text/markdown"),
+                    "edges": [{"to": f"{prefix}.view", "kind": "derived-from", "label": "Literal MDLOOM source for guide view", "metadata": {"module": module_id, "guide": guide["path"], "custody": "partial"}}],
+                    "format": format_obj("mdloom.source.literal_markdown.v1", "literal-source", guide["source_md"], "text/markdown"),
                     "tags": ["source-corpus", "proof", "source", "partial-custody", "guide"],
                     "metadata": common,
                 },
@@ -514,8 +622,8 @@ been attached.
                     "id": f"{prefix}.tables",
                     "node_kind": "fletch",
                     "shafts": [{"kind": "file", "url": guide["tables"]}],
-                    "edges": [{"to": f"{prefix}.proof-source", "kind": "derived-from", "label": "PROOF markdown table sidecar", "metadata": {"module": module_id, "guide": guide["path"], "custody": "partial"}}],
-                    "format": format_obj("proof.backfill.tables.v1", "table-sidecar", guide["tables"]),
+                    "edges": [{"to": f"{prefix}.mdloom-source", "kind": "derived-from", "label": "MDLOOM markdown table sidecar", "metadata": {"module": module_id, "guide": guide["path"], "custody": "partial"}}],
+                    "format": format_obj("mdloom.backfill.tables.v1", "table-sidecar", guide["tables"]),
                     "tags": ["source-corpus", "proof", "tables", "partial-custody", "guide"],
                     "metadata": common,
                 },
@@ -523,8 +631,8 @@ been attached.
                     "id": f"{prefix}.blocks",
                     "node_kind": "fletch",
                     "shafts": [{"kind": "file", "url": guide["blocks"]}],
-                    "edges": [{"to": f"{prefix}.proof-source", "kind": "derived-from", "label": "PROOF structured block sidecar", "metadata": {"module": module_id, "guide": guide["path"], "custody": "partial"}}],
-                    "format": format_obj("proof.backfill.blocks.v1", "structured-block-sidecar", guide["blocks"]),
+                    "edges": [{"to": f"{prefix}.mdloom-source", "kind": "derived-from", "label": "MDLOOM structured block sidecar", "metadata": {"module": module_id, "guide": guide["path"], "custody": "partial"}}],
+                    "format": format_obj("mdloom.backfill.blocks.v1", "structured-block-sidecar", guide["blocks"]),
                     "tags": ["source-corpus", "proof", "blocks", "partial-custody", "guide"],
                     "metadata": common,
                 },
@@ -534,12 +642,18 @@ been attached.
     write_text(registry_path, json.dumps(registry, indent=2, ensure_ascii=False) + "\n")
 
     if args.validate:
-        run(["cargo", "run", "--manifest-path", args.proof_manifest, "--quiet", "--", "check", *guide_paths])
+        run(["cargo", "run", "--manifest-path", args.mdloom_manifest, "--quiet", "--", "check", *guide_paths])
         run(["cargo", "run", "--manifest-path", args.crop_manifest, "--quiet", "--", "view", "--inspect", "--dir", str(view_store), "--strict"])
         run(["cargo", "run", "--manifest-path", args.fletch_manifest, "--bin", "fletch-cli", "--quiet", "--", "registry", "validate", "--file", str(registry_path)])
         missing = [shaft["url"] for fletch in fletches for shaft in fletch["shafts"] if not Path(shaft["url"]).exists()]
         if missing:
             raise SystemExit(f"registry shaft paths missing: {missing}")
+        for guide in guides:
+            validate_full_guide_mdport(Path(guide["path"]), Path(guide["pack"]))
+        if len(read_mdport(module_pack)["sections"]) != sum(
+            guide["pack_sections"] for guide in guides
+        ):
+            raise SystemExit("module Mdport section count does not match guide packs")
         run(["git", "--no-pager", "diff", "--check"])
 
     print(
@@ -551,6 +665,10 @@ been attached.
                 "roundtrip_failed": report["summary"]["roundtrip_failed"],
                 "tables": report["summary"]["tables_extracted"],
                 "structured_blocks": report["summary"]["structured_blocks_extracted"],
+                "guide_pack_sections": {
+                    guide["path"]: guide["pack_sections"] for guide in guides
+                },
+                "module_pack_sections": module_pack_sections,
                 "fletches": len(fletches),
                 "registry": registry_path.as_posix(),
             },

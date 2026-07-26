@@ -1,0 +1,377 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-dynamical-systems-flows-and-fixed-points",
+  "source": "../../dynamical-systems",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "01-FLOWS-AND-FIXED-POINTS.md#000",
+      "path": [
+        "01-FLOWS-AND-FIXED-POINTS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:01-flows-and-fixed-points, git-history:dynamical-systems:01-flows-and-fixed-points]",
+        "canonical_path": "dynamical-systems/01-FLOWS-AND-FIXED-POINTS.md",
+        "concepts": "[flows, and, fixed, points]",
+        "current_path": "dynamical-systems/01-FLOWS-AND-FIXED-POINTS.md",
+        "id": "maxim:dynamical-systems:flows-and-fixed-points",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flows, and]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flows and Fixed Points",
+        "updated": "null"
+      },
+      "text": "# Flows and Fixed Points"
+    },
+    {
+      "id": "01-FLOWS-AND-FIXED-POINTS.md#001",
+      "path": [
+        "01-FLOWS-AND-FIXED-POINTS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:01-flows-and-fixed-points, git-history:dynamical-systems:01-flows-and-fixed-points]",
+        "canonical_path": "dynamical-systems/01-FLOWS-AND-FIXED-POINTS.md",
+        "concepts": "[flows, and, fixed, points]",
+        "current_path": "dynamical-systems/01-FLOWS-AND-FIXED-POINTS.md",
+        "id": "maxim:dynamical-systems:flows-and-fixed-points",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flows, and]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flows and Fixed Points",
+        "updated": "null"
+      },
+      "text": "Everything starts with a **vector field**: at each point of phase space, an arrow telling the\nstate where to go next. A flow is what you get by following those arrows. Fixed points are where\nthe arrows vanish — the skeleton around which all trajectories organize. This chapter builds the\nobjects; Chapter 02 makes the stability rigorous."
+    },
+    {
+      "id": "01-FLOWS-AND-FIXED-POINTS.md#002",
+      "path": [
+        "01-FLOWS-AND-FIXED-POINTS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:01-flows-and-fixed-points, git-history:dynamical-systems:01-flows-and-fixed-points]",
+        "canonical_path": "dynamical-systems/01-FLOWS-AND-FIXED-POINTS.md",
+        "concepts": "[flows, and, fixed, points]",
+        "current_path": "dynamical-systems/01-FLOWS-AND-FIXED-POINTS.md",
+        "id": "maxim:dynamical-systems:flows-and-fixed-points",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flows, and]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flows and Fixed Points",
+        "updated": "null"
+      },
+      "text": "```\n            A VECTOR FIELD AND ITS FLOW  (the system x' = f(x))\n            ==================================================="
+    },
+    {
+      "id": "01-FLOWS-AND-FIXED-POINTS.md#003",
+      "path": [
+        "01-FLOWS-AND-FIXED-POINTS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:01-flows-and-fixed-points, git-history:dynamical-systems:01-flows-and-fixed-points]",
+        "canonical_path": "dynamical-systems/01-FLOWS-AND-FIXED-POINTS.md",
+        "concepts": "[flows, and, fixed, points]",
+        "current_path": "dynamical-systems/01-FLOWS-AND-FIXED-POINTS.md",
+        "id": "maxim:dynamical-systems:flows-and-fixed-points",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flows, and]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flows and Fixed Points",
+        "updated": "null"
+      },
+      "text": "phase space R^n, with an arrow f(x) attached at every point x:"
+    },
+    {
+      "id": "01-FLOWS-AND-FIXED-POINTS.md#004",
+      "path": [
+        "01-FLOWS-AND-FIXED-POINTS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:01-flows-and-fixed-points, git-history:dynamical-systems:01-flows-and-fixed-points]",
+        "canonical_path": "dynamical-systems/01-FLOWS-AND-FIXED-POINTS.md",
+        "concepts": "[flows, and, fixed, points]",
+        "current_path": "dynamical-systems/01-FLOWS-AND-FIXED-POINTS.md",
+        "id": "maxim:dynamical-systems:flows-and-fixed-points",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flows, and]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flows and Fixed Points",
+        "updated": "null"
+      },
+      "text": "^   \\   \\   |   /   /   ^            Trajectories are curves\n        |    \\   \\  |  /   /    |            tangent to the arrows\n     x2 |     \\   \\ | /   /     |            everywhere.  They thread\n        | <----  o  *  o  ---->              between the arrows and\n        |     /   / | \\   \\     |            CANNOT cross each other\n        |    /   /  |  \\   \\    |            (uniqueness, Ch. 00).\n        v   /   /   |   \\   \\   v\n        +----------------------------->\n                     x1                       * = fixed point  (f = 0)\n                                              o = ordinary point (f != 0)"
+    },
+    {
+      "id": "01-FLOWS-AND-FIXED-POINTS.md#005",
+      "path": [
+        "01-FLOWS-AND-FIXED-POINTS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:01-flows-and-fixed-points, git-history:dynamical-systems:01-flows-and-fixed-points]",
+        "canonical_path": "dynamical-systems/01-FLOWS-AND-FIXED-POINTS.md",
+        "concepts": "[flows, and, fixed, points]",
+        "current_path": "dynamical-systems/01-FLOWS-AND-FIXED-POINTS.md",
+        "id": "maxim:dynamical-systems:flows-and-fixed-points",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flows, and]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flows and Fixed Points",
+        "updated": "null"
+      },
+      "text": "A FIXED POINT x* satisfies   f(x*) = 0   -- the arrow is zero, motion stops.\n   The flow phi_t(x0) slides x0 along the curve through it as t increases.\n```"
+    },
+    {
+      "id": "01-FLOWS-AND-FIXED-POINTS.md#006",
+      "path": [
+        "01-FLOWS-AND-FIXED-POINTS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:01-flows-and-fixed-points, git-history:dynamical-systems:01-flows-and-fixed-points]",
+        "canonical_path": "dynamical-systems/01-FLOWS-AND-FIXED-POINTS.md",
+        "concepts": "[flows, and, fixed, points]",
+        "current_path": "dynamical-systems/01-FLOWS-AND-FIXED-POINTS.md",
+        "id": "maxim:dynamical-systems:flows-and-fixed-points",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flows, and]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flows and Fixed Points",
+        "updated": "null"
+      },
+      "text": "A fixed point is a *constant solution*: if you start exactly on it, you stay forever. The entire\nqualitative theory is: locate the fixed points, decide their stability, and connect them with the\ntrajectories the arrows demand."
+    },
+    {
+      "id": "01-FLOWS-AND-FIXED-POINTS.md#007",
+      "path": [
+        "01-FLOWS-AND-FIXED-POINTS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:01-flows-and-fixed-points, git-history:dynamical-systems:01-flows-and-fixed-points]",
+        "canonical_path": "dynamical-systems/01-FLOWS-AND-FIXED-POINTS.md",
+        "concepts": "[flows, and, fixed, points]",
+        "current_path": "dynamical-systems/01-FLOWS-AND-FIXED-POINTS.md",
+        "id": "maxim:dynamical-systems:flows-and-fixed-points",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flows, and]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flows and Fixed Points",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-FLOWS-AND-FIXED-POINTS.md#008",
+      "path": [
+        "01-FLOWS-AND-FIXED-POINTS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:01-flows-and-fixed-points, git-history:dynamical-systems:01-flows-and-fixed-points]",
+        "canonical_path": "dynamical-systems/01-FLOWS-AND-FIXED-POINTS.md",
+        "concepts": "[flows, and, fixed, points]",
+        "current_path": "dynamical-systems/01-FLOWS-AND-FIXED-POINTS.md",
+        "id": "maxim:dynamical-systems:flows-and-fixed-points",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flows, and]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flows and Fixed Points",
+        "updated": "null"
+      },
+      "text": "## The 1D Case: Phase Lines"
+    },
+    {
+      "id": "01-FLOWS-AND-FIXED-POINTS.md#009",
+      "path": [
+        "01-FLOWS-AND-FIXED-POINTS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:01-flows-and-fixed-points, git-history:dynamical-systems:01-flows-and-fixed-points]",
+        "canonical_path": "dynamical-systems/01-FLOWS-AND-FIXED-POINTS.md",
+        "concepts": "[flows, and, fixed, points]",
+        "current_path": "dynamical-systems/01-FLOWS-AND-FIXED-POINTS.md",
+        "id": "maxim:dynamical-systems:flows-and-fixed-points",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flows, and]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flows and Fixed Points",
+        "updated": "null"
+      },
+      "text": "In one dimension `x' = f(x)`, the phase space is a line and the analysis is complete and exact —\nno eigenvalues needed yet. You read everything off the sign of `f`."
+    },
+    {
+      "id": "01-FLOWS-AND-FIXED-POINTS.md#010",
+      "path": [
+        "01-FLOWS-AND-FIXED-POINTS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:01-flows-and-fixed-points, git-history:dynamical-systems:01-flows-and-fixed-points]",
+        "canonical_path": "dynamical-systems/01-FLOWS-AND-FIXED-POINTS.md",
+        "concepts": "[flows, and, fixed, points]",
+        "current_path": "dynamical-systems/01-FLOWS-AND-FIXED-POINTS.md",
+        "id": "maxim:dynamical-systems:flows-and-fixed-points",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flows, and]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flows and Fixed Points",
+        "updated": "null"
+      },
+      "text": "```\n   x' = f(x)        Draw f(x).  Fixed points = zeros of f.\n                    Where f > 0, x increases (arrow right ->).\n                    Where f < 0, x decreases (arrow left  <-)."
+    },
+    {
+      "id": "01-FLOWS-AND-FIXED-POINTS.md#011",
+      "path": [
+        "01-FLOWS-AND-FIXED-POINTS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:01-flows-and-fixed-points, git-history:dynamical-systems:01-flows-and-fixed-points]",
+        "canonical_path": "dynamical-systems/01-FLOWS-AND-FIXED-POINTS.md",
+        "concepts": "[flows, and, fixed, points]",
+        "current_path": "dynamical-systems/01-FLOWS-AND-FIXED-POINTS.md",
+        "id": "maxim:dynamical-systems:flows-and-fixed-points",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flows, and]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flows and Fixed Points",
+        "updated": "null"
+      },
+      "text": "Example:  x' = x - x^3 = x(1 - x^2)     zeros at x = -1, 0, +1"
+    },
+    {
+      "id": "01-FLOWS-AND-FIXED-POINTS.md#012",
+      "path": [
+        "01-FLOWS-AND-FIXED-POINTS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:01-flows-and-fixed-points, git-history:dynamical-systems:01-flows-and-fixed-points]",
+        "canonical_path": "dynamical-systems/01-FLOWS-AND-FIXED-POINTS.md",
+        "concepts": "[flows, and, fixed, points]",
+        "current_path": "dynamical-systems/01-FLOWS-AND-FIXED-POINTS.md",
+        "id": "maxim:dynamical-systems:flows-and-fixed-points",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[flows, and]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Flows and Fixed Points",
+        "updated": "null"
+      },
+      "text": "f(x)\n    |        ___\n    |      /     \\                         PHASE LINE:\n    |     /       \\\n  --+----*----*----*----------- x        --->  *  <---  *  --->  *  <---\n    |  -1 \\   0   /+1                          -1       0        1\n    |      \\___ /                          stable  unstable  stable\n    |                                       (sink)   (source)  (sink)"
+    }
+  ],
+  "refs": [
+    "01-FLOWS-AND-FIXED-POINTS.md"
+  ]
+}

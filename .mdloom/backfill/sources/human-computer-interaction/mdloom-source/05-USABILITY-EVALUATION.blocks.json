@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "human-computer-interaction\\05-USABILITY-EVALUATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 66,
+      "heading_context": "## The Big Picture: Evaluation Is a Measurement Instrument Pointed at a Design",
+      "confidence": "candidate",
+      "text": "THE EVALUATION LOOP   (this guide owns the right-hand \"evaluate\" half)\n==========================================================================\n   DESIGN (guide 04)                        EVALUATE (this guide)\n   generate candidate  ----------------->   measure & diagnose  ----+\n       designs                                                      |\n         ^                                                          |\n         +------------- iterate: fix, then re-measure <-------------+\n\n   AXIS 1 -- what do you want?         AXIS 2 -- where is the data from?\n   ------------------------------      ---------------------------------\n   FORMATIVE : find & fix problems     ANALYTIC  : experts / models, no users\n   SUMMATIVE : measure vs a target     EMPIRICAL : real users doing real tasks\n==========================================================================\n   Read it as: the (Axis 1 x Axis 2) cell picks the method FAMILY, not more.\n   A \"positive result\" is a data point about a design, not a fact about a user.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 149,
+      "heading_context": "## 1. Two Purposes: Formative vs Summative",
+      "confidence": "candidate",
+      "text": "  FORMATIVE                              SUMMATIVE\n  ----------------------------------     ----------------------------------\n  goal: discover & diagnose problems     goal: quantify a level / compare\n  when: during design, iteratively       when: at a milestone / before ship\n  data: mostly qualitative + severity    data: mostly quantitative + CIs\n  n   : small (discovery-sized, ~5-8)    n   : larger (estimate-sized, 2 sigma)\n  out : ranked problem list -> fixes     out : metrics vs target, decision\n  err : \"did we miss a problem?\"         err : \"how wide is our uncertainty?\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 183,
+      "heading_context": "## 2. Analytic Inspection I — Heuristic Evaluation",
+      "confidence": "candidate",
+      "text": "  HEURISTIC EVALUATION PIPELINE\n  --------------------------------------------------------------\n  each evaluator, ALONE:                 then, TOGETHER:\n    walk the UI  ->  flag violations       merge duplicate flags\n    tag each with a heuristic              rate severity 0-4\n    note where and why                     rank the fix queue\n  --------------------------------------------------------------\n  Independence first (avoid anchoring), aggregation second.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 328,
+      "heading_context": "## 5. Metrics — Effectiveness, Efficiency, Satisfaction",
+      "confidence": "candidate",
+      "text": "### 5.1 Standardized Satisfaction Instruments — and the SUS Trap",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 335,
+      "heading_context": "### 5.1 Standardized Satisfaction Instruments — and the SUS Trap",
+      "confidence": "candidate",
+      "text": "  SUS SCORING (Brooke 1996)  -- ten items, alternating polarity\n  --------------------------------------------------------------\n  odd items  (positive): contribution = (response - 1)\n  even items (negative): contribution = (5 - response)\n  SUS = 2.5 x sum(contributions)        -> range 0..100\n  --------------------------------------------------------------\n  The x2.5 makes it 0-100. That is NOT a percentage and NOT a percent\n  of users satisfied. A SUS of 72 is not \"72% good.\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 389,
+      "heading_context": "## 6. The Sample-Size Ceiling — Discovery Is Not Measurement",
+      "confidence": "candidate",
+      "text": "  P(problem seen at least once) = 1 - (1 - lambda)^n          (Nielsen & Landauer 1993)\n\n  at the widely cited average lambda ~= 0.31:\n     n=1 -> 31%      n=3 -> 67%      n=5 -> 85%      n=8 -> 95%",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 422,
+      "heading_context": "## 6. The Sample-Size Ceiling — Discovery Is Not Measurement",
+      "confidence": "candidate",
+      "text": "  ROUGH 95% CI HALF-WIDTHS ON A COMPLETION RATE (Wilson score, illustrative)\n  n = 5    p-hat 0.80  ->  CI approx [0.38, 0.96]   (+/- ~29 pts) -- unresolved\n  n = 20   p-hat 0.80  ->  CI approx [0.58, 0.92]   (+/- ~17 pts)\n  n = 40   p-hat 0.80  ->  CI approx [0.65, 0.90]   (+/- ~12 pts)\n  n = 100  p-hat 0.80  ->  CI approx [0.71, 0.87]   (+/- ~8 pts)\n  Halving the interval width roughly QUADRUPLES the sample -- the sqrt(n) wall.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 519,
+      "heading_context": "## 8. Qualitative Coding and Triangulation",
+      "confidence": "candidate",
+      "text": "  TRIANGULATION -- converge independent instruments on the same design\n  --------------------------------------------------------------\n   heuristic eval  --\\                     agree  -> high confidence, fix now\n   think-aloud     ---\\                    inspection-only, unseen by a small user\n   benchmark (SUS, ----> merge & compare       sample -> UNRESOLVED: confirm, not refute\n   completion CIs) ---/                    users-fail / metric-flat -> a real problem\n   A/B / analytics --/                         the metric can't see; instrument it\n  --------------------------------------------------------------\n   Divergence is a FINDING, not noise: it says which instrument is blind here.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 547,
+      "heading_context": "## 9. The Benchmark → Iterate Loop",
+      "confidence": "candidate",
+      "text": "  BENCHMARK -> DIAGNOSE -> FIX -> RE-BENCHMARK   (the usability regression loop)\n  --------------------------------------------------------------\n   1. baseline benchmark   : fixed tasks + metrics (completion, time, SUS/SEQ)\n   2. formative diagnosis  : think-aloud + inspection -> ranked problem list\n   3. fix the top severities (guide 04)\n   4. re-run the SAME benchmark : is the run-to-run DIFFERENCE significant?\n   5. guard against regression : keep prior tasks in the suite\n  --------------------------------------------------------------\n   Rule: only compare benchmarks that used the same tasks, metrics, and protocol.\n   A \"win\" is a significant run-to-run DIFFERENCE (CI/test on the change), §6.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

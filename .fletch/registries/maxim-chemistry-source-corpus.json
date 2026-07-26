@@ -1,0 +1,2798 @@
+{
+  "schema_version": "fletch.registry.v1",
+  "generated_by": "MAXIM source-corpus backfill",
+  "registry_id": "maxim-chemistry-source-corpus",
+  "fletches": [
+    {
+      "id": "maxim.chemistry.source-corpus.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-chemistry-source-corpus.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim-chemistry-source-corpus",
+          "kind": "derived-from",
+          "label": "CROP view recipe",
+          "metadata": {
+            "view": ".crop/views/maxim-chemistry-source-corpus.json",
+            "module": "chemistry",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-chemistry-source-corpus.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "distribution": "FLETCH fetch/cache surface for downstream repos",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.overview.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-chemistry-overview.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-chemistry-overview.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.overview.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-chemistry-overview.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.overview.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemistry",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.chemistry.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-chemistry-overview.json",
+            "module": "chemistry",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-chemistry-overview.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.overview.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/00-OVERVIEW.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.overview.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/00-OVERVIEW.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.overview.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/00-OVERVIEW.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.overview.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/00-OVERVIEW.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.overview.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/00-OVERVIEW.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.overview.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/00-OVERVIEW.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.inorganic-chemistry.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-chemistry-inorganic-chemistry.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/01-INORGANIC-CHEMISTRY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-chemistry-inorganic-chemistry.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/01-INORGANIC-CHEMISTRY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.inorganic-chemistry.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-chemistry-inorganic-chemistry.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.inorganic-chemistry.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemistry",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.chemistry.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-chemistry-inorganic-chemistry.json",
+            "module": "chemistry",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-chemistry-inorganic-chemistry.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/01-INORGANIC-CHEMISTRY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.inorganic-chemistry.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/01-INORGANIC-CHEMISTRY.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.inorganic-chemistry.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/01-INORGANIC-CHEMISTRY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/01-INORGANIC-CHEMISTRY.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/01-INORGANIC-CHEMISTRY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.inorganic-chemistry.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/01-INORGANIC-CHEMISTRY.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.inorganic-chemistry.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/01-INORGANIC-CHEMISTRY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/01-INORGANIC-CHEMISTRY.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/01-INORGANIC-CHEMISTRY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.inorganic-chemistry.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/01-INORGANIC-CHEMISTRY.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.inorganic-chemistry.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/01-INORGANIC-CHEMISTRY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/01-INORGANIC-CHEMISTRY.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/01-INORGANIC-CHEMISTRY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.acid-base-solution.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-chemistry-acid-base-solution.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/02-ACID-BASE-SOLUTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-chemistry-acid-base-solution.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/02-ACID-BASE-SOLUTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.acid-base-solution.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-chemistry-acid-base-solution.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.acid-base-solution.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemistry",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.chemistry.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-chemistry-acid-base-solution.json",
+            "module": "chemistry",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-chemistry-acid-base-solution.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/02-ACID-BASE-SOLUTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.acid-base-solution.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/02-ACID-BASE-SOLUTION.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.acid-base-solution.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/02-ACID-BASE-SOLUTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/02-ACID-BASE-SOLUTION.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/02-ACID-BASE-SOLUTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.acid-base-solution.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/02-ACID-BASE-SOLUTION.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.acid-base-solution.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/02-ACID-BASE-SOLUTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/02-ACID-BASE-SOLUTION.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/02-ACID-BASE-SOLUTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.acid-base-solution.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/02-ACID-BASE-SOLUTION.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.acid-base-solution.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/02-ACID-BASE-SOLUTION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/02-ACID-BASE-SOLUTION.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/02-ACID-BASE-SOLUTION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.organic-synthesis.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-chemistry-organic-synthesis.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/03-ORGANIC-SYNTHESIS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-chemistry-organic-synthesis.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/03-ORGANIC-SYNTHESIS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.organic-synthesis.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-chemistry-organic-synthesis.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.organic-synthesis.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemistry",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.chemistry.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-chemistry-organic-synthesis.json",
+            "module": "chemistry",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-chemistry-organic-synthesis.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/03-ORGANIC-SYNTHESIS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.organic-synthesis.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/03-ORGANIC-SYNTHESIS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.organic-synthesis.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/03-ORGANIC-SYNTHESIS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/03-ORGANIC-SYNTHESIS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/03-ORGANIC-SYNTHESIS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.organic-synthesis.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/03-ORGANIC-SYNTHESIS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.organic-synthesis.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/03-ORGANIC-SYNTHESIS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/03-ORGANIC-SYNTHESIS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/03-ORGANIC-SYNTHESIS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.organic-synthesis.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/03-ORGANIC-SYNTHESIS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.organic-synthesis.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/03-ORGANIC-SYNTHESIS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/03-ORGANIC-SYNTHESIS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/03-ORGANIC-SYNTHESIS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.analytical-quantitative.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-chemistry-analytical-quantitative.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/04-ANALYTICAL-QUANTITATIVE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-chemistry-analytical-quantitative.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/04-ANALYTICAL-QUANTITATIVE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.analytical-quantitative.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-chemistry-analytical-quantitative.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.analytical-quantitative.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemistry",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.chemistry.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-chemistry-analytical-quantitative.json",
+            "module": "chemistry",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-chemistry-analytical-quantitative.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/04-ANALYTICAL-QUANTITATIVE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.analytical-quantitative.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/04-ANALYTICAL-QUANTITATIVE.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.analytical-quantitative.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/04-ANALYTICAL-QUANTITATIVE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/04-ANALYTICAL-QUANTITATIVE.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/04-ANALYTICAL-QUANTITATIVE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.analytical-quantitative.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/04-ANALYTICAL-QUANTITATIVE.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.analytical-quantitative.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/04-ANALYTICAL-QUANTITATIVE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/04-ANALYTICAL-QUANTITATIVE.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/04-ANALYTICAL-QUANTITATIVE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.analytical-quantitative.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/04-ANALYTICAL-QUANTITATIVE.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.analytical-quantitative.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/04-ANALYTICAL-QUANTITATIVE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/04-ANALYTICAL-QUANTITATIVE.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/04-ANALYTICAL-QUANTITATIVE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.separation-science.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-chemistry-separation-science.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/05-SEPARATION-SCIENCE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-chemistry-separation-science.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/05-SEPARATION-SCIENCE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.separation-science.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-chemistry-separation-science.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.separation-science.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemistry",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.chemistry.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-chemistry-separation-science.json",
+            "module": "chemistry",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-chemistry-separation-science.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/05-SEPARATION-SCIENCE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.separation-science.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/05-SEPARATION-SCIENCE.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.separation-science.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/05-SEPARATION-SCIENCE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/05-SEPARATION-SCIENCE.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/05-SEPARATION-SCIENCE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.separation-science.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/05-SEPARATION-SCIENCE.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.separation-science.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/05-SEPARATION-SCIENCE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/05-SEPARATION-SCIENCE.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/05-SEPARATION-SCIENCE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.separation-science.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/05-SEPARATION-SCIENCE.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.separation-science.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/05-SEPARATION-SCIENCE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/05-SEPARATION-SCIENCE.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/05-SEPARATION-SCIENCE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.nmr-spectroscopy.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-chemistry-nmr-spectroscopy.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/06-NMR-SPECTROSCOPY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-chemistry-nmr-spectroscopy.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/06-NMR-SPECTROSCOPY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.nmr-spectroscopy.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-chemistry-nmr-spectroscopy.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.nmr-spectroscopy.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemistry",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.chemistry.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-chemistry-nmr-spectroscopy.json",
+            "module": "chemistry",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-chemistry-nmr-spectroscopy.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/06-NMR-SPECTROSCOPY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.nmr-spectroscopy.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/06-NMR-SPECTROSCOPY.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.nmr-spectroscopy.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/06-NMR-SPECTROSCOPY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/06-NMR-SPECTROSCOPY.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/06-NMR-SPECTROSCOPY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.nmr-spectroscopy.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/06-NMR-SPECTROSCOPY.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.nmr-spectroscopy.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/06-NMR-SPECTROSCOPY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/06-NMR-SPECTROSCOPY.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/06-NMR-SPECTROSCOPY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.nmr-spectroscopy.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/06-NMR-SPECTROSCOPY.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.nmr-spectroscopy.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/06-NMR-SPECTROSCOPY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/06-NMR-SPECTROSCOPY.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/06-NMR-SPECTROSCOPY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.optical-spectroscopy-and-ms.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-chemistry-optical-spectroscopy-and-ms.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/07-OPTICAL-SPECTROSCOPY-AND-MS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-chemistry-optical-spectroscopy-and-ms.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/07-OPTICAL-SPECTROSCOPY-AND-MS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.optical-spectroscopy-and-ms.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-chemistry-optical-spectroscopy-and-ms.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.optical-spectroscopy-and-ms.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemistry",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.chemistry.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-chemistry-optical-spectroscopy-and-ms.json",
+            "module": "chemistry",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-chemistry-optical-spectroscopy-and-ms.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/07-OPTICAL-SPECTROSCOPY-AND-MS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.optical-spectroscopy-and-ms.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/07-OPTICAL-SPECTROSCOPY-AND-MS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.optical-spectroscopy-and-ms.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/07-OPTICAL-SPECTROSCOPY-AND-MS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/07-OPTICAL-SPECTROSCOPY-AND-MS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/07-OPTICAL-SPECTROSCOPY-AND-MS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.optical-spectroscopy-and-ms.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/07-OPTICAL-SPECTROSCOPY-AND-MS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.optical-spectroscopy-and-ms.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/07-OPTICAL-SPECTROSCOPY-AND-MS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/07-OPTICAL-SPECTROSCOPY-AND-MS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/07-OPTICAL-SPECTROSCOPY-AND-MS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.optical-spectroscopy-and-ms.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/07-OPTICAL-SPECTROSCOPY-AND-MS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.optical-spectroscopy-and-ms.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/07-OPTICAL-SPECTROSCOPY-AND-MS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/07-OPTICAL-SPECTROSCOPY-AND-MS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/07-OPTICAL-SPECTROSCOPY-AND-MS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.crystallography.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-chemistry-crystallography.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/08-CRYSTALLOGRAPHY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-chemistry-crystallography.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.crystallography.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-chemistry-crystallography.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.crystallography.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemistry",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.chemistry.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-chemistry-crystallography.json",
+            "module": "chemistry",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-chemistry-crystallography.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.crystallography.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/08-CRYSTALLOGRAPHY.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.crystallography.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/08-CRYSTALLOGRAPHY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/08-CRYSTALLOGRAPHY.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.crystallography.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/08-CRYSTALLOGRAPHY.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.crystallography.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/08-CRYSTALLOGRAPHY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/08-CRYSTALLOGRAPHY.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.crystallography.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/08-CRYSTALLOGRAPHY.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.crystallography.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/08-CRYSTALLOGRAPHY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/08-CRYSTALLOGRAPHY.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/08-CRYSTALLOGRAPHY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.physical-chemistry-depth.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-chemistry-physical-chemistry-depth.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/09-PHYSICAL-CHEMISTRY-DEPTH.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-chemistry-physical-chemistry-depth.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/09-PHYSICAL-CHEMISTRY-DEPTH.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.physical-chemistry-depth.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-chemistry-physical-chemistry-depth.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.physical-chemistry-depth.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemistry",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.chemistry.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-chemistry-physical-chemistry-depth.json",
+            "module": "chemistry",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-chemistry-physical-chemistry-depth.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/09-PHYSICAL-CHEMISTRY-DEPTH.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.physical-chemistry-depth.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/09-PHYSICAL-CHEMISTRY-DEPTH.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.physical-chemistry-depth.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/09-PHYSICAL-CHEMISTRY-DEPTH.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/09-PHYSICAL-CHEMISTRY-DEPTH.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/09-PHYSICAL-CHEMISTRY-DEPTH.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.physical-chemistry-depth.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/09-PHYSICAL-CHEMISTRY-DEPTH.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.physical-chemistry-depth.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/09-PHYSICAL-CHEMISTRY-DEPTH.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/09-PHYSICAL-CHEMISTRY-DEPTH.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/09-PHYSICAL-CHEMISTRY-DEPTH.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.physical-chemistry-depth.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/09-PHYSICAL-CHEMISTRY-DEPTH.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.physical-chemistry-depth.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/09-PHYSICAL-CHEMISTRY-DEPTH.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/09-PHYSICAL-CHEMISTRY-DEPTH.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/09-PHYSICAL-CHEMISTRY-DEPTH.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.computational-chemistry.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-chemistry-computational-chemistry.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/10-COMPUTATIONAL-CHEMISTRY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-chemistry-computational-chemistry.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/10-COMPUTATIONAL-CHEMISTRY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.computational-chemistry.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-chemistry-computational-chemistry.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.computational-chemistry.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemistry",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.chemistry.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-chemistry-computational-chemistry.json",
+            "module": "chemistry",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-chemistry-computational-chemistry.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/10-COMPUTATIONAL-CHEMISTRY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.computational-chemistry.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/10-COMPUTATIONAL-CHEMISTRY.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.computational-chemistry.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/10-COMPUTATIONAL-CHEMISTRY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/10-COMPUTATIONAL-CHEMISTRY.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/10-COMPUTATIONAL-CHEMISTRY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.computational-chemistry.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/10-COMPUTATIONAL-CHEMISTRY.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.computational-chemistry.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/10-COMPUTATIONAL-CHEMISTRY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/10-COMPUTATIONAL-CHEMISTRY.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/10-COMPUTATIONAL-CHEMISTRY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.computational-chemistry.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/10-COMPUTATIONAL-CHEMISTRY.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.computational-chemistry.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/10-COMPUTATIONAL-CHEMISTRY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/10-COMPUTATIONAL-CHEMISTRY.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/10-COMPUTATIONAL-CHEMISTRY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.measurement-and-safety.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-chemistry-measurement-and-safety.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/11-MEASUREMENT-AND-SAFETY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-chemistry-measurement-and-safety.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/11-MEASUREMENT-AND-SAFETY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.measurement-and-safety.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-chemistry-measurement-and-safety.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.measurement-and-safety.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "chemistry",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.chemistry.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-chemistry-measurement-and-safety.json",
+            "module": "chemistry",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-chemistry-measurement-and-safety.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/11-MEASUREMENT-AND-SAFETY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.measurement-and-safety.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/11-MEASUREMENT-AND-SAFETY.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.measurement-and-safety.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/11-MEASUREMENT-AND-SAFETY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/11-MEASUREMENT-AND-SAFETY.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/11-MEASUREMENT-AND-SAFETY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.measurement-and-safety.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/11-MEASUREMENT-AND-SAFETY.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.measurement-and-safety.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/11-MEASUREMENT-AND-SAFETY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/11-MEASUREMENT-AND-SAFETY.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/11-MEASUREMENT-AND-SAFETY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.chemistry.measurement-and-safety.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/chemistry/mdloom-source/11-MEASUREMENT-AND-SAFETY.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.chemistry.measurement-and-safety.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "chemistry",
+            "guide": "chemistry/11-MEASUREMENT-AND-SAFETY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/chemistry/mdloom-source/11-MEASUREMENT-AND-SAFETY.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "chemistry",
+        "guide": "chemistry/11-MEASUREMENT-AND-SAFETY.md",
+        "publication_state": "partial-source-custody"
+      }
+    }
+  ]
+}

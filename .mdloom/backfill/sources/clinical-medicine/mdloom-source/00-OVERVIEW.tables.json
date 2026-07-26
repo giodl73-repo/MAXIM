@@ -1,0 +1,350 @@
+{
+  "schema_version": "1",
+  "source_markdown": "clinical-medicine\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 131,
+      "heading_context": "## The Competency Spine: What the Discipline Officially Comprises",
+      "headers": [
+        "EPA",
+        "Activity (abbreviated)",
+        "Owned/developed by"
+      ],
+      "rows": [
+        [
+          "1",
+          "Gather a history and perform a physical exam",
+          "01"
+        ],
+        [
+          "2",
+          "Prioritize a differential diagnosis",
+          "02"
+        ],
+        [
+          "3",
+          "Recommend and interpret common diagnostic/screening tests",
+          "03, 09"
+        ],
+        [
+          "4",
+          "Enter and discuss orders and prescriptions",
+          "06 (reasoning only; **no dosing**)"
+        ],
+        [
+          "5",
+          "Document a clinical encounter",
+          "01, 07 (problem list as shared state)"
+        ],
+        [
+          "6",
+          "Provide an oral presentation of a clinical encounter",
+          "01, 07"
+        ],
+        [
+          "7",
+          "Form clinical questions and retrieve evidence",
+          "04"
+        ],
+        [
+          "8",
+          "Give or receive a patient handover",
+          "07"
+        ],
+        [
+          "9",
+          "Collaborate as an interprofessional team member",
+          "07, 08, 11"
+        ],
+        [
+          "10",
+          "Recognize a patient needing urgent/emergent care and initiate",
+          "05 (**conceptual prioritization only**)"
+        ],
+        [
+          "11",
+          "Obtain informed consent for tests/procedures",
+          "10"
+        ],
+        [
+          "12",
+          "Perform general procedures of a physician",
+          "**out of scope** (would invite how-to; see safety contract)"
+        ],
+        [
+          "13",
+          "Identify system failures and contribute to a safety culture",
+          "11"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 161,
+      "heading_context": "## What Each Guide Owns (and Where NOT to Look Here)",
+      "headers": [
+        "#",
+        "Guide",
+        "Uniquely owns (peer depth)",
+        "Explicitly defers to"
+      ],
+      "rows": [
+        [
+          "01",
+          "Clinical Encounter",
+          "H&P as information architecture; problem representation, semantic qualifiers, illness scripts",
+          "exam technique/how-to → clinical training; anatomy/physiology → `human-biology/`"
+        ],
+        [
+          "02",
+          "Differential Diagnosis",
+          "dual-process; diagnostic schemas; likely vs must-not-miss; bias + debiasing; NASEM framing",
+          "disease catalogs/mechanisms → `disease/`"
+        ],
+        [
+          "03",
+          "Diagnostic Test Interpretation",
+          "decision theory: 2×2 belief engine, LR/odds Bayes, thresholds, VOI",
+          "the test **catalog**, ranges, imaging physics → `medicine/10`"
+        ],
+        [
+          "04",
+          "Evidence-Based Medicine",
+          "PICO; hierarchy; GRADE; ARR/RRR/NNT; external validity; surrogates",
+          "study-design mechanics, meta-analysis stats → `public-health/`, `statistics-applied/`"
+        ],
+        [
+          "05",
+          "Acute and Chronic Care",
+          "two care logics: acute prioritization (concept) vs chronic longitudinal (trajectories, CCM)",
+          "emergency/first-aid technique → out of scope; drugs → `pharmacology/`"
+        ],
+        [
+          "06",
+          "Multimorbidity & Geriatrics",
+          "competing risks; guideline collision; polypharmacy/cascades/deprescribing; 5Ms; time-to-benefit",
+          "drug classes, PK/PD → `pharmacology/`; **no dosing**"
+        ],
+        [
+          "07",
+          "Care Transitions",
+          "handoffs as information transfer (I-PASS, SBAR); med reconciliation; problem list as shared state",
+          "— (module-unique)"
+        ],
+        [
+          "08",
+          "Specialty Interfaces",
+          "specialty map as service/interface catalog; referral/comanagement ownership; closed loops",
+          "the diseases themselves → `disease/`; financing/workforce → `public-health/08`"
+        ],
+        [
+          "09",
+          "Prevention & Screening",
+          "individual-level SDM; overdiagnosis; lead/length-time bias; three-talk",
+          "screening **programs**/policy, population prevention → `public-health/`"
+        ],
+        [
+          "10",
+          "Ethics, Consent, Capacity",
+          "four principles; consent; Appelbaum capacity; surrogates; confidentiality; justice",
+          "normative ethical theory → `ethics/`"
+        ],
+        [
+          "11",
+          "Safety, Quality & Workflow",
+          "Swiss-cheese, RCA, just culture, HRO; Donabedian SPO; PDSA; diagnostic safety; EHR loops",
+          "device engineering → `biomedical-engineering/`"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 186,
+      "heading_context": "## Module Boundary Contract (Non-Duplication)",
+      "headers": [
+        "Defers to",
+        "For"
+      ],
+      "rows": [
+        [
+          "`medicine/10-DIAGNOSTICS-IMAGING`",
+          "The test **catalog**, reference ranges, analyte time-courses, imaging physics. Its `§11` diagnostic-reasoning section overlaps guide 03; a **forward** pointer runs 03 → `medicine/10`, and a **minimal reverse** pointer runs `medicine/10 §11` → 03. Neither module re-derives the other's depth."
+        ],
+        [
+          "`disease/`",
+          "Disease mechanisms, catalogs, natural history, epidemiology basics (R₀)"
+        ],
+        [
+          "`human-biology/`",
+          "Organ-system anatomy and physiology, homeostasis"
+        ],
+        [
+          "`medicine/`, `pharmacology/`",
+          "Drug classes, receptor theory, ADME/PK/PD, interactions, pharmacogenomics (**no dosing, ever**)"
+        ],
+        [
+          "`public-health/`",
+          "Population epidemiology methods, surveillance, screening **programs**, health-system typology/financing, DALYs/QALYs"
+        ],
+        [
+          "`psychology/`, `nutrition/`, `immunology/`",
+          "DSM-5/psychotherapy, dietary science, immune mechanisms"
+        ],
+        [
+          "`pathology/`",
+          "Tissue/cell mechanism behind a result; histopathology; lab-medicine result generation"
+        ],
+        [
+          "`ethics/`",
+          "Normative ethical theory (deontology/consequentialism/virtue)"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 242,
+      "heading_context": "## Bias, Geography, and Resource Caveats (Read Before Any Guide)",
+      "headers": [
+        "Caveat",
+        "What to hold"
+      ],
+      "rows": [
+        [
+          "**Anglo-American framing**",
+          "ACGME/AAMC/USPSTF/Beers (US), NICE/GRADE (UK/intl) dominate. Screening ages, thresholds, and drug lists differ by country and body — attribute and date; never universalize one nation's cutoff."
+        ],
+        [
+          "**Evidence-base skew**",
+          "Trials skew to high-income, adult, historically male/white populations (the \"70-kg male\" default). Clinical decision rules and effect sizes may not transport; external validity (guide 04) is foregrounded, not a footnote."
+        ],
+        [
+          "**Resourced-system assumption**",
+          "Care-architecture guides (05, 07, 08, 11) assume EHRs, labs, imaging, and specialist access. Low-resource settings run materially different topologies (guide 08 §7/§10) — flagged, not universalized."
+        ],
+        [
+          "**Autonomy-weighted ethics**",
+          "The four-principles frame is Western-liberal and autonomy-forward; many cultures weight family/community differently (guide 10) — noted, not treated as the only frame."
+        ],
+        [
+          "**Ancestry and drug response**",
+          "Metabolism/response varies by ancestry (pharmacogenomics); named and deferred to `pharmacology/`, never turned into dosing."
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 277,
+      "heading_context": "## Bridge: Software Mental Models → Clinical Medicine",
+      "headers": [
+        "Software / systems concept",
+        "Clinical-medicine analog"
+      ],
+      "rows": [
+        [
+          "Prior + Bayesian filter",
+          "Pretest probability updated by a test's likelihood ratio (03)"
+        ],
+        [
+          "Ranked hypothesis set",
+          "Differential diagnosis, ordered by likelihood and by cost-of-miss (02)"
+        ],
+        [
+          "Decision boundary with asymmetric costs",
+          "Treatment threshold p* = H/(H+B) (03)"
+        ],
+        [
+          "Policy layer / feature flag with rollout evidence",
+          "Evidence appraisal + GRADE before an action (04)"
+        ],
+        [
+          "Long-running stateful orchestration",
+          "Chronic care over a trajectory; the problem list as durable state (05, 07)"
+        ],
+        [
+          "Technical debt / accreting config",
+          "Polypharmacy and prescribing cascades; deprescribing as refactor (06)"
+        ],
+        [
+          "State transfer across a process boundary",
+          "Handoff (I-PASS/SBAR); a dropped field is a harm (07)"
+        ],
+        [
+          "Microservice/service catalog + RPC",
+          "Specialties as bounded services; a referral is an RPC with a contract (08)"
+        ],
+        [
+          "Precision collapse on a rare-event stream",
+          "Screening paradox: great test, low prevalence, mostly false positives (03, 09)"
+        ],
+        [
+          "Swiss-cheese defense-in-depth; blameless postmortem",
+          "Reason's latent/active failures; RCA + just culture (11)"
+        ],
+        [
+          "Observability: metrics vs traces vs logs",
+          "Donabedian structure/process/outcome measures (11)"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 322,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I need to understand…",
+        "Go to"
+      ],
+      "rows": [
+        [
+          "How a clinician structures an encounter into a problem representation",
+          "`01`"
+        ],
+        [
+          "How hypotheses are generated, ranked, and de-biased",
+          "`02`"
+        ],
+        [
+          "How a test result updates belief and whether it should be ordered at all",
+          "`03`"
+        ],
+        [
+          "Whether an action is supported by evidence, and for which population",
+          "`04`"
+        ],
+        [
+          "The difference between acute prioritization and chronic longitudinal care",
+          "`05`"
+        ],
+        [
+          "How competing guidelines, polypharmacy, and deprescribing are reasoned",
+          "`06`"
+        ],
+        [
+          "How care is handed off without losing state",
+          "`07`"
+        ],
+        [
+          "How specialties interface and who owns a referred problem",
+          "`08`"
+        ],
+        [
+          "How screening decisions are reasoned, with their biases and harms",
+          "`09`"
+        ],
+        [
+          "How consent, capacity, and justice are applied at the bedside",
+          "`10`"
+        ],
+        [
+          "How the system is kept safe and improved (Swiss-cheese, SPO, PDSA)",
+          "`11`"
+        ],
+        [
+          "The competency frameworks the module maps onto",
+          "this guide (ACGME-6 / AAMC EPAs)"
+        ]
+      ]
+    }
+  ]
+}

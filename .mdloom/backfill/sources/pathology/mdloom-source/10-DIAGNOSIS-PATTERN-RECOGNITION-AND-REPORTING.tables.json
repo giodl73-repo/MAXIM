@@ -1,0 +1,264 @@
+{
+  "schema_version": "1",
+  "source_markdown": "pathology\\10-DIAGNOSIS-PATTERN-RECOGNITION-AND-REPORTING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 164,
+      "heading_context": "## 1. Morphology as a Language: Pattern Before Diagnosis",
+      "headers": [
+        "Parse level",
+        "Question it answers",
+        "Failure if over-weighted"
+      ],
+      "rows": [
+        [
+          "Architecture",
+          "What kind of process / is structure effaced?",
+          "Missing high-grade cytology in a bland architecture"
+        ],
+        [
+          "Cytology",
+          "How atypical is the cell?",
+          "Calling reactive atypia neoplastic"
+        ],
+        [
+          "Context",
+          "What frame changes the meaning?",
+          "Ignoring site/clinical data that flips the differential"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 287,
+      "heading_context": "## 3. The Diagnostic Parse as a Multidimensional Matrix",
+      "headers": [
+        "Parse dimension",
+        "The reusable question it poses",
+        "Where the entity list / system lives"
+      ],
+      "rows": [
+        [
+          "Adequacy",
+          "Is there representative material to parse at all?",
+          "method here (gates the parse)"
+        ],
+        [
+          "Compartment",
+          "Which tissue layer or space holds the process?",
+          "`human-biology/` (normal), `disease/` (entities)"
+        ],
+        [
+          "Architecture",
+          "How is tissue organized; is structure effaced?",
+          "`pathology/05` (mechanism), `disease/`"
+        ],
+        [
+          "Cytology",
+          "Reactive atypia or neoplastic atypia?",
+          "`pathology/01`,`05` (mechanism), `disease/`"
+        ],
+        [
+          "Stromal/background",
+          "What does the company it keeps imply?",
+          "`pathology/02` (mechanism), `disease/`"
+        ],
+        [
+          "Hematolymphoid",
+          "Lymphoid/myeloid — does the method switch?",
+          "`immunology/` (biology), `disease/` (entities)"
+        ],
+        [
+          "Sampling/discordance",
+          "Does it fit context; do blocks/priors agree?",
+          "method here; `09` (technique)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 364,
+      "heading_context": "## 4. Ancillary Tests: Analytical Validity, Then Diagnostic Evidence",
+      "headers": [
+        "Ancillary modality",
+        "What it adds",
+        "Characteristic *analytical* (Gate-1) failure"
+      ],
+      "rows": [
+        [
+          "Special (histochemical) stains",
+          "Highlights substances/organisms/structures",
+          "Low specificity; over-reading faint positivity"
+        ],
+        [
+          "Immunohistochemistry (IHC)",
+          "Lineage/antigen expression, in situ",
+          "Cross-reactivity, antigen loss, control failure"
+        ],
+        [
+          "Flow cytometry",
+          "Quantitative immunophenotype of cell suspensions",
+          "Needs viable cells; misses tissue architecture"
+        ],
+        [
+          "Cytogenetics / FISH",
+          "Structural/numeric chromosomal changes",
+          "Targeted; misses what it isn't probing"
+        ],
+        [
+          "Molecular (PCR/NGS)",
+          "Specific alterations, clonality, load",
+          "Result-generation caveats live in `08`"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 498,
+      "heading_context": "## 6. Classification: Grading, Staging, and Margins (Principles)",
+      "headers": [
+        "Axis",
+        "Question",
+        "Nature",
+        "Reproducibility",
+        "Catalog owner"
+      ],
+      "rows": [
+        [
+          "Grade",
+          "How aggressive does it look?",
+          "Estimated from morphology",
+          "Lower (interobserver variation)",
+          "`disease/`"
+        ],
+        [
+          "Stage elements",
+          "How far has it spread?",
+          "Measured `pT`/`pN`/`pM` (report); the overall stage **group** is integrated downstream",
+          "Higher",
+          "`disease/`"
+        ],
+        [
+          "Margin",
+          "Tumor present/absent + clearance distance at the examined inked margins?",
+          "Sampled planes of the inked surface (evidence about, not proof of, complete excision)",
+          "Depends on grossing/inking (`09`)",
+          "method here"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 858,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation / signal",
+        "The concept is…",
+        "Where it lives"
+      ],
+      "rows": [
+        [
+          "\"The pathologist recognized the disease\"",
+          "Diagnosis is a staged **inference pipeline**, not a lookup",
+          "§Big Picture"
+        ],
+        [
+          "A pattern named before an entity",
+          "**Pattern class → differential family**",
+          "§1–3"
+        ],
+        [
+          "One feature treated as diagnostic",
+          "Features are **weak classifiers**; the pattern is the ensemble",
+          "§1"
+        ],
+        [
+          "\"Most likely\" vs \"must not miss\"",
+          "Two-axis **differential ranking**",
+          "§2"
+        ],
+        [
+          "A multidimensional parse (adequacy…discordance)",
+          "The **parse matrix** (specimen sets active dimensions)",
+          "§3"
+        ],
+        [
+          "A small IHC panel chosen deliberately",
+          "Pattern **gates** the panel (value of information)",
+          "§3–4"
+        ],
+        [
+          "A \"positive\" or \"negative\" stain",
+          "An ancillary **test**: analytical validity (controls) then context-dependent evidence",
+          "§4"
+        ],
+        [
+          "\"Consistent with\" vs \"suspicious for\"",
+          "**Positive assertion strength** on a *local* lexicon (no universal ladder)",
+          "§5"
+        ],
+        [
+          "A confident call on a tiny sample",
+          "**Material adequacy** dimension bounds the assertion",
+          "§5"
+        ],
+        [
+          "\"Descriptive diagnosis\" / \"deferred\"",
+          "Named legitimate **uncertainty outputs**",
+          "§5"
+        ],
+        [
+          "Low grade but advanced stage",
+          "**Grade ⟂ stage ⟂ margin** (orthogonal axes)",
+          "§6"
+        ],
+        [
+          "\"Margin involved / clear (< N mm)\"",
+          "**Margin** = tumor presence/absence/distance at examined inked margins (not proof of complete excision; significance context-dependent)",
+          "§6, `09`"
+        ],
+        [
+          "`pT`/`pN` reported but no stage group",
+          "Report gives **pathologic elements**; stage **group** integrated downstream",
+          "§6"
+        ],
+        [
+          "Structured name:value report block",
+          "**Synoptic** report = schema/typed payload (protocol-governed)",
+          "§7"
+        ],
+        [
+          "Actionable element only in the prose",
+          "Interface defect (belongs on the **diagnosis line**)",
+          "§7"
+        ],
+        [
+          "A phoned diagnosis with read-back",
+          "**Critical diagnosis** verified-delivery loop",
+          "§8"
+        ],
+        [
+          "A post-sign-out result appears",
+          "**Addendum** (adds) vs **amendment** (changes)",
+          "§9"
+        ],
+        [
+          "No IHC/molecular available",
+          "Resource-tier variation → certainty *wording* absorbs it",
+          "§11"
+        ],
+        [
+          "What the diagnosis *means* / what to do",
+          "Not here — belief update + action",
+          "`clinical-medicine/03`"
+        ],
+        [
+          "The entity's criteria / natural history",
+          "Not here — the catalog",
+          "`disease/`"
+        ]
+      ]
+    }
+  ]
+}

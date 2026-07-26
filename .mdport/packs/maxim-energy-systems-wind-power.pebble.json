@@ -1,0 +1,2617 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-energy-systems-wind-power",
+  "source": "../../energy-systems",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "02-WIND-POWER.md#000",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "# Wind Power"
+    },
+    {
+      "id": "02-WIND-POWER.md#001",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "02-WIND-POWER.md#002",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "Wind is often among the cheapest new electricity sources at strong onshore sites,\nand offshore wind is one major strategy for decarbonizing high-latitude grids\n(UK, northern Europe, US Northeast) where solar resources are weak. Understanding\nthe Betz limit, the capacity factor economics, and the wake/siting problem is the\ncore. The generator and grid integration layers sit on top."
+    },
+    {
+      "id": "02-WIND-POWER.md#003",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "```\nWIND ENERGY STACK"
+    },
+    {
+      "id": "02-WIND-POWER.md#004",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "WIND RESOURCE (Weibull distribution of wind speeds)\n        │\n        │  Cut-in wind speed (~3-4 m/s): turbine starts generating\n        │  Rated wind speed (~11-13 m/s): full rated power\n        │  Cut-out wind speed (~25 m/s): turbine shuts down (storm protection)\n        v\n  +---------------------+\n  |  ROTOR SYSTEM       |\n  |  Blades (3-blade)   |\n  |  Hub                |\n  +---------------------+\n  Blades capture kinetic energy from wind\n  Lift-based aerodynamics; pitch control adjusts blade angle\n        │  Shaft rotation (low-speed, ~10-20 RPM)\n        v\n  +---------------------+\n  |  DRIVETRAIN         |\n  |  Gearbox or         |\n  |  Direct-drive       |\n  +---------------------+\n  Gearbox steps up to ~1500 RPM, OR direct-drive (no gearbox, large PMSG)\n        │  High-speed shaft (gearbox) or direct connection\n        v\n  +---------------------+\n  |  GENERATOR          |\n  |  + Power Electronics|\n  +---------------------+\n  DFIG (doubly-fed induction) or PMSG (permanent magnet)\n  Full-scale converter (PMSG) or partial-scale (DFIG)\n        │  Variable-frequency AC → grid-frequency AC\n        v\n  +---------------------+\n  |  TRANSFORMER +      |\n  |  TOWER SWITCHGEAR   |\n  +---------------------+\n  Step up to collection voltage (33 kV onshore, 66 kV offshore increasingly)\n        │\n        v\n  GRID (via collection cable or overhead line → substation → transmission)\n```"
+    },
+    {
+      "id": "02-WIND-POWER.md#005",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-WIND-POWER.md#006",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "## Betz Limit — The Physics Ceiling"
+    },
+    {
+      "id": "02-WIND-POWER.md#007",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "This is a fundamental aerodynamic result that no turbine can exceed.\nThe derivation is actuator disk theory — a classic fluid mechanics result."
+    },
+    {
+      "id": "02-WIND-POWER.md#008",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "```\n  ACTUATOR DISK MODEL"
+    },
+    {
+      "id": "02-WIND-POWER.md#009",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "Upstream:              Disk:              Downstream:\n  velocity = v₁         velocity = v_d     velocity = v₂\n  pressure = p₁         acts on area A     pressure = p₁ (ambient)\n                          │\n                          │  Force extracted = A × (p+ - p-)\n                          │  (pressure drop across disk)"
+    },
+    {
+      "id": "02-WIND-POWER.md#010",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "Key results from momentum theory:"
+    },
+    {
+      "id": "02-WIND-POWER.md#011",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "1. Velocity at disk: v_d = (v₁ + v₂) / 2\n     (average of upstream and downstream)"
+    },
+    {
+      "id": "02-WIND-POWER.md#012",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "2. Axial induction factor: a = 1 - v_d/v₁\n     Range: a = 0 (no extraction) to a = 0.5 (full extraction)"
+    },
+    {
+      "id": "02-WIND-POWER.md#013",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "3. Power extracted:\n     P = ½ ρ A v₁³ × 4a(1-a)²"
+    },
+    {
+      "id": "02-WIND-POWER.md#014",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "4. Power coefficient:\n     Cp = P / P_available = 4a(1-a)²"
+    },
+    {
+      "id": "02-WIND-POWER.md#015",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "5. Maximum Cp: dCp/da = 0 → a = 1/3 → v₂ = v₁/3\n     Cp_max = 4 × (1/3) × (2/3)² = 16/27 ≈ 0.593"
+    },
+    {
+      "id": "02-WIND-POWER.md#016",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "THE BETZ LIMIT: No turbine rotor can extract more than 59.3%\n  of the kinetic energy in the wind passing through it.\n  This is not a technology limit — it's fundamental physics."
+    },
+    {
+      "id": "02-WIND-POWER.md#017",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "Real turbines:\n  Modern large turbines: Cp = 0.45-0.50 (at optimal wind speed)\n  Cp vs Betz: ~80-85% of theoretical maximum\n  (remaining losses: tip vortices, drag, finite blade number)\n```"
+    },
+    {
+      "id": "02-WIND-POWER.md#018",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "### The Power Equation"
+    },
+    {
+      "id": "02-WIND-POWER.md#019",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "```\n  P = ½ × ρ × A × v³ × Cp"
+    },
+    {
+      "id": "02-WIND-POWER.md#020",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "where:\n    ρ = air density (1.225 kg/m³ at sea level, 15°C)\n    A = rotor swept area = π × R² (R = rotor radius in meters)\n    v = wind speed (m/s)\n    Cp = power coefficient (0.45-0.50 for modern turbines)"
+    },
+    {
+      "id": "02-WIND-POWER.md#021",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "CRITICAL INSIGHT: Power scales with v³ (wind speed cubed)\n    Double the wind speed → 8× the power\n    10 m/s → 20 m/s means 8× more power potential\n    This is why siting matters enormously.\n    It's also why hub height matters (wind shear increases speed with altitude)."
+    },
+    {
+      "id": "02-WIND-POWER.md#022",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "EXAMPLE: GE 3-MW turbine, rotor diameter 130 m:\n    A = π × (65)² = 13,273 m²\n    At v = 12 m/s, Cp = 0.48:\n    P = ½ × 1.225 × 13,273 × 12³ × 0.48 = ~6.7 MW (aerodynamic power at 12 m/s; pitch control caps electrical output at the 3 MW rated value)\n```"
+    },
+    {
+      "id": "02-WIND-POWER.md#023",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-WIND-POWER.md#024",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "## Turbine Architecture"
+    },
+    {
+      "id": "02-WIND-POWER.md#025",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "### Rotor and Blades"
+    },
+    {
+      "id": "02-WIND-POWER.md#026",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "```\n  BLADE CROSS-SECTION (airfoil):"
+    },
+    {
+      "id": "02-WIND-POWER.md#027",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "┌──────────────────────┐\n                   /  LIFT (upward/forward)  \\\n  Wind →          /____________________________\\\n                  \\                            /  ← Trailing edge\n                   \\__________________________/\n                  Leading edge"
+    },
+    {
+      "id": "02-WIND-POWER.md#028",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "Blades use aerodynamic lift (like aircraft wings) NOT drag.\n  Lift-drag ratio ~100:1 for modern blades."
+    },
+    {
+      "id": "02-WIND-POWER.md#029",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "BLADE PARAMETERS:\n  • Chord length: varies from root (wide) to tip (narrow)\n  • Twist: blade twisted along span (~15° twist root-to-tip)\n    → keeps optimal angle of attack at each section despite\n      different circumferential velocity (tip moves faster than root)\n  • Material: fiberglass-epoxy (dominant), carbon fiber for large blades\n  • Length: 50-80 m onshore, 80-115 m+ offshore\n  • Mass: 15-25 tonnes each (for 5-7 MW class)\n  • Certification life: 20 years (fatigue is the design driver)"
+    },
+    {
+      "id": "02-WIND-POWER.md#030",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "PITCH CONTROL:\n  • Blade angle adjusts continuously with wind speed\n  • Below rated speed: maximize Cp (track optimal tip-speed ratio)\n  • Above rated speed: pitch to reduce Cp, maintain rated power\n  • At cut-out: feather to 90° (blade edge into wind, stops rotation)\n```"
+    },
+    {
+      "id": "02-WIND-POWER.md#031",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "### Tip Speed Ratio (TSR) and the Cp Curve"
+    },
+    {
+      "id": "02-WIND-POWER.md#032",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "```\n  TIP SPEED RATIO:  λ = (tip velocity) / (wind speed)\n                      = (ω × R) / v"
+    },
+    {
+      "id": "02-WIND-POWER.md#033",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "Cp vs λ curve (characteristic of rotor design):"
+    },
+    {
+      "id": "02-WIND-POWER.md#034",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "Cp\n  │        ╭─────╮\n  0.50│      ╭╯     ╰╮\n  0.45│    ╭╯         ╰╮\n  0.40│   ╭╯             ╰╮\n  0.35│  ╭╯                ╰╮\n  0.30│ ╭╯                   ╰────\n  0.25│╭╯\n     0│─────────────────────────── λ\n       0  2  4  6  8  10  12"
+    },
+    {
+      "id": "02-WIND-POWER.md#035",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "Optimal λ for modern 3-blade turbines: ~7-8\n  At optimal λ: Cp = 0.45-0.50"
+    },
+    {
+      "id": "02-WIND-POWER.md#036",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "Turbine control: vary rotor speed (variable-speed via power electronics)\n  to maintain λ_opt as wind speed changes → maximize Cp at all wind speeds\n  (below rated; pitch limiting above rated)"
+    },
+    {
+      "id": "02-WIND-POWER.md#037",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "Fixed-speed turbines (legacy): only optimal at one wind speed\n  Variable-speed (modern standard): optimal across full wind range\n```"
+    },
+    {
+      "id": "02-WIND-POWER.md#038",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "### Tower and Hub Height"
+    },
+    {
+      "id": "02-WIND-POWER.md#039",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "```\n  WIND SHEAR — velocity increases with height:\n    v(h) = v_ref × (h / h_ref)^α"
+    },
+    {
+      "id": "02-WIND-POWER.md#040",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "Where α = wind shear exponent:\n    Open flat terrain (IEC Class II): α ≈ 0.14\n    Forested/complex terrain:         α ≈ 0.20-0.30"
+    },
+    {
+      "id": "02-WIND-POWER.md#041",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "EXAMPLE: doubling hub height from 80m to 160m in open terrain:\n    v_160 = v_80 × (160/80)^0.14 = v_80 × 2^0.14 = v_80 × 1.104\n    Power ∝ v³: 1.104³ = 1.34 → 34% more power from same rotor"
+    },
+    {
+      "id": "02-WIND-POWER.md#042",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "Hub height vs cost:\n    Standard onshore: 80-120 m (lattice or tubular steel)\n    Tall onshore (Germany, forested): 140-180 m (hybrid concrete/steel)\n    Offshore: 80-120 m (shorter, stronger winds near surface)"
+    },
+    {
+      "id": "02-WIND-POWER.md#043",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "Turbine scaling trend (capacity vs rotor diameter):\n    2000: 0.75 MW, ~50m rotor\n    2010: 2.0 MW, ~90m rotor\n    2020: 5-6 MW, ~150-170m rotor\n    2024: 14-16 MW offshore, ~220-240m rotor (Vestas V236, SGRE SG 14-236 DD)\n    IEC 61400: turbines >15 MW under development (GE Haliade-X, Siemens Gamesa)\n```"
+    },
+    {
+      "id": "02-WIND-POWER.md#044",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-WIND-POWER.md#045",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "## Drivetrain — Gearbox vs Direct-Drive"
+    },
+    {
+      "id": "02-WIND-POWER.md#046",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "```\n  GEARBOX DRIVETRAIN (DFIG — common onshore):\n  ┌──────────────────────────────────────────────────────┐\n  │  Rotor (10-20 RPM)                                   │\n  │      │                                               │\n  │      └──► [3-stage gearbox] ──► High-speed shaft     │\n  │                                    (~1500 RPM)       │\n  │                                      │               │\n  │                                      └──► DFIG       │\n  │                              (doubly-fed induction)  │\n  │                                      │               │\n  │                              Partial-scale converter │\n  │                              (~30% of rated power)   │\n  │                              Variable speed ±30% RPM │\n  └──────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "02-WIND-POWER.md#047",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "GEARBOX PROS:  Smaller, lighter generator; cheaper power electronics\n  GEARBOX CONS:  Gearbox failure (~3% annual failure rate) = expensive offshore"
+    },
+    {
+      "id": "02-WIND-POWER.md#048",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "─────────────────────────────────────────────────────────────────"
+    },
+    {
+      "id": "02-WIND-POWER.md#049",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "DIRECT-DRIVE PMSG (dominant offshore, growing onshore):\n  ┌──────────────────────────────────────────────────────┐\n  │  Rotor (5-15 RPM)                                    │\n  │      │                                               │\n  │      └──► PMSG (permanent magnet synchronous)        │\n  │           Large diameter ring generator              │\n  │           No gearbox (no high-speed shaft)           │\n  │                │                                     │\n  │           Full-scale converter                       │\n  │           (100% of rated power goes through it)      │\n  │           Decouples generator from grid frequency    │\n  └──────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "02-WIND-POWER.md#050",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "PMSG PROS:  No gearbox failures; full variable speed; excellent low-wind perf\n              Lower O&M cost offshore (no gearbox oil changes at sea)\n              Better grid-forming capability (full power electronics control)\n  PMSG CONS:  Larger/heavier nacelle; higher upfront cost; rare earth magnets (Nd)\n              Full-scale converter = larger power electronics cost\n  Users:      Goldwind (dominant China), Siemens Gamesa (SG DD), GE Cypress (semi-DD)\n```"
+    },
+    {
+      "id": "02-WIND-POWER.md#051",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-WIND-POWER.md#052",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "## Onshore vs Offshore"
+    },
+    {
+      "id": "02-WIND-POWER.md#053",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "### Economics Comparison"
+    },
+    {
+      "id": "02-WIND-POWER.md#054",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "| Parameter | Onshore | Offshore Fixed | Offshore Floating |\n|-----------|---------|----------------|-------------------|\n| Capacity factor | 25-40% | 40-55% | 45-60% (projected) |\n| Water depth | Land | 0-60 m | 60-1000+ m |\n| Foundation | Concrete pad | Monopile/jacket | Semi-sub, TLP, spar |\n| Turbine size | 4-7 MW | 10-16 MW | 10-20 MW (planned) |\n| LCOE (2024) | $25-50/MWh | $70-120/MWh | $100-180/MWh |\n| O&M access | Easy (truck) | Helicopter/vessel | Remote vessel |\n| Land use conflict | Setback rules | Visual/fishing conflict | Minimal (far offshore) |\n| Grid connection | Overhead line | Submarine HVAC or HVDC | HVDC typically |"
+    },
+    {
+      "id": "02-WIND-POWER.md#055",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "### Offshore Foundation Types"
+    },
+    {
+      "id": "02-WIND-POWER.md#056",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "```\n  WATER DEPTH → FOUNDATION TYPE:"
+    },
+    {
+      "id": "02-WIND-POWER.md#057",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "0-30 m: MONOPILE (dominant, ~80% of installed offshore)\n  ┌─────────────────────┐\n  │  Turbine on top     │\n  │                     │\n  │  Transition piece   │\n  │  ─────────────────  │\n  │                     │\n  │  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   │\n  │  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   │\n  └─────────────────────┘\n  Waterline at transition piece; steel monopile, ~8-12 m diameter,\n  driven into seabed."
+    },
+    {
+      "id": "02-WIND-POWER.md#058",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "20-60 m: JACKET (lattice frame)\n  ┌─────────────────────┐\n  │  Turbine on top     │\n  │  Transition piece   │\n  │  ─────────────────  │\n  │     /  │  \\         │\n  │    /   │   \\        │\n  │   /    │    \\       │\n  │  /─────┼─────\\      │\n  └─────────────────────┘\n  3 or 4-leg jacket; heavier, more expensive than monopile;\n  used for larger turbines and deeper water."
+    },
+    {
+      "id": "02-WIND-POWER.md#059",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": ">60 m: FLOATING (emerging, first commercial projects 2024+)\n  Three main concepts:\n    Semi-submersible:  Multiple pontoons, wide stable base, mooring lines\n    TLP (tension leg):  Buoyant platform, taut vertical mooring lines\n    Spar-buoy:          Deep cylindrical keel, stable but needs very deep water"
+    },
+    {
+      "id": "02-WIND-POWER.md#060",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "Floating target markets:\n    Norwegian/Atlantic coast, US West Coast, Japan, Taiwan deep water\n    First commercial: Hywind Tampen (Norway, 88 MW, 2022)\n```"
+    },
+    {
+      "id": "02-WIND-POWER.md#061",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-WIND-POWER.md#062",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "## Wake Effects and Farm Layout"
+    },
+    {
+      "id": "02-WIND-POWER.md#063",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "### The Wake Problem"
+    },
+    {
+      "id": "02-WIND-POWER.md#064",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "```\n  WIND FARM WITH WAKE EFFECTS:"
+    },
+    {
+      "id": "02-WIND-POWER.md#065",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "Wind direction →\n  ┌─────────────────────────────────────────────────────────────┐\n  │  T1 ●         T2 ●         T3 ●         T4 ●                │\n  │     │            │            │            │                │\n  │     └──wake──────►            └──wake──────►                │\n  │     (reduced      cumulative  wake deficit                  │\n  │     wind speed    loss at T3 = ~25-30% power loss)         │\n  │                                                             │\n  │  T5 ●         T6 ●         T7 ●         T8 ●               │\n  │                                                             │\n  │  Cross-row spacing (perpendicular): 3-5D (D = rotor diameter)│\n  │  Along-row spacing (parallel to wind): 7-10D               │\n  └─────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "02-WIND-POWER.md#066",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "WAKE MODELS:\n  Jensen (Top Hat):  Simple, fast, slightly pessimistic\n                     Wake deficit decays as 1/distance\n  Gaussian model:    Smooth velocity deficit profile, more accurate\n  LES (Large-Eddy Simulation): Highest fidelity, expensive, used for research"
+    },
+    {
+      "id": "02-WIND-POWER.md#067",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "Farm-level losses:\n    Densely packed (3D spacing): 20-30% wake loss on interior turbines\n    Well-spaced (8D): 5-10% wake loss\n    Optimal layout: balance land cost vs wake loss (not always max spacing)\n```"
+    },
+    {
+      "id": "02-WIND-POWER.md#068",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "### Wind Farm Control"
+    },
+    {
+      "id": "02-WIND-POWER.md#069",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "Emerging field: deliberately curtail upwind turbines (reduce Cp via wake steering)\nto increase total farm output. Upwind turbine redirects wake away from downwind machines.\nField trials show 3-8% farm-level AEP improvement. Being deployed commercially at scale."
+    },
+    {
+      "id": "02-WIND-POWER.md#070",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-WIND-POWER.md#071",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "## Variability and Forecasting"
+    },
+    {
+      "id": "02-WIND-POWER.md#072",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "```\n  WIND POWER VARIABILITY CHARACTERISTICS:"
+    },
+    {
+      "id": "02-WIND-POWER.md#073",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "Timescale      Cause                  Grid Response\n  ─────────────  ─────────────────────  ──────────────────────\n  Seconds        Turbulence             Automatic voltage regulation\n  Minutes        Gusts, local weather   Primary frequency regulation\n  Hours          Frontal systems        Day-ahead unit commitment\n  Days           Synoptic patterns      Weekly generation scheduling\n  Seasonal       Climatological cycle   Long-term adequacy planning\n  Annual         El Niño/La Niña, etc.  Resource uncertainty in LCOE"
+    },
+    {
+      "id": "02-WIND-POWER.md#074",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "Forecast methods:\n  NWP (numerical weather prediction):  ECMWF, GFS — basis for 1-10 day ahead\n  Statistical/ML:  Correct NWP bias using historical data; LSTM, gradient boosting\n  Ensemble:        Multiple model runs to quantify uncertainty\n  Short-term (<1hr): nowcasting using radar, LiDAR, current turbine data"
+    },
+    {
+      "id": "02-WIND-POWER.md#075",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "Ramp events:\n  Rapid large changes in wind output (e.g., 2 GW/hr in ERCOT)\n  Grid operators need to pre-position reserves\n  Forecasting large ramps remains difficult; tail events drive reserve requirements\n```"
+    },
+    {
+      "id": "02-WIND-POWER.md#076",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-WIND-POWER.md#077",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "## Market and Deployment Context"
+    },
+    {
+      "id": "02-WIND-POWER.md#078",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "### Global Installed Capacity (End 2023)"
+    },
+    {
+      "id": "02-WIND-POWER.md#079",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "| Region | Onshore (GW) | Offshore (GW) | Total |\n|--------|-------------|---------------|-------|\n| China | ~400 | ~30 | ~430 |\n| USA | ~145 | ~0.3 | ~145 |\n| Germany | ~61 | ~8.5 | ~70 |\n| India | ~44 | ~0 | ~44 |\n| UK | ~15 | ~14 | ~29 |\n| Spain | ~30 | ~0 | ~30 |\n| Rest of EU | ~100 | ~15 | ~115 |\n| **Global Total** | **~950** | **~75** | **~1,025** |"
+    },
+    {
+      "id": "02-WIND-POWER.md#080",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "IEA NZE 2030 target: ~2,400 GW onshore + offshore additions per year globally.\n2023 additions: ~117 GW. Gap = 20× increase required. The bottleneck is permitting,\ngrid, and supply chain — not cost."
+    },
+    {
+      "id": "02-WIND-POWER.md#081",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "### Supply Chain and Critical Materials"
+    },
+    {
+      "id": "02-WIND-POWER.md#082",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "```\n  TURBINE SUPPLY CHAIN CONSTRAINTS:"
+    },
+    {
+      "id": "02-WIND-POWER.md#083",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "Rare earth magnets (neodymium/dysprosium):\n    • Required for PMSG direct-drive generators\n    • ~200-300 kg of rare earth magnets per MW (approx)\n    • China controls ~85% of rare earth processing\n    • DFIG (gearbox turbines) avoid rare earths but have O&M penalty"
+    },
+    {
+      "id": "02-WIND-POWER.md#084",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "Steel:\n    • Towers: ~200-500 tonnes per turbine (structural steel)\n    • Cost-sensitive to steel prices"
+    },
+    {
+      "id": "02-WIND-POWER.md#085",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "Blade manufacturing:\n    • Fiberglass/epoxy: concentrated in a few global manufacturers\n    • Blade transport (80m+) requires specialized logistics\n    • End-of-life blade recycling unsolved (cement kiln, pyrolysis pilots)"
+    },
+    {
+      "id": "02-WIND-POWER.md#086",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "Offshore-specific:\n    • Specialized installation vessels (jack-up, heavy lift crane)\n    • Few in existence globally; lead time 3-5 years to build new\n    • WTIV (wind turbine installation vessel) bottleneck for US offshore\n```"
+    },
+    {
+      "id": "02-WIND-POWER.md#087",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-WIND-POWER.md#088",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "## Repowering"
+    },
+    {
+      "id": "02-WIND-POWER.md#089",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "Aging turbines (2000-era, 0.75-2 MW, 20-year lifespan) can be repowered with modern turbines\non existing permitted sites. Economics:\n- Existing permits, grid connections, and land leases\n- New turbines 3-5× larger than what they replace\n- AEP increase of 100-200% on same land area\n- Typically requires environmental review but not full new permit\n- Germany has ~30 GW eligible for repowering; regulatory bottleneck slowing this"
+    },
+    {
+      "id": "02-WIND-POWER.md#090",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-WIND-POWER.md#091",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "02-WIND-POWER.md#092",
+      "path": [
+        "02-WIND-POWER.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:energy-systems:02-wind-power, git-history:energy-systems:02-wind-power]",
+        "canonical_path": "energy-systems/02-WIND-POWER.md",
+        "concepts": "[wind, power]",
+        "current_path": "energy-systems/02-WIND-POWER.md",
+        "id": "maxim:energy-systems:wind-power",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "energy-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[wind, power]",
+        "section": "energy-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Wind Power",
+        "updated": "null"
+      },
+      "text": "| If you need to diagnose... | Start With | Key Caveat |\n|---|---|---|\n| A wind-resource claim | Check hub-height wind distribution, turbulence, shear, wake losses, terrain, icing, and grid congestion. | Mean wind speed hides the v3 value of high-wind hours and the damage risk of extremes. |\n| A capacity-factor claim | Compare resource quality, turbine specific power, curtailment, availability, wake layout, and offshore/onshore O&M. | High capacity factor can reflect turbine design tradeoffs, not just a better site. |\n| Gearbox vs direct-drive | Evaluate access cost, failure mode, generator mass, rare-earth exposure, converter design, and O&M strategy. | Direct-drive is attractive offshore, but it is not universally superior onshore. |\n| DFIG vs PMSG | Compare converter fraction, variable-speed range, grid-code support, fault ride-through, cost, and supply chain. | Generator topology matters only in the full plant/control/interconnection context. |\n| A wake-spacing/layout decision | Model rotor diameter, prevailing wind rose, land/lease cost, turbulence, collection cable, and wake steering. | Maximum spacing reduces wakes but can increase land, cable, and permitting costs. |\n| An offshore economics claim | Include foundation type, water depth, vessel availability, port capacity, cable route, offtake price, and financing. | Offshore wind can have high system value near coastal load while still facing high project execution risk. |"
+    }
+  ],
+  "refs": [
+    "02-WIND-POWER.md"
+  ]
+}

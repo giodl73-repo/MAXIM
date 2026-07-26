@@ -46,6 +46,17 @@ Ergonomics (human factors engineering) is the scientific discipline of designing
 
 ---
 
+> **Scope boundary — product-form vs quantitative-systems depth.** This guide is MAXIM's
+> **compact product-form entry** to ergonomics: the object in the hand or under the body
+> (handle, seat, knob, affordance), the 5th/50th/95th percentile framing at product scale,
+> and universal design. The **quantitative-systems depth** of occupational human factors —
+> population modeling with z-scores and *multivariate* accommodation, occupational
+> biomechanics, the NIOSH lifting equation as a bounded model, posture indices, work–rest
+> and MSD dose–response, and the operator-in-a-system-of-work view — is owned by
+> [`human-factors/02-PHYSICAL-ERGONOMICS-ANTHROPOMETRICS`](../human-factors/02-PHYSICAL-ERGONOMICS-ANTHROPOMETRICS.md).
+> Use this guide to shape a product's form; use `human-factors/02` to accommodate a
+> *population* doing a *task* over time.
+
 ## Anthropometrics: The Body's Dimensions
 
 Anthropometrics is the systematic measurement of the human body for design purposes. The fundamental challenge: humans vary enormously, but designed objects must work for a range of users.

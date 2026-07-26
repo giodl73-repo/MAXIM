@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "human-factors\\05-HUMAN-RELIABILITY-ANALYSIS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 65,
+      "heading_context": "## The Big Picture: A HEP Is a Model Output, Not a Measurement",
+      "confidence": "candidate",
+      "text": "THE HRA PIPELINE  (every method is a variation on this shape)\n================================================================================\n   TASK + CONTEXT\n        |  (1) decompose: what human actions must succeed? (task analysis, guide 10)\n        v\n   NOMINAL HEP  (a base rate for this GENERIC task type)      e.g., \"diagnose\" ~ 0.01\n        |  (2) adjust for CONDITIONS -- performance-shaping factors (PSFs):\n        |      time, stress, complexity, experience, procedures, HMI/ergonomics,\n        v      fitness, teamwork  -> each a MULTIPLIER or level\n   TASK HEP  (nominal x PSFs, with an adjustment so HEP stays <= 1)\n        |  (3) DEPENDENCY: correlated actions are not independent -> combine with a\n        v      dependency model, not naive multiplication\n   HEP as a RANGE  (a distribution with an error factor, NOT a point)\n        |  (4) place into the risk model as a BASIC EVENT\n        v\n   FAULT / EVENT TREE  <-- combination math BORROWED from systems-engineering/06\n================================================================================\n   The signature honesty of HRA: step (4) hands a NUMBER to a precise-looking tree, but\n   that number is the WIDEST-uncertainty input in the whole model. Never launder a HEP's\n   uncertainty by quoting only its point value.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 111,
+      "heading_context": "## 1. First-Generation HRA — THERP and HEART",
+      "confidence": "candidate",
+      "text": "FIRST-GENERATION SHAPE  (THERP vs HEART -- same skeleton, different granularity)\n--------------------------------------------------------------------------------\n   THERP  : event tree of steps -> nominal HEP per step (tables) -> PSFs -> dependency\n            -> combine up the tree. GRANULAR, data-hungry, slow.\n   HEART  : one GTT nominal HEP -> x product of [1 + (EPC_max - 1) x APOA] -> task HEP.\n            FAST, transparent about WHICH conditions dominate (the big EPCs).\n   Both: the nominal values and multipliers are DATED, largely nuclear/industrial in\n   origin, and carry wide uncertainty -- they are calibration conventions, not constants.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 226,
+      "heading_context": "## A Worked HEP Pass — SPAR-H Structure, Reported as a Range (reproducible)",
+      "confidence": "candidate",
+      "text": "BOUNDED SPAR-H EXCERPT  (public-domain NUREG/CR-6883; cells used here)\n--------------------------------------------------------------------------------\n   NOMINAL HEP        diagnosis = 0.01     action = 0.001\n   AVAILABLE TIME     inadequate -> HEP = 1.0 ; barely adequate x10 ; nominal x1 ;\n                      extra time x0.1 ; expansive x0.01\n   STRESS/STRESSORS   nominal x1 ; high x2 ; extreme x5\n   COMPLEXITY         nominal x1 ; moderately complex x2 ; highly complex x5\n   (experience/training, procedures, HMI, fitness, work processes here = nominal x1)\n   ADJUSTMENT (>=3 negative PSFs, keeps HEP <= 1):\n      HEP_adj = (NHEP x P) / ( NHEP x (P - 1) + 1 ),   P = product of multipliers",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 253,
+      "heading_context": "## A Worked HEP Pass — SPAR-H Structure, Reported as a Range (reproducible)",
+      "confidence": "candidate",
+      "text": "THE HEP IS A RANGE, NOT A POINT  (why quoting 0.29 alone is malpractice)\n--------------------------------------------------------------------------------\n   (a) PARAMETER UNCERTAINTY -- and the probability CEILING. HRA HEPs get a lognormal\n       band summarized by an ERROR FACTOR, defined (NUREG convention) as\n          EF = sqrt(P95 / P05),  so the 90% band is  [ median / EF ,  median x EF ].\n       Here median ~0.29, EF ~5:  P05 = 0.29 / 5 ~ 0.06   (a valid lower bound).\n       But  P95 = 0.29 x 5 = 1.45  -- NOT a probability. A HEP lives in (0,1], yet this\n       lognormal puts ~10% of its mass ABOVE 1 (impossible). So you may NOT just write\n       \"0.06-0.9\": the upper bound needs an explicit BOUNDED-PROBABILITY treatment --\n       truncate the lognormal at HEP=1 and renormalize, or fit a logit-normal / Beta on\n       (0,1). Truncated + renormalized here, the 90% band is ~[0.06, 0.8]; the 0.8 is a\n       property of the BOUNDED MODEL, not read off the error factor. Lesson: the EF\n       convention is borrowed from hardware PRA where failure probs are tiny; a symmetric-\n       in-log \"x5\" band is only self-consistent while median < 1/EF (= 0.2 for EF=5). Our\n       0.29 > 0.2, so the naive band overflows the ceiling and MUST be bounded -- never\n       laundered into a tidy \"x5\" interval.\n   (b) METHOD VARIANCE: a HEART assessment of the \"same\" task (a GTT nominal times\n       time-shortage/unfamiliarity EPCs) could land materially higher or lower;\n       benchmark studies show method-to-method spreads of an order of magnitude.\n   (c) PSF SENSITIVITY: the single biggest lever is TIME. Sweep the time PSF, all else\n       fixed -- and WATCH THE ADJUSTMENT TRIGGER (it applies ONLY at >=3 negative PSFs):\n          time = barely adequate (x10) -> 3 neg PSFs (time,stress,complexity): ADJUST\n                                          P=40 ; 0.01x40/(0.01x39+1)     ~ 0.288\n          time = nominal       (x1)    -> 2 neg PSFs (stress,complexity): NO adjustment\n                                          P=4  ; 0.01x4                   = 0.04\n          time = extra time    (x0.1)  -> 2 neg PSFs (stress,complexity): NO adjustment\n                                          P=0.4; 0.01x0.4                 = 0.004\n       -> the adjustment DROPS OUT once fewer than 3 PSFs are negative (so the earlier\n          \"P-1\" formula must not be applied at x1 / x0.1); the HEP still swings\n          ~0.288 -> 0.004 (~70x) across two time steps. The CONDITIONS dominate the nominal.\n   -----------------------------------------------------------------------------\n   HONEST OUTPUT: \"diagnosis HEP median ~0.29; 5th ~0.06 (= median/EF, EF~5); 95th bounded\n   BELOW 1 by the probability ceiling -- a truncated-lognormal/logit-normal puts it ~0.8\n   (model-dependent, NOT median x EF = 1.45); method variance could widen it; most\n   sensitive to available time (SPAR-H, stated PSFs).\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

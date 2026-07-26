@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "pathology\\08-LABORATORY-MEDICINE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 53,
+      "heading_context": "# Laboratory Medicine — How a Result Is Generated and Bounded",
+      "confidence": "candidate",
+      "text": "  pathology/08            medicine/10                 clinical-medicine/03\n  (this guide)            (the catalog)               (the decision)\n  ------------            -----------------           --------------------\n  HOW the result is       WHICH test it is,           HOW a clinician turns\n  generated and how       its panel and its           the released result into\n  far to trust it   --->  reference band       --->   an updated belief and an\n  (the number + its       (the name + the             action (prior x LR ->\n   uncertainty + flags)    interval)                   posterior -> threshold)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 98,
+      "heading_context": "## The Big Picture: A Result Is a Manufactured Product With a Tolerance",
+      "confidence": "candidate",
+      "text": "TOTAL TESTING PROCESS  (brain-to-brain loop; this guide owns the shaded core)\n============================================================================\n   clinician's question\n        |\n        v\n  [ PRE-PRE-ANALYTIC ]  test selection, ordering, patient identity\n        |                   (owned as a concept; the catalog is medicine/10)\n        v\n  ======  PRE-ANALYTIC  ==========================  error-dense phase*\n  [ collection ] -> [ transport ] -> [ accession ] -> [ centrifuge / aliquot ]\n        |   sample type, timing, fill, hemolysis, contamination live here\n        v\n  ======  ANALYTIC  =============================== the measurement itself\n  [ MEASURE ]  signal -> calibration -> raw result\n        |   imprecision, bias, linearity, detection limits, interference\n        v\n  ======  POST-ANALYTIC  ==========================\n  [ VALIDATE ] -> [ FLAG ] -> [ RELEASE ]  autoverification, delta/critical\n        |   the result now carries an uncertainty and metadata\n        v\n  [ POST-POST-ANALYTIC ]  interpretation + action\n        |                   (this is clinical-medicine/03, NOT here)\n        v\n   clinician's answer  ---------> back to the top",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 174,
+      "heading_context": "## 1. What a Result *Is*: Measurand, Signal, and Traceability",
+      "confidence": "candidate",
+      "text": "SIGNAL-TO-RESULT (calibration is the inverse model)\n====================================================\n  physical signal          calibration curve            reported result\n  (absorbance, mV,    -->   (fit to known calibrators)   -->  concentration\n   counts, RFU, Ct)         signal = f(concentration)         = f^-1(signal)\n                            \\___ every result inherits the calibration's error ___/",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 323,
+      "heading_context": "## 3. Linearity, Range, and Detection Limits",
+      "confidence": "candidate",
+      "text": "THE MEASURING RANGE  (where numbers mean what they say)\n=======================================================\n  0      LoB   LoD        LoQ ........ AMR (linear) ........ top\n  |-------|-----|----------|=============================|-------\n   noise   |     |          |     report the number here  |  dilute\n   floor   |  \"detected\"    | quantify reliably here       |  above here\n           |  but do not    |                              |  (hook risk)\n           |  quantify      |",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 414,
+      "heading_context": "## 5. Interference and the Pre-Analytic Minefield",
+      "confidence": "candidate",
+      "text": "INTERFERENCE MAP  (the wrong number that looks right)\n=====================================================\n  ENDOGENOUS (in the sample)              MECHANISM\n  ------------------------------          --------------------------------\n  Hemolysis (H)  free Hb + cell contents  releases K+, LDH, AST; spectral\n  Icterus  (I)   bilirubin                 spectral absorbance overlap\n  Lipemia  (L)   turbid lipids            light scatter + volume displacement\n                                          -> HIL indices flag the specimen\n\n  ANTIBODY / MACRO effects (immunoassays are most vulnerable)\n  ----------------------------------------------------------\n  Heterophile / HAMA / RF   bridge or block sandwich assay -> false hi/lo\n  Biotin (high-dose)        competes in streptavidin-biotin capture ->\n                            false low (sandwich) or false high (competitive)\n  Macro-analyte             Ig-bound analyte (macroprolactin, macro-CK,\n                            macro-AST) -> falsely \"elevated\", inert in vivo\n\n  DOSE / MATRIX effects\n  ----------------------------------------------------------\n  Hook (prozone)            huge antigen saturates one-step sandwich ->\n                            FALSE LOW at very high true concentration\n  Wrong tube / additive     EDTA chelates Ca; K-EDTA spikes K; heparin;\n                            IV-line contamination; underfilled citrate tube",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 484,
+      "heading_context": "## 6. Method Comparison, Harmonization, and Change Over Time",
+      "confidence": "candidate",
+      "text": "IS METHOD B A DROP-IN FOR METHOD A?  (Bland-Altman difference plot)\n===================================================================\n  (A - B)\n   +      . . . . . . . . . . . . . . . .  upper limit of agreement\n   0  ----.---.--.----.---.---.----.------  mean bias (systematic offset)\n   -      . . . . . . . . . . . . . . . .  lower limit of agreement\n          -------------------------------> mean(A,B)\n   swap only if the WHOLE band is clinically negligible across the range",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 540,
+      "heading_context": "## 7. How Each Discipline Manufactures a Result",
+      "confidence": "candidate",
+      "text": "FIVE FACTORIES + ONE INTERFACE  (signal -> result, by discipline)\n=================================================================\n  CLINICAL CHEMISTRY   photometry (Beer-Lambert A=ebc), enzymatic rate,\n                       ion-selective electrodes (Nernst potential),\n                       immunoassay (competitive vs sandwich; enzyme/\n                       chemiluminescent label) -> concentration\n  HEMATOLOGY           impedance counting (Coulter) + optical/flow scatter\n                       + fluorescence -> counts & indices, WITH a reflex\n                       flag to human smear morphology  (see below)\n  COAGULATION          clot-based (PT/aPTT, optical/mechanical endpoint),\n                       chromogenic (anti-Xa), immunologic (D-dimer)\n  MICROBIOLOGY         culture -> phenotypic ID + susceptibility (MIC vs\n                       breakpoint); MALDI-TOF for rapid ID; slow but rich\n  MOLECULAR            extract -> amplify (PCR/qPCR: Ct/Cq signal) or NGS;\n                       qualitative vs quantitative (viral load, IU/mL)\n  ------------------------------------------------------------------\n  TRANSFUSION (interface)  ABO/Rh typing (forward + reverse), antibody\n                       screen, crossmatch -> a COMPATIBILITY result that\n                       is an interface between lab and clinical service",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 618,
+      "heading_context": "## 8. Validation, Autoverification, Flags, and Critical Values",
+      "confidence": "candidate",
+      "text": "THE RELEASE GATE  (from raw value to released result)\n=====================================================\n  raw value + instrument flags\n        |\n        v\n  [ ABSURDITY / RANGE CHECK ]  physiologically impossible? off-scale?\n        |  fail -> hold, rerun, or dilute\n        v\n  [ DELTA CHECK ]  implausible jump vs this patient's prior?  (RCV logic)\n        |  trip -> suspect mix-up/interference -> human review\n        v\n  [ CONSISTENCY / RULE CHECK ]  internal coherence across the panel\n        |  e.g., anion gap sanity, HIL-index gating of affected analytes\n        v\n  [ AUTOVERIFY? ]  algorithmic release if all rules pass (CLSI AUTO10)\n        |  yes -> RELEASE with flags     no -> tech/pathologist review\n        v\n  released RESULT  =  value + unit + reference-to-method + FLAGS\n        |\n        v\n  [ CRITICAL VALUE? ]  life-threatening -> active NOTIFY + read-back loop",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

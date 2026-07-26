@@ -468,6 +468,8 @@ RADIATION PROTECTION:
 
 Diagnostic reasoning is Bayesian inference applied to a binary classification problem with non-zero base rates. The vocabulary is different from ML/statistics but the math is identical:
 
+> **Cross-reference — full decision theory.** This section is a **compact** treatment sized for the diagnostics/imaging catalog. The standalone, graduate-depth version — the 2×2 as a belief-updating engine, odds/likelihood-ratio Bayes, prevalence-dependent predictive values, ROC/AUC limits, the Pauker–Kassirer **test/treatment thresholds**, sequential and correlated testing, overtesting/incidentaloma cascades, and value of information — lives in [`clinical-medicine/03-DIAGNOSTIC-TEST-INTERPRETATION.md`](../clinical-medicine/03-DIAGNOSTIC-TEST-INTERPRETATION.md). `medicine/10` owns the test catalog, reference ranges, and imaging physics; `clinical-medicine/03` owns how a clinician updates belief and decides to act. And **how a laboratory result is physically generated, bounded, and technically trusted** — the total testing process, analytical vs clinical sensitivity/specificity, imprecision/bias/measurement uncertainty, interference, and result validation/flags — lives in [`pathology/08-LABORATORY-MEDICINE.md`](../pathology/08-LABORATORY-MEDICINE.md), which completes the three-way split: `pathology/08` generates the result and its uncertainty → `medicine/10` catalogs the test and its reference band → `clinical-medicine/03` updates belief and decides.
+
 ```
 MEDICAL TERM          ML / STATISTICS EQUIVALENT
 ──────────────────────────────────────────────────────────────────────────

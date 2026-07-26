@@ -1,0 +1,2001 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-robotics-dynamics",
+  "source": "../../robotics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "02-DYNAMICS.md#000",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "# Robotics — Dynamics"
+    },
+    {
+      "id": "02-DYNAMICS.md#001",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "02-DYNAMICS.md#002",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "Kinematics ignores forces. Dynamics answers: what joint torques produce a desired motion?\nThis is the physics layer that sits between the control law and the actuators."
+    },
+    {
+      "id": "02-DYNAMICS.md#003",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "```\n+==========================================================================+\n|                          ROBOT DYNAMICS LANDSCAPE                        |\n+==========================================================================+\n|                                                                          |\n|  EQUATION OF MOTION (EOM):                                               |\n|                                                                          |\n|         M(q) * q_ddot  +  C(q, q_dot) * q_dot  +  G(q)  =  tau         |\n|         ^^^^^^^^^^^^^     ^^^^^^^^^^^^^^^^^^      ^^^^      ^^^          |\n|         Inertia term      Coriolis/centripetal    Gravity   Joint        |\n|         (mass matrix)     term                   vector    torques       |\n|                                                                          |\n|  FORWARD DYNAMICS         |  INVERSE DYNAMICS                            |\n|  Input:  tau (torques)    |  Input:  q, q_dot, q_ddot (motion)           |\n|  Output: q_ddot (accel)   |  Output: tau (torques required)              |\n|  Used in: simulation      |  Used in: computed-torque control            |\n|                           |           motor sizing                       |\n|                                                                          |\n|  TWO FORMULATIONS         |                                              |\n|  Newton-Euler (recursive) |  Efficient: O(n) for serial chain            |\n|  Lagrangian (energy)      |  Elegant: derives EOM from energy functions  |\n|                                                                          |\n+==========================================================================+\n```"
+    },
+    {
+      "id": "02-DYNAMICS.md#004",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-DYNAMICS.md#005",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "## Rigid Body Dynamics — Single Body"
+    },
+    {
+      "id": "02-DYNAMICS.md#006",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "Before tackling the full chain, the foundations."
+    },
+    {
+      "id": "02-DYNAMICS.md#007",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "### Inertia Tensor"
+    },
+    {
+      "id": "02-DYNAMICS.md#008",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "For a rigid body, the inertia tensor I (3x3 symmetric matrix) describes how mass\nis distributed relative to a frame (typically the center of mass):"
+    },
+    {
+      "id": "02-DYNAMICS.md#009",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "```\nI = | Ixx  -Ixy  -Ixz |     Ixx = integral of (y^2 + z^2) dm\n    |-Iyx   Iyy  -Iyz |     Iyy = integral of (x^2 + z^2) dm\n    |-Izx  -Izy   Izz |     Izz = integral of (x^2 + y^2) dm\n                             Ixy = integral of xy dm  (products of inertia)"
+    },
+    {
+      "id": "02-DYNAMICS.md#010",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "For a solid cylinder of mass m, radius r, length h:\n  About symmetry axis:   Izz = m*r^2 / 2\n  About diameter:        Ixx = Iyy = m*(3r^2 + h^2) / 12\n```"
+    },
+    {
+      "id": "02-DYNAMICS.md#011",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "Parallel axis theorem: shift inertia tensor from COM to an offset point d:\n```\n  I_offset = I_com + m * (|d|^2 * I_3x3 - d * d^T)\n```"
+    },
+    {
+      "id": "02-DYNAMICS.md#012",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "### Newton-Euler Equations for One Body"
+    },
+    {
+      "id": "02-DYNAMICS.md#013",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "```\n  F = m * a_com           (linear: force = mass * linear accel of COM)\n  tau = I * alpha + omega x (I * omega)    (rotational, in body frame)"
+    },
+    {
+      "id": "02-DYNAMICS.md#014",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "where:\n    F:     net external force vector (3x1)\n    m:     scalar mass\n    a_com: linear acceleration of center of mass (3x1)\n    tau:   net external torque about COM (3x1)\n    I:     3x3 inertia tensor about COM in body frame\n    alpha: angular acceleration (3x1)\n    omega: angular velocity (3x1)\n    x:     cross product\n```"
+    },
+    {
+      "id": "02-DYNAMICS.md#015",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "The omega x (I * omega) term is the Euler term — it accounts for why a torque-free\nspinning body can still precess (the gyroscopic effect). This is why a BLDC motor\nspinning at high speed has gyroscopic effects on robot dynamics."
+    },
+    {
+      "id": "02-DYNAMICS.md#016",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-DYNAMICS.md#017",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "## Recursive Newton-Euler Algorithm"
+    },
+    {
+      "id": "02-DYNAMICS.md#018",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "For a serial chain of n links, the recursive Newton-Euler (RNE) algorithm computes\ninverse dynamics in O(n) — linear in number of joints. This is what real robot\ncontrollers use (not Lagrangian, which is slower to compute symbolically for large n)."
+    },
+    {
+      "id": "02-DYNAMICS.md#019",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "### Two Passes"
+    },
+    {
+      "id": "02-DYNAMICS.md#020",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "```\nPASS 1 — OUTWARD (base to end-effector): propagate velocities and accelerations\n============================================================================"
+    },
+    {
+      "id": "02-DYNAMICS.md#021",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "For i = 1 to n (joint 1 to end-effector):"
+    },
+    {
+      "id": "02-DYNAMICS.md#022",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "omega_i = R_i^T * omega_{i-1} + q_dot_i * z_i\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n            rotate parent angular velocity to link frame + joint rotation contribution"
+    },
+    {
+      "id": "02-DYNAMICS.md#023",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "alpha_i = R_i^T * alpha_{i-1} + q_ddot_i * z_i + q_dot_i * (omega_i x z_i)"
+    },
+    {
+      "id": "02-DYNAMICS.md#024",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "a_i = R_i^T * (alpha_{i-1} x p_{i-1,i} + omega_{i-1} x (omega_{i-1} x p_{i-1,i}) + a_{i-1})\n        ^^^^^^^   angular accel contribution  centripetal term                         parent accel"
+    },
+    {
+      "id": "02-DYNAMICS.md#025",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "a_{ci} = a_i + alpha_i x p_{i,ci} + omega_i x (omega_i x p_{i,ci})\n            linear acceleration of center of mass of link i"
+    },
+    {
+      "id": "02-DYNAMICS.md#026",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "where:\n  omega_i, alpha_i: angular velocity/acceleration of link i\n  a_i:              linear acceleration of link i origin\n  a_{ci}:           linear acceleration of COM of link i\n  z_i:              joint axis in link i frame (typically [0,0,1])\n  p_{i-1,i}:        vector from joint i-1 to joint i in link i frame\n  p_{i,ci}:         vector from joint i origin to link i COM\n```"
+    },
+    {
+      "id": "02-DYNAMICS.md#027",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "```\nPASS 2 — INWARD (end-effector to base): propagate forces and torques\n====================================================================="
+    },
+    {
+      "id": "02-DYNAMICS.md#028",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "For i = n down to 1:"
+    },
+    {
+      "id": "02-DYNAMICS.md#029",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "f_i = m_i * a_{ci} + R_{i+1} * f_{i+1}\n        ^^^^^^^^^^^^^   ^^^^^^^^^^^^^^^^\n        link inertial   reaction from next link (zero for n+1)"
+    },
+    {
+      "id": "02-DYNAMICS.md#030",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "n_i = I_i * alpha_i + omega_i x (I_i * omega_i) + R_{i+1} * n_{i+1}\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^   ^^^^^^^^^^^^^^^^^^\n              Euler equation for link i            reaction torque"
+    },
+    {
+      "id": "02-DYNAMICS.md#031",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "then add contribution of COM offset:\n  n_i += p_{i,ci} x (m_i * a_{ci}) + p_{i,i+1} x (R_{i+1} * f_{i+1})"
+    },
+    {
+      "id": "02-DYNAMICS.md#032",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "JOINT TORQUE (revolute joint i):\n  tau_i = n_i^T * z_i    <- project reaction torque onto joint axis"
+    },
+    {
+      "id": "02-DYNAMICS.md#033",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "JOINT FORCE (prismatic joint i):\n  f_i_joint = f_i^T * z_i\n```"
+    },
+    {
+      "id": "02-DYNAMICS.md#034",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "This is the O(n) algorithm. For 6-DOF arm: 6 iterations outward + 6 inward = 12 passes.\nUsed in every industrial robot controller and simulation engine."
+    },
+    {
+      "id": "02-DYNAMICS.md#035",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-DYNAMICS.md#036",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "## Lagrangian Formulation"
+    },
+    {
+      "id": "02-DYNAMICS.md#037",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "The Lagrangian gives the equation of motion in a form directly useful for analysis\nand control design. Slower to compute numerically, but gives symbolic insight."
+    },
+    {
+      "id": "02-DYNAMICS.md#038",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "### The Lagrangian"
+    },
+    {
+      "id": "02-DYNAMICS.md#039",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "```\nL = T - V"
+    },
+    {
+      "id": "02-DYNAMICS.md#040",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "T: total kinetic energy of all links\nV: total potential energy of all links\n```"
+    },
+    {
+      "id": "02-DYNAMICS.md#041",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "### Kinetic Energy"
+    },
+    {
+      "id": "02-DYNAMICS.md#042",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "```\nT = sum_i (0.5 * m_i * v_{ci}^T * v_{ci} + 0.5 * omega_i^T * I_i * omega_i)\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n         translational KE of link i COM      rotational KE of link i"
+    },
+    {
+      "id": "02-DYNAMICS.md#043",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "This can be written as:\nT = 0.5 * q_dot^T * M(q) * q_dot"
+    },
+    {
+      "id": "02-DYNAMICS.md#044",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "where M(q) is the n x n MASS MATRIX (also called inertia matrix)."
+    },
+    {
+      "id": "02-DYNAMICS.md#045",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "Properties of M(q):\n  - Symmetric: M(q) = M(q)^T\n  - Positive definite: q_dot^T M(q) q_dot > 0 for all non-zero q_dot\n  - Depends on configuration q (not constant!)\n```"
+    },
+    {
+      "id": "02-DYNAMICS.md#046",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "### Potential Energy"
+    },
+    {
+      "id": "02-DYNAMICS.md#047",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "```\nV = sum_i (m_i * g^T * p_{ci}(q))"
+    },
+    {
+      "id": "02-DYNAMICS.md#048",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "where g is the gravity vector [0, 0, -9.81] in world frame,\n      p_{ci}(q) is COM position of link i (function of joint angles)."
+    },
+    {
+      "id": "02-DYNAMICS.md#049",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "G(q) = dV/dq    (n x 1 gravity torque vector)\n```"
+    },
+    {
+      "id": "02-DYNAMICS.md#050",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "### Coriolis and Centripetal Matrix"
+    },
+    {
+      "id": "02-DYNAMICS.md#051",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "From the Euler-Lagrange equations:"
+    },
+    {
+      "id": "02-DYNAMICS.md#052",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "```\nC_ij(q, q_dot) = sum_k (Christoffel symbols * q_dot_k)"
+    },
+    {
+      "id": "02-DYNAMICS.md#053",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "Christoffel symbol: c_{ijk} = 0.5 * (dM_{ij}/dq_k + dM_{ik}/dq_j - dM_{jk}/dq_i)"
+    },
+    {
+      "id": "02-DYNAMICS.md#054",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "C(q, q_dot) * q_dot contains:\n  - Coriolis terms:    proportional to q_dot_i * q_dot_j (i != j)\n  - Centripetal terms: proportional to q_dot_i^2\n```"
+    },
+    {
+      "id": "02-DYNAMICS.md#055",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "### The Equation of Motion"
+    },
+    {
+      "id": "02-DYNAMICS.md#056",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "```\nEULER-LAGRANGE: d/dt (dL/dq_dot) - dL/dq = tau"
+    },
+    {
+      "id": "02-DYNAMICS.md#057",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "Result:"
+    },
+    {
+      "id": "02-DYNAMICS.md#058",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "M(q) * q_ddot  +  C(q, q_dot) * q_dot  +  G(q)  =  tau"
+    },
+    {
+      "id": "02-DYNAMICS.md#059",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "This is the fundamental EOM for a serial robot arm with rigid links."
+    },
+    {
+      "id": "02-DYNAMICS.md#060",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "In practice:\n  tau = M(q)*q_ddot + C(q,q_dot)*q_dot + G(q)   <- INVERSE DYNAMICS\n        (given desired motion, compute required torques)"
+    },
+    {
+      "id": "02-DYNAMICS.md#061",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "q_ddot = M(q)^{-1} * (tau - C(q,q_dot)*q_dot - G(q))   <- FORWARD DYNAMICS\n        (given applied torques, compute resulting acceleration)\n```"
+    },
+    {
+      "id": "02-DYNAMICS.md#062",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-DYNAMICS.md#063",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "## Physical Meaning of Each Term"
+    },
+    {
+      "id": "02-DYNAMICS.md#064",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "```\nTERM            PHYSICAL MEANING                    WHEN DOMINANT\n====            ================                    =============\nM(q) q_ddot     Inertial resistance to              High accelerations,\n                acceleration. Larger M -> harder    heavy links, or\n                to move, but also harder to stop.   extreme poses (full\n                M varies with pose (more extended   extension: higher M)\n                = higher effective inertia)."
+    },
+    {
+      "id": "02-DYNAMICS.md#065",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "C(q,q_dot)q_dot Coriolis: coupling between joints.  High joint velocities.\n                Moving joint 1 while joint 2 moves  Fast manipulation,\n                generates a \"fictitious\" force at    legged locomotion.\n                joint 2 due to rotating frame.\n                Centripetal: q_dot^2 terms pulling\n                links inward (like a spinning chain)."
+    },
+    {
+      "id": "02-DYNAMICS.md#066",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "G(q)            Gravity torque. All the torque the  Any non-zero g.\n                actuators must provide just to       Dominant at slow\n                hold the arm still against gravity.  speeds / static.\n                G(q) = 0 for horizontal plane arms.\n```"
+    },
+    {
+      "id": "02-DYNAMICS.md#067",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-DYNAMICS.md#068",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "## Motor Sizing from Dynamics"
+    },
+    {
+      "id": "02-DYNAMICS.md#069",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "The EOM directly tells you what torques joints must produce. Motor sizing follows:"
+    },
+    {
+      "id": "02-DYNAMICS.md#070",
+      "path": [
+        "02-DYNAMICS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:02-dynamics, git-history:robotics:02-dynamics]",
+        "canonical_path": "robotics/02-DYNAMICS.md",
+        "concepts": "[dynamics]",
+        "current_path": "robotics/02-DYNAMICS.md",
+        "id": "maxim:robotics:dynamics",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[dynamics]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Dynamics",
+        "updated": "null"
+      },
+      "text": "```\nSTEPS:\n1. Define the worst-case task motion (fastest, heaviest payload, most extended pose).\n2. Compute q_ddot required for the desired EE trajectory (inverse kinematics for velocity).\n3. Compute tau_required = M(q)*q_ddot + C(q,q_dot)*q_dot + G(q).\n4. Add payload forces at EE (via Jacobian transpose: tau_payload = J^T * F_ext).\n5. Add friction model (viscous + Coulomb: tau_friction = b*q_dot + c*sign(q_dot)).\n6. Apply gear ratio N: tau_motor = tau_joint / N, omega_motor = N * q_dot.\n7. Check motor torque-speed curve: tau_motor < tau_rated at omega_motor.\n8. Check thermal: RMS torque < continuous rated torque.\n9. Add 20-30% safety factor for model inaccuracy."
+    }
+  ],
+  "refs": [
+    "02-DYNAMICS.md"
+  ]
+}

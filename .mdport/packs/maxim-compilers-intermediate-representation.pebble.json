@@ -1,0 +1,2141 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-compilers-intermediate-representation",
+  "source": "../../compilers",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#000",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "# Intermediate Representation — TAC, the CFG, and SSA"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#001",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#002",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "The IR is where the optimizer lives, and the choice of IR is the single most\nconsequential design decision in a compiler backend. The modern answer is nearly\nuniversal: linearize the AST into three-address code, group it into basic blocks\nconnected by a control-flow graph, and convert to **Static Single Assignment** form.\nSSA is in LLVM, GCC (GIMPLE), V8 Turbofan, the JVM C2, and rustc's MIR. This guide\nbuilds the IR ladder and the SSA construction algorithm — dominance frontiers and\nall."
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#003",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "```\n                            THE IR LADDER"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#004",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "typed AST (tree, control flow implicit)"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#005",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "|  flatten: introduce temporaries, sequence operations\n         v"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#006",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "THREE-ADDRESS CODE   (each op: x = y <op> z;\n                          at most one operator, ~3 operands)\n    +-------------------------+\n    |  t1 = a + b             |\n    |  t2 = t1 * c            |\n    +-------------------------+"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#007",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "|  split at branch targets / branches\n         v"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#008",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "BASIC BLOCKS   (one entry, one exit, no internal jumps;\n                    edges = control flow)\n    +-------------------------+\n    |  straight-line runs;    |\n    |  edges = control flow   |\n    +-------------------------+"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#009",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "|  connect blocks by branch edges\n         v"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#010",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "CONTROL-FLOW GRAPH (CFG)   (nodes = blocks,\n                                edges = possible jumps)\n    +-------------------------+\n    |   B0 -> B1 -> B3        |\n    |    \\-> B2 ->/           |\n    +-------------------------+"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#011",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "|  rename each def uniquely; phi at merges\n         v"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#012",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "SSA FORM   (every variable assigned EXACTLY ONCE;\n                phi selects by predecessor at merges)\n    +-------------------------+\n    |  x1 = ...   x2 = ...    |\n    |  x3 = phi(x1, x2)       |\n    +-------------------------+"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#013",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "|\n         v   to dataflow (05) + optimization (06)\n```"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#014",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "Read top-down: the tree flattens to a linear instruction sequence, the sequence\npartitions into basic blocks, the blocks form a CFG, and the CFG is renamed into SSA.\nEvery later optimization assumes this shape."
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#015",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#016",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "## Three-Address Code"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#017",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "TAC flattens nested expressions into a sequence where each instruction has at most\none operator. The \"three addresses\" are the destination and (up to) two sources."
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#018",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "```\n  source:  d = a * b + a * b * c"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#019",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "TAC (introduce temporaries left-to-right):\n     t1 = a * b\n     t2 = a * b\n     t3 = t2 * c\n     t4 = t1 + t3\n     d  = t4"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#020",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "The redundancy (t1 and t2) is now SYNTACTICALLY visible -- exactly what\n  makes common-subexpression elimination a local pattern match instead of\n  a tree traversal. That is the whole point of flattening.\n```"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#021",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "```\n  TAC instruction shapes:\n     x = y op z        binary\n     x = op y          unary\n     x = y             copy\n     x = &y / x = *y   address / load (low-level TAC)\n     goto L            unconditional jump\n     if x relop y goto L   conditional jump\n     x = call f, n     call\n     param x / return x    calling-convention glue\n```"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#022",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "TAC sits below the AST (control flow is now explicit jumps) and above machine code\n(unbounded temporaries, no registers yet). LLVM IR is essentially typed TAC in SSA\nform; MSIL/CIL is a *stack*-based cousin that the JIT lowers into register-based TAC."
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#023",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#024",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "## Basic Blocks and the CFG"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#025",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "A **basic block** is a maximal straight-line sequence: control enters only at the\ntop and leaves only at the bottom. You find them by marking *leaders*."
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#026",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "```\n  Leaders are:\n    1. the first instruction,\n    2. any target of a jump,\n    3. any instruction immediately AFTER a jump.\n  A basic block runs from a leader up to (not including) the next leader.\n```"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#027",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "```\n  TAC with labels:                 CFG:\n   B0: t = n                         +-----+\n       if t <= 1 goto B2             | B0  |  if t<=1\n                                     +--+--+\n   B1: r = n * fact(n-1)          F  /     \\  T\n       goto B3                      v       v"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#028",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "+-----+ +-----+\n   B2: r = 1                     | B1  | | B2  |\n                                 +--+--+ +--+--+\n   B3: return r                     \\       /\n                                     v     v"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#029",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "+-----+\n                                     | B3  |\n                                     +-----+\n```"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#030",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "```\n  CFG vocabulary you'll use constantly:\n    predecessors / successors of a block\n    entry block (no predecessors except itself)\n    back edge (target dominates source) -> marks a LOOP\n    critical edge (from a block with >1 successor to a block with >1\n       predecessor) -> often SPLIT before SSA destruction / phi lowering\n    reducible CFG (loops have single entry headers) -> the well-behaved\n       case structured languages produce; irreducible CFGs (from goto\n       spaghetti) need extra care\n```"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#031",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "The CFG is the substrate for everything in guides 05–07: dataflow runs over it,\ndominance is defined on it, and register allocation colors values whose live ranges\nspan its edges."
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#032",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#033",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "## SSA — Static Single Assignment"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#034",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "In SSA, **every variable is assigned exactly once**. Reassignments become fresh\nversioned names, and where control-flow paths merge, a **φ (phi) function** selects\nthe right version based on which predecessor executed."
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#035",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "```\n  NON-SSA                         SSA\n  =======                         ===\n  x = 1                           x1 = 1\n  if cond:                        if cond:\n      x = 2                           x2 = 2\n  y = x + 1                       x3 = phi(x1, x2)     <- merge point\n                                  y1 = x3 + 1"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#036",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "phi(x1, x2) means: \"take x1 if we arrived from the then-less path,\n  x2 if from the `if` body.\" It is a COMPILE-TIME selector, not a runtime\n  branch -- the register allocator turns it into a move on each incoming edge.\n```"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#037",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "### Why SSA — the payoff"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#038",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "```\n  USE-DEF CHAINS BECOME TRIVIAL\n    Every use of x2 has EXACTLY ONE definition. Finding \"all defs of x\"\n    in non-SSA needs global analysis; in SSA it's a single pointer."
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#039",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "CONSTANT PROPAGATION BECOMES LOCAL\n    x1 = 5 ; y = x1 + 3  ->  follow the one def  ->  y = 8."
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#040",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "DEAD CODE ELIMINATION IS REACHABILITY\n    A value with no uses and no side effects is dead -> delete -> repeat."
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#041",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "GVN / CSE BECOMES HASHING\n    Two instructions with identical operator + operand VERSIONS compute\n    the same value. Hash on (op, operand-versions) -> dedup across blocks."
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#042",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "SPARSE ANALYSES\n    SSA lets you propagate facts along def-use edges directly, instead of\n    re-deriving them at every program point (sparse vs dense dataflow).\n```"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#043",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "This is why SSA is the universal modern IR. The single-assignment property turns\nseveral global analyses into local pointer-following."
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#044",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#045",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "## Constructing SSA — Dominance and Phi Placement"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#046",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "The classic Cytron et al. algorithm: compute dominators, compute **dominance\nfrontiers**, insert φ at the frontiers, then rename. This is the precision core."
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#047",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "### Dominance"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#048",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "```\n  Block A DOMINATES block B if EVERY path from entry to B passes through A.\n  (Every block dominates itself. The entry dominates everything.)"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#049",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "A STRICTLY dominates B if A dominates B and A != B.\n  The IMMEDIATE dominator idom(B) is the unique strict dominator of B that\n  is dominated by every other strict dominator of B -- B's parent in the\n  DOMINATOR TREE.\n```"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#050",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "```\n  CFG:                  Dominator tree:\n     entry                 entry\n       |                     |\n       B0                    B0\n      /  \\                  /|\\\n    B1    B2              B1 B2 B3\n      \\  /                       (B3's idom is B0, NOT B1 or B2 --\n       B3                         neither B1 nor B2 is on EVERY path\n       |                          to B3, but B0 is)\n       B4                   B4 hangs under B3\n```"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#051",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "The dominator tree is computed with Lengauer-Tarjan in near-linear O(E·α(E)) time,\nor the simpler Cooper-Harvey-Kennedy iterative algorithm that is fast in practice."
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#052",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "### Dominance Frontier — exactly where phis go"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#053",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "```\n  The DOMINANCE FRONTIER of block A, DF(A), is the set of blocks B such that:\n     A dominates a PREDECESSOR of B,  but  A does NOT strictly dominate B."
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#054",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "Intuition: DF(A) is the set of merge points \"just beyond\" A's region of\n  control -- the first places where a value defined in A's dominated region\n  could meet a value from elsewhere. THAT is precisely where a phi is needed.\n```"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#055",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "```\n  PHI PLACEMENT (iterated dominance frontier):\n    For each variable v:\n      Workset = { blocks that DEFINE v }\n      For each block A in the worklist:\n        for each B in DF(A):\n          if B has no phi for v yet:\n            insert  v = phi(...)  at the top of B\n            if B did not already define v, add B to the worklist\n              (a phi is itself a definition -> may trigger more phis)\n    => the ITERATED dominance frontier of the definition set.\n```"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#056",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "```\n  Worked example -- variable x defined in B1 and B2:"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#057",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "B0: (entry, branches to B1 or B2)\n     B1: x = 1   ;  goto B3\n     B2: x = 2   ;  goto B3\n     B3: use x"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#058",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "DF(B1) = {B3}   (B1 dominates its own only-pred-of-B3? B1 is a pred of\n                      B3, and B1 does not strictly dominate B3 -> B3 in DF(B1))\n     DF(B2) = {B3}   (same reasoning)\n     => insert  x3 = phi(x1, x2)  at the top of B3.  Correct: B3 is the merge.\n```"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#059",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "### Renaming"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#060",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "After φ insertion, walk the dominator tree, keeping a per-variable version stack:\neach definition pushes a new version; each use takes the current top; φ operands are\nfilled from the version live on each incoming edge."
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#061",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "```\n  Before rename:                After rename (versions):\n   B1: x = 1                     B1: x1 = 1\n   B2: x = 2                     B2: x2 = 2\n   B3: x = phi(x, x)            B3: x3 = phi(x1 [from B1], x2 [from B2])\n       use x                        use x3\n```"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#062",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "This minimal-φ construction places exactly the φ-functions that are needed — the\niterated dominance frontier guarantees neither too few (every reaching def is\ncovered) nor redundantly many."
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#063",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#064",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "## Leaving SSA — Phi Elimination"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#065",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "SSA is great for analysis but machines have no φ instruction. Before register\nallocation you *destruct* SSA, replacing each φ with copies on the incoming edges."
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#066",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "```\n  SSA:                          After phi elimination:\n   B1: ... ; goto B3            B1: ... ; x3 = x1 ; goto B3\n   B2: ... ; goto B3            B2: ... ; x3 = x2 ; goto B3\n   B3: x3 = phi(x1, x2)         B3: (phi gone) use x3\n       use x3\n```"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#067",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "```\n  The lost-copy and swap problems:\n    Naive copy insertion can clobber a value still needed by a PARALLEL phi\n    (e.g. x3=phi(...) and y3=phi(...) that swap x and y). The fix:\n       - SPLIT CRITICAL EDGES so copies have a place to live, and\n       - treat all phis in a block as PARALLEL (sequentialize with a temp,\n         like a register swap), so  x,y = y,x  doesn't lose a value.\n```"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#068",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "This phase hands the (now φ-free) CFG to register allocation (guide 07); the inserted\ncopies are exactly what coalescing later tries to remove."
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#069",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#070",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "## Old World → New World Bridges"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#071",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "| You know | Maps to |\n|----------|---------|\n| MSIL / CIL bytecode | A *stack-based* IR; RyuJIT imports it, builds a CFG, and converts to its own SSA-ish IR for optimization |\n| `Expression` trees (LINQ) | An AST-level IR — tree-shaped, not yet linearized to TAC |\n| Reading disassembly with basic blocks (windbg) | The CFG made concrete — leaders are the jump targets you see |\n| .NET `RyuJIT` phases | Importer → morph → SSA-based optimizations → LSRA → codegen; SSA sits in the middle exactly as here |\n| GIMPLE (if you've seen GCC dumps) | GCC's three-address SSA IR — same ladder, different syntax |\n| Profiler \"hot path\" overlays | Edges/blocks of the CFG annotated with execution counts |"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#072",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "The headline bridge: **CIL is a stack machine; the JIT does not optimize the stack\nform.** It rebuilds a CFG and a register-based SSA IR first, because dataflow and SSA\noptimizations are intractable on a stack representation. The \"two IRs\" pattern (a\nportable stack bytecode plus an internal SSA IR) is shared by .NET, the JVM, and\nWASM engines."
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#073",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#074",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "04-INTERMEDIATE-REPRESENTATION.md#075",
+      "path": [
+        "04-INTERMEDIATE-REPRESENTATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:compilers:04-intermediate-representation, git-history:compilers:04-intermediate-representation]",
+        "canonical_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "concepts": "[intermediate representation, three-address code, basic block, control flow graph, SSA, phi function, dominance frontier]",
+        "current_path": "compilers/04-INTERMEDIATE-REPRESENTATION.md",
+        "id": "maxim:compilers:intermediate-representation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "compilers",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[intermediate representation]",
+        "section": "compilers",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Intermediate Representation - Three-Address Code, CFG, SSA Form",
+        "updated": "null"
+      },
+      "text": "| I want to... | Use |\n|---|---|\n| Make redundant computations visible | Three-address code (flatten the AST) |\n| Make control flow explicit | Basic blocks + the CFG |\n| Find basic blocks | Mark leaders (targets, post-jumps, first instr) |\n| Detect loops | Back edges (target dominates source) in the CFG |\n| Make use-def chains trivial | SSA form |\n| Decide where φ-functions go | Iterated dominance frontier of the defs |\n| Compute dominance fast | Lengauer-Tarjan or Cooper-Harvey-Kennedy |\n| Get out of SSA before codegen | φ elimination with critical-edge splitting + parallel copies |\n| Optimize CIL/JVM bytecode | Import → CFG → SSA, then optimize (don't optimize the stack form) |"
+    }
+  ],
+  "refs": [
+    "04-INTERMEDIATE-REPRESENTATION.md"
+  ]
+}

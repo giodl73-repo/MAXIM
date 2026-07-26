@@ -1,0 +1,1805 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-networking-nat-and-firewalls",
+  "source": "../../networking",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#000",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "# NAT and Firewalls — NAT Types, Stateful Firewalls, CGNAT, Port Forwarding"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#001",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#002",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "NAT and firewalls are the **middleboxes** — devices that sit in the path and\nrewrite or filter traffic, breaking the original Internet ideal that any host can\ndirectly address any other. NAT exists because IPv4 ran out of addresses (02): it\nlets many private hosts share one public IP by rewriting addresses and ports on\nthe fly. Firewalls exist for security: they decide which connections are allowed.\nBoth are **stateful** — they remember connections — and that shared mechanism\n(a connection-tracking table) is the key to understanding them together."
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#003",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "```\n              THE MIDDLEBOX: where private meets public\n   PRIVATE SIDE (RFC 1918)                            PUBLIC INTERNET\n   +---------------------+                            +----------------+\n   | 192.168.1.10  ------|----+                       |                |\n   | 192.168.1.11  ------|--+ |                       |                |\n   | 192.168.1.12  ------|+ | |    +-------------+    |  server        |\n   +---------------------+| | |    |  NAT +      |    |  203.0.113.5   |\n                          | | +--->|  FIREWALL   |--->|  :443          |\n                          | +----->|             |    |                |\n                          +------->| (one public |    |                |\n                                   |  IP, a state|    |                |\n                                   |  table)     |    |                |\n                                   +-------------+    +----------------+\n                                    public IP: 198.51.100.7"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#004",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "NAT:      rewrite (private IP:port) <-> (public IP:port), remember it\n   FIREWALL: allow/deny based on rules + connection STATE\n   BOTH:     keep a per-connection table; the table is the whole trick.\n```"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#005",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "The central consequence: behind NAT, hosts have **no inbound reachability** by\ndefault. A private host can *initiate* outbound connections (creating a table\nentry that lets the reply back in), but nobody on the Internet can start a\nconnection *to* it — there's no public address for it and no table entry to match.\nThis asymmetry is the source of nearly every NAT headache and the whole field of\nNAT traversal."
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#006",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "> **Bridge — a stateful proxy / connection table.** NAT and a stateful firewall\n> are exactly a connection-tracking proxy: an outbound request opens a flow entry\n> that authorizes the matching return traffic; everything unsolicited is dropped.\n> It's the same model as a reverse proxy's connection table or a security group —\n> default-deny inbound, allow established-and-related."
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#007",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#008",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "## Why NAT Exists"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#009",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "```\n   IPv4 = 32 bits = ~4.29 billion addresses. The Internet has FAR more\n   devices than that. The stopgap (since the mid-1990s):"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#010",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "MANY private hosts  --share-->  ONE public IPv4 address"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#011",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "Private ranges (RFC 1918, from 02) never appear on the public Internet:\n     10.0.0.0/8      172.16.0.0/12     192.168.0.0/16"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#012",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "NAT translates between the private world and the one public IP, so a whole\n   home/office/carrier looks like a single (or few) public address(es).\n```"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#013",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "IPv6 (02), with its effectively unlimited address space, removes the *addressing*\nreason for NAT — every device can have a globally unique address. But the\n*firewall side effect* of NAT (no unsolicited inbound) is something operators\nstill want, so IPv6 networks typically achieve it with a stateful firewall\ninstead of address translation."
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#014",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#015",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "## How NAT Actually Works (PAT)"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#016",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "The form of NAT everyone actually uses is **PAT (Port Address Translation)**,\nalso called **NAPT** or \"NAT overload\" — it multiplexes many internal hosts onto\none public IP by also rewriting the **port** and tracking the mapping."
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#017",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "```\n   OUTBOUND: host 192.168.1.10:51000 -> server 203.0.113.5:443"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#018",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "NAT rewrites the SOURCE and records the mapping in its table:"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#019",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "+------------------------+------------------------+\n   | INSIDE (private)       | OUTSIDE (public)       |\n   +------------------------+------------------------+\n   | 192.168.1.10 : 51000   | 198.51.100.7 : 62000   |\n   | 192.168.1.11 : 51000   | 198.51.100.7 : 62001   |  <- same inside port,\n   +------------------------+------------------------+     different public port"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#020",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "ON THE WIRE the server sees: src 198.51.100.7:62000 -> 203.0.113.5:443"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#021",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "INBOUND REPLY: server -> 198.51.100.7:62000\n     NAT looks up 62000 in the table -> rewrites dst back to 192.168.1.10:51000\n     -> delivers to the right private host."
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#022",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "The PORT is what disambiguates which internal host a reply belongs to.\n```"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#023",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "This is why NAT must be **stateful**: the table mapping public-port → private-host\nis the only way a return packet finds its way home. The entry is created on the\nfirst outbound packet and expires after an idle timeout. If the entry is gone, the\nreply has nowhere to go — which is why long-idle connections silently die behind\nNAT and why protocols send keepalives."
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#024",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#025",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "## NAT and the End-to-End Principle"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#026",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "NAT *breaks* a foundational assumption of the Internet — that any host can\naddress any other directly. The damage is real and worth naming:"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#027",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "```\n   WHAT NAT BREAKS:\n   - inbound reachability: no public address -> servers behind NAT are\n     unreachable from outside without explicit port forwarding.\n   - peer-to-peer: two hosts BOTH behind NAT can't directly connect\n     (neither can initiate inbound to the other).\n   - protocols that embed IPs in their payload (old FTP, SIP) break unless\n     the NAT has an \"ALG\" that rewrites the embedded address too.\n   - end-to-end integrity: the L4 checksum must be recomputed; IPsec AH\n     (which signs the IP header) is incompatible with NAT.\n```"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#028",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "NAT is, in effect, a layering violation: an L3 device reaching up to rewrite L4\nports (and sometimes L7 payloads). It worked spectacularly as a stopgap for\naddress exhaustion, but every \"why can't these two peers connect\" problem in\nmodern networking traces back to it."
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#029",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#030",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "## NAT Types and Traversal"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#031",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "Because two NATed peers can't connect directly, real-time apps (VoIP, video,\ngames, WebRTC) need **NAT traversal**. How hard it is depends on the NAT's\n**mapping behavior** — a classic taxonomy:"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#032",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "```\n   NAT MAPPING BEHAVIORS (roughly, easiest -> hardest to traverse):"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#033",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "FULL CONE          once 192.168.1.10:51000 -> 62000 is mapped, ANY\n                      external host can send to 62000 and reach the host.\n                      (most permissive)"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#034",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "RESTRICTED CONE    only external hosts the inside host has ALREADY\n                      contacted may send back (filtered by their IP)."
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#035",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "PORT-RESTRICTED    same, but filtered by IP AND port."
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#036",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "SYMMETRIC          a DIFFERENT public port per destination. The mapping\n                      depends on where you're going -> hardest to predict,\n                      hardest to traverse. (most restrictive)\n```"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#037",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "The traversal toolkit (the **ICE** framework, used by WebRTC):"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#038",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "```\n   STUN (RFC 8489): \"what's my public IP:port?\" A host asks a STUN server,\n        which reflects back the address NAT assigned -> the host learns its\n        own external mapping so it can share it with a peer (hole punching)."
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#039",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "TURN (RFC 8656): when traversal FAILS (e.g. symmetric NAT on both ends),\n        relay ALL traffic through a public TURN server. Always works, but\n        adds a hop and cost -> the fallback of last resort."
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#040",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "ICE  (RFC 8445): the framework that gathers candidate addresses (local,\n        STUN-reflexive, TURN-relayed) and tries them in order to find a\n        working path between two peers. The orchestration over STUN+TURN."
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#041",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "HOLE PUNCHING: both peers send outbound simultaneously, each creating a\n        NAT mapping that lets the other's packets in. Works for cone NATs;\n        fails for symmetric (unpredictable ports) -> fall back to TURN.\n```"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#042",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "> **Bridge — rendezvous through a coordinator.** NAT traversal is a rendezvous\n> problem: two nodes that can't be addressed directly use a mutually reachable\n> coordinator (STUN/TURN) to discover each other and punch a path — the same\n> shape as nodes behind firewalls connecting through a relay/broker in a\n> distributed system. The coordinator bootstraps a direct path where possible,\n> relays where not."
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#043",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#044",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "## CGNAT — Carrier-Grade NAT"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#045",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "When ISPs ran out of public IPv4 even for their *own* customers, they added a\n*second* NAT layer at the carrier: **CGNAT (Carrier-Grade NAT, RFC 6888)**, also\ncalled LSN. Now your traffic is translated twice — once at your home router, once\nat the carrier."
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#046",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "```\n   DOUBLE NAT under CGNAT:"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#047",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "home host        home router         CARRIER (CGNAT)        Internet\n   192.168.1.10 --> 100.64.x.x      --> a SHARED public IP  --> server\n   (RFC 1918)       (RFC 6598            (one IP shared by\n                     shared range)        MANY subscribers)"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#048",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "The 100.64.0.0/10 range (RFC 6598) is reserved precisely for the space\n   BETWEEN the customer NAT and the carrier NAT.\n```"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#049",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "CGNAT makes things worse for the user: you no longer have *any* public IP, so port\nforwarding is impossible, inbound services can't be hosted, and peer-to-peer\ntraversal often needs TURN relays. It's purely a consequence of IPv4 scarcity —\nand the strongest practical argument for IPv6 deployment, which eliminates the\nneed for it entirely."
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#050",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#051",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "## Port Forwarding and Stateful Firewalls"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#052",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "To deliberately allow *inbound* to a host behind NAT, you configure **port\nforwarding** (a static, manual NAT table entry):"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#053",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "```\n   STATIC RULE on the NAT/router:\n     public 198.51.100.7 : 8080  ---ALWAYS-FORWARD-TO--->  192.168.1.50 : 80"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#054",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "Now external clients hitting :8080 reach your internal web server. This\n   is the manual override for NAT's default \"no inbound\" -> how you self-host.\n   (UPnP / NAT-PMP let trusted apps create these mappings automatically.)\n```"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#055",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "The **firewall** half is about *policy*, and the modern firewall is **stateful**:\nit tracks each connection's state (NEW, ESTABLISHED, RELATED) and decides based on\nthe flow, not just individual packets."
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#056",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "```\n   STATELESS (old, packet-by-packet):\n     each packet judged alone against rules. To allow replies you must\n     explicitly open the high ports -> coarse, leaky."
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#057",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "STATEFUL (modern):\n     +-------------------------------------------------------------+\n     | CONNECTION TRACKING TABLE                                   |\n     | flow (5-tuple) | state                                     |\n     | A:51000->B:443 | ESTABLISHED   <- outbound created it       |\n     +-------------------------------------------------------------+\n     RULE: \"allow ESTABLISHED + RELATED; default-deny everything else.\"\n     -> outbound connection auto-authorizes its OWN return traffic.\n     -> nothing unsolicited gets in. The table IS the security.\n```"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#058",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "Stateful tracking is *the same table mechanism* as NAT — which is why a single\nhome router does both at once. The firewall asks \"is this packet part of a flow we\nalready allowed?\"; NAT asks \"which inside host does this flow's reply belong to?\"\nSame table, two questions."
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#059",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "```\n   FIREWALL LAYERS (where filtering happens):\n     L3/L4 packet filter   -> by IP, port, protocol, flow state (fast, classic)\n     L7 / application       -> inspects HTTP, blocks by URL/content (WAF, deep)\n     stateful inspection    -> the connection-tracking middle ground (standard)\n```"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#060",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "> **Bridge — default-deny + allow established.** A stateful firewall rule set is\n> a security group / NSG: default-deny inbound, allow outbound, and the\n> connection tracker auto-permits return traffic for flows you initiated. If\n> you've written cloud security-group rules, you've written exactly this policy —\n> the cloud just hides the conntrack table behind a managed control plane."
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#061",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#062",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "07-NAT-AND-FIREWALLS.md#063",
+      "path": [
+        "07-NAT-AND-FIREWALLS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:networking:07-nat-and-firewalls, git-history:networking:07-nat-and-firewalls]",
+        "canonical_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "concepts": "[nat, pat, stateful firewall, cgnat, port forwarding, nat traversal, stun]",
+        "current_path": "networking/07-NAT-AND-FIREWALLS.md",
+        "id": "maxim:networking:nat-and-firewalls",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "networking",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[nat and firewalls]",
+        "section": "networking",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "NAT and Firewalls - NAT Types, Stateful Firewalls, CGNAT, Port Forwarding",
+        "updated": "null"
+      },
+      "text": "| Situation | Mechanism |\n|---|---|\n| Many private hosts, one public IPv4 | PAT (NAT overload) |\n| Host a server behind NAT | port forwarding (static NAT entry) |\n| App auto-opens a port on the router | UPnP / NAT-PMP |\n| Two peers both behind NAT need to connect | STUN + hole punching (ICE) |\n| Traversal fails (symmetric NAT both ends) | TURN relay (fallback) |\n| ISP gives you no public IP at all | you're behind CGNAT (100.64/10) |\n| Why an idle connection drops behind NAT | mapping timed out → send keepalives |\n| Allow return traffic without opening ports | stateful firewall (ESTABLISHED/RELATED) |\n| Block by URL/content, not just port | L7 firewall / WAF |\n| End the need for NAT entirely | IPv6 + stateful firewall (02) |"
+    }
+  ],
+  "refs": [
+    "07-NAT-AND-FIREWALLS.md"
+  ]
+}

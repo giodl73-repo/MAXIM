@@ -1,0 +1,125 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-formal-methods-program-analysis",
+  "source": "../../formal-methods",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "06-PROGRAM-ANALYSIS.md#000",
+      "path": [
+        "06-PROGRAM-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:formal-methods:06-program-analysis, git-history:formal-methods:06-program-analysis]",
+        "canonical_path": "formal-methods/06-PROGRAM-ANALYSIS.md",
+        "concepts": "[program, analysis]",
+        "current_path": "formal-methods/06-PROGRAM-ANALYSIS.md",
+        "id": "maxim:formal-methods:program-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "formal-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[program, analysis]",
+        "section": "formal-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Program Analysis",
+        "updated": "null"
+      },
+      "text": "# Program Analysis"
+    },
+    {
+      "id": "06-PROGRAM-ANALYSIS.md#001",
+      "path": [
+        "06-PROGRAM-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:formal-methods:06-program-analysis, git-history:formal-methods:06-program-analysis]",
+        "canonical_path": "formal-methods/06-PROGRAM-ANALYSIS.md",
+        "concepts": "[program, analysis]",
+        "current_path": "formal-methods/06-PROGRAM-ANALYSIS.md",
+        "id": "maxim:formal-methods:program-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "formal-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[program, analysis]",
+        "section": "formal-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Program Analysis",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "06-PROGRAM-ANALYSIS.md#002",
+      "path": [
+        "06-PROGRAM-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:formal-methods:06-program-analysis, git-history:formal-methods:06-program-analysis]",
+        "canonical_path": "formal-methods/06-PROGRAM-ANALYSIS.md",
+        "concepts": "[program, analysis]",
+        "current_path": "formal-methods/06-PROGRAM-ANALYSIS.md",
+        "id": "maxim:formal-methods:program-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "formal-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[program, analysis]",
+        "section": "formal-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Program Analysis",
+        "updated": "null"
+      },
+      "text": "Program analysis covers the automated techniques for reasoning about code properties\nwithout running the code. The intellectual core is abstract interpretation — a framework\nunifying essentially all static analysis. The tools range from fast approximate analyses\n(Infer, CodeQL) to deep deductive verifiers (Frama-C WP plugin)."
+    },
+    {
+      "id": "06-PROGRAM-ANALYSIS.md#003",
+      "path": [
+        "06-PROGRAM-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:formal-methods:06-program-analysis, git-history:formal-methods:06-program-analysis]",
+        "canonical_path": "formal-methods/06-PROGRAM-ANALYSIS.md",
+        "concepts": "[program, analysis]",
+        "current_path": "formal-methods/06-PROGRAM-ANALYSIS.md",
+        "id": "maxim:formal-methods:program-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "formal-methods",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[program, analysis]",
+        "section": "formal-methods",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Program Analysis",
+        "updated": "null"
+      },
+      "text": "```\n+--------------------------------------------------------------------------+\n|                       PROGRAM ANALYSIS LANDSCAPE                         |\n|                                                                          |\n|  TECHNIQUE           TOOLS              PROPERTIES         SCALE         |\n|  ─────────           ─────              ──────────         ─────         |\n|  Abstract            Astrée, Frama-C    Absence of         Safety-crit.  |\n|  interpretation      (value analysis)   runtime errors     C (avionics)  |\n|                                                                          |\n|  Dataflow analysis   Clang SA, Infer    Null deref,        Any codebase  |\n|  (flow-sensitive)    (flow-insens.)     resource leaks,    (scales well) |\n|                                         uninitialized vars               |\n|                                                                          |\n|  Symbolic execution  KLEE, angr,        Reachability,      C/binary      |\n|                      S2E, Manticore     crashes, asserts   (moderate)    |\n|                                                                          |\n|  Separation logic    Infer (biabduct.)  Memory safety,     Java/C/ObjC   |\n|                                         null deref,        (Facebook-    |\n|                                         resource leaks     scale CI)     |\n|                                                                          |\n|  Taint analysis      CodeQL, FlowDagger Security info-     Java/Python/  |\n|  (IFDS framework)    Semgrep            flow, SQL inject.  JS (CI)       |\n|                                                                          |\n|  Deductive           Frama-C WP,        Full functional    Safety-crit.  |\n|  verification        Dafny, VeriFast    correctness        C (nuclear,   |\n|                                                            aerospace)    |\n+--------------------------------------------------------------------------+"
+    }
+  ],
+  "refs": [
+    "06-PROGRAM-ANALYSIS.md"
+  ]
+}

@@ -1,0 +1,209 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-computer-vision-image-formation",
+  "source": "../../computer-vision",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "01-IMAGE-FORMATION.md#000",
+      "path": [
+        "01-IMAGE-FORMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:01-image-formation, git-history:computer-vision:01-image-formation]",
+        "canonical_path": "computer-vision/01-IMAGE-FORMATION.md",
+        "concepts": "[pinhole camera, camera intrinsics, camera extrinsics, projection matrix, lens distortion, sampling, color]",
+        "current_path": "computer-vision/01-IMAGE-FORMATION.md",
+        "id": "maxim:computer-vision:image-formation",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[image formation]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Image Formation - The Camera Model",
+        "updated": "null"
+      },
+      "text": "# Image Formation — The Camera Model"
+    },
+    {
+      "id": "01-IMAGE-FORMATION.md#001",
+      "path": [
+        "01-IMAGE-FORMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:01-image-formation, git-history:computer-vision:01-image-formation]",
+        "canonical_path": "computer-vision/01-IMAGE-FORMATION.md",
+        "concepts": "[pinhole camera, camera intrinsics, camera extrinsics, projection matrix, lens distortion, sampling, color]",
+        "current_path": "computer-vision/01-IMAGE-FORMATION.md",
+        "id": "maxim:computer-vision:image-formation",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[image formation]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Image Formation - The Camera Model",
+        "updated": "null"
+      },
+      "text": "## The Big Picture: From 3D Point to Pixel"
+    },
+    {
+      "id": "01-IMAGE-FORMATION.md#002",
+      "path": [
+        "01-IMAGE-FORMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:01-image-formation, git-history:computer-vision:01-image-formation]",
+        "canonical_path": "computer-vision/01-IMAGE-FORMATION.md",
+        "concepts": "[pinhole camera, camera intrinsics, camera extrinsics, projection matrix, lens distortion, sampling, color]",
+        "current_path": "computer-vision/01-IMAGE-FORMATION.md",
+        "id": "maxim:computer-vision:image-formation",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[image formation]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Image Formation - The Camera Model",
+        "updated": "null"
+      },
+      "text": "Every pixel is the end of a chain that starts at a 3D point in the world. The whole of\nmulti-view geometry (guide 06) is the inversion of this chain, so getting it exactly\nright here is non-negotiable. The chain has four stages, each a matrix or a function."
+    },
+    {
+      "id": "01-IMAGE-FORMATION.md#003",
+      "path": [
+        "01-IMAGE-FORMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:01-image-formation, git-history:computer-vision:01-image-formation]",
+        "canonical_path": "computer-vision/01-IMAGE-FORMATION.md",
+        "concepts": "[pinhole camera, camera intrinsics, camera extrinsics, projection matrix, lens distortion, sampling, color]",
+        "current_path": "computer-vision/01-IMAGE-FORMATION.md",
+        "id": "maxim:computer-vision:image-formation",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[image formation]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Image Formation - The Camera Model",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------------------+\n|                   THE IMAGE-FORMATION CHAIN  (3D point -> pixel)             |\n|                                                                              |\n|  X_world          X_camera          x_normalized         x_pixel             |\n|  [X Y Z 1]^T      [Xc Yc Zc]^T      [Xc/Zc, Yc/Zc]       [u v]^T             |\n|     |                 |                  |                  |                |\n|     |  EXTRINSICS     |  PERSPECTIVE     |  INTRINSICS      |  SAMPLING      |\n|     |  [R | t]        |  DIVISION (/Zc)  |  K              |  + COLOR        |\n|     v                 v                  v                  v                |\n|  .--------.      .---------.       .-----------.      .-----------.          |\n|  | world  | ---> | camera  | --->  |  image    | ---> |  sensor   |          |\n|  | frame  |  rigid  frame  | proj  |  plane    |  pix  |  array    |         |\n|  '--------'  move '---------' ect   '-----------' grid '-----------'         |\n|                                                                              |\n|   x ~ K [R | t] X      (the full 3x4 projection, up to scale '~')            |\n+------------------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "01-IMAGE-FORMATION.md#004",
+      "path": [
+        "01-IMAGE-FORMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:01-image-formation, git-history:computer-vision:01-image-formation]",
+        "canonical_path": "computer-vision/01-IMAGE-FORMATION.md",
+        "concepts": "[pinhole camera, camera intrinsics, camera extrinsics, projection matrix, lens distortion, sampling, color]",
+        "current_path": "computer-vision/01-IMAGE-FORMATION.md",
+        "id": "maxim:computer-vision:image-formation",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[image formation]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Image Formation - The Camera Model",
+        "updated": "null"
+      },
+      "text": "Read left to right: a rigid transform `[R|t]` moves the point into the camera's frame;\nperspective division collapses depth; the intrinsic matrix `K` converts to pixel units;\nsampling and a color filter turn continuous irradiance into a discrete RGB array."
+    },
+    {
+      "id": "01-IMAGE-FORMATION.md#005",
+      "path": [
+        "01-IMAGE-FORMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:01-image-formation, git-history:computer-vision:01-image-formation]",
+        "canonical_path": "computer-vision/01-IMAGE-FORMATION.md",
+        "concepts": "[pinhole camera, camera intrinsics, camera extrinsics, projection matrix, lens distortion, sampling, color]",
+        "current_path": "computer-vision/01-IMAGE-FORMATION.md",
+        "id": "maxim:computer-vision:image-formation",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[image formation]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Image Formation - The Camera Model",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-IMAGE-FORMATION.md#006",
+      "path": [
+        "01-IMAGE-FORMATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:01-image-formation, git-history:computer-vision:01-image-formation]",
+        "canonical_path": "computer-vision/01-IMAGE-FORMATION.md",
+        "concepts": "[pinhole camera, camera intrinsics, camera extrinsics, projection matrix, lens distortion, sampling, color]",
+        "current_path": "computer-vision/01-IMAGE-FORMATION.md",
+        "id": "maxim:computer-vision:image-formation",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[image formation]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Image Formation - The Camera Model",
+        "updated": "null"
+      },
+      "text": "## Layer 1: The Pinhole Camera Model"
+    }
+  ],
+  "refs": [
+    "01-IMAGE-FORMATION.md"
+  ]
+}

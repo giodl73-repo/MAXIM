@@ -1,0 +1,125 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-distributed-systems-consistency-models",
+  "source": "../../distributed-systems",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "02-CONSISTENCY-MODELS.md#000",
+      "path": [
+        "02-CONSISTENCY-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:distributed-systems:02-consistency-models, git-history:distributed-systems:02-consistency-models]",
+        "canonical_path": "distributed-systems/02-CONSISTENCY-MODELS.md",
+        "concepts": "[consistency, models]",
+        "current_path": "distributed-systems/02-CONSISTENCY-MODELS.md",
+        "id": "maxim:distributed-systems:consistency-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[consistency, models]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Consistency Models: Linearizability, Sequential, Causal, Eventual",
+        "updated": "null"
+      },
+      "text": "# Consistency Models: Linearizability, Sequential, Causal, Eventual"
+    },
+    {
+      "id": "02-CONSISTENCY-MODELS.md#001",
+      "path": [
+        "02-CONSISTENCY-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:distributed-systems:02-consistency-models, git-history:distributed-systems:02-consistency-models]",
+        "canonical_path": "distributed-systems/02-CONSISTENCY-MODELS.md",
+        "concepts": "[consistency, models]",
+        "current_path": "distributed-systems/02-CONSISTENCY-MODELS.md",
+        "id": "maxim:distributed-systems:consistency-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[consistency, models]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Consistency Models: Linearizability, Sequential, Causal, Eventual",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "02-CONSISTENCY-MODELS.md#002",
+      "path": [
+        "02-CONSISTENCY-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:distributed-systems:02-consistency-models, git-history:distributed-systems:02-consistency-models]",
+        "canonical_path": "distributed-systems/02-CONSISTENCY-MODELS.md",
+        "concepts": "[consistency, models]",
+        "current_path": "distributed-systems/02-CONSISTENCY-MODELS.md",
+        "id": "maxim:distributed-systems:consistency-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[consistency, models]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Consistency Models: Linearizability, Sequential, Causal, Eventual",
+        "updated": "null"
+      },
+      "text": "Consistency models define what a distributed system promises about the order and visibility of operations. They form a hierarchy — stronger models are safer but more expensive; weaker models are faster but require application-level reasoning."
+    },
+    {
+      "id": "02-CONSISTENCY-MODELS.md#003",
+      "path": [
+        "02-CONSISTENCY-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:distributed-systems:02-consistency-models, git-history:distributed-systems:02-consistency-models]",
+        "canonical_path": "distributed-systems/02-CONSISTENCY-MODELS.md",
+        "concepts": "[consistency, models]",
+        "current_path": "distributed-systems/02-CONSISTENCY-MODELS.md",
+        "id": "maxim:distributed-systems:consistency-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[consistency, models]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Consistency Models: Linearizability, Sequential, Causal, Eventual",
+        "updated": "null"
+      },
+      "text": "```\nCONSISTENCY MODEL HIERARCHY (strongest to weakest)\n+-----------------------------------------------------------+\n|  STRICT SERIALIZABILITY                                   |\n|  (Linearizability + Serializability)                      |\n|  All transactions appear to execute one at a time,        |\n|  in real-time order. Spanner, FoundationDB.               |\n+-----------------------------------------------------------+\n           |\n           v\n+-----------------------------------------------------------+\n|  LINEARIZABILITY (Herlihy 1990)                           |\n|  Equivalent to single shared copy. Real-time order.       |\n|  CAP's \"C\". Expensive: requires global coordination.      |\n|  CosmosDB \"Strong\", ZooKeeper reads.                      |\n+-----------------------------------------------------------+\n           |\n           v\n+-----------------------------------------------------------+\n|  SEQUENTIAL CONSISTENCY (Lamport 1979)                    |\n|  All processes see same order. Not necessarily            |\n|  real-time. Cheaper than linearizability.                 |\n|  Some GPU memory models; x86-TSO is close but             |\n|  strictly weaker (allows store→load reordering).          |\n+-----------------------------------------------------------+\n           |\n           v\n+-----------------------------------------------------------+\n|  CAUSAL CONSISTENCY (Causal+)                             |\n|  Causally related operations seen in order.               |\n|  Concurrent operations may appear in any order.           |\n|  CosmosDB \"Consistent Prefix\", COPS system.               |\n+-----------------------------------------------------------+\n           |\n           v\n+-----------------------------------------------------------+\n|  PRAM (FIFO) CONSISTENCY                                  |\n|  Within a single process, operations seen in order.       |\n|  Between processes, no ordering guarantee.                |\n+-----------------------------------------------------------+\n           |\n           v\n+-----------------------------------------------------------+\n|  EVENTUAL CONSISTENCY (Vogels 2009)                       |\n|  Given no new writes, all replicas converge.              |\n|  No ordering guarantee between nodes.                     |\n|  DynamoDB default, Cassandra default, DNS.                |\n+-----------------------------------------------------------+\n```"
+    }
+  ],
+  "refs": [
+    "02-CONSISTENCY-MODELS.md"
+  ]
+}

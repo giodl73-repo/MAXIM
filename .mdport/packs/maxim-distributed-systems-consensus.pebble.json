@@ -1,0 +1,125 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-distributed-systems-consensus",
+  "source": "../../distributed-systems",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "03-CONSENSUS.md#000",
+      "path": [
+        "03-CONSENSUS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:distributed-systems:03-consensus, git-history:distributed-systems:03-consensus]",
+        "canonical_path": "distributed-systems/03-CONSENSUS.md",
+        "concepts": "[consensus]",
+        "current_path": "distributed-systems/03-CONSENSUS.md",
+        "id": "maxim:distributed-systems:consensus",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[consensus]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Consensus: Paxos, Raft, Viewstamped Replication - Algorithm Internals",
+        "updated": "null"
+      },
+      "text": "# Consensus: Paxos, Raft, Viewstamped Replication — Algorithm Internals"
+    },
+    {
+      "id": "03-CONSENSUS.md#001",
+      "path": [
+        "03-CONSENSUS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:distributed-systems:03-consensus, git-history:distributed-systems:03-consensus]",
+        "canonical_path": "distributed-systems/03-CONSENSUS.md",
+        "concepts": "[consensus]",
+        "current_path": "distributed-systems/03-CONSENSUS.md",
+        "id": "maxim:distributed-systems:consensus",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[consensus]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Consensus: Paxos, Raft, Viewstamped Replication - Algorithm Internals",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "03-CONSENSUS.md#002",
+      "path": [
+        "03-CONSENSUS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:distributed-systems:03-consensus, git-history:distributed-systems:03-consensus]",
+        "canonical_path": "distributed-systems/03-CONSENSUS.md",
+        "concepts": "[consensus]",
+        "current_path": "distributed-systems/03-CONSENSUS.md",
+        "id": "maxim:distributed-systems:consensus",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[consensus]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Consensus: Paxos, Raft, Viewstamped Replication - Algorithm Internals",
+        "updated": "null"
+      },
+      "text": "Consensus is the problem of getting N nodes to agree on a single value, even when some nodes fail. It underlies leader election, replicated logs, and distributed transactions."
+    },
+    {
+      "id": "03-CONSENSUS.md#003",
+      "path": [
+        "03-CONSENSUS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:distributed-systems:03-consensus, git-history:distributed-systems:03-consensus]",
+        "canonical_path": "distributed-systems/03-CONSENSUS.md",
+        "concepts": "[consensus]",
+        "current_path": "distributed-systems/03-CONSENSUS.md",
+        "id": "maxim:distributed-systems:consensus",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "distributed-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[consensus]",
+        "section": "distributed-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Consensus: Paxos, Raft, Viewstamped Replication - Algorithm Internals",
+        "updated": "null"
+      },
+      "text": "```\nCONSENSUS PROBLEM\n+-----------------------------------------------------------+\n|                                                           |\n|  N nodes, each proposes a value.                          |\n|  Agreement required: all decide on the same value.        |\n|  Validity required: the decided value was proposed.       |\n|  Termination required: all non-faulty nodes decide.       |\n|                                                           |\n|  Fault model: crash-stop (nodes halt silently)            |\n|  FLP (1985): impossible with >= 1 crash in async model    |\n|  Solution: partial synchrony (Dwork-Lynch-Stockmeyer)     |\n|                                                           |\n|  ALGORITHM LANDSCAPE                                      |\n|  Paxos (1989)     Raft (2014)       Viewstamped Rep (VR)  |\n|  Consensus        Consensus         Consensus             |\n|  via quorums      via leader        via views             |\n|  Hard to impl     Explicit          Liskov et al.         |\n|       |                |                  |               |\n|       v                v                  v               |\n|  Chubby           etcd, CockroachDB  MongoDB repl         |\n|  CosmosDB         TiKV, ConsulDB                          |\n|  internally       Kubernetes control                      |\n|                                                           |\n+-----------------------------------------------------------+\n```"
+    }
+  ],
+  "refs": [
+    "03-CONSENSUS.md"
+  ]
+}

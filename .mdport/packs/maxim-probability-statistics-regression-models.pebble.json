@@ -1,0 +1,125 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-probability-statistics-regression-models",
+  "source": "../../probability-statistics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "07-REGRESSION-MODELS.md#000",
+      "path": [
+        "07-REGRESSION-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:07-regression-models, git-history:probability-statistics:07-regression-models]",
+        "canonical_path": "probability-statistics/07-REGRESSION-MODELS.md",
+        "concepts": "[regression, models]",
+        "current_path": "probability-statistics/07-REGRESSION-MODELS.md",
+        "id": "maxim:probability-statistics:regression-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[regression, models]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Regression Models",
+        "updated": "null"
+      },
+      "text": "# Regression Models"
+    },
+    {
+      "id": "07-REGRESSION-MODELS.md#001",
+      "path": [
+        "07-REGRESSION-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:07-regression-models, git-history:probability-statistics:07-regression-models]",
+        "canonical_path": "probability-statistics/07-REGRESSION-MODELS.md",
+        "concepts": "[regression, models]",
+        "current_path": "probability-statistics/07-REGRESSION-MODELS.md",
+        "id": "maxim:probability-statistics:regression-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[regression, models]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Regression Models",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "07-REGRESSION-MODELS.md#002",
+      "path": [
+        "07-REGRESSION-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:07-regression-models, git-history:probability-statistics:07-regression-models]",
+        "canonical_path": "probability-statistics/07-REGRESSION-MODELS.md",
+        "concepts": "[regression, models]",
+        "current_path": "probability-statistics/07-REGRESSION-MODELS.md",
+        "id": "maxim:probability-statistics:regression-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[regression, models]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Regression Models",
+        "updated": "null"
+      },
+      "text": "Regression models the relationship between a response Y and predictors X. The family ranges from OLS to GLMs to mixed effects to regularized high-dimensional models."
+    },
+    {
+      "id": "07-REGRESSION-MODELS.md#003",
+      "path": [
+        "07-REGRESSION-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:probability-statistics:07-regression-models, git-history:probability-statistics:07-regression-models]",
+        "canonical_path": "probability-statistics/07-REGRESSION-MODELS.md",
+        "concepts": "[regression, models]",
+        "current_path": "probability-statistics/07-REGRESSION-MODELS.md",
+        "id": "maxim:probability-statistics:regression-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "probability-statistics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[regression, models]",
+        "section": "probability-statistics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Regression Models",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|                      REGRESSION TAXONOMY                         |\n+------------------------------------------------------------------+\n|                                                                  |\n|  CLASSICAL LINEAR                                                |\n|  +---------------------------+                                   |\n|  | OLS: Y = Xbeta + epsilon  |  epsilon ~ Normal(0, sigma^2 I)   |\n|  | Assumptions: linearity, independence, homoscedasticity        |\n|  +---------------------------+                                   |\n|          |                                                       |\n|          v                                                       |\n|  GENERALIZED LINEAR MODELS (GLMs)                                |\n|  +---------------------------+                                   |\n|  | Relax Normality of Y.     |  Y ~ Exponential family           |\n|  | link(E[Y]) = X beta       |  (Logistic, Poisson, Gamma, ...)  |\n|  +---------------------------+                                   |\n|          |                                                       |\n|          v                                                       |\n|  REGULARIZED / HIGH-DIMENSIONAL                                  |\n|  +---------------------------+                                   |\n|  | Ridge: L2 penalty         |  For multicollinearity            |\n|  | Lasso: L1 penalty         |  For sparse models                |\n|  | Elastic Net: L1 + L2      |  For correlated predictors        |\n|  +---------------------------+                                   |\n|          |                                                       |\n|          v                                                       |\n|  MIXED EFFECTS MODELS                                            |\n|  +---------------------------+                                   |\n|  | Fixed effects + random    |  For grouped / repeated data      |\n|  | effects for groups        |  Partial pooling                  |\n|  +---------------------------+                                   |\n+------------------------------------------------------------------+\n```"
+    }
+  ],
+  "refs": [
+    "07-REGRESSION-MODELS.md"
+  ]
+}

@@ -1,0 +1,321 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-computer-architecture-x86-architecture",
+  "source": "../../computer-architecture",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "02-X86-ARCHITECTURE.md#000",
+      "path": [
+        "02-X86-ARCHITECTURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-architecture:02-x86-architecture, git-history:computer-architecture:02-x86-architecture]",
+        "canonical_path": "computer-architecture/02-X86-ARCHITECTURE.md",
+        "concepts": "[x86, architecture]",
+        "current_path": "computer-architecture/02-X86-ARCHITECTURE.md",
+        "id": "maxim:computer-architecture:x86-architecture",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[x86, architecture]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "x86 and x86-64 Architecture",
+        "updated": "null"
+      },
+      "text": "# x86 and x86-64 Architecture"
+    },
+    {
+      "id": "02-X86-ARCHITECTURE.md#001",
+      "path": [
+        "02-X86-ARCHITECTURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-architecture:02-x86-architecture, git-history:computer-architecture:02-x86-architecture]",
+        "canonical_path": "computer-architecture/02-X86-ARCHITECTURE.md",
+        "concepts": "[x86, architecture]",
+        "current_path": "computer-architecture/02-X86-ARCHITECTURE.md",
+        "id": "maxim:computer-architecture:x86-architecture",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[x86, architecture]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "x86 and x86-64 Architecture",
+        "updated": "null"
+      },
+      "text": "## Overview"
+    },
+    {
+      "id": "02-X86-ARCHITECTURE.md#002",
+      "path": [
+        "02-X86-ARCHITECTURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-architecture:02-x86-architecture, git-history:computer-architecture:02-x86-architecture]",
+        "canonical_path": "computer-architecture/02-X86-ARCHITECTURE.md",
+        "concepts": "[x86, architecture]",
+        "current_path": "computer-architecture/02-X86-ARCHITECTURE.md",
+        "id": "maxim:computer-architecture:x86-architecture",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[x86, architecture]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "x86 and x86-64 Architecture",
+        "updated": "null"
+      },
+      "text": "x86-64 (also called AMD64 or Intel 64) is the dominant ISA for servers, desktops, and laptops as of 2024. It is the target for every major compiler (GCC, Clang, MSVC), every major language runtime (JVM, V8, CPython, CLR), and every major server operating system. Linux, macOS, and Windows all run natively on x86-64 on the same binary-compatible ISA. Understanding its register file, instruction encoding, and calling conventions is essential for understanding performance, interop, and what any JIT or AOT compiler actually emits — whether you are writing C++, Java, Go, Python, or .NET."
+    },
+    {
+      "id": "02-X86-ARCHITECTURE.md#003",
+      "path": [
+        "02-X86-ARCHITECTURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-architecture:02-x86-architecture, git-history:computer-architecture:02-x86-architecture]",
+        "canonical_path": "computer-architecture/02-X86-ARCHITECTURE.md",
+        "concepts": "[x86, architecture]",
+        "current_path": "computer-architecture/02-X86-ARCHITECTURE.md",
+        "id": "maxim:computer-architecture:x86-architecture",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[x86, architecture]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "x86 and x86-64 Architecture",
+        "updated": "null"
+      },
+      "text": "```\n+-----------------------------------------------------------------------+\n|                    x86-64 ARCHITECTURE MAP                            |\n|                                                                       |\n|  EXECUTION MODES:                                                     |\n|  Long Mode (64-bit)     Protected Mode (32-bit)     Real Mode (16-bit)|\n|  x86-64 programs        32-bit Windows apps         DOS / BIOS        |\n|  (what you care about)  (WoW64 compatibility layer) (legacy only)     |\n|                                                                       |\n|  REGISTER FILE (Long Mode):                                           |\n|  16 × 64-bit GP registers: RAX RBX RCX RDX RSI RDI RSP RBP R8–R15     |\n|  16 × 128-bit XMM (SSE): XMM0–XMM15                                   |\n|  16 × 256-bit YMM (AVX): YMM0–YMM15 (extend XMM)                      |\n|  32 × 512-bit ZMM (AVX-512): ZMM0–ZMM31                               |\n|  + RFLAGS (status flags) + RIP (instruction pointer)                  |\n|                                                                       |\n|  MEMORY MODEL:                                                        |\n|  Flat 64-bit virtual address space (up to 128 TB in practice)         |\n|  TSO (Total Store Order) — very strong consistency                    |\n|  Pages: 4 KB, 2 MB (huge), 1 GB (gigantic)                            |\n+-----------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "02-X86-ARCHITECTURE.md#004",
+      "path": [
+        "02-X86-ARCHITECTURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-architecture:02-x86-architecture, git-history:computer-architecture:02-x86-architecture]",
+        "canonical_path": "computer-architecture/02-X86-ARCHITECTURE.md",
+        "concepts": "[x86, architecture]",
+        "current_path": "computer-architecture/02-X86-ARCHITECTURE.md",
+        "id": "maxim:computer-architecture:x86-architecture",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[x86, architecture]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "x86 and x86-64 Architecture",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "02-X86-ARCHITECTURE.md#005",
+      "path": [
+        "02-X86-ARCHITECTURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-architecture:02-x86-architecture, git-history:computer-architecture:02-x86-architecture]",
+        "canonical_path": "computer-architecture/02-X86-ARCHITECTURE.md",
+        "concepts": "[x86, architecture]",
+        "current_path": "computer-architecture/02-X86-ARCHITECTURE.md",
+        "id": "maxim:computer-architecture:x86-architecture",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[x86, architecture]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "x86 and x86-64 Architecture",
+        "updated": "null"
+      },
+      "text": "## The Register File"
+    },
+    {
+      "id": "02-X86-ARCHITECTURE.md#006",
+      "path": [
+        "02-X86-ARCHITECTURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-architecture:02-x86-architecture, git-history:computer-architecture:02-x86-architecture]",
+        "canonical_path": "computer-architecture/02-X86-ARCHITECTURE.md",
+        "concepts": "[x86, architecture]",
+        "current_path": "computer-architecture/02-X86-ARCHITECTURE.md",
+        "id": "maxim:computer-architecture:x86-architecture",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[x86, architecture]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "x86 and x86-64 Architecture",
+        "updated": "null"
+      },
+      "text": "### General-Purpose Registers"
+    },
+    {
+      "id": "02-X86-ARCHITECTURE.md#007",
+      "path": [
+        "02-X86-ARCHITECTURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-architecture:02-x86-architecture, git-history:computer-architecture:02-x86-architecture]",
+        "canonical_path": "computer-architecture/02-X86-ARCHITECTURE.md",
+        "concepts": "[x86, architecture]",
+        "current_path": "computer-architecture/02-X86-ARCHITECTURE.md",
+        "id": "maxim:computer-architecture:x86-architecture",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[x86, architecture]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "x86 and x86-64 Architecture",
+        "updated": "null"
+      },
+      "text": "```\n  64-bit name  32-bit view  16-bit  8-bit high  8-bit low\n  -----------  -----------  ------  ----------  ---------\n  RAX          EAX          AX      AH          AL\n  RBX          EBX          BX      BH          BL\n  RCX          ECX          CX      CH          CL\n  RDX          EDX          DX      DH          DL\n  RSI          ESI          SI                  SIL\n  RDI          EDI          DI                  DIL\n  RSP          ESP          SP                  SPL\n  RBP          EBP          BP                  BPL\n  R8           R8D          R8W                 R8B\n  R9           R9D          R9W                 R9B\n  R10          R10D         R10W                R10B\n  R11          R11D         R11W                R11B\n  R12          R12D         R12W                R12B\n  R13          R13D         R13W                R13B\n  R14          R14D         R14W                R14B\n  R15          R15D         R15W                R15B"
+    },
+    {
+      "id": "02-X86-ARCHITECTURE.md#008",
+      "path": [
+        "02-X86-ARCHITECTURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-architecture:02-x86-architecture, git-history:computer-architecture:02-x86-architecture]",
+        "canonical_path": "computer-architecture/02-X86-ARCHITECTURE.md",
+        "concepts": "[x86, architecture]",
+        "current_path": "computer-architecture/02-X86-ARCHITECTURE.md",
+        "id": "maxim:computer-architecture:x86-architecture",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[x86, architecture]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "x86 and x86-64 Architecture",
+        "updated": "null"
+      },
+      "text": "KEY RULES:\n  - Writing a 32-bit register ZEROS the upper 32 bits of the 64-bit reg\n    (MOV EAX, 1  →  RAX = 0x0000000000000001)\n  - Writing an 8-bit or 16-bit register DOES NOT zero upper bits\n    (MOV AL, 1   →  RAX upper bits unchanged)\n  - This asymmetry is a common source of bugs in assembly\n```"
+    },
+    {
+      "id": "02-X86-ARCHITECTURE.md#009",
+      "path": [
+        "02-X86-ARCHITECTURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-architecture:02-x86-architecture, git-history:computer-architecture:02-x86-architecture]",
+        "canonical_path": "computer-architecture/02-X86-ARCHITECTURE.md",
+        "concepts": "[x86, architecture]",
+        "current_path": "computer-architecture/02-X86-ARCHITECTURE.md",
+        "id": "maxim:computer-architecture:x86-architecture",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[x86, architecture]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "x86 and x86-64 Architecture",
+        "updated": "null"
+      },
+      "text": "### Register Conventions"
+    },
+    {
+      "id": "02-X86-ARCHITECTURE.md#010",
+      "path": [
+        "02-X86-ARCHITECTURE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-architecture:02-x86-architecture, git-history:computer-architecture:02-x86-architecture]",
+        "canonical_path": "computer-architecture/02-X86-ARCHITECTURE.md",
+        "concepts": "[x86, architecture]",
+        "current_path": "computer-architecture/02-X86-ARCHITECTURE.md",
+        "id": "maxim:computer-architecture:x86-architecture",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-architecture",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[x86, architecture]",
+        "section": "computer-architecture",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "x86 and x86-64 Architecture",
+        "updated": "null"
+      },
+      "text": "```\n  TRADITIONAL USES (from 8086 heritage, still matter in encoding):\n  RAX: Accumulator — implicit in MUL, DIV, IMUL, LAHF, string ops\n  RCX: Counter — implicit in LOOP, REP, shift counts (CL)\n  RDX: Data — implicit in MUL/DIV (64-bit product in RDX:RAX)\n  RSI: Source Index — string ops (source)\n  RDI: Destination Index — string ops (destination)\n  RSP: Stack Pointer — always points to top of stack (PUSH/POP/CALL/RET)\n  RBP: Base Pointer — conventional frame pointer (not mandatory)\n  RIP: Instruction Pointer — cannot be directly modified; PC-relative addressing\n```"
+    }
+  ],
+  "refs": [
+    "02-X86-ARCHITECTURE.md"
+  ]
+}

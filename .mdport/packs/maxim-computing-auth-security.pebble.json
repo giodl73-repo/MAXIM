@@ -1,0 +1,4045 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-computing-auth-security",
+  "source": "../../computing",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "10-AUTH.md#000",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "# Auth & Security — A Layered Guide"
+    },
+    {
+      "id": "10-AUTH.md#001",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "10-AUTH.md#002",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Auth has two distinct problems that are often conflated. Get the distinction clear first — everything else follows from it."
+    },
+    {
+      "id": "10-AUTH.md#003",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\r\n+------------------------------------------------------------------+\r\n|                    AUTH LANDSCAPE                                |\r\n|                                                                  |\r\n|  AUTHN (Authentication)          AUTHZ (Authorization)           |\r\n|  \"Who are you?\"                  \"What can you do?\"              |\r\n|  ------------------              -------------------------       |\r\n|  Verify identity                 Enforce permissions             |\r\n|  Login / credential check        Role checks, scopes             |\r\n|  Sessions, tokens, certs         RBAC, ABAC, policies            |\r\n|                                                                  |\r\n|  PROTOCOLS / STANDARDS                                           |\r\n|  ----------------------                                          |\r\n|  OAuth 2.0     Authorization framework (not AuthN!)              |\r\n|  OIDC          Identity layer on top of OAuth2 (adds AuthN)      |\r\n|  SAML          Enterprise SSO (XML-based, older, still alive)    |\r\n|  JWT           Token format (used by OAuth2/OIDC)                |\r\n|                                                                  |\r\n|  STORAGE MODELS                                                  |\r\n|  --------------                                                  |\r\n|  Sessions      Server stores state. Client holds session ID.     |\r\n|  Tokens (JWT)  Server stateless. Client holds signed token.      |\r\n|                                                                  |\r\n|  PROVIDERS (managed auth services)                               |\r\n|  ----------------------------------                              |\r\n|  Auth0    Clerk    NextAuth.js    Supabase    Azure Entra ID     |\r\n+------------------------------------------------------------------+\r\n```"
+    },
+    {
+      "id": "10-AUTH.md#004",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "**Bridge from .NET**: You know this domain from the server side — Windows Auth, ADFS, Azure AD, Claims Identity, `[Authorize]`, WCF WS-Security. The concepts are identical. The protocols (OAuth2, OIDC, JWT) are the open standards that replaced proprietary Microsoft stack — and that Microsoft itself adopted. Entra ID IS an OIDC provider."
+    },
+    {
+      "id": "10-AUTH.md#005",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "### Kerberos / NTLM → OAuth2 / OIDC Bridge"
+    },
+    {
+      "id": "10-AUTH.md#006",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "OAuth2's authorization code flow is architecturally isomorphic to Kerberos. The mental model transfers directly:"
+    },
+    {
+      "id": "10-AUTH.md#007",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\r\n  KERBEROS (Windows Auth)          OAuth2 AUTHORIZATION CODE FLOW\r\n  -----------------------          ------------------------------\r\n  Client authenticates to KDC      User redirects to Authorization Server\r\n  (Key Distribution Center)        (Google, GitHub, Azure Entra)"
+    },
+    {
+      "id": "10-AUTH.md#008",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "KDC issues Ticket-Granting       Auth Server issues authorization code\r\n  Ticket (TGT) — short-lived,      — short-lived, single-use,\r\n  cryptographically signed         cryptographically bound (PKCE)"
+    },
+    {
+      "id": "10-AUTH.md#009",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Client presents TGT to KDC       Client exchanges auth code at\r\n  to request Service Ticket        token endpoint for access_token\r\n  for a specific resource"
+    },
+    {
+      "id": "10-AUTH.md#010",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Client presents Service Ticket   Client presents access_token in\r\n  to Resource Server               Authorization: Bearer header\r\n  (e.g., file server)              to Resource Server (API)"
+    },
+    {
+      "id": "10-AUTH.md#011",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Resource Server verifies         Resource Server verifies JWT\r\n  ticket with KDC (or locally      signature (no network call for\r\n  if it has the session key)       RS256 — just verifies with public key)"
+    },
+    {
+      "id": "10-AUTH.md#012",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "KEY STRUCTURAL SIMILARITY:\r\n  Both involve a trusted third party (KDC / Auth Server).\r\n  Both issue short-lived tickets/tokens that prove identity.\r\n  Both let resource servers verify without storing credentials.\r\n  Both support delegation (service-to-service)."
+    },
+    {
+      "id": "10-AUTH.md#013",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "KEY DIFFERENCES:\r\n  Kerberos is intranet-only (requires KDC reachability).\r\n  OAuth2 is cross-domain by design — works over the public internet.\r\n  Kerberos tickets are binary, encrypted, Kerberos-specific.\r\n  OAuth2 tokens are JWTs — base64 JSON, signed, human-readable.\r\n  PKCE replaces Kerberos's session key exchange for public clients.\r\n  OAuth2 has explicit consent model; Kerberos is transparent (SSO)."
+    },
+    {
+      "id": "10-AUTH.md#014",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "NTLM is a different lineage entirely — challenge-response, no\r\n  redirect, no third party, connection-based. There is no modern\r\n  web equivalent; OAuth2/OIDC descends from the Kerberos model\r\n  (trusted third-party ticket), not NTLM.\r\n```"
+    },
+    {
+      "id": "10-AUTH.md#015",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "10-AUTH.md#016",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## Sessions vs Tokens — The Fundamental Choice"
+    },
+    {
+      "id": "10-AUTH.md#017",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "### Session-Based Auth (Stateful)"
+    },
+    {
+      "id": "10-AUTH.md#018",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\r\n  LOGIN:\r\n  Browser                          Server\r\n  -------                          ------\r\n  POST /login { email, password }\r\n                              -->  Verify credentials\r\n                                   Create session in DB/Redis:\r\n                                   sessions[\"abc123\"] = { userId: 1, role: \"admin\" }\r\n                              <--  Set-Cookie: sessionId=abc123; HttpOnly; Secure"
+    },
+    {
+      "id": "10-AUTH.md#019",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "SUBSEQUENT REQUESTS:\r\n  Cookie: sessionId=abc123    -->  Look up sessions[\"abc123\"]\r\n                                   Found: { userId: 1, role: \"admin\" }\r\n                                   Authorize request\r\n                              <--  Response"
+    },
+    {
+      "id": "10-AUTH.md#020",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "LOGOUT:\r\n  POST /logout                -->  DELETE sessions[\"abc123\"]\r\n                              <--  Clear-Cookie"
+    },
+    {
+      "id": "10-AUTH.md#021",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "CHARACTERISTICS:\r\n  + Instant revocation (delete the session)\r\n  + Small cookie payload (just an opaque ID)\r\n  + Server controls session lifetime\r\n  - Server must store sessions (memory/Redis/DB)\r\n  - Horizontal scaling requires shared session store\r\n  - Doesn't work well for APIs consumed by non-browsers\r\n```"
+    },
+    {
+      "id": "10-AUTH.md#022",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "### Token-Based Auth (Stateless)"
+    },
+    {
+      "id": "10-AUTH.md#023",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\r\n  LOGIN:\r\n  Browser                          Server\r\n  -------                          ------\r\n  POST /login { email, password }\r\n                              -->  Verify credentials\r\n                                   Sign JWT: { userId: 1, role: \"admin\", exp: ... }\r\n                              <--  { accessToken: \"eyJ...\", refreshToken: \"...\" }"
+    },
+    {
+      "id": "10-AUTH.md#024",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "SUBSEQUENT REQUESTS:\r\n  Authorization: Bearer eyJ...-->  Verify JWT signature (no DB lookup!)\r\n                                   Decode claims: { userId: 1, role: \"admin\" }\r\n                                   Authorize request\r\n                              <--  Response"
+    },
+    {
+      "id": "10-AUTH.md#025",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "LOGOUT:\r\n  Client deletes token             Server does nothing\r\n  (stateless — server has no record to delete)"
+    },
+    {
+      "id": "10-AUTH.md#026",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "CHARACTERISTICS:\r\n  + Server stateless — no session store needed\r\n  + Scales horizontally (any server can verify any token)\r\n  + Works for APIs, mobile, microservices\r\n  - Can't revoke tokens before expiry (without a blocklist)\r\n  - If stolen: valid until expiry\r\n```"
+    },
+    {
+      "id": "10-AUTH.md#027",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "10-AUTH.md#028",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## JWT — JSON Web Tokens"
+    },
+    {
+      "id": "10-AUTH.md#029",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "The dominant token format. Three base64url-encoded parts separated by dots."
+    },
+    {
+      "id": "10-AUTH.md#030",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\r\n  eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9\r\n  .\r\n  eyJ1c2VySWQiOjEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwODU5NDgwMCwiZXhwIjoxNzA4NTk4NDAwfQ\r\n  .\r\n  [signature]"
+    },
+    {
+      "id": "10-AUTH.md#031",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "PART 1: Header\r\n  { \"alg\": \"RS256\", \"typ\": \"JWT\" }"
+    },
+    {
+      "id": "10-AUTH.md#032",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "PART 2: Payload (claims)\r\n  {\r\n    \"sub\": \"1\",                       subject (user ID)\r\n    \"email\": \"alice@example.com\",\r\n    \"role\": \"admin\",\r\n    \"iat\": 1708594800,                issued at (Unix timestamp)\r\n    \"exp\": 1708598400,                expires at\r\n    \"iss\": \"https://auth.myapp.com\",  issuer\r\n    \"aud\": \"https://api.myapp.com\"    audience\r\n  }"
+    },
+    {
+      "id": "10-AUTH.md#033",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "PART 3: Signature\r\n  RSASHA256(base64(header) + \".\" + base64(payload), privateKey)"
+    },
+    {
+      "id": "10-AUTH.md#034",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "IMPORTANT: The payload is BASE64 ENCODED, NOT ENCRYPTED.\r\n  Anyone can read a JWT's claims. Do not put secrets in JWTs.\r\n  The signature only proves the token wasn't tampered with.\r\n```"
+    },
+    {
+      "id": "10-AUTH.md#035",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "### Signing Algorithms"
+    },
+    {
+      "id": "10-AUTH.md#036",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\r\n  HS256 (HMAC-SHA256)     Symmetric. Same secret signs and verifies.\r\n                          Simple. Only for single-service use.\r\n                          If the secret leaks → all tokens forgeable."
+    },
+    {
+      "id": "10-AUTH.md#037",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "RS256 (RSA-SHA256)      Asymmetric. Private key signs. Public key verifies.\r\n                          Any service can verify without the private key.\r\n                          Standard for OAuth2/OIDC providers.\r\n                          Azure Entra, Auth0, Google all use RS256."
+    },
+    {
+      "id": "10-AUTH.md#038",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "ES256 (ECDSA-SHA256)    Asymmetric. Smaller keys than RSA. More modern."
+    },
+    {
+      "id": "10-AUTH.md#039",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Use RS256 or ES256 for any token verified by multiple services.\r\n  Use HS256 only for simple single-server scenarios.\r\n```"
+    },
+    {
+      "id": "10-AUTH.md#040",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "### JWT in Node.js"
+    },
+    {
+      "id": "10-AUTH.md#041",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```typescript\r\n  import jwt from 'jsonwebtoken'"
+    },
+    {
+      "id": "10-AUTH.md#042",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "// SIGN (on login)\r\n  const token = jwt.sign(\r\n    { userId: user.id, role: user.role },\r\n    process.env.JWT_SECRET!,\r\n    { expiresIn: '1h', issuer: 'myapp', audience: 'myapp-api' }\r\n  )"
+    },
+    {
+      "id": "10-AUTH.md#043",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "// VERIFY (on each request)\r\n  try {\r\n    const payload = jwt.verify(token, process.env.JWT_SECRET!, {\r\n      algorithms: ['HS256'],   // always specify — prevents \"none\" attack\r\n      issuer: 'myapp',\r\n      audience: 'myapp-api'\r\n    }) as { userId: number; role: string }\r\n  } catch (err) {\r\n    // TokenExpiredError, JsonWebTokenError\r\n    res.status(401).json({ error: 'Invalid token' })\r\n  }\r\n```"
+    },
+    {
+      "id": "10-AUTH.md#044",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "### Access Tokens + Refresh Tokens"
+    },
+    {
+      "id": "10-AUTH.md#045",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\r\n  ACCESS TOKEN          SHORT-LIVED (15min - 1hr)\r\n  Sent with every API request.\r\n  Stateless verification.\r\n  If stolen: expires soon."
+    },
+    {
+      "id": "10-AUTH.md#046",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "REFRESH TOKEN         LONG-LIVED (days - weeks)\r\n  Stored in HttpOnly cookie.\r\n  Used ONLY to get new access tokens.\r\n  Rotated on use (old refresh token invalidated on server).\r\n  CAN be revoked because it's tracked server-side."
+    },
+    {
+      "id": "10-AUTH.md#047",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "FLOW:\r\n  1. Login → access token (1hr) + refresh token (30 days, HttpOnly cookie)\r\n  2. Use access token for API calls\r\n  3. Access token expires → POST /auth/refresh with refresh cookie\r\n  4. Server validates refresh token, issues new access + refresh tokens\r\n  5. Logout → server invalidates refresh token\r\n  6. Access token still technically valid for up to 1hr after logout\r\n     (acceptable trade-off for stateless scaling)\r\n```"
+    },
+    {
+      "id": "10-AUTH.md#048",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "10-AUTH.md#049",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## OAuth 2.0"
+    },
+    {
+      "id": "10-AUTH.md#050",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "OAuth2 is an **authorization framework** — not an authentication protocol. It lets users grant third-party apps limited access to their data without sharing their password."
+    },
+    {
+      "id": "10-AUTH.md#051",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\r\n  THE PROBLEM OAUTH2 SOLVES:"
+    },
+    {
+      "id": "10-AUTH.md#052",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Without OAuth2:\r\n  \"Sign in with Google\" = give us your Google password. No."
+    },
+    {
+      "id": "10-AUTH.md#053",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "With OAuth2:\r\n  App redirects to Google. You log in there (app never sees password).\r\n  You consent to specific scopes (\"read your email\").\r\n  Google gives the app a scoped token. App uses it. Nothing else."
+    },
+    {
+      "id": "10-AUTH.md#054",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "ROLES:\r\n  Resource Owner    You (the user)\r\n  Client            The app requesting access\r\n  Authorization     Google / GitHub / Azure Entra (identity provider)\r\n  Server\r\n  Resource Server   Gmail API / GitHub API (where data lives)\r\n```"
+    },
+    {
+      "id": "10-AUTH.md#055",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "### Authorization Code Flow + PKCE"
+    },
+    {
+      "id": "10-AUTH.md#056",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "The correct flow for web and mobile apps."
+    },
+    {
+      "id": "10-AUTH.md#057",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\r\n  YOUR APP           BROWSER           AUTH SERVER\r\n  --------           -------           -----------"
+    },
+    {
+      "id": "10-AUTH.md#058",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "1. Generate code_verifier (random)\r\n     code_challenge = SHA256(code_verifier)"
+    },
+    {
+      "id": "10-AUTH.md#059",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "2. Redirect browser:\r\n     https://accounts.google.com/o/oauth2/auth\r\n       ?client_id=YOUR_ID\r\n       &redirect_uri=https://yourapp.com/callback\r\n       &response_type=code\r\n       &scope=openid email profile\r\n       &code_challenge=abc123\r\n       &code_challenge_method=S256"
+    },
+    {
+      "id": "10-AUTH.md#060",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "3. User logs in, consents to scopes"
+    },
+    {
+      "id": "10-AUTH.md#061",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "4. Auth server redirects to callback:\r\n                         /callback?code=AUTH_CODE"
+    },
+    {
+      "id": "10-AUTH.md#062",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "5. Exchange code for tokens (server-to-server):\r\n     POST /token\r\n       code=AUTH_CODE\r\n       code_verifier=ORIGINAL_VERIFIER  ← proves you started flow\r\n       client_secret=YOUR_SECRET"
+    },
+    {
+      "id": "10-AUTH.md#063",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "6. Returns: { access_token, refresh_token, id_token }"
+    },
+    {
+      "id": "10-AUTH.md#064",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "7. Store tokens. User is authenticated.\r\n```"
+    },
+    {
+      "id": "10-AUTH.md#065",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "**Why PKCE exists — the threat model**: PKCE (Proof Key for Code Exchange, RFC 7636) was designed to prevent authorization code interception attacks. Without PKCE:"
+    },
+    {
+      "id": "10-AUTH.md#066",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\r\n  WITHOUT PKCE:\r\n  Attacker registers a malicious app with the same redirect_uri,\r\n  or intercepts the redirect at the OS level (mobile deep link hijack)."
+    },
+    {
+      "id": "10-AUTH.md#067",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Auth server sends:  /callback?code=AUTH_CODE\r\n  Attacker intercepts: gets AUTH_CODE\r\n  Attacker POSTs:      /token { code: AUTH_CODE, client_id: ... }\r\n  Auth server:         ✓ valid code → issues access_token to attacker"
+    },
+    {
+      "id": "10-AUTH.md#068",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "The auth code alone is enough to get tokens."
+    },
+    {
+      "id": "10-AUTH.md#069",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "WITH PKCE:\r\n  1. Legitimate client generates code_verifier (random, ≥43 chars)\r\n     and sends code_challenge = SHA256(code_verifier) at step 1."
+    },
+    {
+      "id": "10-AUTH.md#070",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "2. Attacker intercepts AUTH_CODE at step 4 — same as before."
+    },
+    {
+      "id": "10-AUTH.md#071",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "3. Attacker POSTs: /token { code: AUTH_CODE, client_id: ... }\r\n     Auth server:    \"Where's the code_verifier?\"\r\n     Attacker:       doesn't have it (was never transmitted)\r\n     Auth server:    ✗ rejects the exchange"
+    },
+    {
+      "id": "10-AUTH.md#072",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "The code_verifier was never sent over the wire — only its hash\r\n  (code_challenge) was. Intercepting the auth code is useless\r\n  without the original verifier that only the legitimate client holds."
+    },
+    {
+      "id": "10-AUTH.md#073",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Auth server checks: SHA256(verifier_submitted) == challenge_stored\r\n  This check is unforgeable without the original verifier."
+    },
+    {
+      "id": "10-AUTH.md#074",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "PKCE is now required for all public clients (SPAs, mobile apps)\r\n  and recommended for confidential clients (server-side apps) too.\r\n```"
+    },
+    {
+      "id": "10-AUTH.md#075",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "### Client Credentials Flow"
+    },
+    {
+      "id": "10-AUTH.md#076",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Machine-to-machine. No user involved."
+    },
+    {
+      "id": "10-AUTH.md#077",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\r\n  SERVICE A                           AUTH SERVER\r\n  ---------                           -----------\r\n  POST /token\r\n    grant_type=client_credentials\r\n    client_id=service-a\r\n    client_secret=secret\r\n    scope=read:orders\r\n                                  --> Verify credentials\r\n                                  <-- { access_token, expires_in }"
+    },
+    {
+      "id": "10-AUTH.md#078",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "SERVICE A → SERVICE B:\r\n  GET /orders\r\n  Authorization: Bearer eyJ..."
+    },
+    {
+      "id": "10-AUTH.md#079",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "SERVICE B verifies JWT. No browser. No user.\r\n  This is how Azure service principals work.\r\n  Same concept, now standardized as OAuth2.\r\n```"
+    },
+    {
+      "id": "10-AUTH.md#080",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "### Device Authorization Flow"
+    },
+    {
+      "id": "10-AUTH.md#081",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "For devices that cannot launch a browser (CLI tools, IoT, smart TVs, Azure CLI, GitHub CLI). Defined in RFC 8628."
+    },
+    {
+      "id": "10-AUTH.md#082",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\r\n  THE PROBLEM:\r\n  A CLI tool or IoT device can't do a browser redirect.\r\n  The user can't type a URL and password into a terminal easily."
+    },
+    {
+      "id": "10-AUTH.md#083",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "DEVICE FLOW (RFC 8628):"
+    },
+    {
+      "id": "10-AUTH.md#084",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "CLI / DEVICE              AUTH SERVER          USER'S BROWSER\r\n  -----------               -----------          --------------"
+    },
+    {
+      "id": "10-AUTH.md#085",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "1. POST /device/code\r\n     client_id=CLI_APP\r\n     scope=read:repos\r\n                        --> Returns:\r\n                            device_code = \"GmRh...long opaque...\"\r\n                            user_code   = \"WDJB-MJHT\"  ← short, human-readable\r\n                            verification_uri = \"https://github.com/login/device\"\r\n                            expires_in  = 900 (15 min)\r\n                            interval    = 5   (poll every 5s)"
+    },
+    {
+      "id": "10-AUTH.md#086",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "2. Show user:\r\n     \"Open https://github.com/login/device\r\n      and enter code: WDJB-MJHT\""
+    },
+    {
+      "id": "10-AUTH.md#087",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "3. Start polling:                4. User opens browser,\r\n     POST /token                      enters WDJB-MJHT,\r\n       grant_type=device_code         logs in, approves.\r\n       device_code=GmRh...\r\n       client_id=CLI_APP\r\n                        <-- \"authorization_pending\"  (keep polling)\r\n                        <-- \"authorization_pending\"  (keep polling)\r\n                        <-- { access_token, refresh_token }  ← user approved!"
+    },
+    {
+      "id": "10-AUTH.md#088",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "5. CLI has tokens. Proceed."
+    },
+    {
+      "id": "10-AUTH.md#089",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "SECURITY NOTES:\r\n  - user_code is intentionally short (8 chars) so users can verify\r\n    they're approving the right session — helps against phishing\r\n  - device_code is long and opaque — never shown to user\r\n  - polling interval (5s) enforced by server to prevent brute force\r\n  - expires_in bounds the attack window if user_code is intercepted"
+    },
+    {
+      "id": "10-AUTH.md#090",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "REAL EXAMPLES:\r\n  GitHub CLI:    gh auth login  → opens github.com/login/device\r\n  Azure CLI:     az login       → opens microsoft.com/devicelogin\r\n  Google:        gcloud auth login --no-launch-browser\r\n```"
+    },
+    {
+      "id": "10-AUTH.md#091",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "The device flow is in your daily tooling. `az login` and `gh auth login` both use it. The key design insight: the device never handles credentials. It just polls. The auth happens entirely in the user's browser on a trusted device — the CLI cannot intercept it."
+    },
+    {
+      "id": "10-AUTH.md#092",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "10-AUTH.md#093",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## OpenID Connect (OIDC)"
+    },
+    {
+      "id": "10-AUTH.md#094",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "OIDC = OAuth2 + identity. OAuth2 grants access. OIDC tells you *who the user is*."
+    },
+    {
+      "id": "10-AUTH.md#095",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\r\n  OAuth2 gives you: access_token (permission to access resources)\r\n  OIDC adds:        id_token (JWT with user identity claims)"
+    },
+    {
+      "id": "10-AUTH.md#096",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "id_token payload:\r\n  {\r\n    \"sub\": \"10769150350006150715113082367\",  ← stable unique user ID\r\n    \"email\": \"alice@gmail.com\",\r\n    \"name\": \"Alice Smith\",\r\n    \"picture\": \"https://...\",\r\n    \"iss\": \"https://accounts.google.com\",\r\n    \"aud\": \"YOUR_CLIENT_ID\",\r\n    \"exp\": 1708598400\r\n  }"
+    },
+    {
+      "id": "10-AUTH.md#097",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "OIDC SCOPES:\r\n  openid          Required. Signals OIDC. Returns id_token.\r\n  email           Include email.\r\n  profile         Include name, picture, locale.\r\n  offline_access  Request refresh token."
+    },
+    {
+      "id": "10-AUTH.md#098",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "PROVIDERS YOU KNOW:\r\n  Azure Entra ID  → OIDC provider. Full OIDC compliance.\r\n  ADFS            → Older. WS-Fed + SAML + OIDC (newer versions).\r\n  Azure AD B2C    → Consumer identity. OIDC + custom user flows.\r\n```"
+    },
+    {
+      "id": "10-AUTH.md#099",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "10-AUTH.md#100",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## Token Storage — The Security Trade-Off"
+    },
+    {
+      "id": "10-AUTH.md#101",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\r\n  OPTION 1: localStorage\r\n  ----------------------\r\n  Easy JS access: localStorage.getItem('token')"
+    },
+    {
+      "id": "10-AUTH.md#102",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "RISK: XSS. Any compromised JS on your page can steal the token.\r\n  npm package with malicious code, CDN injection, your own XSS bug.\r\n  Token silently exfiltrated to attacker's server."
+    },
+    {
+      "id": "10-AUTH.md#103",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "OPTION 2: HttpOnly Cookie\r\n  -------------------------\r\n  Set-Cookie: token=eyJ...; HttpOnly; Secure; SameSite=Strict"
+    },
+    {
+      "id": "10-AUTH.md#104",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "HttpOnly = JavaScript CANNOT read this cookie. Period.\r\n  XSS is neutralized for token theft."
+    },
+    {
+      "id": "10-AUTH.md#105",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "RISK: CSRF. But SameSite=Strict blocks cross-site requests.\r\n  Modern browsers (2020+): SameSite=Lax is the default."
+    },
+    {
+      "id": "10-AUTH.md#106",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "RECOMMENDATION:\r\n  Access token  → in-memory JS variable (lost on refresh, that's OK)\r\n  Refresh token → HttpOnly; Secure; SameSite=Strict cookie\r\n  Let your auth library (NextAuth, Clerk) make this decision.\r\n```"
+    },
+    {
+      "id": "10-AUTH.md#107",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "10-AUTH.md#108",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## Auth Providers"
+    },
+    {
+      "id": "10-AUTH.md#109",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Building auth from scratch is an invitation for subtle security bugs. Use a provider."
+    },
+    {
+      "id": "10-AUTH.md#110",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\r\n  +------------+--------------------------------------------------+\r\n  | Provider   | Notes                                            |\r\n  +------------+--------------------------------------------------+\r\n  | Auth0      | Mature, full-featured, enterprise-grade.         |\r\n  |            | Free tier. Okta-owned. OIDC compliant.           |\r\n  +------------+--------------------------------------------------+\r\n  | Clerk      | Best DX. Prebuilt React components.              |\r\n  |            | Next.js integration excellent. Organizations.    |\r\n  +------------+--------------------------------------------------+\r\n  | NextAuth.js| Open source. Runs in your app. Own your data.   |\r\n  | (Auth.js)  | 50+ OAuth providers. JWT or DB sessions.         |\r\n  +------------+--------------------------------------------------+\r\n  | Supabase   | Postgres + auth bundle. JWT + RLS integration.   |\r\n  +------------+--------------------------------------------------+\r\n  | Azure      | Enterprise SSO. M365 integration. You know it.  |\r\n  | Entra ID   | Use for internal tools and corporate identity.   |\r\n  +------------+--------------------------------------------------+\r\n```"
+    },
+    {
+      "id": "10-AUTH.md#111",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "### NextAuth.js Pattern (Next.js App Router)"
+    },
+    {
+      "id": "10-AUTH.md#112",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```typescript\r\n  // auth.ts\r\n  import NextAuth from 'next-auth'\r\n  import GitHub from 'next-auth/providers/github'\r\n  import MicrosoftEntraID from 'next-auth/providers/microsoft-entra-id'\r\n  import { PrismaAdapter } from '@auth/prisma-adapter'"
+    },
+    {
+      "id": "10-AUTH.md#113",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "export const { handlers, auth, signIn, signOut } = NextAuth({\r\n    adapter: PrismaAdapter(prisma),\r\n    providers: [\r\n      GitHub({\r\n        clientId: process.env.GITHUB_ID!,\r\n        clientSecret: process.env.GITHUB_SECRET!,\r\n      }),\r\n      MicrosoftEntraID({\r\n        clientId: process.env.AZURE_AD_CLIENT_ID!,\r\n        clientSecret: process.env.AZURE_AD_CLIENT_SECRET!,\r\n        tenantId: process.env.AZURE_AD_TENANT_ID!,\r\n      }),\r\n    ],\r\n    callbacks: {\r\n      session({ session, user }) {\r\n        session.user.id = user.id\r\n        return session\r\n      }\r\n    }\r\n  })"
+    },
+    {
+      "id": "10-AUTH.md#114",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "// app/api/auth/[...nextauth]/route.ts\r\n  export { handlers as GET, handlers as POST }"
+    },
+    {
+      "id": "10-AUTH.md#115",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "// Server component — protect a page\r\n  const session = await auth()\r\n  if (!session) redirect('/login')"
+    },
+    {
+      "id": "10-AUTH.md#116",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "// API route — protect an endpoint\r\n  const session = await auth()\r\n  if (!session) return Response.json({ error: 'Unauthorized' }, { status: 401 })\r\n```"
+    },
+    {
+      "id": "10-AUTH.md#117",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "10-AUTH.md#118",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## Key Security Attacks"
+    },
+    {
+      "id": "10-AUTH.md#119",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\r\n  XSS (Cross-Site Scripting)\r\n  --------------------------\r\n  Attacker injects JS into your page. Reads tokens, calls APIs.\r\n  Prevention:\r\n  - HttpOnly cookies (JS can't read them)\r\n  - Content Security Policy headers\r\n  - React/Vue auto-escape output (don't use dangerouslySetInnerHTML)\r\n  - Sanitize user HTML with DOMPurify"
+    },
+    {
+      "id": "10-AUTH.md#120",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "CSRF (Cross-Site Request Forgery)\r\n  ---------------------------------\r\n  Malicious site triggers authenticated request via browser cookie.\r\n  Prevention:\r\n  - SameSite=Strict on cookies (modern browsers block cross-site)\r\n  - CSRF tokens for non-SameSite scenarios\r\n  - Check Origin/Referer header on state-changing requests"
+    },
+    {
+      "id": "10-AUTH.md#121",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "JWT NONE ALGORITHM ATTACK\r\n  -------------------------\r\n  Attacker sets alg:\"none\", removes signature. Vulnerable libs accept it.\r\n  Prevention:\r\n  - Always specify: jwt.verify(token, secret, { algorithms: ['RS256'] })"
+    },
+    {
+      "id": "10-AUTH.md#122",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "TOKEN THEFT\r\n  -----------\r\n  Stolen token used from attacker's machine.\r\n  Prevention:\r\n  - Short access token expiry (15-60 min)\r\n  - Refresh token rotation + reuse detection\r\n  - HttpOnly cookies (XSS can't read them)"
+    },
+    {
+      "id": "10-AUTH.md#123",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "AUTH CODE INTERCEPTION (without PKCE)\r\n  -------------------------------------\r\n  Attacker intercepts authorization code at redirect.\r\n  Exchanges it for tokens before legitimate client can.\r\n  Prevention:\r\n  - PKCE (required for public clients, recommended for all)\r\n  - The code_verifier was never transmitted, so interception is useless\r\n```"
+    },
+    {
+      "id": "10-AUTH.md#124",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "10-AUTH.md#125",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## Common Confusion Points"
+    },
+    {
+      "id": "10-AUTH.md#126",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "### \"OAuth2 is an authentication protocol\""
+    },
+    {
+      "id": "10-AUTH.md#127",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\r\n  No. OAuth2 = authorization. \"What can this app do?\"\r\n  OIDC = authentication. \"Who is this user?\""
+    },
+    {
+      "id": "10-AUTH.md#128",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "When you \"Sign in with Google\" you're using OIDC.\r\n  Google implements OIDC on top of OAuth2.\r\n  The id_token is OIDC. The access_token is OAuth2.\r\n```"
+    },
+    {
+      "id": "10-AUTH.md#129",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "### \"The JWT payload is encrypted\""
+    },
+    {
+      "id": "10-AUTH.md#130",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\r\n  No. Base64-encoded, not encrypted.\r\n  Anyone with the token can decode and read the claims.\r\n  The signature prevents tampering, not reading."
+    },
+    {
+      "id": "10-AUTH.md#131",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Don't put secrets, PII beyond what's necessary, or\r\n  sensitive business data in JWT payloads.\r\n  Put only what the server needs: userId, role, scopes."
+    },
+    {
+      "id": "10-AUTH.md#132",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "If you need confidentiality: use JWE (JSON Web Encryption).\r\n  Most apps don't need it.\r\n```"
+    },
+    {
+      "id": "10-AUTH.md#133",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "### \"JWT vs sessions — which do I use?\""
+    },
+    {
+      "id": "10-AUTH.md#134",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\r\n  Default for web apps: sessions via HttpOnly cookies (NextAuth default).\r\n  Simple, instant revocation, no token management."
+    },
+    {
+      "id": "10-AUTH.md#135",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Use JWTs when:\r\n  - Multiple services verify tokens independently (microservices)\r\n  - Mobile / native apps (cookies are awkward)\r\n  - Third-party API access tokens (OAuth2)"
+    },
+    {
+      "id": "10-AUTH.md#136",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "The framework usually makes this decision correctly for you.\r\n  NextAuth uses database sessions for web, JWTs for API routes.\r\n```"
+    },
+    {
+      "id": "10-AUTH.md#137",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "### \"401 vs 403 — which one?\""
+    },
+    {
+      "id": "10-AUTH.md#138",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\r\n  401 Unauthorized = \"I don't know who you are.\"\r\n      Send credentials. Try again with auth."
+    },
+    {
+      "id": "10-AUTH.md#139",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "403 Forbidden = \"I know who you are. You can't do this.\"\r\n      Don't retry. You're not allowed regardless of credentials."
+    },
+    {
+      "id": "10-AUTH.md#140",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Wrong 401 when you mean 403:\r\n  Client retries login → logs in again → same 401 → infinite loop.\r\n```"
+    },
+    {
+      "id": "10-AUTH.md#141",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "10-AUTH.md#142",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## Old World → New World Bridge"
+    },
+    {
+      "id": "10-AUTH.md#143",
+      "path": [
+        "10-AUTH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:10-auth-security, git-history:computing-software:10-auth-security]",
+        "canonical_path": "computing/10-AUTH.md",
+        "concepts": "[authentication, authorization, oauth, jwt, sessions, security]",
+        "current_path": "computing/10-AUTH.md",
+        "id": "maxim:computing-software:auth-security",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[auth, security]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Auth and Security - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "| .NET / Azure / Microsoft concept | Modern web auth equivalent | Notes |\r\n|---|---|---|\r\n| Windows Authentication | OIDC with Entra ID | Same protocol underneath |\r\n| Kerberos TGT (ticket-granting ticket) | OAuth2 authorization code | Both: redirect to trusted authority, receive short-lived ticket/token, present to resource server |\r\n| Kerberos Service Ticket | OAuth2 access_token | Short-lived credential for one specific resource |\r\n| NTLM challenge-response | No modern web equivalent | NTLM is connection-based; OAuth2/OIDC is redirect-based (Kerberos lineage) |\r\n| ADFS | Azure Entra ID / Auth0 | ADFS is the on-prem predecessor |\r\n| Azure AD / Entra ID | OIDC provider | It IS an OIDC provider |\r\n| WS-Federation / WS-Trust | OAuth2 / OIDC | Replaced by open standards |\r\n| WCF WS-Security | JWT Bearer tokens | `Authorization: Bearer eyJ...` |\r\n| SAML assertions | OIDC id_token | Both carry identity claims; SAML=XML, OIDC=JWT |\r\n| `ClaimsIdentity` / `ClaimsPrincipal` | JWT payload claims | Same concept |\r\n| `ClaimTypes.Role` | `role` claim in JWT | `{ \"role\": \"admin\" }` |\r\n| `[Authorize(Roles = \"Admin\")]` | `requireRole('admin')` middleware | Same gate, different syntax |\r\n| `FormsAuthentication` cookie | HttpOnly session cookie | Same model |\r\n| ASP.NET Identity / Membership | Auth0 / Clerk / NextAuth | Managed identity system |\r\n| `Microsoft.Identity.Web` | NextAuth MicrosoftEntraID provider | MSAL for Next.js |\r\n| Service Principal + secret | Client Credentials OAuth2 flow | M2M auth |\r\n| Managed Identity (Azure) | Workload identity federation | Secretless M2M |\r\n| `HttpContext.User` | `req.user` / `session.user` | Current authenticated user |\r\n| App registration (Entra) | OAuth2 client_id + client_secret | Register app to get credentials |\r\n| Tenant ID | `issuer` / `tenantId` in OIDC config | Identifies the IdP |\r\n| Azure AD B2C | Auth0 / Clerk (consumer identity) | External user sign-up/sign-in |\r\n| `System.IdentityModel.Tokens.Jwt` | `jsonwebtoken` npm package | JWT library |\r\n| Azure CLI `az login` | OAuth2 Device Authorization Flow | Same flow — browse to devicelogin, enter code |\r\n| GitHub CLI `gh auth login` | OAuth2 Device Authorization Flow | Same flow |"
+    }
+  ],
+  "refs": [
+    "10-AUTH.md"
+  ]
+}

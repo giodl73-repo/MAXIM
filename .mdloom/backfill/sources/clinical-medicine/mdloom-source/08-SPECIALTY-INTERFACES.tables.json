@@ -1,0 +1,637 @@
+{
+  "schema_version": "1",
+  "source_markdown": "clinical-medicine\\08-SPECIALTY-INTERFACES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 108,
+      "heading_context": "## 1. Generalist vs Specialist — Division of Cognitive Labor",
+      "headers": [
+        "Dimension",
+        "Generalist (e.g., primary care, hospitalist)",
+        "Specialist / subspecialist"
+      ],
+      "rows": [
+        [
+          "Problem state",
+          "**undifferentiated**, low prior per diagnosis",
+          "**differentiated**, enriched prior after triage"
+        ],
+        [
+          "Core skill",
+          "breadth, triage, integration, continuity",
+          "depth in a narrow domain, procedures"
+        ],
+        [
+          "Prevalence they see",
+          "high-volume common problems",
+          "pre-filtered, higher-prevalence-of-target"
+        ],
+        [
+          "Failure risk",
+          "premature narrowing; missing the rare",
+          "over-focus on their organ; \"hammer/nail\""
+        ],
+        [
+          "Bayesian role",
+          "**sets** and manages pretest probability (03)",
+          "**updates** sharply within a domain"
+        ],
+        [
+          "Ownership default",
+          "owns the whole patient + coordination",
+          "owns a defined problem or episode"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 159,
+      "heading_context": "## 2. Care Levels — Primary, Secondary, Tertiary, Quaternary",
+      "headers": [
+        "Level",
+        "Who / where",
+        "Access",
+        "Owns",
+        "Defers up when"
+      ],
+      "rows": [
+        [
+          "**Primary**",
+          "family/GP, general internal med, general peds",
+          "direct (first contact)",
+          "breadth, continuity, coordination, prevention",
+          "problem exceeds generalist diagnostic/management scope"
+        ],
+        [
+          "**Secondary**",
+          "general specialists, community hospital",
+          "usually by referral",
+          "domain diagnosis + management",
+          "needs subspecialty depth, advanced procedure, or complexity"
+        ],
+        [
+          "**Tertiary**",
+          "subspecialists, academic medical center",
+          "referral from secondary",
+          "advanced/complex care, procedures, multidisciplinary",
+          "needs experimental/ultra-rare capability"
+        ],
+        [
+          "**Quaternary**",
+          "national/reference centers",
+          "referral from tertiary",
+          "rare, experimental, highest-complexity",
+          "— (top of stack)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 198,
+      "heading_context": "## 3. The Specialty Interface Table (a Service Catalog, Not a Disease Catalog)",
+      "headers": [
+        "Specialty (service)",
+        "Bounded context it owns",
+        "Typical consult-question *type*",
+        "Level",
+        "Hands back"
+      ],
+      "rows": [
+        [
+          "Primary care / family med",
+          "whole-person breadth, continuity, coordination",
+          "\"integrate and own this patient over time\"",
+          "1",
+          "(is the integrator)"
+        ],
+        [
+          "General internal medicine",
+          "complex adult multi-system reasoning",
+          "\"diagnostic uncertainty across systems\"",
+          "1–2",
+          "dx + management plan"
+        ],
+        [
+          "General pediatrics",
+          "whole-child breadth, development, continuity",
+          "\"integrate and own this child over time\"",
+          "1",
+          "(child integrator)"
+        ],
+        [
+          "Emergency medicine",
+          "undifferentiated acute stabilization + disposition",
+          "\"stabilize and route\" (time-critical)",
+          "1–2",
+          "disposition + handoff"
+        ],
+        [
+          "Critical care / intensive care",
+          "failing-physiology support of the sickest inpatients",
+          "\"support organs while the cause is treated\"",
+          "2–4",
+          "ICU course + handoff"
+        ],
+        [
+          "Cardiology",
+          "cardiovascular diagnosis/management",
+          "dx clarification / procedure / co-manage",
+          "2–3",
+          "plan + procedure result"
+        ],
+        [
+          "Pulmonology",
+          "respiratory / airway / sleep",
+          "dx + management of complex respiratory disease",
+          "2–3",
+          "dx + management"
+        ],
+        [
+          "Gastroenterology",
+          "luminal GI + hepatobiliary",
+          "endoscopic dx/therapy / management",
+          "2–3",
+          "scope findings + plan"
+        ],
+        [
+          "Nephrology",
+          "kidney function; **dialysis management and access coordination**",
+          "dialysis planning + management of advanced kidney failure",
+          "2–3",
+          "co-management plan"
+        ],
+        [
+          "Neurology",
+          "nervous-system diagnosis/management",
+          "localization + dx of complex neuro problems",
+          "2–3",
+          "dx + management"
+        ],
+        [
+          "Endocrinology",
+          "hormonal/metabolic regulation",
+          "management of refractory/complex cases",
+          "2–3",
+          "titration/management plan"
+        ],
+        [
+          "Rheumatology",
+          "systemic autoimmune / inflammatory MSK",
+          "dx + management of multisystem autoimmune disease",
+          "2–3",
+          "dx + management"
+        ],
+        [
+          "Hematology",
+          "blood, marrow, coagulation",
+          "dx + management of cytopenias/clotting (often with oncology)",
+          "2–3",
+          "dx + management"
+        ],
+        [
+          "Infectious disease",
+          "complex/atypical infection & stewardship",
+          "regimen selection, source, stewardship",
+          "2–3",
+          "advisory plan"
+        ],
+        [
+          "Allergy / clinical immunology",
+          "hypersensitivity + immune dysregulation",
+          "dx + management of allergy/immunodeficiency",
+          "2–3",
+          "dx + management"
+        ],
+        [
+          "Dermatology",
+          "skin/hair/nail dx + ambulatory procedures",
+          "\"characterize + manage this lesion/rash\"",
+          "1–3",
+          "dx + procedure/plan"
+        ],
+        [
+          "Obstetrics & gynecology",
+          "pregnancy + female reproductive care",
+          "maternity care; dx/management/operative gyn",
+          "1–3",
+          "plan + delivery/operative result"
+        ],
+        [
+          "Oncology",
+          "cancer diagnosis/therapy/coordination",
+          "staging + treatment planning",
+          "3",
+          "treatment plan (often owns episode)"
+        ],
+        [
+          "General surgery / surgical subspecialties (orthopedic, urologic, ENT, ophthalmic, neuro, vascular)",
+          "operative diagnosis and intervention",
+          "\"is there an operative solution + do it\"",
+          "2–4",
+          "operative plan + post-op ownership"
+        ],
+        [
+          "Anesthesiology / perioperative",
+          "peri-procedural physiologic management",
+          "peri-op risk + intra-op management",
+          "2–4",
+          "peri-op plan"
+        ],
+        [
+          "Radiology",
+          "image acquisition + interpretation",
+          "\"characterize this finding\"",
+          "2–4",
+          "read + recommendation"
+        ],
+        [
+          "Pathology / lab medicine",
+          "tissue/lab result generation + interpretation",
+          "\"what is this specimen / result\"",
+          "2–4",
+          "diagnostic result"
+        ],
+        [
+          "Clinical genetics / genomics",
+          "heritable-risk evaluation + variant interpretation",
+          "\"is this heritable; what does this variant mean\"",
+          "2–3",
+          "risk assessment + plan"
+        ],
+        [
+          "Psychiatry",
+          "mental-health diagnosis/management",
+          "co-management of complex psychiatric illness",
+          "1–3",
+          "dx + management plan"
+        ],
+        [
+          "Rehabilitation / PM&R",
+          "functional restoration",
+          "functional assessment + program",
+          "2–3",
+          "rehab plan"
+        ],
+        [
+          "Palliative care",
+          "symptom + goals-of-care across diseases",
+          "goals-of-care + symptom co-management",
+          "1–3",
+          "goals + co-management"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 254,
+      "heading_context": "## 4. Consultation Question Quality — Formatting the Request",
+      "headers": [
+        "Property of a good consult request",
+        "Why it matters (interface view)"
+      ],
+      "rows": [
+        [
+          "**One focused, answerable question**",
+          "undefined scope → the consultant guesses → non-answer or scope creep"
+        ],
+        [
+          "**Stated urgency**",
+          "routes the request into the right queue (emergent vs routine)"
+        ],
+        [
+          "**The pertinent context, pre-assembled**",
+          "avoids a re-work round trip; respects the callee"
+        ],
+        [
+          "**What decision the answer feeds**",
+          "ties the consult to a threshold (guide 03): if no decision hangs on it, VOI ≈ 0"
+        ],
+        [
+          "**Named requester + call-back path**",
+          "so the response reaches an owner (Section 6)"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 315,
+      "heading_context": "## 5. Two Independent Axes — Routing Mechanism and Responsibility Contract",
+      "headers": [
+        "Routing mechanism / intended contract",
+        "Advice-only consultation",
+        "Shared care / comanagement",
+        "Explicit transfer"
+      ],
+      "rows": [
+        [
+          "**Referral**",
+          "\"see and advise; I keep the problem\"",
+          "\"co-manage this with me, split named\"",
+          "\"please take over this problem\""
+        ],
+        [
+          "**E-consult**",
+          "the typical case — async advice",
+          "possible — an async shared plan",
+          "rare — usually needs an in-person handoff"
+        ],
+        [
+          "**Direct access**",
+          "patient-initiated advice visit",
+          "patient-initiated ongoing shared care",
+          "patient-initiated episode the service owns"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 334,
+      "heading_context": "## 5. Two Independent Axes — Routing Mechanism and Responsibility Contract",
+      "headers": [
+        "Ownership field",
+        "What it covers",
+        "Default holder (until an explicit, acknowledged agreement reassigns it)"
+      ],
+      "rows": [
+        [
+          "**Overall-patient**",
+          "the whole person, integration, the problem list",
+          "the integrator (usually primary care)"
+        ],
+        [
+          "**Referred-problem**",
+          "the specific problem named in the request",
+          "the requester **until** an explicit contract for it is agreed and acknowledged"
+        ],
+        [
+          "**Ordering**",
+          "who placed a given test/treatment order",
+          "whoever placed it — they own its consequences"
+        ],
+        [
+          "**Pending-result**",
+          "who acknowledges a result that returns later",
+          "must be assigned explicitly at every handoff"
+        ],
+        [
+          "**Follow-up**",
+          "who acts on the result and closes the loop",
+          "named when the order is placed, never assumed"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 349,
+      "heading_context": "## 5. Two Independent Axes — Routing Mechanism and Responsibility Contract",
+      "headers": [
+        "Contract (Axis B)",
+        "Owner after",
+        "Duty split defined by",
+        "Classic failure"
+      ],
+      "rows": [
+        [
+          "Advice-only consultation",
+          "requester (unchanged)",
+          "\"advice only\"",
+          "consultant starts managing (scope creep); or requester ignores advice"
+        ],
+        [
+          "Shared care / comanagement",
+          "shared, per a named split",
+          "pre-agreed division (who orders/adjusts what)",
+          "**both** or **neither** act on a finding (double/no coverage)"
+        ],
+        [
+          "Explicit transfer",
+          "receiver **on explicit, acknowledged agreement**",
+          "handoff content (I-PASS/SBAR, guide 07)",
+          "a routing label assumed to have transferred; dropped context at the seam"
+        ]
+      ]
+    },
+    {
+      "id": "table-8",
+      "line": 429,
+      "heading_context": "## 7. Resource and Geographic Variation",
+      "headers": [
+        "Variation axis",
+        "Effect on the interface"
+      ],
+      "rows": [
+        [
+          "**Specialist density / access**",
+          "scarce specialists → longer queues, higher referral thresholds, generalists holding more scope"
+        ],
+        [
+          "**Geography / distance**",
+          "rural/remote → hub-and-spoke, outreach clinics, or **teleconsultation as the routing topology**, with advice/shared-care/transfer responsibility named separately"
+        ],
+        [
+          "**Practice-style variation**",
+          "referral rates for the *same* problem vary widely between clinicians and regions with similar outcomes"
+        ],
+        [
+          "**Supply-sensitive care**",
+          "in some settings, the *supply* of specialists/beds drives utilization more than need"
+        ]
+      ]
+    },
+    {
+      "id": "table-9",
+      "line": 464,
+      "heading_context": "## 7. Resource and Geographic Variation",
+      "headers": [
+        "Topology",
+        "Front door",
+        "Where the interface lives",
+        "Trade-off"
+      ],
+      "rows": [
+        [
+          "**Gatekept referral**",
+          "primary-care generalist",
+          "referral request + return report",
+          "coordination & filtered priors vs. access latency"
+        ],
+        [
+          "**Direct access**",
+          "any service, self-referred",
+          "patient-chosen entry",
+          "faster access vs. lost integrator, unfiltered priors, fragmentation"
+        ],
+        [
+          "**District-hospital**",
+          "district general hospital",
+          "local secondary care; escalate the rare",
+          "reach with fewer specialists vs. a capability ceiling"
+        ],
+        [
+          "**Task-shifting / CHW**",
+          "community health worker / nurse",
+          "protocol + a defined escalation threshold",
+          "extends coverage where clinicians are scarce vs. narrower protocol scope"
+        ],
+        [
+          "**Teleconsult (hub-and-spoke)**",
+          "local clinician + remote specialist",
+          "a network link; the responsibility contract may be advice-only, shared care, or explicit transfer",
+          "specialist reach at distance vs. no hands-on exam; contract and ownership must be named separately"
+        ]
+      ]
+    },
+    {
+      "id": "table-10",
+      "line": 504,
+      "heading_context": "## 8. Multi-Specialty Conflict Resolution",
+      "headers": [
+        "Resolution mechanism",
+        "How it works",
+        "When it fits"
+      ],
+      "rows": [
+        [
+          "**Named integrator**",
+          "one accountable owner holds the master plan and problem list",
+          "chronic multimorbidity; inpatient with many consults"
+        ],
+        [
+          "**Multidisciplinary team (MDT) / board**",
+          "services meet, deliberate, converge on one documented plan",
+          "cancer (tumor board), complex cases, transplant"
+        ],
+        [
+          "**\"Most responsible\" designation**",
+          "one service is explicitly accountable for the episode",
+          "inpatient with a dominant active problem"
+        ],
+        [
+          "**Goals-of-care anchor**",
+          "disputes resolved against what the patient values (guide 10)",
+          "value-laden or end-of-life conflicts"
+        ]
+      ]
+    },
+    {
+      "id": "table-11",
+      "line": 581,
+      "heading_context": "## 9. Worked Case — A Closed-Loop Comanagement Consult (illustrative, fictional)",
+      "headers": [
+        "Field",
+        "Holder through the case"
+      ],
+      "rows": [
+        [
+          "Overall-patient",
+          "Dr. A (integrator) throughout"
+        ],
+        [
+          "Referred-problem (P)",
+          "Dr. A → **Dr. C on an acknowledged comanagement agreement** (scoped to P)"
+        ],
+        [
+          "Ordering",
+          "whoever placed the order (T: Dr. C; baseline lab: Dr. A)"
+        ],
+        [
+          "Pending-result",
+          "named per order; never \"whoever sees it\""
+        ],
+        [
+          "Follow-up / closure",
+          "the named action owner per item; contested step → most-responsible owner after the huddle"
+        ]
+      ]
+    },
+    {
+      "id": "table-12",
+      "line": 640,
+      "heading_context": "## 10. Alternate-System Case — District Hospital, Task-Shifting, and Teleconsult (illustrative, fictional)",
+      "headers": [
+        "Field",
+        "Holder through the case"
+      ],
+      "rows": [
+        [
+          "Overall-patient (local)",
+          "nurse-clinician K throughout"
+        ],
+        [
+          "Escalated problem",
+          "M → **K on accepted escalation**; abnormal-result step → **D on accepted escalation**"
+        ],
+        [
+          "Teleconsult advice",
+          "remote specialist S advises; ownership **stays** with K (advice-only)"
+        ],
+        [
+          "Pending-result",
+          "named per order (T: district team via K); never \"whoever opens it\""
+        ],
+        [
+          "Follow-up / closure",
+          "D for T; transfer to a referral center only on **acknowledged acceptance**"
+        ]
+      ]
+    },
+    {
+      "id": "table-13",
+      "line": 681,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "What the interface model shows",
+        "Why (this guide)"
+      ],
+      "rows": [
+        [
+          "A problem is sent to a specialist",
+          "a well-formed request carries **one focused, answerable question** + urgency + context + the decision it feeds",
+          "a consult is an RPC; malformed requests get non-answers (§4)"
+        ],
+        [
+          "Unclear who owns the patient now",
+          "the two axes read separately: **routing mechanism** (refer / e-consult / direct access) and **responsibility contract** (advice-only / comanage / transfer)",
+          "mechanism and contract are independent (§5)"
+        ],
+        [
+          "Two services adjusting the same thing",
+          "a **concurrent write** needing an explicit, named duty split",
+          "comanagement without a protocol → double/no coverage (§5, §8)"
+        ],
+        [
+          "A test is pending at a handoff",
+          "a **named owner** holds the result + action",
+          "open loops are the classic missed-result harm (§6)"
+        ],
+        [
+          "A referral was \"sent\"",
+          "the routing label and even a bare acceptance move **nothing**; responsibility moves only on an **explicit, locally valid agreement + acknowledgment**, and the loop closes only when a response is acknowledged and acted on",
+          "routing is not the contract; ownership needs explicit agreement (§5, §6)"
+        ],
+        [
+          "A specialist reports a high PPV",
+          "it holds **only if** the referred population is **demonstrably enriched** *and* the test's Sn/Sp **transport** to it — and spectrum shifts can change both",
+          "enrichment and transport are assumptions, not givens (§1, §3, links §03)"
+        ],
+        [
+          "Rural / low-specialist setting",
+          "a **broader generalist scope + teleconsult** topology, with different thresholds",
+          "the interface topology is resource-dependent (§7, §10)"
+        ],
+        [
+          "Many services, one incoherent plan",
+          "**single accountable ownership** restored (integrator / MDT / MRP / goals)",
+          "conflict = uncoordinated concurrent writers (§8)"
+        ],
+        [
+          "Deciding a real patient's referral",
+          "**out of scope** — that is a licensed clinician's call",
+          "this guide is architecture, not advice (banner)"
+        ]
+      ]
+    }
+  ]
+}

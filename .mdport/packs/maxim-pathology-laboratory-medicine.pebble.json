@@ -1,0 +1,265 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-pathology-laboratory-medicine",
+  "source": "../../pathology",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "08-LABORATORY-MEDICINE.md#000",
+      "path": [
+        "08-LABORATORY-MEDICINE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:pathology:08-laboratory-medicine]",
+        "canonical_path": "pathology/08-LABORATORY-MEDICINE.md",
+        "concepts": "[total-testing-process, analytical-performance, measurement-uncertainty, interference, method-comparison, result-validation]",
+        "current_path": "pathology/08-LABORATORY-MEDICINE.md",
+        "id": "maxim:pathology:laboratory-medicine",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "pathology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[laboratory-medicine]",
+        "section": "pathology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Laboratory Medicine - How a Result Is Generated and Bounded",
+        "updated": "null"
+      },
+      "text": "# Laboratory Medicine — How a Result Is Generated and Bounded"
+    },
+    {
+      "id": "08-LABORATORY-MEDICINE.md#001",
+      "path": [
+        "08-LABORATORY-MEDICINE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:pathology:08-laboratory-medicine]",
+        "canonical_path": "pathology/08-LABORATORY-MEDICINE.md",
+        "concepts": "[total-testing-process, analytical-performance, measurement-uncertainty, interference, method-comparison, result-validation]",
+        "current_path": "pathology/08-LABORATORY-MEDICINE.md",
+        "id": "maxim:pathology:laboratory-medicine",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "pathology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[laboratory-medicine]",
+        "section": "pathology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Laboratory Medicine - How a Result Is Generated and Bounded",
+        "updated": "null"
+      },
+      "text": "**This guide owns** the *manufacture of a laboratory result*: the total testing\nprocess (the brain-to-brain loop), what a result actually is as a measurement,\nanalytical performance (imprecision, bias, total error, measurement uncertainty,\nlinearity, detection limits), the sharp and constantly-confused distinction between\n**analytical** and **clinical** sensitivity/specificity, interference and the\npre-analytical minefield (hemolysis, icterus, lipemia, heterophile antibodies,\nbiotin, hook effect, macro-analytes), method comparison and harmonization, how each\nlaboratory discipline physically generates a number or a flag (clinical chemistry,\nhematology, coagulation, microbiology, molecular, and the transfusion-compatibility\ninterface), and how a result is validated, flagged, and released. **It builds on**\n`chemistry/04-ANALYTICAL-QUANTITATIVE` (the general analytical formalism — calibration,\nLOD/LOQ, method validation) and applies it to biological matrices; it assumes\nerror-model fundamentals from `probability-statistics/` and `statistics-applied/`; and\nit leans on the mechanism guides `01`–`07` of this module for *why* an analyte moves."
+    },
+    {
+      "id": "08-LABORATORY-MEDICINE.md#002",
+      "path": [
+        "08-LABORATORY-MEDICINE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:pathology:08-laboratory-medicine]",
+        "canonical_path": "pathology/08-LABORATORY-MEDICINE.md",
+        "concepts": "[total-testing-process, analytical-performance, measurement-uncertainty, interference, method-comparison, result-validation]",
+        "current_path": "pathology/08-LABORATORY-MEDICINE.md",
+        "id": "maxim:pathology:laboratory-medicine",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "pathology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[laboratory-medicine]",
+        "section": "pathology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Laboratory Medicine - How a Result Is Generated and Bounded",
+        "updated": "null"
+      },
+      "text": "**It explicitly defers** three things it must never absorb:"
+    },
+    {
+      "id": "08-LABORATORY-MEDICINE.md#003",
+      "path": [
+        "08-LABORATORY-MEDICINE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:pathology:08-laboratory-medicine]",
+        "canonical_path": "pathology/08-LABORATORY-MEDICINE.md",
+        "concepts": "[total-testing-process, analytical-performance, measurement-uncertainty, interference, method-comparison, result-validation]",
+        "current_path": "pathology/08-LABORATORY-MEDICINE.md",
+        "id": "maxim:pathology:laboratory-medicine",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "pathology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[laboratory-medicine]",
+        "section": "pathology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Laboratory Medicine - How a Result Is Generated and Bounded",
+        "updated": "null"
+      },
+      "text": "- the **test catalog** — which panels exist, reference intervals/ranges, panel\n  membership, and analyte time-courses — to `medicine/10-DIAGNOSTICS-IMAGING`;\n- **Bayesian belief updating** — pretest/posttest probability, likelihood ratios,\n  test/treatment thresholds, and the decision to act — to\n  `clinical-medicine/03-DIAGNOSTIC-TEST-INTERPRETATION`;\n- **specimen collection and bench SOPs** — phlebotomy, tube choice as a runnable\n  procedure, assay setup, calibration steps — which are laboratory *operating manuals*,\n  not educational reference (organism biology goes to `microbiology/`/`virology/`;\n  immune-cell biology to `immunology/`; gene mechanism to `genomics/`)."
+    },
+    {
+      "id": "08-LABORATORY-MEDICINE.md#004",
+      "path": [
+        "08-LABORATORY-MEDICINE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:pathology:08-laboratory-medicine]",
+        "canonical_path": "pathology/08-LABORATORY-MEDICINE.md",
+        "concepts": "[total-testing-process, analytical-performance, measurement-uncertainty, interference, method-comparison, result-validation]",
+        "current_path": "pathology/08-LABORATORY-MEDICINE.md",
+        "id": "maxim:pathology:laboratory-medicine",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "pathology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[laboratory-medicine]",
+        "section": "pathology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Laboratory Medicine - How a Result Is Generated and Bounded",
+        "updated": "null"
+      },
+      "text": "**Three-way lab-interpretation split (the boundary this guide anchors).** A single\nlaboratory number touches three MAXIM modules, and keeping them separate is the whole\npoint:"
+    },
+    {
+      "id": "08-LABORATORY-MEDICINE.md#005",
+      "path": [
+        "08-LABORATORY-MEDICINE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:pathology:08-laboratory-medicine]",
+        "canonical_path": "pathology/08-LABORATORY-MEDICINE.md",
+        "concepts": "[total-testing-process, analytical-performance, measurement-uncertainty, interference, method-comparison, result-validation]",
+        "current_path": "pathology/08-LABORATORY-MEDICINE.md",
+        "id": "maxim:pathology:laboratory-medicine",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "pathology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[laboratory-medicine]",
+        "section": "pathology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Laboratory Medicine - How a Result Is Generated and Bounded",
+        "updated": "null"
+      },
+      "text": "```\n  pathology/08            medicine/10                 clinical-medicine/03\n  (this guide)            (the catalog)               (the decision)\n  ------------            -----------------           --------------------\n  HOW the result is       WHICH test it is,           HOW a clinician turns\n  generated and how       its panel and its           the released result into\n  far to trust it   --->  reference band       --->   an updated belief and an\n  (the number + its       (the name + the             action (prior x LR ->\n   uncertainty + flags)    interval)                   posterior -> threshold)\n```"
+    },
+    {
+      "id": "08-LABORATORY-MEDICINE.md#006",
+      "path": [
+        "08-LABORATORY-MEDICINE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:pathology:08-laboratory-medicine]",
+        "canonical_path": "pathology/08-LABORATORY-MEDICINE.md",
+        "concepts": "[total-testing-process, analytical-performance, measurement-uncertainty, interference, method-comparison, result-validation]",
+        "current_path": "pathology/08-LABORATORY-MEDICINE.md",
+        "id": "maxim:pathology:laboratory-medicine",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "pathology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[laboratory-medicine]",
+        "section": "pathology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Laboratory Medicine - How a Result Is Generated and Bounded",
+        "updated": "null"
+      },
+      "text": "This guide stops at a **released result carrying its own uncertainty and flags**. It\ndoes not name the reference band (that is `medicine/10`), and it does not update anyone's\nbelief (that is `clinical-medicine/03`)."
+    },
+    {
+      "id": "08-LABORATORY-MEDICINE.md#007",
+      "path": [
+        "08-LABORATORY-MEDICINE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:pathology:08-laboratory-medicine]",
+        "canonical_path": "pathology/08-LABORATORY-MEDICINE.md",
+        "concepts": "[total-testing-process, analytical-performance, measurement-uncertainty, interference, method-comparison, result-validation]",
+        "current_path": "pathology/08-LABORATORY-MEDICINE.md",
+        "id": "maxim:pathology:laboratory-medicine",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "pathology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[laboratory-medicine]",
+        "section": "pathology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Laboratory Medicine - How a Result Is Generated and Bounded",
+        "updated": "null"
+      },
+      "text": "> **This module is an educational reference about *how pathology and the laboratory\n> produce and reason about findings* — the mechanism-to-diagnosis architecture of the\n> discipline. It is *not* medical advice. It does *not* interpret any reader's own\n> results, does *not* diagnose, does *not* give treatment, dosing, or emergency\n> instructions, and is *not a substitute* for evaluation by a licensed clinician or an\n> accredited laboratory. It gives *no specimen-collection or laboratory-operating\n> instructions* and *no forensic or legal determinations*. Every numeric value below is\n> an illustrative teaching figure, not a clinical cutoff.**"
+    },
+    {
+      "id": "08-LABORATORY-MEDICINE.md#008",
+      "path": [
+        "08-LABORATORY-MEDICINE.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:pathology:08-laboratory-medicine]",
+        "canonical_path": "pathology/08-LABORATORY-MEDICINE.md",
+        "concepts": "[total-testing-process, analytical-performance, measurement-uncertainty, interference, method-comparison, result-validation]",
+        "current_path": "pathology/08-LABORATORY-MEDICINE.md",
+        "id": "maxim:pathology:laboratory-medicine",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "pathology",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[laboratory-medicine]",
+        "section": "pathology",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Laboratory Medicine - How a Result Is Generated and Bounded",
+        "updated": "null"
+      },
+      "text": "*Per-guide banner: educational reference on how a laboratory result is manufactured and\nbounded — never self-diagnosis, never personal-result interpretation, never a bench or\ncollection procedure, never forensic/legal advice. Numbers are illustrative and, where\nthey name a real standard, attributed and dated.*"
+    }
+  ],
+  "refs": [
+    "08-LABORATORY-MEDICINE.md"
+  ]
+}

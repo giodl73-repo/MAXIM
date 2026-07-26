@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "computing-pioneers\\06-ALGORITHMS-COMPLEXITY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 24,
+      "heading_context": "## Era Overview",
+      "confidence": "candidate",
+      "text": "ALGORITHMS AS A SCIENCE: 1950–1975\n====================================\n\n  Before 1950: Algorithms existed but were not studied systematically.\n               No framework for comparing algorithms.\n               No notion of computational complexity.\n\n  1956 ─── DIJKSTRA: Shortest-path algorithm. First rigorous algorithmic analysis.\n  1959 ─── DIJKSTRA: Shortest-span tree (Prim-Dijkstra).\n  1961 ─── DIJKSTRA: Mutex/semaphore (concurrent programming primitives).\n  1965 ─── KNUTH: TAOCP Vol 1 draft. \"Big-O\" notation standardized for CS.\n  1968 ─── KNUTH: TAOCP Vol 1 published. Algorithm analysis as discipline.\n  1968 ─── DIJKSTRA: \"Go To Statement Considered Harmful\" — structured programming.\n  1971 ─── COOK: NP-completeness theorem. SAT is NP-complete.\n  1972 ─── KARP: 21 classic NP-complete problems.\n  1975 ─── KNUTH: TeX development begins (published 1978).\n           Knuth publishes Concrete Mathematics (1989).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "chart_like",
+      "line": 52,
+      "heading_context": "### Bio Snapshot",
+      "confidence": "candidate",
+      "text": "### Shortest-Path Algorithm (Dijkstra's Algorithm, 1956)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 56,
+      "heading_context": "### Shortest-Path Algorithm (Dijkstra's Algorithm, 1956)",
+      "confidence": "candidate",
+      "text": "DIJKSTRA'S ALGORITHM\n======================\n\n  Input:  Weighted directed graph G = (V, E, w) with w ≥ 0,\n          source vertex s.\n  Output: Shortest-path distances d[v] from s to all v ∈ V.\n\n  ALGORITHM:\n    Initialize: d[s] = 0, d[v] = ∞ for all v ≠ s\n                prev[v] = undefined\n                Q = priority queue containing all vertices\n\n    While Q is not empty:\n      u = vertex in Q with minimum d[u]   ← EXTRACT-MIN\n      Remove u from Q\n\n      For each neighbor v of u:\n        alt = d[u] + w(u, v)\n        If alt < d[v]:\n          d[v] = alt\n          prev[v] = u                      ← RELAX\n\n    Return d, prev\n\n  COMPLEXITY:\n    With binary heap: O((V + E) log V)\n    With Fibonacci heap: O(E + V log V)  ← optimal for dense graphs\n    With simple array: O(V²)             ← fine when V is small\n\n  CORRECTNESS MDLOOM (informal):\n    The key invariant: when u is extracted from Q, d[u] is final.\n    Why? Because all remaining paths to u go through some vertex v\n    still in Q with d[v] ≥ d[u] (since edge weights ≥ 0).\n    Any path that first goes through v and then to u would be\n    ≥ d[v] + something ≥ d[u]. So no shorter path can exist.\n    This fails with negative weights (Bellman-Ford needed instead).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "chart_like",
+      "line": 100,
+      "heading_context": "### Shortest-Path Algorithm (Dijkstra's Algorithm, 1956)",
+      "confidence": "candidate",
+      "text": "### Semaphores and Concurrent Programming (1965)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 104,
+      "heading_context": "### Semaphores and Concurrent Programming (1965)",
+      "confidence": "candidate",
+      "text": "SEMAPHORE — DIJKSTRA'S DEFINITION\n===================================\n\n  A semaphore S is an integer with two atomic operations:\n\n  P(S) / wait(S) / down(S):\n    while S ≤ 0: wait   (block)\n    S := S - 1\n\n  V(S) / signal(S) / up(S):\n    S := S + 1          (may wake a waiting process)\n\n  MUTUAL EXCLUSION (mutex) with binary semaphore (S initialized to 1):\n    P(S)      ← acquire\n    critical section\n    V(S)      ← release\n\n  COUNTING SEMAPHORE (S initialized to N):\n    Allows N concurrent accesses.\n    E.g., a pool of N database connections.\n    P decrements count; V increments count.\n    P blocks when count = 0.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 131,
+      "heading_context": "### Semaphores and Concurrent Programming (1965)",
+      "confidence": "candidate",
+      "text": "### Go To Considered Harmful (1968)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 298,
+      "heading_context": "### Bio Snapshot",
+      "confidence": "candidate",
+      "text": "### The 21 NP-Complete Problems",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 302,
+      "heading_context": "### The 21 NP-Complete Problems",
+      "confidence": "candidate",
+      "text": "KARP'S 21 NP-COMPLETE PROBLEMS (1972)\n=======================================\n\n  From satisfiability:\n    SAT → 3-SAT → CLIQUE → INDEPENDENT SET → VERTEX COVER\n    SAT → 3-DIMENSIONAL MATCHING → SET PACKING → SET COVERING\n    3-SAT → CHROMATIC NUMBER → CLIQUE COVER\n    3-SAT → EXACT COVER\n    3-SAT → HITTING SET → STEINER TREE → 3-DIMENSIONAL MATCHING\n    3-SAT → KNAPSACK → JOB SEQUENCING → PARTITION\n    PARTITION → MAX CUT\n    3-SAT → DIRECTED HAMILTONIAN CYCLE → UNDIRECTED HAMILTONIAN CYCLE → TSP\n\n  WHAT THIS MEANS IN PRACTICE:\n    If you are trying to find a polynomial-time algorithm for any of these,\n    you are (unknown to yourself) trying to prove P = NP.\n    Stop and use approximation algorithms or heuristics instead.\n\n  REAL-WORLD NP-COMPLETE PROBLEMS:\n    Scheduling: job shop scheduling, exam timetabling\n    Network: minimum spanning network design (with constraints)\n    Logistics: vehicle routing, traveling salesman\n    Circuit design: VLSI layout, register allocation\n    Protein folding: simplified models\n    Compiler: optimal register allocation is NP-hard in general\n              (solved in practice with heuristics: graph coloring)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

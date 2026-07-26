@@ -1,0 +1,1161 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-machine-learning-theory-kernel-methods",
+  "source": "../../machine-learning-theory",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "05-KERNEL-METHODS.md#000",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "# Kernel Methods and Reproducing Kernel Hilbert Spaces"
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#001",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#002",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "Kernel methods provide a rigorous framework for learning in infinite-dimensional function spaces while keeping computation tractable via the kernel trick. The RKHS is the function-analytic foundation; SVMs are the canonical application; and the kernel trick reappears in the Neural Tangent Kernel (Module 06)."
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#003",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "```\n+──────────────────────────────────────────────────────────────────+\n|                  KERNEL METHODS LANDSCAPE                        |\n|                                                                  |\n|  PROBLEM: Linear methods work in ℝⁿ but data is nonlinear.       |\n|                                                                  |\n|  NAIVE SOLUTION: Map x ∈ ℝⁿ to φ(x) ∈ ℝᴰ (D >> n)                |\n|  Learn a linear model in the feature space.                      |\n|  PROBLEM: If D = ∞ (e.g., polynomial features), computation is   |\n|  infinite.                                                       |\n|                                                                  |\n|  KERNEL TRICK: Never compute φ(x) explicitly.                    |\n|  Only compute k(x, x') = ⟨φ(x), φ(x')⟩ — inner products.         |\n|  All learning algorithms that only need inner products work      |\n|  in O(m²) time, regardless of the (infinite) feature space.      |\n|                                                                  |\n|  RKHS: The function space implicitly defined by the kernel.      |\n|  Learning in RKHS = learning a linear function in feature space. |\n+──────────────────────────────────────────────────────────────────+\n```"
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#004",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#005",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "## Positive Definite Kernels"
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#006",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "**Definition**: A function k: X × X → ℝ is a positive definite (PD) kernel if:\n1. Symmetric: k(x, x') = k(x', x)\n2. Positive semidefinite: for any finite set {x₁,...,xₘ}, the Gram matrix K with Kᵢⱼ = k(xᵢ, xⱼ) is PSD"
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#007",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "```\nGRAM MATRIX PSD CHECK\n  For any α ∈ ℝᵐ:  Σᵢⱼ αᵢ αⱼ k(xᵢ, xⱼ) ≥ 0"
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#008",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "INTUITION: PD kernel = inner product of feature vectors\n  k(x, x') = ⟨φ(x), φ(x')⟩_H  for some Hilbert space H, map φ"
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#009",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "Conversely: any PD kernel defines such a map (Mercer's theorem).\n```"
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#010",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#011",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "## Common Kernels"
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#012",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "| Kernel | Formula | Feature Space | Properties |\n|--------|---------|--------------|------------|\n| Linear | k(x,x') = xᵀx' | ℝⁿ itself | Trivial — no lift |\n| Polynomial (deg d) | k(x,x') = (xᵀx' + c)ᵈ | Monomials up to degree d | Finite-dim features |\n| RBF / Gaussian | k(x,x') = exp(-\\|\\|x-x'\\|\\|²/2σ²) | Infinite-dim | Universal approximator |\n| Laplace | k(x,x') = exp(-\\|\\|x-x'\\|\\|/σ) | Infinite-dim | Heavier tails than RBF |\n| Matérn | k(x,x') = (complicated) | Sobolev space H^ν | Differentiability-controlled |\n| Periodic | k(x,x') = exp(-2sin²(π\\|x-x'\\|/p)/σ²) | Fourier features | For periodic data |\n| String kernel | Counts common subsequences | Sequence space | NLP applications |"
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#013",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "**RBF kernel feature space explicitly:**\nk(x, x') = exp(-||x-x'||²/2σ²) = Σ_{α} (x^α · x'^α / α!) · e^{-||x||²/2} · e^{-||x'||²/2}\nThe feature map has infinitely many components indexed by multi-indices α."
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#014",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#015",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "## Bochner's Theorem and the Spectral Characterization of Kernels"
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#016",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "For translation-invariant kernels k(x, x') = k(x − x'), there is a complete harmonic analysis characterization:"
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#017",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "```\nBOCHNER'S THEOREM (1933)\n  A continuous function k: ℝⁿ → ℝ is the covariance function of a\n  stationary process (i.e., a positive definite kernel) if and only if\n  it is the Fourier transform of a non-negative finite measure p(ω):"
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#018",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "k(x - x') = ∫ e^{iωᵀ(x-x')} p(ω) dω = E_{ω~p}[e^{iωᵀ(x-x')}]"
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#019",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "p(ω) is the spectral density (or spectral measure) of the kernel.\n  k is PD ⟺ p is a non-negative measure."
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#020",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "SPECTRAL DENSITIES OF STANDARD KERNELS\n  RBF kernel:       k(r) = exp(-r²/2σ²)\n                    p(ω) = N(0, σ⁻²I)   [Gaussian spectral density]"
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#021",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "Laplace kernel:   k(r) = exp(-|r|/σ)\n                    p(ω) ∝ (1 + σ²ω²)⁻¹  [Cauchy spectral density]"
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#022",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "Matérn-ν kernel:  k(r) = (2^{1-ν}/Γ(ν))(√2ν r/ℓ)ν K_ν(√2ν r/ℓ)\n                    p(ω) ∝ (2ν/ℓ² + ‖ω‖²)^{-(ν + d/2)}  [Student-t spectral]\n                    ν = ½: Laplace; ν → ∞: RBF."
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#023",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "Periodic kernel:  p(ω) = discrete measure on integer frequencies.\n```"
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#024",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "**Implication: Random Fourier Features (Rahimi & Recht 2007).** Bochner's theorem gives an unbiased Monte Carlo estimator for any translation-invariant kernel:"
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#025",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "```\nRANDOM FOURIER FEATURES\n  Sample ω₁,...,ω_D ~ p(ω),  bⱼ ~ Uniform[0, 2π]"
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#026",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "Define explicit feature map:\n    z(x) = √(2/D) · [cos(ω₁ᵀx + b₁), ..., cos(ωᴰᵀx + bᴅ)] ∈ ℝᴰ"
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#027",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "Then: E[z(x)ᵀz(x')] = k(x - x')"
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#028",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "→ z(x)ᵀz(x') ≈ k(x, x') with variance O(1/D)"
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#029",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "PRACTICAL CONSEQUENCE\n  Instead of O(m²) kernel matrix, compute O(mD) feature matrix.\n  D ~ 10³ random features approximates RBF kernel to <1% error.\n  Training O(mD²) instead of O(m³) — crucial for large m.\n  Prediction O(D) instead of O(m) per test point.\n```"
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#030",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "The Random Fourier Features construction is Bochner's theorem made algorithmic. The spectral density tells you how to sample: for RBF, draw from a Gaussian; for Laplace, draw from a Cauchy. For non-translation-invariant kernels (e.g., polynomial, string kernels), Bochner doesn't apply directly — but analogous random feature constructions exist via Mercer expansions or structured matrices."
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#031",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "## Mercer's Theorem"
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#032",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "The fundamental theorem connecting kernels to feature maps:"
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#033",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "```\nMERCER'S THEOREM\n─────────────────\nLet X be a compact metric space, k: X × X → ℝ continuous and PD."
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#034",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "Then there exist:\n  • Eigenfunctions φⱼ: X → ℝ, orthonormal in L²(X)\n  • Eigenvalues μⱼ ≥ 0"
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#035",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "Such that:\n  k(x, x') = Σⱼ μⱼ φⱼ(x) φⱼ(x')   [convergence in L²]"
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#036",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "FEATURE MAP\n  φ(x) = (√μ₁ φ₁(x), √μ₂ φ₂(x), ...)   ← in ℓ² sequence space"
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#037",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "k(x, x') = ⟨φ(x), φ(x')⟩_{ℓ²}"
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#038",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "INTERPRETATION\n  • Smooth kernels: eigenvalues decay fast → effective finite dimension\n  • Rough kernels: slow decay → many relevant directions\n  • RBF on [0,1]: eigenvalues decay as e^{-cj} (geometric/exponential — extremely fast)\n```"
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#039",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-KERNEL-METHODS.md#040",
+      "path": [
+        "05-KERNEL-METHODS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:machine-learning-theory:05-kernel-methods, git-history:machine-learning-theory:05-kernel-methods]",
+        "canonical_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "concepts": "[kernel, methods]",
+        "current_path": "machine-learning-theory/05-KERNEL-METHODS.md",
+        "id": "maxim:machine-learning-theory:kernel-methods",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "machine-learning-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[kernel, methods]",
+        "section": "machine-learning-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Kernel Methods and Reproducing Kernel Hilbert Spaces",
+        "updated": "null"
+      },
+      "text": "## Reproducing Kernel Hilbert Spaces (RKHS)"
+    }
+  ],
+  "refs": [
+    "05-KERNEL-METHODS.md"
+  ]
+}

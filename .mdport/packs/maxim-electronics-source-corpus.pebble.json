@@ -1,0 +1,1609 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-electronics-source-corpus",
+  "source": "../../electronics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "00-OVERVIEW.md#000",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "# Electronics — Field Overview"
+    },
+    {
+      "id": "00-OVERVIEW.md#001",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "Electronics is applied electromagnetism, reduced through successive approximations to tractable models — the same abstraction-layer strategy used in compiler theory (source → IR → machine code) or numerical analysis (exact PDE → finite element → algebraic system). The approximation hierarchy here is Maxwell's equations → quasi-static fields → lumped circuit elements (R, L, C), and the art of electronics is knowing when each layer breaks."
+    },
+    {
+      "id": "00-OVERVIEW.md#002",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "00-OVERVIEW.md#003",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "```\nELECTRONICS FIELD MAP\n═══════════════════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "00-OVERVIEW.md#004",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "SIGNAL DOMAIN ──────────────────────────────────────────────────────────────\n                    ANALOG                          DIGITAL\n                 (continuous)                    (discrete levels)\n  ┌─────────────────────────────┐    ┌──────────────────────────────────────┐\n  │  Circuits (01)              │    │  Digital Logic (08)                  │\n  │  Reactive components (02)   │    │  Embedded / VLSI (09)               │\n  │  Filters (03)               │    │                                      │\n  │  Amplifiers (04)            │    │  Bridge: ADC/DAC converts between    │\n  └─────────────────────────────┘    └──────────────────────────────────────┘\n                    ↑                                  ↑\n             signal conditioning             computation / control\n                    │                                  │\n                    └──────────── ADC / DAC ───────────┘"
+    },
+    {
+      "id": "00-OVERVIEW.md#005",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "FREQUENCY DOMAIN ────────────────────────────────────────────────────────────\n  DC    |    Audio    |   RF            |   Microwave     |   Optical\n  0 Hz  | 20Hz-20kHz  | 3kHz-300MHz     | 300MHz-300GHz   | ~200THz\n        │             │                 │                  │\n        │  Signals &  │  Filters (03)   │  Lumped model    │  Photonics\n        │  Systems (05)│  Amplifiers(04)│  breaks down     │  (not here)\n        │  DSP (06)   │                 │  use distributed │\n        │  2D-DSP (07)│                 │  element models  │"
+    },
+    {
+      "id": "00-OVERVIEW.md#006",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "SCALE ───────────────────────────────────────────────────────────────────────\n  Discrete                  Integrated Circuit         System-on-Chip / FPGA\n  components                ┌─────────────┐            ┌──────────────────────┐\n  R, L, C, BJT, MOSFET  →  │ op-amp, ADC │  →         │ CPU, GPU, FPGA, ASIC │\n  individual packages       │ DRAM cell   │            │ billions of Tx       │\n  µW – W range              └─────────────┘            └──────────────────────┘\n                                                              VLSI (09)"
+    },
+    {
+      "id": "00-OVERVIEW.md#007",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "POWER RANGE ─────────────────────────────────────────────────────────────────\n  µW          mW          W           kW           MW\n  MEMS        MCU (sleep) MCU (active) Motor drive  Grid inverter\n  sensor      Smartphone  CPU/GPU      EV traction  (power electronics)\n  nodes       SoC                                   [NOT in this directory]\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#008",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#009",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "## Signal Chain: The Unifying Architecture"
+    },
+    {
+      "id": "00-OVERVIEW.md#010",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "Almost every electronics system is a signal chain — data flows left to right\nthrough conditioning, conversion, and processing stages."
+    },
+    {
+      "id": "00-OVERVIEW.md#011",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "```\n  GENERIC SIGNAL CHAIN\n  ┌──────────┐   ┌───────────────┐   ┌──────────┐   ┌────────────────┐   ┌────────┐\n  │  SOURCE  │──▶│  CONDITIONING │──▶│  ADC/DAC │──▶│  PROCESSING    │──▶│ OUTPUT │\n  │          │   │               │   │          │   │                │   │        │\n  │ sensor   │   │ amplification │   │ analog→  │   │ CPU / DSP /    │   │ display│\n  │ antenna  │   │ filtering      │   │ digital  │   │ FPGA / MCU     │   │ speaker│\n  │ mic      │   │ impedance match│   │ (or D→A) │   │ (modules 05-09)│   │ motor  │\n  │ photo-   │   │ anti-aliasing  │   │          │   │                │   │ RF Tx  │\n  │ detector │   │ (modules 01-04)│   │          │   │                │   │        │\n  └──────────┘   └───────────────┘   └──────────┘   └────────────────┘   └────────┘"
+    },
+    {
+      "id": "00-OVERVIEW.md#012",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "Key metrics at each stage:\n  Conditioning:  gain (dB), noise figure (NF, dB), bandwidth (Hz)\n  Conversion:    resolution (bits), SNR (dB), SFDR (dBc), sample rate (S/s)\n  Processing:    throughput (MOPS/GOPS), latency (µs), power (mW)\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#013",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#014",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "## Component Taxonomy"
+    },
+    {
+      "id": "00-OVERVIEW.md#015",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "### Passive vs Active"
+    },
+    {
+      "id": "00-OVERVIEW.md#016",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "```\n  PASSIVE                           ACTIVE\n  ────────────────────────────────  ────────────────────────────────────────\n  Cannot amplify signal             Can amplify (requires external power)\n  Power: consume or store only      Power: can deliver more than input"
+    },
+    {
+      "id": "00-OVERVIEW.md#017",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "Resistor R: V = IR               BJT: I_C = β·I_B  (current controlled)\n  Capacitor C: I = C·dV/dt         MOSFET: I_D = f(V_GS, V_DS)\n  Inductor L: V = L·dI/dt          Op-amp: V_out = A_OL·(V+ - V-)\n  Transformer: V₂/V₁ = N₂/N₁      Diode: I = I_S·(e^(V/nV_T) - 1)"
+    },
+    {
+      "id": "00-OVERVIEW.md#018",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "Passive filters: RC, LC, RLC     Active filters: op-amp + RC (module 03)\n  Passive networks: dividers,       Active circuits: amplifiers (module 04)\n  matching networks, attenuators    oscillators, mixers\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#019",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "### Linear vs Nonlinear"
+    },
+    {
+      "id": "00-OVERVIEW.md#020",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "```\n  LINEAR (superposition holds)      NONLINEAR (superposition breaks)\n  ────────────────────────────────  ────────────────────────────────────\n  R, L, C (ideal)                  Diodes, transistors (large-signal)\n  Linear op-amp in feedback         Saturated/clipped amplifier\n  → analysis: Laplace, phasors,     → analysis: Volterra series,\n    Bode plots, convolution           load-line graphical, SPICE\n  Modules 01-06 mostly here         Modules 04 (nonlinear region),\n                                    08-09 (logic switching)\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#021",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "### Time-Invariant vs Time-Varying"
+    },
+    {
+      "id": "00-OVERVIEW.md#022",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "```\n  LTI (Linear Time-Invariant)       Time-varying\n  ────────────────────────────────  ────────────────────────────────\n  Parameters don't change with t    Parameters change (switched-cap\n  RC filter: same response at t=0   filters, mixers, switched-mode PS)\n  and t=1000s\n  → Full frequency-domain analysis  → Cannot use standard Fourier; use\n    valid: H(jω) fully characterizes  modulation theory, Z-domain for\n    the system                        discrete-time switching\n  Core assumption in modules 05-07\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#023",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#024",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "## Frequency Regions in Detail"
+    },
+    {
+      "id": "00-OVERVIEW.md#025",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "```\n  FREQUENCY MAP\n  ─────────────────────────────────────────────────────────────────────────────\n  Frequency    Region          Key Phenomena           Engineering Domain\n  ─────────────────────────────────────────────────────────────────────────────\n  DC – 1 Hz    Quasi-static    Drift, leakage          Power supply, sensors\n  1 Hz – 20 kHz  Audio         Human hearing range     Audio, seismic, EEG\n  20 kHz – 1 MHz  Sub-RF       PWM switching, ultrasound  Motor control, SMPS\n  1 MHz – 30 MHz  HF/shortwave Ionospheric propagation  Amateur radio, SW Tx\n  30 MHz – 1 GHz  VHF/UHF      Line-of-sight prop      TV, FM, 4G, WiFi 2.4G\n  1 GHz – 30 GHz  Microwave    Free-space, waveguide   WiFi 5/6, 5G mmWave, RADAR\n  30 GHz – 300 GHz  mm-wave   Atmospheric absorption  5G FR2, imaging\n  > 300 GHz    THz/optical     Quantum transitions     Spectroscopy, LiDAR\n  ─────────────────────────────────────────────────────────────────────────────"
+    },
+    {
+      "id": "00-OVERVIEW.md#026",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "LUMPED ELEMENT MODEL VALIDITY\n  Valid when: λ >> L_physical  (wavelength much larger than circuit dimensions)"
+    },
+    {
+      "id": "00-OVERVIEW.md#027",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "At 1 MHz:    λ = 300 m   → 1-cm PCB trace is fine, λ/L = 30,000×\n  At 1 GHz:    λ = 30 cm   → 1-cm trace is λ/30 — microstrip effects matter\n  At 10 GHz:   λ = 3 cm    → trace IS a transmission line; must use S-params\n  At 100 GHz:  λ = 3 mm    → waveguide and distributed structures only"
+    },
+    {
+      "id": "00-OVERVIEW.md#028",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "Breakdown symptoms: unexpected resonances, signal reflections (S11),\n  impedance mismatch insertion loss, radiation (PCB becomes antenna)\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#029",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#030",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "## Physics Foundation: Maxwell to Circuit Theory"
+    },
+    {
+      "id": "00-OVERVIEW.md#031",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "```\n  MAXWELL EQUATIONS (full)\n  ∇·E = ρ/ε₀          (Gauss's Law: charge sources E field)\n  ∇·B = 0              (no magnetic monopoles)\n  ∇×E = -∂B/∂t         (Faraday: changing B induces E)\n  ∇×B = µ₀J + µ₀ε₀∂E/∂t  (Ampere-Maxwell: current + changing E sources B)\n         │\n         │ Approximations for circuit theory:\n         │ 1. Low frequency → ∂E/∂t negligible in Ampere → quasi-static\n         │ 2. λ >> L_physical → fields uniform across lumped elements\n         │ 3. Ohm's Law: J = σE inside conductors\n         ▼\n  CIRCUIT THEORY (lumped element)\n  KVL: ΣV_loop = 0     (Faraday's Law integrated around a loop)\n  KCL: ΣI_node = 0     (continuity equation at a node)\n  V = IR, I = C·dV/dt, V = L·dI/dt"
+    },
+    {
+      "id": "00-OVERVIEW.md#032",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "Both KVL and KCL break at high frequency when:\n  • Wire has significant inductance (di/dt effects, L = µ₀l/2π·ln(d/r))\n  • Capacitance between traces causes crosstalk (C_parasitic = ε·A/d)\n  • PCB trace delay becomes comparable to signal edge rate\n    (rule of thumb: 5× rise time < trace propagation time → ringing)\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#033",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#034",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "## How the 8 Modules Connect"
+    },
+    {
+      "id": "00-OVERVIEW.md#035",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "```\n  MODULE DEPENDENCY MAP\n  ─────────────────────────────────────────────────────────────────────────────"
+    },
+    {
+      "id": "00-OVERVIEW.md#036",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "ANALOG SIGNAL CHAIN (left-to-right signal flow)\n  ┌──────────────┐  ┌──────────────┐  ┌───────────────┐  ┌──────────────────┐\n  │ 01-CIRCUITS  │─▶│ 02-REACTIVE  │─▶│  03-FILTERS   │─▶│  04-AMPLIFIERS   │\n  │ KVL/KCL      │  │ C, L, RLC    │  │ Bode, poles/  │  │ small-signal, FB │\n  │ Thevenin     │  │ transients   │  │ zeros, design │  │ stability, noise │\n  │ op-amp basic │  │ phasors      │  │               │  │                  │\n  └──────────────┘  └──────────────┘  └───────────────┘  └──────────────────┘\n         │                 │                  │                    │\n         └─────────────────┴──────────────────┴────────────────────┘\n                                      │\n                              (prerequisites for)\n                                      │\n  SIGNAL PROCESSING THEORY            ▼\n  ┌──────────────────┐  ┌─────────────────┐  ┌─────────────────────────────┐\n  │ 05-SIGNALS-SYS   │─▶│   06-DSP        │─▶│      07-2D-DSP              │\n  │ LTI, convolution │  │ sampling, DFT/  │  │ image processing, 2D-FFT    │\n  │ Laplace, z-domain│  │ FFT, FIR/IIR   │  │ wavelets, compression       │\n  └──────────────────┘  └─────────────────┘  └─────────────────────────────┘"
+    },
+    {
+      "id": "00-OVERVIEW.md#037",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "DIGITAL DOMAIN\n  ┌────────────────────────────┐  ┌──────────────────────────────────────────┐\n  │    08-DIGITAL-LOGIC        │─▶│           09-EMBEDDED-VLSI               │\n  │ Boolean, gates, FSMs, FPGA │  │ MCU/RTOS/peripherals + RTL→tapeout flow  │\n  └────────────────────────────┘  └──────────────────────────────────────────┘"
+    },
+    {
+      "id": "00-OVERVIEW.md#038",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "Bridge points:\n  • 04→06: Analog anti-aliasing filter must be designed before ADC sampling rate set\n  • 05↔06: Laplace (s-domain) ↔ z-domain: H(z) from H(s) via bilinear transform\n  • 08→09: Digital logic IS the hardware substrate that VLSI implements\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#039",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#040",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "## Key Metrics Reference"
+    },
+    {
+      "id": "00-OVERVIEW.md#041",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "| Metric | Symbol | Unit | What It Measures | Typical Range |\n|--------|--------|------|------------------|---------------|\n| Voltage gain | A_v | V/V or dB | Signal amplification | 1–120 dB |\n| Current gain | A_i | A/A or dB | Current amplification | β = 50–500 (BJT) |\n| Bandwidth | BW | Hz | Frequency range of flat response | kHz – GHz |\n| Gain-bandwidth product | GBW | Hz | Op-amp figure of merit | 1 MHz – 10 GHz |\n| Noise figure | NF | dB | SNR degradation by component | 0.5 – 20 dB |\n| Signal-to-noise ratio | SNR | dB | Signal power / noise power | 20 – 120 dB |\n| Spurious-free dynamic range | SFDR | dBc | Strongest spurious relative to carrier | 50 – 100 dBc |\n| Total harmonic distortion | THD | % or dB | Nonlinearity measure | 0.001% – 10% |\n| Input impedance | Z_in | Ω | Load presented to source | 50Ω – 1MΩ |\n| Output impedance | Z_out | Ω | Source impedance presented to load | 0.1Ω – 10kΩ |\n| Power supply rejection | PSRR | dB | Immunity to supply noise | 60 – 100 dB |\n| Phase margin | PM | degrees | Stability margin in feedback | >45° desired |\n| Sample rate | f_s | S/s | ADC/DAC conversion rate | kS/s – GS/s |\n| ENOB | bits | bits | Effective number of bits (actual ADC quality) | 6 – 18 bits |"
+    },
+    {
+      "id": "00-OVERVIEW.md#042",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "### dB Conversion Quick Reference"
+    },
+    {
+      "id": "00-OVERVIEW.md#043",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "```\n  Power ratio:  dB = 10·log₁₀(P₂/P₁)\n  Voltage ratio: dB = 20·log₁₀(V₂/V₁)   [assuming equal impedances]"
+    },
+    {
+      "id": "00-OVERVIEW.md#044",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "Common values:\n  +3 dB  = 2× power = 1.41× voltage\n  +6 dB  = 4× power = 2× voltage\n  +10 dB = 10× power = 3.16× voltage\n  +20 dB = 100× power = 10× voltage\n  -3 dB  = half power = 0.707× voltage  (the \"-3 dB bandwidth\" definition)\n  -20 dB = 1/100 power = 1/10 voltage\n  -40 dB = 1/10,000 power = 1/100 voltage\n  0 dBm  = 1 mW into 50Ω → 0.224 V_rms\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#045",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#046",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "## Electronics in Computing Context"
+    },
+    {
+      "id": "00-OVERVIEW.md#047",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "This is the domain where electronics and software engineering overlap most\ndirectly. The abstractions that software engineers build on have physical\nelectrical substrates."
+    },
+    {
+      "id": "00-OVERVIEW.md#048",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "```\n  COMPUTING ELECTRICAL CONCERNS\n  ┌─────────────────────────────────────────────────────────────────────────┐\n  │  CPU / SoC Power Delivery                                               │\n  │  ─────────────────────────────────────────────────────────────────────  │\n  │  Voltage regulator module (VRM): buck converter, multi-phase           │\n  │  Dynamic voltage/freq scaling (DVFS): V scales as √P → f              │\n  │  Capacitor decoupling: handles transient current spikes (dI/dt)        │\n  │  IR drop: ΔV = I·R_trace on power plane → core gets less than nominal │\n  │  AMD Zen4 @ 1.1V, 95W TDP: ~86A peak current, needs µF capacitors     │\n  │  within mm of die for <1ns transient response                          │\n  └─────────────────────────────────────────────────────────────────────────┘\n  ┌─────────────────────────────────────────────────────────────────────────┐\n  │  PCB Signal Integrity (SI)                                              │\n  │  ─────────────────────────────────────────────────────────────────────  │\n  │  PCIe 5.0 (32 GT/s): signal edges at ~20ps → 10 GHz content           │\n  │  Trace impedance control: Z₀ = √(L/C), target 50Ω or 100Ω diff        │\n  │  Skin effect: current crowds to surface at high f; R ∝ √f             │\n  │  Via stubs: reflected energy at stub resonant frequency                │\n  │  Crosstalk: NEXT (near-end) vs FEXT (far-end); tight diff pairs avoid │\n  └─────────────────────────────────────────────────────────────────────────┘\n  ┌─────────────────────────────────────────────────────────────────────────┐\n  │  DDR Memory Electrical                                                  │\n  │  ─────────────────────────────────────────────────────────────────────  │\n  │  DDR5: 4800–6400 MT/s; 1.1V; differential clocking (CK/CK#)           │\n  │  On-die termination (ODT): absorbs reflections, controlled in software │\n  │  Write leveling, read/write training: MCU adjusts timing per-DIMM      │\n  │  Eye diagram: intersection of all bit transitions — must clear mask    │\n  └─────────────────────────────────────────────────────────────────────────┘\n  ┌─────────────────────────────────────────────────────────────────────────┐\n  │  Thermal Management                                                     │\n  │  ─────────────────────────────────────────────────────────────────────  │\n  │  Thermal resistance θ_JA: °C/W from junction to ambient                │\n  │  T_junction = T_ambient + P_dissipated × θ_JA                         │\n  │  Modern CPUs: max T_j = 100°C; throttle before damage                  │\n  │  Capacitor reliability: every 10°C above rated → 2× failure rate       │\n  └─────────────────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#049",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#050",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "## RF/Microwave Bridge — When Lumped Models Break"
+    },
+    {
+      "id": "00-OVERVIEW.md#051",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "Above ~300 MHz, circuit dimensions approach the signal wavelength and the lumped-element model fails. The replacement framework is **scattering parameters (S-parameters)** — the RF equivalent of Thévenin/Norton, but describing incident and reflected power waves at each port rather than voltage and current."
+    },
+    {
+      "id": "00-OVERVIEW.md#052",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "```\n  S-PARAMETER FRAMEWORK (2-port example)\n  ┌─────────────────────────────────────────────────────────────────────────┐\n  │  Incident power a₁ → [DUT] → Transmitted power b₂                      │\n  │  Reflected power b₁ ←        ← Incident power a₂                      │\n  │                                                                         │\n  │  S₁₁ = b₁/a₁  (reflection at port 1 = \"return loss\")                  │\n  │  S₂₁ = b₂/a₁  (forward transmission = \"gain\" or \"insertion loss\")     │\n  │  S₁₂ = b₁/a₂  (reverse isolation)                                     │\n  │  S₂₂ = b₂/a₂  (reflection at port 2)                                  │\n  │                                                                         │\n  │  Measured with a vector network analyzer (VNA) at 50Ω reference.       │\n  │  Smith chart: graphical tool mapping complex S₁₁ to impedance plane.   │\n  │                                                                         │\n  │  Modern wireless relevance:                                             │\n  │  WiFi 6E (6 GHz):   antenna S₁₁ < -10 dB over 5.925–7.125 GHz band      │\n  │  5G FR2 (mmWave):   phased array with per-element S-param calibration  │\n  │  Bluetooth (2.4 GHz): matching network designed via Smith chart         │\n  │  PCIe 5.0 (32 GT/s): S₂₁ insertion loss budget < 30 dB at 16 GHz        │\n  └─────────────────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "00-OVERVIEW.md#053",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "Impedance matching in RF replaces the Thévenin max-power-transfer condition: conjugate match Z_L = Z_S* maximizes power delivered to load, and the matching network (LC, stub, or microstrip) serves the same role as a Thévenin equivalent — transforming an arbitrary impedance to the 50Ω system impedance."
+    },
+    {
+      "id": "00-OVERVIEW.md#054",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "00-OVERVIEW.md#055",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "## What Is NOT in This Directory"
+    },
+    {
+      "id": "00-OVERVIEW.md#056",
+      "path": [
+        "00-OVERVIEW.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:00-overview, git-history:electronics:00-overview]",
+        "canonical_path": "electronics/00-OVERVIEW.md",
+        "concepts": "[overview]",
+        "current_path": "electronics/00-OVERVIEW.md",
+        "id": "maxim:electronics:overview",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[overview]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Electronics - Field Overview",
+        "updated": "null"
+      },
+      "text": "| Domain | Why excluded | Where to look |\n|--------|-------------|----------------|\n| Power electronics | Inverters, SMPS, motor drives — specialized discipline | separate power-electronics directory |\n| RF/microwave design | S-parameters, Smith chart, transmission line theory | telecom / RF modules |\n| Full VLSI design flow | Partially in 09; deep dive in semiconductor-manufacturing/ | semiconductor-manufacturing/ |\n| Analog IC design | Full custom (not covered): bandgap references, PLLs, ADC architectures | EE textbooks (Razavi) |\n| Electromagnetic compatibility (EMC) | FCC/CE compliance, shielding, ferrite beads | EMC standards references |\n| Power distribution networks | Grid-scale power systems | electrical-grid/ |"
+    }
+  ],
+  "refs": [
+    "00-OVERVIEW.md"
+  ]
+}

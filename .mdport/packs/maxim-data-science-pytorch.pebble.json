@@ -1,0 +1,349 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-data-science-pytorch",
+  "source": "../../data-science",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "04-PYTORCH.md#000",
+      "path": [
+        "04-PYTORCH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:04-pytorch, git-history:data-science:04-pytorch]",
+        "canonical_path": "data-science/04-PYTORCH.md",
+        "concepts": "[pytorch]",
+        "current_path": "data-science/04-PYTORCH.md",
+        "id": "maxim:data-science:pytorch",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pytorch]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - PyTorch",
+        "updated": "null"
+      },
+      "text": "# 04 — PyTorch"
+    },
+    {
+      "id": "04-PYTORCH.md#001",
+      "path": [
+        "04-PYTORCH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:04-pytorch, git-history:data-science:04-pytorch]",
+        "canonical_path": "data-science/04-PYTORCH.md",
+        "concepts": "[pytorch]",
+        "current_path": "data-science/04-PYTORCH.md",
+        "id": "maxim:data-science:pytorch",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pytorch]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - PyTorch",
+        "updated": "null"
+      },
+      "text": "> NumPy gives you n-dimensional arrays. PyTorch gives you n-dimensional arrays that\n> know how to differentiate themselves and run on GPUs. That's the whole product."
+    },
+    {
+      "id": "04-PYTORCH.md#002",
+      "path": [
+        "04-PYTORCH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:04-pytorch, git-history:data-science:04-pytorch]",
+        "canonical_path": "data-science/04-PYTORCH.md",
+        "concepts": "[pytorch]",
+        "current_path": "data-science/04-PYTORCH.md",
+        "id": "maxim:data-science:pytorch",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pytorch]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - PyTorch",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-PYTORCH.md#003",
+      "path": [
+        "04-PYTORCH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:04-pytorch, git-history:data-science:04-pytorch]",
+        "canonical_path": "data-science/04-PYTORCH.md",
+        "concepts": "[pytorch]",
+        "current_path": "data-science/04-PYTORCH.md",
+        "id": "maxim:data-science:pytorch",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pytorch]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - PyTorch",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "04-PYTORCH.md#004",
+      "path": [
+        "04-PYTORCH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:04-pytorch, git-history:data-science:04-pytorch]",
+        "canonical_path": "data-science/04-PYTORCH.md",
+        "concepts": "[pytorch]",
+        "current_path": "data-science/04-PYTORCH.md",
+        "id": "maxim:data-science:pytorch",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pytorch]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - PyTorch",
+        "updated": "null"
+      },
+      "text": "```\n┌─────────────────────────────────────────────────────────────────────────────┐\n│                           PYTORCH STACK                                     │\n│                                                                             │\n│  ┌──────────────────────────────────────────────────────────────────────┐   │\n│  │                     YOUR TRAINING CODE                               │   │\n│  │   Dataset / DataLoader → nn.Module → Loss → Optimizer → .backward() │   │\n│  └──────────────────────────────────────────────────────────────────────┘   │\n│                                                                              │\n│  ┌─────────────────┐  ┌─────────────────┐  ┌──────────────────────────┐    │\n│  │   torch.nn      │  │  torch.optim    │  │  torch.utils.data        │    │\n│  │  (layers, loss) │  │  (SGD/Adam/...) │  │  (Dataset, DataLoader)   │    │\n│  └─────────────────┘  └─────────────────┘  └──────────────────────────┘    │\n│                                                                              │\n│  ┌──────────────────────────────────────────────────────────────────────┐   │\n│  │                      torch.autograd                                  │   │\n│  │    Dynamic computational graph — builds forward, differentiates      │   │\n│  │    backward, accumulates gradients                                   │   │\n│  └──────────────────────────────────────────────────────────────────────┘   │\n│                                                                              │\n│  ┌──────────────────────────────────────────────────────────────────────┐   │\n│  │              torch.Tensor  (CPU / CUDA / MPS / XPU)                  │   │\n│  │              C++ core: LibTorch — ATen tensor library                │   │\n│  └──────────────────────────────────────────────────────────────────────┘   │\n└─────────────────────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "04-PYTORCH.md#005",
+      "path": [
+        "04-PYTORCH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:04-pytorch, git-history:data-science:04-pytorch]",
+        "canonical_path": "data-science/04-PYTORCH.md",
+        "concepts": "[pytorch]",
+        "current_path": "data-science/04-PYTORCH.md",
+        "id": "maxim:data-science:pytorch",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pytorch]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - PyTorch",
+        "updated": "null"
+      },
+      "text": "**Key design choice**: PyTorch uses *define-by-run* (dynamic graph). The computation\ngraph is rebuilt every forward pass. This means you can use Python control flow\n(`if`, `for`) inside model code — the graph reflects the actual execution path.\nTensorFlow 1.x was define-then-run (static graph). PyTorch 2 adds `torch.compile`\nto get static-graph performance while keeping dynamic semantics."
+    },
+    {
+      "id": "04-PYTORCH.md#006",
+      "path": [
+        "04-PYTORCH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:04-pytorch, git-history:data-science:04-pytorch]",
+        "canonical_path": "data-science/04-PYTORCH.md",
+        "concepts": "[pytorch]",
+        "current_path": "data-science/04-PYTORCH.md",
+        "id": "maxim:data-science:pytorch",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pytorch]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - PyTorch",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-PYTORCH.md#007",
+      "path": [
+        "04-PYTORCH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:04-pytorch, git-history:data-science:04-pytorch]",
+        "canonical_path": "data-science/04-PYTORCH.md",
+        "concepts": "[pytorch]",
+        "current_path": "data-science/04-PYTORCH.md",
+        "id": "maxim:data-science:pytorch",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pytorch]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - PyTorch",
+        "updated": "null"
+      },
+      "text": "## Tensors"
+    },
+    {
+      "id": "04-PYTORCH.md#008",
+      "path": [
+        "04-PYTORCH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:04-pytorch, git-history:data-science:04-pytorch]",
+        "canonical_path": "data-science/04-PYTORCH.md",
+        "concepts": "[pytorch]",
+        "current_path": "data-science/04-PYTORCH.md",
+        "id": "maxim:data-science:pytorch",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pytorch]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - PyTorch",
+        "updated": "null"
+      },
+      "text": "### Creation"
+    },
+    {
+      "id": "04-PYTORCH.md#009",
+      "path": [
+        "04-PYTORCH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:04-pytorch, git-history:data-science:04-pytorch]",
+        "canonical_path": "data-science/04-PYTORCH.md",
+        "concepts": "[pytorch]",
+        "current_path": "data-science/04-PYTORCH.md",
+        "id": "maxim:data-science:pytorch",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pytorch]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - PyTorch",
+        "updated": "null"
+      },
+      "text": "```python\nimport torch\nimport numpy as np"
+    },
+    {
+      "id": "04-PYTORCH.md#010",
+      "path": [
+        "04-PYTORCH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:04-pytorch, git-history:data-science:04-pytorch]",
+        "canonical_path": "data-science/04-PYTORCH.md",
+        "concepts": "[pytorch]",
+        "current_path": "data-science/04-PYTORCH.md",
+        "id": "maxim:data-science:pytorch",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pytorch]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - PyTorch",
+        "updated": "null"
+      },
+      "text": "# From Python / NumPy\nt = torch.tensor([1.0, 2.0, 3.0])              # infers dtype\nt = torch.tensor([[1, 2], [3, 4]], dtype=torch.float32)\nt = torch.from_numpy(np_array)                  # shares memory (no copy)"
+    },
+    {
+      "id": "04-PYTORCH.md#011",
+      "path": [
+        "04-PYTORCH.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:04-pytorch, git-history:data-science:04-pytorch]",
+        "canonical_path": "data-science/04-PYTORCH.md",
+        "concepts": "[pytorch]",
+        "current_path": "data-science/04-PYTORCH.md",
+        "id": "maxim:data-science:pytorch",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pytorch]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - PyTorch",
+        "updated": "null"
+      },
+      "text": "# Factory functions\ntorch.zeros(3, 4)                               # shape (3, 4)\ntorch.ones(3, 4)\ntorch.rand(3, 4)                                # U[0, 1)\ntorch.randn(3, 4)                               # N(0, 1)\ntorch.arange(0, 10, 2)                          # [0, 2, 4, 6, 8]\ntorch.linspace(0, 1, 5)                         # [0, .25, .5, .75, 1]\ntorch.eye(4)                                    # 4×4 identity"
+    }
+  ],
+  "refs": [
+    "04-PYTORCH.md"
+  ]
+}

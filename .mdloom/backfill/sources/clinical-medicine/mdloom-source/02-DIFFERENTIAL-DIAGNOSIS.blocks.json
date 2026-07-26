@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "clinical-medicine\\02-DIFFERENTIAL-DIAGNOSIS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 57,
+      "heading_context": "## The Big Picture: A Differential Is a Ranked Hypothesis Set, Managed Against Bias",
+      "confidence": "candidate",
+      "text": "THE DIAGNOSTIC ENGINE  (this guide owns the generation, ranking, and guardrails)\n==========================================================================\n  PROBLEM REPRESENTATION (from 01)\n        |\n        v\n  [ GENERATE ]  two systems in parallel:\n        |   SYSTEM 1  fast pattern match to illness scripts (cheap, usually right)\n        |   SYSTEM 2  slow analytic schema search (expensive, catches the atypical)\n        v\n  [ RANK ON TWO AXES ]  (Section 3)\n        |   axis A: PROBABILITY   -- how likely, given the representation\n        |   axis B: COST-OF-MISS  -- how bad if missed and it is treatable\n        v\n  [ DIFFERENTIAL ]  leading dx + alternatives + must-not-miss list  --> becomes the\n        |            PRETEST PROBABILITIES for testing (guide 03)\n        v\n  [ GUARD ]  debiasing + diagnostic timeout (Section 4); calibrate confidence (Section 5)\n        |     NASEM: error can also be a COMMUNICATION failure, not just a wrong list (Section 6)\n==========================================================================\n  A differential is never a single label; it is a ranked set with an explicit\n  can't-miss tail, produced by two systems and defended against known biases.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 154,
+      "heading_context": "## 2. Diagnostic Schemas",
+      "confidence": "candidate",
+      "text": "  A SCHEMA IS A DECISION TREE OVER THE HYPOTHESIS SPACE\n  ----------------------------------------------------------------\n                   [ problem: abstract syndrome ]\n                          |\n         +----------------+-----------------+\n         |                |                 |\n     branch A          branch B          branch C     <- exhaustive partition\n      (e.g. by          (e.g. by          (e.g. by\n       mechanism)        location)         tempo)\n         |                |                 |\n     hypotheses       hypotheses        hypotheses    <- leaves = candidate dx\n  ----------------------------------------------------------------\n  The value of a schema is COMPLETENESS: it makes \"what did I not consider?\" answerable,\n  which is the direct antidote to premature closure (Section 4).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 188,
+      "heading_context": "## 3. Ranking — Two Axes, Not One",
+      "confidence": "candidate",
+      "text": "  THE DIFFERENTIAL LIVES ON A 2x2 OF LIKELIHOOD x COST-OF-MISS\n  ----------------------------------------------------------------\n                     LOW cost-of-miss        HIGH cost-of-miss\n                 +------------------------+------------------------+\n   HIGH          |  the LEADING diagnosis |  top priority:         |\n   probability   |  (usually the answer)  |  likely AND dangerous  |\n                 +------------------------+------------------------+\n   LOW           |  the long tail:        |  MUST-NOT-MISS:        |\n   probability   |  note, do not chase    |  rule out deliberately |\n                 |  (avoid overtesting)   |  despite low prior     |\n                 +------------------------+------------------------+\n  ----------------------------------------------------------------\n  \"Likely\" and \"dangerous-if-missed\" are DIFFERENT questions. The ranked action list\n  interleaves them; it does not sort on probability alone.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 318,
+      "heading_context": "## 6. The NASEM Framing — Diagnostic Error Is a System Property",
+      "confidence": "candidate",
+      "text": "  THE DIAGNOSTIC PROCESS (NASEM, simplified) -- iterative, not one-shot\n  ----------------------------------------------------------------\n   patient problem\n      -> INFORMATION GATHERING (history/exam/tests; encounter = guide 01)\n      -> INTEGRATION + INTERPRETATION (the reasoning of THIS guide)\n      -> WORKING DIAGNOSIS  (probabilistic, revisable)\n      -> COMMUNICATION to patient + team  (guide 07)\n      -> TREATMENT -> OUTCOMES -> feedback back into gathering\n  ----------------------------------------------------------------\n  Contributors to error: COGNITIVE (this guide's biases) + SYSTEM (workflow, teamwork,\n  health IT, guide 11) + COMMUNICATION (handoffs, guide 07). Rarely one lone cause.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

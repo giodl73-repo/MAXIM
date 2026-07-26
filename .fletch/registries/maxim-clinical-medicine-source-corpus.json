@@ -1,0 +1,2798 @@
+{
+  "schema_version": "fletch.registry.v1",
+  "generated_by": "MAXIM source-corpus backfill",
+  "registry_id": "maxim-clinical-medicine-source-corpus",
+  "fletches": [
+    {
+      "id": "maxim.clinical-medicine.source-corpus.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-clinical-medicine-source-corpus.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim-clinical-medicine-source-corpus",
+          "kind": "derived-from",
+          "label": "CROP view recipe",
+          "metadata": {
+            "view": ".crop/views/maxim-clinical-medicine-source-corpus.json",
+            "module": "clinical-medicine",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-clinical-medicine-source-corpus.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "distribution": "FLETCH fetch/cache surface for downstream repos",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.overview.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-clinical-medicine-overview.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-clinical-medicine-overview.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.overview.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-clinical-medicine-overview.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.overview.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "clinical-medicine",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.clinical-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-clinical-medicine-overview.json",
+            "module": "clinical-medicine",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-clinical-medicine-overview.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.overview.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/00-OVERVIEW.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.overview.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/00-OVERVIEW.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.overview.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/00-OVERVIEW.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.overview.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/00-OVERVIEW.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.overview.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/00-OVERVIEW.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.overview.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/00-OVERVIEW.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/00-OVERVIEW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.clinical-encounter.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-clinical-medicine-clinical-encounter.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/01-CLINICAL-ENCOUNTER.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-clinical-medicine-clinical-encounter.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/01-CLINICAL-ENCOUNTER.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.clinical-encounter.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-clinical-medicine-clinical-encounter.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.clinical-encounter.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "clinical-medicine",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.clinical-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-clinical-medicine-clinical-encounter.json",
+            "module": "clinical-medicine",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-clinical-medicine-clinical-encounter.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/01-CLINICAL-ENCOUNTER.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.clinical-encounter.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/01-CLINICAL-ENCOUNTER.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.clinical-encounter.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/01-CLINICAL-ENCOUNTER.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/01-CLINICAL-ENCOUNTER.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/01-CLINICAL-ENCOUNTER.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.clinical-encounter.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/01-CLINICAL-ENCOUNTER.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.clinical-encounter.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/01-CLINICAL-ENCOUNTER.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/01-CLINICAL-ENCOUNTER.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/01-CLINICAL-ENCOUNTER.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.clinical-encounter.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/01-CLINICAL-ENCOUNTER.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.clinical-encounter.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/01-CLINICAL-ENCOUNTER.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/01-CLINICAL-ENCOUNTER.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/01-CLINICAL-ENCOUNTER.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.differential-diagnosis.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-clinical-medicine-differential-diagnosis.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/02-DIFFERENTIAL-DIAGNOSIS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-clinical-medicine-differential-diagnosis.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/02-DIFFERENTIAL-DIAGNOSIS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.differential-diagnosis.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-clinical-medicine-differential-diagnosis.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.differential-diagnosis.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "clinical-medicine",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.clinical-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-clinical-medicine-differential-diagnosis.json",
+            "module": "clinical-medicine",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-clinical-medicine-differential-diagnosis.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/02-DIFFERENTIAL-DIAGNOSIS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.differential-diagnosis.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/02-DIFFERENTIAL-DIAGNOSIS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.differential-diagnosis.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/02-DIFFERENTIAL-DIAGNOSIS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/02-DIFFERENTIAL-DIAGNOSIS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/02-DIFFERENTIAL-DIAGNOSIS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.differential-diagnosis.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/02-DIFFERENTIAL-DIAGNOSIS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.differential-diagnosis.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/02-DIFFERENTIAL-DIAGNOSIS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/02-DIFFERENTIAL-DIAGNOSIS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/02-DIFFERENTIAL-DIAGNOSIS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.differential-diagnosis.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/02-DIFFERENTIAL-DIAGNOSIS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.differential-diagnosis.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/02-DIFFERENTIAL-DIAGNOSIS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/02-DIFFERENTIAL-DIAGNOSIS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/02-DIFFERENTIAL-DIAGNOSIS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.diagnostic-test-interpretation.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-clinical-medicine-diagnostic-test-interpretation.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/03-DIAGNOSTIC-TEST-INTERPRETATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-clinical-medicine-diagnostic-test-interpretation.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/03-DIAGNOSTIC-TEST-INTERPRETATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.diagnostic-test-interpretation.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-clinical-medicine-diagnostic-test-interpretation.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.diagnostic-test-interpretation.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "clinical-medicine",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.clinical-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-clinical-medicine-diagnostic-test-interpretation.json",
+            "module": "clinical-medicine",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-clinical-medicine-diagnostic-test-interpretation.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/03-DIAGNOSTIC-TEST-INTERPRETATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.diagnostic-test-interpretation.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/03-DIAGNOSTIC-TEST-INTERPRETATION.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.diagnostic-test-interpretation.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/03-DIAGNOSTIC-TEST-INTERPRETATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/03-DIAGNOSTIC-TEST-INTERPRETATION.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/03-DIAGNOSTIC-TEST-INTERPRETATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.diagnostic-test-interpretation.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/03-DIAGNOSTIC-TEST-INTERPRETATION.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.diagnostic-test-interpretation.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/03-DIAGNOSTIC-TEST-INTERPRETATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/03-DIAGNOSTIC-TEST-INTERPRETATION.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/03-DIAGNOSTIC-TEST-INTERPRETATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.diagnostic-test-interpretation.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/03-DIAGNOSTIC-TEST-INTERPRETATION.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.diagnostic-test-interpretation.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/03-DIAGNOSTIC-TEST-INTERPRETATION.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/03-DIAGNOSTIC-TEST-INTERPRETATION.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/03-DIAGNOSTIC-TEST-INTERPRETATION.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.evidence-based-medicine.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-clinical-medicine-evidence-based-medicine.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/04-EVIDENCE-BASED-MEDICINE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-clinical-medicine-evidence-based-medicine.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/04-EVIDENCE-BASED-MEDICINE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.evidence-based-medicine.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-clinical-medicine-evidence-based-medicine.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.evidence-based-medicine.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "clinical-medicine",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.clinical-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-clinical-medicine-evidence-based-medicine.json",
+            "module": "clinical-medicine",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-clinical-medicine-evidence-based-medicine.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/04-EVIDENCE-BASED-MEDICINE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.evidence-based-medicine.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/04-EVIDENCE-BASED-MEDICINE.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.evidence-based-medicine.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/04-EVIDENCE-BASED-MEDICINE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/04-EVIDENCE-BASED-MEDICINE.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/04-EVIDENCE-BASED-MEDICINE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.evidence-based-medicine.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/04-EVIDENCE-BASED-MEDICINE.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.evidence-based-medicine.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/04-EVIDENCE-BASED-MEDICINE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/04-EVIDENCE-BASED-MEDICINE.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/04-EVIDENCE-BASED-MEDICINE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.evidence-based-medicine.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/04-EVIDENCE-BASED-MEDICINE.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.evidence-based-medicine.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/04-EVIDENCE-BASED-MEDICINE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/04-EVIDENCE-BASED-MEDICINE.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/04-EVIDENCE-BASED-MEDICINE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.acute-and-chronic-care.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-clinical-medicine-acute-and-chronic-care.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/05-ACUTE-AND-CHRONIC-CARE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-clinical-medicine-acute-and-chronic-care.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/05-ACUTE-AND-CHRONIC-CARE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.acute-and-chronic-care.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-clinical-medicine-acute-and-chronic-care.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.acute-and-chronic-care.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "clinical-medicine",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.clinical-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-clinical-medicine-acute-and-chronic-care.json",
+            "module": "clinical-medicine",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-clinical-medicine-acute-and-chronic-care.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/05-ACUTE-AND-CHRONIC-CARE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.acute-and-chronic-care.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/05-ACUTE-AND-CHRONIC-CARE.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.acute-and-chronic-care.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/05-ACUTE-AND-CHRONIC-CARE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/05-ACUTE-AND-CHRONIC-CARE.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/05-ACUTE-AND-CHRONIC-CARE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.acute-and-chronic-care.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/05-ACUTE-AND-CHRONIC-CARE.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.acute-and-chronic-care.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/05-ACUTE-AND-CHRONIC-CARE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/05-ACUTE-AND-CHRONIC-CARE.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/05-ACUTE-AND-CHRONIC-CARE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.acute-and-chronic-care.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/05-ACUTE-AND-CHRONIC-CARE.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.acute-and-chronic-care.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/05-ACUTE-AND-CHRONIC-CARE.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/05-ACUTE-AND-CHRONIC-CARE.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/05-ACUTE-AND-CHRONIC-CARE.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.multimorbidity-and-geriatrics.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-clinical-medicine-multimorbidity-and-geriatrics.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/06-MULTIMORBIDITY-AND-GERIATRICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-clinical-medicine-multimorbidity-and-geriatrics.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/06-MULTIMORBIDITY-AND-GERIATRICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.multimorbidity-and-geriatrics.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-clinical-medicine-multimorbidity-and-geriatrics.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.multimorbidity-and-geriatrics.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "clinical-medicine",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.clinical-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-clinical-medicine-multimorbidity-and-geriatrics.json",
+            "module": "clinical-medicine",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-clinical-medicine-multimorbidity-and-geriatrics.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/06-MULTIMORBIDITY-AND-GERIATRICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.multimorbidity-and-geriatrics.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/06-MULTIMORBIDITY-AND-GERIATRICS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.multimorbidity-and-geriatrics.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/06-MULTIMORBIDITY-AND-GERIATRICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/06-MULTIMORBIDITY-AND-GERIATRICS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/06-MULTIMORBIDITY-AND-GERIATRICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.multimorbidity-and-geriatrics.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/06-MULTIMORBIDITY-AND-GERIATRICS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.multimorbidity-and-geriatrics.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/06-MULTIMORBIDITY-AND-GERIATRICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/06-MULTIMORBIDITY-AND-GERIATRICS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/06-MULTIMORBIDITY-AND-GERIATRICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.multimorbidity-and-geriatrics.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/06-MULTIMORBIDITY-AND-GERIATRICS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.multimorbidity-and-geriatrics.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/06-MULTIMORBIDITY-AND-GERIATRICS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/06-MULTIMORBIDITY-AND-GERIATRICS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/06-MULTIMORBIDITY-AND-GERIATRICS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.care-transitions.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-clinical-medicine-care-transitions.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/07-CARE-TRANSITIONS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-clinical-medicine-care-transitions.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/07-CARE-TRANSITIONS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.care-transitions.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-clinical-medicine-care-transitions.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.care-transitions.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "clinical-medicine",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.clinical-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-clinical-medicine-care-transitions.json",
+            "module": "clinical-medicine",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-clinical-medicine-care-transitions.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/07-CARE-TRANSITIONS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.care-transitions.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/07-CARE-TRANSITIONS.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.care-transitions.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/07-CARE-TRANSITIONS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/07-CARE-TRANSITIONS.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/07-CARE-TRANSITIONS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.care-transitions.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/07-CARE-TRANSITIONS.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.care-transitions.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/07-CARE-TRANSITIONS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/07-CARE-TRANSITIONS.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/07-CARE-TRANSITIONS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.care-transitions.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/07-CARE-TRANSITIONS.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.care-transitions.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/07-CARE-TRANSITIONS.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/07-CARE-TRANSITIONS.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/07-CARE-TRANSITIONS.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.specialty-interfaces.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-clinical-medicine-specialty-interfaces.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/08-SPECIALTY-INTERFACES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-clinical-medicine-specialty-interfaces.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/08-SPECIALTY-INTERFACES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.specialty-interfaces.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-clinical-medicine-specialty-interfaces.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.specialty-interfaces.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "clinical-medicine",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.clinical-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-clinical-medicine-specialty-interfaces.json",
+            "module": "clinical-medicine",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-clinical-medicine-specialty-interfaces.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/08-SPECIALTY-INTERFACES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.specialty-interfaces.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/08-SPECIALTY-INTERFACES.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.specialty-interfaces.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/08-SPECIALTY-INTERFACES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/08-SPECIALTY-INTERFACES.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/08-SPECIALTY-INTERFACES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.specialty-interfaces.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/08-SPECIALTY-INTERFACES.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.specialty-interfaces.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/08-SPECIALTY-INTERFACES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/08-SPECIALTY-INTERFACES.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/08-SPECIALTY-INTERFACES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.specialty-interfaces.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/08-SPECIALTY-INTERFACES.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.specialty-interfaces.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/08-SPECIALTY-INTERFACES.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/08-SPECIALTY-INTERFACES.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/08-SPECIALTY-INTERFACES.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.prevention-and-screening.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-clinical-medicine-prevention-and-screening.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/09-PREVENTION-AND-SCREENING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-clinical-medicine-prevention-and-screening.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/09-PREVENTION-AND-SCREENING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.prevention-and-screening.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-clinical-medicine-prevention-and-screening.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.prevention-and-screening.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "clinical-medicine",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.clinical-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-clinical-medicine-prevention-and-screening.json",
+            "module": "clinical-medicine",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-clinical-medicine-prevention-and-screening.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/09-PREVENTION-AND-SCREENING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.prevention-and-screening.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/09-PREVENTION-AND-SCREENING.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.prevention-and-screening.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/09-PREVENTION-AND-SCREENING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/09-PREVENTION-AND-SCREENING.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/09-PREVENTION-AND-SCREENING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.prevention-and-screening.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/09-PREVENTION-AND-SCREENING.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.prevention-and-screening.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/09-PREVENTION-AND-SCREENING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/09-PREVENTION-AND-SCREENING.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/09-PREVENTION-AND-SCREENING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.prevention-and-screening.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/09-PREVENTION-AND-SCREENING.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.prevention-and-screening.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/09-PREVENTION-AND-SCREENING.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/09-PREVENTION-AND-SCREENING.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/09-PREVENTION-AND-SCREENING.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.ethics-consent-capacity.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-clinical-medicine-ethics-consent-capacity.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/10-ETHICS-CONSENT-CAPACITY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-clinical-medicine-ethics-consent-capacity.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/10-ETHICS-CONSENT-CAPACITY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.ethics-consent-capacity.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-clinical-medicine-ethics-consent-capacity.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.ethics-consent-capacity.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "clinical-medicine",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.clinical-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-clinical-medicine-ethics-consent-capacity.json",
+            "module": "clinical-medicine",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-clinical-medicine-ethics-consent-capacity.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/10-ETHICS-CONSENT-CAPACITY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.ethics-consent-capacity.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/10-ETHICS-CONSENT-CAPACITY.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.ethics-consent-capacity.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/10-ETHICS-CONSENT-CAPACITY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/10-ETHICS-CONSENT-CAPACITY.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/10-ETHICS-CONSENT-CAPACITY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.ethics-consent-capacity.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/10-ETHICS-CONSENT-CAPACITY.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.ethics-consent-capacity.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/10-ETHICS-CONSENT-CAPACITY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/10-ETHICS-CONSENT-CAPACITY.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/10-ETHICS-CONSENT-CAPACITY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.ethics-consent-capacity.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/10-ETHICS-CONSENT-CAPACITY.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.ethics-consent-capacity.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/10-ETHICS-CONSENT-CAPACITY.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/10-ETHICS-CONSENT-CAPACITY.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/10-ETHICS-CONSENT-CAPACITY.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.safety-quality-and-workflow.view",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".crop/views/maxim-clinical-medicine-safety-quality-and-workflow.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/11-SAFETY-QUALITY-AND-WORKFLOW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "crop.view.v1",
+        "record_shape": "view-recipe",
+        "preferred_local": ".crop/views/maxim-clinical-medicine-safety-quality-and-workflow.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "view",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/11-SAFETY-QUALITY-AND-WORKFLOW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.safety-quality-and-workflow.pebble",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdport/packs/maxim-clinical-medicine-safety-quality-and-workflow.mdport.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.safety-quality-and-workflow.view",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view recipe",
+          "metadata": {
+            "module": "clinical-medicine",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.clinical-medicine.source-corpus.pebble",
+          "kind": "derived-from",
+          "label": "Guide-level CROP view",
+          "metadata": {
+            "view": ".crop/views/maxim-clinical-medicine-safety-quality-and-workflow.json",
+            "module": "clinical-medicine",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdport.v1",
+        "record_shape": "corpus-slice",
+        "preferred_local": ".mdport/packs/maxim-clinical-medicine-safety-quality-and-workflow.mdport.json"
+      },
+      "tags": [
+        "source-corpus",
+        "crop",
+        "pebble",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/11-SAFETY-QUALITY-AND-WORKFLOW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.safety-quality-and-workflow.mdloom-source",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/11-SAFETY-QUALITY-AND-WORKFLOW.source.md"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.safety-quality-and-workflow.view",
+          "kind": "derived-from",
+          "label": "Literal MDLOOM source for guide view",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/11-SAFETY-QUALITY-AND-WORKFLOW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "text/markdown",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.source.literal_markdown.v1",
+        "record_shape": "literal-source",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/11-SAFETY-QUALITY-AND-WORKFLOW.source.md"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "source",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/11-SAFETY-QUALITY-AND-WORKFLOW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.safety-quality-and-workflow.tables",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/11-SAFETY-QUALITY-AND-WORKFLOW.tables.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.safety-quality-and-workflow.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM markdown table sidecar",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/11-SAFETY-QUALITY-AND-WORKFLOW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.tables.v1",
+        "record_shape": "table-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/11-SAFETY-QUALITY-AND-WORKFLOW.tables.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "tables",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/11-SAFETY-QUALITY-AND-WORKFLOW.md",
+        "publication_state": "partial-source-custody"
+      }
+    },
+    {
+      "id": "maxim.clinical-medicine.safety-quality-and-workflow.blocks",
+      "node_kind": "fletch",
+      "shafts": [
+        {
+          "kind": "file",
+          "url": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/11-SAFETY-QUALITY-AND-WORKFLOW.blocks.json"
+        }
+      ],
+      "edges": [
+        {
+          "to": "maxim.clinical-medicine.safety-quality-and-workflow.mdloom-source",
+          "kind": "derived-from",
+          "label": "MDLOOM structured block sidecar",
+          "metadata": {
+            "module": "clinical-medicine",
+            "guide": "clinical-medicine/11-SAFETY-QUALITY-AND-WORKFLOW.md",
+            "custody": "partial"
+          }
+        }
+      ],
+      "format": {
+        "media_type": "application/json",
+        "encoding": "utf-8",
+        "compression": null,
+        "container": null,
+        "schema": "mdloom.backfill.blocks.v1",
+        "record_shape": "structured-block-sidecar",
+        "preferred_local": ".mdloom/backfill/sources/clinical-medicine/mdloom-source/11-SAFETY-QUALITY-AND-WORKFLOW.blocks.json"
+      },
+      "tags": [
+        "source-corpus",
+        "mdloom",
+        "blocks",
+        "partial-custody",
+        "guide"
+      ],
+      "metadata": {
+        "source_repo": "MAXIM",
+        "module": "clinical-medicine",
+        "guide": "clinical-medicine/11-SAFETY-QUALITY-AND-WORKFLOW.md",
+        "publication_state": "partial-source-custody"
+      }
+    }
+  ]
+}

@@ -1,0 +1,2169 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-variational-calculus-optimal-control",
+  "source": "../../variational-calculus",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "08-OPTIMAL-CONTROL.md#000",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "# Optimal Control and Pontryagin Principle"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#001",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#002",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "Optimal control is variational calculus with a control input that can be constrained to a\nset. The Euler-Lagrange approach doesn't work directly when the control is constrained —\nthe **Pontryagin Maximum Principle** (PMP) replaces it."
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#003",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "```\n+-----------------------------------------------------------------------+\n|              OPTIMAL CONTROL LANDSCAPE                                |\n|                                                                       |\n|  VARIATIONAL CALCULUS:        OPTIMAL CONTROL:                        |\n|  u(t) unconstrained           control u(t) ∈ U (constrained set)      |\n|  Euler-Lagrange sufficient    Pontryagin MP necessary                 |\n|  Smooth solutions             Possibly bang-bang solutions            |\n|  No state constraints         State constraints allowed               |\n|                                                                       |\n|  PROBLEM: minimize J = ∫₀ᵀ L(x,u,t) dt + Ψ(x(T))                      |\n|           subject to: ẋ = f(x, u, t)  (dynamics)                      |\n|                        x(0) = x₀       (initial state)                |\n|                        u(t) ∈ U         (control constraint)          |\n|                                                                       |\n|  x = state,  u = control,  L = running cost,  Ψ = terminal cost       |\n|                                                                       |\n|  APPLICATIONS:                                                        |\n|  Aerospace: minimum fuel / time trajectories                          |\n|  Robotics: minimum energy / time motion planning                      |\n|  Economics: optimal capital accumulation (Ramsey model)               |\n|  Neural ODEs: optimal depth in continuous networks                    |\n|  RL: continuous-time limit of reinforcement learning                  |\n|                                                                       |\n+-----------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#004",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#005",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "## From Calculus of Variations to Optimal Control"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#006",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "The transition arises when the control is constrained:"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#007",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "```\n  UNCONSTRAINED: minimize J[u] = ∫₀ᵀ F(t, x, ẋ) dt\n  subject to: ẋ = f(x, u), which forces f(x,u) = ẋ."
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#008",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "If u is FREE (no constraint U), this is standard variational calculus.\n  E-L equation gives:  ∂F/∂x − d/dt(∂F/∂ẋ) = 0."
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#009",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "CONSTRAINED: u(t) ∈ U ⊂ R^m (e.g., U = [−1, 1]^m)\n  The function u(t) may be forced to a boundary of U.\n  E-L equation requires δJ = 0 for all variations — but variations\n  can't point INTO U if u is already on the boundary.\n  → Interior condition E-L FAILS on boundary of U.\n  → Need: Pontryagin's Maximum Principle.\n```"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#010",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#011",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "## Pontryagin Maximum Principle (PMP)"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#012",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "Lev Pontryagin (1956) — one of the major results of 20th-century mathematics."
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#013",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "```\n  PROBLEM:\n  Minimize: J[u] = ∫₀ᵀ L(x(t), u(t), t) dt + Ψ(x(T))\n  Subject to: ẋ(t) = f(x(t), u(t), t),  x(0) = x₀,  u(t) ∈ U"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#014",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "HAMILTONIAN (control theory — different from mechanics!):\n  H(x, p, u, t) = p · f(x, u, t) − L(x, u, t)"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#015",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "(p is the costate or adjoint variable — analogous to momentum)"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#016",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "PONTRYAGIN MAXIMUM PRINCIPLE:\n  ┌──────────────────────────────────────────────────────────────────┐\n  │ If u*(t) is optimal, then there exists costate p(t) such that:   │\n  │                                                                  │\n  │ 1. STATE EQUATION:  ẋ* = ∂H/∂p = f(x*, u*, t)                    │\n  │                                                                  │\n  │ 2. COSTATE EQUATION: ṗ = −∂H/∂x = ∂L/∂x − p·∂f/∂x                │\n  │    (backward ODE! — integrated from T to 0)                      │\n  │    Transversality: p(T) = −∂Ψ/∂x(T) (terminal condition for p)│\n  │                                                                  │\n  │ 3. MAXIMUM CONDITION:                                            │\n  │    H(x*(t), p(t), u*(t), t) = max_{u ∈ U} H(x*(t), p(t), u, t)│\n  │    The optimal control MAXIMIZES the Hamiltonian at each t.      │\n  └──────────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#017",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "KEY DIFFERENCE from E-L:\n  E-L: δH/δu = 0 (unconstrained stationarity)\n  PMP: max over U (constrained maximum — may be on boundary of U)\n```"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#018",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#019",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "## Bang-Bang Control"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#020",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "When the control constraint is active, solutions are typically at the boundary:"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#021",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "```\n  LINEAR CONTROL: f(x,u) = A(t)x + B(t)u,  u ∈ [−1, 1]^m"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#022",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "H = p·(A(t)x + B(t)u) − L\n  ∂H/∂u = pᵀB(t)  (switching function)"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#023",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "MAXIMUM of H over u ∈ [−1,1]^m:\n  u*_i(t) = sign(ψᵢ(t))  where ψ(t) = B(t)ᵀp(t)"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#024",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "This is BANG-BANG CONTROL: u switches between −1 and +1.\n  Each component of u is either at its maximum or minimum value."
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#025",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "SWITCHING SURFACE: where ψᵢ(t) = 0.\n  The control switches when the switching function changes sign."
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#026",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "EXAMPLE: Minimum time to stop a car.\n  ẋ₁ = x₂ (position), ẋ₂ = u (velocity, u ∈ [−1,1])\n  Minimize time T subject to x(T) = 0."
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#027",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "Optimal: full brake u=−1 then full acceleration? NO.\n  Optimal: full acceleration u=+1 to some point, then full brake u=−1.\n  BANG-BANG with ONE switch. The switching curve is a parabola.\n```"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#028",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#029",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "## Bellman's Principle and HJB Equation"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#030",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "An alternative approach: dynamic programming."
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#031",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "```\n  BELLMAN'S PRINCIPLE OF OPTIMALITY (1957):\n  An optimal control, for any sub-interval [t,T], is optimal for\n  the remaining problem starting at (x(t), t)."
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#032",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "\"Whatever the initial state and initial decision are, the remaining\n  decisions must constitute an optimal policy with regard to the state\n  resulting from the first decision.\""
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#033",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "VALUE FUNCTION:\n  V(x, t) = min_{u(·)} ∫_t^T L(x,u,s) ds + Ψ(x(T))\n  (minimum cost to go from state x at time t)"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#034",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "HAMILTON-JACOBI-BELLMAN (HJB) EQUATION:\n  ┌────────────────────────────────────────────────────────────────┐\n  │  −∂V/∂t = min_{u ∈ U} [L(x,u,t) + ∇V · f(x,u,t)]               │\n  │  = min_{u ∈ U} [L(x,u,t) + ∇_x V · f(x,u,t)]                   │\n  │  Terminal condition: V(x,T) = Ψ(x)                             │\n  └────────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#035",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "HJB is a NONLINEAR PDE for V(x,t) (Hamilton-Jacobi type).\n  Once V is known: optimal control u*(x,t) = argmin_{u∈U}[L + ∇V·f]"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#036",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "RELATIONSHIP TO PMP:\n  If V is smooth: ∇_x V(x*(t), t) = −p(t)  (costate = gradient of value function)\n  V satisfies HJB ↔ PMP conditions satisfied along optimal trajectory.\n  HJB gives the global solution; PMP gives the local (trajectory) conditions."
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#037",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "VISCOSITY SOLUTIONS:\n  HJB is typically non-smooth (optimal control often bang-bang).\n  Crandall-Lions (1983) viscosity solution theory handles non-smooth V.\n```"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#038",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#039",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "## Linear Quadratic Regulator (LQR)"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#040",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "The most important special case — admits a closed-form solution:"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#041",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "```\n  LQR PROBLEM:\n  Minimize J = ∫₀ᵀ [xᵀQx + uᵀRu] dt + xᵀ(T) P_T x(T)\n  Subject to: ẋ = Ax + Bu,   x(0) = x₀\n  (Q ≥ 0, R > 0, P_T ≥ 0 symmetric matrices)"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#042",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "U = R^m (unconstrained!) → PMP gives interior condition."
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#043",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "COSTATE EQUATION:  ṗ = −Qx − Aᵀp\n  OPTIMALITY:  Ru + Bᵀp = 0  →  u* = −R⁻¹Bᵀp"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#044",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "ASSUME p(t) = −P(t)x(t)  (Riccati ansatz):\n  ṗ = −Ṗx − Pẋ = −Qx − Aᵀp = −Qx + AᵀPx\n  −(Ṗx + P(Ax + Bu)) = −Qx + AᵀPx\n  Substituting u* = R⁻¹Bᵀ P x:"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#045",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "RICCATI EQUATION:\n  −Ṗ = Aᵀ P + PA − PBR⁻¹Bᵀ P + Q\n  P(T) = P_T"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#046",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "OPTIMAL CONTROL:  u*(t) = −K(t) x(t)  where K(t) = R⁻¹Bᵀ P(t)\n  LINEAR FEEDBACK CONTROL."
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#047",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "INFINITE HORIZON (T→∞, stabilizing P):\n  P satisfies ALGEBRAIC RICCATI EQUATION:\n  Aᵀ P + PA − PBR⁻¹Bᵀ P + Q = 0\n  K = R⁻¹Bᵀ P = constant feedback gain matrix.\n  Standard feedback controller for linear systems."
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#048",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "LQR is the foundation of model-predictive control (MPC) — the standard\n  approach in process control, aerospace, robotics, and any system requiring\n  constrained optimal feedback over a receding horizon.\n```"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#049",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#050",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "## Minimum Principle vs. Maximum Principle"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#051",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "```\n  NOTE ON SIGN CONVENTIONS:\n  Pontryagin's original formulation: MAXIMUM principle.\n  H = pᵀf − L (cost function L is subtracted).\n  Maximize H over u ∈ U."
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#052",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "ALTERNATIVE: MINIMUM principle.\n  H = pᵀf + L (cost function L is added).\n  Minimize H over u ∈ U."
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#053",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "Both are equivalent; sign depends on convention for costate."
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#054",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "MNEMONIC:\n  \"We want to minimize cost J. We maximize the Hamiltonian H.\"\n  The optimal control maximizes H at each time instant.\n  Intuitively: p encodes the value of the state, and H = p·ẋ − L\n  is the rate of value accumulation minus cost.\n```"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#055",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#056",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "## Adjoint Method: Gradient via PMP"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#057",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "The adjoint (costate) equation provides efficient gradient computation:"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#058",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "```\n  GRADIENT OF J w.r.t. PARAMETERS θ in ẋ = f(x, u, θ):"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#059",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "NAIVE: finite difference — perturb θ by ε, rerun simulation.\n  Cost: O(dim(θ)) × simulation cost."
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#060",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "ADJOINT METHOD:\n  1. Forward pass: integrate ẋ = f(x, u, θ), store x(t).\n  2. Backward pass: integrate costate equation backward:\n     ṗ = −(∂f/∂x)ᵀ p − ∂L/∂x,   p(T) = ∂Ψ/∂x(T)\n  3. Gradient: dJ/dθ = ∫₀ᵀ pᵀ ∂f/∂θ dt"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#061",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "Cost: ONE forward + ONE backward pass, regardless of dim(θ).\n  O(1) × simulation cost."
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#062",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "THIS IS EXACTLY BACKPROPAGATION IN CONTINUOUS TIME."
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#063",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "NEURAL ODE (Chen et al. 2018):\n  Parameterize the ODE by a neural network: f(x,t;θ) = NN_θ(x,t).\n  Training = compute dJ/dθ via adjoint method.\n  The adjoint equation is the continuous-time version of backprop through\n  time (BPTT) in recurrent neural networks.\n```"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#064",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#065",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "## Time-Optimal Control"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#066",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "The minimum-time problem:"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#067",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "```\n  MINIMUM TIME from x₀ to target set X_f:\n  Minimize T = ∫₀ᵀ 1 dt = T\n  Subject to: ẋ = f(x,u), x(0) = x₀, x(T) ∈ X_f, u(t) ∈ U."
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#068",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "This is the prototypical optimal control problem."
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#069",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "PMP: H = p·f (L=1, but we absorb 1 into the Hamiltonian by redefining H)\n  Maximum condition: u* = argmax_{u∈U} p·f(x,u)"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#070",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "PONTRYAGIN'S THEOREM:\n  For a controllable linear system ẋ = Ax + Bu, u ∈ U (convex, compact),\n  the minimum-time control is BANG-BANG, switching between extremes of U.\n  Moreover, the number of switches is ≤ n−1 (for generic problems, where n = dim x)."
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#071",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "The switching is determined by the sign of the switching function ψ(t) = pᵀB.\n```"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#072",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#073",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "## Cross-References"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#074",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "- `control-theory/03-OPTIMAL-CONTROL.md` — control-theory treatment of the same optimal-control machinery.\n- `variational-calculus/05-HAMILTONIAN-MECHANICS.md` — Hamiltonian structure behind costates and PMP.\n- `control-theory/07-MPC.md` — receding-horizon implementation of finite-horizon optimization."
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#075",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "08-OPTIMAL-CONTROL.md#076",
+      "path": [
+        "08-OPTIMAL-CONTROL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:08-optimal-control, git-history:variational-calculus:08-optimal-control]",
+        "canonical_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "concepts": "[optimal, control]",
+        "current_path": "variational-calculus/08-OPTIMAL-CONTROL.md",
+        "id": "maxim:variational-calculus:optimal-control",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[optimal, control]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Optimal Control and Pontryagin Principle",
+        "updated": "null"
+      },
+      "text": "| If you need to diagnose... | Start With | Key Caveat |\n|---|---|---|\n| Smooth unconstrained control | Euler-Lagrange equation | Control constraints invalidate simple E-L sufficiency. |\n| Constrained control set | Pontryagin Maximum Principle | PMP is necessary, not automatically sufficient. |\n| Linear-quadratic dynamics | Riccati equation and LQR feedback | Model mismatch can dominate optimality. |\n| Global optimal policy | HJB value-function PDE | Curse of dimensionality is severe. |\n| Parameter gradient | Adjoint method | Backward pass depends on stable state/adjoint integration. |\n| Minimum-time control | Bang-bang switching from PMP | Singular arcs can break pure bang-bang intuition. |\n| Neural ODE training | Continuous-time adjoint backprop | Memory/numerical tradeoffs affect gradients. |\n| Stochastic control | HJB with Ito terms | Noise model is part of the problem definition. |"
+    }
+  ],
+  "refs": [
+    "08-OPTIMAL-CONTROL.md"
+  ]
+}

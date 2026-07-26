@@ -1,0 +1,937 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-statistical-mechanics-ising-models",
+  "source": "../../statistical-mechanics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "07-ISING-MODELS.md#000",
+      "path": [
+        "07-ISING-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:statistical-mechanics:07-ising-models, git-history:statistical-mechanics:07-ising-models]",
+        "canonical_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "concepts": "[ising, models]",
+        "current_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "id": "maxim:statistical-mechanics:ising-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "statistical-mechanics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ising, models]",
+        "section": "statistical-mechanics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ising Model and Lattice Systems",
+        "updated": "null"
+      },
+      "text": "# Ising Model and Lattice Systems"
+    },
+    {
+      "id": "07-ISING-MODELS.md#001",
+      "path": [
+        "07-ISING-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:statistical-mechanics:07-ising-models, git-history:statistical-mechanics:07-ising-models]",
+        "canonical_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "concepts": "[ising, models]",
+        "current_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "id": "maxim:statistical-mechanics:ising-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "statistical-mechanics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ising, models]",
+        "section": "statistical-mechanics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ising Model and Lattice Systems",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "07-ISING-MODELS.md#002",
+      "path": [
+        "07-ISING-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:statistical-mechanics:07-ising-models, git-history:statistical-mechanics:07-ising-models]",
+        "canonical_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "concepts": "[ising, models]",
+        "current_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "id": "maxim:statistical-mechanics:ising-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "statistical-mechanics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ising, models]",
+        "section": "statistical-mechanics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ising Model and Lattice Systems",
+        "updated": "null"
+      },
+      "text": "The Ising model is the hydrogen atom of statistical mechanics. Simple enough to admit exact\nsolutions in 1D and 2D, rich enough to capture the essential physics of phase transitions,\nand general enough that it maps to dozens of other problems. The 1D solution is a warm-up;\nthe 2D Onsager solution (1944) is one of the most celebrated exact results in all of physics.\nMonte Carlo simulation of the Ising model is the prototype for all computational statistical\nmechanics. And the Hopfield model (1982) shows that an Ising-like network can store and\nretrieve memories — bridging statistical physics and neural networks."
+    },
+    {
+      "id": "07-ISING-MODELS.md#003",
+      "path": [
+        "07-ISING-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:statistical-mechanics:07-ising-models, git-history:statistical-mechanics:07-ising-models]",
+        "canonical_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "concepts": "[ising, models]",
+        "current_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "id": "maxim:statistical-mechanics:ising-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "statistical-mechanics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ising, models]",
+        "section": "statistical-mechanics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ising Model and Lattice Systems",
+        "updated": "null"
+      },
+      "text": "```\nISING MODEL LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "07-ISING-MODELS.md#004",
+      "path": [
+        "07-ISING-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:statistical-mechanics:07-ising-models, git-history:statistical-mechanics:07-ising-models]",
+        "canonical_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "concepts": "[ising, models]",
+        "current_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "id": "maxim:statistical-mechanics:ising-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "statistical-mechanics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ising, models]",
+        "section": "statistical-mechanics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ising Model and Lattice Systems",
+        "updated": "null"
+      },
+      "text": "HAMILTONIAN:  H = −J Σ_{⟨ij⟩} sᵢ sⱼ − h Σᵢ sᵢ    (sᵢ = ±1)"
+    },
+    {
+      "id": "07-ISING-MODELS.md#005",
+      "path": [
+        "07-ISING-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:statistical-mechanics:07-ising-models, git-history:statistical-mechanics:07-ising-models]",
+        "canonical_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "concepts": "[ising, models]",
+        "current_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "id": "maxim:statistical-mechanics:ising-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "statistical-mechanics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ising, models]",
+        "section": "statistical-mechanics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ising Model and Lattice Systems",
+        "updated": "null"
+      },
+      "text": "┌──────────────────────────────────────────────────────────────────────┐\n  │  1D: exact solution (transfer matrix) — no phase transition T > 0    │\n  │  2D: exact solution (Onsager 1944) — T_c = 2.27 J/k_B, β = 1/8       │\n  │  3D: no exact solution — Monte Carlo, ε-expansion, conformal field   │\n  │  Mean-field: T_c = zJ/k_B, β = 1/2 (always overestimates order)      │\n  └──────────────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "07-ISING-MODELS.md#006",
+      "path": [
+        "07-ISING-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:statistical-mechanics:07-ising-models, git-history:statistical-mechanics:07-ising-models]",
+        "canonical_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "concepts": "[ising, models]",
+        "current_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "id": "maxim:statistical-mechanics:ising-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "statistical-mechanics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ising, models]",
+        "section": "statistical-mechanics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ising Model and Lattice Systems",
+        "updated": "null"
+      },
+      "text": "MAPPINGS:\n  Ising ↔ Binary alloy (A/B atoms ↔ ±1 spins)\n  Ising ↔ Lattice gas (particle/hole ↔ ±1 spins)\n  Ising ↔ Hopfield network (stored patterns ↔ couplings Jᵢⱼ)\n  Ising ↔ MAX-CUT in graphs (graph partition ↔ spin configuration)\n  Ising ↔ Boltzmann machine in ML\n```"
+    },
+    {
+      "id": "07-ISING-MODELS.md#007",
+      "path": [
+        "07-ISING-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:statistical-mechanics:07-ising-models, git-history:statistical-mechanics:07-ising-models]",
+        "canonical_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "concepts": "[ising, models]",
+        "current_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "id": "maxim:statistical-mechanics:ising-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "statistical-mechanics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ising, models]",
+        "section": "statistical-mechanics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ising Model and Lattice Systems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-ISING-MODELS.md#008",
+      "path": [
+        "07-ISING-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:statistical-mechanics:07-ising-models, git-history:statistical-mechanics:07-ising-models]",
+        "canonical_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "concepts": "[ising, models]",
+        "current_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "id": "maxim:statistical-mechanics:ising-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "statistical-mechanics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ising, models]",
+        "section": "statistical-mechanics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ising Model and Lattice Systems",
+        "updated": "null"
+      },
+      "text": "## 1D Ising — Transfer Matrix Solution"
+    },
+    {
+      "id": "07-ISING-MODELS.md#009",
+      "path": [
+        "07-ISING-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:statistical-mechanics:07-ising-models, git-history:statistical-mechanics:07-ising-models]",
+        "canonical_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "concepts": "[ising, models]",
+        "current_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "id": "maxim:statistical-mechanics:ising-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "statistical-mechanics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ising, models]",
+        "section": "statistical-mechanics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ising Model and Lattice Systems",
+        "updated": "null"
+      },
+      "text": "**Model**: N spins on a line with periodic boundary conditions (s_{N+1} = s₁)."
+    },
+    {
+      "id": "07-ISING-MODELS.md#010",
+      "path": [
+        "07-ISING-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:statistical-mechanics:07-ising-models, git-history:statistical-mechanics:07-ising-models]",
+        "canonical_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "concepts": "[ising, models]",
+        "current_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "id": "maxim:statistical-mechanics:ising-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "statistical-mechanics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ising, models]",
+        "section": "statistical-mechanics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ising Model and Lattice Systems",
+        "updated": "null"
+      },
+      "text": "**Partition function**:"
+    },
+    {
+      "id": "07-ISING-MODELS.md#011",
+      "path": [
+        "07-ISING-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:statistical-mechanics:07-ising-models, git-history:statistical-mechanics:07-ising-models]",
+        "canonical_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "concepts": "[ising, models]",
+        "current_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "id": "maxim:statistical-mechanics:ising-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "statistical-mechanics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ising, models]",
+        "section": "statistical-mechanics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ising Model and Lattice Systems",
+        "updated": "null"
+      },
+      "text": "Z = Σ_{s₁,...,s_N = ±1} exp(K Σᵢ sᵢ sᵢ₊₁ + h Σᵢ sᵢ)"
+    },
+    {
+      "id": "07-ISING-MODELS.md#012",
+      "path": [
+        "07-ISING-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:statistical-mechanics:07-ising-models, git-history:statistical-mechanics:07-ising-models]",
+        "canonical_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "concepts": "[ising, models]",
+        "current_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "id": "maxim:statistical-mechanics:ising-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "statistical-mechanics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ising, models]",
+        "section": "statistical-mechanics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ising Model and Lattice Systems",
+        "updated": "null"
+      },
+      "text": "where K = J/k_BT, h here stands for βh_field."
+    },
+    {
+      "id": "07-ISING-MODELS.md#013",
+      "path": [
+        "07-ISING-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:statistical-mechanics:07-ising-models, git-history:statistical-mechanics:07-ising-models]",
+        "canonical_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "concepts": "[ising, models]",
+        "current_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "id": "maxim:statistical-mechanics:ising-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "statistical-mechanics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ising, models]",
+        "section": "statistical-mechanics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ising Model and Lattice Systems",
+        "updated": "null"
+      },
+      "text": "**Transfer matrix** T is a 2×2 matrix:"
+    },
+    {
+      "id": "07-ISING-MODELS.md#014",
+      "path": [
+        "07-ISING-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:statistical-mechanics:07-ising-models, git-history:statistical-mechanics:07-ising-models]",
+        "canonical_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "concepts": "[ising, models]",
+        "current_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "id": "maxim:statistical-mechanics:ising-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "statistical-mechanics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ising, models]",
+        "section": "statistical-mechanics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ising Model and Lattice Systems",
+        "updated": "null"
+      },
+      "text": "T_{s,s'} = exp(K ss' + (h/2)(s + s'))"
+    },
+    {
+      "id": "07-ISING-MODELS.md#015",
+      "path": [
+        "07-ISING-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:statistical-mechanics:07-ising-models, git-history:statistical-mechanics:07-ising-models]",
+        "canonical_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "concepts": "[ising, models]",
+        "current_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "id": "maxim:statistical-mechanics:ising-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "statistical-mechanics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ising, models]",
+        "section": "statistical-mechanics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ising Model and Lattice Systems",
+        "updated": "null"
+      },
+      "text": "T = | e^{K+h}    e^{-K}  |\n        | e^{-K}    e^{K-h}  |"
+    },
+    {
+      "id": "07-ISING-MODELS.md#016",
+      "path": [
+        "07-ISING-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:statistical-mechanics:07-ising-models, git-history:statistical-mechanics:07-ising-models]",
+        "canonical_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "concepts": "[ising, models]",
+        "current_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "id": "maxim:statistical-mechanics:ising-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "statistical-mechanics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ising, models]",
+        "section": "statistical-mechanics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ising Model and Lattice Systems",
+        "updated": "null"
+      },
+      "text": "The partition function:"
+    },
+    {
+      "id": "07-ISING-MODELS.md#017",
+      "path": [
+        "07-ISING-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:statistical-mechanics:07-ising-models, git-history:statistical-mechanics:07-ising-models]",
+        "canonical_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "concepts": "[ising, models]",
+        "current_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "id": "maxim:statistical-mechanics:ising-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "statistical-mechanics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ising, models]",
+        "section": "statistical-mechanics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ising Model and Lattice Systems",
+        "updated": "null"
+      },
+      "text": "Z = Tr(T^N) = λ₊^N + λ₋^N ≈ λ₊^N    (N → ∞, λ₊ > λ₋)"
+    },
+    {
+      "id": "07-ISING-MODELS.md#018",
+      "path": [
+        "07-ISING-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:statistical-mechanics:07-ising-models, git-history:statistical-mechanics:07-ising-models]",
+        "canonical_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "concepts": "[ising, models]",
+        "current_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "id": "maxim:statistical-mechanics:ising-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "statistical-mechanics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ising, models]",
+        "section": "statistical-mechanics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ising Model and Lattice Systems",
+        "updated": "null"
+      },
+      "text": "where λ₊ > λ₋ are the eigenvalues of T:"
+    },
+    {
+      "id": "07-ISING-MODELS.md#019",
+      "path": [
+        "07-ISING-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:statistical-mechanics:07-ising-models, git-history:statistical-mechanics:07-ising-models]",
+        "canonical_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "concepts": "[ising, models]",
+        "current_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "id": "maxim:statistical-mechanics:ising-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "statistical-mechanics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ising, models]",
+        "section": "statistical-mechanics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ising Model and Lattice Systems",
+        "updated": "null"
+      },
+      "text": "λ_± = e^K cosh(h) ± √(e^{2K} sinh²(h) + e^{-2K})"
+    },
+    {
+      "id": "07-ISING-MODELS.md#020",
+      "path": [
+        "07-ISING-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:statistical-mechanics:07-ising-models, git-history:statistical-mechanics:07-ising-models]",
+        "canonical_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "concepts": "[ising, models]",
+        "current_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "id": "maxim:statistical-mechanics:ising-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "statistical-mechanics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ising, models]",
+        "section": "statistical-mechanics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ising Model and Lattice Systems",
+        "updated": "null"
+      },
+      "text": "**At h = 0**:"
+    },
+    {
+      "id": "07-ISING-MODELS.md#021",
+      "path": [
+        "07-ISING-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:statistical-mechanics:07-ising-models, git-history:statistical-mechanics:07-ising-models]",
+        "canonical_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "concepts": "[ising, models]",
+        "current_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "id": "maxim:statistical-mechanics:ising-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "statistical-mechanics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ising, models]",
+        "section": "statistical-mechanics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ising Model and Lattice Systems",
+        "updated": "null"
+      },
+      "text": "λ₊ = 2 cosh(K) = e^K + e^{-K}    λ₋ = 2 sinh(K) = e^K − e^{-K}"
+    },
+    {
+      "id": "07-ISING-MODELS.md#022",
+      "path": [
+        "07-ISING-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:statistical-mechanics:07-ising-models, git-history:statistical-mechanics:07-ising-models]",
+        "canonical_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "concepts": "[ising, models]",
+        "current_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "id": "maxim:statistical-mechanics:ising-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "statistical-mechanics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ising, models]",
+        "section": "statistical-mechanics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ising Model and Lattice Systems",
+        "updated": "null"
+      },
+      "text": "f = −k_BT ln λ₊ = −k_BT ln(2 cosh(J/k_BT))"
+    },
+    {
+      "id": "07-ISING-MODELS.md#023",
+      "path": [
+        "07-ISING-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:statistical-mechanics:07-ising-models, git-history:statistical-mechanics:07-ising-models]",
+        "canonical_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "concepts": "[ising, models]",
+        "current_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "id": "maxim:statistical-mechanics:ising-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "statistical-mechanics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ising, models]",
+        "section": "statistical-mechanics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ising Model and Lattice Systems",
+        "updated": "null"
+      },
+      "text": "**Free energy is analytic for all T > 0** — no phase transition."
+    },
+    {
+      "id": "07-ISING-MODELS.md#024",
+      "path": [
+        "07-ISING-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:statistical-mechanics:07-ising-models, git-history:statistical-mechanics:07-ising-models]",
+        "canonical_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "concepts": "[ising, models]",
+        "current_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "id": "maxim:statistical-mechanics:ising-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "statistical-mechanics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ising, models]",
+        "section": "statistical-mechanics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ising Model and Lattice Systems",
+        "updated": "null"
+      },
+      "text": "**Correlation function**:"
+    },
+    {
+      "id": "07-ISING-MODELS.md#025",
+      "path": [
+        "07-ISING-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:statistical-mechanics:07-ising-models, git-history:statistical-mechanics:07-ising-models]",
+        "canonical_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "concepts": "[ising, models]",
+        "current_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "id": "maxim:statistical-mechanics:ising-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "statistical-mechanics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ising, models]",
+        "section": "statistical-mechanics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ising Model and Lattice Systems",
+        "updated": "null"
+      },
+      "text": "⟨s₀ s_r⟩ = (λ₋/λ₊)^r = tanh^r(K) = e^{-r/ξ}"
+    },
+    {
+      "id": "07-ISING-MODELS.md#026",
+      "path": [
+        "07-ISING-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:statistical-mechanics:07-ising-models, git-history:statistical-mechanics:07-ising-models]",
+        "canonical_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "concepts": "[ising, models]",
+        "current_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "id": "maxim:statistical-mechanics:ising-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "statistical-mechanics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ising, models]",
+        "section": "statistical-mechanics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ising Model and Lattice Systems",
+        "updated": "null"
+      },
+      "text": "ξ = −1/ln(tanh K) → ∞ as T → 0 (K → ∞): ordered at T = 0 only."
+    },
+    {
+      "id": "07-ISING-MODELS.md#027",
+      "path": [
+        "07-ISING-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:statistical-mechanics:07-ising-models, git-history:statistical-mechanics:07-ising-models]",
+        "canonical_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "concepts": "[ising, models]",
+        "current_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "id": "maxim:statistical-mechanics:ising-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "statistical-mechanics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ising, models]",
+        "section": "statistical-mechanics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ising Model and Lattice Systems",
+        "updated": "null"
+      },
+      "text": "```\n1D ISING — WHY NO PHASE TRANSITION:"
+    },
+    {
+      "id": "07-ISING-MODELS.md#028",
+      "path": [
+        "07-ISING-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:statistical-mechanics:07-ising-models, git-history:statistical-mechanics:07-ising-models]",
+        "canonical_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "concepts": "[ising, models]",
+        "current_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "id": "maxim:statistical-mechanics:ising-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "statistical-mechanics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ising, models]",
+        "section": "statistical-mechanics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ising Model and Lattice Systems",
+        "updated": "null"
+      },
+      "text": "Peierls argument: A single domain wall (two neighboring spins flipped\n  relative to each other) costs energy 2J but gains entropy k_B ln N\n  (N possible positions for the wall). For N → ∞ and any T > 0,\n  entropy wins → domain walls proliferate → long-range order destroyed."
+    },
+    {
+      "id": "07-ISING-MODELS.md#029",
+      "path": [
+        "07-ISING-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:statistical-mechanics:07-ising-models, git-history:statistical-mechanics:07-ising-models]",
+        "canonical_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "concepts": "[ising, models]",
+        "current_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "id": "maxim:statistical-mechanics:ising-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "statistical-mechanics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ising, models]",
+        "section": "statistical-mechanics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ising Model and Lattice Systems",
+        "updated": "null"
+      },
+      "text": "Only at T = 0 can you have order.\n  This is a general argument: in 1D with short-range interactions,\n  there is no phase transition at T > 0 (Landau, 1937;\n  Mermin-Wagner for continuous symmetry in 2D, 1966).\n```"
+    },
+    {
+      "id": "07-ISING-MODELS.md#030",
+      "path": [
+        "07-ISING-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:statistical-mechanics:07-ising-models, git-history:statistical-mechanics:07-ising-models]",
+        "canonical_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "concepts": "[ising, models]",
+        "current_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "id": "maxim:statistical-mechanics:ising-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "statistical-mechanics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ising, models]",
+        "section": "statistical-mechanics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ising Model and Lattice Systems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-ISING-MODELS.md#031",
+      "path": [
+        "07-ISING-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:statistical-mechanics:07-ising-models, git-history:statistical-mechanics:07-ising-models]",
+        "canonical_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "concepts": "[ising, models]",
+        "current_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "id": "maxim:statistical-mechanics:ising-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "statistical-mechanics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ising, models]",
+        "section": "statistical-mechanics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ising Model and Lattice Systems",
+        "updated": "null"
+      },
+      "text": "## 2D Ising — Onsager's Exact Solution"
+    },
+    {
+      "id": "07-ISING-MODELS.md#032",
+      "path": [
+        "07-ISING-MODELS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:statistical-mechanics:07-ising-models, git-history:statistical-mechanics:07-ising-models]",
+        "canonical_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "concepts": "[ising, models]",
+        "current_path": "statistical-mechanics/07-ISING-MODELS.md",
+        "id": "maxim:statistical-mechanics:ising-models",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "statistical-mechanics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[ising, models]",
+        "section": "statistical-mechanics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Ising Model and Lattice Systems",
+        "updated": "null"
+      },
+      "text": "Lars Onsager (1944) solved the 2D Ising model on a square lattice exactly, in zero field. This was a landmark — the first exact solution of a statistical mechanical model showing a genuine phase transition."
+    }
+  ],
+  "refs": [
+    "07-ISING-MODELS.md"
+  ]
+}

@@ -1,0 +1,2841 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-ai-engineering-vector-databases",
+  "source": "../../ai-engineering",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "09-VECTOR-DATABASES.md#000",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "# 09 — Embeddings and Vector Search"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#001",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#002",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "```\n  The Embedding and Retrieval Stack\n  ===================================="
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#003",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "┌─────────────────────────────────────────────────────────────────────────┐\n  │  DOCUMENTS / DATA SOURCE                                                │\n  │  PDFs · web pages · database records · code · emails                    │\n  └────────────────────────────┬────────────────────────────────────────────┘\n                               │ chunking strategy (fixed/semantic/hierarchical)\n  ┌────────────────────────────▼────────────────────────────────────────────┐\n  │  CHUNKS                                                                 │\n  │  ~512 token text segments with metadata (source, date, section)         │\n  └────────────────────────────┬────────────────────────────────────────────┘\n                               │ embedding model\n  ┌────────────────────────────▼────────────────────────────────────────────┐\n  │  DENSE VECTORS                                                          │\n  │  float32 or int8 arrays (256–3072 dimensions)                           │\n  └────────────────────────────┬────────────────────────────────────────────┘\n                               │ ANN index (HNSW / IVF / PQ)\n  ┌────────────────────────────▼────────────────────────────────────────────┐\n  │  VECTOR INDEX                                                           │\n  │  Approximate nearest neighbor structure for sub-linear search           │\n  └────────────────────────────┬────────────────────────────────────────────┘\n                               │ query time: embed → search → rerank\n  ┌────────────────────────────▼────────────────────────────────────────────┐\n  │  RETRIEVAL PIPELINE                                                     │\n  │  Dense ANN + optional BM25 sparse → reciprocal rank fusion → reranker   │\n  └────────────────────────────┬────────────────────────────────────────────┘\n                               │\n  ┌────────────────────────────▼────────────────────────────────────────────┐\n  │  LLM GENERATION                                                         │\n  │  Context: [retrieved chunks] + [user query] → grounded response         │\n  └─────────────────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#004",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#005",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "## Embedding Models"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#006",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Embedding models convert text (or images) into dense vectors. The geometry of the resulting space encodes semantic similarity."
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#007",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "```\n  Major Text Embedding Models (2024)\n  ──────────────────────────────────────────────────────────────────────"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#008",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "OpenAI:\n    text-embedding-3-small:    1536 dims, $0.02/1M tokens   — fast, cheap, good\n    text-embedding-3-large:    3072 dims, $0.13/1M tokens   — best OpenAI quality\n    text-embedding-ada-002:    1536 dims, $0.10/1M tokens   — legacy, still widely used"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#009",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Open-source (self-hosted or via Ollama/HuggingFace):\n    BGE-M3 (BAAI):             1024 dims, multi-lingual, multi-granularity\n                                supports dense, sparse, and multi-vector retrieval\n    E5-large-v2 (Microsoft):   1024 dims, strong retrieval benchmarks\n    bge-large-en-v1.5:         1024 dims, top MTEB English performance\n    mxbai-embed-large-v1:      1024 dims, top MTEB, instruction-following"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#010",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Cohere:\n    embed-english-v3.0:        1024 dims, native int8 quantization, built-in reranker\n    embed-multilingual-v3.0:   1024 dims, 100+ languages"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#011",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Dimensions vs. quality tradeoff:\n    More dimensions: larger index, more memory, slower search, potentially better\n    3072 vs. 1536: marginal quality gain for 2× memory and search time\n    Matryoshka Representation Learning (MRL): text-embedding-3-* supports\n    truncating to smaller dimensions (e.g., 256) with controlled quality loss\n    → truncate to 256 dims for speed-sensitive, low-cost applications\n```"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#012",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "### Late Interaction — ColBERT"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#013",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "```\n  ColBERT (Khattab & Zaharia, 2020) — Multi-vector retrieval\n  ────────────────────────────────────────────────────────────────────"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#014",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Standard embedding: entire document → single vector\n  Limitation: one vector must represent all document semantics"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#015",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "ColBERT: each token → its own vector (late interaction)\n    Query: q_1, q_2, ..., q_m  →  [v_1, v_2, ..., v_m]  (per-token vectors)\n    Doc:   d_1, d_2, ..., d_n  →  [u_1, u_2, ..., u_n]"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#016",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Similarity (MaxSim):\n    score(q, d) = Σ_i max_j(v_i · u_j)\n    Each query token finds its best-matching document token"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#017",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Why it's better:\n    Single-vector: \"bank\" averaged with \"financial\" and \"river\" loses precision\n    ColBERT: the token \"bank\" in context of \"river bank\" matches \"river\" tokens specifically"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#018",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Cost:\n    Storage: ~128 dims × token_count per document (vs. 1536 dims per chunk)\n    A 1M-document corpus at avg 256 tokens = 256M vectors stored\n    Inference: MaxSim is an inner product — fast with PLAID indexes"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#019",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Use ColBERT when:\n    Precision matters more than cost/storage\n    Complex multi-concept queries where averaging loses semantics\n    Implemented in: RAGatouille library, Vespa, Weaviate (experimental)\n```"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#020",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#021",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "## Vector Similarity Fundamentals"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#022",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "```\n  The three similarity metrics you'll actually use:\n  ──────────────────────────────────────────────────────────────────────"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#023",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Cosine similarity:\n    sim(a, b) = (a · b) / (‖a‖ × ‖b‖)\n    Range: [-1, 1] (1 = identical direction, 0 = orthogonal, -1 = opposite)\n    Measures: directional similarity, magnitude-invariant\n    When to use: DEFAULT for most text embeddings\n                 Most embedding models produce unit-norm vectors → cosine = dot product"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#024",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Dot product:\n    sim(a, b) = a · b = Σ_i a_i × b_i\n    Range: (-∞, ∞)\n    Measures: magnitude + direction\n    When to use: embeddings explicitly trained with dot product objective (Cohere embed-v3)\n                 When magnitude encodes relevance strength (query-document retrieval)"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#025",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "L2 / Euclidean distance:\n    dist(a, b) = ‖a - b‖ = √(Σ_i (a_i - b_i)²)\n    Range: [0, ∞) (lower = more similar)\n    When to use: when vectors are NOT normalized\n                 K-means clustering on embeddings"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#026",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Normalization matters:\n    If ‖a‖ = ‖b‖ = 1 (unit norm): cosine = dot product (same thing)\n    OpenAI, most BGE/E5 models: produce unit-norm vectors by default\n    If unsure: normalize before indexing and use dot product"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#027",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Common mistake:\n    Using L2 distance with unit-norm vectors \"because it's simpler\"\n    L2 and cosine give different rankings for non-normalized vectors\n    For unit-norm: L2² = 2 - 2·cosine (monotonically equivalent, but slower)\n```"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#028",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#029",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "## ANN Algorithms"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#030",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "### HNSW — Hierarchical Navigable Small World"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#031",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "```\n  HNSW (Malkov & Yashunin, 2018) — The Standard\n  ──────────────────────────────────────────────────────────────────────"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#032",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Structure: multi-layer proximity graph"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#033",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Layer 0 (densest):  ALL vectors, each connected to M nearest neighbors\n  Layer 1:           ~1/m_L of layer 0 (geometric decay, m_L ≈ 1/ln M)\n  Layer 2:           ~1/ef² vectors (sparser)\n  ...\n  Top layer:         1-2 entry points"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#034",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Search:\n    Enter at top layer, greedy traverse toward query\n    Drop to layer below, greedy traverse\n    Continue to layer 0, return top-K"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#035",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Why it works:\n    Long-range \"highways\" at upper layers (like highway network routing)\n    Local search at layer 0 (like local roads)\n    Expected complexity: O(log N) per query"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#036",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Key parameters:\n    M:    number of connections per node (typical: 16–64)\n          Higher M → better recall, more memory, slower build\n    ef_construction: beam width during index build (typical: 128–400)\n          Higher → better index quality, slower build time\n    ef:   beam width at query time (typical: 64–256)\n          Higher → better recall, slower query\n          ef must be ≥ k (number of results requested)"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#037",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Memory per vector:\n    ≈ (M × 2 + extra) × 4 bytes per vector\n    For M=16, 1.5M vectors: ~200 MB index overhead above raw vector storage"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#038",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Used by: pgvector, Qdrant, Weaviate, Pinecone (default for new indexes)\n```"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#039",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "### IVF — Inverted File Index"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#040",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "```\n  IVF (Inverted File) — Cluster-Based Approximate Search\n  ──────────────────────────────────────────────────────────────────────"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#041",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Build:\n    K-means cluster all vectors into nlist clusters (typical: 1000–4096)\n    Each vector assigned to its nearest centroid\n    Build inverted list: centroid_id → [vector_ids]"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#042",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Search:\n    Embed query\n    Find nprobe nearest centroids (nprobe < nlist, typically 32–128)\n    Search only vectors in those nprobe clusters\n    Return top-K across all searched clusters"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#043",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Accuracy vs. speed tradeoff:\n    nprobe = 1:       fast, low recall\n    nprobe = nlist:   exact search (defeats the purpose)\n    nprobe = nlist/8: good recall (>95%) at 8× speedup"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#044",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Memory: compact — just vector data + centroid assignments\n  vs. HNSW: IVF uses less memory but has worse recall at same speed"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#045",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "When to use IVF over HNSW:\n    Memory-constrained (IVF is more compact)\n    Very large datasets (> 100M vectors) where HNSW memory is prohibitive\n    When recall > 95% is not required\n```"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#046",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "### PQ — Product Quantization"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#047",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "```\n  Product Quantization — Compress Vectors\n  ──────────────────────────────────────────────────────────────────────"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#048",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Problem: 1M vectors × 1536 dims × 4 bytes = 6 GB just for raw vectors"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#049",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "PQ: compress each vector from d dimensions to a short code"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#050",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Method:\n    Split d-dim vector into m subvectors of d/m dims each\n    Quantize each subvector to nearest centroid (k = 256 centroids per sub)\n    Store: m bytes per vector (1 byte = centroid index per subvector)"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#051",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Example:\n    1536-dim, m=96 subspaces → 16-dim each, k=256 → 96 bytes per vector\n    Compression: 1536 × 4 = 6144 bytes → 96 bytes = 64× reduction\n    Quality: approximate distance computation via lookup table"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#052",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "IVFPQ = IVF + PQ:\n    Cluster with IVF, compress residuals with PQ\n    Used by: Faiss (Facebook's vector search library, the foundational impl)\n    Practical: billions of vectors on a single machine"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#053",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "ScaNN (Google): similar idea with better distance approximation\n```"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#054",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#055",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "## Vector Databases"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#056",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "```\n  Vector Database Comparison\n  ──────────────────────────────────────────────────────────────────────"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#057",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "┌──────────────┬───────────────────────────────────────────────────────┐\n  │  pgvector    │  PostgreSQL extension                                 │\n  │              │  HNSW + IVF indexes (v0.5+ supports HNSW)             │\n  │              │  SQL-native: JOIN, filter, transaction semantics      │\n  │              │  Exact and approximate search                         │\n  │              │  Azure Database for PostgreSQL supports it natively   │\n  │              │  Best for: already have Postgres; moderate scale      │\n  │              │  Scale: up to ~10M vectors on one Postgres instance   │\n  └──────────────┴───────────────────────────────────────────────────────┘\n  ┌──────────────┬───────────────────────────────────────────────────────┐\n  │  Pinecone    │  Managed, serverless or pod-based                     │\n  │              │  Proprietary ANN algorithm (optimized for recall)     │\n  │              │  Serverless: pay per query, auto-scale                │\n  │              │  Native hybrid search (dense + sparse)                │\n  │              │  Best for: teams that want zero ops; enterprise SaaS  │\n  │              │  Cost: serverless ~$0.08/1M query units               │\n  └──────────────┴───────────────────────────────────────────────────────┘\n  ┌──────────────┬───────────────────────────────────────────────────────┐\n  │  Weaviate    │  Open-source, cloud-managed available                 │\n  │              │  HNSW index                                           │\n  │              │  Hybrid search: native BM25 + vector                  │\n  │              │  GraphQL and REST API                                 │\n  │              │  Modules: text2vec, qna, generative                   │\n  │              │  Best for: hybrid search; GraphQL preference          │\n  └──────────────┴───────────────────────────────────────────────────────┘\n  ┌──────────────┬───────────────────────────────────────────────────────┐\n  │  Qdrant      │  Open-source, Rust, strong payload filtering          │\n  │              │  HNSW + scalar quantization                           │\n  │              │  Efficient filtered search (filter before ANN)        │\n  │              │  Named vectors (multiple per point)                   │\n  │              │  Best for: metadata-rich filtering + vector search    │\n  └──────────────┴───────────────────────────────────────────────────────┘\n  ┌──────────────┬───────────────────────────────────────────────────────┐\n  │  Milvus      │  Open-source, distributed, enterprise                 │\n  │              │  Multiple index types (HNSW, IVF, PQ, GPU indexes)    │\n  │              │  Scale: billions of vectors across cluster            │\n  │              │  Zilliz Cloud: managed Milvus                         │\n  │              │  Best for: massive scale; on-prem enterprise          │\n  └──────────────┴───────────────────────────────────────────────────────┘\n  ┌──────────────┬───────────────────────────────────────────────────────┐\n  │  Chroma      │  Open-source, embedded (in-process) or server mode    │\n  │              │  Simple Python API                                    │\n  │              │  No persistence tuning needed                         │\n  │              │  Best for: local prototyping, small-scale RAG POC     │\n  └──────────────┴───────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#058",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#059",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "## Hybrid Search"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#060",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "```\n  Hybrid Search — Dense + Sparse Combined\n  ──────────────────────────────────────────────────────────────────────"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#061",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Problem with pure dense (vector) search:\n    Great for semantic similarity (\"what does this mean?\")\n    Poor for exact term matching (\"find 'SQL Server 2019 CU17' specifically\")\n    Technical terms, proper nouns, code identifiers often not well-embedded"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#062",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Problem with pure sparse (BM25/TF-IDF) search:\n    Great for keyword matching\n    Poor for semantic similarity (\"car\" vs \"automobile\" → no match)\n    Misses paraphrase and conceptual similarity"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#063",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "BM25 recap (the standard sparse retrieval algorithm):\n    Score(D, Q) = Σ_q IDF(q) × (f(q,D) × (k+1)) / (f(q,D) + k × (1 - b + b×|D|/avgdl))\n    IDF: inverse document frequency — rare terms score higher\n    f(q,D): term frequency in document\n    k, b: tuning parameters (typical: k=1.2, b=0.75)\n    Same conceptual foundation as SQL Server Full-Text Search"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#064",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Hybrid fusion: combine dense and sparse rankings\n  ─────────────────────────────────────────────────\n  Method 1: Reciprocal Rank Fusion (RRF) — the standard\n    For each document, from each ranking:\n      score_rrf = Σ_r 1 / (k + rank_r(d))   where k=60 is typical\n    Sum across dense and sparse rankings\n    Re-sort by combined RRF score\n    Advantage: rank-based, doesn't require score normalization"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#065",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Method 2: Weighted linear combination\n    score_hybrid = α × score_dense + (1-α) × score_sparse\n    Requires normalizing scores to same scale (tricky)\n    α typically 0.6–0.8 (favor dense) for general QA"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#066",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "When hybrid beats pure dense:\n    ✅ User queries contain specific names, IDs, technical terms\n    ✅ Domain has controlled vocabulary (medical, legal, finance)\n    ✅ Short documents (little context for embedding model to work with)\n    ✅ Users expect keyword matching alongside semantic search"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#067",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Native hybrid search support:\n    Weaviate, Pinecone: built-in\n    Qdrant, pgvector: bring your own BM25 (Elasticsearch or custom)\n    Azure Cognitive Search: native hybrid since 2023 with semantic reranker\n```"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#068",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#069",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "## Chunking Strategy"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#070",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "```\n  Chunking: How You Split Documents Matters More Than Choice of VectorDB\n  ──────────────────────────────────────────────────────────────────────────"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#071",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Fixed-size chunking:\n    Split at every N tokens, overlap by O tokens\n    N=512, O=64 is a common baseline\n    Simple, reproducible, no dependencies\n    Problem: splits mid-sentence, mid-concept"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#072",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Sentence / paragraph chunking:\n    Split at sentence boundaries (spaCy, NLTK sentence tokenizer)\n    Respects natural language units\n    Variable chunk size (20–800 tokens)\n    Problem: long paragraphs may exceed context; short sentences lose context"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#073",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Hierarchical (parent-document retrieval):\n    Index: small child chunks (128 tokens) → precise retrieval\n    Store: parent chunks (512 tokens) → full context for generation\n    At retrieval: find child chunk, return parent chunk to LLM\n    Best for: long documents where precise retrieval matters"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#074",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Semantic chunking:\n    Embed every sentence\n    Split where cosine similarity between adjacent sentences drops\n    Produces topic-coherent chunks\n    Cost: embed every candidate split point\n    Best for: high-value corpora, research documents"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#075",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Structural chunking:\n    Use document structure: Markdown headers, HTML tags, PDF sections\n    Keep section + subsection text together\n    Best for: structured documents (wikis, manuals, code)"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#076",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Metadata augmentation:\n    Add chunk_id, source, date, section, parent_chunk_id to each vector\n    Enable pre-filtering: only search chunks from [specific document]\n    Critical for multi-tenant applications\n```"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#077",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#078",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "## Reranking"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#079",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "```\n  Reranking — Why the First-Pass ANN Retrieval Isn't the Final Answer\n  ──────────────────────────────────────────────────────────────────────"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#080",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "ANN retrieval returns top-K candidates quickly (milliseconds)\n  Reranking re-scores those K candidates more accurately (slower)"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#081",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Why bi-encoder (ANN) ≠ cross-encoder quality:\n    Bi-encoder: embed query and document independently → dot product\n    Cross-encoder: see BOTH query and document together → richer interaction\n    Cross-encoder: much slower (can't pre-compute), much more accurate"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#082",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Cross-encoder reranking pipeline:\n    1. ANN retrieval: top-100 candidates in <10ms\n    2. Cross-encoder reranking: score all 100 with (query, chunk) pairs\n       Typically 100–200ms for 100 candidates\n    3. Return top-5 to LLM"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#083",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Reranking models:\n    Cohere Rerank:       managed API, strong multilingual\n    bge-reranker-large:  open-source, strong English quality\n    ms-marco-MiniLM-L6:  fast, lighter weight, good quality\n    LLM-as-reranker:     ask GPT-4/Claude to rank chunks by relevance\n                         most accurate but expensive (full token cost per chunk)"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#084",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "ColBERT as reranker:\n    Late interaction model\n    Faster than cross-encoder (token-level MaxSim, precomputed doc vectors)\n    Better than bi-encoder quality\n    Positioned between bi-encoder speed and cross-encoder quality"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#085",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "When to add a reranker:\n    Precision matters more than latency (research, legal, compliance)\n    Your ANN retrieval recall is good but precision is poor\n    Budget for +100-200ms latency per query\n```"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#086",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#087",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "## The Full RAG Pipeline"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#088",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "```\n  End-to-End RAG Architecture\n  ──────────────────────────────────────────────────────────────────────"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#089",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "OFFLINE (ingestion):\n  Documents\n    → loader (LangChain, LlamaIndex, Unstructured.io)\n    → chunker (strategy per document type)\n    → [metadata enrichment: title, date, section, summary]\n    → embedding model (text-embedding-3-large or BGE)\n    → vector DB upsert (+ optional BM25 index)"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#090",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "ONLINE (query):\n  User query\n    → [query rewriting: hypothetical document embedding, HyDE]\n    → embed query\n    → ANN search → top-100 dense candidates\n    → [BM25 search → top-100 sparse candidates]\n    → [RRF fusion → merged ranking]\n    → reranker (cross-encoder) → top-5 chunks\n    → prompt assembly:\n        \"Use the following context to answer the question.\n         Context: [chunk_1] [chunk_2] [chunk_3] [chunk_4] [chunk_5]\n         Question: {user_query}\n         Answer:\"\n    → LLM generation\n    → [citation extraction: which chunks were used?]"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#091",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Advanced patterns:\n    HyDE (Hypothetical Document Embedding):\n      Generate a hypothetical answer → embed it → use as query vector\n      Better retrieval for factual questions\n      Cost: one LLM call before retrieval"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#092",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Query decomposition:\n      Complex question → sub-questions → retrieve for each → merge\n      Better for multi-hop reasoning"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#093",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Iterative retrieval:\n      Generate partial answer → identify gaps → retrieve again\n      Used in: RAG-Fusion, FLARE, Self-RAG\n```"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#094",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#095",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "## Old World → New World Bridges"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#096",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "```\n  SQL Full-Text Search (FTS)          Vector / hybrid search\n  ──────────────────────────────────────────────────────────────\n  CONTAINS(column, '\"exact term\"')  →  BM25 sparse retrieval\n  FREETEXT(column, 'semantic query')→  Dense vector retrieval\n  No conceptual equivalent          →  Semantic similarity (cosine)\n  Ranking via relevance score       →  ANN search + RRF fusion\n  Index: FTS catalog (.fdx, .fdt)   →  Vector index (HNSW, IVF)\n  Query planner chooses index       →  nprobe / ef controls recall"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#097",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "Azure Cognitive Search (now Azure AI Search)\n  ──────────────────────────────────────────────────────────────\n  Keyword search                    →  BM25 (unchanged)\n  Semantic search (GA 2021)         →  Re-ranking via cross-encoder\n  Vector search (GA 2023)           →  HNSW on dense embeddings\n  Hybrid search                     →  Native RRF fusion\n  Semantic ranker                   →  Cross-encoder on top of hybrid\n  Azure AI Search is the Azure-native path for production RAG\n  — you already have licensing, compliance, and familiarity\n```"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#098",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#099",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "## Common Confusion Points"
+    },
+    {
+      "id": "09-VECTOR-DATABASES.md#100",
+      "path": [
+        "09-VECTOR-DATABASES.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:ai-engineering:09-vector-databases, git-history:ai-engineering:09-vector-databases]",
+        "canonical_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "concepts": "[vector, databases]",
+        "current_path": "ai-engineering/09-VECTOR-DATABASES.md",
+        "id": "maxim:ai-engineering:vector-databases",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "ai-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[vector, databases]",
+        "section": "ai-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "09 - Embeddings and Vector Search",
+        "updated": "null"
+      },
+      "text": "**Embeddings encode meaning, not facts.**\nAn embedding of \"Paris is the capital of France\" is not a knowledge lookup. The vector represents the semantic space of the sentence. If you ask \"what is the capital of France?\" the embedding is similar to the sentence above, which is why cosine search retrieves it. The LLM then reads the retrieved chunk and answers. Embeddings are retrieval, not storage of facts."
+    }
+  ],
+  "refs": [
+    "09-VECTOR-DATABASES.md"
+  ]
+}

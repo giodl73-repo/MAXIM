@@ -1,0 +1,321 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-computer-graphics-shading-and-lighting",
+  "source": "../../computer-graphics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "04-SHADING-AND-LIGHTING.md#000",
+      "path": [
+        "04-SHADING-AND-LIGHTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-graphics:04-shading, git-history:computer-graphics:04-shading]",
+        "canonical_path": "computer-graphics/04-SHADING-AND-LIGHTING.md",
+        "concepts": "[rendering equation, BRDF, energy conservation, phong, physically based rendering, global illumination]",
+        "current_path": "computer-graphics/04-SHADING-AND-LIGHTING.md",
+        "id": "maxim:computer-graphics:shading-and-lighting",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[shading, lighting]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Shading and Lighting",
+        "updated": "null"
+      },
+      "text": "# Shading and Lighting"
+    },
+    {
+      "id": "04-SHADING-AND-LIGHTING.md#001",
+      "path": [
+        "04-SHADING-AND-LIGHTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-graphics:04-shading, git-history:computer-graphics:04-shading]",
+        "canonical_path": "computer-graphics/04-SHADING-AND-LIGHTING.md",
+        "concepts": "[rendering equation, BRDF, energy conservation, phong, physically based rendering, global illumination]",
+        "current_path": "computer-graphics/04-SHADING-AND-LIGHTING.md",
+        "id": "maxim:computer-graphics:shading-and-lighting",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[shading, lighting]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Shading and Lighting",
+        "updated": "null"
+      },
+      "text": "## The Big Picture: One Equation, Many Approximations"
+    },
+    {
+      "id": "04-SHADING-AND-LIGHTING.md#002",
+      "path": [
+        "04-SHADING-AND-LIGHTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-graphics:04-shading, git-history:computer-graphics:04-shading]",
+        "canonical_path": "computer-graphics/04-SHADING-AND-LIGHTING.md",
+        "concepts": "[rendering equation, BRDF, energy conservation, phong, physically based rendering, global illumination]",
+        "current_path": "computer-graphics/04-SHADING-AND-LIGHTING.md",
+        "id": "maxim:computer-graphics:shading-and-lighting",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[shading, lighting]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Shading and Lighting",
+        "updated": "null"
+      },
+      "text": "Shading answers: *given a surface point, its material, and the lights, how much light\nleaves toward the eye?* Every model in this guide is an approximation to a single integral\nequation — the rendering equation. The history of shading is the history of approximating\nit ever more faithfully."
+    },
+    {
+      "id": "04-SHADING-AND-LIGHTING.md#003",
+      "path": [
+        "04-SHADING-AND-LIGHTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-graphics:04-shading, git-history:computer-graphics:04-shading]",
+        "canonical_path": "computer-graphics/04-SHADING-AND-LIGHTING.md",
+        "concepts": "[rendering equation, BRDF, energy conservation, phong, physically based rendering, global illumination]",
+        "current_path": "computer-graphics/04-SHADING-AND-LIGHTING.md",
+        "id": "maxim:computer-graphics:shading-and-lighting",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[shading, lighting]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Shading and Lighting",
+        "updated": "null"
+      },
+      "text": "```\n+--------------------------------------------------------------------------------------+\n|                THE RENDERING EQUATION AND ITS APPROXIMATIONS                         |\n|                                                                                      |\n|   Lo(x,wo) = Le(x,wo) + INTEGRAL_hemisphere f_r(x,wi,wo)·Li(x,wi)·(n·wi) dwi         |\n|   (Kajiya 1986 -- the ground truth every renderer approximates)                      |\n|                                                                                      |\n|   crude <------------------- fidelity -------------------> physically correct        |\n|                                                                                      |\n|  +----------+   +-----------+   +-----------+   +-----------+   +-----------------+  |\n|  | Lambert  |-> | Phong /   |-> | PBR BRDF  |-> | direct +  |-> | full GI: path   |  |\n|  | (diffuse)|   | Blinn     |   | (Cook-    |   | image-    |   | tracing solves  |  |\n|  |          |   | (1973-77) |   | Torrance) |   | based lit |   | the integral    |  |\n|  +----------+   +-----------+   +-----------+   +-----------+   +-----------------+  |"
+    },
+    {
+      "id": "04-SHADING-AND-LIGHTING.md#004",
+      "path": [
+        "04-SHADING-AND-LIGHTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-graphics:04-shading, git-history:computer-graphics:04-shading]",
+        "canonical_path": "computer-graphics/04-SHADING-AND-LIGHTING.md",
+        "concepts": "[rendering equation, BRDF, energy conservation, phong, physically based rendering, global illumination]",
+        "current_path": "computer-graphics/04-SHADING-AND-LIGHTING.md",
+        "id": "maxim:computer-graphics:shading-and-lighting",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[shading, lighting]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Shading and Lighting",
+        "updated": "null"
+      },
+      "text": "|   [L1]           [L2]            [L3 BRDF]       [L4 IBL]        [L5 GI / 03]        |\n+--------------------------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "04-SHADING-AND-LIGHTING.md#005",
+      "path": [
+        "04-SHADING-AND-LIGHTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-graphics:04-shading, git-history:computer-graphics:04-shading]",
+        "canonical_path": "computer-graphics/04-SHADING-AND-LIGHTING.md",
+        "concepts": "[rendering equation, BRDF, energy conservation, phong, physically based rendering, global illumination]",
+        "current_path": "computer-graphics/04-SHADING-AND-LIGHTING.md",
+        "id": "maxim:computer-graphics:shading-and-lighting",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[shading, lighting]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Shading and Lighting",
+        "updated": "null"
+      },
+      "text": "Read left to right: increasing physical fidelity. Lambert and Phong are *guesses* tuned to\nlook plausible; PBR uses a real BRDF that conserves energy; global illumination actually\nattempts the recursive integral. The equation itself is the spec."
+    },
+    {
+      "id": "04-SHADING-AND-LIGHTING.md#006",
+      "path": [
+        "04-SHADING-AND-LIGHTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-graphics:04-shading, git-history:computer-graphics:04-shading]",
+        "canonical_path": "computer-graphics/04-SHADING-AND-LIGHTING.md",
+        "concepts": "[rendering equation, BRDF, energy conservation, phong, physically based rendering, global illumination]",
+        "current_path": "computer-graphics/04-SHADING-AND-LIGHTING.md",
+        "id": "maxim:computer-graphics:shading-and-lighting",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[shading, lighting]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Shading and Lighting",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-SHADING-AND-LIGHTING.md#007",
+      "path": [
+        "04-SHADING-AND-LIGHTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-graphics:04-shading, git-history:computer-graphics:04-shading]",
+        "canonical_path": "computer-graphics/04-SHADING-AND-LIGHTING.md",
+        "concepts": "[rendering equation, BRDF, energy conservation, phong, physically based rendering, global illumination]",
+        "current_path": "computer-graphics/04-SHADING-AND-LIGHTING.md",
+        "id": "maxim:computer-graphics:shading-and-lighting",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[shading, lighting]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Shading and Lighting",
+        "updated": "null"
+      },
+      "text": "## Layer 1: The Rendering Equation, Term by Term"
+    },
+    {
+      "id": "04-SHADING-AND-LIGHTING.md#008",
+      "path": [
+        "04-SHADING-AND-LIGHTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-graphics:04-shading, git-history:computer-graphics:04-shading]",
+        "canonical_path": "computer-graphics/04-SHADING-AND-LIGHTING.md",
+        "concepts": "[rendering equation, BRDF, energy conservation, phong, physically based rendering, global illumination]",
+        "current_path": "computer-graphics/04-SHADING-AND-LIGHTING.md",
+        "id": "maxim:computer-graphics:shading-and-lighting",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[shading, lighting]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Shading and Lighting",
+        "updated": "null"
+      },
+      "text": "```\n   Lo(x, wo)  =  Le(x, wo)  +  INTEGRAL over hemisphere Ω of:\n                                 f_r(x, wi, wo) · Li(x, wi) · (n · wi) dwi"
+    },
+    {
+      "id": "04-SHADING-AND-LIGHTING.md#009",
+      "path": [
+        "04-SHADING-AND-LIGHTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-graphics:04-shading, git-history:computer-graphics:04-shading]",
+        "canonical_path": "computer-graphics/04-SHADING-AND-LIGHTING.md",
+        "concepts": "[rendering equation, BRDF, energy conservation, phong, physically based rendering, global illumination]",
+        "current_path": "computer-graphics/04-SHADING-AND-LIGHTING.md",
+        "id": "maxim:computer-graphics:shading-and-lighting",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[shading, lighting]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Shading and Lighting",
+        "updated": "null"
+      },
+      "text": "┌──────────┬──────────────────────────────────────────────────────────┐\n   │ Lo(x,wo) │ RADIANCE leaving point x toward viewing direction wo     │\n   │ Le(x,wo) │ radiance the surface EMITS itself (0 unless it's a light)│\n   │ f_r(...) │ the BRDF: fraction of light from wi redirected toward wo │\n   │ Li(x,wi) │ radiance ARRIVING at x from incoming direction wi        │\n   │ (n · wi) │ Lambert cosine: grazing light spreads over more area     │\n   │ ∫ dwi    │ sum over EVERY incoming direction on the hemisphere      │\n   └──────────┴──────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "04-SHADING-AND-LIGHTING.md#010",
+      "path": [
+        "04-SHADING-AND-LIGHTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-graphics:04-shading, git-history:computer-graphics:04-shading]",
+        "canonical_path": "computer-graphics/04-SHADING-AND-LIGHTING.md",
+        "concepts": "[rendering equation, BRDF, energy conservation, phong, physically based rendering, global illumination]",
+        "current_path": "computer-graphics/04-SHADING-AND-LIGHTING.md",
+        "id": "maxim:computer-graphics:shading-and-lighting",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-graphics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[shading, lighting]",
+        "section": "computer-graphics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Shading and Lighting",
+        "updated": "null"
+      },
+      "text": "The equation is **recursive**: `Li(x, wi)` is itself the `Lo` of *whatever surface lies in\ndirection `wi`*. That recursion is exactly what makes global illumination hard — to shade\none point you must, in principle, shade the whole scene. The cosine term `(n · wi)` is the\ngeometric fact that a beam striking at a grazing angle is spread thinly (this is also why\nseasons exist — sunlight at high latitude hits at a shallow angle)."
+    }
+  ],
+  "refs": [
+    "04-SHADING-AND-LIGHTING.md"
+  ]
+}

@@ -1,0 +1,2281 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-variational-calculus-functionals",
+  "source": "../../variational-calculus",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "01-FUNCTIONALS.md#000",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "# Functionals and the Variational Derivative"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#001",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#002",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "## Functionals: From Functions to Numbers"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#003",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "A **functional** is a map from a space of functions to the real numbers."
+    },
+    {
+      "id": "01-FUNCTIONALS.md#004",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "```\n+-----------------------------------------------------------------------+\n|              FUNCTIONS vs. FUNCTIONALS                                |\n|                                                                       |\n|  FUNCTION:   f: R^n → R                                               |\n|  Input:  a point x ∈ R^n (finite-dimensional vector)                  |\n|  Output: a number f(x) ∈ R                                            |\n|  Extremum condition:  ∇f(x) = 0   (gradient = 0)                      |\n|                                                                       |\n|  FUNCTIONAL:  J: V → R   (V = function space)                         |\n|  Input:  a FUNCTION u ∈ V  (infinite-dimensional \"point\")             |\n|  Output: a number J[u] ∈ R                                            |\n|  Extremum condition:  δJ/δu = 0   (variational derivative = 0)        |\n|                                                                       |\n|  KEY: infinite-dimensional optimization requires infinite-dimensional |\n|  calculus — this is what variational calculus provides.               |\n|                                                                       |\n+-----------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#005",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#006",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "## Integral Functionals: The Standard Form"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#007",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "```\n  BASIC INTEGRAL FUNCTIONAL:\n  J[u] = ∫ₐᵇ F(x, u(x), u'(x)) dx"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#008",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "F is called the LAGRANGIAN or LAGRANGE DENSITY.\n  (x = independent variable, u = function, u' = derivative)"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#009",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "MULTI-VARIABLE:\n  J[u] = ∫_Ω F(x, u, ∇u) dx   (x ∈ R^n, u: Ω → R)"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#010",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "MULTIPLE FUNCTIONS:\n  J[u,v] = ∫ₐᵇ F(x, u, v, u', v') dx  (system case)"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#011",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "HIGHER DERIVATIVES:\n  J[u] = ∫ₐᵇ F(x, u, u', u'') dx   (beam bending, thin plates)"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#012",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "EXAMPLES:\n  ┌───────────────────────────────────────────────────────────────┐\n  │ Arc length:         J[u] = ∫√(1+u'²) dx                       │\n  │ Area functional:    J[u] = ∫∫ √(1+u_x²+u_y²) dA               │\n  │ Dirichlet energy:   J[u] = ½∫|∇u|² dA                         │\n  │ Elastic energy:     J[u] = ½∫EI(u'')² dx  (beam)              │\n  │ Least action:       S[q] = ∫[½m|q̇|² − V(q)] dt                │\n  │ Optimal transport:  W²[T] = ∫|x − T(x)|² dμ(x)                │\n  │ Log-likelihood:     L[θ] = Σ log p(xᵢ; θ) (with θ = fn)       │\n  └───────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#013",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#014",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "## Variations: The Infinite-Dimensional Differential"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#015",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "The variation δu is a perturbation of the function u."
+    },
+    {
+      "id": "01-FUNCTIONALS.md#016",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "```\n  ADMISSIBLE VARIATIONS:\n  Given u satisfying endpoint conditions u(a)=A, u(b)=B,\n  a variation η(x) must satisfy η(a) = η(b) = 0  (fixed endpoints)."
+    },
+    {
+      "id": "01-FUNCTIONALS.md#017",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "PERTURBED FUNCTION:  u_ε(x) = u(x) + ε·η(x)"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#018",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "VARIATION OF THE FUNCTIONAL:\n  J[u + εη] = ∫ F(x, u+εη, u'+εη') dx"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#019",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "= ∫ F(x,u,u') dx + ε ∫ [∂F/∂u · η + ∂F/∂u' · η'] dx + O(ε²)"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#020",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "FIRST VARIATION:\n  δJ[u; η] = dJ[u+εη]/dε|_{ε=0}\n           = ∫ₐᵇ [F_u · η + F_{u'} · η'] dx"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#021",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "where F_u = ∂F/∂u,  F_{u'} = ∂F/∂u'."
+    },
+    {
+      "id": "01-FUNCTIONALS.md#022",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "STATIONARY CONDITION: J is stationary at u if δJ[u;η] = 0 for ALL η.\n  This is the calculus of variations analogue of ∇f = 0.\n```"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#023",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#024",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "## Integration by Parts: Deriving E-L"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#025",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "```\n  The key step: integrate the η' term by parts."
+    },
+    {
+      "id": "01-FUNCTIONALS.md#026",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "δJ = ∫ₐᵇ [F_u · η + F_{u'} · η'] dx"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#027",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "= ∫ₐᵇ F_u · η dx + [F_{u'} · η]ₐᵇ − ∫ₐᵇ (d/dx F_{u'}) · η dx"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#028",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "= [F_{u'} · η]ₐᵇ + ∫ₐᵇ [F_u − d/dx(F_{u'})] · η dx"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#029",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "FIXED ENDPOINTS: η(a) = η(b) = 0 → boundary term vanishes."
+    },
+    {
+      "id": "01-FUNCTIONALS.md#030",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "δJ = ∫ₐᵇ [F_u − d/dx(F_{u'})] · η dx = 0   for ALL η"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#031",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "By the FUNDAMENTAL LEMMA of calculus of variations:\n  if ∫ₐᵇ f(x)·η(x) dx = 0 for all smooth η with η(a)=η(b)=0,\n  then f(x) = 0 everywhere on [a,b]."
+    },
+    {
+      "id": "01-FUNCTIONALS.md#032",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "→ EULER-LAGRANGE EQUATION:  F_u − d/dx(F_{u'}) = 0\n```"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#033",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "### Fundamental Lemma of Calculus of Variations"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#034",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "```\n  LEMMA: If f ∈ C[a,b] and ∫ₐᵇ f(x)η(x) dx = 0 for every η ∈ C_c^∞(a,b),\n  then f(x) = 0 for all x ∈ [a,b]."
+    },
+    {
+      "id": "01-FUNCTIONALS.md#035",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "MDLOOM SKETCH:\n  Suppose f(x₀) > 0 for some x₀ ∈ (a,b).\n  By continuity, f > 0 in some interval [x₀−δ, x₀+δ].\n  Choose η ≥ 0 supported in [x₀−δ, x₀+δ].\n  Then ∫ fη > 0 — contradiction."
+    },
+    {
+      "id": "01-FUNCTIONALS.md#036",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "This is the bridge from \"δJ=0 for all η\" to the E-L equation.\n  It's the variational calculus version of:\n  \"if ⟨v,w⟩ = 0 for all w, then v = 0.\"\n```"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#037",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#038",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "## The Variational Derivative (Functional Gradient)"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#039",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "For functionals of the form J[u] = ∫ F(x,u,∇u) dx, define:"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#040",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "```\n  VARIATIONAL DERIVATIVE (Fréchet derivative):\n  δJ/δu = ∂F/∂u − ∇·(∂F/∂(∇u))"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#041",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "This is the \"gradient\" of J as a function of the infinite-dimensional\n  argument u. The Euler-Lagrange equation is simply:"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#042",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "δJ/δu = 0"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#043",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "EXAMPLES:\n  ┌─────────────────────────────────────────────────────────────────┐\n  │ Dirichlet: J[u] = ½∫|∇u|² dx                                    │\n  │   δJ/δu = −∇²u   (the negative Laplacian)                       │\n  │   δJ/δu = 0 → ∇²u = 0  (Laplace equation)                       │\n  │                                                                 │\n  │ Area: J[u] = ∫√(1+|∇u|²) dA                                     │\n  │   δJ/δu = −∇·(∇u/√(1+|∇u|²))                                    │\n  │   = −(mean curvature H of the surface u)                        │\n  │   δJ/δu = 0 → H = 0  (minimal surface equation)                 │\n  │                                                                 │\n  │ Action: S[q] = ∫L(q,q̇)dt                                        │\n  │   δS/δq = ∂L/∂q − d/dt(∂L/∂q̇)                                   │\n  │   δS/δq = 0 → Euler-Lagrange equations of mechanics             │\n  └─────────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#044",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#045",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "## Natural Boundary Conditions"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#046",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "When the endpoints are NOT fixed, the boundary term does not vanish:"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#047",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "```\n  δJ = [F_{u'}η]ₐᵇ + ∫ₐᵇ [F_u − (F_{u'})'] η dx = 0"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#048",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "If endpoint b is FREE (no constraint on u(b)):\n  The term F_{u'}(b)·η(b) must also vanish for arbitrary η(b).\n  → NATURAL BOUNDARY CONDITION: F_{u'}(b) = 0."
+    },
+    {
+      "id": "01-FUNCTIONALS.md#049",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "EXAMPLE: Neumann BC for Dirichlet functional.\n  J[u] = ½∫₀ᴸ u'² dx, u(0) = 0 (fixed), u(L) free.\n  F = ½u'², F_{u'} = u'\n  E-L: u'' = 0 → u linear.\n  Natural BC: u'(L) = 0 → Neumann condition emerges naturally!"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#050",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "SIGNIFICANCE:\n  Essential BCs (Dirichlet): prescribed on function u directly.\n  Natural BCs (Neumann): emerge from the variational formulation.\n  This is exactly the FEM Essential vs. Natural BC distinction.\n```"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#051",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#052",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "## Second Variation: Local vs. Global Extrema"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#053",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "```\n  SECOND VARIATION: the analogue of the Hessian."
+    },
+    {
+      "id": "01-FUNCTIONALS.md#054",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "J[u+εη] = J[u] + ε δJ[u;η] + ½ε² δ²J[u;η,η] + O(ε³)"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#055",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "For a stationary point (δJ = 0), the second variation determines\n  whether it is a minimum, maximum, or saddle:"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#056",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "δ²J[u;η] = ∫ₐᵇ [F_{uu} η² + 2F_{uu'} ηη' + F_{u'u'} η'²] dx"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#057",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "LEGENDRE CONDITION (necessary for local minimum):\n  F_{u'u'} ≥ 0  for all x ∈ [a,b]"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#058",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "(Analogy: for f(x) at a minimum, f'' ≥ 0)"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#059",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "JACOBI CONDITION (necessary for strong local minimum):\n  No conjugate points exist on [a,b].\n  (A conjugate point is where the Jacobi equation has a vanishing solution)"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#060",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "FULL LOCAL MINIMUM: Legendre + Jacobi conditions both satisfied.\n  GLOBAL MINIMUM: requires additional coercivity (direct methods).\n```"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#061",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#062",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "## Functionals with Higher Derivatives"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#063",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "```\n  BEAM BENDING (Euler-Bernoulli):\n  J[u] = ½ ∫₀ᴸ EI (u'')² dx − ∫₀ᴸ q(x)u dx"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#064",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "F = ½EI(u'')² − qu,  depends on u, u', u''"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#065",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "E-L EQUATION FOR HIGHER ORDER:\n  For J[u] = ∫ F(x,u,u',u'') dx:\n  E-L: F_u − (F_{u'})' + (F_{u''})'' = 0"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#066",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "For beam: 0 − 0 + (EI·u'')'' − q = 0\n  → (EI u'')'' = q   (4th order ODE — biharmonic)"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#067",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "GENERAL RULE for J[u] = ∫ F(x,u,u',...,u^{(n)}) dx:\n  E-L: Σ_{k=0}^n (−1)^k d^k/dx^k (∂F/∂u^{(k)}) = 0\n```"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#068",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#069",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "## Functional Analysis Background"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#070",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "```\n  FUNCTION SPACES FOR VARIATIONAL PROBLEMS:"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#071",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "L²[a,b]:  {u: ∫|u|² < ∞}  (square-integrable)\n  H¹[a,b]:  {u ∈ L²: u' ∈ L²}  (Sobolev space)\n  C¹[a,b]:  continuously differentiable functions"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#072",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "The variational derivative δJ/δu lives in the DUAL SPACE V*."
+    },
+    {
+      "id": "01-FUNCTIONALS.md#073",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "FRÉCHET DERIVATIVE (rigorous first variation):\n  J[u+h] = J[u] + DJ[u]·h + o(‖h‖)\n  DJ[u] is a bounded linear functional — the Fréchet derivative.\n  δJ/δu is the Riesz representative of DJ[u] (via inner product)."
+    },
+    {
+      "id": "01-FUNCTIONALS.md#074",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "GÂTEAUX DERIVATIVE (directional derivative):\n  dJ/dε|_{ε=0} J[u+εη]  in direction η.\n  Less demanding than Fréchet (no uniform remainder bound needed).\n  Sufficient for deriving E-L equations."
+    },
+    {
+      "id": "01-FUNCTIONALS.md#075",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "COMPACT OPERATORS:\n  For J[u] = ½‖u‖² − ∫ g(x)u(x)dx  (quadratic functionals),\n  critical points are solutions to linear equations.\n  Spectral theory of compact self-adjoint operators → eigenfunction expansions.\n```"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#076",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#077",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "## Cross-References"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#078",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "- `variational-calculus/02-EULER-LAGRANGE.md` — stationarity of functionals yields Euler-Lagrange equations.\n- `partial-differential-equations/08-VARIATIONAL-WEAK.md` — weak PDE formulations are variational equalities.\n- `control-theory/03-OPTIMAL-CONTROL.md` — functionals as objective criteria over trajectories."
+    },
+    {
+      "id": "01-FUNCTIONALS.md#079",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "01-FUNCTIONALS.md#080",
+      "path": [
+        "01-FUNCTIONALS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:variational-calculus:01-functionals, git-history:variational-calculus:01-functionals]",
+        "canonical_path": "variational-calculus/01-FUNCTIONALS.md",
+        "concepts": "[functionals]",
+        "current_path": "variational-calculus/01-FUNCTIONALS.md",
+        "id": "maxim:variational-calculus:functionals",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "variational-calculus",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functionals]",
+        "section": "variational-calculus",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functionals and the Variational Derivative",
+        "updated": "null"
+      },
+      "text": "| If you need to diagnose... | Start With | Key Caveat |\n|---|---|---|\n| Whether the object is a functional | Map `J: V -> R` from functions to numbers | The choice of function space `V` is part of the problem |\n| Whether a perturbation is admissible | Variation `u -> u + eps eta` | `eta` must respect fixed endpoints or boundary constraints |\n| Whether the first-order change vanishes | First variation at `eps = 0` | Vanishing first variation is stationarity, not minimum |\n| Whether stationarity must hold against all tests | `delta J[u;eta] = 0` for every admissible `eta` | Restricted variations only prove constrained stationarity |\n| Whether the Euler-Lagrange expression is the gradient | Variational derivative `delta J / delta u` | Boundary terms and regularity determine the actual expression |\n| Whether the E-L equation proves optimality | `delta J / delta u = 0` | It is necessary; second variation or convexity handles sufficiency |\n| Whether free endpoints impose boundary conditions | Natural boundary terms | Natural BCs depend on which endpoint values were left free |\n| Whether a stationary point is locally minimizing | Second variation | Positive definiteness must hold on admissible perturbations |\n| Whether the integrand passes a minimum sanity check | Legendre condition `F_{u'u'} >= 0` | Legendre is necessary, not sufficient, for a strong minimum |"
+    }
+  ],
+  "refs": [
+    "01-FUNCTIONALS.md"
+  ]
+}

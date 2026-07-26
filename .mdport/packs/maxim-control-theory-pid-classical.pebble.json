@@ -1,0 +1,2813 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-control-theory-pid-classical",
+  "source": "../../control-theory",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "01-PID-CLASSICAL.md#000",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "# Classical Control — PID, Root Locus, Bode, Nyquist"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#001",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#002",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "Classical control theory is frequency-domain analysis of single-input single-output (SISO)\nlinear time-invariant (LTI) systems. It answers: **for a given plant G(s), what controller\nC(s) makes the closed-loop system stable, fast, and accurate?**"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#003",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------+\n|             CLOSED-LOOP CONTROL SYSTEM                           |\n|                                                                  |\n|            e(t)          u(t)              y(t)                  |\n|  r(t) → Σ ──→ [C(s)] ──→ [G(s)] ──────────→                      |\n|          ↑                  PLANT           |                    |\n|          │                                  |                    |\n|          └──────────────────────────────────┘ feedback           |\n|                         (unity feedback shown)                    |\n|                                                                   |\n|  r(t) = reference (desired output)                               |\n|  e(t) = r - y = tracking error                                   |\n|  u(t) = controller output (actuator signal)                      |\n|  y(t) = plant output (sensor measurement)                        |\n|                                                                   |\n|  Closed-loop TF: T(s) = C(s)G(s) / (1 + C(s)G(s))             |\n|  Error TF:       E(s)/R(s) = 1 / (1 + C(s)G(s))               |\n+------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#004",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#005",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "## PID Controller"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#006",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "The **Proportional-Integral-Derivative** controller is the workhorse of industrial control.\n~90% of all control loops in process industries run PID."
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#007",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "```\n             ┌─────────────────────────────────────────────────┐\n             │  u(t) = Kp·e(t) + Ki·∫e(τ)dτ + Kd·(de/dt)       │\n             │                                                 │\n             │       Kp    = proportional gain                 │\n             │       Ki    = integral gain = Kp/Ti             │\n             │       Kd    = derivative gain = Kp·Td           │\n             └─────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#008",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "Transfer function (Laplace domain):\n  C(s) = Kp(1 + 1/(Ti·s) + Td·s)\n       = Kp + Ki/s + Kd·s"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#009",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "Parallel form:\n  C(s) = Kp + Ki/s + Kd·s"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#010",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "Standard form (ISA):\n  C(s) = Kp(1 + 1/(Ti·s) + Td·s)   Ti = integral time, Td = derivative time\n```"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#011",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "### The Three Terms and Their Effects"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#012",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "```\nTERM          EFFECT ON RESPONSE                 EFFECT ON STEADY-STATE ERROR\n────────────  ──────────────────────────────────  ──────────────────────────────\nP (prop.)     Faster response; more overshoot     Reduces error but can't\n              Higher Kp = faster but may          eliminate it for step input\n              destabilize                         Steady-state error ∝ 1/(1+Kp·Gdc)"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#013",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "I (integral)  Eliminates steady-state error       Zero steady-state error for\n              Slows response, adds phase lag       step inputs (type 1 system)\n              Wind-up problem if output saturates  Can cause windup → instability"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#014",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "D (derivative) Damps oscillation; predicts error  No effect on steady-state\n              Increases bandwidth; amplifies noise Usually needs low-pass filter:\n              Derivative = \"braking\" action        Kd·s / (1 + s/ωf)\n```"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#015",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "### PID Design Intuition"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#016",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "```\nERROR TOO BIG (slow response):    Increase Kp\nSTEADY-STATE ERROR PERSISTS:      Add/increase Ki\nOSCILLATING / OVERSHOOTING:       Decrease Kp, increase Kd\nOSCILLATING AFTER ADDING D:       Add low-pass filter on D term (derivative filter)\nSYSTEM UNSTABLE:                  Decrease Kp\nWINDUP (actuator saturates):      Add anti-windup: clamp integrator when saturated\n```"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#017",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#018",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "## Anti-Windup"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#019",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "## Engineering Bridge: Anti-Windup as Backpressure"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#020",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "```\nCONTROL THEORY                    DISTRIBUTED SYSTEMS EQUIVALENT\n──────────────────────────────────────────────────────────────────────────────\nActuator saturation               Downstream at capacity (queue full, CPU 100%)\n  motor hits max voltage            service returns 429/503"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#021",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "Integrator windup                 Accumulated retry debt / queued requests\n  ∫e dt grows unboundedly           retry queue grows during outage"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#022",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "Burst on recovery                 Thundering herd on recovery\n  integrator discharges → huge      all queued requests dispatch simultaneously\n  overshoot                         → re-saturates downstream"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#023",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "Anti-windup (clamp integrator)    Backpressure / rate limiting\n  stop accumulating when saturated   token bucket: stop admitting when full\n  back-calculation: actively drain   leaky bucket: drain at fixed rate\n  integrator during saturation       circuit breaker: stop entirely\n──────────────────────────────────────────────────────────────────────────────\n```"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#024",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "When the actuator saturates (e.g., motor hits max voltage), the integrator keeps\naccumulating (\"winding up\"), causing large overshoot when saturation ends:"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#025",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "```\nBACK-CALCULATION ANTI-WINDUP:\n  u_unsat = Kp·e + Ki·∫e dt + Kd·de/dt   (unsaturated controller output)\n  u_sat   = sat(u_unsat)                  (actual actuator input)"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#026",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "Anti-windup feedback:\n  d/dt [integrator] = e + (1/Tt)·(u_sat - u_unsat)"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#027",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "When saturated: u_sat - u_unsat ≠ 0 → integrator back-calculated\n  When not saturated: u_sat = u_unsat → normal operation\n  Tt = tracking time constant (typically Ti/Td to Ti)\n```"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#028",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#029",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "## Ziegler-Nichols Tuning"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#030",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "Classic empirical tuning rules when plant model is unknown:"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#031",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "### Method 1: Ultimate Gain (closed-loop step response)"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#032",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "```\n1. Set Ki = Kd = 0 (P-only controller)\n2. Increase Kp until system oscillates with constant amplitude\n   (sustained oscillation — marginally stable)\n3. Record: Ku = ultimate gain, Tu = period of oscillation"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#033",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "CONTROLLER  Kp          Ti          Td\n──────────  ─────────── ──────────  ──────────\nP           0.5·Ku      —           —\nPI          0.45·Ku     Tu/1.2      —\nPID         0.6·Ku      Tu/2        Tu/8\n```"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#034",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "### Method 2: Process Reaction (open-loop step response)"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#035",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "```\nApply step to plant input; record S-shaped response:\n  L = delay (inflection point intercept with time axis)\n  T = time constant (slope at inflection point)\n  K = steady-state gain"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#036",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "CONTROLLER  Kp          Ti          Td\n──────────  ─────────── ──────────  ──────────\nP           T/(K·L)     —           —\nPI          0.9·T/(K·L) L/0.3       —\nPID         1.2·T/(K·L) 2L          0.5L\n```"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#037",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "Z-N tuning gives ~1/4 damping ratio (25% overshoot). For less overshoot, reduce Kp ~20%."
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#038",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#039",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "## Laplace Transform and Transfer Functions"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#040",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "```\nTIME DOMAIN (ODE)               LAPLACE DOMAIN (algebra)\n──────────────────────────────  ──────────────────────────────────────────\nẍ + 2ζωn·ẋ + ωn²·x = ωn²·u   →  (s² + 2ζωn·s + ωn²)·X(s) = ωn²·U(s)"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#041",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "Transfer function: G(s) = X(s)/U(s) = ωn² / (s² + 2ζωn·s + ωn²)"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#042",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "Poles: roots of denominator = s = -ζωn ± jωn√(1-ζ²)\nZeros: roots of numerator (none here)"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#043",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "STANDARD 2ND ORDER SYSTEM:\n  G(s) = ωn² / (s² + 2ζωn·s + ωn²)"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#044",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "ζ < 1: underdamped — poles at s = -ζωn ± jωd  where ωd = ωn√(1-ζ²)\n  ζ = 1: critically damped — double pole at s = -ωn\n  ζ > 1: overdamped — two real poles\n  ζ = 0: undamped — poles at ±jωn"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#045",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "Step response metrics:\n  Rise time:       tr ≈ (1.8/ωn) for ζ ≈ 0.6\n  Peak time:       tp = π/ωd\n  Overshoot:       OS% = 100·e^(-πζ/√(1-ζ²))\n  Settling time:   ts ≈ 4/(ζωn)   (2% criterion)\n```"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#046",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#047",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "## Root Locus"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#048",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "Root locus traces closed-loop poles as a gain K varies from 0 to ∞."
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#049",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "```\nCLOSED-LOOP: T(s) = KG(s)H(s) / (1 + KG(s)H(s))\nCharacteristic equation: 1 + KG(s)H(s) = 0\nRoot locus: {s : KG(s)H(s) = -1}"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#050",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "ANGLE CONDITION:  ∠G(s)H(s) = ±180° (odd multiples)\nMAGNITUDE COND:   |KG(s)H(s)| = 1"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#051",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "ROOT LOCUS CONSTRUCTION RULES:\n  ─────────────────────────────────────────────────────────────────\n  Rule 1: Branches start (K=0) at open-loop poles\n  Rule 2: Branches end (K=∞) at open-loop zeros (or infinity)\n  Rule 3: Number of branches = max(#poles, #zeros)\n  Rule 4: Locus on real axis: to the left of an ODD number of real poles+zeros\n  Rule 5: Asymptotes for n-m branches going to ∞:\n            angles: (2k+1)·180°/(n-m)  for k=0,1,...,n-m-1\n            centroid: σa = (Σpoles - Σzeros)/(n-m)\n  Rule 6: Breakaway/break-in: solve dK/ds = 0\n  Rule 7: Imaginary axis crossings: Routh-Hurwitz on characteristic equation\n  ─────────────────────────────────────────────────────────────────"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#052",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "Example: G(s) = 1/(s(s+2))  (DC motor-like plant)\n  Open-loop poles at 0 and -2; no zeros\n  Root locus: starts at 0 and -2, asymptotes at ±90°, centroid at -1\n  Breakaway point: at s = -1 (between poles)\n  As K increases: the poles meet at the breakaway point s=-1 and move along the line Re(s)=-1; they never cross the jω axis\n  The closed loop remains stable for all K>0 (no finite gain-margin limit for this plant)\n```"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#053",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "**Root locus tells you:** how to place closed-loop poles by selecting K. Adding lead/lag\ncompensators reshapes the locus to achieve desired pole locations."
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#054",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#055",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "## Frequency Domain: Bode Plots"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#056",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "Bode plots show open-loop frequency response G(jω): magnitude |G(jω)| and phase ∠G(jω)\nvs. log frequency."
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#057",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "```\nBODE PLOT READING:\n                |G(jω)| in dB\n               40 │ ╲                         (−20 dB/decade per pole)\n               20 │   ╲  ╱──────              (−40 dB/decade for two poles)\n               0  │─────╲─────────────────\n              -20 │      ╲\n              -40 │       ╲\n                  └────────────────────→ log ω\n                       ωc = crossover"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#058",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "∠G(jω) in degrees\n               0° │─────────────────\n              -90° │         ╲────────  ← each pole contributes -90°\n             -180° │               ╲──  ← phase margin measured here\n                  └────────────────────→ log ω"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#059",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "ASYMPTOTIC BODE APPROXIMATIONS:\n  Pole at s = -a:  magnitude slope breaks by -20 dB/decade at ω=a\n                   phase: −45° at ω=a, transitions −5° to −85° over 2 decades\n  Zero at s = -a:  magnitude slope breaks by +20 dB/decade at ω=a\n                   phase: +45° at ω=a\n  Integrator (pole at 0): -20 dB/decade slope, -90° phase throughout\n  Underdamped pair: resonance peak, sharp phase drop at ωn\n```"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#060",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#061",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "## Stability Margins"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#062",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "**Gain margin (GM)** and **phase margin (PM)** measure how close to instability:"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#063",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "```\nPHASE CROSSOVER FREQUENCY ω_pc: where ∠G(jω) = -180°\nGAIN CROSSOVER FREQUENCY  ω_gc: where |G(jω)| = 1 (0 dB)"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#064",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "GAIN MARGIN = 1/|G(jω_pc)|  in dB: GM = -|G(jω_pc)|_dB\n  How much gain can be increased before instability\n  Rule of thumb: GM > 6 dB (factor 2 in gain)"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#065",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "PHASE MARGIN = 180° + ∠G(jω_gc)\n  How much more phase lag before instability\n  Rule of thumb: PM > 45° (PM ≈ 60° for good transient response)\n  Relation: PM ≈ damping ratio ζ ≈ PM/100  (rough, ζ ≈ PM(deg)/100)"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#066",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "BODE STABILITY CRITERION (minimum phase systems only):\n  If |G(jω)| < 1 at ω where ∠G = -180°, system is stable."
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#067",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "EXAMPLE:\n  G(s) = 10/(s(s+1)(s+5))\n  ω_pc: solve ∠G(jω) = -180° → ω_pc ≈ 2.24 rad/s\n  |G(j·2.24)| ≈ 0.33 → GM = 1/0.33 = 3 ≈ 9.5 dB\n  ω_gc: |G(jω)| = 1 → ω_gc ≈ 1.23 rad/s\n  ∠G(j·1.23) ≈ -155° → PM = 180-155 = 25°  ← marginal\n```"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#068",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#069",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "## Nyquist Stability Criterion"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#070",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "The encirclement criterion generalizes Bode analysis: a feedback loop is unstable when the loop gain winds around the critical point (-1, 0) in the complex plane. In distributed systems, a positive feedback cycle — one service's overload signal causes upstream retries, which increase load further — is the same encirclement: the loop gain product around the retry cycle exceeds 1, and the system \"oscillates\" into cascading failure."
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#071",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "More powerful than Bode — handles unstable open-loop plants and non-minimum-phase systems."
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#072",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "```\nNYQUIST PLOT: plot of G(jω)H(jω) in complex plane as ω: -∞ → +∞"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#073",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "NYQUIST CRITERION:\n  Z = N + P\n  Z = number of closed-loop unstable poles (RHP)\n  N = number of clockwise encirclements of (-1, 0)\n  P = number of open-loop unstable poles (RHP)"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#074",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "For stable closed-loop: Z = 0, so N = -P"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#075",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "Simple case (P=0, stable open-loop plant):\n  Closed loop stable ⟺ Nyquist plot does NOT encircle (-1, 0)"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#076",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "GAIN AND PHASE MARGINS ON NYQUIST PLOT:\n  Phase margin: distance from (-1,0) along the unit circle arc\n  Gain margin: 1/|G(jω_pc)| = inverse of where the plot crosses the negative real axis"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#077",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "ADVANTAGE OVER BODE:\n  Works for unstable plants (P≠0)\n  Works for non-minimum-phase (RHP zeros)\n  Rigorous for MIMO extension (return difference matrix)\n```"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#078",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#079",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "## Lead and Lag Compensators"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#080",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "When simple gain tuning is insufficient, add a dynamic compensator:"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#081",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "```\nLEAD COMPENSATOR: C(s) = Kc(s+z)/(s+p), where p > z (zero right of pole, closer to origin)\n  ─ Adds positive phase near ωgc → increases phase margin\n  ─ Increases bandwidth (faster response)\n  ─ Use when: PM too low, response too slow"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#082",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "LEAD DESIGN PROCEDURE:\n  1. Find phase deficiency: φ_needed = PM_desired - PM_current + 5°-12° safety\n  2. α = (1-sin φ_needed)/(1+sin φ_needed)  (α < 1)\n  3. Max phase contribution at ω_max = 1/(τ√α)\n  4. Set ω_max = ω_gc_new (desired crossover)\n  5. z = ω_max·√α, p = ω_max/√α"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#083",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "LAG COMPENSATOR: C(s) = Kc(s+z)/(s+p), where z > p (zero left of pole, farther from origin)\n  ─ Reduces gain at high frequencies → shifts crossover to lower ω\n  ─ Increases steady-state accuracy (zero ≈ at origin)\n  ─ Use when: steady-state error too large, bandwidth high enough"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#084",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "PD, PI, PID AS COMPENSATORS:\n  PD = lead compensator (approximate, pure differentiator is improper)\n  PI = lag compensator with zero at origin\n  PID = lead-lag combination\n```"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#085",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#086",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "## Steady-State Error and System Type"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#087",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "```\nSYSTEM TYPE = number of open-loop integrators (poles at s=0)"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#088",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "For step input R(s) = 1/s:\n  ess = lim(s→0) s·E(s) = lim(s→0) s / (1 + G(s)C(s)) · 1/s\n      = 1/(1+Kp)  where Kp = lim(s→0) G(s)C(s)  (position constant)"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#089",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "TYPE 0 (no integrators): ess = 1/(1+Kp), finite steady-state error to step\nTYPE 1 (one integrator): ess = 0 for step, ess = 1/Kv for ramp (velocity constant)\nTYPE 2 (two integrators): ess = 0 for step and ramp, finite for parabola"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#090",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "PI/I controller adds one integrator → increases system type by 1 → eliminates\nsteady-state error for one lower-order input.\n```"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#091",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#092",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "## Digital (Discrete-Time) PID"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#093",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "In software, the PID is implemented in discrete time. Approximation methods:"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#094",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "```\nFORWARD EULER (explicit):    s ≈ (z-1)/T      (unstable for large T)\nBACKWARD EULER (implicit):   s ≈ (z-1)/(Tz)   (always stable, overdamping)\nBILINEAR (TUSTIN):           s ≈ 2(z-1)/(T(z+1))  (best frequency response)\n  Recommended — maps jω axis to unit circle"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#095",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "DISCRETE PID (Tustin):\n  u[k] = u[k-1] + Kp(e[k]-e[k-1]) + Ki·T/2·(e[k]+e[k-1])\n                + Kd/T·(e[k]-2e[k-1]+e[k-2])"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#096",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "SAMPLING RULE OF THUMB:\n  Sample at least 20x the bandwidth: Ts < 0.05/ωgc\n  Nyquist: Ts < π/ωgc (absolute minimum — unworkable in practice)\n```"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#097",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#098",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "## Decision Cheat Sheet"
+    },
+    {
+      "id": "01-PID-CLASSICAL.md#099",
+      "path": [
+        "01-PID-CLASSICAL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:control-theory:01-pid-classical, git-history:control-theory:01-pid-classical]",
+        "canonical_path": "control-theory/01-PID-CLASSICAL.md",
+        "concepts": "[pid, classical]",
+        "current_path": "control-theory/01-PID-CLASSICAL.md",
+        "id": "maxim:control-theory:pid-classical",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "control-theory",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[pid, classical]",
+        "section": "control-theory",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Classical Control - PID, Root Locus, Bode, Nyquist",
+        "updated": "null"
+      },
+      "text": "| Goal | Method |\n|------|--------|\n| Quick tuning without model | Ziegler-Nichols (accept 25% overshoot) |\n| Eliminate steady-state error | Add integrator (PI or I action) |\n| Reduce overshoot / oscillation | Add derivative (PD or D action) |\n| Visualize closed-loop pole movement | Root locus |\n| Check gain and phase margins | Bode plot |\n| Handle unstable open-loop plant | Nyquist criterion |\n| Increase bandwidth + phase margin | Lead compensator |\n| Improve steady-state accuracy | Lag compensator (or PI) |\n| Prevent integrator saturation | Anti-windup back-calculation |\n| Implement in software | Discrete PID with Tustin (bilinear) transform |\n| Trade-off between PM and bandwidth | Bode: PM ↑ → bandwidth ↓ |"
+    }
+  ],
+  "refs": [
+    "01-PID-CLASSICAL.md"
+  ]
+}

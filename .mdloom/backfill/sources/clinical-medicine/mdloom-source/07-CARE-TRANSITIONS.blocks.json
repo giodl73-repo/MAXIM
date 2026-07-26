@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "clinical-medicine\\07-CARE-TRANSITIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 59,
+      "heading_context": "## The Big Picture: A Transition Is State Transfer Across a Boundary",
+      "confidence": "candidate",
+      "text": "A CARE TRANSITION IS A STATE TRANSFER  (this guide owns the transfer, not the clinical acts)\n==========================================================================\n  SENDER (context A)                                RECEIVER (context B)\n     shift / ward / hospital / clinic                  next shift / ward / clinic / home\n        |                                                        ^\n        |  (1) SERIALIZE   compress state to a message           |\n        |      structured: I-PASS / SBAR (Section 1)             |\n        v                                                        |\n     [ MESSAGE ] --(2) TRANSMIT--> [ MESSAGE ]                   |\n        |                              |                         |\n        |                              v                         |\n        |                      (3) DESERIALIZE + read-back ------+  (4) ACKNOWLEDGE\n        |                          receiver SYNTHESIZES back         the transfer COMMITS\n        |                          (I-PASS \"S\")                      only on ACK, not on send\n        v\n   RECONCILE what crosses:  medications (Section 2) + problem list (Section 4)\n   CLOSE every loop:        pending results/actions get a NAMED owner (Section 5)\n==========================================================================\n  Drop any step -> lost update, dropped message, or split-brain state. The transfer is not\n  done when the sender speaks; it is done when the receiver acknowledges and owns.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 146,
+      "heading_context": "## 2. Medication Reconciliation — A List Diff-and-Merge",
+      "confidence": "candidate",
+      "text": "  MEDICATION RECONCILIATION = A THREE-WAY MERGE AT EACH TRANSITION\n  ----------------------------------------------------------------\n   SOURCE A: what the patient was taking (home / prior setting)\n   SOURCE B: what is ordered now (this setting)\n        |         |\n        v         v\n     [ DIFF ]  find discrepancies:\n        - OMISSION    a needed drug dropped\n        - DUPLICATION two entries for the same thing\n        - CONFLICT    disagreeing entries (a classic drug-drug interaction, guide 06)\n        - UNINTENDED  a temporary drug carried forward by accident\n        |\n        v\n     [ RESOLVE ] each discrepancy explained + corrected, with a reason recorded\n        |\n        v\n   RECONCILED LIST -> becomes SOURCE A for the NEXT transition\n  ----------------------------------------------------------------\n  The output of one merge is the input to the next; an unreconciled list propagates its\n  errors through every downstream transition (diagnosis momentum for the med list).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 233,
+      "heading_context": "## 4. The Problem List as Shared Mutable State",
+      "confidence": "candidate",
+      "text": "  THE PROBLEM LIST = A SHARED, LONG-LIVED SOURCE OF TRUTH\n  ----------------------------------------------------------------\n   properties it must maintain               failure if not\n   -----------------------------             ------------------------------\n   ACCURACY (reflects current reality)  ->   stale entries drive wrong decisions\n   DEDUPLICATION (one entry per problem) ->  duplicates fragment the picture\n   RESOLUTION (close inactive problems)  ->  a graveyard of resolved problems buries the active\n   SHARED (one list, many editors)       ->  divergent private notes = split-brain\n  ----------------------------------------------------------------\n  The problem list is the PROBLEM REPRESENTATION (guide 01) made persistent and shared -- the\n  compressed key that every downstream clinician reasons from. A corrupt list corrupts reasoning.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 268,
+      "heading_context": "## 5. Closed Loops — No Pending Item Without an Owner",
+      "confidence": "candidate",
+      "text": "  THE CLOSED LOOP  (across time/shift boundaries; guide 08 applies the same shape across services)\n  ----------------------------------------------------------------\n  (1) an item is created (a pending test, a follow-up action, a contingency)\n        |\n        v\n  (2) an OWNER is NAMED for it at the transition (not \"whoever sees it\")\n        |\n        v\n  (3) the result/event arrives\n        |\n        v\n  (4) the named owner ACKNOWLEDGES it\n        |\n        v\n  (5) ACTION is taken (or explicitly declined) and RECORDED\n  ----------------------------------------------------------------\n  Break any arrow -> OPEN LOOP -> the classic missed-result event. Transitions open loops\n  because the person who created the item is often not present when the result returns.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

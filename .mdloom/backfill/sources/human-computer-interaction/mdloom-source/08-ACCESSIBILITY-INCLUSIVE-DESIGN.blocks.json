@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "human-computer-interaction\\08-ACCESSIBILITY-INCLUSIVE-DESIGN.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 34,
+      "heading_context": "# Accessibility and Inclusive Design — Interactive Systems for the Full Range of Human Ability",
+      "confidence": "candidate",
+      "text": "  THE THREE-WAY OWNERSHIP BOUNDARY (memorize this seam)\n  --------------------------------------------------------------\n  HCI (this guide)   -> interactive accessibility DESIGN & EVALUATION:\n                        can a disabled person perceive/operate/understand\n                        this interface, and how do we build & test that?\n  human-factors/     -> OPERATOR PERFORMANCE & SAFETY EVIDENCE:\n                        workload, human-error, safety-critical human-system\n                        integration -- performance under load, not interface reach\n  law/               -> LEGAL OBLIGATION: statutes, liability, compliance duty.\n                        Named here as dated landscape only; never adjudicated.\n  --------------------------------------------------------------\n  Rule: this guide describes how to MAKE and MEASURE accessible interaction.\n  It does not rule on legal compliance and does not model operator safety.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 79,
+      "heading_context": "## The Big Picture: Five Independent Axes, Not One Nested Word",
+      "confidence": "candidate",
+      "text": "  FIVE INDEPENDENT AXES  (not one nested word)\n  ==============================================================\n   1  PARTICIPATORY / INCLUSIVE DESIGN PROCESS\n      -> did disabled people shape discovery, design, evaluation?\n   2  TECHNICAL CONFORMANCE\n      -> does it meet the standard (WCAG)?   [audit: auto + manual]\n   3  TASK ACCESSIBILITY\n      -> can a disabled person perceive/operate/understand the\n         real task with their own AT?        [AT walkthrough, tasks]\n   4  USABILITY OUTCOMES\n      -> effective / efficient / satisfying for disabled users?\n   5  INCLUSION / EQUITY\n      -> does it reduce exclusion across the whole population?\n  ==============================================================\n   INDEPENDENT, not nested: high conformance (2) with low task\n   accessibility (3) is the classic \"passes WCAG, unusable with a\n   screen reader\" state. No axis is a \"floor\" the others sit on.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 221,
+      "heading_context": "## 3. How Assistive Technology Interacts — The Accessibility Tree",
+      "confidence": "candidate",
+      "text": "  THE ACCESSIBILITY PIPELINE (how AT reaches the user)\n  --------------------------------------------------------------\n   UI element tree        semantic contract          platform bridge\n   (DOM / native views)   name / role / value /       OS a11y API\n        |                 state / relationships       (UIA, AX, AT-SPI)\n        |  compute              |                          |\n        v                       v                          v\n   [ ACCESSIBILITY TREE ] --> [ PLATFORM A11Y API ] --> [ ASSISTIVE TECH ] --> user\n                                                         screen reader,\n                                                         magnifier, switch,\n                                                         voice control, braille\n  --------------------------------------------------------------\n   If the semantic contract is wrong, EVERY layer downstream is wrong.\n   A <div> styled to look like a button has role=none: AT sees nothing\n   to announce, nothing to focus, nothing to \"press\".",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 418,
+      "heading_context": "## 6. Conformance vs Actual Usability — The Central Honesty",
+      "confidence": "candidate",
+      "text": "  CONFORMANCE  is NOT  USABILITY\n  --------------------------------------------------------------\n   AUTOMATED CHECK passes ...... only a MINORITY of WCAG issues are\n                                 machine-detectable at all (see the\n                                 recall note below) -> \"0 errors\" means\n                                 \"no MACHINE-FOUND errors\", not \"accessible\"\n   MANUAL AUDIT passes (AA) .... every criterion met on paper, yet the\n                                 screen-reader task can still take 10x longer,\n                                 or dead-end, or be technically-labelled noise\n   ACTUAL USABILITY ........... a disabled user completes the real task\n                                 effectively, efficiently, without agony\n  --------------------------------------------------------------\n   Each layer is necessary and none is sufficient. The bottom layer is\n   the strongest evidence -- but still BOUNDED (Section 7), not ground truth.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 492,
+      "heading_context": "## 7. Participatory Practice & Accessible Research — With, and By, Disabled People",
+      "confidence": "candidate",
+      "text": "  ACCESSIBILITY EVALUATION STACK (cheap/shallow -> expensive/deep)\n  --------------------------------------------------------------\n   1. AUTOMATED scan .......... fast, CI-friendly, low recall (§6), false sense of done\n   2. MANUAL EXPERT AUDIT ..... criterion-by-criterion vs WCAG; keyboard + AT walkthrough\n   3. AT WALKTHROUGH .......... operate the real flow with NVDA/VoiceOver/switch/voice\n   4. USABILITY TEST w/ ....... disabled participants, real tasks = strong but BOUNDED\n      DISABLED USERS          evidence (extends guide 05's methods), not ground truth\n  --------------------------------------------------------------\n   Stop-short at 1-2 and you ship \"conformant but unusable\" (Section 6).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

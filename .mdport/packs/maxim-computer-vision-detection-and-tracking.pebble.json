@@ -1,0 +1,377 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-computer-vision-detection-and-tracking",
+  "source": "../../computer-vision",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "07-DETECTION-AND-TRACKING.md#000",
+      "path": [
+        "07-DETECTION-AND-TRACKING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:07-detection-and-tracking, git-history:computer-vision:07-detection-and-tracking]",
+        "canonical_path": "computer-vision/07-DETECTION-AND-TRACKING.md",
+        "concepts": "[object detection, R-CNN, YOLO, non-maximum suppression, IoU, mAP, Kalman filter, optical flow, tracking]",
+        "current_path": "computer-vision/07-DETECTION-AND-TRACKING.md",
+        "id": "maxim:computer-vision:detection-and-tracking",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[object detection]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Detection and Tracking",
+        "updated": "null"
+      },
+      "text": "# Detection and Tracking"
+    },
+    {
+      "id": "07-DETECTION-AND-TRACKING.md#001",
+      "path": [
+        "07-DETECTION-AND-TRACKING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:07-detection-and-tracking, git-history:computer-vision:07-detection-and-tracking]",
+        "canonical_path": "computer-vision/07-DETECTION-AND-TRACKING.md",
+        "concepts": "[object detection, R-CNN, YOLO, non-maximum suppression, IoU, mAP, Kalman filter, optical flow, tracking]",
+        "current_path": "computer-vision/07-DETECTION-AND-TRACKING.md",
+        "id": "maxim:computer-vision:detection-and-tracking",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[object detection]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Detection and Tracking",
+        "updated": "null"
+      },
+      "text": "## The Big Picture: Where, Not Just What"
+    },
+    {
+      "id": "07-DETECTION-AND-TRACKING.md#002",
+      "path": [
+        "07-DETECTION-AND-TRACKING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:07-detection-and-tracking, git-history:computer-vision:07-detection-and-tracking]",
+        "canonical_path": "computer-vision/07-DETECTION-AND-TRACKING.md",
+        "concepts": "[object detection, R-CNN, YOLO, non-maximum suppression, IoU, mAP, Kalman filter, optical flow, tracking]",
+        "current_path": "computer-vision/07-DETECTION-AND-TRACKING.md",
+        "id": "maxim:computer-vision:detection-and-tracking",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[object detection]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Detection and Tracking",
+        "updated": "null"
+      },
+      "text": "Classification (guide 05) answers *what* is in an image. Detection answers *what and\nwhere* — it returns a box and a label per object. Tracking extends detection through\ntime — it follows each object across video frames, maintaining identity. This guide\ncovers the two detector families (region-based R-CNN and single-shot YOLO), the metrics\nthat govern them (IoU, mAP), the cleanup step (NMS), and the temporal machinery (Kalman\nfiltering, optical flow, multi-object tracking)."
+    },
+    {
+      "id": "07-DETECTION-AND-TRACKING.md#003",
+      "path": [
+        "07-DETECTION-AND-TRACKING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:07-detection-and-tracking, git-history:computer-vision:07-detection-and-tracking]",
+        "canonical_path": "computer-vision/07-DETECTION-AND-TRACKING.md",
+        "concepts": "[object detection, R-CNN, YOLO, non-maximum suppression, IoU, mAP, Kalman filter, optical flow, tracking]",
+        "current_path": "computer-vision/07-DETECTION-AND-TRACKING.md",
+        "id": "maxim:computer-vision:detection-and-tracking",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[object detection]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Detection and Tracking",
+        "updated": "null"
+      },
+      "text": "```\n+------------------------------------------------------------------------------+\n|              CLASSIFY -> DETECT -> TRACK  (adding location, then time)       |\n|                                                                              |\n|  CLASSIFY            DETECT                    TRACK                         |\n|  \"cat\"              \"cat @ box1, 0.9\"         \"cat#3 @ box1 -> box1' -> ...\" |\n|                     \"dog @ box2, 0.8\"          maintain IDENTITY over frames |\n|                                                                              |\n|  .-------.          .-------.                  frame t      frame t+1        |\n|  | whole |          | [box] |                  .--[#3]--.   .---[#3]-.       |\n|  | image |          |  [box]|                  |        |   |        |       |\n|  '-------'          '-------'                  '--------'   '--------'       |\n|   one label         many boxes + labels        boxes LINKED across time      |\n+------------------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "07-DETECTION-AND-TRACKING.md#004",
+      "path": [
+        "07-DETECTION-AND-TRACKING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:07-detection-and-tracking, git-history:computer-vision:07-detection-and-tracking]",
+        "canonical_path": "computer-vision/07-DETECTION-AND-TRACKING.md",
+        "concepts": "[object detection, R-CNN, YOLO, non-maximum suppression, IoU, mAP, Kalman filter, optical flow, tracking]",
+        "current_path": "computer-vision/07-DETECTION-AND-TRACKING.md",
+        "id": "maxim:computer-vision:detection-and-tracking",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[object detection]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Detection and Tracking",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-DETECTION-AND-TRACKING.md#005",
+      "path": [
+        "07-DETECTION-AND-TRACKING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:07-detection-and-tracking, git-history:computer-vision:07-detection-and-tracking]",
+        "canonical_path": "computer-vision/07-DETECTION-AND-TRACKING.md",
+        "concepts": "[object detection, R-CNN, YOLO, non-maximum suppression, IoU, mAP, Kalman filter, optical flow, tracking]",
+        "current_path": "computer-vision/07-DETECTION-AND-TRACKING.md",
+        "id": "maxim:computer-vision:detection-and-tracking",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[object detection]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Detection and Tracking",
+        "updated": "null"
+      },
+      "text": "## Layer 1: IoU — The Metric Everything Rests On"
+    },
+    {
+      "id": "07-DETECTION-AND-TRACKING.md#006",
+      "path": [
+        "07-DETECTION-AND-TRACKING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:07-detection-and-tracking, git-history:computer-vision:07-detection-and-tracking]",
+        "canonical_path": "computer-vision/07-DETECTION-AND-TRACKING.md",
+        "concepts": "[object detection, R-CNN, YOLO, non-maximum suppression, IoU, mAP, Kalman filter, optical flow, tracking]",
+        "current_path": "computer-vision/07-DETECTION-AND-TRACKING.md",
+        "id": "maxim:computer-vision:detection-and-tracking",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[object detection]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Detection and Tracking",
+        "updated": "null"
+      },
+      "text": "**Intersection over Union** measures how well a predicted box matches a ground-truth box.\nIt is the atom of every detection metric, the matching criterion in NMS, and the\nassignment cost in tracking."
+    },
+    {
+      "id": "07-DETECTION-AND-TRACKING.md#007",
+      "path": [
+        "07-DETECTION-AND-TRACKING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:07-detection-and-tracking, git-history:computer-vision:07-detection-and-tracking]",
+        "canonical_path": "computer-vision/07-DETECTION-AND-TRACKING.md",
+        "concepts": "[object detection, R-CNN, YOLO, non-maximum suppression, IoU, mAP, Kalman filter, optical flow, tracking]",
+        "current_path": "computer-vision/07-DETECTION-AND-TRACKING.md",
+        "id": "maxim:computer-vision:detection-and-tracking",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[object detection]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Detection and Tracking",
+        "updated": "null"
+      },
+      "text": "```\n   IoU = area(intersection) / area(union)"
+    },
+    {
+      "id": "07-DETECTION-AND-TRACKING.md#008",
+      "path": [
+        "07-DETECTION-AND-TRACKING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:07-detection-and-tracking, git-history:computer-vision:07-detection-and-tracking]",
+        "canonical_path": "computer-vision/07-DETECTION-AND-TRACKING.md",
+        "concepts": "[object detection, R-CNN, YOLO, non-maximum suppression, IoU, mAP, Kalman filter, optical flow, tracking]",
+        "current_path": "computer-vision/07-DETECTION-AND-TRACKING.md",
+        "id": "maxim:computer-vision:detection-and-tracking",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[object detection]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Detection and Tracking",
+        "updated": "null"
+      },
+      "text": "+----------+\n        |  GT      |          intersection = overlap region\n        |    +-----+----+     union = total area covered by both\n        |    | // |    |\n        +----+----+    |      IoU = 0   -> no overlap\n             | pred    |      IoU = 1   -> perfect match\n             +---------+      IoU > 0.5 -> conventionally a \"correct\" detection\n```"
+    },
+    {
+      "id": "07-DETECTION-AND-TRACKING.md#009",
+      "path": [
+        "07-DETECTION-AND-TRACKING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:07-detection-and-tracking, git-history:computer-vision:07-detection-and-tracking]",
+        "canonical_path": "computer-vision/07-DETECTION-AND-TRACKING.md",
+        "concepts": "[object detection, R-CNN, YOLO, non-maximum suppression, IoU, mAP, Kalman filter, optical flow, tracking]",
+        "current_path": "computer-vision/07-DETECTION-AND-TRACKING.md",
+        "id": "maxim:computer-vision:detection-and-tracking",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[object detection]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Detection and Tracking",
+        "updated": "null"
+      },
+      "text": "A detection is counted **correct** if its IoU with a ground-truth box of the same class\nexceeds a threshold (commonly 0.5). Higher thresholds (0.75, or the 0.5:0.95 average used\nby COCO) demand tighter localization."
+    },
+    {
+      "id": "07-DETECTION-AND-TRACKING.md#010",
+      "path": [
+        "07-DETECTION-AND-TRACKING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:07-detection-and-tracking, git-history:computer-vision:07-detection-and-tracking]",
+        "canonical_path": "computer-vision/07-DETECTION-AND-TRACKING.md",
+        "concepts": "[object detection, R-CNN, YOLO, non-maximum suppression, IoU, mAP, Kalman filter, optical flow, tracking]",
+        "current_path": "computer-vision/07-DETECTION-AND-TRACKING.md",
+        "id": "maxim:computer-vision:detection-and-tracking",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[object detection]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Detection and Tracking",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-DETECTION-AND-TRACKING.md#011",
+      "path": [
+        "07-DETECTION-AND-TRACKING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:07-detection-and-tracking, git-history:computer-vision:07-detection-and-tracking]",
+        "canonical_path": "computer-vision/07-DETECTION-AND-TRACKING.md",
+        "concepts": "[object detection, R-CNN, YOLO, non-maximum suppression, IoU, mAP, Kalman filter, optical flow, tracking]",
+        "current_path": "computer-vision/07-DETECTION-AND-TRACKING.md",
+        "id": "maxim:computer-vision:detection-and-tracking",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[object detection]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Detection and Tracking",
+        "updated": "null"
+      },
+      "text": "## Layer 2: NMS — Removing Duplicate Boxes"
+    },
+    {
+      "id": "07-DETECTION-AND-TRACKING.md#012",
+      "path": [
+        "07-DETECTION-AND-TRACKING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computer-vision:07-detection-and-tracking, git-history:computer-vision:07-detection-and-tracking]",
+        "canonical_path": "computer-vision/07-DETECTION-AND-TRACKING.md",
+        "concepts": "[object detection, R-CNN, YOLO, non-maximum suppression, IoU, mAP, Kalman filter, optical flow, tracking]",
+        "current_path": "computer-vision/07-DETECTION-AND-TRACKING.md",
+        "id": "maxim:computer-vision:detection-and-tracking",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computer-vision",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[object detection]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Detection and Tracking",
+        "updated": "null"
+      },
+      "text": "Detectors fire many overlapping boxes on the same object. **Non-Maximum Suppression**\nkeeps the highest-confidence box and removes its near-duplicates by IoU."
+    }
+  ],
+  "refs": [
+    "07-DETECTION-AND-TRACKING.md"
+  ]
+}

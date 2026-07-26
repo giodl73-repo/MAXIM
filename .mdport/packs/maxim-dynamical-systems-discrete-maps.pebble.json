@@ -1,0 +1,153 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-dynamical-systems-discrete-maps",
+  "source": "../../dynamical-systems",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "08-DISCRETE-MAPS.md#000",
+      "path": [
+        "08-DISCRETE-MAPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:08-discrete-maps, git-history:dynamical-systems:08-discrete-maps]",
+        "canonical_path": "dynamical-systems/08-DISCRETE-MAPS.md",
+        "concepts": "[discrete, maps]",
+        "current_path": "dynamical-systems/08-DISCRETE-MAPS.md",
+        "id": "maxim:dynamical-systems:discrete-maps",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[discrete, maps]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Discrete Maps",
+        "updated": "null"
+      },
+      "text": "# Discrete Maps"
+    },
+    {
+      "id": "08-DISCRETE-MAPS.md#001",
+      "path": [
+        "08-DISCRETE-MAPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:08-discrete-maps, git-history:dynamical-systems:08-discrete-maps]",
+        "canonical_path": "dynamical-systems/08-DISCRETE-MAPS.md",
+        "concepts": "[discrete, maps]",
+        "current_path": "dynamical-systems/08-DISCRETE-MAPS.md",
+        "id": "maxim:dynamical-systems:discrete-maps",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[discrete, maps]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Discrete Maps",
+        "updated": "null"
+      },
+      "text": "A discrete map `x_{n+1} = F(x_n)` advances state in integer ticks rather than continuous time. Maps\nare not a poor cousin of flows — they are *more powerful*: a 1D map (logistic) is already chaotic,\nescaping the dimension hierarchy that tames continuous flows (Ch. 00). They arise as **Poincaré\nsections** of flows (Ch. 06), as **numerical integrators** (each step is a map — `numerical-methods/06`),\nand natively in seasonal/digital systems. This chapter develops the map toolkit in full: cobweb\nanalysis, the stability rule `|F'| < 1`, **symbolic dynamics** (the bridge to formal languages), the\n**Hénon** attractor, and the **Smale horseshoe** — the geometric heart of chaos."
+    },
+    {
+      "id": "08-DISCRETE-MAPS.md#002",
+      "path": [
+        "08-DISCRETE-MAPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:08-discrete-maps, git-history:dynamical-systems:08-discrete-maps]",
+        "canonical_path": "dynamical-systems/08-DISCRETE-MAPS.md",
+        "concepts": "[discrete, maps]",
+        "current_path": "dynamical-systems/08-DISCRETE-MAPS.md",
+        "id": "maxim:dynamical-systems:discrete-maps",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[discrete, maps]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Discrete Maps",
+        "updated": "null"
+      },
+      "text": "```\n              FLOW vs MAP: STABILITY LIVES ON DIFFERENT CURVES\n              ================================================\n        FLOWS x' = f(x)              MAPS x_{n+1} = F(x_n)\n        eigenvalue lambda            multiplier lambda = F'(x*)"
+    },
+    {
+      "id": "08-DISCRETE-MAPS.md#003",
+      "path": [
+        "08-DISCRETE-MAPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:08-discrete-maps, git-history:dynamical-systems:08-discrete-maps]",
+        "canonical_path": "dynamical-systems/08-DISCRETE-MAPS.md",
+        "concepts": "[discrete, maps]",
+        "current_path": "dynamical-systems/08-DISCRETE-MAPS.md",
+        "id": "maxim:dynamical-systems:discrete-maps",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[discrete, maps]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Discrete Maps",
+        "updated": "null"
+      },
+      "text": "Im                              Im\n            |  UNSTABLE                      | unstable (outside)\n            |                          .-----+-----.\n   ---------+--------> Re             /  |STABLE|   \\\n            |  STABLE                |   |  o   |    |  <- unit circle\n            | (Re < 0)                \\  |unit  |   /   |lambda| < 1 stable\n            |                          '--+--disk+--'\n   stable <=> LEFT half-plane         stable <=> INSIDE unit circle\n   marginal: Re = 0                   marginal: |lambda| = 1\n                                      (lambda=+1 fold, lambda=-1 flip/doubling)\n```"
+    },
+    {
+      "id": "08-DISCRETE-MAPS.md#004",
+      "path": [
+        "08-DISCRETE-MAPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:dynamical-systems:08-discrete-maps, git-history:dynamical-systems:08-discrete-maps]",
+        "canonical_path": "dynamical-systems/08-DISCRETE-MAPS.md",
+        "concepts": "[discrete, maps]",
+        "current_path": "dynamical-systems/08-DISCRETE-MAPS.md",
+        "id": "maxim:dynamical-systems:discrete-maps",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "dynamical-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[discrete, maps]",
+        "section": "dynamical-systems",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Discrete Maps",
+        "updated": "null"
+      },
+      "text": "The change of stability boundary (imaginary axis → unit circle) is the single fact to internalize:\nthe time-`T` map of a flow sends `λ → e^{λT}`, carrying the left half-plane onto the unit disk."
+    }
+  ],
+  "refs": [
+    "08-DISCRETE-MAPS.md"
+  ]
+}

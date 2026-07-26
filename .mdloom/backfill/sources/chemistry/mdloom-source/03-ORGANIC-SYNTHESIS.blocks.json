@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "chemistry\\03-ORGANIC-SYNTHESIS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 34,
+      "heading_context": "# Organic Synthesis — Design, Named Reactions, Retrosynthesis, Green Chemistry",
+      "confidence": "candidate",
+      "text": "THE SYNTHESIS LOOP: TARGET -> PLAN -> BUILD -> VERIFY\n==========================================================================\n  TARGET molecule\n     |\n     v   RETROSYNTHESIS (think backwards)\n  [ disconnect strategic bonds ] --> SYNTHONS (idealized fragments)\n     |                                    |\n     |                                    v\n     |                          SYNTHETIC EQUIVALENTS (real reagents)\n     v                                    |\n  simpler precursors  <--- FGI (functional group interconversion)\n     |\n     v   FORWARD SYNTHESIS (build)\n  [ C-C bond | redox | protect/deprotect | set stereochem ]\n     |\n     v   VERIFY  ->  NMR (06) + MS/IR (07) + XRD (08)\n\n  OPTIMIZE AGAINST: yield x selectivity x atom economy x E-factor\n==========================================================================",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 64,
+      "heading_context": "## Retrosynthetic Analysis (Corey's formalism)",
+      "confidence": "candidate",
+      "text": "TARGET:  R-CH(OH)-CH2-C(=O)-R'   (a beta-hydroxy ketone)\n                  ^ disconnect the C-C bond alpha to the carbonyl\n                  |\n  SYNTHONS:   R-CHO  +  [ -CH2-C(=O)-R' ]   (an acyl-anion-stabilized enolate)\n  EQUIVALENTS: aldehyde  +  enolate of R'-CO-CH3   ==>  ALDOL disconnection",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 107,
+      "heading_context": "### Change oxidation state (redox toolkit)",
+      "confidence": "candidate",
+      "text": "REDUCTIONS (add H / remove O)              chemoselectivity\n  NaBH4        aldehyde, ketone -> alcohol  (mild; leaves esters, acids)\n  LiAlH4       ester/acid/amide/nitrile     (strong; reduces almost everything)\n  DIBAL-H      ester -> ALDEHYDE (1 equiv, -78 C; stops at aldehyde)\n  H2 / Pd-C    alkene, alkyne; hydrogenolysis of Bn\n  CBS / (R)- or (S)- oxazaborolidine        ENANTIOSELECTIVE ketone -> alcohol\n\nOXIDATIONS (remove H / add O)\n  PCC, Dess-Martin (DMP), Swern            1o alcohol -> ALDEHYDE (stops there)\n  Jones (CrO3/H2SO4), KMnO4                1o alcohol -> carboxylic acid\n  mCPBA                                    alkene -> epoxide; Baeyer-Villiger\n  OsO4                                     alkene -> cis-diol",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 224,
+      "heading_context": "## Worked Case: End-to-End Retrosynthesis of a β-Hydroxy Aryl Ketone",
+      "confidence": "candidate",
+      "text": "TARGET  T:  HO-C6H4-C(=O)-CH2-CH(OH)-CH3   [Ar = 4-hydroxyphenyl]\n            a beta-hydroxy aryl ketone with a phenol; one stereocenter (*)\n\n  Disconnection A  (aldol, the Ca-Cb bond next to the carbonyl):\n     Ar-C(=O)-CH3   +   CH3-CHO\n     aryl methyl ketone   acetaldehyde        -> 1 C-C bond, convergent\n     (enolate = Nu)       (electrophile)\n\n  Disconnection B  (FGI: oxidation-level up at Cb -> a 1,3-diketone):\n     Ar-C(=O)-CH2-C(=O)-CH3  --[reduce the ALIPHATIC C=O]-->  T\n     1-(4-hydroxyphenyl)butane-1,3-dione     (chemo- + enantioselective)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 294,
+      "heading_context": "## Green Chemistry Metrics",
+      "confidence": "candidate",
+      "text": "ATOM ECONOMY  =  (MW of desired product / sum of MW of all reactants) x 100%\n   -> a DESIGN metric: addition/rearrangement ~100%; substitution/elimination lose\n      atoms as stoichiometric byproducts.  Diels-Alder = 100% atom economy.\n\nE-FACTOR  =  kg waste / kg product        (Sheldon)\n   bulk chemicals ~ <1-5 | fine chemicals ~5-50 | pharma ~25->100\n\nPMI (Process Mass Intensity) = total mass in (incl. solvent, water) / mass product\n   -> the honest number; solvent usually dominates it.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

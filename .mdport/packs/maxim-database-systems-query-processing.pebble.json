@@ -1,0 +1,97 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-database-systems-query-processing",
+  "source": "../../database-systems",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "03-QUERY-PROCESSING.md#000",
+      "path": [
+        "03-QUERY-PROCESSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:database-systems:03-query-processing, git-history:database-systems:03-query-processing]",
+        "canonical_path": "database-systems/03-QUERY-PROCESSING.md",
+        "concepts": "[query processing, parser, query optimizer, cost-based optimization, join algorithms, statistics, cardinality estimation, query execution]",
+        "current_path": "database-systems/03-QUERY-PROCESSING.md",
+        "id": "maxim:database-systems:query-processing",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[query optimizer]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Query Processing - Parse, Plan, Optimize, Execute",
+        "updated": "null"
+      },
+      "text": "# Query Processing — From Declarative Text to Physical Plan"
+    },
+    {
+      "id": "03-QUERY-PROCESSING.md#001",
+      "path": [
+        "03-QUERY-PROCESSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:database-systems:03-query-processing, git-history:database-systems:03-query-processing]",
+        "canonical_path": "database-systems/03-QUERY-PROCESSING.md",
+        "concepts": "[query processing, parser, query optimizer, cost-based optimization, join algorithms, statistics, cardinality estimation, query execution]",
+        "current_path": "database-systems/03-QUERY-PROCESSING.md",
+        "id": "maxim:database-systems:query-processing",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[query optimizer]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Query Processing - Parse, Plan, Optimize, Execute",
+        "updated": "null"
+      },
+      "text": "SQL is **declarative**: you state *what* you want, not *how* to get it. The query processor's\njob is to bridge that gap — turn one query string into an efficient sequence of physical\noperations over the storage and index layers below. For an MIT-TCS reader this is a compiler:\nfront-end (parse/bind), a middle-end optimizer (cost-based, over a huge plan space), and a\nback-end executor (the iterator/vectorized runtime)."
+    },
+    {
+      "id": "03-QUERY-PROCESSING.md#002",
+      "path": [
+        "03-QUERY-PROCESSING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:database-systems:03-query-processing, git-history:database-systems:03-query-processing]",
+        "canonical_path": "database-systems/03-QUERY-PROCESSING.md",
+        "concepts": "[query processing, parser, query optimizer, cost-based optimization, join algorithms, statistics, cardinality estimation, query execution]",
+        "current_path": "database-systems/03-QUERY-PROCESSING.md",
+        "id": "maxim:database-systems:query-processing",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "database-systems",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[query optimizer]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Query Processing - Parse, Plan, Optimize, Execute",
+        "updated": "null"
+      },
+      "text": "```\n+=====================================================================================+\n|                         THE QUERY PROCESSING PIPELINE                               |\n+=====================================================================================+\n|                                                                                     |\n|  SQL TEXT                                                                           |\n|  \"SELECT c.name, SUM(o.total) FROM customers c JOIN orders o                        |\n|   ON c.id=o.cust_id WHERE o.region='EU' GROUP BY c.name\"                            |\n|        |                                                                            |\n|        v   (1) PARSE  — lex + grammar -> abstract syntax tree (AST)                  |\n|        v   (2) BIND   — resolve names to tables/columns, type-check, expand *        |\n|   +-----------------------------------------------------------------------------+   |\n|   |  (3) LOGICAL PLAN  — a tree of relational-algebra operators                   |  |\n|   |        sigma (filter region='EU')                                            |  |\n|   |          |                                                                   |  |\n|   |        join (c.id = o.cust_id)                                               |  |\n|   |        /        \\                                                            |  |\n|   |   scan customers  scan orders                                                |  |\n|   +-----------------------------------------------------------------------------+   |\n|        |                                                                            |\n|        v   (4) OPTIMIZE  — apply REWRITES + enumerate PHYSICAL plans, COST each,     |\n|        |                   pick the cheapest. Uses STATISTICS for cardinality.       |\n|   +-----------------------------------------------------------------------------+   |\n|   |  (5) PHYSICAL PLAN  — concrete algorithms chosen:                             |  |\n|   |        HashAggregate                                                          |  |\n|   |          |                                                                   |  |\n|   |        HashJoin (build on customers, probe with orders)                      |  |\n|   |        /            \\                                                         |  |\n|   |   IndexScan        IndexSeek orders ON (region) [pushed-down filter]          |  |\n|   +-----------------------------------------------------------------------------+   |\n|        |                                                                            |\n|        v   (6) EXECUTE  — iterator (Volcano) or VECTORIZED engine pulls rows         |\n|   RESULT ROWS                                                                       |\n+=====================================================================================+\n```"
+    }
+  ],
+  "refs": [
+    "03-QUERY-PROCESSING.md"
+  ]
+}

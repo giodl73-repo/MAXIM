@@ -1,0 +1,41 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: mdloom-backfill:signal-processing:07-spectral-estimation
+kind: source-record
+module: signal-processing
+section: signal-processing
+title: Spectral Estimation - A Layered Guide source record
+status: source-custody
+source_custody: partial
+current_path: .mdloom/backfill/sources/signal-processing/07-spectral-estimation.source-record.md
+canonical_path: .mdloom/backfill/sources/signal-processing/07-spectral-estimation.source-record.md
+backsource_ids: [git-history:signal-processing:07-spectral-estimation]
+concepts: [spectral, estimation]
+root_concepts: [spectral, estimation]
+index_roles: [source-map]
+remap_from: []
+remap_to: []
+updated: null
+---
+
+# Spectral Estimation - A Layered Guide source record
+
+| Field | Value |
+|---|---|
+| Current MAXIM file | `signal-processing/07-SPECTRAL-ESTIMATION.md` |
+| MDLOOM source artifact | `.mdloom/backfill/sources/signal-processing/mdloom-source/07-SPECTRAL-ESTIMATION.source.md` |
+| MDLOOM table sidecar | `.mdloom/backfill/sources/signal-processing/mdloom-source/07-SPECTRAL-ESTIMATION.tables.json` |
+| MDLOOM block sidecar | `.mdloom/backfill/sources/signal-processing/mdloom-source/07-SPECTRAL-ESTIMATION.blocks.json` |
+| Backfill report | `.mdloom/backfill/sources/signal-processing/backfill-report.json` |
+| MDLOOM classification | `literal_markdown` |
+| MDLOOM confidence | `high` |
+| Round trip | `passed` |
+| Structured extraction | `1` markdown tables, `6` visual/block candidates |
+| Git provenance | `5226afc5`, `578235d5`, `12c36bd6`, `8de47118`, `60d2f747`, `6b9c5b4a` |
+
+## Custody note
+
+This first-pass record proves the current file can be regenerated as a MDLOOM
+literal source artifact and round-tripped without loss. It is still marked
+`partial` because external/authentic backsources for factual claims have not yet
+been attached.

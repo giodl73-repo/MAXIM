@@ -1,0 +1,4717 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-mathematics-probability",
+  "source": "../../mathematics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "11-PROBABILITY.md#000",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "# 11 — Probability & Statistics"
+    },
+    {
+      "id": "11-PROBABILITY.md#001",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "```\nPROBABILITY LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "11-PROBABILITY.md#002",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Sample space Ω ──► events (subsets) ──► probability measure P: 2^Ω → [0,1]\n         │\n         │  Random variables X: Ω → ℝ\n         │         │\n         │         ├── Discrete  ── PMF p(x) = P(X=x)\n         │         └── Continuous ── PDF f(x), CDF F(x) = ∫_{-∞}^x f(t)dt\n         │\n         ├── Expectation, variance, moments\n         ├── Joint distributions, independence, conditioning\n         ├── Limit theorems: LLN, CLT\n         └── Stochastic processes: Markov chains, Poisson process"
+    },
+    {
+      "id": "11-PROBABILITY.md#003",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "PHYSICS CONNECTION:\n    Statistical mechanics ──► Boltzmann distribution, partition functions\n    QM ──► Born rule |ψ|² = probability density\n    Algorithms ──► Master Theorem (recurrences), randomized complexity\n```"
+    },
+    {
+      "id": "11-PROBABILITY.md#004",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "11-PROBABILITY.md#005",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "## 1. Kolmogorov Axioms — The Foundation"
+    },
+    {
+      "id": "11-PROBABILITY.md#006",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "### Measure-Theoretic Grounding"
+    },
+    {
+      "id": "11-PROBABILITY.md#007",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Probability theory is a branch of measure theory. The triple (Ω, ℱ, P) is a\nmeasure space where P is a normalized measure (P(Ω) = 1)."
+    },
+    {
+      "id": "11-PROBABILITY.md#008",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "```\n  σ-algebra ℱ ⊆ 2^Ω: closed under complement and countable union.\n  Why σ-algebras? On uncountable Ω (like ℝ), not every subset is measurable —\n  the Banach-Tarski paradox shows non-measurable sets exist under AC.\n  ℱ specifies which events are \"observable.\""
+    },
+    {
+      "id": "11-PROBABILITY.md#009",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Random variable: X: (Ω, ℱ) → (ℝ, ℬ(ℝ)) is a measurable function.\n  Measurability means: {ω : X(ω) ≤ x} ∈ ℱ for all x  (preimages of Borel sets are events)"
+    },
+    {
+      "id": "11-PROBABILITY.md#010",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Expectation as Lebesgue integral:\n    E[X] = ∫_Ω X(ω) dP(ω)\n  This is the Lebesgue integral of X with respect to measure P.\n  For continuous distributions: E[X] = ∫ x f(x) dx  (Radon-Nikodym: f = dP/dλ)\n  For discrete: E[X] = Σ x P(X=x)\n  Both are special cases of the same integral."
+    },
+    {
+      "id": "11-PROBABILITY.md#011",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Lᵖ spaces: X ∈ Lᵖ(Ω, P) iff E[|X|ᵖ] < ∞.\n    L¹: finite mean    L²: finite variance (the natural Hilbert space)\n    Covariance = inner product on L²: ⟨X,Y⟩ = E[XY] (centered)\n```"
+    },
+    {
+      "id": "11-PROBABILITY.md#012",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "This framework is load-bearing for everything downstream:\n- Convergence types are defined in terms of Lᵖ norms and the measure P\n- Martingales are processes adapted to a filtration (increasing σ-algebras)\n- The law of a random variable is its pushforward measure on (ℝ, ℬ(ℝ))"
+    },
+    {
+      "id": "11-PROBABILITY.md#013",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "### Probability Space (Ω, ℱ, P)"
+    },
+    {
+      "id": "11-PROBABILITY.md#014",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "| Component | Definition | Example (fair die) |\n|-----------|------------|-------------------|\n| **Ω** | Sample space — all outcomes | {1,2,3,4,5,6} |\n| **ℱ** | σ-algebra of events (subsets closed under complement and countable union) | All 2⁶ subsets |\n| **P** | Probability measure | P({k}) = 1/6 |"
+    },
+    {
+      "id": "11-PROBABILITY.md#015",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "### Three Axioms"
+    },
+    {
+      "id": "11-PROBABILITY.md#016",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "```\n  K1: P(A) ≥ 0             for all A ∈ ℱ\n  K2: P(Ω) = 1\n  K3: If A₁, A₂,... disjoint, then P(⋃ᵢ Aᵢ) = Σᵢ P(Aᵢ)   (countable additivity)"
+    },
+    {
+      "id": "11-PROBABILITY.md#017",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Everything else is a theorem:\n    P(∅) = 0\n    P(Aᶜ) = 1 - P(A)\n    P(A∪B) = P(A) + P(B) - P(A∩B)          (inclusion-exclusion)\n    P(A) ≤ P(B) if A ⊆ B\n```"
+    },
+    {
+      "id": "11-PROBABILITY.md#018",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "### Convergence Hierarchy"
+    },
+    {
+      "id": "11-PROBABILITY.md#019",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Four modes of convergence for a sequence of random variables Xₙ → X:"
+    },
+    {
+      "id": "11-PROBABILITY.md#020",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "```\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  CONVERGENCE MODES (strongest to weakest)                           │\n  │                                                                     │\n  │  Almost sure (a.s.):   P(lim Xₙ = X) = 1                            │\n  │    Xₙ(ω) → X(ω) for all ω outside a null set.                       │\n  │                                                                     │\n  │  In Lᵖ (mean pth power): E[|Xₙ - X|ᵖ] → 0                           │\n  │    Most useful: L² (mean square convergence, geometry of Hilbert)   │\n  │                                                                     │\n  │  In probability:  P(|Xₙ - X| > ε) → 0  for all ε > 0                │\n  │                                                                     │\n  │  In distribution: F_Xₙ(x) → F_X(x) at continuity points of F_X      │\n  │    Weakest: only the law (distribution) converges, not the values   │\n  └─────────────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "11-PROBABILITY.md#021",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Implications:\n    a.s. ⟹ in probability ⟹ in distribution\n    Lᵖ (p≥1) ⟹ in probability ⟹ in distribution\n    L² ⟹ L¹ (by Jensen/Cauchy-Schwarz)"
+    },
+    {
+      "id": "11-PROBABILITY.md#022",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "None of the arrows reverse in general:"
+    },
+    {
+      "id": "11-PROBABILITY.md#023",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Counterexample (in prob ↛ a.s.): the \"typewriter sequence\"\n    Enumerate dyadic intervals on [0,1]: [0,1], [0,1/2], [1/2,1], [0,1/4], ...\n    Xₙ = 1_{Iₙ} where Iₙ is the nth interval.\n    P(|Xₙ| > ε) = |Iₙ| → 0  (converges in probability to 0).\n    But for any ω, Xₙ(ω) = 1 infinitely often (ω always lies in infinitely many intervals).\n    So Xₙ(ω) ↛ 0 for any ω — does not converge a.s."
+    },
+    {
+      "id": "11-PROBABILITY.md#024",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Strong LLN: X̄ₙ → μ a.s.        (strongest convergence)\n  Weak LLN:   X̄ₙ → μ in prob     (weaker)\n  CLT:        √n(X̄ₙ-μ)/σ → N(0,1) in distribution  (weakest)\n```"
+    },
+    {
+      "id": "11-PROBABILITY.md#025",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "### Conditional Probability"
+    },
+    {
+      "id": "11-PROBABILITY.md#026",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "```\n  P(A|B) = P(A∩B) / P(B)     (B is the new universe)"
+    },
+    {
+      "id": "11-PROBABILITY.md#027",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Chain rule:  P(A∩B∩C) = P(A|B∩C)·P(B|C)·P(C)"
+    },
+    {
+      "id": "11-PROBABILITY.md#028",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Total probability:  P(A) = Σₖ P(A|Bₖ)·P(Bₖ)    where {Bₖ} partition Ω"
+    },
+    {
+      "id": "11-PROBABILITY.md#029",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Bayes' theorem:\n    P(H|E) = P(E|H)·P(H) / P(E)\n           = P(E|H)·P(H) / [P(E|H)·P(H) + P(E|Hᶜ)·P(Hᶜ)]"
+    },
+    {
+      "id": "11-PROBABILITY.md#030",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "prior P(H) × likelihood P(E|H) → posterior P(H|E)\n```"
+    },
+    {
+      "id": "11-PROBABILITY.md#031",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "**Independence**: A and B are independent iff P(A∩B) = P(A)·P(B)\n(equivalently P(A|B) = P(A))"
+    },
+    {
+      "id": "11-PROBABILITY.md#032",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "11-PROBABILITY.md#033",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "## 2. Random Variables and Distributions"
+    },
+    {
+      "id": "11-PROBABILITY.md#034",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "### Discrete Distributions"
+    },
+    {
+      "id": "11-PROBABILITY.md#035",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "| Distribution | PMF p(k) | Mean | Variance | Use |\n|---|---|---|---|---|\n| **Bernoulli(p)** | p^k(1-p)^(1-k), k∈{0,1} | p | p(1-p) | Single trial |\n| **Binomial(n,p)** | C(n,k)p^k(1-p)^(n-k) | np | np(1-p) | n independent trials |\n| **Geometric(p)** | (1-p)^(k-1)p, k≥1 | 1/p | (1-p)/p² | Waiting time to first success |\n| **Poisson(λ)** | e^(-λ)λ^k/k! | λ | λ | Rare events in interval |\n| **Negative Binomial(r,p)** | C(k-1,r-1)p^r(1-p)^(k-r) | r/p | r(1-p)/p² | r-th success |"
+    },
+    {
+      "id": "11-PROBABILITY.md#036",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "**Poisson as limit of Binomial**: n→∞, p→0, np=λ fixed → Binomial(n,p) → Poisson(λ)"
+    },
+    {
+      "id": "11-PROBABILITY.md#037",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "### Continuous Distributions"
+    },
+    {
+      "id": "11-PROBABILITY.md#038",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "| Distribution | PDF f(x) | Mean | Variance | Use |\n|---|---|---|---|---|\n| **Uniform(a,b)** | 1/(b-a) | (a+b)/2 | (b-a)²/12 | No information |\n| **Exponential(λ)** | λe^(-λx), x≥0 | 1/λ | 1/λ² | Waiting times, memoryless |\n| **Gaussian N(μ,σ²)** | (1/σ√2π)e^(-(x-μ)²/2σ²) | μ | σ² | CLT limit, everywhere |\n| **Gamma(α,β)** | x^(α-1)e^(-x/β)/(β^α Γ(α)) | αβ | αβ² | Sum of α exponentials |\n| **Beta(α,β)** | x^(α-1)(1-x)^(β-1)/B(α,β) | α/(α+β) | αβ/[(α+β)²(α+β+1)] | Probabilities (x∈[0,1]) |\n| **Cauchy** | 1/[π(1+x²)] | undefined | undefined | Heavy tails, no CLT |\n| **Log-normal** | (1/xσ√2π)e^(-(ln x-μ)²/2σ²) | e^(μ+σ²/2) | — | Multiplicative processes |\n| **χ²(k)** | — | k | 2k | Sum of k squared Gaussians |"
+    },
+    {
+      "id": "11-PROBABILITY.md#039",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "### Moments and Generating Functions"
+    },
+    {
+      "id": "11-PROBABILITY.md#040",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "```\n  Raw moment:    μₙ = E[Xⁿ] = ∫ xⁿ f(x) dx\n  Central moment: E[(X-μ)ⁿ]"
+    },
+    {
+      "id": "11-PROBABILITY.md#041",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Mean:      μ = E[X]\n  Variance:  σ² = E[(X-μ)²] = E[X²] - (E[X])²\n  Std dev:   σ = √Var(X)\n  Skewness:  E[(X-μ)³]/σ³         (asymmetry)\n  Kurtosis:  E[(X-μ)⁴]/σ⁴ - 3    (tail weight; Gaussian = 0)"
+    },
+    {
+      "id": "11-PROBABILITY.md#042",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Moment Generating Function:\n    M_X(t) = E[e^(tX)] = Σ μₙ tⁿ/n!"
+    },
+    {
+      "id": "11-PROBABILITY.md#043",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "M_X'(0) = E[X],  M_X''(0) = E[X²], etc."
+    },
+    {
+      "id": "11-PROBABILITY.md#044",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Characteristic Function:\n    φ_X(t) = E[e^(itX)]    (always exists — Fourier transform of PDF)\n    Uniquely determines distribution.\n    For independent X,Y:  φ_{X+Y}(t) = φ_X(t)·φ_Y(t)\n```"
+    },
+    {
+      "id": "11-PROBABILITY.md#045",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "11-PROBABILITY.md#046",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "## 3. Joint Distributions and Independence"
+    },
+    {
+      "id": "11-PROBABILITY.md#047",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "```\n  Joint PDF:   f_{X,Y}(x,y)     with ∫∫ f_{X,Y} dx dy = 1"
+    },
+    {
+      "id": "11-PROBABILITY.md#048",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Marginals:   f_X(x) = ∫ f_{X,Y}(x,y) dy\n               f_Y(y) = ∫ f_{X,Y}(x,y) dx"
+    },
+    {
+      "id": "11-PROBABILITY.md#049",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Independent:  f_{X,Y}(x,y) = f_X(x)·f_Y(y)  ⟺  X ⊥ Y"
+    },
+    {
+      "id": "11-PROBABILITY.md#050",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Conditional:  f_{X|Y}(x|y) = f_{X,Y}(x,y) / f_Y(y)"
+    },
+    {
+      "id": "11-PROBABILITY.md#051",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Covariance:   Cov(X,Y) = E[XY] - E[X]E[Y] = E[(X-μ_X)(Y-μ_Y)]\n  Correlation:  ρ = Cov(X,Y)/(σ_X σ_Y)    ∈ [-1,1]"
+    },
+    {
+      "id": "11-PROBABILITY.md#052",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "X ⊥ Y  ⟹  Cov(X,Y) = 0   (converse false in general)\n```"
+    },
+    {
+      "id": "11-PROBABILITY.md#053",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "### Multivariate Gaussian"
+    },
+    {
+      "id": "11-PROBABILITY.md#054",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "```\n  X ~ N(μ, Σ)   where μ ∈ ℝⁿ, Σ = covariance matrix (PSD)"
+    },
+    {
+      "id": "11-PROBABILITY.md#055",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "PDF: f(x) = (2π)^(-n/2)|Σ|^(-1/2) exp(-½(x-μ)ᵀΣ⁻¹(x-μ))"
+    },
+    {
+      "id": "11-PROBABILITY.md#056",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Key: Level sets are ellipsoids.\n       Marginals are Gaussian.\n       X ⊥ Y iff Cov(X,Y) = 0 (only for Gaussians is ρ=0 ⟹ independence)\n       Linear transform:  AX + b ~ N(Aμ + b, AΣAᵀ)\n```"
+    },
+    {
+      "id": "11-PROBABILITY.md#057",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "11-PROBABILITY.md#058",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "## 4. Limit Theorems"
+    },
+    {
+      "id": "11-PROBABILITY.md#059",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "### Law of Large Numbers (LLN)"
+    },
+    {
+      "id": "11-PROBABILITY.md#060",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "```\n  Weak LLN (Chebyshev):\n    X₁, X₂,... iid with mean μ, finite variance σ²\n    X̄ₙ = (X₁+...+Xₙ)/n"
+    },
+    {
+      "id": "11-PROBABILITY.md#061",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "For any ε > 0:  P(|X̄ₙ - μ| > ε) → 0  as n → ∞\n    Proof: Var(X̄ₙ) = σ²/n → 0, apply Chebyshev P(|Z-E[Z]|≥ε) ≤ Var(Z)/ε²"
+    },
+    {
+      "id": "11-PROBABILITY.md#062",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Strong LLN:  X̄ₙ → μ  almost surely (with probability 1)\n```"
+    },
+    {
+      "id": "11-PROBABILITY.md#063",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "### Central Limit Theorem (CLT)"
+    },
+    {
+      "id": "11-PROBABILITY.md#064",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "```\n  X₁,...,Xₙ iid, mean μ, variance σ²"
+    },
+    {
+      "id": "11-PROBABILITY.md#065",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Zₙ = (X̄ₙ - μ)/(σ/√n) = √n(X̄ₙ - μ)/σ  →  N(0,1)  in distribution"
+    },
+    {
+      "id": "11-PROBABILITY.md#066",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Equivalently: Σᵢ Xᵢ ~ N(nμ, nσ²) approximately for large n"
+    },
+    {
+      "id": "11-PROBABILITY.md#067",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Physical intuition: Independent random contributions add.\n    Each step doesn't \"know\" the distribution — the sum always Gaussianizes.\n    This is why Gaussian appears everywhere: it's the attractor of sums."
+    },
+    {
+      "id": "11-PROBABILITY.md#068",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Rate of convergence: Berry-Esseen: |P(Zₙ ≤ x) - Φ(x)| ≤ C·ρ/(σ³√n)\n    where ρ = E[|X-μ|³]  (third absolute moment)"
+    },
+    {
+      "id": "11-PROBABILITY.md#069",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "When CLT fails:\n    - Infinite variance (Cauchy, power law tails α ≤ 2)\n    - Dependent random variables (need mixing conditions)\n    → Heavy-tailed sums → stable distributions (Lévy, Pareto)\n```"
+    },
+    {
+      "id": "11-PROBABILITY.md#070",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "### Markov and Chebyshev Inequalities"
+    },
+    {
+      "id": "11-PROBABILITY.md#071",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "```\n  Markov (one-sided, X ≥ 0):   P(X ≥ a) ≤ E[X]/a"
+    },
+    {
+      "id": "11-PROBABILITY.md#072",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Chebyshev:    P(|X - μ| ≥ kσ) ≤ 1/k²\n    No assumptions on distribution — holds universally.\n    k=2: ≤ 25% of probability outside 2σ   (vs 4.6% for Gaussian)\n    k=3: ≤ 11%  (vs 0.3%)"
+    },
+    {
+      "id": "11-PROBABILITY.md#073",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Chernoff bound (tightest for sums of bounded r.v.):\n    P(X ≥ a) ≤ e^(-ta)·M_X(t) for any t > 0\n    Exponentially tight — use for randomized algorithm analysis\n```"
+    },
+    {
+      "id": "11-PROBABILITY.md#074",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "### Concentration Inequalities — The Hierarchy"
+    },
+    {
+      "id": "11-PROBABILITY.md#075",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "These are the workhorses of PAC learning, VC-dimension bounds, and algorithm analysis."
+    },
+    {
+      "id": "11-PROBABILITY.md#076",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "```\n  ┌─────────────────────────────────────────────────────────────────────────┐\n  │  CONCENTRATION HIERARCHY (increasing generality)                        │\n  │                                                                         │\n  │  Chernoff (sums of independent {0,1} r.v., sharpest for Bernoullis):    │\n  │    P(Σ Xᵢ ≥ (1+δ)μ) ≤ e^(-μδ²/3)   for δ ∈ (0,1]                        │\n  │    Derived from M_X(t) directly; exponentially tight.                   │\n  │                                                                         │\n  │  Hoeffding (bounded independent r.v., aᵢ ≤ Xᵢ ≤ bᵢ):                    │\n  │    P(Σ(Xᵢ - E[Xᵢ]) ≥ t) ≤ exp(-2t²/Σ(bᵢ-aᵢ)²)                           │\n  │    Replaces MGF bound with variance proxy from the range [aᵢ,bᵢ].       │\n  │    Key use: uniform convergence in PAC learning over finite hypotheses  │\n  │                                                                         │\n  │  Azuma-Hoeffding (martingale differences, |Xᵢ - Xᵢ₋₁| ≤ cᵢ):            │\n  │    P(|Xₙ - X₀| ≥ t) ≤ 2 exp(-t²/(2Σcᵢ²))                                │\n  │    Drops the independence requirement — only needs bounded increments.  │\n  │    Doob martingale converts function of independent r.v. to martingale. │\n  │                                                                         │\n  │  McDiarmid / Bounded Differences (function of independent inputs):      │\n  │    f(x₁,...,xₙ) stable: changing xᵢ → x'ᵢ changes f by at most cᵢ.      │\n  │    P(f - E[f] ≥ t) ≤ exp(-2t²/Σcᵢ²)                                     │\n  │    This is Azuma applied via Doob's martingale construction.            │\n  │    Use: VC-dimension bounds, Rademacher complexity, any f of iid data.  │\n  │                                                                         │\n  │  Talagrand (convex distance, product measures):                         │\n  │    Strongest — concentration for functions that are \"Lipschitz in       │\n  │    each coordinate and convex.\" Captures that a random set is close to  │\n  │    its median with probability 1-2e^{-t²/4}. Used for order statistics, │\n  │    random graphs, longest common subsequences.                          │\n  └─────────────────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "11-PROBABILITY.md#077",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Relationship to PAC learning:\n    n ≥ (1/2ε²) log(2|H|/δ) samples suffices for uniform convergence over\n    finite hypothesis class H  [Hoeffding + union bound].\n    For infinite H: swap |H| → VC dimension d → n = O(d/ε² · log 1/δ).\n```"
+    },
+    {
+      "id": "11-PROBABILITY.md#078",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "11-PROBABILITY.md#079",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "## 5. Master Theorem — Recurrences"
+    },
+    {
+      "id": "11-PROBABILITY.md#080",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Used to analyze divide-and-conquer algorithms. Appears everywhere in CS theory."
+    },
+    {
+      "id": "11-PROBABILITY.md#081",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "The Master Theorem is a deterministic result, but it appears here because\n(a) randomized algorithm analysis (quicksort, hashing) depends on the same\nrecurrence structure and (b) random recursion trees connect to branching processes."
+    },
+    {
+      "id": "11-PROBABILITY.md#082",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "### The Setup"
+    },
+    {
+      "id": "11-PROBABILITY.md#083",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "```\n  T(n) = a·T(n/b) + f(n)"
+    },
+    {
+      "id": "11-PROBABILITY.md#084",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "a = number of subproblems\n  b = size reduction factor (n/b per subproblem)\n  f(n) = work at this level (split + merge cost)"
+    },
+    {
+      "id": "11-PROBABILITY.md#085",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Critical exponent:  c* = log_b(a) = log(a)/log(b)\n```"
+    },
+    {
+      "id": "11-PROBABILITY.md#086",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "### Three Cases"
+    },
+    {
+      "id": "11-PROBABILITY.md#087",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "```\n  ┌─────────────────────────────────────────────────────────────────────┐\n  │  Compare f(n) vs n^(c*)                                             │\n  │                                                                     │\n  │  Case 1: f(n) = O(n^(c*-ε))  for some ε > 0                         │\n  │    Subproblems dominate — leaves do most work                       │\n  │    T(n) = Θ(n^c*)                                                   │\n  │                                                                     │\n  │  Case 2: f(n) = Θ(n^(c*) · log^k(n))  for some k ≥ 0                │\n  │    Balanced — work spread across all levels                         │\n  │    T(n) = Θ(n^(c*) · log^(k+1)(n))                                  │\n  │    Common: f(n) = Θ(n^c*) → k=0 → T(n) = Θ(n^c* log n)              │\n  │                                                                     │\n  │  Case 3: f(n) = Ω(n^(c*+ε))  for some ε > 0,                        │\n  │    AND  a·f(n/b) ≤ c·f(n)  for c < 1  (regularity condition)        │\n  │    Top level dominates — root does most work                        │\n  │    T(n) = Θ(f(n))                                                   │\n  └─────────────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "11-PROBABILITY.md#088",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "### Classic Examples"
+    },
+    {
+      "id": "11-PROBABILITY.md#089",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "| Recurrence | a | b | f(n) | c*=log_b(a) | Case | T(n) |\n|---|---|---|---|---|---|---|\n| Merge sort: T(n) = 2T(n/2) + n | 2 | 2 | n | 1 | 2 (k=0) | **Θ(n log n)** |\n| Binary search: T(n) = T(n/2) + 1 | 1 | 2 | 1 | 0 | 2 | **Θ(log n)** |\n| Strassen: T(n) = 7T(n/2) + n² | 7 | 2 | n² | log₂7≈2.807 | 1 | **Θ(n^2.807)** |\n| Naive matrix mult: T(n) = 8T(n/2) + n² | 8 | 2 | n² | 3 | 1 | **Θ(n³)** |\n| T(n) = 4T(n/2) + n² | 4 | 2 | n² | 2 | 2 | **Θ(n² log n)** |\n| T(n) = 2T(n/2) + n² | 2 | 2 | n² | 1 | 3 | **Θ(n²)** |"
+    },
+    {
+      "id": "11-PROBABILITY.md#090",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "**Intuition for cases**: draw the recursion tree. Level k has aᵏ nodes each doing f(n/bᵏ) work.\n- Case 1: geometric series dominated by leaves (aᵏ nodes × tiny work)\n- Case 2: each level does same work → multiply by log n levels\n- Case 3: geometric series dominated by root"
+    },
+    {
+      "id": "11-PROBABILITY.md#091",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "**Akra-Bazzi** extends this to unequal splits and multiple terms."
+    },
+    {
+      "id": "11-PROBABILITY.md#092",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "11-PROBABILITY.md#093",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "## 6. Markov Chains"
+    },
+    {
+      "id": "11-PROBABILITY.md#094",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "### Discrete-Time Markov Chain"
+    },
+    {
+      "id": "11-PROBABILITY.md#095",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "```\n  State space S = {1,...,n}  (or countably infinite)"
+    },
+    {
+      "id": "11-PROBABILITY.md#096",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Markov property: P(Xₜ₊₁ = j | Xₜ = i, Xₜ₋₁, ..., X₀) = P(Xₜ₊₁ = j | Xₜ = i)\n    \"The future depends on the present, not the history\""
+    },
+    {
+      "id": "11-PROBABILITY.md#097",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Transition matrix:  Pᵢⱼ = P(Xₜ₊₁ = j | Xₜ = i)\n    Rows sum to 1:  Σⱼ Pᵢⱼ = 1   (stochastic matrix)"
+    },
+    {
+      "id": "11-PROBABILITY.md#098",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "n-step transitions:  P(Xₙ = j | X₀ = i) = (Pⁿ)ᵢⱼ"
+    },
+    {
+      "id": "11-PROBABILITY.md#099",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "State distribution at time t:  πₜ = π₀ · Pᵗ   (row vector × matrix)\n```"
+    },
+    {
+      "id": "11-PROBABILITY.md#100",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "### Classification"
+    },
+    {
+      "id": "11-PROBABILITY.md#101",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "```\n  Communicating classes: i ↔ j if i → j and j → i\n    Irreducible: one communicating class (all states communicate)"
+    },
+    {
+      "id": "11-PROBABILITY.md#102",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Recurrent: P(return to i | start at i) = 1\n  Transient: P(return to i | start at i) < 1"
+    },
+    {
+      "id": "11-PROBABILITY.md#103",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Period d(i) = gcd{n ≥ 1 : P(Xₙ=i|X₀=i) > 0}\n  Aperiodic: d(i) = 1 for all i\n```"
+    },
+    {
+      "id": "11-PROBABILITY.md#104",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "### Stationary Distribution"
+    },
+    {
+      "id": "11-PROBABILITY.md#105",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "```\n  π is stationary if πP = π  (left eigenvector of P with eigenvalue 1)"
+    },
+    {
+      "id": "11-PROBABILITY.md#106",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Equivalently: πⱼ = Σᵢ πᵢ Pᵢⱼ  for all j,  with Σⱼ πⱼ = 1"
+    },
+    {
+      "id": "11-PROBABILITY.md#107",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Detailed balance (sufficient but not necessary):\n    πᵢ Pᵢⱼ = πⱼ Pⱼᵢ   for all i,j\n    (reversible chains — MCMC exploits this)\n```"
+    },
+    {
+      "id": "11-PROBABILITY.md#108",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "### Convergence (Ergodic Theorem)"
+    },
+    {
+      "id": "11-PROBABILITY.md#109",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "```\n  Irreducible + Aperiodic ⟹ unique stationary π,  and\n    Pⁿ → Π  (matrix of identical rows = π)   as n → ∞"
+    },
+    {
+      "id": "11-PROBABILITY.md#110",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Rate: |Pᵢⱼⁿ - πⱼ| ≤ λ₂ⁿ   where λ₂ = second-largest eigenvalue magnitude\n  Mixing time: τ_mix ∝ 1/(1 - λ₂)"
+    },
+    {
+      "id": "11-PROBABILITY.md#111",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Time average = space average:\n    (1/T)Σₜ f(Xₜ) → Σᵢ πᵢ f(i)   a.s.   (ergodic theorem)\n```"
+    },
+    {
+      "id": "11-PROBABILITY.md#112",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "### Example: Google PageRank"
+    },
+    {
+      "id": "11-PROBABILITY.md#113",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "```\n  Web = directed graph. Pᵢⱼ = 1/deg(i) if edge i→j.\n  Add teleportation: P' = αP + (1-α)(1/n)1·1ᵀ\n  PageRank = stationary distribution π of P'.\n  Computed via power iteration: πₜ₊₁ = πₜP'.\n```"
+    },
+    {
+      "id": "11-PROBABILITY.md#114",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "### Poisson Process"
+    },
+    {
+      "id": "11-PROBABILITY.md#115",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "```\n  Events arrive at rate λ per unit time.\n  N(t) = count of events in [0,t] ~ Poisson(λt)\n  Interarrival times: T₁, T₂,... iid Exponential(λ)"
+    },
+    {
+      "id": "11-PROBABILITY.md#116",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Memoryless: P(T > s+t | T > s) = P(T > t)\n    The exponential distribution is the unique memoryless continuous distribution.\n    → Justifies Markov assumption in continuous-time models."
+    },
+    {
+      "id": "11-PROBABILITY.md#117",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Superposition: Poisson(λ₁) + Poisson(λ₂) = Poisson(λ₁+λ₂)\n  Thinning: Keep each event with prob p → Poisson(pλ)\n```"
+    },
+    {
+      "id": "11-PROBABILITY.md#118",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "### Martingales and Brownian Motion"
+    },
+    {
+      "id": "11-PROBABILITY.md#119",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "```\n  Martingale: a stochastic process {Mₜ} adapted to filtration {ℱₜ} with\n    E[Mₜ | ℱₛ] = Mₛ   for all s ≤ t\n  \"Fair game\": given all current information, future expected value = current value."
+    },
+    {
+      "id": "11-PROBABILITY.md#120",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Examples:\n    - Simple random walk Sₙ = X₁ + ... + Xₙ (Xᵢ iid ±1)\n    - Sₙ² - n is a martingale (variance correction)\n    - e^(θSₙ - nψ(θ)) for any θ (exponential martingale — basis for Chernoff)\n    - Likelihood ratio p(X₁,...,Xₙ|H₁)/p(X₁,...,Xₙ|H₀) under H₀"
+    },
+    {
+      "id": "11-PROBABILITY.md#121",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Optional stopping theorem: if τ is a stopping time with E[τ] < ∞ (and bounded\n  increments), then E[M_τ] = E[M₀]. Application: expected duration of gambling\n  games, first passage times."
+    },
+    {
+      "id": "11-PROBABILITY.md#122",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Martingale convergence theorem: if {Mₙ} is a martingale with sup E[|Mₙ|] < ∞,\n  then Mₙ → M_∞ a.s. and in L¹."
+    },
+    {
+      "id": "11-PROBABILITY.md#123",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Brownian motion (Wiener process) W_t: continuous-time limit of random walk.\n    W₀ = 0\n    W_t - W_s ~ N(0, t-s)   for s < t   (independent increments)\n    Continuous paths a.s.\n    Quadratic variation: [W]_t = t  (paths are nowhere differentiable)"
+    },
+    {
+      "id": "11-PROBABILITY.md#124",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Brownian motion is the canonical continuous martingale.\n  Itô's lemma: for smooth f(t, x),\n    df(t, W_t) = ∂f/∂t dt + ∂f/∂x dW_t + ½ ∂²f/∂x² dt\n  The extra ½∂²f/∂x² dt term (Itô correction) arises from quadratic variation.\n  This drives stochastic calculus, Black-Scholes, and Feynman-Kac.\n```"
+    },
+    {
+      "id": "11-PROBABILITY.md#125",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "11-PROBABILITY.md#126",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "## 7. Bayesian Inference"
+    },
+    {
+      "id": "11-PROBABILITY.md#127",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "```\n  Prior: p(θ)          — beliefs before data\n  Likelihood: p(D|θ)   — probability of data given parameters\n  Posterior: p(θ|D) ∝ p(D|θ)·p(θ)   — updated beliefs"
+    },
+    {
+      "id": "11-PROBABILITY.md#128",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Point estimates:\n    MAP: θ_MAP = argmax p(θ|D)      (maximum a posteriori)\n    MLE: θ_MLE = argmax p(D|θ)      (maximum likelihood — flat prior)"
+    },
+    {
+      "id": "11-PROBABILITY.md#129",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Conjugate priors (posterior is same family as prior):\n    Beta-Binomial: Beta(α,β) prior + n trials k successes → Beta(α+k, β+n-k)\n    Gaussian-Gaussian: N(μ₀,σ₀²) prior + N(θ,σ²) data → Gaussian posterior\n    Dirichlet-Multinomial: Dirichlet prior + categorical data → Dirichlet posterior"
+    },
+    {
+      "id": "11-PROBABILITY.md#130",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "MCMC (Markov Chain Monte Carlo):\n    Sample from posterior when it's not analytically tractable.\n    Metropolis-Hastings: proposal q(θ'|θ), accept with ratio p(θ'|D)q(θ|θ')/[p(θ|D)q(θ'|θ)]\n    Detailed balance ⟹ stationary distribution = posterior.\n    Gibbs sampling: special case — sample each variable conditioned on all others.\n```"
+    },
+    {
+      "id": "11-PROBABILITY.md#131",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "11-PROBABILITY.md#132",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "## 8. Boltzmann Distribution — Physics Connection"
+    },
+    {
+      "id": "11-PROBABILITY.md#133",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "```\n  System at temperature T. Energy levels E₁, E₂,...\n  Probability of being in state with energy Eᵢ:"
+    },
+    {
+      "id": "11-PROBABILITY.md#134",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "P(state i) = e^(-Eᵢ/kT) / Z"
+    },
+    {
+      "id": "11-PROBABILITY.md#135",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "where  Z = Σᵢ e^(-Eᵢ/kT)   is the partition function."
+    },
+    {
+      "id": "11-PROBABILITY.md#136",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "β = 1/(kT)  (inverse temperature)\n  P(state i) = e^(-βEᵢ) / Z"
+    },
+    {
+      "id": "11-PROBABILITY.md#137",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Physical intuition:\n    Low T (β large): system concentrates on lowest energy states\n    High T (β small): all states roughly equally probable"
+    },
+    {
+      "id": "11-PROBABILITY.md#138",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Entropy: S = -k Σᵢ Pᵢ ln Pᵢ    (Gibbs/Shannon entropy)\n  Free energy: F = -kT ln Z = ⟨E⟩ - TS    (minimize at equilibrium)"
+    },
+    {
+      "id": "11-PROBABILITY.md#139",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Connection to probability:\n    Boltzmann distribution = maximum entropy distribution\n    subject to constraint ⟨E⟩ = fixed.\n    Lagrange multiplier ⟹ β = 1/kT."
+    },
+    {
+      "id": "11-PROBABILITY.md#140",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Simulated annealing (optimization):\n    Start with high T (explore). Cool slowly.\n    At each step: accept proposal with P = min(1, e^(-ΔE/T))\n    Mirrors physical annealing to find ground state.\n```"
+    },
+    {
+      "id": "11-PROBABILITY.md#141",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "### Entropy and Information Theory"
+    },
+    {
+      "id": "11-PROBABILITY.md#142",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "```\n  Shannon entropy: H(X) = -Σ p(x) log₂ p(x)   bits"
+    },
+    {
+      "id": "11-PROBABILITY.md#143",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Uniform over n: H = log₂ n  (maximum entropy)\n  Single outcome: H = 0"
+    },
+    {
+      "id": "11-PROBABILITY.md#144",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "KL divergence (not a metric — not symmetric):\n    D_KL(P||Q) = Σ p(x) log(p(x)/q(x)) ≥ 0\n    = 0 iff P = Q  (by Jensen's inequality)"
+    },
+    {
+      "id": "11-PROBABILITY.md#145",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Cross-entropy: H(P,Q) = -Σ p(x) log q(x) = H(P) + D_KL(P||Q)\n    → Loss function in ML classification"
+    },
+    {
+      "id": "11-PROBABILITY.md#146",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Mutual information: I(X;Y) = D_KL(P_{X,Y} || P_X P_Y)\n    = H(X) + H(Y) - H(X,Y)\n    = H(X) - H(X|Y)\n    → 0 iff X,Y independent\n```"
+    },
+    {
+      "id": "11-PROBABILITY.md#147",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "### Information Theory — Deeper Results"
+    },
+    {
+      "id": "11-PROBABILITY.md#148",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "```\n  Data processing inequality:\n    If X → Y → Z is a Markov chain (Z conditionally independent of X given Y):\n      I(X;Z) ≤ I(X;Y)\n    Processing can only destroy information, never create it.\n    ML implication: any learned representation Z = g(Y) satisfies I(X;Z) ≤ I(X;Y).\n    Information bottleneck principle: find Z minimizing I(Y;Z) subject to\n    I(X;Z) ≥ required — compress representation while preserving label information."
+    },
+    {
+      "id": "11-PROBABILITY.md#149",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Source coding theorem (Shannon): minimum expected bits to encode X losslessly\n  = H(X). Huffman coding achieves H(X) + ε. Entropy is the information floor."
+    },
+    {
+      "id": "11-PROBABILITY.md#150",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Channel capacity (Shannon's noisy-channel theorem):\n    For channel with input X, output Y: capacity C = max_{p(x)} I(X;Y).\n    Reliable transmission possible iff rate R < C.\n    Additive white Gaussian noise channel: C = B log₂(1 + SNR)  (Shannon-Hartley)."
+    },
+    {
+      "id": "11-PROBABILITY.md#151",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Asymptotic equipartition property (AEP):\n    For iid X₁,...,Xₙ with distribution p:\n      -(1/n) log p(X₁,...,Xₙ) → H(X)  in probability.\n    Most probability mass concentrates on ~2^{nH(X)} \"typical\" sequences of equal\n    weight 2^{-nH(X)}. Basis of compression and coding theory."
+    },
+    {
+      "id": "11-PROBABILITY.md#152",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Fisher information and Cramér-Rao bound:\n    Fisher information: I(θ) = E[(∂/∂θ log p(X;θ))²] = -E[∂²/∂θ² log p(X;θ)]\n    Cramér-Rao: Var(θ̂) ≥ 1/I(θ) for any unbiased estimator θ̂.\n    Achieves equality iff the estimator is the MLE (for exponential families)."
+    },
+    {
+      "id": "11-PROBABILITY.md#153",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "Variational inference (ML):\n    True posterior p(z|x) often intractable. Fit approximate q_φ(z|x) by minimizing\n    D_KL(q_φ || p) = E_q[log q_φ(z|x)] - E_q[log p(x,z)] + const.\n    Equivalently: maximize ELBO = E_q[log p(x,z)] - E_q[log q_φ(z|x)].\n    ELBO = Evidence Lower BOund: log p(x) = ELBO + D_KL(q||p) ≥ ELBO.\n    VAEs optimize ELBO: reconstruction term + KL regularization.\n```"
+    },
+    {
+      "id": "11-PROBABILITY.md#154",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "11-PROBABILITY.md#155",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "## 9. Common Distributions in Physics and CS"
+    },
+    {
+      "id": "11-PROBABILITY.md#156",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "| Context | Distribution | Why |\n|---|---|---|\n| Radioactive decay counts | Poisson | Independent rare events |\n| Thermal fluctuations | Gaussian | Sum of many kicks (CLT) |\n| Particle velocities (kinetic theory) | Maxwell-Boltzmann | Max entropy + fixed ⟨E⟩ |\n| Energy levels | Boltzmann | Max entropy + fixed ⟨E⟩ |\n| Quantum spin measurement | Bernoulli | Two outcomes: ±ℏ/2 |\n| Network degree | Power law | Scale-free networks |\n| Hash collision analysis | Birthday / Poisson | √n collision threshold |\n| Randomized quicksort | Geometric | Expected pivot position |\n| Financial returns | Log-normal (approx) | Multiplicative shocks |\n| Turbulence (intermittent) | Lévy / stable | Infinite variance |"
+    },
+    {
+      "id": "11-PROBABILITY.md#157",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "11-PROBABILITY.md#158",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "## 10. Decision Cheat Sheet"
+    },
+    {
+      "id": "11-PROBABILITY.md#159",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "| You need to... | Tool |\n|---|---|\n| Model counts in interval | Poisson(λ) |\n| Model k successes in n trials | Binomial(n,p) |\n| Model waiting time (continuous) | Exponential(λ) |\n| Model sum of many effects | Gaussian (CLT) |\n| Model proportions / probabilities | Beta(α,β) |\n| Update beliefs given data | Bayes' theorem |\n| Bound tail probability, any distribution | Chebyshev |\n| Bound tail for bounded r.v., tight | Chernoff |\n| Bound function of independent r.v. | McDiarmid's inequality |\n| Bound martingale with bounded increments | Azuma's inequality |\n| Analyze divide-and-conquer T(n) | Master Theorem |\n| Find long-run behavior of system | Markov chain stationary π |\n| Sample from intractable posterior | MCMC (Metropolis/Gibbs) |\n| Model physical state probabilities | Boltzmann e^(-βE)/Z |\n| Quantify information / compression | Shannon entropy H(X) |\n| Measure distribution distance | KL divergence D_KL |\n| Bound estimation variance | Cramér-Rao: Var(θ̂) ≥ 1/I(θ) |\n| Fit approximate posterior in ML | Variational inference / ELBO |"
+    },
+    {
+      "id": "11-PROBABILITY.md#160",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "11-PROBABILITY.md#161",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "## 11. Common Confusion Points"
+    },
+    {
+      "id": "11-PROBABILITY.md#162",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "**1. P(A|B) ≠ P(B|A) — Prosecutor's fallacy**\nP(DNA match | innocent) is tiny, but P(innocent | DNA match) depends on prior — base rate matters. Confusing them is the prosecutor's fallacy. Bayes' theorem is the fix."
+    },
+    {
+      "id": "11-PROBABILITY.md#163",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "**2. Independence vs uncorrelatedness**\nCov(X,Y) = 0 does not imply independence (except for Gaussians). X and X² are uncorrelated if X is symmetric around 0 but maximally dependent. Independence ⟹ uncorrelated, not vice versa."
+    },
+    {
+      "id": "11-PROBABILITY.md#164",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "**3. CLT requires finite variance**\nCauchy distribution has no mean or variance. Sum of n Cauchy r.v. / n is still Cauchy — the CLT does not apply. Power-law distributions with tail index α ≤ 2 similarly escape CLT convergence."
+    },
+    {
+      "id": "11-PROBABILITY.md#165",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "**4. Master Theorem gaps**\nThe Master Theorem doesn't cover all cases: T(n) = 2T(n/2) + n/log(n) falls in the gap between cases 1 and 2. Akra-Bazzi or direct analysis needed. Also requires a and b to be positive constants, not functions of n."
+    },
+    {
+      "id": "11-PROBABILITY.md#166",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "**5. Stationary ≠ starting distribution**\nπ is where the chain converges to, not where it starts. PageRank starts from uniform and iterates to convergence. The chain needs to be irreducible + aperiodic for convergence to π to be guaranteed."
+    },
+    {
+      "id": "11-PROBABILITY.md#167",
+      "path": [
+        "11-PROBABILITY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:11-probability, git-history:mathematics:11-probability]",
+        "canonical_path": "mathematics/11-PROBABILITY.md",
+        "concepts": "[probability]",
+        "current_path": "mathematics/11-PROBABILITY.md",
+        "id": "maxim:mathematics:probability",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[probability]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "11 - Probability and Statistics",
+        "updated": "null"
+      },
+      "text": "**6. Entropy and physical entropy differ by scale**\nShannon H (bits) = k_B·S_physics / (k_B ln 2). Both measure the same thing (missing information / uncertainty), just in different units. The Boltzmann factor e^(-E/kT) can be understood as maximum-entropy inference given a mean energy constraint."
+    }
+  ],
+  "refs": [
+    "11-PROBABILITY.md"
+  ]
+}

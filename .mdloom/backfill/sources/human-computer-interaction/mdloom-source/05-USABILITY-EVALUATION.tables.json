@@ -1,0 +1,190 @@
+{
+  "schema_version": "1",
+  "source_markdown": "human-computer-interaction\\05-USABILITY-EVALUATION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 86,
+      "heading_context": "## The Big Picture: Evaluation Is a Measurement Instrument Pointed at a Design",
+      "headers": [
+        "",
+        "FORMATIVE — improve it",
+        "SUMMATIVE — grade it"
+      ],
+      "rows": [
+        [
+          "**ANALYTIC** (no users)",
+          "heuristic evaluation; cognitive walkthrough; expert review",
+          "model-based predictive estimates (GOMS/KLM task times — deferred to `02`/`cognitive-science/09`)"
+        ],
+        [
+          "**EMPIRICAL** (users)",
+          "think-aloud usability test (small-*n*, rich, diagnostic)",
+          "benchmark usability test; **A/B test** (field, huge-*n*, one metric)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 314,
+      "heading_context": "## 5. Metrics — Effectiveness, Efficiency, Satisfaction",
+      "headers": [
+        "Dimension",
+        "Typical metric",
+        "Operational definition (must be pre-committed)",
+        "Trap"
+      ],
+      "rows": [
+        [
+          "**Effectiveness**",
+          "task success rate",
+          "fraction of attempts reaching a pre-defined success state",
+          "\"success\" must be defined *before* testing, incl. partial success"
+        ],
+        [
+          "",
+          "error rate / error paths",
+          "count/type of deviations from an optimal path; recoverable vs not",
+          "counting keystrokes is not counting errors; classify them"
+        ],
+        [
+          "**Efficiency**",
+          "time on task",
+          "elapsed time for successful completions (exclude/flag failures)",
+          "timing a concurrent think-aloud is measuring the wrong thing"
+        ],
+        [
+          "",
+          "lostness / path length",
+          "actual vs optimal navigation steps (Smith's lostness metric)",
+          "needs a defensible \"optimal\" path"
+        ],
+        [
+          "**Satisfaction**",
+          "SUS, SEQ, UMUX-Lite",
+          "standardized post-task/post-test questionnaires (Section 5.1)",
+          "satisfaction correlates only loosely with performance"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 465,
+      "heading_context": "## 7. Controlled Usability Tests vs A/B Tests",
+      "headers": [
+        "Question",
+        "Controlled usability test",
+        "A/B test"
+      ],
+      "rows": [
+        [
+          "Primary output",
+          "*why* a design works or fails; problem diagnosis",
+          "*how much* a change moves a metric"
+        ],
+        [
+          "Sample",
+          "small (5–30), recruited, observed",
+          "huge (10³–10⁶), live, anonymous"
+        ],
+        [
+          "Setting",
+          "lab / moderated / task-scripted",
+          "production / natural / in-the-wild"
+        ],
+        [
+          "Causal about",
+          "the tested tasks, with observation",
+          "the population metric, via randomization"
+        ],
+        [
+          "Blind to",
+          "population effect size; long-term/rare behavior",
+          "mechanism (*why*); un-instrumented experience; edge users"
+        ],
+        [
+          "Fails when",
+          "tasks unrepresentative; moderator leads",
+          "metric is a poor proxy; novelty effects; p-hacking many metrics"
+        ],
+        [
+          "Software analog",
+          "integration test with a human in the loop",
+          "canary / flag experiment at scale"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 708,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "What the evaluation does",
+        "Why (this guide)"
+      ],
+      "rows": [
+        [
+          "Early design, \"what's broken?\"",
+          "**formative**: think-aloud + heuristic eval, small-*n*",
+          "discover & diagnose; measurement not yet the point (§1–4)"
+        ],
+        [
+          "Milestone, \"is it good enough?\"",
+          "**summative** benchmark: success/time/SUS with CIs",
+          "quantify vs a pre-set target (§1, §5)"
+        ],
+        [
+          "No users available yet",
+          "**inspection** (heuristic eval, cognitive walkthrough)",
+          "cheap early hypotheses; expect false positives + evaluator effect (§2–3)"
+        ],
+        [
+          "Only one evaluator did the review",
+          "treat coverage as ~⅓; **add evaluators** or confirm with users",
+          "evaluator effect; heuristics aren't laws (§2)"
+        ],
+        [
+          "A SUS number is quoted",
+          "read as **scaled 0–100, ~68 = average, non-diagnostic**",
+          "SUS is perceived, one-number, needs formative pairing (§5.1)"
+        ],
+        [
+          "\"Five users is enough\" claimed",
+          "ask **enough for what?** discovery yes (one segment), measurement no",
+          "discovery ≠ estimation; *λ* varies; segments each need ~5 (§6)"
+        ],
+        [
+          "Comparing two designs at scale",
+          "**A/B test** on a guardrailed metric",
+          "randomization gives causal metric attribution — but not *why* (§7)"
+        ],
+        [
+          "Need to know *why* it fails",
+          "**moderated think-aloud**",
+          "behavior + narrated reasoning localize the cause (§4)"
+        ],
+        [
+          "Methods disagree",
+          "**triangulate**: divergence names the blind instrument",
+          "no single method is ground truth (§8)"
+        ],
+        [
+          "Claiming an improvement",
+          "test the **difference** (paired if same users, two-sample if independent); require its CI to exclude 0",
+          "comparing a point estimate to the *other* run's CI is not a valid test (§6, §9)"
+        ],
+        [
+          "Claiming a fixed target is met",
+          "require the **whole two-sided 95% CI** at or beyond the target (conservative, α = .025); for a one-sided α = .05 call, use the 95% one-sided lower bound (= the 90% two-sided CI limit)",
+          "a point estimate past the target is not enough — the interval must clear it (§6, worked case)"
+        ],
+        [
+          "Workload / safety-critical operator load",
+          "hand off to **`human-factors/`** (NASA-TLX and beyond)",
+          "this guide owns discretionary usability, not operator safety"
+        ]
+      ]
+    }
+  ]
+}

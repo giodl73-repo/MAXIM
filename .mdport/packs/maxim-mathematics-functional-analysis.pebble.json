@@ -1,0 +1,125 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-mathematics-functional-analysis",
+  "source": "../../mathematics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "23-FUNCTIONAL-ANALYSIS.md#000",
+      "path": [
+        "23-FUNCTIONAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:23-functional-analysis, git-history:mathematics:23-functional-analysis]",
+        "canonical_path": "mathematics/23-FUNCTIONAL-ANALYSIS.md",
+        "concepts": "[functional, analysis]",
+        "current_path": "mathematics/23-FUNCTIONAL-ANALYSIS.md",
+        "id": "maxim:mathematics:functional-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functional, analysis]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functional Analysis - Complete Reference",
+        "updated": "null"
+      },
+      "text": "# Functional Analysis — Complete Reference"
+    },
+    {
+      "id": "23-FUNCTIONAL-ANALYSIS.md#001",
+      "path": [
+        "23-FUNCTIONAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:23-functional-analysis, git-history:mathematics:23-functional-analysis]",
+        "canonical_path": "mathematics/23-FUNCTIONAL-ANALYSIS.md",
+        "concepts": "[functional, analysis]",
+        "current_path": "mathematics/23-FUNCTIONAL-ANALYSIS.md",
+        "id": "maxim:mathematics:functional-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functional, analysis]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functional Analysis - Complete Reference",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "23-FUNCTIONAL-ANALYSIS.md#002",
+      "path": [
+        "23-FUNCTIONAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:23-functional-analysis, git-history:mathematics:23-functional-analysis]",
+        "canonical_path": "mathematics/23-FUNCTIONAL-ANALYSIS.md",
+        "concepts": "[functional, analysis]",
+        "current_path": "mathematics/23-FUNCTIONAL-ANALYSIS.md",
+        "id": "maxim:mathematics:functional-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functional, analysis]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functional Analysis - Complete Reference",
+        "updated": "null"
+      },
+      "text": "Functional analysis is linear algebra in infinite dimensions. The jump from ℝⁿ to infinite-dimensional spaces introduces genuinely new phenomena: non-equivalent norms, unbounded operators, non-closed subspaces, the distinction between strong and weak convergence. This guide covers Banach and Hilbert spaces, the bounded operator theory, spectral theory in infinite dimensions, and the connections to PDEs, quantum mechanics, and machine learning."
+    },
+    {
+      "id": "23-FUNCTIONAL-ANALYSIS.md#003",
+      "path": [
+        "23-FUNCTIONAL-ANALYSIS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:mathematics:23-functional-analysis, git-history:mathematics:23-functional-analysis]",
+        "canonical_path": "mathematics/23-FUNCTIONAL-ANALYSIS.md",
+        "concepts": "[functional, analysis]",
+        "current_path": "mathematics/23-FUNCTIONAL-ANALYSIS.md",
+        "id": "maxim:mathematics:functional-analysis",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "mathematics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[functional, analysis]",
+        "section": "mathematics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Functional Analysis - Complete Reference",
+        "updated": "null"
+      },
+      "text": "```\n┌─────────────────────────────────────────────────────────────────────────────┐\n│  FUNCTIONAL ANALYSIS LANDSCAPE                                              │\n│                                                                             │\n│  Normed Spaces                        Dual Spaces & Weak Topology           │\n│  ──────────────────────────────        ──────────────────────────────────   │\n│  Normed, Banach, Hilbert spaces       Dual space X* = B(X, 𝕂)               │\n│  Completeness, Schauder bases         Hahn-Banach theorem                   │\n│  Examples: Lᵖ, C[a,b], ℓᵖ, H^k      Weak topology σ(X, X*)                  │\n│                                        Weak* topology σ(X*, X)              │\n│                                        Reflexive spaces                     │\n│                                                                             │\n│  Bounded Operators                    Spectral Theory                       │\n│  ──────────────────────────────        ──────────────────────────────────   │\n│  B(X,Y): bounded linear maps          Eigenvalues vs spectrum               │\n│  Operator norm, compactness           Compact operators                     │\n│  Open mapping, closed graph theorem   Spectral theorem (compact, SA)        │\n│  Adjoints (Banach/Hilbert)            Functional calculus                   │\n│                                                                             │\n│  Applications                                                               │\n│  ────────────────────────────────────────────────────────────────────────── │\n│  PDEs (Sobolev spaces, weak solutions)   QM (observables, C*-algebras)      │\n│  ML (RKHS, kernel methods, SVMs)         Signal processing (Fourier in L²)  │\n│  Numerical methods (Krylov, FEM)         Neural operators (attention as op) │\n└─────────────────────────────────────────────────────────────────────────────┘\n```"
+    }
+  ],
+  "refs": [
+    "23-FUNCTIONAL-ANALYSIS.md"
+  ]
+}

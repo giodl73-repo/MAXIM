@@ -1,0 +1,125 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-security-engineering-identity-access",
+  "source": "../../security-engineering",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "05-IDENTITY-ACCESS.md#000",
+      "path": [
+        "05-IDENTITY-ACCESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:05-identity-access, git-history:security-engineering:05-identity-access]",
+        "canonical_path": "security-engineering/05-IDENTITY-ACCESS.md",
+        "concepts": "[identity, access]",
+        "current_path": "security-engineering/05-IDENTITY-ACCESS.md",
+        "id": "maxim:security-engineering:identity-access",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[identity, access]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Identity and Access: OAuth 2.0, OIDC, RBAC, PAM, Service Accounts",
+        "updated": "null"
+      },
+      "text": "# Identity and Access: OAuth 2.0, OIDC, RBAC, PAM, Service Accounts"
+    },
+    {
+      "id": "05-IDENTITY-ACCESS.md#001",
+      "path": [
+        "05-IDENTITY-ACCESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:05-identity-access, git-history:security-engineering:05-identity-access]",
+        "canonical_path": "security-engineering/05-IDENTITY-ACCESS.md",
+        "concepts": "[identity, access]",
+        "current_path": "security-engineering/05-IDENTITY-ACCESS.md",
+        "id": "maxim:security-engineering:identity-access",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[identity, access]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Identity and Access: OAuth 2.0, OIDC, RBAC, PAM, Service Accounts",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "05-IDENTITY-ACCESS.md#002",
+      "path": [
+        "05-IDENTITY-ACCESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:05-identity-access, git-history:security-engineering:05-identity-access]",
+        "canonical_path": "security-engineering/05-IDENTITY-ACCESS.md",
+        "concepts": "[identity, access]",
+        "current_path": "security-engineering/05-IDENTITY-ACCESS.md",
+        "id": "maxim:security-engineering:identity-access",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[identity, access]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Identity and Access: OAuth 2.0, OIDC, RBAC, PAM, Service Accounts",
+        "updated": "null"
+      },
+      "text": "Identity and access management (IAM) is the enforcement point for the principle of least privilege. It answers two questions: who are you (authentication), and what are you allowed to do (authorization)."
+    },
+    {
+      "id": "05-IDENTITY-ACCESS.md#003",
+      "path": [
+        "05-IDENTITY-ACCESS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:security-engineering:05-identity-access, git-history:security-engineering:05-identity-access]",
+        "canonical_path": "security-engineering/05-IDENTITY-ACCESS.md",
+        "concepts": "[identity, access]",
+        "current_path": "security-engineering/05-IDENTITY-ACCESS.md",
+        "id": "maxim:security-engineering:identity-access",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "security-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[identity, access]",
+        "section": "security-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Identity and Access: OAuth 2.0, OIDC, RBAC, PAM, Service Accounts",
+        "updated": "null"
+      },
+      "text": "```\nIDENTITY AND ACCESS LANDSCAPE\n+-----------------------------------------------------------------------+\n|                                                                       |\n|  AUTHENTICATION              AUTHORIZATION                            |\n|  (who are you?)              (what can you do?)                       |\n|  +-----------------------+   +---------------------------+            |\n|  | Password + MFA        |   | RBAC (Role-Based)         |           |\n|  | OAuth 2.0 flows       |   | ABAC (Attribute-Based)    |           |\n|  | OIDC identity token   |   | ReBAC (Relationship-Based)|           |\n|  | SAML 2.0 (legacy)     |   | Zanzibar (Google)         |           |\n|  | Certificate-based     |   +---------------------------+           |\n|  | WebAuthn / FIDO2          |                                       |\n|  +-----------------------+   PRIVILEGED ACCESS                       |\n|                               +---------------------------+           |\n|  SERVICE IDENTITY             | PAM (Privileged Access    |           |\n|  +-----------------------+   | Management)               |            |\n|  | Managed identities    |   | JIT (Just-in-Time)        |           |\n|  | Service principals    |   | Session recording         |           |\n|  | Workload identity fed.|   | Credential vaulting       |           |\n|  | Client credentials    |   +---------------------------+           |\n|  +-----------------------+                                           |\n+-----------------------------------------------------------------------+\n```"
+    }
+  ],
+  "refs": [
+    "05-IDENTITY-ACCESS.md"
+  ]
+}

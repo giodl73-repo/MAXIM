@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "pathology\\09-ANATOMIC-PATHOLOGY-TECHNIQUE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 86,
+      "heading_context": "## The Big Picture: The Slide Is a Lossy, Irreversible Compile of the Specimen",
+      "confidence": "candidate",
+      "text": "GROSS-TO-GLASS  (this guide owns the pipeline; 10 reads the output)\n==================================================================\n  [ SPECIMEN ]   3-D tissue, fresh, with orientation + margins\n       |            purpose: the source object\n       v\n  [ GROSS + SAMPLE ]   describe, orient, ink, SELECT representative pieces\n       |            **lossy sampling**: blocks see a tiny fraction of the whole\n       v\n  [ FIX ]   arrest autolysis, cross-link, stabilize state\n       |            snapshot: immutable but chemically altered\n       v\n  [ PROCESS + EMBED ]   dehydrate/clear/infiltrate; orient in a block\n       |            substrate transform + choice of projection plane\n       v\n  [ MICROTOME ]   cut thin, near-single-cell-layer sections\n       |            projection to 2-D; artifacts enter here\n       v\n  [ STAIN ]   add contrast (H&E default; special stains targeted)\n       |            false-color map of invisible molecular differences\n       v\n  [ ANCILLARY SUBSTRATE ]   IHC / cytology preps / molecular / digital scan\n       |            specificity + alternate substrates layered on\n       v\n  SLIDE / DATA  ----> 10 (read the pattern), 08 (the signal), 11 (the system)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 228,
+      "heading_context": "## 2. Fixation: A State Snapshot That Trades Decay for Chemical Alteration",
+      "confidence": "candidate",
+      "text": "FIXATION AS A CHECKPOINT  (capture state; the capture changes it)\n================================================================\n  living tissue ---- loses blood supply ----> autolysis clock STARTS\n        |                                          |\n        |   cold-ischemia interval (labile targets degrade here)\n        v                                          v\n  [ FIX ]  cross-link + arrest  --------->  immutable snapshot\n        |                                          |\n  preserved: morphology, most antigens       altered: some epitopes\n        |                                     masked; nucleic acids\n        v                                     fragmented over time\n  a stable substrate whose LATENT quality bounds IHC (10) + molecular (08)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 292,
+      "heading_context": "## 3. Processing, Embedding, and Microtomy: Substrate Transform and Projection Choice",
+      "confidence": "candidate",
+      "text": "PROJECTION CHOICE  (embedding picks the plane; the plane decides visibility)\n===========================================================================\n  a structure with a lesion at one true plane\n        |\n        +---- CROSS-SECTION  --> the interface/invasion is IN view\n        |\n        +---- TANGENTIAL cut  --> the same interface is MISREPRESENTED\n        |\n        +---- WRONG plane     --> a real feature is simply not present\n   the microtome cannot show what the embedding orientation excluded",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 361,
+      "heading_context": "## 4. Staining: Contrast Encoding and Targeted Highlight",
+      "confidence": "candidate",
+      "text": "STAINING AS A FALSE-COLOR MAP  (invisible chemistry -> visible channels)\n=======================================================================\n  transparent section\n        |\n        +--- H&E ------> two channels: nuclei (basophilic) + cytoplasm/matrix\n        |                the DEFAULT map the 10-parse is trained on\n        |\n        +--- SPECIAL --> one targeted substance/organism highlighted\n                         (narrow question; lower specificity; over-read risk)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 414,
+      "heading_context": "## 5. Immunohistochemistry: An In-Situ, Controlled Antigen Probe",
+      "confidence": "candidate",
+      "text": "IHC AS A CONTROLLED PROBE  (validity is decided before evidence)\n===============================================================\n  antigen in situ (survived fixation/processing?)\n        |\n  [ PROBE: labeled antibody ]  matcher + render\n        |\n  [ CONTROL CHECK ]  did the reaction work on known-positive tissue?\n        |   fail  -> UNINFORMATIVE (neither positive nor negative)\n        v   pass\n  a valid in-situ result  ----> becomes EVIDENCE only in 10 §4 (Gate 2)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 507,
+      "heading_context": "## 7. Frozen Section: A Low-Latency Path With a Quality Cost",
+      "confidence": "candidate",
+      "text": "FAST PATH vs SOURCE OF TRUTH  (frozen is provisional; permanent is authoritative)\n================================================================================\n  intraoperative question (minutes matter)\n        |\n        v\n  [ FROZEN SECTION ]  freeze -> section now       latency: minutes\n        |   ice-crystal artifact; small sample; provisional\n        v\n  provisional answer guides the operation\n        |\n        v\n  [ PERMANENT SECTION ]  full pipeline later       latency: ~a day\n        |   authoritative morphology; ancillary tests possible\n        v\n  reconciliation: frozen/permanent CONCORDANCE is a quality signal (11)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 571,
+      "heading_context": "## 8. Molecular and Digital Substrate Interfaces",
+      "confidence": "candidate",
+      "text": "ONE SUBSTRATE, TWO DOWNSTREAM CONSUMERS  (both inherit upstream loss)\n===================================================================\n  processed block / glass slide  (all §1-§5 choices baked in)\n        |\n        +--- MOLECULAR ----> nucleic acid quality bounds 08's assay\n        |                    (fixation/decal/ischemia set the ceiling)\n        |\n        +--- DIGITAL SCAN --> a quantized image for 10 §11 / telepathology\n                             (adds focus/stitching/fold-scan artifacts)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

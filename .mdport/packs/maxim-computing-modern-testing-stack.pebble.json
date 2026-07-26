@@ -1,0 +1,4073 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-computing-modern-testing-stack",
+  "source": "../../computing",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "18-TESTING.md#000",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "# 18 — Modern Testing Stack"
+    },
+    {
+      "id": "18-TESTING.md#001",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "18-TESTING.md#002",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "```\r\nThe Testing Landscape\r\n======================"
+    },
+    {
+      "id": "18-TESTING.md#003",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "What you're testing          Tool\r\n  ═══════════════════          ════\r\n  Pure logic / functions       Vitest (unit)\r\n  React components             Testing Library + Vitest\r\n  API endpoints                Supertest / Vitest + in-process server\r\n  Browser flows end-to-end     Playwright\r\n  Visual regression            Playwright screenshots / Chromatic\r\n  API contracts                msw (mock service worker) / Pact\r\n  Accessibility                axe-core (via Playwright or Testing Library)\r\n  Performance                  Lighthouse CI / k6\r\n```"
+    },
+    {
+      "id": "18-TESTING.md#004",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "```\r\nThe Testing Trophy (modern take on the pyramid)\r\n================================================"
+    },
+    {
+      "id": "18-TESTING.md#005",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "┌─────────────┐\r\n          │   E2E       │\r\n          │  Playwright │\r\n          ├─────────────┤\r\n          │ Integration │\r\n          │  + API      │\r\n          ├─────────────┤\r\n          │    Unit     │\r\n          │   Vitest    │\r\n          ├─────────────┤\r\n          │   Static    │\r\n          │  Analysis   │\r\n          └─────────────┘\r\n  E2E (Playwright):       few — slow, brittle, expensive; catches full-stack issues\r\n  Integration + API:      most — modules working together; realistic, catches contracts\r\n  Unit (Vitest):          many — fast, isolated; don't test integration assumptions\r\n  Static Analysis:        always — TypeScript + ESLint; catches bugs before tests run"
+    },
+    {
+      "id": "18-TESTING.md#006",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "Classic pyramid inverted the ratio.\r\n  Trophy: lean on integration tests more than pure unit tests.\r\n  (Kent C. Dodds framing — widely adopted in JS ecosystem)\r\n```"
+    },
+    {
+      "id": "18-TESTING.md#007",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "**Trophy vs. Pyramid — the inversion bridge.** The classic Testing Pyramid (many unit tests at the base, few E2E at the top) was the reigning doctrine through the VSTS/MSTest era — and it was sound for .NET, where module boundaries are explicit, interfaces are stable, and Moq or NSubstitute let you mock at seams that actually map to real contracts. The Trophy's inversion — weighting integration tests heavier than unit tests — is a reaction to a specific JS/TS ecosystem pathology: modules export plain functions and objects, there are no interface contracts, and `vi.mock()` lets you mock *anything* at zero friction. That frictionlessness led to test suites full of mocks that tested the mocks, not the behavior. Integration tests that wire real modules together are harder to over-mock. The Trophy doesn't discard unit tests — it corrects an overuse pattern specific to JS. For a codebase with clean boundaries and disciplined mocking, the pyramid and the trophy converge."
+    },
+    {
+      "id": "18-TESTING.md#008",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "18-TESTING.md#009",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "## Vitest — Unit & Integration Tests"
+    },
+    {
+      "id": "18-TESTING.md#010",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "Vitest is the modern replacement for Jest. Same API, runs natively in Vite's pipeline — no Babel transform, full TypeScript, ESM-native, dramatically faster."
+    },
+    {
+      "id": "18-TESTING.md#011",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "```\r\nJest vs Vitest\r\n==============="
+    },
+    {
+      "id": "18-TESTING.md#012",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "Jest                           Vitest\r\n  ════                           ══════\r\n  Requires Babel transform       Native ESM, no transform needed\r\n  CommonJS by default            ESM first\r\n  Separate config from Vite      Shares vite.config.ts\r\n  Slow cold start                Fast (Vite dev server reuse)\r\n  jsdom built in                 jsdom optional (same API)\r\n  Mature ecosystem               Jest-compatible — almost all Jest tests\r\n                                 run unmodified\r\n```"
+    },
+    {
+      "id": "18-TESTING.md#013",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "### Setup"
+    },
+    {
+      "id": "18-TESTING.md#014",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "```typescript\r\n// vite.config.ts\r\nimport { defineConfig } from \"vite\";"
+    },
+    {
+      "id": "18-TESTING.md#015",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "export default defineConfig({\r\n  test: {\r\n    globals: true,          // describe/it/expect without imports\r\n    environment: \"node\",    // or \"jsdom\" for browser APIs\r\n    coverage: {\r\n      provider: \"v8\",\r\n      reporter: [\"text\", \"lcov\"],\r\n      thresholds: { lines: 80 },\r\n    },\r\n  },\r\n});\r\n```"
+    },
+    {
+      "id": "18-TESTING.md#016",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "### Unit Tests"
+    },
+    {
+      "id": "18-TESTING.md#017",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "```typescript\r\n// src/utils/format.ts\r\nexport function formatCurrency(amount: number, currency = \"USD\"): string {\r\n  return new Intl.NumberFormat(\"en-US\", { style: \"currency\", currency })\r\n    .format(amount);\r\n}"
+    },
+    {
+      "id": "18-TESTING.md#018",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "export function truncate(str: string, maxLength: number): string {\r\n  if (str.length <= maxLength) return str;\r\n  return str.slice(0, maxLength - 3) + \"...\";\r\n}\r\n```"
+    },
+    {
+      "id": "18-TESTING.md#019",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "```typescript\r\n// src/utils/format.test.ts\r\nimport { describe, it, expect } from \"vitest\";\r\nimport { formatCurrency, truncate } from \"./format\";"
+    },
+    {
+      "id": "18-TESTING.md#020",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "describe(\"formatCurrency\", () => {\r\n  it(\"formats USD by default\", () => {\r\n    expect(formatCurrency(1234.5)).toBe(\"$1,234.50\");\r\n  });"
+    },
+    {
+      "id": "18-TESTING.md#021",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "it(\"formats other currencies\", () => {\r\n    expect(formatCurrency(1000, \"EUR\")).toBe(\"€1,000.00\");\r\n  });\r\n});"
+    },
+    {
+      "id": "18-TESTING.md#022",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "describe(\"truncate\", () => {\r\n  it(\"returns string unchanged if within limit\", () => {\r\n    expect(truncate(\"hello\", 10)).toBe(\"hello\");\r\n  });"
+    },
+    {
+      "id": "18-TESTING.md#023",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "it(\"truncates and adds ellipsis\", () => {\r\n    expect(truncate(\"hello world\", 8)).toBe(\"hello...\");\r\n  });\r\n});\r\n```"
+    },
+    {
+      "id": "18-TESTING.md#024",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "### Mocking"
+    },
+    {
+      "id": "18-TESTING.md#025",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "```typescript\r\nimport { vi, describe, it, expect, beforeEach } from \"vitest\";\r\nimport { sendWelcomeEmail } from \"./notifications\";\r\nimport * as emailClient from \"./emailClient\";"
+    },
+    {
+      "id": "18-TESTING.md#026",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "// Mock an entire module\r\nvi.mock(\"./emailClient\");"
+    },
+    {
+      "id": "18-TESTING.md#027",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "describe(\"sendWelcomeEmail\", () => {\r\n  beforeEach(() => {\r\n    vi.clearAllMocks();\r\n  });"
+    },
+    {
+      "id": "18-TESTING.md#028",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "it(\"sends email with correct subject\", async () => {\r\n    // Arrange\r\n    const mockSend = vi.spyOn(emailClient, \"sendEmail\").mockResolvedValue({ id: \"msg_123\" });"
+    },
+    {
+      "id": "18-TESTING.md#029",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "// Act\r\n    await sendWelcomeEmail({ email: \"user@example.com\", name: \"Alice\" });"
+    },
+    {
+      "id": "18-TESTING.md#030",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "// Assert\r\n    expect(mockSend).toHaveBeenCalledWith(\r\n      expect.objectContaining({\r\n        to: \"user@example.com\",\r\n        subject: expect.stringContaining(\"Welcome\"),\r\n      })\r\n    );\r\n  });"
+    },
+    {
+      "id": "18-TESTING.md#031",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "it(\"throws if email client fails\", async () => {\r\n    vi.spyOn(emailClient, \"sendEmail\").mockRejectedValue(new Error(\"SMTP error\"));\r\n    await expect(sendWelcomeEmail({ email: \"bad@example.com\", name: \"Bob\" }))\r\n      .rejects.toThrow(\"SMTP error\");\r\n  });\r\n});\r\n```"
+    },
+    {
+      "id": "18-TESTING.md#032",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "### Integration Test — API Route"
+    },
+    {
+      "id": "18-TESTING.md#033",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "```typescript\r\n// Test the full Express route handler with a real (in-memory) DB\r\nimport { describe, it, expect, beforeAll, afterAll } from \"vitest\";\r\nimport request from \"supertest\";\r\nimport { app } from \"../app\";\r\nimport { db } from \"../db\";"
+    },
+    {
+      "id": "18-TESTING.md#034",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "beforeAll(async () => {\r\n  await db.migrate.latest();   // run migrations on test DB\r\n});"
+    },
+    {
+      "id": "18-TESTING.md#035",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "afterAll(async () => {\r\n  await db.destroy();\r\n});"
+    },
+    {
+      "id": "18-TESTING.md#036",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "describe(\"POST /api/orders\", () => {\r\n  it(\"creates order and returns 201\", async () => {\r\n    const res = await request(app)\r\n      .post(\"/api/orders\")\r\n      .set(\"Authorization\", \"Bearer test-token\")\r\n      .send({ productId: \"prod_123\", quantity: 2 });"
+    },
+    {
+      "id": "18-TESTING.md#037",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "expect(res.status).toBe(201);\r\n    expect(res.body).toMatchObject({\r\n      id: expect.any(String),\r\n      status: \"pending\",\r\n      quantity: 2,\r\n    });\r\n  });"
+    },
+    {
+      "id": "18-TESTING.md#038",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "it(\"rejects missing productId with 400\", async () => {\r\n    const res = await request(app)\r\n      .post(\"/api/orders\")\r\n      .set(\"Authorization\", \"Bearer test-token\")\r\n      .send({ quantity: 2 });"
+    },
+    {
+      "id": "18-TESTING.md#039",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "expect(res.status).toBe(400);\r\n    expect(res.body.error).toMatch(/productId/);\r\n  });\r\n});\r\n```"
+    },
+    {
+      "id": "18-TESTING.md#040",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "### Snapshot Testing"
+    },
+    {
+      "id": "18-TESTING.md#041",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "```typescript\r\nit(\"renders correct HTML structure\", () => {\r\n  const html = renderEmailTemplate({ name: \"Alice\", orderId: \"ord_456\" });\r\n  expect(html).toMatchSnapshot();   // first run: creates snapshot file\r\n                                     // subsequent runs: diffs against it\r\n});\r\n// Update snapshots: vitest --update-snapshots\r\n```"
+    },
+    {
+      "id": "18-TESTING.md#042",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "Use snapshots sparingly. Good for: serialized output (HTML, JSON config), generated code. Bad for: anything that changes frequently or has meaningful logic to assert."
+    },
+    {
+      "id": "18-TESTING.md#043",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "18-TESTING.md#044",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "## Testing Library — Component Tests"
+    },
+    {
+      "id": "18-TESTING.md#045",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "Testing Library's philosophy: test components the way users interact with them, not their implementation. Query by what's visible, not by CSS class or component internals."
+    },
+    {
+      "id": "18-TESTING.md#046",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "```\r\nImplementation testing (bad)       Behavior testing (good)\r\n════════════════════════════       ══════════════════════════"
+    },
+    {
+      "id": "18-TESTING.md#047",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "wrapper.find('.submit-btn')        screen.getByRole('button', { name: /submit/i })\r\n  component.state.isLoading          screen.getByText('Loading...')\r\n  component.props.onClick            userEvent.click(button)"
+    },
+    {
+      "id": "18-TESTING.md#048",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "Breaks on refactor                 Survives refactor\r\n  Doesn't test user experience       Tests actual user experience\r\n```"
+    },
+    {
+      "id": "18-TESTING.md#049",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "### React Component Test"
+    },
+    {
+      "id": "18-TESTING.md#050",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "```typescript\r\n// src/components/LoginForm.test.tsx\r\nimport { render, screen, waitFor } from \"@testing-library/react\";\r\nimport userEvent from \"@testing-library/user-event\";\r\nimport { vi } from \"vitest\";\r\nimport { LoginForm } from \"./LoginForm\";"
+    },
+    {
+      "id": "18-TESTING.md#051",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "describe(\"LoginForm\", () => {\r\n  it(\"calls onSubmit with email and password\", async () => {\r\n    const onSubmit = vi.fn().mockResolvedValue(undefined);\r\n    render(<LoginForm onSubmit={onSubmit} />);"
+    },
+    {
+      "id": "18-TESTING.md#052",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "await userEvent.type(screen.getByLabelText(/email/i), \"user@example.com\");\r\n    await userEvent.type(screen.getByLabelText(/password/i), \"password123\");\r\n    await userEvent.click(screen.getByRole(\"button\", { name: /sign in/i }));"
+    },
+    {
+      "id": "18-TESTING.md#053",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "await waitFor(() => {\r\n      expect(onSubmit).toHaveBeenCalledWith({\r\n        email: \"user@example.com\",\r\n        password: \"password123\",\r\n      });\r\n    });\r\n  });"
+    },
+    {
+      "id": "18-TESTING.md#054",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "it(\"shows validation error for empty email\", async () => {\r\n    render(<LoginForm onSubmit={vi.fn()} />);\r\n    await userEvent.click(screen.getByRole(\"button\", { name: /sign in/i }));\r\n    expect(screen.getByText(/email is required/i)).toBeInTheDocument();\r\n  });"
+    },
+    {
+      "id": "18-TESTING.md#055",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "it(\"disables button while submitting\", async () => {\r\n    const onSubmit = vi.fn(() => new Promise(r => setTimeout(r, 100)));\r\n    render(<LoginForm onSubmit={onSubmit} />);"
+    },
+    {
+      "id": "18-TESTING.md#056",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "await userEvent.type(screen.getByLabelText(/email/i), \"user@example.com\");\r\n    await userEvent.type(screen.getByLabelText(/password/i), \"pass\");\r\n    await userEvent.click(screen.getByRole(\"button\", { name: /sign in/i }));"
+    },
+    {
+      "id": "18-TESTING.md#057",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "expect(screen.getByRole(\"button\", { name: /signing in/i })).toBeDisabled();\r\n  });\r\n});\r\n```"
+    },
+    {
+      "id": "18-TESTING.md#058",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "### Query Priority (use in this order)"
+    },
+    {
+      "id": "18-TESTING.md#059",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "```\r\n1. getByRole          → 'button', 'textbox', 'heading', 'link'  (best)\r\n2. getByLabelText     → form fields with labels\r\n3. getByPlaceholderText → fallback for unlabeled inputs\r\n4. getByText          → text content visible on screen\r\n5. getByDisplayValue  → current value of input/select\r\n6. getByAltText       → img alt text\r\n7. getByTitle         → title attribute\r\n8. getByTestId        → data-testid attribute  (last resort)\r\n```"
+    },
+    {
+      "id": "18-TESTING.md#060",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "18-TESTING.md#061",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "## MSW — Mock Service Worker"
+    },
+    {
+      "id": "18-TESTING.md#062",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "MSW intercepts network requests at the service worker or Node.js level. Your component makes real `fetch()` calls; MSW intercepts them. No axios mocking, no manual stubs per test."
+    },
+    {
+      "id": "18-TESTING.md#063",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "```\r\nWithout MSW                        With MSW\r\n═══════════════                    ════════"
+    },
+    {
+      "id": "18-TESTING.md#064",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "vi.mock(\"./api/orders\")            Component calls fetch() normally\r\n  vi.mock(\"axios\")                   MSW intercepts at network level\r\n  mockFetch.mockResolvedValue(...)   One set of handlers for all tests\r\n                                     AND the browser during development\r\n  Brittle, tied to implementation    Tests that actually hit the network path\r\n```"
+    },
+    {
+      "id": "18-TESTING.md#065",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "### Setup"
+    },
+    {
+      "id": "18-TESTING.md#066",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "```typescript\r\n// src/mocks/handlers.ts\r\nimport { http, HttpResponse } from \"msw\";"
+    },
+    {
+      "id": "18-TESTING.md#067",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "export const handlers = [\r\n  http.get(\"/api/orders\", () => {\r\n    return HttpResponse.json([\r\n      { id: \"ord_1\", status: \"pending\", total: 99.99 },\r\n      { id: \"ord_2\", status: \"shipped\", total: 49.99 },\r\n    ]);\r\n  }),"
+    },
+    {
+      "id": "18-TESTING.md#068",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "http.post(\"/api/orders\", async ({ request }) => {\r\n    const body = await request.json();\r\n    return HttpResponse.json(\r\n      { id: \"ord_new\", status: \"pending\", ...body },\r\n      { status: 201 }\r\n    );\r\n  }),"
+    },
+    {
+      "id": "18-TESTING.md#069",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "http.get(\"/api/orders/:id\", ({ params }) => {\r\n    if (params.id === \"ord_999\") {\r\n      return new HttpResponse(null, { status: 404 });\r\n    }\r\n    return HttpResponse.json({ id: params.id, status: \"pending\" });\r\n  }),\r\n];\r\n```"
+    },
+    {
+      "id": "18-TESTING.md#070",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "```typescript\r\n// src/mocks/server.ts  (Node.js — for Vitest)\r\nimport { setupServer } from \"msw/node\";\r\nimport { handlers } from \"./handlers\";"
+    },
+    {
+      "id": "18-TESTING.md#071",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "export const server = setupServer(...handlers);"
+    },
+    {
+      "id": "18-TESTING.md#072",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "// src/test/setup.ts\r\nimport { server } from \"../mocks/server\";\r\nbeforeAll(() => server.listen({ onUnhandledRequest: \"error\" }));\r\nafterEach(() => server.resetHandlers());   // prevent handler leak between tests\r\nafterAll(() => server.close());\r\n```"
+    },
+    {
+      "id": "18-TESTING.md#073",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "```typescript\r\n// Override per-test\r\nimport { server } from \"../mocks/server\";\r\nimport { http, HttpResponse } from \"msw\";"
+    },
+    {
+      "id": "18-TESTING.md#074",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "it(\"shows error state when API fails\", async () => {\r\n  server.use(\r\n    http.get(\"/api/orders\", () => new HttpResponse(null, { status: 500 }))\r\n  );"
+    },
+    {
+      "id": "18-TESTING.md#075",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "render(<OrderList />);\r\n  expect(await screen.findByText(/failed to load/i)).toBeInTheDocument();\r\n});\r\n```"
+    },
+    {
+      "id": "18-TESTING.md#076",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "18-TESTING.md#077",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "## Playwright — End-to-End Tests"
+    },
+    {
+      "id": "18-TESTING.md#078",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "Playwright drives real browsers (Chromium, Firefox, WebKit). The gold standard for E2E in the Node ecosystem — replaced Cypress as the default recommendation."
+    },
+    {
+      "id": "18-TESTING.md#079",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "```\r\nPlaywright vs Cypress\r\n======================"
+    },
+    {
+      "id": "18-TESTING.md#080",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "Cypress                        Playwright\r\n  ═══════                        ══════════\r\n  Chromium only (+ experimental) Chromium, Firefox, WebKit\r\n  Runs inside browser            Runs outside browser (Node process)\r\n  Time-travel debugging          Trace viewer (same idea, better)\r\n  Single tab/origin              Multi-tab, multi-origin, iframes\r\n  Slower parallelism             Fast parallel by default\r\n  Great DX for simple apps       Better for complex flows + multi-browser\r\n  Huge ecosystem                 Growing fast, Microsoft-backed\r\n```"
+    },
+    {
+      "id": "18-TESTING.md#081",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "### Setup"
+    },
+    {
+      "id": "18-TESTING.md#082",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "```bash\r\nnpm init playwright@latest\r\n# creates playwright.config.ts, example tests, installs browsers\r\n```"
+    },
+    {
+      "id": "18-TESTING.md#083",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "```typescript\r\n// playwright.config.ts\r\nimport { defineConfig, devices } from \"@playwright/test\";"
+    },
+    {
+      "id": "18-TESTING.md#084",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "export default defineConfig({\r\n  testDir: \"./e2e\",\r\n  fullyParallel: true,\r\n  retries: process.env.CI ? 2 : 0,    // retry flaky tests in CI\r\n  reporter: \"html\",\r\n  use: {\r\n    baseURL: \"http://localhost:3000\",\r\n    trace: \"on-first-retry\",           // capture trace on failure\r\n    screenshot: \"only-on-failure\",\r\n  },\r\n  projects: [\r\n    { name: \"chromium\", use: { ...devices[\"Desktop Chrome\"] } },\r\n    { name: \"firefox\", use: { ...devices[\"Desktop Firefox\"] } },\r\n    { name: \"mobile\", use: { ...devices[\"iPhone 13\"] } },\r\n  ],\r\n  webServer: {\r\n    command: \"npm run dev\",\r\n    url: \"http://localhost:3000\",\r\n    reuseExistingServer: !process.env.CI,\r\n  },\r\n});\r\n```"
+    },
+    {
+      "id": "18-TESTING.md#085",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "### Writing Tests"
+    },
+    {
+      "id": "18-TESTING.md#086",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "```typescript\r\n// e2e/checkout.spec.ts\r\nimport { test, expect } from \"@playwright/test\";"
+    },
+    {
+      "id": "18-TESTING.md#087",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "test.describe(\"Checkout flow\", () => {\r\n  test.beforeEach(async ({ page }) => {\r\n    // Log in via API (faster than UI login every test)\r\n    await page.request.post(\"/api/test/login\", {\r\n      data: { email: \"test@example.com\", password: \"password\" },\r\n    });\r\n    await page.goto(\"/cart\");\r\n  });"
+    },
+    {
+      "id": "18-TESTING.md#088",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "test(\"completes purchase with valid card\", async ({ page }) => {\r\n    await page.getByRole(\"button\", { name: /checkout/i }).click();"
+    },
+    {
+      "id": "18-TESTING.md#089",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "await page.getByLabel(/card number/i).fill(\"4242 4242 4242 4242\");\r\n    await page.getByLabel(/expiry/i).fill(\"12/26\");\r\n    await page.getByLabel(/cvc/i).fill(\"123\");\r\n    await page.getByRole(\"button\", { name: /pay now/i }).click();"
+    },
+    {
+      "id": "18-TESTING.md#090",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "// Wait for navigation to confirmation page\r\n    await expect(page).toHaveURL(/\\/order\\/ord_/);\r\n    await expect(page.getByRole(\"heading\", { name: /order confirmed/i }))\r\n      .toBeVisible();\r\n  });"
+    },
+    {
+      "id": "18-TESTING.md#091",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "test(\"shows error for declined card\", async ({ page }) => {\r\n    await page.getByRole(\"button\", { name: /checkout/i }).click();\r\n    await page.getByLabel(/card number/i).fill(\"4000 0000 0000 0002\"); // Stripe test decline\r\n    await page.getByRole(\"button\", { name: /pay now/i }).click();"
+    },
+    {
+      "id": "18-TESTING.md#092",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "await expect(page.getByText(/card was declined/i)).toBeVisible();\r\n  });\r\n});\r\n```"
+    },
+    {
+      "id": "18-TESTING.md#093",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "### Page Object Model"
+    },
+    {
+      "id": "18-TESTING.md#094",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "```typescript\r\n// e2e/pages/CheckoutPage.ts\r\nimport { Page, Locator } from \"@playwright/test\";"
+    },
+    {
+      "id": "18-TESTING.md#095",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "export class CheckoutPage {\r\n  readonly cardNumber: Locator;\r\n  readonly expiry: Locator;\r\n  readonly cvc: Locator;\r\n  readonly payButton: Locator;"
+    },
+    {
+      "id": "18-TESTING.md#096",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "constructor(private page: Page) {\r\n    this.cardNumber = page.getByLabel(/card number/i);\r\n    this.expiry = page.getByLabel(/expiry/i);\r\n    this.cvc = page.getByLabel(/cvc/i);\r\n    this.payButton = page.getByRole(\"button\", { name: /pay now/i });\r\n  }"
+    },
+    {
+      "id": "18-TESTING.md#097",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "async fillCard(number: string, expiry: string, cvc: string) {\r\n    await this.cardNumber.fill(number);\r\n    await this.expiry.fill(expiry);\r\n    await this.cvc.fill(cvc);\r\n  }"
+    },
+    {
+      "id": "18-TESTING.md#098",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "async submit() {\r\n    await this.payButton.click();\r\n  }\r\n}\r\n```"
+    },
+    {
+      "id": "18-TESTING.md#099",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "### Playwright Tooling"
+    },
+    {
+      "id": "18-TESTING.md#100",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "```bash\r\nnpx playwright test                     # run all E2E tests\r\nnpx playwright test --headed            # show browser\r\nnpx playwright test --debug             # step through with inspector\r\nnpx playwright show-report              # open HTML report\r\nnpx playwright codegen http://localhost:3000  # record clicks → generate code\r\n```"
+    },
+    {
+      "id": "18-TESTING.md#101",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "18-TESTING.md#102",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "## Contract Testing — Pact"
+    },
+    {
+      "id": "18-TESTING.md#103",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "### The Problem Contract Testing Solves"
+    },
+    {
+      "id": "18-TESTING.md#104",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "In a microservices architecture, the mock divergence problem from Era 2 testing (19-TESTING-EVOLUTION) has a specific, nasty form: Service A's tests mock Service B. Service B's API changes. Service A's mocks don't. Both test suites pass. Production breaks."
+    },
+    {
+      "id": "18-TESTING.md#105",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "The standard fix — integration tests against a real deployed Service B — reintroduces environment coupling: you need a running instance of B to test A. Contract testing breaks that dependency."
+    },
+    {
+      "id": "18-TESTING.md#106",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "### Consumer-Driven Contracts"
+    },
+    {
+      "id": "18-TESTING.md#107",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "The consumer (the caller) defines what it actually uses from the provider's API — not the full spec, just the subset it depends on. That definition is the *contract*. The provider verifies it can satisfy the contract, independently, without the consumer running."
+    },
+    {
+      "id": "18-TESTING.md#108",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "```\r\nConsumer-Driven Contract Flow\r\n=============================="
+    },
+    {
+      "id": "18-TESTING.md#109",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "Consumer test                      Provider verification\r\n  ══════════════                     ═════════════════════"
+    },
+    {
+      "id": "18-TESTING.md#110",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "1. Write consumer test             3. Pull contract from Pact Broker\r\n     using Pact mock server             (or local file)\r\n     (no real provider needed)\r\n                                     4. Replay each interaction\r\n  2. Test generates a                   against the REAL provider\r\n     .pact JSON file:                   (actual running service)\r\n     {\r\n       \"consumer\": \"frontend\",       5. Verify response matches\r\n       \"provider\": \"order-api\",         contract expectations\r\n       \"interactions\": [\r\n         {\r\n           \"request\":  { POST /orders, body },\r\n           \"response\": { status: 201, body }\r\n         }\r\n       ]\r\n     }\r\n         |\r\n         v\r\n     Pact Broker\r\n     (shared registry)\r\n         |\r\n         v\r\n     Provider CI pulls and verifies"
+    },
+    {
+      "id": "18-TESTING.md#111",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "Provider CI fails if it breaks any consumer's contract.\r\n  Consumer CI fails if provider can't satisfy it.\r\n  No shared environment. No mocks that drift.\r\n```"
+    },
+    {
+      "id": "18-TESTING.md#112",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "### Pact in Practice (TypeScript)"
+    },
+    {
+      "id": "18-TESTING.md#113",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "```typescript\r\n// consumer test — generates the pact file\r\nimport { PactV3, MatchersV3 } from \"@pact-foundation/pact\";\r\nimport { like, integer } from \"@pact-foundation/pact/src/v3/matchers\";\r\nimport { OrderApiClient } from \"./orderApiClient\";"
+    },
+    {
+      "id": "18-TESTING.md#114",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "const provider = new PactV3({\r\n  consumer: \"checkout-frontend\",\r\n  provider: \"order-api\",\r\n  dir: \"./pacts\",\r\n});"
+    },
+    {
+      "id": "18-TESTING.md#115",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "describe(\"OrderApiClient\", () => {\r\n  it(\"creates an order\", async () => {\r\n    await provider\r\n      .given(\"product prod_123 exists\")\r\n      .uponReceiving(\"a request to create an order\")\r\n      .withRequest({\r\n        method: \"POST\",\r\n        path: \"/orders\",\r\n        headers: { \"Content-Type\": \"application/json\" },\r\n        body: { productId: \"prod_123\", quantity: 2 },\r\n      })\r\n      .willRespondWith({\r\n        status: 201,\r\n        body: {\r\n          id: like(\"ord_abc\"),          // string, exact value flexible\r\n          status: \"pending\",\r\n          quantity: integer(2),\r\n        },\r\n      })\r\n      .executeTest(async (mockServer) => {\r\n        const client = new OrderApiClient(mockServer.url);\r\n        const order = await client.createOrder({ productId: \"prod_123\", quantity: 2 });\r\n        expect(order.status).toBe(\"pending\");\r\n      });\r\n  });\r\n});\r\n// Running this test writes: ./pacts/checkout-frontend-order-api.json\r\n```"
+    },
+    {
+      "id": "18-TESTING.md#116",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "```typescript\r\n// provider verification — no consumer code needed\r\nimport { Verifier } from \"@pact-foundation/pact\";"
+    },
+    {
+      "id": "18-TESTING.md#117",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "describe(\"Order API provider verification\", () => {\r\n  it(\"satisfies all consumer contracts\", () => {\r\n    return new Verifier({\r\n      provider: \"order-api\",\r\n      providerBaseUrl: \"http://localhost:3001\",   // real running service\r\n      pactBrokerUrl: \"https://your-pact-broker\",\r\n      publishVerificationResult: true,\r\n      providerVersion: process.env.GIT_SHA,\r\n    }).verifyProvider();\r\n  });\r\n});\r\n```"
+    },
+    {
+      "id": "18-TESTING.md#118",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "### .NET Prior Art (or Lack of It)"
+    },
+    {
+      "id": "18-TESTING.md#119",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "WCF contracts were provider-driven — the provider published a WSDL, consumers generated stubs from it. Consumer-driven contracts invert that: the consumer asserts what it needs, and the provider must satisfy those assertions. There's no direct .NET equivalent from the pre-cloud era. Pact does have a .NET SDK (`PactNet`) with the same model, so the pattern translates directly if you need it on the server side."
+    },
+    {
+      "id": "18-TESTING.md#120",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "### Pact Broker"
+    },
+    {
+      "id": "18-TESTING.md#121",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "The Pact Broker is the shared registry that makes the flow work across teams:"
+    },
+    {
+      "id": "18-TESTING.md#122",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "```\r\nConsumer CI  →  publish pact file  →  Pact Broker\r\n                                           |\r\nProvider CI  ←  pull pact files    ←──────┘\r\n     |\r\n     └── verify → publish results → Pact Broker\r\n                                           |\r\nConsumer CI  ←  can-i-deploy check ←──────┘\r\n  (blocks deploy if provider hasn't verified current contract)\r\n```"
+    },
+    {
+      "id": "18-TESTING.md#123",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "`pact-broker can-i-deploy` is the gate: \"Has the version of the provider I'm about to call verified it can satisfy my current contract?\" Self-hosted or managed via PactFlow."
+    },
+    {
+      "id": "18-TESTING.md#124",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "18-TESTING.md#125",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "## Coverage"
+    },
+    {
+      "id": "18-TESTING.md#126",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "```bash\r\n# Vitest coverage\r\nvitest run --coverage"
+    },
+    {
+      "id": "18-TESTING.md#127",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "# Output:\r\n# ────────────────────────────────────────────────\r\n# File             | % Lines | % Branch | % Funcs\r\n# ────────────────────────────────────────────────\r\n# utils/format.ts  |   100   |   100    |   100\r\n# api/orders.ts    |    87   |    75    |    90\r\n# ────────────────────────────────────────────────\r\n```"
+    },
+    {
+      "id": "18-TESTING.md#128",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "Coverage measures what code your tests execute, not whether they assert correctly. 100% coverage can coexist with terrible tests. Use it as a floor (catch forgotten paths), not a ceiling (not a quality metric)."
+    },
+    {
+      "id": "18-TESTING.md#129",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "18-TESTING.md#130",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "## CI Integration"
+    },
+    {
+      "id": "18-TESTING.md#131",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "```yaml\r\n# .github/workflows/ci.yml\r\njobs:\r\n  test:\r\n    runs-on: ubuntu-latest\r\n    steps:\r\n      - uses: actions/checkout@v4\r\n      - uses: actions/setup-node@v4\r\n        with: { node-version: 20, cache: npm }\r\n      - run: npm ci"
+    },
+    {
+      "id": "18-TESTING.md#132",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "# Unit + integration\r\n      - run: vitest run --coverage\r\n      - uses: actions/upload-artifact@v4\r\n        with: { name: coverage, path: coverage/ }"
+    },
+    {
+      "id": "18-TESTING.md#133",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "e2e:\r\n    runs-on: ubuntu-latest\r\n    steps:\r\n      - uses: actions/checkout@v4\r\n      - uses: actions/setup-node@v4\r\n        with: { node-version: 20, cache: npm }\r\n      - run: npm ci\r\n      - run: npx playwright install --with-deps chromium\r\n      - run: npx playwright test\r\n      - uses: actions/upload-artifact@v4\r\n        if: failure()                           # only upload on failure\r\n        with:\r\n          name: playwright-report\r\n          path: playwright-report/\r\n```"
+    },
+    {
+      "id": "18-TESTING.md#134",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "18-TESTING.md#135",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "## Common Confusion Points"
+    },
+    {
+      "id": "18-TESTING.md#136",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "**`getByRole` queries are the most important thing to learn.**\r\nThey test accessibility and behavior simultaneously. If you can't find an element by role, it often means the component has an accessibility problem. `button`, `link`, `heading`, `textbox`, `checkbox`, `combobox`, `dialog`, `alert` — learn these."
+    },
+    {
+      "id": "18-TESTING.md#137",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "**Don't test implementation details.**\r\nTesting that `useState` was called, or that a specific CSS class was applied, makes tests brittle. Tests should break when behavior changes, not when you refactor internals."
+    },
+    {
+      "id": "18-TESTING.md#138",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "**`await userEvent` not `fireEvent`.**\r\n`fireEvent.click()` fires a single DOM event. `userEvent.click()` simulates the full user interaction sequence (focus, pointer events, click, blur). Use `userEvent` for realistic tests. Note: `userEvent` methods are async in v14+."
+    },
+    {
+      "id": "18-TESTING.md#139",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "**MSW `onUnhandledRequest: \"error\"` is your friend.**\r\nIn test setup, set this. If your component makes a fetch call you didn't mock, the test fails loudly instead of silently returning undefined. Catches missing mocks immediately."
+    },
+    {
+      "id": "18-TESTING.md#140",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "**E2E tests should use test IDs on the server, not mock everything.**\r\nThe value of E2E is exercising the real stack. Use a test database, seed it with known data, run real API calls. If you mock the API in Playwright tests, you're only testing the frontend — which you already covered with component tests."
+    },
+    {
+      "id": "18-TESTING.md#141",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "**Playwright `waitFor` vs `findBy` vs auto-waiting.**\r\nPlaywright has built-in auto-waiting — locators automatically wait for elements to be visible and stable. You rarely need explicit `waitFor`. Testing Library's `findBy*` queries are the async equivalent of `getBy*`."
+    },
+    {
+      "id": "18-TESTING.md#142",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "18-TESTING.md#143",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "## Old World Bridge"
+    },
+    {
+      "id": "18-TESTING.md#144",
+      "path": [
+        "18-TESTING.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:computing-software:18-modern-testing-stack, git-history:computing-software:18-modern-testing-stack]",
+        "canonical_path": "computing/18-TESTING.md",
+        "concepts": "[testing, unit tests, integration tests, e2e, test pyramid]",
+        "current_path": "computing/18-TESTING.md",
+        "id": "maxim:computing-software:modern-testing-stack",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "computing-software",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[testing, quality]",
+        "section": "computing-software",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Modern Testing Stack",
+        "updated": "null"
+      },
+      "text": "| .NET / MSTest / Classic Testing | Modern JS Testing |\r\n|---|---|\r\n| MSTest / NUnit / xUnit | Vitest (same concepts: describe, test, assert) |\r\n| `[TestMethod]` / `[Fact]` | `it(\"...\", () => {})` |\r\n| `Assert.AreEqual(expected, actual)` | `expect(actual).toBe(expected)` |\r\n| `[TestInitialize]` / constructor | `beforeEach(() => {})` |\r\n| `[TestCleanup]` | `afterEach(() => {})` |\r\n| Moq / NSubstitute | `vi.mock()` / `vi.spyOn()` |\r\n| Integration tests with TestServer | Supertest with Express app |\r\n| Selenium / WebDriver | Playwright |\r\n| Coded UI Tests | Playwright (same concept, much better DX) |\r\n| Code coverage (dotCover / OpenCover) | Vitest coverage (v8 / istanbul) |\r\n| Test Explorer in Visual Studio | Vitest UI (`vitest --ui`) |\r\n| WCF WSDL contracts (provider-driven) | Pact (consumer-driven — inverted model) |"
+    }
+  ],
+  "refs": [
+    "18-TESTING.md"
+  ]
+}

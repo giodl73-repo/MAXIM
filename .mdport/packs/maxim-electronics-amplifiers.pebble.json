@@ -1,0 +1,2785 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-electronics-amplifiers",
+  "source": "../../electronics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "04-AMPLIFIERS.md#000",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "# 04 — Amplifiers: BJT, MOSFET, Differential Pair, Feedback"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#001",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "```\nAMPLIFIER LANDSCAPE\n═══════════════════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#002",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "DEVICE MODELS               CONFIGURATIONS             FEEDBACK\n  ─────────────────────────   ─────────────────────────  ─────────────────────\n  BJT: NPN/PNP                Common emitter (CE)        Negative: stabilizes\n    I_C = β·I_B                 High gain                  Reduces Rin, Rout\n    I_C = I_S e^(V_BE/V_T)     High R_in (hfe topology)   Increases BW\n                              Common base (CB)           Positive: oscillates\n  MOSFET: NMOS/PMOS             Low R_in, high freq         or clips\n    I_D = ½μnCox(W/L)(Vgs-Vth)² Common collector (CC)   Miller effect\n    Vgs controls I_D             Follower, gain<1, low Rout  frequency limitation"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#003",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "Small-signal model:          Differential pair          Op-amp = macromodel\n    BJT: g_m, r_π, r_o          Tail current source           of amplifier\n    MOSFET: g_m, r_o            CMRR, high gain               principles"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#004",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "6.012 bridge: Device physics behind BJT/MOSFET. This module uses\n  behavioral models — physics is the course you haven't taken.\n```"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#005",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#006",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "## 1. BJT — Bipolar Junction Transistor"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#007",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "### Physical Operation (Behavioral Model)"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#008",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "```\n  NPN BJT:\n    Base-Emitter junction forward biased (like diode, ~0.7V)\n    Collector-Base junction reverse biased\n    Small I_B controls large I_C"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#009",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "Active region (linear amplifier):\n    I_C = β·I_B        (β = hFE = current gain, typically 50–300)\n    I_E = I_C + I_B = (β+1)·I_B\n    V_BE ≈ 0.6–0.7 V  (forward biased junction)\n    V_CE > V_CE_sat   (keep out of saturation for linear operation)"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#010",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "Exact (Ebers-Moll, active region):\n    I_C = I_S · e^(V_BE/V_T)\n    V_T = kT/q ≈ 26 mV at room temperature  (thermal voltage)\n    → Exponential relationship!"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#011",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "Transconductance:\n    g_m = dI_C/dV_BE = I_C/V_T    (at operating point I_C)\n    At I_C = 1 mA: g_m = 1/(26 mV) ≈ 38.5 mA/V\n    g_m proportional to bias current — key design parameter.\n```"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#012",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "### Small-Signal Model (π-model)"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#013",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "```\n  For AC analysis: replace BJT with linear equivalent at operating point."
+    },
+    {
+      "id": "04-AMPLIFIERS.md#014",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "B        C\n           o        o\n           |        |\n           [r_pi]   [g_m * v_pi]   (current source)\n           |        |\n           |        [r_o]          (output resistance)\n           |        |\n           o========o\n                    |\n                    E"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#015",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "r_π = β/g_m = V_T·β/I_C   (input resistance)\n  g_m = I_C/V_T              (transconductance)\n  r_o = V_A/I_C              (output resistance, V_A = Early voltage ~50–100V)"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#016",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "Finding the operating point:\n    1. Ignore AC sources, set to DC values\n    2. Assume V_BE = 0.7V for NPN\n    3. Find I_C from DC circuit (KVL with V_BE = 0.7V)\n    4. Compute g_m, r_π, r_o at that I_C\n```"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#017",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#018",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "## 2. MOSFET — Field Effect Transistor"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#019",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "### Physical Operation (Behavioral Model)"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#020",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "```\n  NMOS (n-channel):\n    Gate-Source voltage V_GS creates channel under gate oxide.\n    Drain current I_D flows when V_GS > V_th (threshold voltage)."
+    },
+    {
+      "id": "04-AMPLIFIERS.md#021",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "Operating regions:\n    Cutoff (V_GS < V_th):      I_D = 0\n    Linear/Triode (V_GS-V_th > V_DS > 0):\n      I_D = μnCox(W/L)[(V_GS-V_th)V_DS - V_DS²/2]\n      Acts like voltage-controlled resistor.\n    Saturation (V_DS ≥ V_GS-V_th):\n      I_D = ½μnCox(W/L)(V_GS-V_th)²    ← quadratic, not exponential!\n      Current independent of V_DS (approximately)."
+    },
+    {
+      "id": "04-AMPLIFIERS.md#022",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "Key difference from BJT:\n    BJT: exponential V_BE → I_C, base current required\n    MOSFET: quadratic V_GS → I_D, gate current ≈ 0 (capacitive input)\n    MOSFET advantage: zero DC gate current, easier biasing\n```"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#023",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "### MOSFET Small-Signal Model"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#024",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "```\n         G          D\n         o          o\n         |          |\n         |     [g_m * v_gs]  (current source)\n         |          |\n         |          [r_o]\n         |          |\n         o==========o\n                    S"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#025",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "g_m = dI_D/dV_GS = μnCox(W/L)(V_GS-V_th) = √(2μnCox(W/L)I_D)\n  r_o = 1/(λI_D)   where λ = channel-length modulation parameter"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#026",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "Note: MOSFET g_m is typically lower than BJT g_m at same current.\n  MOSFET threshold V_th: 0.3–1V (depends on process, adjustable by bias)\n```"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#027",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "### BJT vs MOSFET Comparison"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#028",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "| Property | BJT | MOSFET |\n|---|---|---|\n| Control | Base current I_B | Gate voltage V_GS |\n| Input | Low-Z (r_π) | Very high-Z (capacitive) |\n| Current eq | Exponential I_C = I_S e^(V_BE/V_T) | Quadratic I_D ∝ (V_GS-V_th)² |\n| g_m at same I | Higher (g_m = I_C/V_T) | Lower (g_m ∝ √I_D) |\n| V_BE/V_GS-V_th | ~0.7V (fixed) | 0.3–1V (adjustable) |\n| DC bias power | V_BE × I_B wasted | No gate current |\n| Matching | Good | Excellent (digital VLSI) |\n| Speed | High (bipolar process) | High (submicron CMOS) |\n| Use case | RF, precision analog | Digital VLSI, power, CMOS analog |"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#029",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#030",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "## 3. Single-Transistor Amplifier Configurations"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#031",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "### Common Emitter (CE) — BJT Voltage Amplifier"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#032",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "```\n  VCC\n   │\n   R_C ──── V_out\n   │\n  (C)──── V_out\n  (B)──── V_in (via coupling cap)\n  (E)────[R_E]── GND (bypass C_E to GND for AC)"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#033",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "Small-signal (with emitter bypass cap, so r_e = 0):\n    A_v = V_out/V_in = -g_m · (r_o || R_C) ≈ -g_m · R_C\n    R_in = R_B1 || R_B2 || r_π                (bias resistors in parallel)\n    R_out = r_o || R_C ≈ R_C"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#034",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "Without emitter bypass (R_E in small-signal path):\n    A_v = -g_m R_C / (1 + g_m R_E) ≈ -R_C/R_E\n    R_in = R_B || (r_π + (β+1)R_E)            (much higher input resistance)\n    Gain stabilized (less sensitive to β variation) ← this is local feedback\n```"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#035",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "### Common Base (CB)"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#036",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "```\n  Low input impedance (~1/g_m), high output impedance, non-inverting.\n  Voltage gain ≈ g_m·R_C.\n  No Miller effect (base is AC ground between input and output).\n  Use for: high-frequency, RF (no input-output capacitance coupling).\n```"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#037",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "### Common Collector (CC) — Emitter Follower"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#038",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "```\n  R_out = r_π/β + R_source/β ≈ 1/g_m   (low)\n  R_in = r_π + (β+1)R_E                 (very high)\n  A_v ≈ 1 (slightly less)"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#039",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "Use for: impedance buffer (matches high-Z source to low-Z load)\n  Emitter follower = BJT version of op-amp voltage follower\n```"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#040",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "### MOSFET Equivalent Configurations"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#041",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "| BJT | MOSFET | Properties |\n|---|---|---|\n| Common emitter | Common source | Inverting voltage gain, medium Rin |\n| Common base | Common gate | Low Rin, high-freq, non-inverting |\n| Common collector | Common drain (source follower) | Buffer, gain≈1, low Rout |"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#042",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#043",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "## 4. Differential Pair"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#044",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "```\n  The building block of all op-amps and precision analog circuits."
+    },
+    {
+      "id": "04-AMPLIFIERS.md#045",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "VCC\n         │\n      ┌──┴──┐\n     R_C   R_C\n      │     │\n  V_out2   V_out1\n      │     │\n     (C₁)  (C₂)    Q1, Q2: matched transistors\n     (B₁)  (B₂)\n     V_in1  V_in2\n     (E₁)  (E₂)\n       └──┬──┘\n          │\n         I_EE (tail current source)\n          │\n         GND"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#046",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "Differential input: V_id = V_in1 - V_in2\n  Common-mode input:  V_ic = (V_in1 + V_in2)/2"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#047",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "Operation:\n    Tail current I_EE is fixed (from current source).\n    V_id → 0: I_EE splits equally, V_out1 = V_out2\n    V_id → positive: Q1 steals current from Q2\n    V_id large positive: Q1 takes all I_EE, Q2 cuts off (saturated diff amp)\n    Transfer characteristic: I_C1-I_C2 = I_EE·tanh(V_id/(2V_T))  [for BJT]\n```"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#048",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "### Small-Signal Analysis"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#049",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "```\n  Half-circuit concept: split into two independent circuits.\n    Differential mode: tail current source → open circuit for differential\n    Common mode: tail current source → 2·r_ee (resistance to GND)"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#050",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "Differential gain:\n    A_d = -g_m · R_C         (same as single CE with R_C as load)"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#051",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "Common-mode gain:\n    A_c = -R_C / (2·r_ee + 1/g_m)  ← small when r_ee large\n    With ideal current source r_ee → ∞: A_c → 0"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#052",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "CMRR = |A_d/A_c| = g_m · 2·r_ee = 2·g_m·r_ee  ← want large\n    High CMRR → rejects noise common to both inputs.\n    Op-amp spec: CMRR typically 80–120 dB.\n```"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#053",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#054",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "## 5. Feedback"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#055",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "### The Four Feedback Topologies"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#056",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "```\n  Negative feedback in amplifiers: sense output, subtract from input."
+    },
+    {
+      "id": "04-AMPLIFIERS.md#057",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "What you sense (at output):  V or I\n  How you feed back (at input): V (series) or I (shunt)"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#058",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "┌──────────────────────────────────────────────────────────────────────┐\n  │  Topology         Sense    Feed    Effect on              Gain       │\n  │                   output   back    Rin    Rout            stability  │\n  ├──────────────────────────────────────────────────────────────────────┤\n  │  Series-Shunt     V        V       Up     Down     A_v (V→V)  stable │\n  │  (non-inverting)                                                     │\n  │  Series-Series    I        V       Up     Up       A_i (V→I) stable  │\n  │  Shunt-Shunt      V        I       Down   Down     Z (I→V)   stable  │\n  │  (transresistance)                                                   │\n  │  Shunt-Series     I        I       Down   Up       A_i (I→I) stable  │\n  └──────────────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#059",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "Summary:\n    Sense voltage → Rout decreases (good voltage source)\n    Series subtraction → Rin increases (good voltage input)\n    Feed back current → Rin decreases (good current input)\n    Series injection → Rout increases (good current source)\n```"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#060",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "### Feedback Equations"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#061",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "```\n  Open-loop gain: A   (can be very large and variable)\n  Feedback factor: β   (stable, set by resistors)\n  Loop gain: T = Aβ"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#062",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "Closed-loop gain:  A_f = A/(1 + Aβ) ≈ 1/β   (for T >> 1)"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#063",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "Gain sensitivity:  dA_f/A_f = (1/(1+Aβ)) · dA/A\n    Error in A reduced by factor (1+Aβ).\n    Feedback trades gain for gain stability."
+    },
+    {
+      "id": "04-AMPLIFIERS.md#064",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "Bandwidth:   BW_f = BW_open · (1+Aβ)\n    Gain-bandwidth product preserved.\n    Op-amp: A × BW = GBW product (constant), so reducing gain increases BW."
+    },
+    {
+      "id": "04-AMPLIFIERS.md#065",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "Non-linearity: reduced by (1+T) — feedback linearizes.\n  Noise: input-referred noise unchanged; output noise reduced.\n```"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#066",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "### Stability and the Miller Effect"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#067",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "```\n  BODE PLOT EXAMPLE: TWO-POLE SYSTEM — LOOP GAIN Aβ(jω)"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#068",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "|Aβ| (dB)     Phase of Aβ\n  60│──.                           0°│──────────────.\n    │   ╲  -20 dB/dec                │                ╲\n  40│    ╲                        -45°│                 ╲\n    │     ╲                          │                   ╲\n  20│      ╲  p₁                 -90°│        ╲           ╲\n    │       ·─── -40 dB/dec          │         ╲           ╲\n   0│─ ─ ─ ─╲─ gain crossover  -135°│          ╲  p₂       ╲\n    │    ωgc  ╲  (|Aβ|=1)           │           ·────────────╲\n -20│          ╲            PM -180°│─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ (oscillation)\n    └───────────────→ ω              └───────────────────────→ ω\n              p₂                            ωgc\n                                       PM = 180° + phase(Aβ) at ωgc"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#069",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "Phase margin vs step response:\n    PM ≈ 75°:  no overshoot, slow response\n    PM ≈ 60°:  ~5% overshoot, well-damped\n    PM ≈ 45°:  ~23% overshoot, slight ringing — minimum acceptable\n    PM ≈ 20°:  severe ringing, near-oscillation\n    PM ≤ 0°:   unstable — sustained oscillation"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#070",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "Mapping to pole locations (closed-loop):\n    PM ≈ 60° → ζ ≈ 0.6 → complex poles well into LHP\n    PM ≈ 45° → ζ ≈ 0.45 → poles closer to jω axis, more ringing\n    PM < 0°  → poles cross into RHP → unstable\n```"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#071",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "```\n  Stability:\n    Negative feedback → phase shift at high frequency → becomes positive feedback.\n    If loop gain > 1 at the frequency where phase = 180°: oscillation."
+    },
+    {
+      "id": "04-AMPLIFIERS.md#072",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "Phase margin PM = 180° + ∠(A(jω)β) at gain crossover (|Aβ|=1)\n    PM > 0°: stable. PM > 45°: well-damped."
+    },
+    {
+      "id": "04-AMPLIFIERS.md#073",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "Miller Effect:\n    Capacitor C across inverting amplifier with gain -A:\n    Input capacitance = C(1+A)  ← appears much larger!"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#074",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "Why: if input voltage changes by 1V, output changes by -A volts.\n    Capacitor sees A+1 volts change → draws A+1 times as much current.\n    Effective C_in = C_f(1+A)."
+    },
+    {
+      "id": "04-AMPLIFIERS.md#075",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "Problem: limits bandwidth of common-emitter and common-source amps.\n    Fix: cascode topology puts common-base/gate stage between C and E/S.\n      Common-base has low impedance input → Miller multiplier ≈ 1.\n```"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#076",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#077",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "## 6. Amplifier Noise — The Information-Theoretic Floor"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#078",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "Every amplifier adds noise to the signal, setting a fundamental limit on recoverable information. Noise analysis completes the gain–bandwidth–stability triad."
+    },
+    {
+      "id": "04-AMPLIFIERS.md#079",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "```\n  NOISE SOURCES IN AMPLIFIERS\n  ┌────────────────────────────────────────────────────────────────────────────┐\n  │  Johnson-Nyquist (thermal):  v_n² = 4kTRΔf                                 │\n  │    k = 1.38×10⁻²³ J/K, T = temperature (K), R = resistance, Δf = BW        │\n  │    At 300K, 1 kΩ, 1 Hz BW: v_n = 4.07 nV/√Hz                               │\n  │    → Every resistor is a noise source. R_source noise → amplifier input.   │\n  │                                                                            │\n  │  Shot noise:  i_n² = 2qI_DC Δf                                             │\n  │    q = 1.6×10⁻¹⁹ C, I_DC = DC bias current                                 │\n  │    Dominant in BJT base current and photodiode dark current.               │\n  │                                                                            │\n  │  Flicker (1/f):  S(f) ∝ 1/f                                                │\n  │    Dominant below corner frequency f_c (1 Hz – 10 kHz depending on tech).  │\n  │    CMOS has higher 1/f noise than BJT — matters for DC precision amps.     │\n  └────────────────────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#080",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "NOISE FIGURE AND SIGNAL CHAIN\n  ┌────────────────────────────────────────────────────────────────────────────┐\n  │  Noise figure NF = 10 log₁₀(SNR_in / SNR_out) [dB]                         │\n  │  NF = 0 dB → noiseless amplifier (impossible; ≥ 0.5 dB for best LNAs)      │\n  │                                                                            │\n  │  Friis cascade formula (N stages):                                         │\n  │    NF_total = NF₁ + (NF₂-1)/G₁ + (NF₃-1)/(G₁G₂) + ...                     │\n  │    → First stage dominates! Low-noise amplifier (LNA) must be first.       │\n  │                                                                            │\n  │  Information-theoretic connection:                                         │\n  │    Shannon capacity: C = B log₂(1 + SNR)  [bits/s]                         │\n  │    Amplifier NF degrades SNR → directly reduces channel capacity.          │\n  │    For an ADC front end: input-referred noise + quantization noise         │\n  │    together set ENOB = (SINAD - 1.76) / 6.02.                              │\n  │    A 16-bit ADC with NF = 10 dB front-end amp may achieve only 14 ENOB.    │\n  └────────────────────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#081",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "DESIGN RULES\n  Input-referred noise:  v_ni = √(v_n_amp² + (i_n_amp × R_source)²)\n  SNR at ADC input:      SNR = V_signal_rms / v_ni\n  Budget allocation:     amplifier noise ≤ quantization noise → ENOB preserved\n    For N-bit ADC, full-scale V_FS:  v_q = V_FS / (√12 × 2^N)\n    Require v_ni < v_q for noise not to degrade resolution.\n```"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#082",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#083",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "## 7. Multi-Stage and Operational Amplifiers"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#084",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "### Op-Amp Internal Architecture"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#085",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "```\n  Typical two-stage CMOS op-amp:"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#086",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "V_in+ ──┐\n           ├── Diff pair ──── Gain stage ──── Output buffer ──── V_out\n  V_in- ──┘        │                │\n                 Tail              Compensation\n                 current           capacitor Cc\n                 source            (Miller compensation)"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#087",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "Stage 1: Differential pair → high CMRR, sets input characteristics\n  Stage 2: Common source → high voltage gain (typically 1000–10000)\n  Stage 3: Output buffer (source follower) → low Rout"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#088",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "Compensation capacitor Cc:\n    Creates dominant pole at low frequency (Miller effect).\n    Ensures other poles are beyond gain crossover → PM > 45°.\n    \"Pole splitting\" — moves one pole lower, one higher."
+    },
+    {
+      "id": "04-AMPLIFIERS.md#089",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "Gain: A_v = g_m1 · r_o1 · g_m2 · r_o2   (product of stage gains)\n  GBW = g_m1 / Cc\n```"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#090",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "### Op-Amp Non-Idealities"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#091",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "**Practical impact of non-idealities on system design:**"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#092",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "```\n  12-bit ADC with 3.3V full-scale → LSB = 3.3V / 4096 ≈ 0.8 mV\n  → V_os of 5 mV = 6 LSB error at DC (unacceptable without calibration)\n  → I_B of 1 µA through R_source = 10 kΩ → V_error = 10 mV = 12 LSB\n  → CMRR of 80 dB with 1V common-mode → CM error = 100 µV ≈ 0.1 LSB (OK)"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#093",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "Design rules:\n  • V_os budget: select op-amp with V_os < 1 LSB of your ADC\n  • Source impedance limit: R_source < V_os_budget / I_B\n  • For precision (>14 bits): use chopper-stabilized op-amp (V_os < 10 µV)\n  • Slew rate check: SR > 2π × f_signal × V_peak for full-power bandwidth\n```"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#094",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "| Parameter | Effect | Typical Value |\n|---|---|---|\n| Input offset voltage V_os | Output error even with 0 input | 1–10 mV (BJT), 1–25 mV (CMOS) |\n| Input bias current I_B | Error from source resistance | pA (CMOS), nA–μA (BJT) |\n| Input offset current I_os | Differential of I_B | I_B/10 |\n| Common-mode rejection (CMRR) | Rejects V_ic | 80–120 dB |\n| Power supply rejection (PSRR) | Rejects supply noise | 60–120 dB |\n| Slew rate (SR) | Max dV/dt at output | 0.5–1000 V/μs |\n| GBW product | Gain × bandwidth | 1 MHz–1 GHz |\n| Output swing | Maximum output voltage range | V_ss+0.1 to V_dd-0.1 (rail-to-rail) |"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#095",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "```\n  Slew rate limiting:\n    Large step input → diff pair driven out of linear range → output slews at SR.\n    SR = 2I_EE/Cc (limited by tail current charging Cc).\n    Full-power bandwidth: f_FP = SR / (2π·V_peak)\n    Above f_FP: large signals are slew-rate limited (distorted sine becomes triangle).\n```"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#096",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#097",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "## 7. Decision Cheat Sheet"
+    },
+    {
+      "id": "04-AMPLIFIERS.md#098",
+      "path": [
+        "04-AMPLIFIERS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:electronics:04-amplifiers, git-history:electronics:04-amplifiers]",
+        "canonical_path": "electronics/04-AMPLIFIERS.md",
+        "concepts": "[amplifiers]",
+        "current_path": "electronics/04-AMPLIFIERS.md",
+        "id": "maxim:electronics:amplifiers",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "electronics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[amplifiers]",
+        "section": "electronics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "04 - Amplifiers: BJT, MOSFET, Differential Pair, Feedback",
+        "updated": "null"
+      },
+      "text": "| Need... | Use |\n|---|---|\n| Moderate voltage gain, common | Common emitter (BJT) or common source (MOSFET) |\n| Current-to-voltage conversion | Shunt-shunt feedback transresistance amp |\n| Impedance buffer (Z transform) | Emitter/source follower or op-amp buffer |\n| High-frequency amplifier (avoid Miller) | Common base/gate (cascode) |\n| Reject common-mode noise | Differential pair + high tail current source |\n| Stable precise gain | Negative feedback, A_f ≈ 1/β |\n| Amplify + filter in one stage | Transimpedance amp (photodiode) |\n| High input impedance (sensor) | MOSFET input (FET op-amp) |\n| High precision offset/low noise | BJT diff pair (lower V_os than CMOS) |\n| Low power, VLSI | CMOS differential pair |\n| Understand op-amp frequency rolloff | GBW = g_m1/Cc, check SR for large signals |"
+    }
+  ],
+  "refs": [
+    "04-AMPLIFIERS.md"
+  ]
+}

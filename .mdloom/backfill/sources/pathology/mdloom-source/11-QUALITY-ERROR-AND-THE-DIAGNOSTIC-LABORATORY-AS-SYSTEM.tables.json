@@ -1,0 +1,293 @@
+{
+  "schema_version": "1",
+  "source_markdown": "pathology\\11-QUALITY-ERROR-AND-THE-DIAGNOSTIC-LABORATORY-AS-SYSTEM.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 146,
+      "heading_context": "## The Big Picture: The Unit of Quality Is the Process, Not the Result",
+      "headers": [
+        "Layer",
+        "Question it answers",
+        "`08`↔`11` ownership"
+      ],
+      "rows": [
+        [
+          "Result generation + bounding",
+          "Is *this number/slide/diagnosis* right and how far to trust it?",
+          "`08`/`09`/`10`"
+        ],
+        [
+          "QC (statistical process control)",
+          "Is the *process* in control across runs, right now?",
+          "`11` (metrics from `08`)"
+        ],
+        [
+          "QA / QMS",
+          "Is the whole system designed and run to produce quality?",
+          "`11`"
+        ],
+        [
+          "EQA (⊇ PT)",
+          "Does the process agree with an *external comparison*?",
+          "`11` (comparison, not ground truth)"
+        ],
+        [
+          "Governance / accreditation",
+          "Is competence for a scope formally demonstrated (distinct from QMS certification)?",
+          "`11` (as concept)"
+        ],
+        [
+          "Error taxonomy + CAPA",
+          "What class of failure occurred and how is it prevented?",
+          "`11`"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 309,
+      "heading_context": "## 2. QC, QA, and EQA: A Three-Layer Control System",
+      "headers": [
+        "Layer",
+        "Compared against",
+        "Detects",
+        "Blind spot (needs another layer)"
+      ],
+      "rows": [
+        [
+          "QC",
+          "The control material vs its own established limits",
+          "Loss of statistical control (shift/trend/random); *some* bias via assayed/independent controls",
+          "Bias **shared with its own calibration/target-setting**"
+        ],
+        [
+          "QA / QMS",
+          "The system vs its own design/requirements",
+          "Process/competence/document failures",
+          "A single analytic drift in real time"
+        ],
+        [
+          "EQA (⊇ PT)",
+          "An *external* peer group / reference (a comparison, not ground truth)",
+          "Calibration-linked bias, blind spots, standardization gaps",
+          "Fast, real-time run failures; itself limited by commutability/consensus"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 664,
+      "heading_context": "## 9. The Autopsy and Audit Boundary",
+      "headers": [
+        "Instrument",
+        "Compares…",
+        "…against",
+        "Owner / scope note"
+      ],
+      "rows": [
+        [
+          "**Internal audit**",
+          "the laboratory's actual activities/records",
+          "its own QMS + defined requirements",
+          "planned, independent, documented; owned here"
+        ],
+        [
+          "**EQA / PT**",
+          "the laboratory's *testing performance*",
+          "an external peer group / reference",
+          "the external comparison of `§2`; not ground truth"
+        ],
+        [
+          "**Morbidity & mortality (M&M) review**",
+          "management/outcomes of specific cases",
+          "the expected standard of care",
+          "case-based clinical learning forum; clinical scope"
+        ],
+        [
+          "**Clinicopathologic (consented) autopsy**",
+          "pre-mortem diagnoses/management",
+          "post-mortem findings",
+          "diagnostic-discordance audit; conceptual here only"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 892,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation / signal",
+        "The concept is…",
+        "Where it lives"
+      ],
+      "rows": [
+        [
+          "\"This one result is implausible for this patient\"",
+          "Local **delta check** (bounds one result)",
+          "`08 §8`"
+        ],
+        [
+          "Control material drifting across runs",
+          "**QC / SPC** shift-or-trend; limits from the control's own mean/SD",
+          "§2"
+        ],
+        [
+          "`1_2s` exceedance vs a rejected run",
+          "`1_2s` = **warning**; reject on `1_3s` or a **multirule**",
+          "§2"
+        ],
+        [
+          "Choosing how many controls / which rules",
+          "**QC planning** from sigma/TEa/bias (not the chart limits)",
+          "§2, `08 §2`"
+        ],
+        [
+          "QC for a qualitative / micro / molecular / IHC test",
+          "**Non-quantitative controls** (pos/neg, control strains, control tissue)",
+          "§2, `09`"
+        ],
+        [
+          "\"We do QC, so we have QA\"",
+          "QC is a component *inside* **QA/QMS**",
+          "§2"
+        ],
+        [
+          "In control internally but discordant vs peers",
+          "**EQA (⊇ PT)** — external *comparison*, not ground truth",
+          "§2, `08 §6`"
+        ],
+        [
+          "Does internal QC see *any* bias?",
+          "*Some* — via assayed/independent controls, reference materials, calibration verification, method comparison",
+          "§2, `08 §6`"
+        ],
+        [
+          "Classifying where a failure arose",
+          "**Cross-process error taxonomy** (phase-indexed)",
+          "§3"
+        ],
+        [
+          "Counting near-misses, not just harms",
+          "Error-vs-harm + **detection→prevention** axes",
+          "§3"
+        ],
+        [
+          "Many independent imperfect checks",
+          "**Defense in depth** (framework: `clinical-medicine/11`)",
+          "§3, §10"
+        ],
+        [
+          "\"Does this method meet requirements for its intended use?\"",
+          "**Validation** (establish fitness by objective evidence)",
+          "§4"
+        ],
+        [
+          "\"Does this validated method meet claims here?\"",
+          "**Verification** (confirm locally by objective evidence)",
+          "§4"
+        ],
+        [
+          "Is a quoted reference interval right for this population?",
+          "**Reference-interval verification** (distinct from method verification)",
+          "§4"
+        ],
+        [
+          "Method modified / used outside its intended use",
+          "May require **validation**, not mere verification",
+          "§4"
+        ],
+        [
+          "A reagent-lot/platform change",
+          "**Change control** (assess+risk → verify → approve → implement → monitor)",
+          "§5"
+        ],
+        [
+          "\"Which document version was in force?\"",
+          "**Document control** (config management)",
+          "§5"
+        ],
+        [
+          "Is the person qualified to do this?",
+          "**Competence** assessment",
+          "§5"
+        ],
+        [
+          "Is the *system* competent for a scope (≠ QMS certification)?",
+          "**Accreditation** (ISO 15189, as concept)",
+          "§7"
+        ],
+        [
+          "A critical result must reach a clinician",
+          "Critical-communication **SLA + surveillance**",
+          "§6, `08 §8`, `10 §8`"
+        ],
+        [
+          "Testing didn't conform (a wrong result was released)",
+          "**Nonconforming work**: affected-result assessment → contain/correct → communicate → cause → corrective action → verify",
+          "§6"
+        ],
+        [
+          "\"Corrective vs preventive action\"",
+          "Correction fixes the *instance*; **corrective action** removes the *cause* (recurrence); **preventive/risk control** is separate & proactive",
+          "§6"
+        ],
+        [
+          "Rising amendment rate",
+          "**Stratify**: corrections/retractions = defects; expected **addenda ≠ defects**",
+          "§6, `10 §9`"
+        ],
+        [
+          "Result correct but too late",
+          "**Turnaround (TAT)** as a latency SLO (watch the tail)",
+          "§8"
+        ],
+        [
+          "\"Which results did a fault affect?\"",
+          "**Traceability** + **look-back** (a quality property)",
+          "§8"
+        ],
+        [
+          "Formal custody trail for a medicolegal specimen",
+          "**Legal chain of custody** (≠ routine traceability); out of scope",
+          "§8, §9"
+        ],
+        [
+          "\"Did we follow our own system?\"",
+          "**Internal audit** (vs EQA, M&M, autopsy — different comparisons)",
+          "§9"
+        ],
+        [
+          "\"Did we get the diagnosis right, checked against the tissue?\"",
+          "**Clinicopathologic autopsy** (conceptual audit only)",
+          "§9"
+        ],
+        [
+          "Cause / manner of death, legal opinion",
+          "**Out of scope** (pillar 3)",
+          "§9"
+        ],
+        [
+          "Instrument/LIS down; supply gap",
+          "**Resilience** / graceful degradation",
+          "§10"
+        ],
+        [
+          "No LIS / no PT scheme / no backup analyzer",
+          "Quality *reasoning* via manual records, split-sample/rechecking, referral, downtime pathway",
+          "§2, §8, §10, §11"
+        ],
+        [
+          "How the number/slide/diagnosis is made",
+          "Not here — generation",
+          "`08`/`09`/`10`"
+        ],
+        [
+          "The clinical care-system safety science",
+          "Not here — the clinical system",
+          "`clinical-medicine/11`"
+        ]
+      ]
+    }
+  ]
+}

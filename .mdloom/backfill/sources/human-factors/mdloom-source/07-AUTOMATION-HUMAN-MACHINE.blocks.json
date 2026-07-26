@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "human-factors\\07-AUTOMATION-HUMAN-MACHINE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 65,
+      "heading_context": "## The Big Picture: Automation Is a Trade, Not a Subtraction",
+      "confidence": "candidate",
+      "text": "AUTOMATION AS A TRADE  (the two frameworks this guide owns)\n================================================================================\n   FRAMEWORK 1 -- LEVELS & TYPES (what/how much)     FRAMEWORK 2 -- THE IRONIES (so what)\n   ------------------------------------------        ---------------------------------------\n   Sheridan-Verplank: 10 levels, human->full auto    Bainbridge (1983): automating the EASY\n   Parasuraman-Sheridan-Wickens (2000): 4 STAGES     parts leaves the human the HARD parts;\n      1 information acquisition                       the human must MONITOR (bad at it),\n      2 information analysis                          take over in the WORST moments, with\n      3 decision selection                           DECAYED skills and lost SA.\n      4 action implementation                         => higher automation TRADES routine\n   each stage automatable to a DEGREE (a level)          load for rare-event fragility.\n================================================================================\n   Read together: choose a LEVEL for each STAGE (a design point in a grid), then pay the\n   IRONY TAX -- monitoring load, complacency, OOTL, skill decay -- with eyes open. There is\n   no level that is \"just better\"; there is a level appropriate to the failure rate and the\n   difficulty of human takeover.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 105,
+      "heading_context": "## 1. Levels and Types of Automation",
+      "confidence": "candidate",
+      "text": "THE STAGE x LEVEL DESIGN SPACE  (Parasuraman-Sheridan-Wickens, 2000)\n--------------------------------------------------------------------------------\n   stage \\ level   LOW automation ................ HIGH automation\n   1 ACQUISITION   human scans          -> sensors filter/cue attention\n   2 ANALYSIS      human integrates     -> system fuses & predicts (trend, projection)\n   3 DECISION      human decides        -> system recommends -> system decides\n   4 ACTION        human executes       -> system executes on approval -> fully autonomous\n   -----------------------------------------------------------------------------\n   KEY: pick a level PER STAGE. Automating stages 2-3 (analysis/decision) buys the most\n   routine relief but costs the most SA and OOTL -- the human loses the PICTURE, and is\n   worst placed to retake control. Automating stage 1 or 4 is usually cheaper in SA.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 153,
+      "heading_context": "## 3. Trust, Complacency, and Automation Bias",
+      "confidence": "candidate",
+      "text": "CALIBRATED RELIANCE  (Lee & See 2004; the two miscalibrations both hurt)\n--------------------------------------------------------------------------------\n   OVER-TRUST (misuse)     rely when you should not -> COMPLACENCY (under-monitor) and\n                           AUTOMATION BIAS: commission (follow a wrong automated cue) and\n                           omission (miss an event the automation didn't flag)\n   UNDER-TRUST (disuse)    reject good automation -> lose its benefit, add workload,\n                           sometimes disable it entirely\n   CALIBRATION goal        reliance MATCHES reliability, per situation and per function\n   -----------------------------------------------------------------------------\n   Trust tracks PERCEIVED reliability; a few salient failures crater it, and a long clean\n   run inflates it. Design for calibration: show the automation's CONFIDENCE and LIMITS,\n   make its state and MODE continuously visible (guide 06), and avoid \"cry wolf\" (guide 05/06).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 247,
+      "heading_context": "## A Worked Allocation Pass — Scoring a Stage's Level on the Trade (reproducible)",
+      "confidence": "candidate",
+      "text": "SYNTHETIC ALLOCATION SCORES  (0-10; the TRADE made explicit)\n--------------------------------------------------------------------------------\n   level                  routine workload   off-normal CONDITIONAL cost   (SA retained)\n                              W(L)               C(L)  [given an off-normal]\n   L1 human decides            8                   3   (in the loop: NO takeover)   high\n   L2 system recommends        5                  12   (mostly in loop)             good\n   L3 system decides,          3                  30   (approval bias; weak SA)     weak\n      human approves\n   L4 fully autonomous         1                  60   (OOTL: rebuild SA, decayed)  poor\n   -----------------------------------------------------------------------------\n   Expected-cost model:  E(L) = (1 - p) * W(L)  +  p * C(L)\n      p    = COMMON off-normal-scenario probability -- a property of the WORLD, the SAME\n             for every level. It is how often an abnormal situation ARISES, not how often\n             \"the automation fails.\"\n      C(L) = LEVEL-SPECIFIC conditional cost GIVEN an off-normal. It rises with automation\n             because OOTL + skill decay + SA-rebuild make human takeover worse.\n      L1 carries NO takeover-failure term: the human never left the loop, so C(L1) is just\n      the modest cost of handling an abnormal while already engaged -- not a takeover penalty.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 271,
+      "heading_context": "## A Worked Allocation Pass — Scoring a Stage's Level on the Trade (reproducible)",
+      "confidence": "candidate",
+      "text": "E(L) = (1 - p) * W(L) + p * C(L)      W = [8,5,3,1]   C = [3,12,30,60]\n--------------------------------------------------------------------------------\n   p = 0.01 (off-normal very rare):\n      E(L1)=.99*8 +.01*3  = 7.95   E(L3)=.99*3 +.01*30 = 3.27\n      E(L2)=.99*5 +.01*12 = 5.07   E(L4)=.99*1 +.01*60 = 1.59   -> L4 lowest\n   p = 0.08 (occasional off-normal):\n      E(L1)=.92*8 +.08*3  = 7.60   E(L3)=.92*3 +.08*30 = 5.16\n      E(L2)=.92*5 +.08*12 = 5.56   E(L4)=.92*1 +.08*60 = 5.72   -> L3 lowest\n   p = 0.15 (frequent off-normal):\n      E(L1)=.85*8 +.15*3  = 7.25   E(L3)=.85*3 +.15*30 = 7.05\n      E(L2)=.85*5 +.15*12 = 6.05   E(L4)=.85*1 +.15*60 = 9.85   -> L2 lowest\n   p = 0.30 (off-normal dominates):\n      E(L1)=.70*8 +.30*3  = 6.50   E(L3)=.70*3 +.30*30 = 11.10\n      E(L2)=.70*5 +.30*12 = 7.10   E(L4)=.70*1 +.30*60 = 18.70  -> L1 lowest\n   -----------------------------------------------------------------------------\n   Reading: the optimum SLIDES L4 -> L3 -> L2 -> L1 as off-normals grow more common.\n   EVERY level is best for SOME p, so this synthetic crowns NO winner -- it only prices the\n   TRADE. This is Bainbridge quantified: high LOA is great UNTIL off-normals (where the\n   human must carry the load with decayed skill and lost SA) get frequent enough to matter.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

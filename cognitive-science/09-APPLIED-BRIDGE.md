@@ -54,6 +54,22 @@ Cognitive science produces theories; this module applies them. The bridge from l
 
 ## HCI and UX — The Psychophysical Laws
 
+> **See also — applied HCI (MAXIM cross-reference).** This section owns the **cognitive mechanisms**
+> behind applied HCI, at **three distinct levels that must not be flattened into one "law" bucket**:
+> (1) **psychophysical / performance laws** — **Fitts' Law** and **Hick's Law**, quantitative
+> motor- and decision-timing regularities; (2) **memory / load constructs** — **Miller's "7±2"**
+> and **cognitive load theory**, capacity and load models, *not* psychophysical laws; and (3) an
+> **HCI engineering model** — **GOMS / KLM**, a task-performance modeling framework built *on* the
+> laws and constructs (Card, Moran & Newell's HCI, not a psychophysics of a single channel). For the
+> **applied design and evaluation** built on all three — interaction models, I/O modalities, the
+> design process, and usability evaluation of interactive systems — see the
+> `human-computer-interaction/` module (e.g., `03-INPUT-OUTPUT-MODALITIES`,
+> `05-USABILITY-EVALUATION`), which *cites and applies* them without re-deriving them. The
+> mechanisms stay here — but this pointer **certifies only the well-established forms**, not their
+> strongest *interpretations*: the information-theoretic reading of Fitts/Hick is bounded below (an
+> analogy Fitts drew and the information framing Hick used, **not** a settled claim that the human
+> motor system is literally a Shannon channel at capacity).
+
 ### Fitts' Law (1954)
 
 ```
@@ -78,7 +94,7 @@ Cognitive science produces theories; this module applies them. The bridge from l
 - Touchscreen targets need to be larger than cursor targets (motor variability is higher)
 - The taskbar in Windows exploiting screen edge: deliberately Fitts-optimal
 
-**Fitts' Law applies to**: Mouse pointing, touchscreen tapping, eye movements, voice command selection latency (distance = phonetic distance).
+**Fitts' Law applies to**: Mouse pointing, touchscreen tapping, and (approximately) eye movements — rapid, aimed movements to a spatial target of some width at some distance. It does **not** extend to voice: there is no spatial distance to traverse, so a "distance = phonetic distance" analogy is unsupported. Voice/language selection is a Hick-style *choice*-time problem, not a Fitts motor one (see "Where these laws break," below).
 
 ### Hick's Law (1952)
 
@@ -150,7 +166,7 @@ Visual and verbal systems are separate but can be linked. Information encoded in
 
 **Application**: Combine text with relevant diagrams (not decorative images). The diagram creates a visual code; the text creates a verbal code; both activated together = better encoding.
 
-**The deeper point**: Both Fitts' Law and Hick's Law are information-theoretic results, not just empirical regularities. Fitts' Law is Shannon's Theorem 17 applied to the human motor channel — the index of difficulty ID = log2(2D/W) is literally the channel capacity in bits required to hit a target of width W at distance D. Hick's Law is Shannon's channel capacity applied to choice reaction time — each choice is one bit of information, and RT grows linearly with bits. The log2 in both formulas is not a coincidence; it reflects the human motor and decision systems operating near their information-theoretic capacity limits.
+**The deeper point (bounded honestly)**: Both laws were *motivated* by information theory, and that history is real — but the "it *is* channel capacity" reading is an **interpretation, not a settled fact**. Fitts (1954) framed his index of difficulty **by analogy** to Shannon's Theorem 17, and MacKenzie's "Shannon formulation" ID = log2(D/W + 1) is the standard modern form; but the claim that the motor system is *literally* a Shannon channel operating at capacity is **contested** — alternative derivations (e.g., the optimized-submovement / signal-dependent-noise account, Meyer et al. 1988) reproduce the same log form *without* invoking channel capacity, so treat the information-theoretic story as a **motivating analogy**, not a proof. Hick's Law rests on firmer historical ground: Hick (1952) **explicitly** used information theory and cited Shannon, modeling each choice as adding bits of information. The log2 in both is not a coincidence — it reflects an information-processing *framing* the field adopted — but "operating near their information-theoretic capacity limits" overstates it for the motor channel and should be read as a model, not a measured limit.
 
 **Where these laws break**: Fitts' Law was derived for stylus/mouse pointing. On touchscreens, the "width" W must account for the finger's contact area and the fat-finger problem — effective W is reduced by motor variability that differs from mouse pointing. For gesture interfaces, the distance metric becomes 3D and the "target" may be a pose region, not a spatial target. For voice interfaces, Hick's Law still applies to the *decision* component, but Fitts' motor component drops out entirely — replaced by articulatory complexity.
 
@@ -258,7 +274,7 @@ Status: No credible evidence learning styles affect outcomes.
 
 ## Cognitive Ergonomics
 
-**Historical note**: Hick himself cited Shannon in the original 1952 paper — the law is explicitly derived from information theory. The human choice-reaction system operates as a noisy channel with capacity approximately 2-3 bits/second for simple choices. This is why adding choices increases RT logarithmically: each additional bit of information in the stimulus requires a fixed increment of processing time.
+**Historical note**: Hick himself cited Shannon in the original 1952 paper — the law is explicitly framed in information-theoretic terms. The human choice-reaction system is **modeled** as a noisy channel with capacity approximately 2-3 bits/second for simple choices. This is why adding choices increases RT logarithmically: each additional bit of information in the stimulus requires a fixed increment of processing time.
 
 ### Endsley's Situation Awareness (SA)
 
@@ -469,6 +485,7 @@ ZERO TRUST:
 - `cognitive-science/05-PROBLEM-SOLVING.md` — cognition as an applied design substrate.
 - `ai-engineering/01-LLM-CONCEPTS.md` — AI systems as cognitive-science comparison class.
 - `organizational-behavior/01-MOTIVATION.md` — applied cognition in organizational settings.
+- [`human-factors/03-COGNITIVE-WORKLOAD-SITUATION-AWARENESS.md`](../human-factors/03-COGNITIVE-WORKLOAD-SITUATION-AWARENESS.md) — this guide owns the cognitive **mechanism** and Endsley's SA / Klein's NDM **as cognitive theory**; `human-factors/03` owns the applied **measurement in an operational context** (NASA-TLX raw/weighted, the vigilance decrement, SA measurement via SAGAT/SPAM/SART and its construct critiques). Mechanism here; operator-in-context measurement and safety-critical design there.
 
 ## Decision Cheat Sheet
 

@@ -1,0 +1,1693 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-operations-research-queuing-theory",
+  "source": "../../operations-research",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "06-QUEUING-THEORY.md#000",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "# Queuing Theory — Little's Law, M/M/1, M/M/c, and Jackson Networks"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#001",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#002",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "Queuing theory predicts **waiting** in systems where work arrives randomly and is served at finite rate. Its power is that a few parameters — arrival rate $\\lambda$, service rate $\\mu$, number of servers $c$ — determine the entire steady-state behavior, and one law (**Little's Law**) holds with *almost no assumptions*. The defining lesson: as utilization $\\rho \\to 1$, delay does not grow linearly — it **explodes hyperbolically**."
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#003",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "```\n+----------------------------------------------------------------------+\n|                 QUEUING THEORY: THE WHOLE PICTURE                     |\n|                                                                      |\n|   arrivals          QUEUE              SERVER(S)         departures   |\n|   rate lambda  -->  o o o o o  -->   [ S ][ S ]...   -->             |\n|                     (waiting)        c servers, rate mu each         |\n|                                                                      |\n|   KENDALL NOTATION:  A / S / c / K / N / D                          |\n|                      |   |   |   |   |   |                          |\n|              arrival_|   |   |   |   |   |_discipline (FCFS/LCFS/PS) |\n|              service____ |   |   |   |__population size              |\n|              servers________ |   |__system capacity (buffer)        |\n|                                                                      |\n|   LITTLE'S LAW (the universal invariant):   L = lambda * W          |\n|     L = avg # in system,  W = avg time in system,  lambda = arrival  |\n|                                                                      |\n|   THE CONGESTION CLIFF (M/M/1):   W = 1 / (mu - lambda)             |\n|     delay                                                            |\n|       |                          /|  <- blows up as rho -> 1         |\n|       |                        _/                                    |\n|       |__________----------''''                                     |\n|       +-------------------------------- utilization rho = lambda/mu  |\n|       0                              1                               |\n+----------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#004",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "**The systems-leader takeaway up front**: a server at 90% utilization has roughly *10x* the average queue of one at 50% — and 99% has ~100x. Capacity planning is governed by this nonlinearity, not by the mean load."
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#005",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#006",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "## Layer 1: Kendall Notation and the Vocabulary"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#007",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "A queue is specified by **A/S/c/K/N/D** (last three often omitted, defaulting to $\\infty/\\infty/$FCFS):"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#008",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "```\n+----------------------------------------------------------------------+\n|  SYMBOL   MEANING                  COMMON VALUES                     |\n|  ------   -------                  -------------                     |\n|  A        arrival process         M (Markov/Poisson, memoryless)    |\n|                                    D (deterministic), G (general)    |\n|  S        service distribution    M (exponential), D, G             |\n|  c        number of servers       1, c, infinity                    |\n|  K        system capacity (buffer)default infinity (unbounded)      |\n|  N        calling population       default infinity                 |\n|  D        queue discipline         FCFS, LCFS, PS (processor share), |\n|                                    priority                          |\n+----------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#009",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "\"M\" stands for **Markovian/memoryless** — the exponential interarrival or service distribution, whose memoryless property ($P(T > s+t \\mid T > s) = P(T>t)$) makes the system a continuous-time Markov chain (CTMC) and yields closed forms."
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#010",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "| Notation | Means |\n|----------|-------|\n| **M/M/1** | Poisson arrivals, exponential service, one server, infinite buffer |\n| **M/M/c** | same, $c$ parallel servers (a call center / thread pool) |\n| **M/M/c/K** | $c$ servers, finite buffer $K$ (blocking when full) |\n| **M/M/c/c** | $c$ servers, no waiting room — **Erlang B** (loss system, trunk lines) |\n| **M/G/1** | general service distribution — **Pollaczek–Khinchine** formula |\n| **G/G/1** | general arrivals and service — approximations only |"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#011",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "**Key parameters and symbols (memorize):**"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#012",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "| Symbol | Meaning |\n|--------|---------|\n| $\\lambda$ | mean arrival rate |\n| $\\mu$ | mean service rate per server |\n| $\\rho$ | utilization (traffic intensity) $= \\lambda / (c\\mu)$ |\n| $L$ / $L_q$ | mean number in system / in queue |\n| $W$ / $W_q$ | mean time in system / in queue (waiting) |"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#013",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#014",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "## Layer 2: Little's Law — The Universal Invariant"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#015",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "**Theorem (Little's Law).** For any stable queuing system in steady state,\n$$L = \\lambda\\, W,$$\nwhere $L$ is the long-run average number of items in the system, $\\lambda$ the long-run average arrival rate, and $W$ the long-run average time an item spends in the system."
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#016",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "```\n   L = lambda * W"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#017",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "(items in system) = (arrival rate) * (time per item)"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#018",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "HYPOTHESES (remarkably weak):\n   - the system is stable (a long-run steady state exists)\n   - arrivals are conserved (every arrival eventually departs)\n   NO assumption about arrival distribution, service distribution,\n   number of servers, or queue discipline. It is essentially a\n   conservation/accounting identity.\n```"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#019",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "Applies to **any subsystem** by choosing the boundary:"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#020",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "| Apply Little's Law to... | Get |\n|--------------------------|-----|\n| Whole system | $L = \\lambda W$ |\n| Queue only (exclude service) | $L_q = \\lambda W_q$ |\n| Servers only | (busy servers) $= \\lambda / \\mu = c\\rho$ |"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#021",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "**Bridge — old world → systems**: this is the same identity behind **throughput × latency = concurrency** in performance engineering. If your service handles $\\lambda$ = 1000 req/s and each takes $W$ = 50 ms in the system, then $L = 1000 \\times 0.05 = 50$ requests are in flight on average. Little's Law is why you size connection pools and in-flight limits this way. It needs *no* model of the internals — pure conservation."
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#022",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#023",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "## Layer 3: The M/M/1 Queue Solved Exactly"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#024",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "M/M/1 is a birth–death CTMC: state $n$ = number in system; birth rate $\\lambda$ (arrival), death rate $\\mu$ (service completion)."
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#025",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "```\n   BIRTH-DEATH CHAIN (M/M/1):"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#026",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "lambda    lambda    lambda    lambda\n      (0) ---> (1) ---> (2) ---> (3) ---> ...\n          <---     <---     <---     <---\n          mu       mu       mu       mu"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#027",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "Balance equations give p_n = (1 - rho) rho^n,  rho = lambda/mu < 1.\n   (a geometric distribution of the number in system)\n```"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#028",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "**Steady-state results (M/M/1), valid only when $\\rho = \\lambda/\\mu < 1$:**"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#029",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "```\n+----------------------------------------------------------------------+\n|  Utilization:           rho = lambda / mu          (must be < 1)     |\n|  P(n in system):        p_n = (1 - rho) rho^n                        |\n|  P(system empty):       p_0 = 1 - rho                               |\n|                                                                      |\n|  L  (mean in system):   L  = rho / (1 - rho)                        |\n|  Lq (mean in queue):    Lq = rho^2 / (1 - rho)                      |\n|  W  (mean time in sys): W  = 1 / (mu - lambda)                      |\n|  Wq (mean wait):        Wq = rho / (mu - lambda) = lambda/(mu(mu-lam))|\n|                                                                      |\n|  CHECK via Little:  L = lambda W,  Lq = lambda Wq    (consistent)   |\n+----------------------------------------------------------------------+\n```"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#030",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "**The congestion cliff, made quantitative:**"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#031",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "| $\\rho$ | $L = \\rho/(1-\\rho)$ | Mean # in system |\n|--------|---------------------|------------------|\n| 0.50 | 1.0 | 1 |\n| 0.80 | 4.0 | 4 |\n| 0.90 | 9.0 | 9 |\n| 0.95 | 19.0 | 19 |\n| 0.99 | 99.0 | 99 |"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#032",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "The $1/(1-\\rho)$ factor is the entire story of capacity planning: **the last 10% of utilization costs more than the first 80%.** This is why high-reliability systems run at moderate utilization — headroom is delay insurance."
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#033",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#034",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "## Layer 4: M/M/c — Multiple Servers (the real model)"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#035",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "A call center, thread pool, or server farm with $c$ identical parallel servers, one shared queue. Now $\\rho = \\lambda/(c\\mu)$ must be $< 1$ for stability."
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#036",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "The key quantity is the **Erlang C** probability — the chance an arriving job must **wait** (all servers busy):"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#037",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "```\n   ERLANG C:  P(wait) = C(c, a) where a = lambda/mu (offered load, Erlangs)"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#038",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "( a^c / c! ) * ( 1 / (1 - rho) )\n   P(wait) = ------------------------------------------------\n              sum_{n=0}^{c-1} a^n/n!  +  (a^c/c!)(1/(1-rho))"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#039",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "with rho = a/c = lambda/(c mu).\n```"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#040",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "```\n   Then:\n   Wq (mean wait in queue) = P(wait) / (c mu - lambda)\n   W  = Wq + 1/mu\n   Lq = lambda * Wq          (Little)\n   L  = Lq + a               (a = lambda/mu = avg busy servers)\n```"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#041",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "**Economy of scale (the pooling effect)** — a crucial, counterintuitive result:"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#042",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "```\n   Two separate M/M/1 queues (split traffic)\n        vs.\n   One M/M/2 queue (pooled traffic, same total capacity)"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#043",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "THE POOLED M/M/2 HAS LOWER MEAN WAIT."
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#044",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "Reason: in split queues a server can sit idle while the OTHER\n   queue has a backlog. Pooling lets any free server take any job.\n   This is why shared thread pools / shared queues beat per-shard\n   queues, and why consolidating call-center lines reduces wait.\n```"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#045",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "**Erlang B vs. Erlang C** (don't confuse them):"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#046",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "| Formula | System | Question answered |\n|---------|--------|-------------------|\n| **Erlang B** | M/M/c/c (no waiting room) | Probability a call is **blocked** (lost) — trunk sizing |\n| **Erlang C** | M/M/c (infinite queue) | Probability a call must **wait** — staffing with a queue |"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#047",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#048",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "## Layer 5: Beyond Markovian — M/G/1 and Pollaczek–Khinchine"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#049",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "When service times are **not** exponential, M/G/1 still has a closed form for the mean wait via the **Pollaczek–Khinchine (P–K) formula**:"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#050",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "```\n   POLLACZEK-KHINCHINE (M/G/1 mean wait in queue):"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#051",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "lambda * E[S^2]              rho^2 (1 + C_s^2)\n   Wq  =  -----------------    =    --------------------------\n           2 (1 - rho)                  2 lambda (1 - rho)"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#052",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "where E[S^2] = second moment of service time,\n         rho = lambda * E[S],  C_s^2 = Var(S)/E[S]^2 (coeff. of variation^2).\n```"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#053",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "**The decisive insight**: $W_q$ depends on the **variance** of service time, not just its mean. With the mean fixed:\n- **Deterministic service** (M/D/1, $C_s^2 = 0$): wait is *halved* versus exponential.\n- **Exponential service** (M/M/1, $C_s^2 = 1$): the baseline.\n- **High-variance service** (heavy tails, $C_s^2 \\gg 1$): wait blows up."
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#054",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "```\n   SAME mean service time, different VARIANCE:"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#055",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "M/D/1  (C_s^2 = 0):   Wq = rho^2 / (2 lambda (1-rho))      [smallest]\n   M/M/1  (C_s^2 = 1):   Wq = rho   / (mu (1-rho)) = baseline\n   M/G/1, heavy tail :   Wq grows with C_s^2                  [largest]\n```"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#056",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "This is why **reducing variability** (consistent request sizes, capping tail latency, smoothing batch sizes) cuts queueing delay even without adding capacity — a direct, actionable consequence for tail-latency engineering."
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#057",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#058",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "## Layer 6: Jackson Networks — Queues in Series and Parallel"
+    },
+    {
+      "id": "06-QUEUING-THEORY.md#059",
+      "path": [
+        "06-QUEUING-THEORY.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:operations-research:06-queuing-theory, git-history:operations-research:06-queuing-theory]",
+        "canonical_path": "operations-research/06-QUEUING-THEORY.md",
+        "concepts": "[queuing theory, Little's law, M/M/1, M/M/c, Kendall notation, Jackson networks]",
+        "current_path": "operations-research/06-QUEUING-THEORY.md",
+        "id": "maxim:operations-research:queuing-theory",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "operations-research",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[queuing theory]",
+        "section": "operations-research",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Queuing Theory - Little's Law, M/M/1, M/M/c, Jackson Networks",
+        "updated": "null"
+      },
+      "text": "Real systems are **networks** of queues (microservices, assembly lines, packet routers). A **Jackson network** is the tractable case."
+    }
+  ],
+  "refs": [
+    "06-QUEUING-THEORY.md"
+  ]
+}

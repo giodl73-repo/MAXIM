@@ -1,0 +1,965 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-data-science-mlops",
+  "source": "../../data-science",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "05-MLOPS.md#000",
+      "path": [
+        "05-MLOPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:05-mlops, git-history:data-science:05-mlops]",
+        "canonical_path": "data-science/05-MLOPS.md",
+        "concepts": "[mlops]",
+        "current_path": "data-science/05-MLOPS.md",
+        "id": "maxim:data-science:mlops",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mlops]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - MLOps",
+        "updated": "null"
+      },
+      "text": "# 05 — MLOps"
+    },
+    {
+      "id": "05-MLOPS.md#001",
+      "path": [
+        "05-MLOPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:05-mlops, git-history:data-science:05-mlops]",
+        "canonical_path": "data-science/05-MLOPS.md",
+        "concepts": "[mlops]",
+        "current_path": "data-science/05-MLOPS.md",
+        "id": "maxim:data-science:mlops",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mlops]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - MLOps",
+        "updated": "null"
+      },
+      "text": "> MLOps is DevOps applied to ML systems, with one extra dimension:\n> the behavior of software changes when data changes, even when code doesn't.\n> That's what makes it harder."
+    },
+    {
+      "id": "05-MLOPS.md#002",
+      "path": [
+        "05-MLOPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:05-mlops, git-history:data-science:05-mlops]",
+        "canonical_path": "data-science/05-MLOPS.md",
+        "concepts": "[mlops]",
+        "current_path": "data-science/05-MLOPS.md",
+        "id": "maxim:data-science:mlops",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mlops]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - MLOps",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-MLOPS.md#003",
+      "path": [
+        "05-MLOPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:05-mlops, git-history:data-science:05-mlops]",
+        "canonical_path": "data-science/05-MLOPS.md",
+        "concepts": "[mlops]",
+        "current_path": "data-science/05-MLOPS.md",
+        "id": "maxim:data-science:mlops",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mlops]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - MLOps",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "05-MLOPS.md#004",
+      "path": [
+        "05-MLOPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:05-mlops, git-history:data-science:05-mlops]",
+        "canonical_path": "data-science/05-MLOPS.md",
+        "concepts": "[mlops]",
+        "current_path": "data-science/05-MLOPS.md",
+        "id": "maxim:data-science:mlops",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mlops]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - MLOps",
+        "updated": "null"
+      },
+      "text": "```\n┌─────────────────────────────────────────────────────────────────────────────┐\n│                         MLOPS LIFECYCLE                                     │\n│                                                                             │\n│  DATA        TRAINING         EVALUATION      DEPLOYMENT      MONITORING    │\n│                                                                             │\n│  ┌────────┐  ┌────────────┐  ┌────────────┐  ┌──────────┐  ┌──────────┐     │\n│  │ ingest │→ │ experiment │→ │   eval /   │→ │  model   │→ │  drift   │  │\n│  │ validate│  │  track    │  │  register  │  │  serve   │  │  monitor │  │\n│  │ version│  │            │  │            │  │          │  │  retrain │  │\n│  └────────┘  └────────────┘  └────────────┘  └──────────┘  └──────────┘  │\n│       │             │               │               │              │        │\n│  DVC/       MLflow/W&B         MLflow            BentoML/       Evidently  │\n│  Great       Experiment        Model             Seldon/        / Arize    │\n│  Expectations  Tracking        Registry          FastAPI        / WhyLabs  │\n│                                                  + K8s                     │\n└─────────────────────────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "05-MLOPS.md#005",
+      "path": [
+        "05-MLOPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:05-mlops, git-history:data-science:05-mlops]",
+        "canonical_path": "data-science/05-MLOPS.md",
+        "concepts": "[mlops]",
+        "current_path": "data-science/05-MLOPS.md",
+        "id": "maxim:data-science:mlops",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mlops]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - MLOps",
+        "updated": "null"
+      },
+      "text": "The key difference from standard DevOps: **a model is correct only relative to\na data distribution**. Redeploying identical code with new data can produce worse\nbehavior. This requires versioning data, not just code."
+    },
+    {
+      "id": "05-MLOPS.md#006",
+      "path": [
+        "05-MLOPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:05-mlops, git-history:data-science:05-mlops]",
+        "canonical_path": "data-science/05-MLOPS.md",
+        "concepts": "[mlops]",
+        "current_path": "data-science/05-MLOPS.md",
+        "id": "maxim:data-science:mlops",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mlops]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - MLOps",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-MLOPS.md#007",
+      "path": [
+        "05-MLOPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:05-mlops, git-history:data-science:05-mlops]",
+        "canonical_path": "data-science/05-MLOPS.md",
+        "concepts": "[mlops]",
+        "current_path": "data-science/05-MLOPS.md",
+        "id": "maxim:data-science:mlops",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mlops]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - MLOps",
+        "updated": "null"
+      },
+      "text": "## Experiment Tracking"
+    },
+    {
+      "id": "05-MLOPS.md#008",
+      "path": [
+        "05-MLOPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:05-mlops, git-history:data-science:05-mlops]",
+        "canonical_path": "data-science/05-MLOPS.md",
+        "concepts": "[mlops]",
+        "current_path": "data-science/05-MLOPS.md",
+        "id": "maxim:data-science:mlops",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mlops]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - MLOps",
+        "updated": "null"
+      },
+      "text": "### Why Tracking Matters"
+    },
+    {
+      "id": "05-MLOPS.md#009",
+      "path": [
+        "05-MLOPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:05-mlops, git-history:data-science:05-mlops]",
+        "canonical_path": "data-science/05-MLOPS.md",
+        "concepts": "[mlops]",
+        "current_path": "data-science/05-MLOPS.md",
+        "id": "maxim:data-science:mlops",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mlops]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - MLOps",
+        "updated": "null"
+      },
+      "text": "Without tracking, ML experiments are ephemeral. You run 50 variants of a model,\nthe one that worked is in a Jupyter notebook that you accidentally overwrote.\nExperiment tracking turns experiments into reproducible, comparable artifacts."
+    },
+    {
+      "id": "05-MLOPS.md#010",
+      "path": [
+        "05-MLOPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:05-mlops, git-history:data-science:05-mlops]",
+        "canonical_path": "data-science/05-MLOPS.md",
+        "concepts": "[mlops]",
+        "current_path": "data-science/05-MLOPS.md",
+        "id": "maxim:data-science:mlops",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mlops]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - MLOps",
+        "updated": "null"
+      },
+      "text": "### MLflow"
+    },
+    {
+      "id": "05-MLOPS.md#011",
+      "path": [
+        "05-MLOPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:05-mlops, git-history:data-science:05-mlops]",
+        "canonical_path": "data-science/05-MLOPS.md",
+        "concepts": "[mlops]",
+        "current_path": "data-science/05-MLOPS.md",
+        "id": "maxim:data-science:mlops",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mlops]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - MLOps",
+        "updated": "null"
+      },
+      "text": "MLflow is open-source, self-hostable, and integrates with Azure ML natively.\nThe most common choice for enterprises with existing Azure infrastructure."
+    },
+    {
+      "id": "05-MLOPS.md#012",
+      "path": [
+        "05-MLOPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:05-mlops, git-history:data-science:05-mlops]",
+        "canonical_path": "data-science/05-MLOPS.md",
+        "concepts": "[mlops]",
+        "current_path": "data-science/05-MLOPS.md",
+        "id": "maxim:data-science:mlops",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mlops]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - MLOps",
+        "updated": "null"
+      },
+      "text": "```python\nimport mlflow\nimport mlflow.sklearn\nimport mlflow.pytorch\nfrom sklearn.ensemble import GradientBoostingClassifier\nfrom sklearn.metrics import roc_auc_score"
+    },
+    {
+      "id": "05-MLOPS.md#013",
+      "path": [
+        "05-MLOPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:05-mlops, git-history:data-science:05-mlops]",
+        "canonical_path": "data-science/05-MLOPS.md",
+        "concepts": "[mlops]",
+        "current_path": "data-science/05-MLOPS.md",
+        "id": "maxim:data-science:mlops",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mlops]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - MLOps",
+        "updated": "null"
+      },
+      "text": "# Connect to tracking server\nmlflow.set_tracking_uri(\"http://localhost:5000\")  # or \"azureml://...\" for Azure ML\nmlflow.set_experiment(\"customer-churn-prediction\")"
+    },
+    {
+      "id": "05-MLOPS.md#014",
+      "path": [
+        "05-MLOPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:05-mlops, git-history:data-science:05-mlops]",
+        "canonical_path": "data-science/05-MLOPS.md",
+        "concepts": "[mlops]",
+        "current_path": "data-science/05-MLOPS.md",
+        "id": "maxim:data-science:mlops",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mlops]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - MLOps",
+        "updated": "null"
+      },
+      "text": "with mlflow.start_run(run_name=\"gbm-v3\"):\n    # Log hyperparameters\n    params = {\"n_estimators\": 200, \"max_depth\": 4, \"learning_rate\": 0.05}\n    mlflow.log_params(params)"
+    },
+    {
+      "id": "05-MLOPS.md#015",
+      "path": [
+        "05-MLOPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:05-mlops, git-history:data-science:05-mlops]",
+        "canonical_path": "data-science/05-MLOPS.md",
+        "concepts": "[mlops]",
+        "current_path": "data-science/05-MLOPS.md",
+        "id": "maxim:data-science:mlops",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mlops]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - MLOps",
+        "updated": "null"
+      },
+      "text": "# Train\n    model = GradientBoostingClassifier(**params)\n    model.fit(X_train, y_train)"
+    },
+    {
+      "id": "05-MLOPS.md#016",
+      "path": [
+        "05-MLOPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:05-mlops, git-history:data-science:05-mlops]",
+        "canonical_path": "data-science/05-MLOPS.md",
+        "concepts": "[mlops]",
+        "current_path": "data-science/05-MLOPS.md",
+        "id": "maxim:data-science:mlops",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mlops]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - MLOps",
+        "updated": "null"
+      },
+      "text": "# Log metrics\n    auc = roc_auc_score(y_test, model.predict_proba(X_test)[:, 1])\n    mlflow.log_metric(\"roc_auc\", auc)\n    mlflow.log_metric(\"n_train_samples\", len(X_train))"
+    },
+    {
+      "id": "05-MLOPS.md#017",
+      "path": [
+        "05-MLOPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:05-mlops, git-history:data-science:05-mlops]",
+        "canonical_path": "data-science/05-MLOPS.md",
+        "concepts": "[mlops]",
+        "current_path": "data-science/05-MLOPS.md",
+        "id": "maxim:data-science:mlops",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mlops]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - MLOps",
+        "updated": "null"
+      },
+      "text": "# Log model artifact\n    mlflow.sklearn.log_model(\n        model,\n        artifact_path=\"model\",\n        registered_model_name=\"churn-predictor\",  # registers in Model Registry\n        input_example=X_train[:5],\n        signature=mlflow.models.infer_signature(X_train, model.predict(X_train)),\n    )"
+    },
+    {
+      "id": "05-MLOPS.md#018",
+      "path": [
+        "05-MLOPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:05-mlops, git-history:data-science:05-mlops]",
+        "canonical_path": "data-science/05-MLOPS.md",
+        "concepts": "[mlops]",
+        "current_path": "data-science/05-MLOPS.md",
+        "id": "maxim:data-science:mlops",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mlops]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - MLOps",
+        "updated": "null"
+      },
+      "text": "# Log arbitrary artifacts (plots, configs, data samples)\n    mlflow.log_artifact(\"feature_importance.png\")\n    mlflow.log_dict({\"feature_names\": list(feature_names)}, \"features.json\")"
+    },
+    {
+      "id": "05-MLOPS.md#019",
+      "path": [
+        "05-MLOPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:05-mlops, git-history:data-science:05-mlops]",
+        "canonical_path": "data-science/05-MLOPS.md",
+        "concepts": "[mlops]",
+        "current_path": "data-science/05-MLOPS.md",
+        "id": "maxim:data-science:mlops",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mlops]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - MLOps",
+        "updated": "null"
+      },
+      "text": "# Autolog — instruments framework automatically\nmlflow.sklearn.autolog()    # captures params, metrics, model for sklearn\nmlflow.pytorch.autolog()    # captures train/val loss, optimizer config\nmlflow.xgboost.autolog()\n```"
+    },
+    {
+      "id": "05-MLOPS.md#020",
+      "path": [
+        "05-MLOPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:05-mlops, git-history:data-science:05-mlops]",
+        "canonical_path": "data-science/05-MLOPS.md",
+        "concepts": "[mlops]",
+        "current_path": "data-science/05-MLOPS.md",
+        "id": "maxim:data-science:mlops",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mlops]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - MLOps",
+        "updated": "null"
+      },
+      "text": "### MLflow Tracking Server"
+    },
+    {
+      "id": "05-MLOPS.md#021",
+      "path": [
+        "05-MLOPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:05-mlops, git-history:data-science:05-mlops]",
+        "canonical_path": "data-science/05-MLOPS.md",
+        "concepts": "[mlops]",
+        "current_path": "data-science/05-MLOPS.md",
+        "id": "maxim:data-science:mlops",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mlops]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - MLOps",
+        "updated": "null"
+      },
+      "text": "```bash\n# Start locally\nmlflow server --backend-store-uri sqlite:///mlflow.db \\\n              --default-artifact-root ./mlruns \\\n              --host 0.0.0.0 --port 5000"
+    },
+    {
+      "id": "05-MLOPS.md#022",
+      "path": [
+        "05-MLOPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:05-mlops, git-history:data-science:05-mlops]",
+        "canonical_path": "data-science/05-MLOPS.md",
+        "concepts": "[mlops]",
+        "current_path": "data-science/05-MLOPS.md",
+        "id": "maxim:data-science:mlops",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mlops]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - MLOps",
+        "updated": "null"
+      },
+      "text": "# UI at http://localhost:5000 — experiment comparison, metric plots, artifact browser\n```"
+    },
+    {
+      "id": "05-MLOPS.md#023",
+      "path": [
+        "05-MLOPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:05-mlops, git-history:data-science:05-mlops]",
+        "canonical_path": "data-science/05-MLOPS.md",
+        "concepts": "[mlops]",
+        "current_path": "data-science/05-MLOPS.md",
+        "id": "maxim:data-science:mlops",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mlops]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - MLOps",
+        "updated": "null"
+      },
+      "text": "### Weights & Biases (W&B)"
+    },
+    {
+      "id": "05-MLOPS.md#024",
+      "path": [
+        "05-MLOPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:05-mlops, git-history:data-science:05-mlops]",
+        "canonical_path": "data-science/05-MLOPS.md",
+        "concepts": "[mlops]",
+        "current_path": "data-science/05-MLOPS.md",
+        "id": "maxim:data-science:mlops",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mlops]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - MLOps",
+        "updated": "null"
+      },
+      "text": "W&B is cloud-first, with a richer UI and tighter deep learning integration.\nPreferred for research teams and long training runs."
+    },
+    {
+      "id": "05-MLOPS.md#025",
+      "path": [
+        "05-MLOPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:05-mlops, git-history:data-science:05-mlops]",
+        "canonical_path": "data-science/05-MLOPS.md",
+        "concepts": "[mlops]",
+        "current_path": "data-science/05-MLOPS.md",
+        "id": "maxim:data-science:mlops",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mlops]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - MLOps",
+        "updated": "null"
+      },
+      "text": "```python\nimport wandb"
+    },
+    {
+      "id": "05-MLOPS.md#026",
+      "path": [
+        "05-MLOPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:05-mlops, git-history:data-science:05-mlops]",
+        "canonical_path": "data-science/05-MLOPS.md",
+        "concepts": "[mlops]",
+        "current_path": "data-science/05-MLOPS.md",
+        "id": "maxim:data-science:mlops",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mlops]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - MLOps",
+        "updated": "null"
+      },
+      "text": "wandb.init(\n    project=\"image-classifier\",\n    name=\"resnet50-run-3\",\n    config={\n        \"learning_rate\": 1e-3,\n        \"batch_size\": 64,\n        \"epochs\": 50,\n        \"architecture\": \"ResNet50\",\n    }\n)"
+    },
+    {
+      "id": "05-MLOPS.md#027",
+      "path": [
+        "05-MLOPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:05-mlops, git-history:data-science:05-mlops]",
+        "canonical_path": "data-science/05-MLOPS.md",
+        "concepts": "[mlops]",
+        "current_path": "data-science/05-MLOPS.md",
+        "id": "maxim:data-science:mlops",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mlops]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - MLOps",
+        "updated": "null"
+      },
+      "text": "# Training loop\nfor epoch in range(50):\n    train_loss = train_epoch(model, train_loader, ...)\n    val_loss, val_acc = evaluate(model, val_loader, ...)"
+    },
+    {
+      "id": "05-MLOPS.md#028",
+      "path": [
+        "05-MLOPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:05-mlops, git-history:data-science:05-mlops]",
+        "canonical_path": "data-science/05-MLOPS.md",
+        "concepts": "[mlops]",
+        "current_path": "data-science/05-MLOPS.md",
+        "id": "maxim:data-science:mlops",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mlops]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - MLOps",
+        "updated": "null"
+      },
+      "text": "wandb.log({\n        \"epoch\": epoch,\n        \"train/loss\": train_loss,\n        \"val/loss\": val_loss,\n        \"val/accuracy\": val_acc,\n        \"learning_rate\": scheduler.get_last_lr()[0],\n    })"
+    },
+    {
+      "id": "05-MLOPS.md#029",
+      "path": [
+        "05-MLOPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:05-mlops, git-history:data-science:05-mlops]",
+        "canonical_path": "data-science/05-MLOPS.md",
+        "concepts": "[mlops]",
+        "current_path": "data-science/05-MLOPS.md",
+        "id": "maxim:data-science:mlops",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mlops]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - MLOps",
+        "updated": "null"
+      },
+      "text": "# Log model checkpoint as artifact\n    if val_loss < best_val_loss:\n        wandb.save(\"model_best.pt\")"
+    },
+    {
+      "id": "05-MLOPS.md#030",
+      "path": [
+        "05-MLOPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:05-mlops, git-history:data-science:05-mlops]",
+        "canonical_path": "data-science/05-MLOPS.md",
+        "concepts": "[mlops]",
+        "current_path": "data-science/05-MLOPS.md",
+        "id": "maxim:data-science:mlops",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mlops]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - MLOps",
+        "updated": "null"
+      },
+      "text": "# Log summary metrics\nwandb.summary[\"best_val_accuracy\"] = best_val_acc\nwandb.finish()"
+    },
+    {
+      "id": "05-MLOPS.md#031",
+      "path": [
+        "05-MLOPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:05-mlops, git-history:data-science:05-mlops]",
+        "canonical_path": "data-science/05-MLOPS.md",
+        "concepts": "[mlops]",
+        "current_path": "data-science/05-MLOPS.md",
+        "id": "maxim:data-science:mlops",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mlops]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - MLOps",
+        "updated": "null"
+      },
+      "text": "# Sweep (hyperparameter search managed by W&B)\nsweep_config = {\n    \"method\": \"bayes\",   # bayesian optimization\n    \"metric\": {\"name\": \"val/accuracy\", \"goal\": \"maximize\"},\n    \"parameters\": {\n        \"learning_rate\": {\"min\": 1e-4, \"max\": 1e-2, \"distribution\": \"log_uniform_values\"},\n        \"batch_size\":    {\"values\": [32, 64, 128]},\n        \"dropout\":       {\"min\": 0.1, \"max\": 0.5},\n    }\n}\nsweep_id = wandb.sweep(sweep_config, project=\"image-classifier\")\nwandb.agent(sweep_id, function=train_fn, count=30)\n```"
+    },
+    {
+      "id": "05-MLOPS.md#032",
+      "path": [
+        "05-MLOPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:05-mlops, git-history:data-science:05-mlops]",
+        "canonical_path": "data-science/05-MLOPS.md",
+        "concepts": "[mlops]",
+        "current_path": "data-science/05-MLOPS.md",
+        "id": "maxim:data-science:mlops",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mlops]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - MLOps",
+        "updated": "null"
+      },
+      "text": "### MLflow vs W&B"
+    },
+    {
+      "id": "05-MLOPS.md#033",
+      "path": [
+        "05-MLOPS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:data-science:05-mlops, git-history:data-science:05-mlops]",
+        "canonical_path": "data-science/05-MLOPS.md",
+        "concepts": "[mlops]",
+        "current_path": "data-science/05-MLOPS.md",
+        "id": "maxim:data-science:mlops",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "data-science",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[mlops]",
+        "section": "data-science",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "05 - MLOps",
+        "updated": "null"
+      },
+      "text": "```\n┌────────────────────────────────────────────────────────────────────┐\n│                  │  MLflow            │  Weights & Biases          │\n├──────────────────┼────────────────────┼───────────────────────────┤\n│  Hosting         │  Self or Azure ML  │  Cloud (SaaS)             │\n│  Open source     │  Yes               │  Client SDK only          │\n│  DL integration  │  Good              │  Excellent                │\n│  Hyperparameter  │  Basic             │  Sweeps (Bayesian)        │\n│  sweep           │                    │                           │\n│  Data versioning │  Via DVC           │  W&B Artifacts            │\n│  Collaboration   │  Basic             │  Team-oriented            │\n│  Azure ML native │  Yes (built-in)    │  No                       │\n│  Best for        │  Sklearn/XGBoost/  │  Deep learning, research, │\n│                  │  enterprise Azure  │  long GPU runs            │\n└────────────────────────────────────────────────────────────────────┘\n```"
+    }
+  ],
+  "refs": [
+    "05-MLOPS.md"
+  ]
+}

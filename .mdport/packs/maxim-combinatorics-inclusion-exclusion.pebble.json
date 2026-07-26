@@ -1,0 +1,881 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-combinatorics-inclusion-exclusion",
+  "source": "../../combinatorics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "04-INCLUSION-EXCLUSION.md#000",
+      "path": [
+        "04-INCLUSION-EXCLUSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:combinatorics:04-inclusion-exclusion, git-history:combinatorics:04-inclusion-exclusion]",
+        "canonical_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "concepts": "[inclusion-exclusion, derangements, surjections, sieve, bonferroni]",
+        "current_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "id": "maxim:combinatorics:inclusion-exclusion",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "combinatorics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inclusion-exclusion]",
+        "section": "combinatorics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Inclusion-Exclusion and the Sieve",
+        "updated": "null"
+      },
+      "text": "# Inclusion–Exclusion and the Sieve"
+    },
+    {
+      "id": "04-INCLUSION-EXCLUSION.md#001",
+      "path": [
+        "04-INCLUSION-EXCLUSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:combinatorics:04-inclusion-exclusion, git-history:combinatorics:04-inclusion-exclusion]",
+        "canonical_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "concepts": "[inclusion-exclusion, derangements, surjections, sieve, bonferroni]",
+        "current_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "id": "maxim:combinatorics:inclusion-exclusion",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "combinatorics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inclusion-exclusion]",
+        "section": "combinatorics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Inclusion-Exclusion and the Sieve",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "04-INCLUSION-EXCLUSION.md#002",
+      "path": [
+        "04-INCLUSION-EXCLUSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:combinatorics:04-inclusion-exclusion, git-history:combinatorics:04-inclusion-exclusion]",
+        "canonical_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "concepts": "[inclusion-exclusion, derangements, surjections, sieve, bonferroni]",
+        "current_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "id": "maxim:combinatorics:inclusion-exclusion",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "combinatorics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inclusion-exclusion]",
+        "section": "combinatorics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Inclusion-Exclusion and the Sieve",
+        "updated": "null"
+      },
+      "text": "```\n+============================================================================+\n|          INCLUSION-EXCLUSION: OVERCOUNT, THEN CORRECT                      |\n+============================================================================+\n|                                                                            |\n|   |A u B u C| = |A|+|B|+|C|                                                |\n|              - |AB|-|AC|-|BC|       add singles, subtract pairs,           |\n|              + |ABC|                add triples, alternate...              |\n|                                                                            |\n|       +-----------+        Venn intuition:  each region must be            |\n|      / A   /-------\\       counted exactly once. Adding singles            |\n|     /     / overlap \\      double-counts overlaps; subtracting pairs       |\n|    |  +--+----+  C   |     over-subtracts the triple; add it back.         |\n|    |  |  | B  |      |                                                     |\n|     \\ |  +----+-----/                                                      |\n|      \\+--------+----/                                                      |\n|                                                                            |\n|   GENERAL FORM (n sets):                                                   |\n|   | UNION A_i | = SUM_{S nonempty} (-1)^{|S|+1} | INTERSECT_{i in S} A_i | |\n|                                                                            |\n|   COMPLEMENT FORM (count elements in NO A_i):                              |\n|   | NONE | = SUM_{S} (-1)^{|S|} | A_S |   ,  A_empty = whole universe U    |\n|                                                                            |\n|         |                  |                   |                           |\n|         v                  v                   v                           |\n|   DERANGEMENTS        SURJECTIONS         EULER PHI / SIEVE                |\n|   D_n = n! SUM        n! S(k,n) =          phi(n)=n PROD(1-1/p)            |\n|   (-1)^j / j!         SUM (-1)^j C(n,j)    (number theory link)            |\n|                       (n-j)^k                                              |\n+============================================================================+\n```"
+    },
+    {
+      "id": "04-INCLUSION-EXCLUSION.md#003",
+      "path": [
+        "04-INCLUSION-EXCLUSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:combinatorics:04-inclusion-exclusion, git-history:combinatorics:04-inclusion-exclusion]",
+        "canonical_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "concepts": "[inclusion-exclusion, derangements, surjections, sieve, bonferroni]",
+        "current_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "id": "maxim:combinatorics:inclusion-exclusion",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "combinatorics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inclusion-exclusion]",
+        "section": "combinatorics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Inclusion-Exclusion and the Sieve",
+        "updated": "null"
+      },
+      "text": "Inclusion–exclusion (I-E) is the correction machine of counting: when sets\noverlap, you cannot just add. **Add the singletons, subtract the pairwise\noverlaps, add back the triples, and alternate.** The complement form — *count the\nelements satisfying none of a list of \"bad\" properties* — is the version you\nactually reach for, because most counting problems are \"how many avoid all of\nthese forbidden conditions.\""
+    },
+    {
+      "id": "04-INCLUSION-EXCLUSION.md#004",
+      "path": [
+        "04-INCLUSION-EXCLUSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:combinatorics:04-inclusion-exclusion, git-history:combinatorics:04-inclusion-exclusion]",
+        "canonical_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "concepts": "[inclusion-exclusion, derangements, surjections, sieve, bonferroni]",
+        "current_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "id": "maxim:combinatorics:inclusion-exclusion",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "combinatorics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inclusion-exclusion]",
+        "section": "combinatorics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Inclusion-Exclusion and the Sieve",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-INCLUSION-EXCLUSION.md#005",
+      "path": [
+        "04-INCLUSION-EXCLUSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:combinatorics:04-inclusion-exclusion, git-history:combinatorics:04-inclusion-exclusion]",
+        "canonical_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "concepts": "[inclusion-exclusion, derangements, surjections, sieve, bonferroni]",
+        "current_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "id": "maxim:combinatorics:inclusion-exclusion",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "combinatorics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inclusion-exclusion]",
+        "section": "combinatorics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Inclusion-Exclusion and the Sieve",
+        "updated": "null"
+      },
+      "text": "## Layer 1 — The Principle, Two Forms"
+    },
+    {
+      "id": "04-INCLUSION-EXCLUSION.md#006",
+      "path": [
+        "04-INCLUSION-EXCLUSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:combinatorics:04-inclusion-exclusion, git-history:combinatorics:04-inclusion-exclusion]",
+        "canonical_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "concepts": "[inclusion-exclusion, derangements, surjections, sieve, bonferroni]",
+        "current_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "id": "maxim:combinatorics:inclusion-exclusion",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "combinatorics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inclusion-exclusion]",
+        "section": "combinatorics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Inclusion-Exclusion and the Sieve",
+        "updated": "null"
+      },
+      "text": "```\n   UNION FORM\n   | A_1 u ... u A_n | = SUM_{k=1}^{n} (-1)^{k+1}\n                          SUM_{|S|=k} | A_{i1} INTERSECT ... INTERSECT A_{ik} |"
+    },
+    {
+      "id": "04-INCLUSION-EXCLUSION.md#007",
+      "path": [
+        "04-INCLUSION-EXCLUSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:combinatorics:04-inclusion-exclusion, git-history:combinatorics:04-inclusion-exclusion]",
+        "canonical_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "concepts": "[inclusion-exclusion, derangements, surjections, sieve, bonferroni]",
+        "current_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "id": "maxim:combinatorics:inclusion-exclusion",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "combinatorics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inclusion-exclusion]",
+        "section": "combinatorics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Inclusion-Exclusion and the Sieve",
+        "updated": "null"
+      },
+      "text": "COMPLEMENT FORM (more useful)\n   Let U = universe, A_i = \"elements WITH bad property i\".\n   # elements with NO bad property =\n        SUM_{S subset of [n]} (-1)^{|S|} | A_S |\n   where A_S = INTERSECT_{i in S} A_i  and  A_empty = U.\n```"
+    },
+    {
+      "id": "04-INCLUSION-EXCLUSION.md#008",
+      "path": [
+        "04-INCLUSION-EXCLUSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:combinatorics:04-inclusion-exclusion, git-history:combinatorics:04-inclusion-exclusion]",
+        "canonical_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "concepts": "[inclusion-exclusion, derangements, surjections, sieve, bonferroni]",
+        "current_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "id": "maxim:combinatorics:inclusion-exclusion",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "combinatorics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inclusion-exclusion]",
+        "section": "combinatorics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Inclusion-Exclusion and the Sieve",
+        "updated": "null"
+      },
+      "text": "**Why the alternating signs work.** Take an element `x` with *exactly* `m` of the\nbad properties. Its net contribution to the complement-form sum is\n`Σ_{j=0}^{m} (-1)^j C(m,j)`, the number of size-S subsets among its `m`\nproperties weighted by sign. By the alternating binomial identity (`02`), this is\n`0` for `m ≥ 1` and `1` for `m = 0`. So every element with at least one bad\nproperty cancels to zero, and only the \"clean\" elements survive — exactly what\nthe complement form claims. The proof *is* the `Σ (-1)^j C(m,j) = [m=0]` identity."
+    },
+    {
+      "id": "04-INCLUSION-EXCLUSION.md#009",
+      "path": [
+        "04-INCLUSION-EXCLUSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:combinatorics:04-inclusion-exclusion, git-history:combinatorics:04-inclusion-exclusion]",
+        "canonical_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "concepts": "[inclusion-exclusion, derangements, surjections, sieve, bonferroni]",
+        "current_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "id": "maxim:combinatorics:inclusion-exclusion",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "combinatorics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inclusion-exclusion]",
+        "section": "combinatorics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Inclusion-Exclusion and the Sieve",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-INCLUSION-EXCLUSION.md#010",
+      "path": [
+        "04-INCLUSION-EXCLUSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:combinatorics:04-inclusion-exclusion, git-history:combinatorics:04-inclusion-exclusion]",
+        "canonical_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "concepts": "[inclusion-exclusion, derangements, surjections, sieve, bonferroni]",
+        "current_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "id": "maxim:combinatorics:inclusion-exclusion",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "combinatorics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inclusion-exclusion]",
+        "section": "combinatorics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Inclusion-Exclusion and the Sieve",
+        "updated": "null"
+      },
+      "text": "## Layer 2 — Derangements (the flagship application)"
+    },
+    {
+      "id": "04-INCLUSION-EXCLUSION.md#011",
+      "path": [
+        "04-INCLUSION-EXCLUSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:combinatorics:04-inclusion-exclusion, git-history:combinatorics:04-inclusion-exclusion]",
+        "canonical_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "concepts": "[inclusion-exclusion, derangements, surjections, sieve, bonferroni]",
+        "current_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "id": "maxim:combinatorics:inclusion-exclusion",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "combinatorics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inclusion-exclusion]",
+        "section": "combinatorics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Inclusion-Exclusion and the Sieve",
+        "updated": "null"
+      },
+      "text": "A **derangement** is a permutation with no fixed point: `π(i) ≠ i` for all `i`.\n\"How many ways can n hats be returned so nobody gets their own?\""
+    },
+    {
+      "id": "04-INCLUSION-EXCLUSION.md#012",
+      "path": [
+        "04-INCLUSION-EXCLUSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:combinatorics:04-inclusion-exclusion, git-history:combinatorics:04-inclusion-exclusion]",
+        "canonical_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "concepts": "[inclusion-exclusion, derangements, surjections, sieve, bonferroni]",
+        "current_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "id": "maxim:combinatorics:inclusion-exclusion",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "combinatorics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inclusion-exclusion]",
+        "section": "combinatorics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Inclusion-Exclusion and the Sieve",
+        "updated": "null"
+      },
+      "text": "```\n   Universe U = all n! permutations.\n   Bad property i = \"fixes point i\" (pi(i) = i).\n   A_S = permutations fixing every i in S = (n - |S|)! arrangements\n         of the remaining points.  There are C(n,|S|) sets of each size."
+    },
+    {
+      "id": "04-INCLUSION-EXCLUSION.md#013",
+      "path": [
+        "04-INCLUSION-EXCLUSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:combinatorics:04-inclusion-exclusion, git-history:combinatorics:04-inclusion-exclusion]",
+        "canonical_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "concepts": "[inclusion-exclusion, derangements, surjections, sieve, bonferroni]",
+        "current_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "id": "maxim:combinatorics:inclusion-exclusion",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "combinatorics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inclusion-exclusion]",
+        "section": "combinatorics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Inclusion-Exclusion and the Sieve",
+        "updated": "null"
+      },
+      "text": "D_n = SUM_{j=0}^{n} (-1)^j C(n,j) (n-j)!\n       = n! SUM_{j=0}^{n} (-1)^j / j!\n       = n! * [ 1 - 1 + 1/2! - 1/3! + ... ]\n       ->  n!/e   as n -> infinity."
+    },
+    {
+      "id": "04-INCLUSION-EXCLUSION.md#014",
+      "path": [
+        "04-INCLUSION-EXCLUSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:combinatorics:04-inclusion-exclusion, git-history:combinatorics:04-inclusion-exclusion]",
+        "canonical_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "concepts": "[inclusion-exclusion, derangements, surjections, sieve, bonferroni]",
+        "current_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "id": "maxim:combinatorics:inclusion-exclusion",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "combinatorics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inclusion-exclusion]",
+        "section": "combinatorics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Inclusion-Exclusion and the Sieve",
+        "updated": "null"
+      },
+      "text": "D_0=1, D_1=0, D_2=1, D_3=2, D_4=9, D_5=44, ...\n```"
+    },
+    {
+      "id": "04-INCLUSION-EXCLUSION.md#015",
+      "path": [
+        "04-INCLUSION-EXCLUSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:combinatorics:04-inclusion-exclusion, git-history:combinatorics:04-inclusion-exclusion]",
+        "canonical_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "concepts": "[inclusion-exclusion, derangements, surjections, sieve, bonferroni]",
+        "current_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "id": "maxim:combinatorics:inclusion-exclusion",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "combinatorics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inclusion-exclusion]",
+        "section": "combinatorics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Inclusion-Exclusion and the Sieve",
+        "updated": "null"
+      },
+      "text": "The punchline is striking: `D_n / n! → 1/e ≈ 0.3679`. The **probability a random\npermutation is a derangement converges to 1/e**, essentially independent of `n`.\nThere is also a clean recurrence `D_n = (n-1)(D_{n-1} + D_{n-2})`, and the EGF\n(`03`) is `e^{-x}/(1-x)` — the `e^{-x}` is the I-E sign-alternation, `1/(1-x)`\nthe `n!`."
+    },
+    {
+      "id": "04-INCLUSION-EXCLUSION.md#016",
+      "path": [
+        "04-INCLUSION-EXCLUSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:combinatorics:04-inclusion-exclusion, git-history:combinatorics:04-inclusion-exclusion]",
+        "canonical_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "concepts": "[inclusion-exclusion, derangements, surjections, sieve, bonferroni]",
+        "current_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "id": "maxim:combinatorics:inclusion-exclusion",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "combinatorics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inclusion-exclusion]",
+        "section": "combinatorics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Inclusion-Exclusion and the Sieve",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-INCLUSION-EXCLUSION.md#017",
+      "path": [
+        "04-INCLUSION-EXCLUSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:combinatorics:04-inclusion-exclusion, git-history:combinatorics:04-inclusion-exclusion]",
+        "canonical_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "concepts": "[inclusion-exclusion, derangements, surjections, sieve, bonferroni]",
+        "current_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "id": "maxim:combinatorics:inclusion-exclusion",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "combinatorics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inclusion-exclusion]",
+        "section": "combinatorics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Inclusion-Exclusion and the Sieve",
+        "updated": "null"
+      },
+      "text": "## Layer 3 — Counting Surjections"
+    },
+    {
+      "id": "04-INCLUSION-EXCLUSION.md#018",
+      "path": [
+        "04-INCLUSION-EXCLUSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:combinatorics:04-inclusion-exclusion, git-history:combinatorics:04-inclusion-exclusion]",
+        "canonical_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "concepts": "[inclusion-exclusion, derangements, surjections, sieve, bonferroni]",
+        "current_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "id": "maxim:combinatorics:inclusion-exclusion",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "combinatorics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inclusion-exclusion]",
+        "section": "combinatorics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Inclusion-Exclusion and the Sieve",
+        "updated": "null"
+      },
+      "text": "How many functions `f: [k] → [n]` are **onto** (hit every one of the n\ncodomain elements)?"
+    },
+    {
+      "id": "04-INCLUSION-EXCLUSION.md#019",
+      "path": [
+        "04-INCLUSION-EXCLUSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:combinatorics:04-inclusion-exclusion, git-history:combinatorics:04-inclusion-exclusion]",
+        "canonical_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "concepts": "[inclusion-exclusion, derangements, surjections, sieve, bonferroni]",
+        "current_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "id": "maxim:combinatorics:inclusion-exclusion",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "combinatorics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inclusion-exclusion]",
+        "section": "combinatorics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Inclusion-Exclusion and the Sieve",
+        "updated": "null"
+      },
+      "text": "```\n   Universe U = all n^k functions.\n   Bad property i = \"element i of codomain is MISSED\".\n   A_S = functions avoiding all i in S = (n - |S|)^k."
+    },
+    {
+      "id": "04-INCLUSION-EXCLUSION.md#020",
+      "path": [
+        "04-INCLUSION-EXCLUSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:combinatorics:04-inclusion-exclusion, git-history:combinatorics:04-inclusion-exclusion]",
+        "canonical_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "concepts": "[inclusion-exclusion, derangements, surjections, sieve, bonferroni]",
+        "current_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "id": "maxim:combinatorics:inclusion-exclusion",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "combinatorics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inclusion-exclusion]",
+        "section": "combinatorics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Inclusion-Exclusion and the Sieve",
+        "updated": "null"
+      },
+      "text": "Surj(k,n) = SUM_{j=0}^{n} (-1)^j C(n,j) (n-j)^k."
+    },
+    {
+      "id": "04-INCLUSION-EXCLUSION.md#021",
+      "path": [
+        "04-INCLUSION-EXCLUSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:combinatorics:04-inclusion-exclusion, git-history:combinatorics:04-inclusion-exclusion]",
+        "canonical_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "concepts": "[inclusion-exclusion, derangements, surjections, sieve, bonferroni]",
+        "current_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "id": "maxim:combinatorics:inclusion-exclusion",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "combinatorics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inclusion-exclusion]",
+        "section": "combinatorics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Inclusion-Exclusion and the Sieve",
+        "updated": "null"
+      },
+      "text": "This equals  n! * S(k,n)   (Stirling 2nd kind) -- cross-check with\n   the twelvefold way (file 01) and special numbers (file 07).\n```"
+    },
+    {
+      "id": "04-INCLUSION-EXCLUSION.md#022",
+      "path": [
+        "04-INCLUSION-EXCLUSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:combinatorics:04-inclusion-exclusion, git-history:combinatorics:04-inclusion-exclusion]",
+        "canonical_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "concepts": "[inclusion-exclusion, derangements, surjections, sieve, bonferroni]",
+        "current_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "id": "maxim:combinatorics:inclusion-exclusion",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "combinatorics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inclusion-exclusion]",
+        "section": "combinatorics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Inclusion-Exclusion and the Sieve",
+        "updated": "null"
+      },
+      "text": "**Worked count.** Surjections `[4] → [2]`: `Σ_j (-1)^j C(2,j)(2-j)^4 =\n2^4 - 2·1^4 + 0 = 16 - 2 = 14`. Matches `2!·S(4,2) = 2·7 = 14` from `01`.\nTwo independent methods, same answer — that is how you trust the count."
+    },
+    {
+      "id": "04-INCLUSION-EXCLUSION.md#023",
+      "path": [
+        "04-INCLUSION-EXCLUSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:combinatorics:04-inclusion-exclusion, git-history:combinatorics:04-inclusion-exclusion]",
+        "canonical_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "concepts": "[inclusion-exclusion, derangements, surjections, sieve, bonferroni]",
+        "current_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "id": "maxim:combinatorics:inclusion-exclusion",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "combinatorics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inclusion-exclusion]",
+        "section": "combinatorics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Inclusion-Exclusion and the Sieve",
+        "updated": "null"
+      },
+      "text": "The same I-E template counts: number of ways to **n-color** so that all n colors\nare used; number of **size-n sequences over an n-alphabet using every symbol**;\nthe **Stirling number** `S(k,n) = (1/n!) Σ_j (-1)^j C(n,j)(n-j)^k`."
+    },
+    {
+      "id": "04-INCLUSION-EXCLUSION.md#024",
+      "path": [
+        "04-INCLUSION-EXCLUSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:combinatorics:04-inclusion-exclusion, git-history:combinatorics:04-inclusion-exclusion]",
+        "canonical_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "concepts": "[inclusion-exclusion, derangements, surjections, sieve, bonferroni]",
+        "current_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "id": "maxim:combinatorics:inclusion-exclusion",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "combinatorics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inclusion-exclusion]",
+        "section": "combinatorics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Inclusion-Exclusion and the Sieve",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-INCLUSION-EXCLUSION.md#025",
+      "path": [
+        "04-INCLUSION-EXCLUSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:combinatorics:04-inclusion-exclusion, git-history:combinatorics:04-inclusion-exclusion]",
+        "canonical_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "concepts": "[inclusion-exclusion, derangements, surjections, sieve, bonferroni]",
+        "current_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "id": "maxim:combinatorics:inclusion-exclusion",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "combinatorics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inclusion-exclusion]",
+        "section": "combinatorics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Inclusion-Exclusion and the Sieve",
+        "updated": "null"
+      },
+      "text": "## Layer 4 — The Sieve and Number-Theoretic I-E"
+    },
+    {
+      "id": "04-INCLUSION-EXCLUSION.md#026",
+      "path": [
+        "04-INCLUSION-EXCLUSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:combinatorics:04-inclusion-exclusion, git-history:combinatorics:04-inclusion-exclusion]",
+        "canonical_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "concepts": "[inclusion-exclusion, derangements, surjections, sieve, bonferroni]",
+        "current_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "id": "maxim:combinatorics:inclusion-exclusion",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "combinatorics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inclusion-exclusion]",
+        "section": "combinatorics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Inclusion-Exclusion and the Sieve",
+        "updated": "null"
+      },
+      "text": "Inclusion–exclusion *is* the abstract sieve; the **sieve of Eratosthenes** and\nEuler's totient are its number-theory incarnations (full treatment in\n`number-theory/`)."
+    },
+    {
+      "id": "04-INCLUSION-EXCLUSION.md#027",
+      "path": [
+        "04-INCLUSION-EXCLUSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:combinatorics:04-inclusion-exclusion, git-history:combinatorics:04-inclusion-exclusion]",
+        "canonical_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "concepts": "[inclusion-exclusion, derangements, surjections, sieve, bonferroni]",
+        "current_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "id": "maxim:combinatorics:inclusion-exclusion",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "combinatorics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inclusion-exclusion]",
+        "section": "combinatorics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Inclusion-Exclusion and the Sieve",
+        "updated": "null"
+      },
+      "text": "```\n   EULER'S TOTIENT phi(n) = # integers in [1,n] coprime to n.\n   For n = p1^a1 ... pr^ar, \"bad property i\" = divisible by p_i."
+    },
+    {
+      "id": "04-INCLUSION-EXCLUSION.md#028",
+      "path": [
+        "04-INCLUSION-EXCLUSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:combinatorics:04-inclusion-exclusion, git-history:combinatorics:04-inclusion-exclusion]",
+        "canonical_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "concepts": "[inclusion-exclusion, derangements, surjections, sieve, bonferroni]",
+        "current_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "id": "maxim:combinatorics:inclusion-exclusion",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "combinatorics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inclusion-exclusion]",
+        "section": "combinatorics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Inclusion-Exclusion and the Sieve",
+        "updated": "null"
+      },
+      "text": "phi(n) = SUM_{S subset of {p1..pr}} (-1)^{|S|} * n / (PROD_{p in S} p)\n          = n PROD_{i=1}^{r} (1 - 1/p_i)."
+    },
+    {
+      "id": "04-INCLUSION-EXCLUSION.md#029",
+      "path": [
+        "04-INCLUSION-EXCLUSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:combinatorics:04-inclusion-exclusion, git-history:combinatorics:04-inclusion-exclusion]",
+        "canonical_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "concepts": "[inclusion-exclusion, derangements, surjections, sieve, bonferroni]",
+        "current_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "id": "maxim:combinatorics:inclusion-exclusion",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "combinatorics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inclusion-exclusion]",
+        "section": "combinatorics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Inclusion-Exclusion and the Sieve",
+        "updated": "null"
+      },
+      "text": "Example n = 12 = 2^2 * 3:\n   phi(12) = 12 (1 - 1/2)(1 - 1/3) = 12 * 1/2 * 2/3 = 4.\n   ({1,5,7,11} -- the four coprime residues.)\n```"
+    },
+    {
+      "id": "04-INCLUSION-EXCLUSION.md#030",
+      "path": [
+        "04-INCLUSION-EXCLUSION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:combinatorics:04-inclusion-exclusion, git-history:combinatorics:04-inclusion-exclusion]",
+        "canonical_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "concepts": "[inclusion-exclusion, derangements, surjections, sieve, bonferroni]",
+        "current_path": "combinatorics/04-INCLUSION-EXCLUSION.md",
+        "id": "maxim:combinatorics:inclusion-exclusion",
+        "index_roles": "[guide]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "combinatorics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[inclusion-exclusion]",
+        "section": "combinatorics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Inclusion-Exclusion and the Sieve",
+        "updated": "null"
+      },
+      "text": "This is I-E with the universe `{1,...,n}` and bad properties \"divisible by\nprime `p_i`.\" The product form `∏(1 - 1/p)` is exactly the alternating sum\nfactored — multiplicativity of `φ` falls out for free. The general \"count\nintegers up to N divisible by none of a set of primes\" is the **Legendre sieve**,\nthe analytic-number-theory workhorse (`number-theory/07`)."
+    }
+  ],
+  "refs": [
+    "04-INCLUSION-EXCLUSION.md"
+  ]
+}

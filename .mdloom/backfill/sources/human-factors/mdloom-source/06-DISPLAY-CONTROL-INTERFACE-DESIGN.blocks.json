@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "human-factors\\06-DISPLAY-CONTROL-INTERFACE-DESIGN.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 76,
+      "heading_context": "## The Big Picture: The Interface Is Where Workload, SA, and Error Meet the World",
+      "confidence": "candidate",
+      "text": "THE SAFETY-CRITICAL OPERATOR INTERFACE   (this guide owns the HF design layer)\n================================================================================\n   WORLD / PROCESS                                        OPERATOR\n   (plant, aircraft, patient, grid)                       (loaded, stressed, on shift)\n        |   sensors                                            ^   actions\n        v                                                      |\n   +-- DISPLAYS ------------------+          +-- CONTROLS ------------------+\n   | make state PERCEPTIBLE (L1)  |          | make the right action        |\n   | show MEANING/RELATIONS (L2)  |          | NATURAL and COMPATIBLE        |\n   | show TRENDS/PROJECTION (L3)  |          | resist the wrong action       |\n   | ALARMS: only what matters    |          | show the active MODE/STATE    |\n   +------------------------------+          +------------------------------+\n        |                                              |\n        +---- CODING + REDUNDANCY (color+shape+position+label) ----+\n        +---- LAYOUT (importance / frequency / sequence / function) +\n        +---- EID (make the work-domain CONSTRAINTS visible: SRK)  -+\n================================================================================\n   SEAM: general DIGITAL usability & accessibility -> human-computer-interaction/\n         the DOMAIN systems themselves -> nuclear/05, aeronautics/04, bme/07, transport/07\n   THIS GUIDE -> the HF principles that make the SAFETY-CRITICAL interface work.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 141,
+      "heading_context": "## 2. Population Stereotypes & Their Cultural Limits",
+      "confidence": "candidate",
+      "text": "COMMON STEREOTYPES -- and where they REVERSE  (attributed; culture-bound)\n--------------------------------------------------------------------------------\n   ROTARY: clockwise -> increase / on / right   (strong in many populations)\n   LIGHT SWITCH:  UP = on (US/Canada)   vs   DOWN = on (UK, Ireland, much of Europe/AU)\n   FAUCET:  hot on the LEFT (widespread Western plumbing convention, not universal)\n   COLOR:   red has danger/stop conventions in many industrial systems and festive/\n            prosperity symbolism in Chinese culture; symbolism alone does NOT establish\n            a reversed safety-control convention\n   VERTICAL scale: up = more (widespread); but reading direction (L-to-R vs R-to-L)\n            changes horizontal \"increase\" expectations\n   STEREOTYPE STRENGTH VARIES: cross-cultural studies (e.g., Courtney on Hong Kong\n      operators; Loveless 1962 review) show both DIFFERENT stereotypes and WEAKER ones\n      in some populations -> a weak stereotype gives less error protection.\n\n   DESIGN RULE: identify the ACTUAL population's stereotypes; where a product crosses\n      cultures or a stereotype is weak/absent, do NOT rely on it -- add explicit coding,\n      labeling, and constraints (Sec.3), and test with the real population (guide 10).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 174,
+      "heading_context": "## 3. Coding & Redundancy — Never One Channel Alone",
+      "confidence": "candidate",
+      "text": "CODING DIMENSIONS  (carry the SAME distinction on MORE THAN ONE)\n--------------------------------------------------------------------------------\n   COLOR     fast, salient   -- red-green deficiency is ~8% among men of Northern-European\n                                ancestry and lower in many other populations; meaning is\n                                culture-bound; unusable in monochrome/low-light -> NEVER alone\n   SHAPE     symbol/geometry -- learnable, language-free, works in monochrome\n   POSITION  location/layout -- strong, learned (the alarm is where you expect it)\n   SIZE      magnitude cue   -- coarse; limited discriminable steps\n   ORIENTATION / MOTION / BLINK -- salient but attention-grabbing (use sparingly, Sec.5)\n   TEXT / LABEL   precise    -- but language-bound and slow to read under load\n   AUDITORY  tone/speech     -- omnidirectional; good for alerts; collides in noise\n\n   REDUNDANCY PRINCIPLE: a critical distinction (safe vs unsafe, on vs off, this vs that\n   tank) rides on >=2 dimensions -> color + shape + position + label. Then a single failed\n   channel degrades gracefully instead of losing the message.\n   (This is the operator-safety twin of accessibility's \"don't rely on color alone\" --\n    HCI/accessibility owns the digital-a11y version; here it is a SAFETY requirement.)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 207,
+      "heading_context": "## 4. Alarm Philosophy — The Alarm System Is Its Own Hazard",
+      "confidence": "candidate",
+      "text": "ALARM PATHOLOGIES  (why \"add an alarm\" is often the wrong reflex)\n--------------------------------------------------------------------------------\n   ALARM FLOOD     a plant upset triggers a cascade -> dozens/hundreds of alarms in\n                   minutes, exactly when the operator can least process them.\n   MISCLASSIFIED   informational notifications incorrectly carried in the alarm channel.\n   CHATTERING      an alarm repeatedly toggling around a threshold (a candidate for a\n                   deadband, subject to review).\n   STANDING/STALE  alarms left active for hours -> ignored; hide new ones.\n   CRY-WOLF        frequent false/low-value alarms erode TRUST -> real alarms ignored or\n                   silenced (the trust seam to automation, guide 07).\n\n   ALARM MANAGEMENT (analysis discipline, NOT operating instruction) -- every\n     candidate change is a HYPOTHESIS subject to HAZARD REVIEW, management of\n     change (MoC), qualified domain validation, and local procedures:\n     RATIONALIZE   ask whether each alarm justifies its existence, setpoint, and\n                   a required operator ACTION -- an alarm with no action is a\n                   CANDIDATE for change, not an instruction to delete.\n     PRIORITIZE    propose a few priority levels tied to urgency x consequence.\n     SHAPE         deadbands, shelving, state-based suppression are CANDIDATE\n                   techniques to EVALUATE, each reviewed under MoC and validated\n                   by qualified domain staff before any live change.\n     MEASURE       characterize alarm RATE per operator, flood frequency, and\n                   standing-alarm count (descriptive analysis of logged data).\n\n   DATED, BOUNDED STANDARDS (primary sources; context, NOT certification):\n     EEMUA 191 (4th ed. 2024; 1st ed. 1999) -- alarm design/management guide;\n       widely-cited BENCHMARK rates (steady-state ~a few alarms/hr per operator;\n       \"flood\" as >10 alarms per 10 min) -- guideline figures for the PROCESS\n       INDUSTRIES, not universal limits.\n     ANSI/ISA-18.2-2016 and IEC 62682:2022 -- alarm-mgmt lifecycle standards\n       (ISA / IEC), harmonized with EEMUA 191.\n   Attributed, dated, INDUSTRY-SPECIFIC process-industry guidance; other sectors\n   (aviation, healthcare, rail) have their OWN alarm/alert guidance. The guide\n   gives the REASONING only; it certifies nothing and prescribes no change.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 257,
+      "heading_context": "## 5. Salience vs Nuisance — The Attention Budget",
+      "confidence": "candidate",
+      "text": "THE SALIENCE BUDGET\n--------------------------------------------------------------------------------\n   spend salience on ---> the FEW must-see, must-act signals\n      too little: a critical change is missed (change blindness, guide 03)\n      too much:   (1) DILUTION -- everything is red, so nothing is;\n                  (2) CRY-WOLF -- false salience erodes trust -> operators tune it out\n   TUNING: reserve the strongest codes (motion/blink/loud) for the highest priority;\n      graded, not binary; let low-priority info be AVAILABLE (perceptible on look) but not\n      INTRUSIVE (grabbing attention). Attention-DIRECTION must not itself tunnel (guide 03).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 314,
+      "heading_context": "## 7. Ecological Interface Design — Show the Work's Deep Structure",
+      "confidence": "candidate",
+      "text": "RASMUSSEN'S SRK + THE ABSTRACTION HIERARCHY  (the basis of EID)\n--------------------------------------------------------------------------------\n   SKILL-RULE-KNOWLEDGE (SRK) -- three levels of operator behavior:\n      SKILL      smooth, automatic (reading a familiar gauge)         -> support with\n                                                                          direct perception\n      RULE       \"if this state, do that\" (known procedures)          -> support with\n                                                                          clear signs/cues\n      KNOWLEDGE  reasoning from first principles when nothing fits    -> support by making\n                 (the novel fault, the un-proceduralized upset)          the DOMAIN visible\n\n   ABSTRACTION HIERARCHY (what to make visible):\n      functional purpose  (why the system exists: keep the core cool)\n        v\n      abstract function   (mass/energy balances, flows, conservation)\n        v\n      generalized function(processes: this pump feeds that tank)\n        v\n      physical function   (equipment: pump P-2, valve V-7 states)\n        v\n      physical form       (layout, location)\n   EID makes the UPPER (functional) layers visible, not just the bottom (equipment), so a\n   KNOWLEDGE-level operator can see WHY the numbers matter and reason about a novel fault.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 351,
+      "heading_context": "## 8. Control-Room / Workspace Layout",
+      "confidence": "candidate",
+      "text": "FOUR LAYOUT PRINCIPLES  (arrange displays/controls by...)\n--------------------------------------------------------------------------------\n   IMPORTANCE       the most safety-critical items get the best (central, reachable,\n                    visible) positions -- even if used rarely.\n   FREQUENCY-OF-USE the most-used items go in the best remaining positions (reach zone,\n                    guide 02; central vision).\n   SEQUENCE-OF-USE  items used in a fixed order are arranged in that order (left-to-right\n                    or top-to-bottom along the task flow).\n   FUNCTION         items serving the same function are grouped and bordered together\n                    (all cooling controls together, all electrical together).\n\n   THEY CONFLICT: an IMPORTANT item may be INFREQUENT (emergency stop) -> importance wins\n      for placement, and coding (Sec.3) plus guarding resolves the rest. Resolve conflicts\n      EXPLICITLY, ranking importance and safety first.\n   PLUS: reach/clearance/vision geometry from guide 02; SA-supporting grouping from guide 03.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 406,
+      "heading_context": "## 9. The Safety-Critical UI ↔ HCI Usability Seam",
+      "confidence": "candidate",
+      "text": "EVIDENCE + ACCEPTANCE  (one safety-critical interface, who owns what)\n--------------------------------------------------------------------------------\n   MODULES OWN METHODS + EVIDENCE  (they do NOT sign off a real system):\n      HCI  interaction / visualization / accessibility METHODS + EVIDENCE\n      HF   workload / error / performance-under-stress EVIDENCE\n                         |  both evidence streams feed ->\n                         v\n   THE ACCOUNTABLE DOMAIN ORGANIZATION + ITS REGULATOR own ACCEPTANCE and\n      IMPLEMENTATION: they weigh the evidence, accept or reject, and implement.\n      Legal obligation -> law/.\n\n   RULE: a reference module SUPPLIES EVIDENCE; it does not sign off or veto. Weak\n      HF evidence may indicate elevated error risk under load; weak HCI evidence\n      may indicate usability or accessibility shortfalls. Evidence can be\n      insufficient for acceptance, but the decision belongs to the accountable\n      organization and regulator, not HCI or HF.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 449,
+      "heading_context": "## A Worked Quantitative Pass — Before/After Alarm Metrics (synthetic)",
+      "confidence": "candidate",
+      "text": "EVENT INVENTORY + AGGREGATION RULES  (fictional; how each number is derived)\n--------------------------------------------------------------------------------\n   RULES (applied to a replayed event log):\n     steady-state rate = annunciations in a representative QUIET hour / 1 h\n     peak flood        = max annunciations in any rolling 10-min window (upset)\n     standing          = alarms continuously active > 24 h (a stock, not a rate)\n     % actionable      = share of annunciations with a DOCUMENTED action\n     priority mix      = P1/P2/P3 split of the ACTIONABLE alarms only\n                         (informational messages are NOT alarms -> no priority)\n\n   BEFORE, one quiet hour = 62 annunciations, by class:\n     chattering (3 tags toggling a setpoint) .... 21   no action\n     standing/stale re-annunciations ............  8   no action\n     informational status msgs (mis-set as alarm)  8   no action -> notify\n     actionable process alarms (cascade dups) ... 25   action\n     TOTAL 62  ->  25 / 62 = 40% actionable\n\n   AFTER (modeled projection), same hour:\n     chattering    -> deadband candidate .........  ~0\n     standing      -> shelving / redesign ........  ~0\n     informational -> MOVED to a notification channel (not deleted)\n     actionable    -> cascade dups consolidated: 25 -> ~9 distinct\n     TOTAL 9  ->  100% action-requiring in the modeled alarm channel\n\n   PEAK 10-MIN UPSET WINDOW:\n     BEFORE 220 annunciations =\n       145 cascade duplicates + 45 chatter + 20 standing repeats + 10 distinct alarms\n     AFTER 14 annunciations =\n       10 distinct action-requiring alarms + 4 modeled repeats\n\n   STANDING-ALARM STOCK:\n     BEFORE 45 continuously active tags\n     AFTER   6 retained as unresolved/valid standing conditions pending domain review\n\n   ACTIONABLE PRIORITY COUNTS (quiet-hour alarm channel):\n     BEFORE 25 = P1:8, P2:7, P3:10  -> 32% / 28% / 40%\n     AFTER   9 = P1:1, P2:2, P3:6   -> 11% / 22% / 67%",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 538,
+      "heading_context": "## A Fully Worked Case — A Console Redesign (illustrative, fictional)",
+      "confidence": "candidate",
+      "text": "   **color + shape + position + label**, so a color-blind operator on a dimmed night panel",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 578,
+      "heading_context": "## Reader Tasks (answerable from this guide)",
+      "confidence": "candidate",
+      "text": "   before/after pass, compute the change in steady-state rate (62 -> 9 /hr) and peak flood",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 580,
+      "heading_context": "## Reader Tasks (answerable from this guide)",
+      "confidence": "candidate",
+      "text": "   limit), and explain the priority-mix shift (32/28/40% -> 11/22/67%). Then state why deadbands,",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    }
+  ]
+}

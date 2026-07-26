@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "logic\\04-GODEL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 85,
+      "heading_context": "### Gödel Numbering",
+      "confidence": "candidate",
+      "text": "  GODEL NUMBERING:\n\n  Assign each symbol a unique number:\n    0 => 1, s => 2, . => 3, * => 4, = => 5, ( => 6, ) => 7,\n    neg -> 8, land -> 9, lor -> 10, -> -> 11, Forall -> 12, ...\n    Variable_n -> prime(n)\n\n  Formula as sequence of symbols -> encode sequence as product of primes:\n    [a1, a2, ..., ak] -> 2^a1 * 3^a2 * 5^a3 * ... * p_k^ak\n\n  This is the Godel number: gn(phi)\n\n  Key property: the mapping gn is:\n    - Injective (different formulas get different numbers)\n    - Computable (given phi, compute gn(phi))\n    - \"Invertible\" (given a number, test if it codes a formula)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 110,
+      "heading_context": "### Representability",
+      "confidence": "candidate",
+      "text": "  R(n1,...,nk)  =>  T !- phi(n1,...,nk)\n  not R(n1,...,nk)  =>  T !- neg phi(n1,...,nk)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 134,
+      "heading_context": "### The Diagonal Lemma (Fixed-Point Theorem)",
+      "confidence": "candidate",
+      "text": "  DIAGONAL LEMMA (Godel):\n  For any formula phi(x) with one free variable, there exists a sentence G such that:\n    T !- G <-> phi(gn(G))\n\n  G \"talks about itself\" by referring to its own Godel number.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 149,
+      "heading_context": "### Gödel Sentence",
+      "confidence": "candidate",
+      "text": "  G <-> neg Provable(gn(G))\n\n  G says: \"I am not provable (in T).\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 180,
+      "heading_context": "### The Argument",
+      "confidence": "candidate",
+      "text": "### Rosser's Strengthening (1936)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 185,
+      "heading_context": "### Rosser's Strengthening (1936)",
+      "confidence": "candidate",
+      "text": "  R <-> Forall p. (Proof(p, gn(R)) -> Exists q < p. Proof(q, gn(neg R)))\n\n  R says: \"If I have a proof, there is a shorter proof of my negation.\"\n  This symmetry allows the argument under just T-consistency.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 209,
+      "heading_context": "### The Argument (Sketch)",
+      "confidence": "candidate",
+      "text": "  T can prove: Con(T) -> neg Provable(gn(G))\n\n  But G <-> neg Provable(gn(G)), so:\n  T can prove: Con(T) -> G\n\n  Now if T !- Con(T), then T !- G (by modus ponens).\n  But G is unprovable in T (by G1, assuming consistency).\n  Contradiction.\n\n  Therefore: T does not prove Con(T).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 277,
+      "heading_context": "## Tarski's Undefinability Theorem",
+      "confidence": "candidate",
+      "text": "  TARSKI UNDEFINABILITY:\n  There is no formula True(x) in the language of PA such that for all sentences phi:\n    PA !- True(gn(phi))  iff  phi is true in the standard model.\n\n  MDLOOM:\n  Suppose True(x) exists. By Diagonal Lemma, there exists L with:\n    PA !- L <-> neg True(gn(L))\n  L says \"I am not true\" (Liar Paradox).\n  If L is true: True(gn(L)) holds, so neg True(gn(L)) holds. Contradiction.\n  If L is false: neg True(gn(L)) holds, so True(gn(L)) holds. Contradiction.\n  So no such True(x) can exist.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

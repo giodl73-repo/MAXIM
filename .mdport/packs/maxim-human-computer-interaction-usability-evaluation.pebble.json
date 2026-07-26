@@ -1,0 +1,1357 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-human-computer-interaction-usability-evaluation",
+  "source": "../../human-computer-interaction",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "05-USABILITY-EVALUATION.md#000",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "# Usability Evaluation — Measuring and Diagnosing Interactive Systems"
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#001",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "**This guide owns** the *evaluation* half of the design↔evaluate loop: the methods\nthat measure and diagnose how usable an interactive system is — analytic inspection\n(heuristic evaluation, cognitive walkthrough), empirical testing (think-aloud,\nmoderated benchmarks), the metric triad (effectiveness/efficiency/satisfaction),\nstandardized instruments (the SUS and its limits), the formative/summative split,\ncontrolled and A/B experiments, qualitative coding and triangulation, the\nsample-size ceiling, and the benchmark→iterate loop. **It builds on**\n`04-DESIGN-PROCESS` (which produces the artifact being evaluated) and\n`02-INTERACTION-MODELS` (the gulfs of execution/evaluation a usability problem lives\nin). **It explicitly defers**: the *cognitive mechanisms* behind observed problems —\nwhy attention, memory, and perception behave as they do, and the psychophysical\n\"laws\" (Fitts, Hick, Miller, cognitive load, GOMS timing) — to\n`cognitive-science/` (especially `cognitive-science/09-APPLIED-BRIDGE`); the\n*general inferential statistics* a summative study needs — hypothesis testing, power\nanalysis, confidence-interval and regression machinery — to `statistics-applied/`\nand, for HCI-specific study design, `06-RESEARCH-METHODS`; the *design methods* that\ngenerate solutions to `04`; and *operator performance in safety-critical work*\n(workload, human-error taxonomy) to [`human-factors/`](../human-factors/00-OVERVIEW.md)."
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#002",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "> **This module is an educational reference about *how interactive systems are\n> designed and evaluated*. Evaluation methods here are described as engineering\n> instruments, not as a warrant to skip ethics review of human-subjects research, and\n> not as a manipulation playbook. Named \"laws\" and standards are attributed and\n> dated; heuristics are heuristics, not empirical laws; and a passing score is never\n> proof of a usable system.**"
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#003",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "*Per-guide banner: this guide is about the theory and practice of usability\nmeasurement. Every numeric benchmark below (detection rates, SUS means, sample sizes)\nis attributed and dated where it names a published figure, and treated as a\npopulation-and-task-dependent estimate, never a universal constant.*"
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#004",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#005",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "## The Big Picture: Evaluation Is a Measurement Instrument Pointed at a Design"
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#006",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "A usability evaluation is not a verdict (\"good\" / \"bad\"); it is a **measurement\ninstrument** with a purpose, a resolution, and an error model. The two questions that\ndetermine every method choice are orthogonal: *do you want to **find problems** or\n**measure a level**?* and *does the data come from **experts/models** or from **real\nusers**?* Where you sit on those two axes picks the method *family*; the exact method,\nthe sample size, the setting, and what you are entitled to conclude then turn on a\nsecond set of fit factors — risk/stakes, task type, target population, ecological\nvalidity, product maturity, and practical constraints — that the axes do not capture."
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#007",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "```\nTHE EVALUATION LOOP   (this guide owns the right-hand \"evaluate\" half)\n==========================================================================\n   DESIGN (guide 04)                        EVALUATE (this guide)\n   generate candidate  ----------------->   measure & diagnose  ----+\n       designs                                                      |\n         ^                                                          |\n         +------------- iterate: fix, then re-measure <-------------+"
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#008",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "AXIS 1 -- what do you want?         AXIS 2 -- where is the data from?\n   ------------------------------      ---------------------------------\n   FORMATIVE : find & fix problems     ANALYTIC  : experts / models, no users\n   SUMMATIVE : measure vs a target     EMPIRICAL : real users doing real tasks\n==========================================================================\n   Read it as: the (Axis 1 x Axis 2) cell picks the method FAMILY, not more.\n   A \"positive result\" is a data point about a design, not a fact about a user.\n```"
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#009",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "The two axes give four cells, and each names a family of methods:"
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#010",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "| | FORMATIVE — improve it | SUMMATIVE — grade it |\n|---|---|---|\n| **ANALYTIC** (no users) | heuristic evaluation; cognitive walkthrough; expert review | model-based predictive estimates (GOMS/KLM task times — deferred to `02`/`cognitive-science/09`) |\n| **EMPIRICAL** (users) | think-aloud usability test (small-*n*, rich, diagnostic) | benchmark usability test; **A/B test** (field, huge-*n*, one metric) |"
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#011",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "**The axes narrow; they do not decide.** A cell names a *family*; which specific method\nyou run, with how many participants, in what setting, and what you may conclude are\n*not* determined by the axes. Six fit factors, developed through the guide, do the rest:"
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#012",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "- **Risk / stakes.** A safety- or money-critical flow justifies more method and larger,\n  powered samples than a low-stakes copy tweak.\n- **Task type.** Walk-up-and-use vs expert-repeated, transactional vs exploratory,\n  change the fit (cognitive walkthrough for first-use learnability vs a longitudinal\n  study for expert efficiency).\n- **Population.** One homogeneous segment vs many; disabled users and their assistive\n  technology (guide `08`); non-WEIRD populations for whom think-aloud may not transport.\n- **Ecological validity.** Lab realism vs field/in-the-wild — the more the setting\n  distorts the real task, the less any clean number actually means.\n- **Maturity.** A napkin sketch wants cheap formative inspection; a release candidate\n  wants a powered summative benchmark.\n- **Constraints.** Time, budget, recruiting reach, and platform/traffic access bound\n  what is genuinely runnable."
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#013",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "So the two-axis table is a *starting filter*, not a decision procedure; the same cell\nresolves to different studies for a low-stakes prototype and a safety-critical release."
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#014",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "Three consequences drive the rest of the guide:"
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#015",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "1. **Finding problems and measuring level are different jobs with different\n   mathematics.** The \"5 users\" rule is a *problem-discovery* result; it says nothing\n   about how precisely you can estimate a completion rate or compare two designs\n   (Section 6). Using a discovery sample to make a measurement claim is the most\n   common methodological error in the field.\n2. **Analytic methods are cheap and biased; empirical methods are expensive but\n   directly observe behavior** — evidence that is still sample-, task-, and\n   context-bounded, never ground truth. Inspection predicts problems from expertise (and\n   inherits the *evaluator effect*, Section 2); user testing observes them (and inherits\n   *sampling* and *reactivity*). Neither dominates — they triangulate (Section 8).\n3. **Behavioral scale and explanatory depth trade off.** An A/B test measures *how\n   much* a change moves a metric across a whole population but is blind to *why*; a\n   think-aloud explains *why* on eight people but cannot estimate a population effect\n   (Section 7)."
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#016",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "**Bridge (software).** This maps cleanly onto engineering practice you already run.\nAnalytic inspection is **static analysis / linting / code review against a style\nguide** — cheap, early, catches known smells, produces false positives, and misses\nanything the rules don't encode. Empirical testing is **runtime testing and\nprofiling** — you execute the system with real load and watch what actually happens.\nFormative vs summative is **debugging (find & fix) vs benchmarking (measure against an\nSLA)**. And an A/B test is exactly the **online controlled experiment / flighting**\nplatform you shipped features through — randomized, powered for one metric, causal but\nuninformative about mechanism."
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#017",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#018",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "## 1. Two Purposes: Formative vs Summative"
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#019",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "The single most clarifying distinction in evaluation, borrowed from educational\nassessment (Scriven 1967): a **formative** evaluation exists to *change the thing being\nevaluated* (find problems while there is still time to fix them); a **summative**\nevaluation exists to *judge the thing* against a target, a competitor, or a prior\nrelease. The same method run with a different purpose becomes a different study."
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#020",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "```\n  FORMATIVE                              SUMMATIVE\n  ----------------------------------     ----------------------------------\n  goal: discover & diagnose problems     goal: quantify a level / compare\n  when: during design, iteratively       when: at a milestone / before ship\n  data: mostly qualitative + severity    data: mostly quantitative + CIs\n  n   : small (discovery-sized, ~5-8)    n   : larger (estimate-sized, 2 sigma)\n  out : ranked problem list -> fixes     out : metrics vs target, decision\n  err : \"did we miss a problem?\"         err : \"how wide is our uncertainty?\"\n```"
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#021",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "The costliest confusion in practice is running a formative-sized study (five users)\nand then reporting a summative-sounding number (\"task success was 80%!\"). Five users\nwith 4 of 5 succeeding give a **95% Wilson score interval** of about **[0.38, 0.96]**\n(±29 points; derived in Section 6) — i.e., the true rate could be anywhere from ~38% to\n~96%. The number is not wrong; it is *unresolved*, and reporting it as a measurement is\nthe error (Section 6)."
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#022",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#023",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "## 2. Analytic Inspection I — Heuristic Evaluation"
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#024",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "**Heuristic evaluation** (Nielsen & Molich 1990; refined in Nielsen 1994) has a small\nset of evaluators independently judge an interface against a short list of recognized\nusability principles, then merge and severity-rate the problems they found. The\ncanonical list is **Nielsen's 10 heuristics** (1994): visibility of system status;\nmatch to the real world; user control and freedom; consistency and standards; error\nprevention; recognition over recall; flexibility and efficiency; aesthetic and\nminimalist design; help users recognize/diagnose/recover from errors; help and\ndocumentation."
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#025",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "Severity is usually rated on Nielsen's 0–4 scale (0 = not a problem, 4 = usability\ncatastrophe), combining **frequency × impact × persistence**, to rank the fix queue."
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#026",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "```\n  HEURISTIC EVALUATION PIPELINE\n  --------------------------------------------------------------\n  each evaluator, ALONE:                 then, TOGETHER:\n    walk the UI  ->  flag violations       merge duplicate flags\n    tag each with a heuristic              rate severity 0-4\n    note where and why                     rank the fix queue\n  --------------------------------------------------------------\n  Independence first (avoid anchoring), aggregation second.\n```"
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#027",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "**The load-bearing caveat: heuristics are heuristics, not laws.** The ten items are\n*experience-distilled rules of thumb*, not empirical constants and not a coverage\nguarantee. Three consequences follow:"
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#028",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "- **The evaluator effect is large.** A single evaluator finds only about **one-third**\n  of the problems present (Nielsen 1994 reports averages near 35%); *which* third\n  depends on the person. Different competent evaluators, given the same interface and\n  the same heuristics, produce substantially different problem sets (the \"evaluator\n  effect\"; see Hertzum & Jacobsen 2001, who found agreement often below 50%). The\n  heuristics do not make the method objective.\n- **Aggregation is why it works at all.** Because misses are partly independent across\n  evaluators, unioning several evaluators' lists recovers most problems. Nielsen's\n  recommendation of **3–5 evaluators** comes from the discovery model in Section 6\n  applied to inspection: at an average per-evaluator detection rate around **λ ≈ 0.31**\n  (the Nielsen & Landauer 1993 discovery-model figure), five evaluators find roughly\n  **75–85%** of problems while one finds **~31%**. Keep two close-but-distinct numbers\n  apart: the **0.31** here is the *discovery-model* detection rate, whereas the **~35%**\n  single-evaluator figure above is Nielsen's separately reported *heuristic-evaluation*\n  average (**1994**) — a different study lineage, not the same constant. This is a\n  cost/coverage argument, **not** a guarantee, and the true detection rate varies with\n  interface and evaluator expertise.\n- **Inspection over-produces false positives.** Predicted \"problems\" that never trouble\n  a real user are common; heuristic evaluation is good at *generating hypotheses to\n  check*, weaker at confirming that any given prediction matters. Adequately powered\n  empirical testing (Section 3) is the arbiter — but a *discovery-sized* user sample can\n  confirm a prediction, not refute one (Section 6): an inspection flag unseen by five\n  users is **unresolved, not cleared**."
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#029",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "**Bridge (software).** Heuristic evaluation is a **lint pass against a style guide**:\nfast, runs without users/load, flags known anti-patterns, and produces both true and\nfalse positives that a human triages. The evaluator effect is **reviewer variance** —\nthe reason you send a design to several reviewers, exactly as you send a hard PR to\nseveral engineers."
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#030",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#031",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "## 3. Analytic Inspection II — Cognitive Walkthrough"
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#032",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "Where heuristic evaluation is a broad checklist, the **cognitive walkthrough**\n(Wharton, Rieman, Lewis & Polson 1994; roots in Lewis & Polson's CE+ theory) is a\n*focused simulation of a first-time user* learning by exploration. Evaluators pick a\nconcrete task, list the correct action sequence, and at **each step** ask a fixed set\nof questions — classically four:"
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#033",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "```\n  AT EACH STEP OF THE CORRECT ACTION SEQUENCE, ASK:\n  --------------------------------------------------------------\n  Q1  Will the user be trying to achieve the right effect?\n  Q2  Will they notice the correct action is available?\n  Q3  Will they connect that action to the effect they want?\n  Q4  After acting, will they see progress toward the goal?\n  --------------------------------------------------------------\n  A \"no\" (with a story of why) IS the finding. It localizes the\n  break to a step and to a gulf (execution vs evaluation, guide 02).\n```"
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#034",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "The walkthrough's strength is **learnability for walk-up-and-use systems** (kiosks,\none-off flows, onboarding) and its precision: a finding is pinned to a specific step\nand a specific reason, which maps directly to a fix. Its weakness is narrowness — it\nevaluates the tasks you script and the \"correct\" path you chose, so it misses problems\noff the happy path, and it says little about efficiency for expert users. **Pluralistic\nwalkthroughs** (Bias 1994) add real users and stakeholders walking the steps together\nto reduce evaluator bias."
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#035",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "*Deferral.* *Why* a user fails Q2 or Q3 — the perception/attention/memory mechanism —\nis `cognitive-science/`'s to explain; this guide uses the mechanism as an observed\nconstraint and localizes *where* it bites."
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#036",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#037",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "## 4. Empirical Method I — The Think-Aloud Usability Test"
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#038",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "The workhorse of formative evaluation. A participant attempts realistic tasks on the\nsystem while **verbalizing their thoughts**; a facilitator observes without leading.\nThe theory is protocol analysis (Ericsson & Simon 1980, 1993): concurrent verbalization\nof the contents of working memory is a reasonably faithful window on reasoning — with\ncaveats."
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#039",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "```\n  CONCURRENT vs RETROSPECTIVE THINK-ALOUD\n  --------------------------------------------------------------\n  CONCURRENT      talk WHILE doing        rich, in-the-moment\n                                          BUT can alter behavior (reactivity):\n                                          slower, more deliberate, over-rational\n  RETROSPECTIVE   talk AFTER, on replay   preserves natural task behavior\n                                          BUT memory decay + post-hoc rationalizing\n  --------------------------------------------------------------\n  Facilitator rule: prompt only \"keep talking / what are you thinking?\",\n  never \"have you tried the menu?\" -- leading questions manufacture success.\n```"
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#040",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "Three honesty points a peer should hold:"
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#041",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "- **Reactivity.** Talking aloud is not free; it can make people slower and more\n  systematic than they would be silently (the \"veridicality\" and reactivity debate).\n  Concurrent think-aloud is a good problem *detector*, a poor time *measurer* — do not\n  report task times from a chatty concurrent session as performance data.\n- **Verbal ≠ ground truth.** People rationalize; stated reasons can post-date the\n  behavior. The *behavior* (where they clicked, where they stalled) is the stronger\n  signal; the talk is a hypothesis about why.\n- **Facilitator effects.** The moderator is part of the instrument. Leading, rescuing,\n  or reacting changes the data. This is why protocols script the prompts."
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#042",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "Think-aloud is *diagnostic*, not *metric*: it tells you **what breaks and plausibly\nwhy**, on a handful of people. It is the method that turns \"the funnel drops 20% here\"\n(from analytics or an A/B test) into \"because users read this label as a different verb.\""
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#043",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "**Bridge (software).** A moderated think-aloud is **interactive tracing of a black\nbox**: you drive the system through real scenarios and watch the internal state the\nuser narrates, exactly as you attach a debugger and step through to see *why* a request\nstalls — with the same observer-effect risk that instrumentation perturbs timing."
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#044",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#045",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "## 5. Metrics — Effectiveness, Efficiency, Satisfaction"
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#046",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "Once you want numbers, the anchor is **ISO 9241-11** (1998; revised 2018), which\ndefines usability as **effectiveness, efficiency, and satisfaction in a specified\ncontext of use**. That triad is the metric taxonomy."
+    },
+    {
+      "id": "05-USABILITY-EVALUATION.md#047",
+      "path": [
+        "05-USABILITY-EVALUATION.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:human-computer-interaction:05-usability-evaluation]",
+        "canonical_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "concepts": "[usability-evaluation, heuristic-evaluation, think-aloud, usability-metrics, system-usability-scale, formative-summative, ab-testing]",
+        "current_path": "human-computer-interaction/05-USABILITY-EVALUATION.md",
+        "id": "maxim:human-computer-interaction:usability-evaluation",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "human-computer-interaction",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[usability-evaluation]",
+        "section": "human-computer-interaction",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Usability Evaluation - Measuring and Diagnosing Interactive Systems",
+        "updated": "null"
+      },
+      "text": "| Dimension | Typical metric | Operational definition (must be pre-committed) | Trap |\n|---|---|---|---|\n| **Effectiveness** | task success rate | fraction of attempts reaching a pre-defined success state | \"success\" must be defined *before* testing, incl. partial success |\n| | error rate / error paths | count/type of deviations from an optimal path; recoverable vs not | counting keystrokes is not counting errors; classify them |\n| **Efficiency** | time on task | elapsed time for successful completions (exclude/flag failures) | timing a concurrent think-aloud is measuring the wrong thing |\n| | lostness / path length | actual vs optimal navigation steps (Smith's lostness metric) | needs a defensible \"optimal\" path |\n| **Satisfaction** | SUS, SEQ, UMUX-Lite | standardized post-task/post-test questionnaires (Section 5.1) | satisfaction correlates only loosely with performance |"
+    }
+  ],
+  "refs": [
+    "05-USABILITY-EVALUATION.md"
+  ]
+}

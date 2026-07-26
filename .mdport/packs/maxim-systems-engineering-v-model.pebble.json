@@ -1,0 +1,769 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-systems-engineering-v-model",
+  "source": "../../systems-engineering",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "04-V-MODEL.md#000",
+      "path": [
+        "04-V-MODEL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:04-v-model, git-history:systems-engineering:04-v-model]",
+        "canonical_path": "systems-engineering/04-V-MODEL.md",
+        "concepts": "[v, model]",
+        "current_path": "systems-engineering/04-V-MODEL.md",
+        "id": "maxim:systems-engineering:v-model",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[v, model]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "The V-Model and Verification/Validation",
+        "updated": "null"
+      },
+      "text": "# The V-Model and Verification/Validation"
+    },
+    {
+      "id": "04-V-MODEL.md#001",
+      "path": [
+        "04-V-MODEL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:04-v-model, git-history:systems-engineering:04-v-model]",
+        "canonical_path": "systems-engineering/04-V-MODEL.md",
+        "concepts": "[v, model]",
+        "current_path": "systems-engineering/04-V-MODEL.md",
+        "id": "maxim:systems-engineering:v-model",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[v, model]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "The V-Model and Verification/Validation",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "04-V-MODEL.md#002",
+      "path": [
+        "04-V-MODEL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:04-v-model, git-history:systems-engineering:04-v-model]",
+        "canonical_path": "systems-engineering/04-V-MODEL.md",
+        "concepts": "[v, model]",
+        "current_path": "systems-engineering/04-V-MODEL.md",
+        "id": "maxim:systems-engineering:v-model",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[v, model]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "The V-Model and Verification/Validation",
+        "updated": "null"
+      },
+      "text": "The V-model visualizes the relationship between development activities (left side: decompose) and integration/verification activities (right side: integrate and verify). Each level on the left side has a corresponding level on the right — ensuring every design decision is tested at the appropriate level."
+    },
+    {
+      "id": "04-V-MODEL.md#003",
+      "path": [
+        "04-V-MODEL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:04-v-model, git-history:systems-engineering:04-v-model]",
+        "canonical_path": "systems-engineering/04-V-MODEL.md",
+        "concepts": "[v, model]",
+        "current_path": "systems-engineering/04-V-MODEL.md",
+        "id": "maxim:systems-engineering:v-model",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[v, model]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "The V-Model and Verification/Validation",
+        "updated": "null"
+      },
+      "text": "```\nTHE VEE MODEL (V-Model)\n──────────────────────────────────────────────────────────────────\nDecompose ◄────────────────────────────────────────► Integrate"
+    },
+    {
+      "id": "04-V-MODEL.md#004",
+      "path": [
+        "04-V-MODEL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:04-v-model, git-history:systems-engineering:04-v-model]",
+        "canonical_path": "systems-engineering/04-V-MODEL.md",
+        "concepts": "[v, model]",
+        "current_path": "systems-engineering/04-V-MODEL.md",
+        "id": "maxim:systems-engineering:v-model",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[v, model]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "The V-Model and Verification/Validation",
+        "updated": "null"
+      },
+      "text": "Concept                                              System\nOperations  ──────────────────────────────────────► Acceptance\n                                                     Test\n    │                                                │\nSystem          ────────────────────────────────► System\nRequirements                                     Verification\nSpec (SRS)          System Design                Test\n    │                   Review (SDR)             │\n    │                                            │\nSubsystem         ──────────────────────────► Subsystem\nRequirements                                 Integration\n(Allocated                                   Test\n Baseline)     PDR / CDR                     │\n    │                                        │\nComponent         ──────────────────────► Component\nSpec /                                    Verification\nDesign-to                                 Test\n    │                                    │\n    └──────────────── BUILD ─────────────┘\n                  (bottom of the V)\n                  Code / Fabricate"
+    },
+    {
+      "id": "04-V-MODEL.md#005",
+      "path": [
+        "04-V-MODEL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:04-v-model, git-history:systems-engineering:04-v-model]",
+        "canonical_path": "systems-engineering/04-V-MODEL.md",
+        "concepts": "[v, model]",
+        "current_path": "systems-engineering/04-V-MODEL.md",
+        "id": "maxim:systems-engineering:v-model",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[v, model]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "The V-Model and Verification/Validation",
+        "updated": "null"
+      },
+      "text": "Left side:    Decompose and specify\nRight side:   Integrate and verify\nHorizontal:   Each spec is verified by corresponding test\n```"
+    },
+    {
+      "id": "04-V-MODEL.md#006",
+      "path": [
+        "04-V-MODEL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:04-v-model, git-history:systems-engineering:04-v-model]",
+        "canonical_path": "systems-engineering/04-V-MODEL.md",
+        "concepts": "[v, model]",
+        "current_path": "systems-engineering/04-V-MODEL.md",
+        "id": "maxim:systems-engineering:v-model",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[v, model]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "The V-Model and Verification/Validation",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-V-MODEL.md#007",
+      "path": [
+        "04-V-MODEL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:04-v-model, git-history:systems-engineering:04-v-model]",
+        "canonical_path": "systems-engineering/04-V-MODEL.md",
+        "concepts": "[v, model]",
+        "current_path": "systems-engineering/04-V-MODEL.md",
+        "id": "maxim:systems-engineering:v-model",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[v, model]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "The V-Model and Verification/Validation",
+        "updated": "null"
+      },
+      "text": "## Verification vs Validation"
+    },
+    {
+      "id": "04-V-MODEL.md#008",
+      "path": [
+        "04-V-MODEL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:04-v-model, git-history:systems-engineering:04-v-model]",
+        "canonical_path": "systems-engineering/04-V-MODEL.md",
+        "concepts": "[v, model]",
+        "current_path": "systems-engineering/04-V-MODEL.md",
+        "id": "maxim:systems-engineering:v-model",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[v, model]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "The V-Model and Verification/Validation",
+        "updated": "null"
+      },
+      "text": "The most commonly confused terms in SE. They are not interchangeable."
+    },
+    {
+      "id": "04-V-MODEL.md#009",
+      "path": [
+        "04-V-MODEL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:04-v-model, git-history:systems-engineering:04-v-model]",
+        "canonical_path": "systems-engineering/04-V-MODEL.md",
+        "concepts": "[v, model]",
+        "current_path": "systems-engineering/04-V-MODEL.md",
+        "id": "maxim:systems-engineering:v-model",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[v, model]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "The V-Model and Verification/Validation",
+        "updated": "null"
+      },
+      "text": "```\nVERIFICATION                          VALIDATION\n──────────────────────────────────    ──────────────────────────────────\n\"Did we BUILD IT RIGHT?\"              \"Did we build THE RIGHT THING?\""
+    },
+    {
+      "id": "04-V-MODEL.md#010",
+      "path": [
+        "04-V-MODEL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:04-v-model, git-history:systems-engineering:04-v-model]",
+        "canonical_path": "systems-engineering/04-V-MODEL.md",
+        "concepts": "[v, model]",
+        "current_path": "systems-engineering/04-V-MODEL.md",
+        "id": "maxim:systems-engineering:v-model",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[v, model]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "The V-Model and Verification/Validation",
+        "updated": "null"
+      },
+      "text": "Are we meeting the specification?     Are we meeting stakeholder needs?"
+    },
+    {
+      "id": "04-V-MODEL.md#011",
+      "path": [
+        "04-V-MODEL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:04-v-model, git-history:systems-engineering:04-v-model]",
+        "canonical_path": "systems-engineering/04-V-MODEL.md",
+        "concepts": "[v, model]",
+        "current_path": "systems-engineering/04-V-MODEL.md",
+        "id": "maxim:systems-engineering:v-model",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[v, model]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "The V-Model and Verification/Validation",
+        "updated": "null"
+      },
+      "text": "Measured against:                     Measured against:\n  The written requirement               The original operational need\n                                        (CONOPS, stakeholder intent)"
+    },
+    {
+      "id": "04-V-MODEL.md#012",
+      "path": [
+        "04-V-MODEL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:04-v-model, git-history:systems-engineering:04-v-model]",
+        "canonical_path": "systems-engineering/04-V-MODEL.md",
+        "concepts": "[v, model]",
+        "current_path": "systems-engineering/04-V-MODEL.md",
+        "id": "maxim:systems-engineering:v-model",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[v, model]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "The V-Model and Verification/Validation",
+        "updated": "null"
+      },
+      "text": "When:                                 When:\n  Throughout development (each         After system is fully integrated\n  design review, unit tests)           Acceptance testing by customer"
+    },
+    {
+      "id": "04-V-MODEL.md#013",
+      "path": [
+        "04-V-MODEL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:04-v-model, git-history:systems-engineering:04-v-model]",
+        "canonical_path": "systems-engineering/04-V-MODEL.md",
+        "concepts": "[v, model]",
+        "current_path": "systems-engineering/04-V-MODEL.md",
+        "id": "maxim:systems-engineering:v-model",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[v, model]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "The V-Model and Verification/Validation",
+        "updated": "null"
+      },
+      "text": "Who:                                  Who:\n  Developer / independent test team    Customer / end user / certifier"
+    },
+    {
+      "id": "04-V-MODEL.md#014",
+      "path": [
+        "04-V-MODEL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:04-v-model, git-history:systems-engineering:04-v-model]",
+        "canonical_path": "systems-engineering/04-V-MODEL.md",
+        "concepts": "[v, model]",
+        "current_path": "systems-engineering/04-V-MODEL.md",
+        "id": "maxim:systems-engineering:v-model",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[v, model]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "The V-Model and Verification/Validation",
+        "updated": "null"
+      },
+      "text": "Example:                              Example:\n  Spec says \"range ≥ 6,000 nmi\"        Did the aircraft fulfill the\n  Test proves 6,340 nmi achieved       actual mission it was built for?\n  → Verified                           → Validated"
+    },
+    {
+      "id": "04-V-MODEL.md#015",
+      "path": [
+        "04-V-MODEL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:04-v-model, git-history:systems-engineering:04-v-model]",
+        "canonical_path": "systems-engineering/04-V-MODEL.md",
+        "concepts": "[v, model]",
+        "current_path": "systems-engineering/04-V-MODEL.md",
+        "id": "maxim:systems-engineering:v-model",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[v, model]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "The V-Model and Verification/Validation",
+        "updated": "null"
+      },
+      "text": "You CAN verify every requirement and still fail validation:\n  The requirements were wrong / incomplete\n  The customer didn't know what they needed\n  The operational environment was different from assumed\n```"
+    },
+    {
+      "id": "04-V-MODEL.md#016",
+      "path": [
+        "04-V-MODEL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:04-v-model, git-history:systems-engineering:04-v-model]",
+        "canonical_path": "systems-engineering/04-V-MODEL.md",
+        "concepts": "[v, model]",
+        "current_path": "systems-engineering/04-V-MODEL.md",
+        "id": "maxim:systems-engineering:v-model",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[v, model]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "The V-Model and Verification/Validation",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-V-MODEL.md#017",
+      "path": [
+        "04-V-MODEL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:04-v-model, git-history:systems-engineering:04-v-model]",
+        "canonical_path": "systems-engineering/04-V-MODEL.md",
+        "concepts": "[v, model]",
+        "current_path": "systems-engineering/04-V-MODEL.md",
+        "id": "maxim:systems-engineering:v-model",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[v, model]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "The V-Model and Verification/Validation",
+        "updated": "null"
+      },
+      "text": "## Verification Methods (IATAD)"
+    },
+    {
+      "id": "04-V-MODEL.md#018",
+      "path": [
+        "04-V-MODEL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:04-v-model, git-history:systems-engineering:04-v-model]",
+        "canonical_path": "systems-engineering/04-V-MODEL.md",
+        "concepts": "[v, model]",
+        "current_path": "systems-engineering/04-V-MODEL.md",
+        "id": "maxim:systems-engineering:v-model",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[v, model]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "The V-Model and Verification/Validation",
+        "updated": "null"
+      },
+      "text": "Each requirement must specify a verification method. Four standard methods:"
+    },
+    {
+      "id": "04-V-MODEL.md#019",
+      "path": [
+        "04-V-MODEL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:04-v-model, git-history:systems-engineering:04-v-model]",
+        "canonical_path": "systems-engineering/04-V-MODEL.md",
+        "concepts": "[v, model]",
+        "current_path": "systems-engineering/04-V-MODEL.md",
+        "id": "maxim:systems-engineering:v-model",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[v, model]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "The V-Model and Verification/Validation",
+        "updated": "null"
+      },
+      "text": "```\nVERIFICATION METHODS\n──────────────────────────────────────────────────────────────────\nI — Inspection\n  Visual examination of a product, drawing, document\n  No operation or measurement\n  \"Verify that the unit has a serial number label\"\n  \"Verify that protective coating covers all fasteners\"\n  Lowest cost, but limited scope"
+    },
+    {
+      "id": "04-V-MODEL.md#020",
+      "path": [
+        "04-V-MODEL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:04-v-model, git-history:systems-engineering:04-v-model]",
+        "canonical_path": "systems-engineering/04-V-MODEL.md",
+        "concepts": "[v, model]",
+        "current_path": "systems-engineering/04-V-MODEL.md",
+        "id": "maxim:systems-engineering:v-model",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[v, model]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "The V-Model and Verification/Validation",
+        "updated": "null"
+      },
+      "text": "A — Analysis\n  Mathematical / logical computation from known data\n  No physical testing required\n  \"Calculate structure stress under max load via FEA\"\n  \"Verify timing margin by analysis of timing diagrams\"\n  Good for: physics-based requirements, early verification"
+    },
+    {
+      "id": "04-V-MODEL.md#021",
+      "path": [
+        "04-V-MODEL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:04-v-model, git-history:systems-engineering:04-v-model]",
+        "canonical_path": "systems-engineering/04-V-MODEL.md",
+        "concepts": "[v, model]",
+        "current_path": "systems-engineering/04-V-MODEL.md",
+        "id": "maxim:systems-engineering:v-model",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[v, model]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "The V-Model and Verification/Validation",
+        "updated": "null"
+      },
+      "text": "T — Test\n  Operate the item under controlled conditions, measure output\n  \"Apply 50kg load, measure deflection < 2mm\"\n  \"Transmit 1000 frames, verify frame error rate < 10⁻⁶\"\n  Most rigorous, most expensive, most credible"
+    },
+    {
+      "id": "04-V-MODEL.md#022",
+      "path": [
+        "04-V-MODEL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:04-v-model, git-history:systems-engineering:04-v-model]",
+        "canonical_path": "systems-engineering/04-V-MODEL.md",
+        "concepts": "[v, model]",
+        "current_path": "systems-engineering/04-V-MODEL.md",
+        "id": "maxim:systems-engineering:v-model",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[v, model]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "The V-Model and Verification/Validation",
+        "updated": "null"
+      },
+      "text": "D — Demonstration\n  Show function operates correctly, without precise measurement\n  \"Demonstrate that door locks when powered off\"\n  \"Demonstrate that manual override disables autopilot\"\n  Between inspection and test — functional but not measured"
+    },
+    {
+      "id": "04-V-MODEL.md#023",
+      "path": [
+        "04-V-MODEL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:04-v-model, git-history:systems-engineering:04-v-model]",
+        "canonical_path": "systems-engineering/04-V-MODEL.md",
+        "concepts": "[v, model]",
+        "current_path": "systems-engineering/04-V-MODEL.md",
+        "id": "maxim:systems-engineering:v-model",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[v, model]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "The V-Model and Verification/Validation",
+        "updated": "null"
+      },
+      "text": "Selection logic:\n  Safety-critical: Test (or Analysis where test is impossible)\n  Performance-critical: Test\n  Physical attributes: Inspection\n  Performance via physics: Analysis (validated model)\n  Functional behavior: Demonstration or Test\n```"
+    },
+    {
+      "id": "04-V-MODEL.md#024",
+      "path": [
+        "04-V-MODEL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:04-v-model, git-history:systems-engineering:04-v-model]",
+        "canonical_path": "systems-engineering/04-V-MODEL.md",
+        "concepts": "[v, model]",
+        "current_path": "systems-engineering/04-V-MODEL.md",
+        "id": "maxim:systems-engineering:v-model",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[v, model]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "The V-Model and Verification/Validation",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "04-V-MODEL.md#025",
+      "path": [
+        "04-V-MODEL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:04-v-model, git-history:systems-engineering:04-v-model]",
+        "canonical_path": "systems-engineering/04-V-MODEL.md",
+        "concepts": "[v, model]",
+        "current_path": "systems-engineering/04-V-MODEL.md",
+        "id": "maxim:systems-engineering:v-model",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[v, model]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "The V-Model and Verification/Validation",
+        "updated": "null"
+      },
+      "text": "## Verification and Validation Planning"
+    },
+    {
+      "id": "04-V-MODEL.md#026",
+      "path": [
+        "04-V-MODEL.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:systems-engineering:04-v-model, git-history:systems-engineering:04-v-model]",
+        "canonical_path": "systems-engineering/04-V-MODEL.md",
+        "concepts": "[v, model]",
+        "current_path": "systems-engineering/04-V-MODEL.md",
+        "id": "maxim:systems-engineering:v-model",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "systems-engineering",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[v, model]",
+        "section": "systems-engineering",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "The V-Model and Verification/Validation",
+        "updated": "null"
+      },
+      "text": "```\nVERIFICATION AND VALIDATION (V&V) PLAN CONTENTS\n──────────────────────────────────────────────────────────────────\nSystem Test Plan:\n  Test philosophy and approach\n  Test levels (unit / integration / system / acceptance)\n  Test environment description\n  Test tooling and facilities\n  Schedule and resources\n  Pass/fail criteria\n  Regression testing approach"
+    }
+  ],
+  "refs": [
+    "04-V-MODEL.md"
+  ]
+}

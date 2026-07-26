@@ -1,0 +1,1693 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-signal-processing-applications",
+  "source": "../../signal-processing",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "09-APPLICATIONS.md#000",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "# DSP Applications — A Layered Guide"
+    },
+    {
+      "id": "09-APPLICATIONS.md#001",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "09-APPLICATIONS.md#002",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "DSP is the invisible infrastructure of modern technology. Every domain from audio to radar\nto medicine to ML uses the same mathematical toolkit — just different signals and targets."
+    },
+    {
+      "id": "09-APPLICATIONS.md#003",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\nDSP APPLICATION MAP\n════════════════════════════════════════════════════════════════════"
+    },
+    {
+      "id": "09-APPLICATIONS.md#004",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "AUDIO                RADAR/SONAR          MEDICAL              ML/AI\n   ──────               ─────────────        ───────              ─────\n   EQ, dynamics,        Pulse compression,   ECG, EEG,            Feature extraction,\n   reverb, codec        Doppler, CFAR        fMRI, ultrasound     spectrograms, MFCC"
+    },
+    {
+      "id": "09-APPLICATIONS.md#005",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "CORE DSP TOOLS\n   ┌──────────────────────────────────────────────────────────────┐\n   │ FFT/DFT | Filters (FIR/IIR) | Convolution | PSD estimation   │\n   │ Z-transform | Correlation | Wavelets | Sampling theory       │\n   └──────────────────────────────────────────────────────────────┘"
+    },
+    {
+      "id": "09-APPLICATIONS.md#006",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "IMAGE               COMMUNICATIONS        CONTROL              INSTRUMENTATION\n   ──────              ──────────────        ───────              ──────────────\n   Kernels, edge,      Equalization,         Feedback,            Lock-in amplifiers,\n   compression,        demodulation,         vibration sensing,   spectrum analyzers,\n   OCR                 channel coding        servo                lock-on filters\n```"
+    },
+    {
+      "id": "09-APPLICATIONS.md#007",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-APPLICATIONS.md#008",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## Audio DSP"
+    },
+    {
+      "id": "09-APPLICATIONS.md#009",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "### Equalization (EQ)"
+    },
+    {
+      "id": "09-APPLICATIONS.md#010",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "EQ filters modify the amplitude vs. frequency response of an audio signal."
+    },
+    {
+      "id": "09-APPLICATIONS.md#011",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\nEQ TYPES"
+    },
+    {
+      "id": "09-APPLICATIONS.md#012",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Parametric EQ band (single):\n  Biquad with peaking filter:\n  H(z) = (b₀ + b₁z⁻¹ + b₂z⁻²) / (1 + a₁z⁻¹ + a₂z⁻²)\n  Parameters: center frequency fc, gain G (dB), bandwidth Q"
+    },
+    {
+      "id": "09-APPLICATIONS.md#013",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Response:   ┌── +G dB ──┐\n              ╱            ╲\n  ────────────              ────────────\n              fc             (bell curve)"
+    },
+    {
+      "id": "09-APPLICATIONS.md#014",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Graphic EQ: fixed set of bands (31-band = ISO octave centers)\n              Each band is an independent biquad."
+    },
+    {
+      "id": "09-APPLICATIONS.md#015",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Shelving EQ:\n  Low shelf: boost/cut all frequencies below fc\n  High shelf: boost/cut all frequencies above fc\n```"
+    },
+    {
+      "id": "09-APPLICATIONS.md#016",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "### Dynamics Processing"
+    },
+    {
+      "id": "09-APPLICATIONS.md#017",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\nCOMPRESSOR / LIMITER"
+    },
+    {
+      "id": "09-APPLICATIONS.md#018",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "PURPOSE: Reduce dynamic range (loud peaks → brought down, quiet raised up)"
+    },
+    {
+      "id": "09-APPLICATIONS.md#019",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "ALGORITHM:\n1. Compute signal level (RMS or peak):  L[n] = |x[n]| or moving RMS\n2. Gain computation (in dB):\n   If L > threshold: G = threshold + (L - threshold)/ratio - L  (gain reduction)\n   If L ≤ threshold: G = 0 dB\n3. Apply attack/release smoothing to G (prevent clicking)\n4. Apply gain: y[n] = x[n] · 10^{G[n]/20}"
+    },
+    {
+      "id": "09-APPLICATIONS.md#020",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "KEY PARAMETERS:\n• Threshold: level above which compression kicks in (-20 dBFS typical)\n• Ratio: compression slope (4:1 = 4 dB above threshold → 1 dB output)\n• Attack: time constant to respond (1–50 ms: fast = pumping, slow = natural)\n• Release: time to recover (50–500 ms)\n• Makeup gain: compensate average level after compression\n• Knee: hard (sharp) vs soft (gradual onset)\n```"
+    },
+    {
+      "id": "09-APPLICATIONS.md#021",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "### Digital Reverb"
+    },
+    {
+      "id": "09-APPLICATIONS.md#022",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\nREVERB ALGORITHMS"
+    },
+    {
+      "id": "09-APPLICATIONS.md#023",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Real room: x[n] ★ h[n] where h[n] = room impulse response (RIR)"
+    },
+    {
+      "id": "09-APPLICATIONS.md#024",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "For a real room h[n] can be 1–5 seconds @ 44.1 kHz = 44,100–220,500 samples.\nDirect FFT convolution: overlap-add with precomputed H[k]."
+    },
+    {
+      "id": "09-APPLICATIONS.md#025",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Algorithmic reverb (cheaper):\nSchroeder reverb (1962): cascade of comb filters + allpass filters\n• Comb filter: y[n] = x[n] + g·y[n-D]  (feedback delay line)\n  → models a single reflection path with decay\n• Allpass filter: flattens spectral coloration\n• Parallel comb filters + series allpass → dense reverb tail"
+    },
+    {
+      "id": "09-APPLICATIONS.md#026",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Freeverb: 8 parallel comb + 4 series allpass (open source, widely used)"
+    },
+    {
+      "id": "09-APPLICATIONS.md#027",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Modern: FDN (Feedback Delay Network) — matrix of cross-coupled delay lines.\nConvolution reverb: real RIR measured with impulse (starter pistol or sweep).\n```"
+    },
+    {
+      "id": "09-APPLICATIONS.md#028",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "### Audio Codec Pipeline (MP3/AAC)"
+    },
+    {
+      "id": "09-APPLICATIONS.md#029",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\nPERCEPTUAL AUDIO CODING"
+    },
+    {
+      "id": "09-APPLICATIONS.md#030",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "1. Filter bank: MDCT (modified DCT) → 576 frequency subbands\n2. Psychoacoustic model:\n   - Compute masking threshold: strong tones mask nearby weaker ones\n   - Compute masking threshold vs frequency curve\n3. Bit allocation: allocate more bits to unmasked subbands\n4. Quantize: coarser quantization where masking allows\n5. Entropy coding: Huffman coding of quantized coefficients"
+    },
+    {
+      "id": "09-APPLICATIONS.md#031",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "COMPRESSION: CD (1411 kbps) → MP3 128 kbps → 11:1 reduction\nKEY INSIGHT: Human ear can't hear what's masked — throw away that information."
+    },
+    {
+      "id": "09-APPLICATIONS.md#032",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "PSYCHOACOUSTIC MASKING TYPES:\n• Simultaneous masking: loud tone at 1 kHz masks quieter tone at 1.2 kHz\n• Temporal masking: loud sound masks sounds 50–200 ms before/after (pre/post-masking)\n```"
+    },
+    {
+      "id": "09-APPLICATIONS.md#033",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-APPLICATIONS.md#034",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## Radar and Sonar"
+    },
+    {
+      "id": "09-APPLICATIONS.md#035",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "### Pulse Compression"
+    },
+    {
+      "id": "09-APPLICATIONS.md#036",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\nRADAR WAVEFORM DESIGN"
+    },
+    {
+      "id": "09-APPLICATIONS.md#037",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Simple pulse radar:\n  • Transmit short pulse (narrow → good range resolution)\n  • Short pulse → low energy → poor range\n  • Constraint: range_res = c·τ/2 where τ = pulse width"
+    },
+    {
+      "id": "09-APPLICATIONS.md#038",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Pulse compression solves the range/energy trade-off:\n  • Transmit LONG coded pulse (high energy)\n  • After reception, apply matched filter (compression)\n  • Output: narrow peak with full energy"
+    },
+    {
+      "id": "09-APPLICATIONS.md#039",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "LINEAR FM CHIRP (LFM):\n  x(t) = rect(t/T) · exp(j·π·k·t²)   where k = B/T (chirp rate)\n  Bandwidth B, duration T → time-bandwidth product TBP = BT >> 1"
+    },
+    {
+      "id": "09-APPLICATIONS.md#040",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "After matched filter: sinc-shaped output with width ≈ 1/B\n  Pulse compression ratio = TBP (typical: 100–10,000)"
+    },
+    {
+      "id": "09-APPLICATIONS.md#041",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "RANGE SIDELOBE LEVEL: LFM has sinc sidelobes (-13 dB).\nApply amplitude weighting (Taylor window) to reduce sidelobes to -40 dB or lower.\n```"
+    },
+    {
+      "id": "09-APPLICATIONS.md#042",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "### Doppler Processing"
+    },
+    {
+      "id": "09-APPLICATIONS.md#043",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\nDOPPLER SHIFT: Moving target shifts frequency of received echo"
+    },
+    {
+      "id": "09-APPLICATIONS.md#044",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "fd = 2·v·fc/c   (v = target velocity, fc = carrier frequency, c = speed of light)"
+    },
+    {
+      "id": "09-APPLICATIONS.md#045",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "Example: fc = 10 GHz, v = 30 m/s → fd = 2000 Hz (detectable)"
+    },
+    {
+      "id": "09-APPLICATIONS.md#046",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "DOPPLER PROCESSING:\nPulse-Doppler radar: transmit coherent pulse train\nAt each range bin, sequence of N pulses → apply DFT across slow-time\n→ Doppler spectrum shows target velocity"
+    },
+    {
+      "id": "09-APPLICATIONS.md#047",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "CFAR (Constant False Alarm Rate):\nAdaptive detection threshold based on local noise level estimate.\nReference cells around each range-Doppler bin → threshold = noise_estimate × scaling_factor\n→ constant probability of false alarm regardless of noise level\n```"
+    },
+    {
+      "id": "09-APPLICATIONS.md#048",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "09-APPLICATIONS.md#049",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "## Medical Signal Processing"
+    },
+    {
+      "id": "09-APPLICATIONS.md#050",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "### ECG (Electrocardiogram)"
+    },
+    {
+      "id": "09-APPLICATIONS.md#051",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\nECG SIGNAL CHARACTERISTICS:\nSample rate: 500–1000 Hz (standard clinical), up to 5 kHz (research)\nFrequency content: 0.05–150 Hz (signal), 50/60 Hz (powerline noise)\nKey features: P wave, QRS complex, T wave, ST segment"
+    },
+    {
+      "id": "09-APPLICATIONS.md#052",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "DSP PIPELINE:\n1. Baseline wander removal:\n   Drift at 0.05–0.5 Hz (breathing, movement)\n   Solution: highpass filter at 0.5 Hz or cubic spline baseline estimation"
+    },
+    {
+      "id": "09-APPLICATIONS.md#053",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "2. Powerline notch filter:\n   Notch at 50 Hz (Europe) or 60 Hz (US)\n   IIR notch biquad: H(z) with zeros on unit circle at ω = 2π·50/fs"
+    },
+    {
+      "id": "09-APPLICATIONS.md#054",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "3. EMG noise removal:\n   Muscle noise above 100 Hz\n   Lowpass at 100–150 Hz (Butterworth or FIR)"
+    },
+    {
+      "id": "09-APPLICATIONS.md#055",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "4. QRS detection (Pan-Tompkins algorithm, 1985):\n   a. Bandpass 5–15 Hz (QRS energy band)\n   b. Differentiate: d/dt amplifies high-freq components of QRS\n   c. Square: |x|² (all positive, enhances peaks)\n   d. Moving window integration: width ≈ 150 ms\n   e. Threshold detection with adaptive threshold\n   f. Result: R-wave fiducial points → heart rate, HRV\n```"
+    },
+    {
+      "id": "09-APPLICATIONS.md#056",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "### EEG (Electroencephalogram)"
+    },
+    {
+      "id": "09-APPLICATIONS.md#057",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "```\nEEG FREQUENCY BANDS:\nBand     | Range  | State\n─────────────────────────────────────────\nDelta    | 0.5–4 Hz  | Deep sleep\nTheta    | 4–8 Hz    | Drowsy, meditation\nAlpha    | 8–13 Hz   | Relaxed, eyes closed\nBeta     | 13–30 Hz  | Alert, active thinking\nGamma    | 30–100 Hz | High cognitive processing"
+    },
+    {
+      "id": "09-APPLICATIONS.md#058",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "DSP: Bandpass filter to each band → power in each band → feature vector."
+    },
+    {
+      "id": "09-APPLICATIONS.md#059",
+      "path": [
+        "09-APPLICATIONS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:signal-processing:09-applications, git-history:signal-processing:09-applications]",
+        "canonical_path": "signal-processing/09-APPLICATIONS.md",
+        "concepts": "[applications]",
+        "current_path": "signal-processing/09-APPLICATIONS.md",
+        "id": "maxim:signal-processing:applications",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "signal-processing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[applications]",
+        "section": "signal-processing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "DSP Applications - A Layered Guide",
+        "updated": "null"
+      },
+      "text": "ICA (Independent Component Analysis): Separate EEG channels into\nindependent sources → removes eye blink artifacts, cardiac artifacts."
+    }
+  ],
+  "refs": [
+    "09-APPLICATIONS.md"
+  ]
+}

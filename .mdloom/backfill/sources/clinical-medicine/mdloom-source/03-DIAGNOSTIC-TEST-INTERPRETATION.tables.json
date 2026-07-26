@@ -1,0 +1,330 @@
+{
+  "schema_version": "1",
+  "source_markdown": "clinical-medicine\\03-DIAGNOSTIC-TEST-INTERPRETATION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 145,
+      "heading_context": "## 1. The 2×2 as a Belief-Updating Engine",
+      "headers": [
+        "Metric",
+        "Formula",
+        "Reads across / down",
+        "Fixed by",
+        "Answers"
+      ],
+      "rows": [
+        [
+          "Sensitivity (Sn)",
+          "TP/(TP+FN)",
+          "down the disease-**+** column",
+          "the test",
+          "of truly diseased, fraction the test catches"
+        ],
+        [
+          "Specificity (Sp)",
+          "TN/(TN+FP)",
+          "down the disease-**−** column",
+          "the test",
+          "of truly well, fraction the test clears"
+        ],
+        [
+          "PPV",
+          "TP/(TP+FP)",
+          "across the test-**+** row",
+          "test **and prevalence**",
+          "given a **+**, chance disease is real"
+        ],
+        [
+          "NPV",
+          "TN/(TN+FN)",
+          "across the test-**−** row",
+          "test **and prevalence**",
+          "given a **−**, chance the patient is truly well"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 209,
+      "heading_context": "## 2. Odds, Likelihood Ratios, and the Update Rule",
+      "headers": [
+        "LR+",
+        "effect on probability",
+        "LR−",
+        "effect on probability"
+      ],
+      "rows": [
+        [
+          ">10",
+          "large increase (often decisive)",
+          "<0.1",
+          "large decrease (often decisive)"
+        ],
+        [
+          "5–10",
+          "moderate increase",
+          "0.1–0.2",
+          "moderate decrease"
+        ],
+        [
+          "2–5",
+          "small increase",
+          "0.2–0.5",
+          "small decrease"
+        ],
+        [
+          "1–2",
+          "minimal / rarely useful",
+          "0.5–1",
+          "minimal / rarely useful"
+        ],
+        [
+          "**1**",
+          "**useless — result changes nothing**",
+          "**1**",
+          "**useless**"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 252,
+      "heading_context": "## 3. Predictive Values Depend on Prevalence — The Screening Paradox",
+      "headers": [
+        "Prevalence",
+        "PPV (after +)",
+        "NPV (after −)",
+        "Per 10,000 tested: TP / FP"
+      ],
+      "rows": [
+        [
+          "50%",
+          "95.2%",
+          "99.0%",
+          "4950 / 250"
+        ],
+        [
+          "10%",
+          "68.8%",
+          "99.9%",
+          "990 / 450"
+        ],
+        [
+          "1%",
+          "16.7%",
+          "99.99%",
+          "99 / 495"
+        ],
+        [
+          "0.1%",
+          "1.9%",
+          "~100%",
+          "~10 / ~500"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 314,
+      "heading_context": "## 4. ROC / AUC — What It Buys and What It Hides",
+      "headers": [
+        "Limitation",
+        "Why it bites"
+      ],
+      "rows": [
+        [
+          "**Ignores prevalence**",
+          "AUC is computed within-class (like Sn/Sp), so it says nothing about PPV in the target population. A 0.90-AUC test can still be mostly false positives when rare."
+        ],
+        [
+          "**Ignores the cost asymmetry**",
+          "AUC weights a false positive and a false negative equally; real decisions do not. A miss of a lethal treatable disease ≠ an over-call."
+        ],
+        [
+          "**Discrimination ≠ calibration**",
+          "AUC only ranks. A model can rank perfectly yet output probabilities that are systematically wrong (e.g., all doubled). Acting on the *number* needs **calibration** (predicted vs observed), which AUC never checks."
+        ],
+        [
+          "**Insensitive to clinically relevant gains**",
+          "Adding a strong new marker to a good model often barely moves AUC even when it reclassifies real patients — hence reclassification/net-benefit measures."
+        ],
+        [
+          "**One number flattens the curve**",
+          "Two tests with equal AUC can cross; one is better in the rule-out region, the other in rule-in. The average hides the region actually in use."
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 453,
+      "heading_context": "## Fully Worked Case with Sensitivity Analysis (illustrative)",
+      "headers": [
+        "Pretest p0",
+        "post-+ (×6.0)",
+        "post-− (×0.118)",
+        "Model-favored move"
+      ],
+      "rows": [
+        [
+          "3%",
+          "15.6%",
+          "0.36%",
+          "below T_test (4%) → no test, no treat (even a + stays under p*)"
+        ],
+        [
+          "10% (base)",
+          "40.0%",
+          "1.3%",
+          "in zone → test (only + crosses p*)"
+        ],
+        [
+          "50%",
+          "85.7%",
+          "10.5%",
+          "in zone → test (baseline treat; only − would drop under p*)"
+        ],
+        [
+          "75%",
+          "94.7%",
+          "26.1%",
+          "above T_treat (68%) → treat, no test (even a − stays over p*)"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 466,
+      "heading_context": "## Fully Worked Case with Sensitivity Analysis (illustrative)",
+      "headers": [
+        "H/B",
+        "p\\*=H/(H+B)",
+        "odds(p\\*)",
+        "T_test–T_treat",
+        "baseline @10%",
+        "post-+ 40.0%",
+        "post-− 1.3%",
+        "Which branch changes the action"
+      ],
+      "rows": [
+        [
+          "0.05 (very safe Rx)",
+          "4.76%",
+          "0.05",
+          "0.83%–29.8%",
+          "10% > p* → treat",
+          "40% > p* → treat (same)",
+          "1.3% < p* → **no treat (flip)**",
+          "**negative** flips; testing is NOT moot"
+        ],
+        [
+          "0.25 (base)",
+          "20%",
+          "0.25",
+          "4.0%–68.0%",
+          "10% < p* → no treat",
+          "40% > p* → treat (flip)",
+          "1.3% < p* → no treat (same)",
+          "**positive** flips"
+        ],
+        [
+          "1.0 (harm=benefit)",
+          "50%",
+          "1.0",
+          "14.3%–89.5%",
+          "10% < p* → no treat",
+          "40% < p* → no treat (same)",
+          "1.3% < p* → no treat (same)",
+          "**neither** — 10% is below T_test (14.3%), no result crosses p*"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 556,
+      "heading_context": "## 6. Sequential and Correlated Testing",
+      "headers": [
+        "Strategy",
+        "Rule",
+        "Net effect",
+        "Use when"
+      ],
+      "rows": [
+        [
+          "**Serial** (test, then test)",
+          "act on second test only if first is positive",
+          "↑ specificity, ↓ sensitivity, fewer tests",
+          "ruling **in**; test 2 is costly/risky; confirming a screen"
+        ],
+        [
+          "**Parallel** (test both now)",
+          "positive if *either* is positive",
+          "↑ sensitivity, ↓ specificity",
+          "ruling **out** fast; acute setting; can't wait"
+        ]
+      ]
+    },
+    {
+      "id": "table-8",
+      "line": 683,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Scenario",
+        "What the model does",
+        "Why (this guide)"
+      ],
+      "rows": [
+        [
+          "A \"positive result\" is reported",
+          "reads it against the **pretest probability first**, then multiplies odds by LR+",
+          "a result is a multiplier, not a verdict (§2)"
+        ],
+        [
+          "Only Sn/Sp are reported",
+          "converts to **LR+ = Sn/(1−Sp), LR− = (1−Sn)/Sp**",
+          "LRs compose and handle result strength (§2)"
+        ],
+        [
+          "A PPV is quoted",
+          "reads it as **prevalence-dependent** (\"at what prevalence?\")",
+          "PPV moves with the base rate (§3)"
+        ],
+        [
+          "Screening the asymptomatic",
+          "expects a **large false-positive share**; a confirmatory serial test is the common design",
+          "screening paradox; SnNout→SpPin (§3, §6)"
+        ],
+        [
+          "Two tests compared by AUC alone",
+          "looks for **calibration + net benefit (DCA)** at the operative threshold",
+          "AUC ignores prevalence, costs, calibration (§4)"
+        ],
+        [
+          "Whether to order at all",
+          "locates the pretest in the **T_test–T_treat** band",
+          "outside the band, no result can change management (§5, §7)"
+        ],
+        [
+          "Setting the treatment threshold",
+          "derives **p\\* = H/(H+B)** from this treatment's harm/benefit",
+          "threshold is a value judgment made explicit (§5)"
+        ],
+        [
+          "Chaining several tests",
+          "multiplies LRs **only under conditional independence given status**; otherwise reads a **validated joint model / empirical combined LR**",
+          "dependence can misstate evidence in either direction; no universal inequality applies (§6)"
+        ],
+        [
+          "An incidental finding appears",
+          "treats follow-up as a **threshold policy** and checks **VOI**",
+          "dampens the cascade; no test if VOI = 0 (§7)"
+        ],
+        [
+          "Repeating the same test on a static state",
+          "reads a repeat as mostly **analytic noise** (a repeat over time can still track real change)",
+          "a test is maximally correlated with itself (§6)"
+        ]
+      ]
+    }
+  ]
+}

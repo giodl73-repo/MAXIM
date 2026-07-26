@@ -1,0 +1,713 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-robotics-actuators",
+  "source": "../../robotics",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "07-ACTUATORS.md#000",
+      "path": [
+        "07-ACTUATORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:07-actuators, git-history:robotics:07-actuators]",
+        "canonical_path": "robotics/07-ACTUATORS.md",
+        "concepts": "[actuators]",
+        "current_path": "robotics/07-ACTUATORS.md",
+        "id": "maxim:robotics:actuators",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[actuators]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Actuators",
+        "updated": "null"
+      },
+      "text": "# Robotics — Actuators"
+    },
+    {
+      "id": "07-ACTUATORS.md#001",
+      "path": [
+        "07-ACTUATORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:07-actuators, git-history:robotics:07-actuators]",
+        "canonical_path": "robotics/07-ACTUATORS.md",
+        "concepts": "[actuators]",
+        "current_path": "robotics/07-ACTUATORS.md",
+        "id": "maxim:robotics:actuators",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[actuators]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Actuators",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "07-ACTUATORS.md#002",
+      "path": [
+        "07-ACTUATORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:07-actuators, git-history:robotics:07-actuators]",
+        "canonical_path": "robotics/07-ACTUATORS.md",
+        "concepts": "[actuators]",
+        "current_path": "robotics/07-ACTUATORS.md",
+        "id": "maxim:robotics:actuators",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[actuators]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Actuators",
+        "updated": "null"
+      },
+      "text": "Actuators are where computation meets physics. Every joint torque from the controller\nmust be physically produced by a motor, drive, and transmission. The choice of actuator\ndetermines what the robot can do."
+    },
+    {
+      "id": "07-ACTUATORS.md#003",
+      "path": [
+        "07-ACTUATORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:07-actuators, git-history:robotics:07-actuators]",
+        "canonical_path": "robotics/07-ACTUATORS.md",
+        "concepts": "[actuators]",
+        "current_path": "robotics/07-ACTUATORS.md",
+        "id": "maxim:robotics:actuators",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[actuators]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Actuators",
+        "updated": "null"
+      },
+      "text": "```\n+===========================================================================+\n|                        ACTUATOR LANDSCAPE                                 |\n+===========================================================================+\n|                                                                           |\n|  ELECTRIC                    HYDRAULIC              PNEUMATIC             |\n|  =======                    =========              =========             |\n|  DC brushed motor           Servo valve            PAM (McKibben)        |\n|  BLDC motor (most common)   Linear hydraulic       Soft pneumatic        |\n|  Stepper motor              Rotary hydraulic       Linear cylinder       |\n|  Linear motor (direct)                                                   |\n|                                                                           |\n|  TRANSMISSION                                       NOVEL                 |\n|  ============                                      ======                |\n|  Spur / planetary gears                            Shape memory alloy    |\n|  Harmonic drive (key for manipulation)             Dielectric elastomer  |\n|  Ball screw                                        Piezoelectric         |\n|  Cable / tendon drive                              Twisted coiled        |\n|                                                                           |\n|  SERVO DRIVE LOOP:                                                        |\n|  Position ref -> [Position ctrl] -> Velocity ref                         |\n|  Velocity ref -> [Velocity ctrl] -> Current ref                          |\n|  Current ref  -> [Current ctrl]  -> Motor voltage/PWM (10-100 kHz)       |\n|                                                                           |\n+===========================================================================+\n```"
+    },
+    {
+      "id": "07-ACTUATORS.md#004",
+      "path": [
+        "07-ACTUATORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:07-actuators, git-history:robotics:07-actuators]",
+        "canonical_path": "robotics/07-ACTUATORS.md",
+        "concepts": "[actuators]",
+        "current_path": "robotics/07-ACTUATORS.md",
+        "id": "maxim:robotics:actuators",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[actuators]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Actuators",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-ACTUATORS.md#005",
+      "path": [
+        "07-ACTUATORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:07-actuators, git-history:robotics:07-actuators]",
+        "canonical_path": "robotics/07-ACTUATORS.md",
+        "concepts": "[actuators]",
+        "current_path": "robotics/07-ACTUATORS.md",
+        "id": "maxim:robotics:actuators",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[actuators]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Actuators",
+        "updated": "null"
+      },
+      "text": "## DC Brushed Motors"
+    },
+    {
+      "id": "07-ACTUATORS.md#006",
+      "path": [
+        "07-ACTUATORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:07-actuators, git-history:robotics:07-actuators]",
+        "canonical_path": "robotics/07-ACTUATORS.md",
+        "concepts": "[actuators]",
+        "current_path": "robotics/07-ACTUATORS.md",
+        "id": "maxim:robotics:actuators",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[actuators]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Actuators",
+        "updated": "null"
+      },
+      "text": "The simplest electric motor. Found in cheap robots, toys, early servo systems."
+    },
+    {
+      "id": "07-ACTUATORS.md#007",
+      "path": [
+        "07-ACTUATORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:07-actuators, git-history:robotics:07-actuators]",
+        "canonical_path": "robotics/07-ACTUATORS.md",
+        "concepts": "[actuators]",
+        "current_path": "robotics/07-ACTUATORS.md",
+        "id": "maxim:robotics:actuators",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[actuators]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Actuators",
+        "updated": "null"
+      },
+      "text": "### Physics"
+    },
+    {
+      "id": "07-ACTUATORS.md#008",
+      "path": [
+        "07-ACTUATORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:07-actuators, git-history:robotics:07-actuators]",
+        "canonical_path": "robotics/07-ACTUATORS.md",
+        "concepts": "[actuators]",
+        "current_path": "robotics/07-ACTUATORS.md",
+        "id": "maxim:robotics:actuators",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[actuators]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Actuators",
+        "updated": "null"
+      },
+      "text": "```\nTORQUE:\n  tau = Kt * I\n  Kt: torque constant [N*m/A]\n  I:  armature current [A]"
+    },
+    {
+      "id": "07-ACTUATORS.md#009",
+      "path": [
+        "07-ACTUATORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:07-actuators, git-history:robotics:07-actuators]",
+        "canonical_path": "robotics/07-ACTUATORS.md",
+        "concepts": "[actuators]",
+        "current_path": "robotics/07-ACTUATORS.md",
+        "id": "maxim:robotics:actuators",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[actuators]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Actuators",
+        "updated": "null"
+      },
+      "text": "BACK-EMF:\n  V_emf = Ke * omega\n  Ke: back-EMF constant [V/(rad/s)]\n  omega: angular velocity [rad/s]"
+    },
+    {
+      "id": "07-ACTUATORS.md#010",
+      "path": [
+        "07-ACTUATORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:07-actuators, git-history:robotics:07-actuators]",
+        "canonical_path": "robotics/07-ACTUATORS.md",
+        "concepts": "[actuators]",
+        "current_path": "robotics/07-ACTUATORS.md",
+        "id": "maxim:robotics:actuators",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[actuators]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Actuators",
+        "updated": "null"
+      },
+      "text": "Note: Kt = Ke (numerically, in SI units). Same constant."
+    },
+    {
+      "id": "07-ACTUATORS.md#011",
+      "path": [
+        "07-ACTUATORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:07-actuators, git-history:robotics:07-actuators]",
+        "canonical_path": "robotics/07-ACTUATORS.md",
+        "concepts": "[actuators]",
+        "current_path": "robotics/07-ACTUATORS.md",
+        "id": "maxim:robotics:actuators",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[actuators]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Actuators",
+        "updated": "null"
+      },
+      "text": "CIRCUIT EQUATION:\n  V = R * I + L * dI/dt + Ke * omega\n  V:  applied voltage\n  R:  armature resistance\n  L:  armature inductance"
+    },
+    {
+      "id": "07-ACTUATORS.md#012",
+      "path": [
+        "07-ACTUATORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:07-actuators, git-history:robotics:07-actuators]",
+        "canonical_path": "robotics/07-ACTUATORS.md",
+        "concepts": "[actuators]",
+        "current_path": "robotics/07-ACTUATORS.md",
+        "id": "maxim:robotics:actuators",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[actuators]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Actuators",
+        "updated": "null"
+      },
+      "text": "At steady-state (dI/dt = 0):\n  I = (V - Ke * omega) / R\n  tau = Kt * (V - Ke * omega) / R"
+    },
+    {
+      "id": "07-ACTUATORS.md#013",
+      "path": [
+        "07-ACTUATORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:07-actuators, git-history:robotics:07-actuators]",
+        "canonical_path": "robotics/07-ACTUATORS.md",
+        "concepts": "[actuators]",
+        "current_path": "robotics/07-ACTUATORS.md",
+        "id": "maxim:robotics:actuators",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[actuators]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Actuators",
+        "updated": "null"
+      },
+      "text": "SPEED-TORQUE CURVE:\n  tau         Stall torque: tau_stall = Kt * V / R   (omega = 0)\n  ^\n  | *\n  |  *\n  |   *    Linear. Higher V shifts curve up.\n  |    *\n  +-------> omega\n         No-load speed: omega_nl = V / Ke   (tau = 0)\n```"
+    },
+    {
+      "id": "07-ACTUATORS.md#014",
+      "path": [
+        "07-ACTUATORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:07-actuators, git-history:robotics:07-actuators]",
+        "canonical_path": "robotics/07-ACTUATORS.md",
+        "concepts": "[actuators]",
+        "current_path": "robotics/07-ACTUATORS.md",
+        "id": "maxim:robotics:actuators",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[actuators]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Actuators",
+        "updated": "null"
+      },
+      "text": "### Limitations"
+    },
+    {
+      "id": "07-ACTUATORS.md#015",
+      "path": [
+        "07-ACTUATORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:07-actuators, git-history:robotics:07-actuators]",
+        "canonical_path": "robotics/07-ACTUATORS.md",
+        "concepts": "[actuators]",
+        "current_path": "robotics/07-ACTUATORS.md",
+        "id": "maxim:robotics:actuators",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[actuators]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Actuators",
+        "updated": "null"
+      },
+      "text": "```\nBRUSHES: physical carbon brushes rub on commutator ring.\n  Wear out: typical brush life 500-2000 hours.\n  Arcing: brushes spark at high speed/voltage.\n  Friction: brushes add static friction (cogging in precision positioning).\n  Speed limit: centrifugal force limits brush contact at high rpm."
+    },
+    {
+      "id": "07-ACTUATORS.md#016",
+      "path": [
+        "07-ACTUATORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:07-actuators, git-history:robotics:07-actuators]",
+        "canonical_path": "robotics/07-ACTUATORS.md",
+        "concepts": "[actuators]",
+        "current_path": "robotics/07-ACTUATORS.md",
+        "id": "maxim:robotics:actuators",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[actuators]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Actuators",
+        "updated": "null"
+      },
+      "text": "BRUSHED MOTORS STILL USED IN:\n  Cheap hobbyist robots, RC servo actuators, window motors.\n  NOT USED IN: modern industrial arms, cobots (BLDC is standard).\n```"
+    },
+    {
+      "id": "07-ACTUATORS.md#017",
+      "path": [
+        "07-ACTUATORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:07-actuators, git-history:robotics:07-actuators]",
+        "canonical_path": "robotics/07-ACTUATORS.md",
+        "concepts": "[actuators]",
+        "current_path": "robotics/07-ACTUATORS.md",
+        "id": "maxim:robotics:actuators",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[actuators]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Actuators",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "07-ACTUATORS.md#018",
+      "path": [
+        "07-ACTUATORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:07-actuators, git-history:robotics:07-actuators]",
+        "canonical_path": "robotics/07-ACTUATORS.md",
+        "concepts": "[actuators]",
+        "current_path": "robotics/07-ACTUATORS.md",
+        "id": "maxim:robotics:actuators",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[actuators]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Actuators",
+        "updated": "null"
+      },
+      "text": "## BLDC Motors (Brushless DC)"
+    },
+    {
+      "id": "07-ACTUATORS.md#019",
+      "path": [
+        "07-ACTUATORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:07-actuators, git-history:robotics:07-actuators]",
+        "canonical_path": "robotics/07-ACTUATORS.md",
+        "concepts": "[actuators]",
+        "current_path": "robotics/07-ACTUATORS.md",
+        "id": "maxim:robotics:actuators",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[actuators]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Actuators",
+        "updated": "null"
+      },
+      "text": "The dominant actuator in modern robotics. Higher power density, longer life,\nbetter thermal performance than brushed DC."
+    },
+    {
+      "id": "07-ACTUATORS.md#020",
+      "path": [
+        "07-ACTUATORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:07-actuators, git-history:robotics:07-actuators]",
+        "canonical_path": "robotics/07-ACTUATORS.md",
+        "concepts": "[actuators]",
+        "current_path": "robotics/07-ACTUATORS.md",
+        "id": "maxim:robotics:actuators",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[actuators]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Actuators",
+        "updated": "null"
+      },
+      "text": "### Commutation"
+    },
+    {
+      "id": "07-ACTUATORS.md#021",
+      "path": [
+        "07-ACTUATORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:07-actuators, git-history:robotics:07-actuators]",
+        "canonical_path": "robotics/07-ACTUATORS.md",
+        "concepts": "[actuators]",
+        "current_path": "robotics/07-ACTUATORS.md",
+        "id": "maxim:robotics:actuators",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[actuators]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Actuators",
+        "updated": "null"
+      },
+      "text": "```\nBRUSHLESS = no brushes. Commutation (switching current direction to produce\ncontinuous torque) is done ELECTRONICALLY by the motor controller."
+    },
+    {
+      "id": "07-ACTUATORS.md#022",
+      "path": [
+        "07-ACTUATORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:07-actuators, git-history:robotics:07-actuators]",
+        "canonical_path": "robotics/07-ACTUATORS.md",
+        "concepts": "[actuators]",
+        "current_path": "robotics/07-ACTUATORS.md",
+        "id": "maxim:robotics:actuators",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[actuators]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Actuators",
+        "updated": "null"
+      },
+      "text": "3-PHASE WINDINGS:\n  Motor has 3 coil phases: U, V, W.\n  ESC (Electronic Speed Controller) or servo drive energizes phases in sequence."
+    },
+    {
+      "id": "07-ACTUATORS.md#023",
+      "path": [
+        "07-ACTUATORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:07-actuators, git-history:robotics:07-actuators]",
+        "canonical_path": "robotics/07-ACTUATORS.md",
+        "concepts": "[actuators]",
+        "current_path": "robotics/07-ACTUATORS.md",
+        "id": "maxim:robotics:actuators",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[actuators]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Actuators",
+        "updated": "null"
+      },
+      "text": "TRAPEZOIDAL COMMUTATION (6-step):\n  Simpler, cheaper. Torque ripple.\n  Measures rotor position via Hall-effect sensors (3 digital signals).\n  Only 6 states per electrical revolution."
+    },
+    {
+      "id": "07-ACTUATORS.md#024",
+      "path": [
+        "07-ACTUATORS.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:robotics:07-actuators, git-history:robotics:07-actuators]",
+        "canonical_path": "robotics/07-ACTUATORS.md",
+        "concepts": "[actuators]",
+        "current_path": "robotics/07-ACTUATORS.md",
+        "id": "maxim:robotics:actuators",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "robotics",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[actuators]",
+        "section": "robotics",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "Robotics - Actuators",
+        "updated": "null"
+      },
+      "text": "FIELD-ORIENTED CONTROL (FOC / sinusoidal commutation):\n  The standard for precision robotics.\n  Continuously aligns current vector with rotor flux for maximum torque.\n  Requires high-resolution encoder (12+ bit).\n  Smooth torque. Better efficiency. Higher bandwidth.\n```"
+    }
+  ],
+  "refs": [
+    "07-ACTUATORS.md"
+  ]
+}

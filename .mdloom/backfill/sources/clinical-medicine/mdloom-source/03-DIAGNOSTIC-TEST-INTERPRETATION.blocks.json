@@ -1,0 +1,182 @@
+{
+  "schema_version": "1",
+  "source_markdown": "clinical-medicine\\03-DIAGNOSTIC-TEST-INTERPRETATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 79,
+      "heading_context": "## The Big Picture: A Test Is a Belief-Update Operator, Not an Oracle",
+      "confidence": "candidate",
+      "text": "DIAGNOSTIC DECISION LOOP  (this guide owns the whole loop)\n==========================================================================\n  [ 02: DIFFERENTIAL ]      supplies the prior\n        |  pretest probability  p0   (a NUMBER, however rough)\n        v\n  [ CHOOSE TEST ]  -- is any result able to cross a threshold? (Section 6-7)\n        |            if NO -> model favors no test (value of information = 0)\n        v\n  [ RUN TEST ]  -- result R  (medicine/10 owns WHICH test + its Sn/Sp)\n        |\n        v\n  [ UPDATE ]   post-odds = pre-odds x LR(R)          <-- Section 2\n        |      the 2x2 (Section 1) is where LR comes from\n        v\n  [ POSTTEST PROBABILITY  p1 ]\n        |\n        v\n  [ COMPARE TO THRESHOLDS ]                            <-- Section 5\n     p1 < T_test  ......... below testing threshold  -> model favors no test\n     T_test < p1 < T_treat  ................. -> model favors testing/observation\n     p1 > T_treat ........ above treatment threshold -> model favors action (treat)\n==========================================================================\n  Read top-to-bottom: belief in, evidence applied, belief out, decision made.\n  A \"positive\" result is not a diagnosis; it is a multiplier on the prior.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 131,
+      "heading_context": "## 1. The 2×2 as a Belief-Updating Engine",
+      "confidence": "candidate",
+      "text": "                          TRUTH (reference standard)\n                     Disease +            Disease -\n                 +-----------------+-----------------+\n   TEST    +     |   TP            |   FP            |\n  RESULT         |  true positive  | false positive  |\n                 +-----------------+-----------------+\n           -     |   FN            |   TN            |\n                 |  false negative |  true negative  |\n                 +-----------------+-----------------+\n                   Sn = TP/(TP+FN)    Sp = TN/(TN+FP)    (down COLUMNS -> test property)\n                   PPV = TP/(TP+FP)   NPV = TN/(TN+FN)   (across ROWS  -> test + prevalence)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 184,
+      "heading_context": "## 2. Odds, Likelihood Ratios, and the Update Rule",
+      "confidence": "candidate",
+      "text": "  odds(p)      = p / (1 - p)              prob -> odds\n  p(odds)      = odds / (1 + odds)        odds -> prob\n\n  Pretest odds  x  Likelihood Ratio  =  Posttest odds        (Bayes, odds form)\n  -----------      -----------------     --------------\n  what was           what the             what is\n  believed           result is worth      believed now\n\n  LR+ = Sn / (1 - Sp)  = TPR / FPR        (multiplier after a POSITIVE result)\n  LR- = (1 - Sn) / Sp  = FNR / TNR        (multiplier after a NEGATIVE result)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 219,
+      "heading_context": "## 2. Odds, Likelihood Ratios, and the Update Rule",
+      "confidence": "candidate",
+      "text": "roughly **+15/+30/+45 percentage points** to a *mid-range* pretest probability, and",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 298,
+      "heading_context": "## 4. ROC / AUC — What It Buys and What It Hides",
+      "confidence": "candidate",
+      "text": "  TPR 1 |          ____------  AUC = P(score_diseased > score_well)\n (Sn)   |      _--                = 0.5 chance-line, 1.0 perfect\n        |    /        each POINT = one cutoff choice\n        |  /          moving along curve = trading Sn <-> Sp\n        | /\n      0 +-------------------- 1   FPR (1 - Sp)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 351,
+      "heading_context": "## 5. Test and Treatment Thresholds — The Pauker–Kassirer Model",
+      "confidence": "candidate",
+      "text": "  favor Rx if   p * B  >  (1 - p) * H\n  =>  favor Rx if   p/(1-p) > H/B      (threshold ODDS = harm/benefit ratio)\n  =>  treatment threshold   p* = H / (H + B)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 368,
+      "heading_context": "## 5. Test and Treatment Thresholds — The Pauker–Kassirer Model",
+      "confidence": "candidate",
+      "text": "  PROBABILITY OF DISEASE   0% ------------------------------------> 100%\n                     T_test                         T_treat\n                       |                              |\n                (testing thr.)             (test-treatment thr.)\n   +-----------------+------------------------------+-----------------+\n   |  MODEL: NO TEST |   MODEL: TEST (a result can  |  MODEL: TREAT   |\n   | MODEL: NO TREAT |   cross treatment threshold  |  (no test)      |\n   +-----------------+------------------------------+-----------------+\n     below T_test: even a POSITIVE stays under p*  -> model favors no test\n     above T_treat: even a NEGATIVE stays over p*  -> model favors treating, no test\n     between: a result can cross p*                -> model favors testing",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 385,
+      "heading_context": "## 5. Test and Treatment Thresholds — The Pauker–Kassirer Model",
+      "confidence": "candidate",
+      "text": "  T_test   solves   odds(T_test)  * LR+ = odds(p*)   =>  odds(T_test)  = odds(p*)/LR+\n  T_treat  solves   odds(T_treat) * LR- = odds(p*)   =>  odds(T_treat) = odds(p*)/LR-",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 424,
+      "heading_context": "## Fully Worked Case with Sensitivity Analysis (illustrative)",
+      "confidence": "candidate",
+      "text": "  If M POSITIVE:  post-odds = 0.1111 x 6.0    = 0.6667  -> p1 = 0.6667/1.6667 = 0.400 (40.0%)\n  If M NEGATIVE:  post-odds = 0.1111 x 0.1176 = 0.01307 -> p1 = 0.01307/1.0131 = 0.013 (1.3%)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 430,
+      "heading_context": "## Fully Worked Case with Sensitivity Analysis (illustrative)",
+      "confidence": "candidate",
+      "text": "  Pretest 10%  is BELOW p* (20%)        -> with no test, the model favors NO treatment.\n  M positive -> 40% ( > 20% )           -> crosses p*; the model now favors treating.\n  M negative -> 1.3% ( < 20% )          -> stays under p*; the model still favors no treat.\n  Only the POSITIVE branch changes the favored action (no-treat -> treat); the negative\n  branch just confirms the baseline. At least one branch crosses p*, so M is\n  decision-relevant here -- but the decision flips in ONE direction, not both.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 441,
+      "heading_context": "## Fully Worked Case with Sensitivity Analysis (illustrative)",
+      "confidence": "candidate",
+      "text": "  T_test  : odds = 0.25 / LR+  = 0.25 / 6.0    = 0.04167 -> p = 4.0%\n  T_treat : odds = 0.25 / LR-  = 0.25 / 0.1176 = 2.125   -> p = 68.0%\n  => TEST ZONE = 4% to 68% pretest probability. The vignette's 10% sits inside the\n     zone, so the model favors testing.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "diagram_like",
+      "line": 482,
+      "heading_context": "## Fully Worked Case with Sensitivity Analysis (illustrative)",
+      "confidence": "candidate",
+      "text": "  post-+ = odds 0.1111 x 3.0   = 0.333  -> 25.0%  (still over p* = 20%, margin now thin)\n  post-- = odds 0.1111 x 0.143 = 0.0159 -> 1.6%   (still well under p*)\n  T_test rises to odds 0.25/3.0 = 0.083 -> 7.7%, shrinking the useful test zone.\n  The vignette's 10% still sits in-zone, so the model favors testing -- but a weaker\n  test narrows the band in which that holds.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 510,
+      "heading_context": "### Two contrasting contexts (transport limits, illustrative)",
+      "confidence": "candidate",
+      "text": "  odds0   = 0.005/0.995   = 0.00503\n  post-+  = 0.00503 x 6.0  = 0.0302 -> p = 2.9%   (a POSITIVE stays far under p* = 20%)\n  0.5% is BELOW T_test (4%) -> even a positive cannot cross p* in this setting\n  => the model favors NOT using M as a standalone decision test here; a positive is at\n     best a prompt for a separate confirmatory step (Section 6).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-14",
+      "kind": "diagram_like",
+      "line": 525,
+      "heading_context": "### Two contrasting contexts (transport limits, illustrative)",
+      "confidence": "candidate",
+      "text": "  odds0   = 0.45/0.55      = 0.818\n  post-+  = 0.818 x 6.0     = 4.91  -> p = 83.1%   (stays above p*: treat)\n  post--  = 0.818 x 0.1176  = 0.096 -> p =  8.8%   (drops BELOW p* = 20%)\n  baseline 45% > p* -> treat; the NEGATIVE branch is the one that changes the action.\n  => the model favors testing, but here as a rule-OUT: the decision-relevant branch is\n     the negative -- the mirror image of the base case, where the positive carried it.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-15",
+      "kind": "diagram_like",
+      "line": 576,
+      "heading_context": "## 6. Sequential and Correlated Testing",
+      "confidence": "candidate",
+      "text": "  post-odds = pre-odds x LR_A x LR_B    (VALID ONLY if conditionally independent | status)\n  dependence in either status stratum -> bias direction requires the joint distributions\n  no universal inequality holds between LR_combined and (LR_A x LR_B)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-16",
+      "kind": "ascii_table_candidate",
+      "line": 612,
+      "heading_context": "## 7. Overtesting, Incidentaloma Cascades, and Value of Information",
+      "confidence": "candidate",
+      "text": "  THE TESTING CASCADE  (an incidentaloma is the seed)\n  broad test on low-prior patient\n        |  finds an unexpected, probably-benign lesion (an \"incidentaloma\")\n        v\n  follow-up imaging  --> ambiguous  --> more imaging / short-interval surveillance\n        |                                   |\n        v                                   v\n  biopsy / invasive test  -----------> procedural harm, anxiety, cost, labeling\n        |\n        v\n  often ends where it began (benign) -- but now with harm done and a \"patient\" made",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

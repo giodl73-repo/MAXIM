@@ -1,0 +1,1889 @@
+{
+  "schema": "mdport.v1",
+  "kind": "corpus-slice",
+  "title": "maxim-manufacturing-cnc-cam",
+  "source": "../../manufacturing",
+  "format": "markdown",
+  "metadata": {},
+  "sections": [
+    {
+      "id": "03-CNC-CAM.md#000",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "# CNC Machining and CAM Programming"
+    },
+    {
+      "id": "03-CNC-CAM.md#001",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "## The Big Picture"
+    },
+    {
+      "id": "03-CNC-CAM.md#002",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "CNC (Computer Numerical Control) replaces manual machine operation with programmed axis motion. The workflow: CAD model → CAM software generates toolpaths → post-processor outputs G-code → CNC controller executes motions."
+    },
+    {
+      "id": "03-CNC-CAM.md#003",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "```\nWORKFLOW: DESIGN TO CHIP\n──────────────────────────────────────────────────────────────────\n┌──────────┐    ┌──────────┐    ┌───────────┐    ┌──────────────┐\n│  CAD     │    │  CAM     │    │  Post     │    │  CNC         │\n│  Model   │───►│  Software│───►│ Processor │───►│  Controller  │\n│          │    │          │    │           │    │              │\n│ SolidWks │    │ Mastercam│    │ Haas.pst  │    │ G-code runs  │\n│ CATIA    │    │ HSMWorks │    │ Fanuc.pst │    │ axes move    │\n│ NX       │    │ NX CAM   │    │ Siemens   │    │ part made    │\n└──────────┘    └──────────┘    └───────────┘    └──────────────┘\n                     │\n                Toolpath = cutter center path + cutting conditions\n                (feed rate, spindle speed, depth, strategy)\n```"
+    },
+    {
+      "id": "03-CNC-CAM.md#004",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "**Bridge**: CAM is analogous to a compiler. The CAD model = source code. The CAM toolpath = IR (intermediate representation). The G-code = machine code. The post-processor = target-specific backend. The CNC controller = CPU executing instructions."
+    },
+    {
+      "id": "03-CNC-CAM.md#005",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-CNC-CAM.md#006",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "## CNC Coordinate Systems"
+    },
+    {
+      "id": "03-CNC-CAM.md#007",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "### Machine Coordinate System"
+    },
+    {
+      "id": "03-CNC-CAM.md#008",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "```\nSTANDARD AXIS ORIENTATION (Right-Hand Rule)\n──────────────────────────────────────────────────────────────────"
+    },
+    {
+      "id": "03-CNC-CAM.md#009",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "VMC (Vertical Machining Center):\n         +Z (spindle up)\n          │\n          │\n          └────── +X (right looking at machine)\n         /\n        / +Y (toward machine column = away from operator)"
+    },
+    {
+      "id": "03-CNC-CAM.md#010",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "Right-hand rule: curl fingers X→Y, thumb points +Z"
+    },
+    {
+      "id": "03-CNC-CAM.md#011",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "HMC (Horizontal Machining Center):\n  +Z = spindle axis (horizontal, toward table)\n  +X = left/right\n  +Y = up"
+    },
+    {
+      "id": "03-CNC-CAM.md#012",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "Lathe:\n  +Z = along spindle axis (+ = toward tailstock)\n  +X = radial (+ = away from center)\n```"
+    },
+    {
+      "id": "03-CNC-CAM.md#013",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "### Work Coordinate Systems (WCS)"
+    },
+    {
+      "id": "03-CNC-CAM.md#014",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "```\nMultiple WCS allow programming relative to part, not machine home."
+    },
+    {
+      "id": "03-CNC-CAM.md#015",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "G54 = Work offset 1  (primary part datum)\nG55 = Work offset 2  (second part or second datum)\nG56–G59 = more offsets"
+    },
+    {
+      "id": "03-CNC-CAM.md#016",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "Machine home (G28 = reference) is fixed.\nWork offset G54 = distance from machine home to your part datum.\nAll program coordinates are relative to G54."
+    },
+    {
+      "id": "03-CNC-CAM.md#017",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "Multi-fixture setup:\n┌────────────────────────────────────────────────────────┐\n│  Machine Table                                         │\n│  ┌────────┐         ┌────────┐         ┌────────┐      │\n│  │ Part 1 │G54      │ Part 2 │G55      │ Part 3 │G56  │\n│  │        │         │        │         │        │     │\n│  └────────┘         └────────┘         └────────┘     │\n│  Machine home ◄─────────────────────────────────────  │\n└────────────────────────────────────────────────────────┘\n```"
+    },
+    {
+      "id": "03-CNC-CAM.md#018",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-CNC-CAM.md#019",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "## G-Code Reference"
+    },
+    {
+      "id": "03-CNC-CAM.md#020",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "### Core Modal Codes (Machine State)"
+    },
+    {
+      "id": "03-CNC-CAM.md#021",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "```\nMOTION MODES (modal — stay active until changed)\n  G00  Rapid positioning       (max machine speed, no cutting)\n  G01  Linear interpolation    (cutting, specified feed rate)\n  G02  Circular arc CW         (in current plane)\n  G03  Circular arc CCW\n  G04  Dwell (pause)           P = milliseconds or seconds"
+    },
+    {
+      "id": "03-CNC-CAM.md#022",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "PLANE SELECTION\n  G17  XY plane  (default on VMC for arcs and canned cycles)\n  G18  XZ plane\n  G19  YZ plane"
+    },
+    {
+      "id": "03-CNC-CAM.md#023",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "COORDINATE SYSTEM\n  G20  Inch mode\n  G21  Metric mode\n  G54–G59  Work offsets\n  G90  Absolute coordinates    (relative to work origin)\n  G91  Incremental coordinates (relative to last position)\n  G92  Set current position as work origin (use sparingly)"
+    },
+    {
+      "id": "03-CNC-CAM.md#024",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "TOOL LENGTH COMPENSATION\n  G43  Apply TLC, H word = offset register\n  G44  Negative TLC\n  G49  Cancel TLC"
+    },
+    {
+      "id": "03-CNC-CAM.md#025",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "CUTTER RADIUS COMPENSATION\n  G41  Left offset (climb milling outer profile)\n  G42  Right offset\n  G40  Cancel CRC"
+    },
+    {
+      "id": "03-CNC-CAM.md#026",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "UNITS / SPEED\n  G94  Feed per minute (in/min or mm/min)\n  G95  Feed per revolution (in/rev or mm/rev) — turning\n  G96  Constant surface speed (SFM or m/min) — turning\n  G97  Constant RPM"
+    },
+    {
+      "id": "03-CNC-CAM.md#027",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "RETURN / HOME\n  G28  Return to machine home (through intermediate point)\n  G29  Return from reference\n```"
+    },
+    {
+      "id": "03-CNC-CAM.md#028",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "### Canned Cycles (Fixed Cycles)"
+    },
+    {
+      "id": "03-CNC-CAM.md#029",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "```\nG81  Drill               Simple drill cycle, no peck\nG82  Drill + dwell       Spot drill, countersink\nG83  Peck drill          Deep hole, pecks to clear chips\nG84  Tap               Rigid tapping (synchronizes spindle/feed)\nG85  Bore               Bore in, feed out\nG86  Bore + stop         Bore in, orient, rapid out (leave drag line)\nG87  Back bore           Bore going up (from underside)\nG89  Bore + dwell        Bore in, dwell, feed out"
+    },
+    {
+      "id": "03-CNC-CAM.md#030",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "Format example (G83 peck drill):\n  G83 X1.000 Y1.000 Z-1.500 R0.100 Q0.200 F5.0\n       │      │      │       │      │      │\n       X pos  Y pos  depth   R plane peck   feed\n```"
+    },
+    {
+      "id": "03-CNC-CAM.md#031",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "### M Codes (Miscellaneous Functions)"
+    },
+    {
+      "id": "03-CNC-CAM.md#032",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "```\nM00  Program stop (operator must restart)\nM01  Optional stop (only if \"optional stop\" active on control)\nM02  End of program\nM03  Spindle on CW (mill: looking down at tool)\nM04  Spindle on CCW\nM05  Spindle stop\nM06  Tool change (ATC — automatic tool changer)\nM07  Coolant mist on\nM08  Flood coolant on\nM09  Coolant off\nM30  End of program + rewind\nM98  Call subprogram\nM99  Return from subprogram\n```"
+    },
+    {
+      "id": "03-CNC-CAM.md#033",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-CNC-CAM.md#034",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "## CAM Strategies"
+    },
+    {
+      "id": "03-CNC-CAM.md#035",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "### 2D Operations"
+    },
+    {
+      "id": "03-CNC-CAM.md#036",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "```\nCONTOUR (2D profiling)\n  Tool follows part outline at full depth or step-down passes\n  Left/right offset (G41/G42) maintains programmed surface\n  Lead-in/lead-out arcs prevent entrance/exit marks"
+    },
+    {
+      "id": "03-CNC-CAM.md#037",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "POCKET (2D pocket clearing)\n  Strategies: raster, offset/spiral, trochoidal\n  Trochoidal (dynamic milling): small radial engagement,\n    full axial depth, high material removal, less heat"
+    },
+    {
+      "id": "03-CNC-CAM.md#038",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "FACE MILLING\n  Large-diameter face mill, passes across top of part\n  Overlap ~40–50% for even finish"
+    },
+    {
+      "id": "03-CNC-CAM.md#039",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "DRILLING / TAPPING\n  Drill cycles (G83 for deep holes)\n  Rigid tap requires synchronized spindle-feed\n```"
+    },
+    {
+      "id": "03-CNC-CAM.md#040",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "### 3D Operations"
+    },
+    {
+      "id": "03-CNC-CAM.md#041",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "```\nPARALLEL (RASTER) FINISH\n  Back-and-forth passes at constant Z or projected\n  Best for: shallow surfaces, large flat-ish areas\n  Stepover = scallop height tradeoff"
+    },
+    {
+      "id": "03-CNC-CAM.md#042",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "SCALLOP / CONSTANT Z\n  Contour passes at constant Z level\n  Best for: steep walls, complex profiles\n  Leaves ridges at flatter areas"
+    },
+    {
+      "id": "03-CNC-CAM.md#043",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "PENCIL (PENCIL MILLING)\n  Small tool traces into corners, finds concave edges\n  Final cleanup pass"
+    },
+    {
+      "id": "03-CNC-CAM.md#044",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "HORIZONTAL AREA CLEAR\n  Semi-finish: removes most stock\n  Leaves uniform stock for finish pass"
+    },
+    {
+      "id": "03-CNC-CAM.md#045",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "ADAPTIVE / DYNAMIC (3D Trochoidal)\n  Maintains constant chip load in 3D\n  Mastercam Hybrid, Fusion 360 Adaptive, HSM Adaptive\n  Best for: titanium, Inconel, hardened steel roughing\n```"
+    },
+    {
+      "id": "03-CNC-CAM.md#046",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "### 5-Axis Strategies"
+    },
+    {
+      "id": "03-CNC-CAM.md#047",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "```\n3+2 (POSITIONAL 5-AXIS)\n  3 linear axes move while 2 rotary are fixed at an angle\n  Access undercuts and compound angles\n  Common for: indexing operations, multiple faces\n  Most machine time is still 3-axis"
+    },
+    {
+      "id": "03-CNC-CAM.md#048",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "SIMULTANEOUS 5-AXIS\n  All 5 axes move at once\n  Required for: impellers, blisks, turbine airfoils\n  Complex toolpath calculation, longer programming time\n  Difficult collision avoidance (tool, holder, fixture)\n```"
+    },
+    {
+      "id": "03-CNC-CAM.md#049",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-CNC-CAM.md#050",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "## Tool Path Parameters"
+    },
+    {
+      "id": "03-CNC-CAM.md#051",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "### Speed and Feed Calculation"
+    },
+    {
+      "id": "03-CNC-CAM.md#052",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "```\nSTARTING POINT: Lookup recommended SFM for tool/material pair\n  (from manufacturer's speeds and feeds chart)"
+    },
+    {
+      "id": "03-CNC-CAM.md#053",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "Step 1: RPM = (SFM × 12) / (π × D_tool)     [inch]\n        RPM = (m/min × 1000) / (π × D_tool)  [metric]"
+    },
+    {
+      "id": "03-CNC-CAM.md#054",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "Step 2: Feed rate = RPM × chip_load × number_of_teeth\n        Feed (in/min) = N × fz × Nt"
+    },
+    {
+      "id": "03-CNC-CAM.md#055",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "Example: 0.500\" 4-flute carbide end mill in 6061 aluminum\n  Recommended: 600 SFM, chip load 0.003 in/tooth\n  RPM = (600 × 12) / (π × 0.5) = 7200 / 1.571 = 4584 rpm\n  Feed = 4584 × 0.003 × 4 = 55 in/min\n  Axial depth: up to 2×D = 1.000\"\n  Radial depth (finishing): 0.050–0.100\"\n  Radial depth (roughing dynamic): 0.050\" (but full depth Ap)\n```"
+    },
+    {
+      "id": "03-CNC-CAM.md#056",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "### Depth and Width of Cut"
+    },
+    {
+      "id": "03-CNC-CAM.md#057",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "```\nAXIAL DEPTH (Ap):\n  Roughing: 1×D to 2×D (conventional slotting)\n  Dynamic/trochoidal: 2×D to 4×D (reduced radial engagement)\n  Finishing: 0.010–0.030\" (light passes for surface quality)"
+    },
+    {
+      "id": "03-CNC-CAM.md#058",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "RADIAL ENGAGEMENT (Ae):\n  Slotting: 100% = 1×D (highest load)\n  Roughing: 50–75% (conventional profiling)\n  Dynamic: 5–15% (high-efficiency toolpaths)\n  Finishing: 5–20% (to achieve target Ra)"
+    },
+    {
+      "id": "03-CNC-CAM.md#059",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "Chip thinning: when Ae < 50% D, actual chip thickness\n  t_actual = fz × √(Ae / D)\n  CAM compensates by increasing programmed feed.\n```"
+    },
+    {
+      "id": "03-CNC-CAM.md#060",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "---"
+    },
+    {
+      "id": "03-CNC-CAM.md#061",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "## CNC Controller Fundamentals"
+    },
+    {
+      "id": "03-CNC-CAM.md#062",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "### Fanuc (Most Common)"
+    },
+    {
+      "id": "03-CNC-CAM.md#063",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "```\nFANUC 0i / 30i — dominant in VMCs, HMCs, lathes\nBlock format: N___ G__ X__ Y__ Z__ F__ S__ T__ M__"
+    },
+    {
+      "id": "03-CNC-CAM.md#064",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "Program structure:\n%                    (start of tape)\nO1001                (program number)\n(PROGRAM COMMENT)\nG20 G17 G40 G49 G80  (safety cancels: inch, XY, no CRC, no TLC, no cycle)\nG90 G94              (absolute, feed/min)\nT01 M06              (tool change: tool 1)\nG43 H01 Z10.0 M03 S3000  (activate tool length, move Z safe, spindle on CW)\nG54                  (activate work offset 1)\n...                  (machining)\nM09                  (coolant off)\nG28 Z0               (return Z to machine home)\nM30                  (end program, rewind)\n%                    (end of tape)\n```"
+    },
+    {
+      "id": "03-CNC-CAM.md#065",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "### Haas (Common in Job Shops, US)"
+    },
+    {
+      "id": "03-CNC-CAM.md#066",
+      "path": [
+        "03-CNC-CAM.md"
+      ],
+      "level": 0,
+      "line": 1,
+      "metadata": {
+        "backsource_ids": "[mdloom-backfill:manufacturing:03-cnc-cam, git-history:manufacturing:03-cnc-cam]",
+        "canonical_path": "manufacturing/03-CNC-CAM.md",
+        "concepts": "[cnc, cam]",
+        "current_path": "manufacturing/03-CNC-CAM.md",
+        "id": "maxim:manufacturing:cnc-cam",
+        "index_roles": "[guide, root-concept]",
+        "kind": "guide",
+        "maxim_schema": "maxim.frontmatter.v1",
+        "module": "manufacturing",
+        "remap_from": "[]",
+        "remap_to": "[]",
+        "root_concepts": "[cnc, cam]",
+        "section": "manufacturing",
+        "source_custody": "partial",
+        "status": "source-custody",
+        "title": "CNC Machining and CAM Programming",
+        "updated": "null"
+      },
+      "text": "Haas uses Fanuc-compatible G-code but adds many proprietary macros and functions (macro B, probing cycles). Conversational programming (Intuitive Machining) for simple operations."
+    }
+  ],
+  "refs": [
+    "03-CNC-CAM.md"
+  ]
+}
