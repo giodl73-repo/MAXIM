@@ -7,8 +7,8 @@
   "frontmatter_contract": ".mdloom/backfill/frontmatter-contract.md",
   "frontmatter_scope": {
     "mode": "module-only",
-    "proof_output_default": "omit-frontmatter",
-    "proof_output_option": "allow-frontmatter-for-metadata-views",
+    "mdloom_output_default": "omit-frontmatter",
+    "mdloom_output_option": "allow-frontmatter-for-metadata-views",
     "required_kind_values": [
       "guide",
       "module-index",
@@ -26,7 +26,7 @@
       "cryptography/05-POST-QUANTUM.md"
     ]
   },
-  "proof_scope": {
+  "mdloom_scope": {
     "config": "mdloom.toml",
     "include": [
       "cryptography/*.md"
@@ -35,9 +35,10 @@
       "cryptography/STATUS.md"
     ]
   },
-  "crop_view": ".crop/views/maxim-cryptography-source-corpus.json",
+  "crop_view": ".mdcrop/views/maxim-cryptography-source-corpus.json",
   "distribution": {
-    "pebble_pack": ".mdport/packs/maxim-cryptography-source-corpus.mdport.json",
+    "mdport_pack": ".mdport/packs/maxim-cryptography-source-corpus.mdport.json",
+    "mdport_pack_sections": 83,
     "guide_packs": [
       ".mdport/packs/maxim-cryptography-overview.mdport.json",
       ".mdport/packs/maxim-cryptography-symmetric.mdport.json",
@@ -46,6 +47,14 @@
       ".mdport/packs/maxim-cryptography-zk-mpc.mdport.json",
       ".mdport/packs/maxim-cryptography-post-quantum.mdport.json"
     ],
+    "guide_pack_sections": {
+      "cryptography/00-OVERVIEW.md": 14,
+      "cryptography/01-SYMMETRIC.md": 15,
+      "cryptography/02-ASYMMETRIC.md": 14,
+      "cryptography/03-PROTOCOLS.md": 13,
+      "cryptography/04-ZK-MPC.md": 14,
+      "cryptography/05-POST-QUANTUM.md": 13
+    },
     "fletch_registry": ".fletch/registries/maxim-cryptography-source-corpus.json"
   },
   "source_custody": {
@@ -54,7 +63,8 @@
     "notes": [
       "Current MAXIM guide paths are not themselves sufficient backsources.",
       "Backsources can be source notes, cited originals, generated proof artifacts, or reviewed provenance records.",
-      "All 6 guides are partial: MDLOOM literal backfill and git provenance are recorded, but external/authentic factual backsources are still pending.",
+      "MDLOOM literal backfill is recorded for all 6 guides; Git provenance is recorded for 6 guides and pending for 0.",
+      "All 6 guides remain partial because external/authentic factual backsources are still pending.",
       "MDLOOM structured sidecars capture markdown tables plus candidate ASCII tables, charts, and diagrams for quality search/indexing.",
       "Remaps preserve continuity if guide files move after backfill."
     ]
@@ -125,7 +135,8 @@
     "frontmatter-contract-applied",
     "source-custody-partial",
     "proof-module-clean",
-    "crop-pebble-pack-emitted",
+    "crop-views-added",
+    "full-proof-mdport-packs-emitted",
     "fletch-registry-added"
   ]
 }

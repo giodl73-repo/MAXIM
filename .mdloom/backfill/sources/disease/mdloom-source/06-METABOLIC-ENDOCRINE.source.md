@@ -2,7 +2,7 @@
 tags: [backfill]
 ops: [backfill]
 content_tags: [markdown]
-proof_original: "06-METABOLIC-ENDOCRINE.md"
+mdloom_original: "06-METABOLIC-ENDOCRINE.md"
 ---
 ---
 maxim_schema: maxim.frontmatter.v1

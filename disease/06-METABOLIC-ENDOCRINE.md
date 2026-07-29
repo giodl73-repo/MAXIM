@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: disease/06-METABOLIC-ENDOCRINE.md
 canonical_path: disease/06-METABOLIC-ENDOCRINE.md
-backsource_ids: [proof-backfill:disease:06-metabolic-endocrine, git-history:disease:06-metabolic-endocrine]
+backsource_ids: [mdloom-backfill:disease:06-metabolic-endocrine, git-history:disease:06-metabolic-endocrine]
 concepts: [metabolic, endocrine]
 root_concepts: [metabolic, endocrine]
 index_roles: [guide, root-concept]

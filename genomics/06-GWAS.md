@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: genomics/06-GWAS.md
 canonical_path: genomics/06-GWAS.md
-backsource_ids: [proof-backfill:genomics:06-gwas, git-history:genomics:06-gwas]
+backsource_ids: [mdloom-backfill:genomics:06-gwas, git-history:genomics:06-gwas]
 concepts: [gwas]
 root_concepts: [gwas]
 index_roles: [guide, root-concept]

@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: disease/01-BACTERIAL.md
 canonical_path: disease/01-BACTERIAL.md
-backsource_ids: [proof-backfill:disease:01-bacterial, git-history:disease:01-bacterial]
+backsource_ids: [mdloom-backfill:disease:01-bacterial, git-history:disease:01-bacterial]
 concepts: [bacterial]
 root_concepts: [bacterial]
 index_roles: [guide, root-concept]

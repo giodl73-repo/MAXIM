@@ -2,7 +2,7 @@
 tags: [backfill]
 ops: [backfill]
 content_tags: [markdown]
-proof_original: "06-DISTRIBUTED-DB.md"
+mdloom_original: "06-DISTRIBUTED-DB.md"
 ---
 ---
 maxim_schema: maxim.frontmatter.v1
@@ -138,7 +138,7 @@ COCKROACHDB ARCHITECTURE
 +----------------------------------------------------------+
 | Replication Layer (Raft per range)                       |
 +----------------------------------------------------------+
-| Storage Layer (RocksDB/Mdport, LSM-tree)                 |
+| Storage Layer (RocksDB/Pebble, LSM-tree)                 |
 +----------------------------------------------------------+
 
 SHARDING: Ranges are contiguous key ranges, automatically split/merged

@@ -7,8 +7,8 @@
   "frontmatter_contract": ".mdloom/backfill/frontmatter-contract.md",
   "frontmatter_scope": {
     "mode": "module-only",
-    "proof_output_default": "omit-frontmatter",
-    "proof_output_option": "allow-frontmatter-for-metadata-views",
+    "mdloom_output_default": "omit-frontmatter",
+    "mdloom_output_option": "allow-frontmatter-for-metadata-views",
     "required_kind_values": [
       "guide",
       "module-index",
@@ -31,7 +31,7 @@
       "disease/10-EPIDEMIOLOGY.md"
     ]
   },
-  "proof_scope": {
+  "mdloom_scope": {
     "config": "mdloom.toml",
     "include": [
       "disease/*.md"
@@ -40,9 +40,10 @@
       "disease/STATUS.md"
     ]
   },
-  "crop_view": ".crop/views/maxim-disease-source-corpus.json",
+  "crop_view": ".mdcrop/views/maxim-disease-source-corpus.json",
   "distribution": {
-    "pebble_pack": ".mdport/packs/maxim-disease-source-corpus.mdport.json",
+    "mdport_pack": ".mdport/packs/maxim-disease-source-corpus.mdport.json",
+    "mdport_pack_sections": 238,
     "guide_packs": [
       ".mdport/packs/maxim-disease-overview.mdport.json",
       ".mdport/packs/maxim-disease-bacterial.mdport.json",
@@ -56,6 +57,19 @@
       ".mdport/packs/maxim-disease-genetic-developmental.mdport.json",
       ".mdport/packs/maxim-disease-epidemiology.mdport.json"
     ],
+    "guide_pack_sections": {
+      "disease/00-OVERVIEW.md": 19,
+      "disease/01-BACTERIAL.md": 19,
+      "disease/02-VIRAL.md": 14,
+      "disease/03-FUNGAL-PARASITIC-PRION.md": 23,
+      "disease/04-CANCER.md": 17,
+      "disease/05-CARDIOVASCULAR-DISEASE.md": 17,
+      "disease/06-METABOLIC-ENDOCRINE.md": 21,
+      "disease/07-AUTOIMMUNE-INFLAMMATORY.md": 16,
+      "disease/08-NEUROLOGICAL-PSYCHIATRIC.md": 28,
+      "disease/09-GENETIC-DEVELOPMENTAL.md": 28,
+      "disease/10-EPIDEMIOLOGY.md": 36
+    },
     "fletch_registry": ".fletch/registries/maxim-disease-source-corpus.json"
   },
   "source_custody": {
@@ -64,7 +78,8 @@
     "notes": [
       "Current MAXIM guide paths are not themselves sufficient backsources.",
       "Backsources can be source notes, cited originals, generated proof artifacts, or reviewed provenance records.",
-      "All 11 guides are partial: MDLOOM literal backfill and git provenance are recorded, but external/authentic factual backsources are still pending.",
+      "MDLOOM literal backfill is recorded for all 11 guides; Git provenance is recorded for 11 guides and pending for 0.",
+      "All 11 guides remain partial because external/authentic factual backsources are still pending.",
       "MDLOOM structured sidecars capture markdown tables plus candidate ASCII tables, charts, and diagrams for quality search/indexing.",
       "Remaps preserve continuity if guide files move after backfill."
     ]
@@ -185,7 +200,8 @@
     "frontmatter-contract-applied",
     "source-custody-partial",
     "proof-module-clean",
-    "crop-pebble-pack-emitted",
+    "crop-views-added",
+    "full-proof-mdport-packs-emitted",
     "fletch-registry-added"
   ]
 }

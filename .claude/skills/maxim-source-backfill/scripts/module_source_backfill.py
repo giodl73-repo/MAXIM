@@ -7,6 +7,7 @@ import argparse
 import json
 import os
 import re
+import shutil
 import subprocess
 import tempfile
 import tomllib
@@ -20,6 +21,8 @@ ROOT = Path.cwd()
 # locally; we walk up from the current module checkout to find the portfolio
 # root that defines the tool crates, then build each Cargo manifest path.
 TOOL_CRATES = {"mdloom": "mdloom", "mdcrop": "mdcrop", "fletch": "fletch"}
+# Portfolio map historically used `crop` for the MDCROP checkout.
+TOOL_REPO_ALIASES = {"mdcrop": ("mdcrop", "crop")}
 
 
 def resolve_tool_manifests() -> dict[str, Path | None]:
@@ -44,7 +47,12 @@ def resolve_tool_manifests() -> dict[str, Path | None]:
             continue
         resolved: dict[str, Path | None] = {}
         for tool, key in TOOL_CRATES.items():
-            rel = repos.get(key, {}).get("relative")
+            keys = TOOL_REPO_ALIASES.get(tool, (key,))
+            rel = None
+            for candidate_key in keys:
+                rel = repos.get(candidate_key, {}).get("relative")
+                if rel:
+                    break
             resolved[tool] = (base / rel / "Cargo.toml") if rel else None
         return resolved
     return {tool: None for tool in TOOL_CRATES}
@@ -643,7 +651,37 @@ been attached.
 
     if args.validate:
         run(["cargo", "run", "--manifest-path", args.mdloom_manifest, "--quiet", "--", "check", *guide_paths])
-        run(["cargo", "run", "--manifest-path", args.mdcrop_manifest, "--quiet", "--", "view", "--inspect", "--dir", str(view_store), "--strict"])
+        # Inspect only this module's views — full-library .mdcrop/views is multi-minute
+        # and floods logs during incremental backfills.
+        # Views use roots like ../../<module>; keep the temp dir at the same depth as
+        # .mdcrop/views so those relatives still resolve to the repo module folders.
+        module_view_paths = [guide["view"] for guide in guides] + [module_view.as_posix()]
+        tmp_dir = view_store.parent / f"_validate_tmp_{module_id}"
+        if tmp_dir.exists():
+            shutil.rmtree(tmp_dir)
+        tmp_dir.mkdir(parents=True, exist_ok=True)
+        try:
+            for view_path in module_view_paths:
+                src = Path(view_path)
+                if src.is_file():
+                    (tmp_dir / src.name).write_text(src.read_text(encoding="utf-8"), encoding="utf-8")
+            run(
+                [
+                    "cargo",
+                    "run",
+                    "--manifest-path",
+                    args.mdcrop_manifest,
+                    "--quiet",
+                    "--",
+                    "view",
+                    "--inspect",
+                    "--dir",
+                    str(tmp_dir),
+                    "--strict",
+                ]
+            )
+        finally:
+            shutil.rmtree(tmp_dir, ignore_errors=True)
         run(["cargo", "run", "--manifest-path", args.fletch_manifest, "--bin", "fletch-cli", "--quiet", "--", "registry", "validate", "--file", str(registry_path)])
         missing = [shaft["url"] for fletch in fletches for shaft in fletch["shafts"] if not Path(shaft["url"]).exists()]
         if missing:

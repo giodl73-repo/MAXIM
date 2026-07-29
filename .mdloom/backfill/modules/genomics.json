@@ -7,8 +7,8 @@
   "frontmatter_contract": ".mdloom/backfill/frontmatter-contract.md",
   "frontmatter_scope": {
     "mode": "module-only",
-    "proof_output_default": "omit-frontmatter",
-    "proof_output_option": "allow-frontmatter-for-metadata-views",
+    "mdloom_output_default": "omit-frontmatter",
+    "mdloom_output_option": "allow-frontmatter-for-metadata-views",
     "required_kind_values": [
       "guide",
       "module-index",
@@ -30,7 +30,7 @@
       "genomics/09-PERSONALIZED-MEDICINE.md"
     ]
   },
-  "proof_scope": {
+  "mdloom_scope": {
     "config": "mdloom.toml",
     "include": [
       "genomics/*.md"
@@ -39,9 +39,10 @@
       "genomics/STATUS.md"
     ]
   },
-  "crop_view": ".crop/views/maxim-genomics-source-corpus.json",
+  "crop_view": ".mdcrop/views/maxim-genomics-source-corpus.json",
   "distribution": {
-    "pebble_pack": ".mdport/packs/maxim-genomics-source-corpus.mdport.json",
+    "mdport_pack": ".mdport/packs/maxim-genomics-source-corpus.mdport.json",
+    "mdport_pack_sections": 129,
     "guide_packs": [
       ".mdport/packs/maxim-genomics-overview.mdport.json",
       ".mdport/packs/maxim-genomics-sequencing-tech.mdport.json",
@@ -54,6 +55,18 @@
       ".mdport/packs/maxim-genomics-bioinformatics-pipeline.mdport.json",
       ".mdport/packs/maxim-genomics-personalized-medicine.mdport.json"
     ],
+    "guide_pack_sections": {
+      "genomics/00-OVERVIEW.md": 11,
+      "genomics/01-SEQUENCING-TECH.md": 12,
+      "genomics/02-GENOME-ASSEMBLY.md": 13,
+      "genomics/03-VARIANT-CALLING.md": 13,
+      "genomics/04-GENE-EXPRESSION.md": 15,
+      "genomics/05-EPIGENOMICS.md": 14,
+      "genomics/06-GWAS.md": 12,
+      "genomics/07-CRISPR.md": 11,
+      "genomics/08-BIOINFORMATICS-PIPELINE.md": 16,
+      "genomics/09-PERSONALIZED-MEDICINE.md": 12
+    },
     "fletch_registry": ".fletch/registries/maxim-genomics-source-corpus.json"
   },
   "source_custody": {
@@ -62,7 +75,8 @@
     "notes": [
       "Current MAXIM guide paths are not themselves sufficient backsources.",
       "Backsources can be source notes, cited originals, generated proof artifacts, or reviewed provenance records.",
-      "All 10 guides are partial: MDLOOM literal backfill and git provenance are recorded, but external/authentic factual backsources are still pending.",
+      "MDLOOM literal backfill is recorded for all 10 guides; Git provenance is recorded for 10 guides and pending for 0.",
+      "All 10 guides remain partial because external/authentic factual backsources are still pending.",
       "MDLOOM structured sidecars capture markdown tables plus candidate ASCII tables, charts, and diagrams for quality search/indexing.",
       "Remaps preserve continuity if guide files move after backfill."
     ]
@@ -173,7 +187,8 @@
     "frontmatter-contract-applied",
     "source-custody-partial",
     "proof-module-clean",
-    "crop-pebble-pack-emitted",
+    "crop-views-added",
+    "full-proof-mdport-packs-emitted",
     "fletch-registry-added"
   ]
 }

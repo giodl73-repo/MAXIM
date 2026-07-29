@@ -7,8 +7,8 @@
   "frontmatter_contract": ".mdloom/backfill/frontmatter-contract.md",
   "frontmatter_scope": {
     "mode": "module-only",
-    "proof_output_default": "omit-frontmatter",
-    "proof_output_option": "allow-frontmatter-for-metadata-views",
+    "mdloom_output_default": "omit-frontmatter",
+    "mdloom_output_option": "allow-frontmatter-for-metadata-views",
     "required_kind_values": [
       "guide",
       "module-index",
@@ -30,7 +30,7 @@
       "cloud-architecture/09-MULTI-CLOUD.md"
     ]
   },
-  "proof_scope": {
+  "mdloom_scope": {
     "config": "mdloom.toml",
     "include": [
       "cloud-architecture/*.md"
@@ -39,9 +39,10 @@
       "cloud-architecture/STATUS.md"
     ]
   },
-  "crop_view": ".crop/views/maxim-cloud-architecture-source-corpus.json",
+  "crop_view": ".mdcrop/views/maxim-cloud-architecture-source-corpus.json",
   "distribution": {
-    "pebble_pack": ".mdport/packs/maxim-cloud-architecture-source-corpus.mdport.json",
+    "mdport_pack": ".mdport/packs/maxim-cloud-architecture-source-corpus.mdport.json",
+    "mdport_pack_sections": 135,
     "guide_packs": [
       ".mdport/packs/maxim-cloud-architecture-overview.mdport.json",
       ".mdport/packs/maxim-cloud-architecture-cloud-models.mdport.json",
@@ -54,6 +55,18 @@
       ".mdport/packs/maxim-cloud-architecture-cost-optimization.mdport.json",
       ".mdport/packs/maxim-cloud-architecture-multi-cloud.mdport.json"
     ],
+    "guide_pack_sections": {
+      "cloud-architecture/00-OVERVIEW.md": 9,
+      "cloud-architecture/01-CLOUD-MODELS.md": 12,
+      "cloud-architecture/02-COMPUTE-PATTERNS.md": 12,
+      "cloud-architecture/03-STORAGE-PATTERNS.md": 12,
+      "cloud-architecture/04-NETWORKING.md": 16,
+      "cloud-architecture/05-MICROSERVICES.md": 15,
+      "cloud-architecture/06-SERVERLESS.md": 18,
+      "cloud-architecture/07-DATA-PLATFORMS.md": 14,
+      "cloud-architecture/08-COST-OPTIMIZATION.md": 14,
+      "cloud-architecture/09-MULTI-CLOUD.md": 13
+    },
     "fletch_registry": ".fletch/registries/maxim-cloud-architecture-source-corpus.json"
   },
   "source_custody": {
@@ -62,7 +75,8 @@
     "notes": [
       "Current MAXIM guide paths are not themselves sufficient backsources.",
       "Backsources can be source notes, cited originals, generated proof artifacts, or reviewed provenance records.",
-      "All 10 guides are partial: MDLOOM literal backfill and git provenance are recorded, but external/authentic factual backsources are still pending.",
+      "MDLOOM literal backfill is recorded for all 10 guides; Git provenance is recorded for 10 guides and pending for 0.",
+      "All 10 guides remain partial because external/authentic factual backsources are still pending.",
       "MDLOOM structured sidecars capture markdown tables plus candidate ASCII tables, charts, and diagrams for quality search/indexing.",
       "Remaps preserve continuity if guide files move after backfill."
     ]
@@ -173,7 +187,8 @@
     "frontmatter-contract-applied",
     "source-custody-partial",
     "proof-module-clean",
-    "crop-pebble-pack-emitted",
+    "crop-views-added",
+    "full-proof-mdport-packs-emitted",
     "fletch-registry-added"
   ]
 }

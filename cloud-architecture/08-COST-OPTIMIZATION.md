@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: cloud-architecture/08-COST-OPTIMIZATION.md
 canonical_path: cloud-architecture/08-COST-OPTIMIZATION.md
-backsource_ids: [proof-backfill:cloud-architecture:08-cost-optimization, git-history:cloud-architecture:08-cost-optimization]
+backsource_ids: [mdloom-backfill:cloud-architecture:08-cost-optimization, git-history:cloud-architecture:08-cost-optimization]
 concepts: [cost, optimization]
 root_concepts: [cost, optimization]
 index_roles: [guide, root-concept]

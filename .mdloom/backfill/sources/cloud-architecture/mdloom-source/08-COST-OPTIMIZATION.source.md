@@ -2,7 +2,7 @@
 tags: [backfill]
 ops: [backfill]
 content_tags: [markdown]
-proof_original: "08-COST-OPTIMIZATION.md"
+mdloom_original: "08-COST-OPTIMIZATION.md"
 ---
 ---
 maxim_schema: maxim.frontmatter.v1
@@ -72,7 +72,7 @@ THREE PHASES (continuous cycle):
 
 ---
 
-## Reserved Instances and Savings Plans
+## Reserved Instances and Azure Savings Plans
 
 The single highest-impact cost optimization for stable workloads.
 
@@ -118,9 +118,9 @@ AZURE HYBRID BENEFIT:
     → Azure SQL DB, SQL MI, SQL VM: SQL license included at no extra cost
     → Massive savings for SQL Server workloads (SQL licenses are expensive)
 
-SAVINGS PLANS (Azure):
-  Like a Reserved Instance but flexible across instance types
-  Commit to spend $X per hour
+AZURE SAVINGS PLAN FOR COMPUTE:
+  Like a Reserved VM Instance but flexible across eligible compute families
+  Commit to spend $X per hour (AWS brands the parallel product "Savings Plans")
   Applies to: VMs, Container Apps, AKS, Functions Premium, App Service
   Discount: up to 65% vs. pay-as-you-go
   Trade-off vs. RI: less discount than RI, but applies to any VM size/family
@@ -379,4 +379,4 @@ Retrofitting tags onto 10,000 resources is painful and error-prone. Enforce tags
 | Why product/team cost is unknown | Tag governance plus Azure Policy enforcement | Tags work only when ownership and chargeback rules are enforced at creation time. |
 | Why a bill spike appeared | Cost Management anomaly detection and alerts | Alerts need accountable responders and expected baselines. |
 | Whether a VM is oversized | Azure Advisor right-size recommendation | CPU alone is insufficient; check memory, I/O, latency, and burst patterns. |
-| Whether budget planning needs commitment instruments | Savings Plans plus TCO Calculator | Three-year planning should model workload change, not just today's run rate. |
+| Whether budget planning needs commitment instruments | Azure Savings Plan / RIs plus TCO Calculator | Three-year planning should model workload change, not just today's run rate. |

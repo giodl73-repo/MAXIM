@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: disease/07-AUTOIMMUNE-INFLAMMATORY.md
 canonical_path: disease/07-AUTOIMMUNE-INFLAMMATORY.md
-backsource_ids: [proof-backfill:disease:07-autoimmune-inflammatory, git-history:disease:07-autoimmune-inflammatory]
+backsource_ids: [mdloom-backfill:disease:07-autoimmune-inflammatory, git-history:disease:07-autoimmune-inflammatory]
 concepts: [autoimmune, inflammatory]
 root_concepts: [autoimmune, inflammatory]
 index_roles: [guide, root-concept]

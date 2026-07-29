@@ -31,7 +31,7 @@ updated: null
 | MDLOOM confidence | `high` |
 | Round trip | `passed` |
 | Structured extraction | `1` markdown tables, `4` visual/block candidates |
-| Git provenance | `af46d861`, `578235d5`, `4941b140`, `c3d7a740`, `46bf1738`, `9f69deaa` |
+| Git provenance | `bdee980c`, `af46d861`, `578235d5`, `4941b140`, `c3d7a740`, `46bf1738`, `9f69deaa` |
 
 ## Custody note
 

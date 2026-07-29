@@ -4,7 +4,7 @@
   "registry_id": "maxim-disease-source-corpus",
   "fletches": [
     {
-      "id": "maxim.disease.source-corpus.pebble",
+      "id": "maxim.disease.source-corpus.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -14,12 +14,112 @@
       ],
       "edges": [
         {
-          "to": "maxim-disease-source-corpus",
+          "to": "maxim.disease.overview.mdport",
           "kind": "derived-from",
-          "label": "MDCROP view recipe",
+          "label": "Full guide MDLOOM Mdport",
           "metadata": {
-            "view": ".mdcrop/views/maxim-disease-source-corpus.json",
             "module": "disease",
+            "guide": "disease/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.disease.bacterial.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "disease",
+            "guide": "disease/01-BACTERIAL.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.disease.viral.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "disease",
+            "guide": "disease/02-VIRAL.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.disease.fungal-parasitic-prion.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "disease",
+            "guide": "disease/03-FUNGAL-PARASITIC-PRION.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.disease.cancer.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "disease",
+            "guide": "disease/04-CANCER.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.disease.cardiovascular-disease.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "disease",
+            "guide": "disease/05-CARDIOVASCULAR-DISEASE.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.disease.metabolic-endocrine.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "disease",
+            "guide": "disease/06-METABOLIC-ENDOCRINE.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.disease.autoimmune-inflammatory.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "disease",
+            "guide": "disease/07-AUTOIMMUNE-INFLAMMATORY.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.disease.neurological-psychiatric.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "disease",
+            "guide": "disease/08-NEUROLOGICAL-PSYCHIATRIC.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.disease.genetic-developmental.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "disease",
+            "guide": "disease/09-GENETIC-DEVELOPMENTAL.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.disease.epidemiology.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "disease",
+            "guide": "disease/10-EPIDEMIOLOGY.md",
             "custody": "partial"
           }
         }
@@ -35,14 +135,15 @@
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-module",
         "partial-custody"
       ],
       "metadata": {
         "source_repo": "MAXIM",
         "module": "disease",
-        "distribution": "FLETCH fetch/cache surface for downstream repos",
+        "distribution": "FLETCH full-module publication surface for downstream repos",
         "publication_state": "partial-source-custody"
       }
     },
@@ -57,9 +158,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.disease.source-corpus.pebble",
+          "to": "maxim.disease.overview.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "disease",
             "guide": "disease/00-OVERVIEW.md",
@@ -91,7 +192,7 @@
       }
     },
     {
-      "id": "maxim.disease.overview.pebble",
+      "id": "maxim.disease.overview.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -101,21 +202,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.disease.overview.view",
+          "to": "maxim.disease.overview.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "disease",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.disease.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-disease-overview.json",
-            "module": "disease",
+            "guide": "disease/00-OVERVIEW.md",
             "custody": "partial"
           }
         }
@@ -126,13 +218,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-disease-overview.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -175,7 +268,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -219,7 +312,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -263,7 +356,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -286,9 +379,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.disease.source-corpus.pebble",
+          "to": "maxim.disease.bacterial.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "disease",
             "guide": "disease/01-BACTERIAL.md",
@@ -320,7 +413,7 @@
       }
     },
     {
-      "id": "maxim.disease.bacterial.pebble",
+      "id": "maxim.disease.bacterial.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -330,21 +423,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.disease.bacterial.view",
+          "to": "maxim.disease.bacterial.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "disease",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.disease.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-disease-bacterial.json",
-            "module": "disease",
+            "guide": "disease/01-BACTERIAL.md",
             "custody": "partial"
           }
         }
@@ -355,13 +439,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-disease-bacterial.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -404,7 +489,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -448,7 +533,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -492,7 +577,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -515,9 +600,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.disease.source-corpus.pebble",
+          "to": "maxim.disease.viral.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "disease",
             "guide": "disease/02-VIRAL.md",
@@ -549,7 +634,7 @@
       }
     },
     {
-      "id": "maxim.disease.viral.pebble",
+      "id": "maxim.disease.viral.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -559,21 +644,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.disease.viral.view",
+          "to": "maxim.disease.viral.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "disease",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.disease.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-disease-viral.json",
-            "module": "disease",
+            "guide": "disease/02-VIRAL.md",
             "custody": "partial"
           }
         }
@@ -584,13 +660,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-disease-viral.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -633,7 +710,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -677,7 +754,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -721,7 +798,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -744,9 +821,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.disease.source-corpus.pebble",
+          "to": "maxim.disease.fungal-parasitic-prion.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "disease",
             "guide": "disease/03-FUNGAL-PARASITIC-PRION.md",
@@ -778,7 +855,7 @@
       }
     },
     {
-      "id": "maxim.disease.fungal-parasitic-prion.pebble",
+      "id": "maxim.disease.fungal-parasitic-prion.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -788,21 +865,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.disease.fungal-parasitic-prion.view",
+          "to": "maxim.disease.fungal-parasitic-prion.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "disease",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.disease.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-disease-fungal-parasitic-prion.json",
-            "module": "disease",
+            "guide": "disease/03-FUNGAL-PARASITIC-PRION.md",
             "custody": "partial"
           }
         }
@@ -813,13 +881,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-disease-fungal-parasitic-prion.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -862,7 +931,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -906,7 +975,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -950,7 +1019,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -973,9 +1042,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.disease.source-corpus.pebble",
+          "to": "maxim.disease.cancer.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "disease",
             "guide": "disease/04-CANCER.md",
@@ -1007,7 +1076,7 @@
       }
     },
     {
-      "id": "maxim.disease.cancer.pebble",
+      "id": "maxim.disease.cancer.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -1017,21 +1086,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.disease.cancer.view",
+          "to": "maxim.disease.cancer.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "disease",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.disease.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-disease-cancer.json",
-            "module": "disease",
+            "guide": "disease/04-CANCER.md",
             "custody": "partial"
           }
         }
@@ -1042,13 +1102,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-disease-cancer.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -1091,7 +1152,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -1135,7 +1196,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -1179,7 +1240,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -1202,9 +1263,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.disease.source-corpus.pebble",
+          "to": "maxim.disease.cardiovascular-disease.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "disease",
             "guide": "disease/05-CARDIOVASCULAR-DISEASE.md",
@@ -1236,7 +1297,7 @@
       }
     },
     {
-      "id": "maxim.disease.cardiovascular-disease.pebble",
+      "id": "maxim.disease.cardiovascular-disease.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -1246,21 +1307,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.disease.cardiovascular-disease.view",
+          "to": "maxim.disease.cardiovascular-disease.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "disease",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.disease.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-disease-cardiovascular-disease.json",
-            "module": "disease",
+            "guide": "disease/05-CARDIOVASCULAR-DISEASE.md",
             "custody": "partial"
           }
         }
@@ -1271,13 +1323,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-disease-cardiovascular-disease.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -1320,7 +1373,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -1364,7 +1417,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -1408,7 +1461,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -1431,9 +1484,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.disease.source-corpus.pebble",
+          "to": "maxim.disease.metabolic-endocrine.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "disease",
             "guide": "disease/06-METABOLIC-ENDOCRINE.md",
@@ -1465,7 +1518,7 @@
       }
     },
     {
-      "id": "maxim.disease.metabolic-endocrine.pebble",
+      "id": "maxim.disease.metabolic-endocrine.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -1475,21 +1528,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.disease.metabolic-endocrine.view",
+          "to": "maxim.disease.metabolic-endocrine.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "disease",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.disease.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-disease-metabolic-endocrine.json",
-            "module": "disease",
+            "guide": "disease/06-METABOLIC-ENDOCRINE.md",
             "custody": "partial"
           }
         }
@@ -1500,13 +1544,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-disease-metabolic-endocrine.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -1549,7 +1594,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -1593,7 +1638,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -1637,7 +1682,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -1660,9 +1705,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.disease.source-corpus.pebble",
+          "to": "maxim.disease.autoimmune-inflammatory.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "disease",
             "guide": "disease/07-AUTOIMMUNE-INFLAMMATORY.md",
@@ -1694,7 +1739,7 @@
       }
     },
     {
-      "id": "maxim.disease.autoimmune-inflammatory.pebble",
+      "id": "maxim.disease.autoimmune-inflammatory.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -1704,21 +1749,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.disease.autoimmune-inflammatory.view",
+          "to": "maxim.disease.autoimmune-inflammatory.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "disease",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.disease.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-disease-autoimmune-inflammatory.json",
-            "module": "disease",
+            "guide": "disease/07-AUTOIMMUNE-INFLAMMATORY.md",
             "custody": "partial"
           }
         }
@@ -1729,13 +1765,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-disease-autoimmune-inflammatory.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -1778,7 +1815,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -1822,7 +1859,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -1866,7 +1903,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -1889,9 +1926,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.disease.source-corpus.pebble",
+          "to": "maxim.disease.neurological-psychiatric.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "disease",
             "guide": "disease/08-NEUROLOGICAL-PSYCHIATRIC.md",
@@ -1923,7 +1960,7 @@
       }
     },
     {
-      "id": "maxim.disease.neurological-psychiatric.pebble",
+      "id": "maxim.disease.neurological-psychiatric.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -1933,21 +1970,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.disease.neurological-psychiatric.view",
+          "to": "maxim.disease.neurological-psychiatric.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "disease",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.disease.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-disease-neurological-psychiatric.json",
-            "module": "disease",
+            "guide": "disease/08-NEUROLOGICAL-PSYCHIATRIC.md",
             "custody": "partial"
           }
         }
@@ -1958,13 +1986,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-disease-neurological-psychiatric.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -2007,7 +2036,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -2051,7 +2080,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -2095,7 +2124,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -2118,9 +2147,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.disease.source-corpus.pebble",
+          "to": "maxim.disease.genetic-developmental.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "disease",
             "guide": "disease/09-GENETIC-DEVELOPMENTAL.md",
@@ -2152,7 +2181,7 @@
       }
     },
     {
-      "id": "maxim.disease.genetic-developmental.pebble",
+      "id": "maxim.disease.genetic-developmental.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -2162,21 +2191,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.disease.genetic-developmental.view",
+          "to": "maxim.disease.genetic-developmental.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "disease",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.disease.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-disease-genetic-developmental.json",
-            "module": "disease",
+            "guide": "disease/09-GENETIC-DEVELOPMENTAL.md",
             "custody": "partial"
           }
         }
@@ -2187,13 +2207,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-disease-genetic-developmental.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -2236,7 +2257,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -2280,7 +2301,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -2324,7 +2345,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -2347,9 +2368,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.disease.source-corpus.pebble",
+          "to": "maxim.disease.epidemiology.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "disease",
             "guide": "disease/10-EPIDEMIOLOGY.md",
@@ -2381,7 +2402,7 @@
       }
     },
     {
-      "id": "maxim.disease.epidemiology.pebble",
+      "id": "maxim.disease.epidemiology.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -2391,21 +2412,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.disease.epidemiology.view",
+          "to": "maxim.disease.epidemiology.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "disease",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.disease.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-disease-epidemiology.json",
-            "module": "disease",
+            "guide": "disease/10-EPIDEMIOLOGY.md",
             "custody": "partial"
           }
         }
@@ -2416,13 +2428,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-disease-epidemiology.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -2465,7 +2478,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -2509,7 +2522,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -2553,7 +2566,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"

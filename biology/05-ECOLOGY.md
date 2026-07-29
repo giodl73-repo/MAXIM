@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: biology/05-ECOLOGY.md
 canonical_path: biology/05-ECOLOGY.md
-backsource_ids: [proof-backfill:biology:05-ecology, git-history:biology:05-ecology]
+backsource_ids: [mdloom-backfill:biology:05-ecology, git-history:biology:05-ecology]
 concepts: [ecology]
 root_concepts: [ecology]
 index_roles: [guide, root-concept]

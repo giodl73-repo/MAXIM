@@ -74,7 +74,7 @@
       "line": 202,
       "heading_context": "### Terms",
       "confidence": "candidate",
-      "text": "TIME\n----+------+--------+--------+------+----+------+----->\n   election election  normal  elec  split normal\n    term 1   term 2  term 2  fail  vote  term 4\n         |        |\n       leader   leader\n       elected  elected\n\n- Time is divided into terms (monotonically increasing integers)\n- Each term begins with an election\n- At most one leader per term\n- Terms act as logical clocks — stale leaders have old term numbers",
+      "text": "TIME\n----+-----------+------------+-------------+-----------+------------>\n term 1        term 2       term 3        term 4\n election→     leader       split vote    election→\n leader        serves;      (no leader;   new leader\n              then timeout  term unused)  serves\n                 |                           |\n              leader fails              leader elected\n\n- Time is divided into terms (monotonically increasing integers)\n- Each term begins with an election; a term may elect no leader (split vote)\n- At most one leader per term\n- Terms act as logical clocks — stale leaders have old term numbers",
       "notes": [
         "fenced visual/source block"
       ]
@@ -82,7 +82,7 @@
     {
       "id": "block-8",
       "kind": "diagram_like",
-      "line": 219,
+      "line": 220,
       "heading_context": "### Leader Election",
       "confidence": "candidate",
       "text": "All nodes start as FOLLOWERS\n  |\n  | election timeout expires (150–300ms, randomized)\n  v\nBecome CANDIDATE\n  |\n  | increment term, vote for self\n  | send RequestVote RPC to all nodes\n  v\n  Receive votes from quorum? ──Yes──> Become LEADER\n        |                               Send heartbeats\n        No (split vote or\n            higher term seen)\n        |\n        v\n  Return to FOLLOWER, wait for next timeout",
@@ -93,7 +93,7 @@
     {
       "id": "block-9",
       "kind": "diagram_like",
-      "line": 246,
+      "line": 247,
       "heading_context": "### Log Replication",
       "confidence": "candidate",
       "text": "CLIENT REQUEST\n     |\n     | write to leader\n     v\nLEADER appends entry to local log (uncommitted)\n     |\n     | AppendEntries RPC (new entry + previous entry info)\n     v\nFOLLOWERS append entry to their logs\n     |\n     | acknowledgment from quorum\n     v\nLEADER commits entry (advances commitIndex)\n     |\n     | next AppendEntries tells followers about commit\n     v\nFOLLOWERS commit entry → apply to state machine\n     |\n     | applied → respond to client",
@@ -104,7 +104,7 @@
     {
       "id": "block-10",
       "kind": "ascii_table_candidate",
-      "line": 347,
+      "line": 348,
       "heading_context": "## etcd: Kubernetes Control Plane",
       "confidence": "candidate",
       "text": "KUBERNETES CONTROL PLANE\n+----------------------------------------------------------+\n| API Server | Scheduler | Controller Manager              |\n+----------------------------------------------------------+\n                         |\n                    reads/writes\n                         |\n                         v\n              +---------------------+\n              |        etcd         |\n              |   (Raft cluster,    |\n              |   typically 3 or 5) |\n              +---------------------+\n              Leader handles writes.\n              Followers handle reads (by default via leader forwarding).\n              etcd MUST have quorum — losing majority = cluster down.",

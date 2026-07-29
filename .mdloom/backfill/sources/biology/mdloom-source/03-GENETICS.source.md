@@ -2,7 +2,7 @@
 tags: [backfill]
 ops: [backfill]
 content_tags: [markdown]
-proof_original: "03-GENETICS.md"
+mdloom_original: "03-GENETICS.md"
 ---
 ---
 maxim_schema: maxim.frontmatter.v1

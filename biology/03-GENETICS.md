@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: biology/03-GENETICS.md
 canonical_path: biology/03-GENETICS.md
-backsource_ids: [proof-backfill:biology:03-genetics, git-history:biology:03-genetics]
+backsource_ids: [mdloom-backfill:biology:03-genetics, git-history:biology:03-genetics]
 concepts: [genetics]
 root_concepts: [genetics]
 index_roles: [guide, root-concept]

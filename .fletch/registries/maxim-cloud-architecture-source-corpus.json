@@ -4,7 +4,7 @@
   "registry_id": "maxim-cloud-architecture-source-corpus",
   "fletches": [
     {
-      "id": "maxim.cloud-architecture.source-corpus.pebble",
+      "id": "maxim.cloud-architecture.source-corpus.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -14,12 +14,102 @@
       ],
       "edges": [
         {
-          "to": "maxim-cloud-architecture-source-corpus",
+          "to": "maxim.cloud-architecture.overview.mdport",
           "kind": "derived-from",
-          "label": "MDCROP view recipe",
+          "label": "Full guide MDLOOM Mdport",
           "metadata": {
-            "view": ".mdcrop/views/maxim-cloud-architecture-source-corpus.json",
             "module": "cloud-architecture",
+            "guide": "cloud-architecture/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.cloud-architecture.cloud-models.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "cloud-architecture",
+            "guide": "cloud-architecture/01-CLOUD-MODELS.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.cloud-architecture.compute-patterns.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "cloud-architecture",
+            "guide": "cloud-architecture/02-COMPUTE-PATTERNS.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.cloud-architecture.storage-patterns.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "cloud-architecture",
+            "guide": "cloud-architecture/03-STORAGE-PATTERNS.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.cloud-architecture.networking.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "cloud-architecture",
+            "guide": "cloud-architecture/04-NETWORKING.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.cloud-architecture.microservices.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "cloud-architecture",
+            "guide": "cloud-architecture/05-MICROSERVICES.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.cloud-architecture.serverless.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "cloud-architecture",
+            "guide": "cloud-architecture/06-SERVERLESS.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.cloud-architecture.data-platforms.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "cloud-architecture",
+            "guide": "cloud-architecture/07-DATA-PLATFORMS.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.cloud-architecture.cost-optimization.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "cloud-architecture",
+            "guide": "cloud-architecture/08-COST-OPTIMIZATION.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.cloud-architecture.multi-cloud.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "cloud-architecture",
+            "guide": "cloud-architecture/09-MULTI-CLOUD.md",
             "custody": "partial"
           }
         }
@@ -35,14 +125,15 @@
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-module",
         "partial-custody"
       ],
       "metadata": {
         "source_repo": "MAXIM",
         "module": "cloud-architecture",
-        "distribution": "FLETCH fetch/cache surface for downstream repos",
+        "distribution": "FLETCH full-module publication surface for downstream repos",
         "publication_state": "partial-source-custody"
       }
     },
@@ -57,9 +148,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.cloud-architecture.source-corpus.pebble",
+          "to": "maxim.cloud-architecture.overview.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "cloud-architecture",
             "guide": "cloud-architecture/00-OVERVIEW.md",
@@ -91,7 +182,7 @@
       }
     },
     {
-      "id": "maxim.cloud-architecture.overview.pebble",
+      "id": "maxim.cloud-architecture.overview.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -101,21 +192,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.cloud-architecture.overview.view",
+          "to": "maxim.cloud-architecture.overview.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "cloud-architecture",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.cloud-architecture.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-cloud-architecture-overview.json",
-            "module": "cloud-architecture",
+            "guide": "cloud-architecture/00-OVERVIEW.md",
             "custody": "partial"
           }
         }
@@ -126,13 +208,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-cloud-architecture-overview.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -175,7 +258,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -219,7 +302,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -263,7 +346,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -286,9 +369,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.cloud-architecture.source-corpus.pebble",
+          "to": "maxim.cloud-architecture.cloud-models.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "cloud-architecture",
             "guide": "cloud-architecture/01-CLOUD-MODELS.md",
@@ -320,7 +403,7 @@
       }
     },
     {
-      "id": "maxim.cloud-architecture.cloud-models.pebble",
+      "id": "maxim.cloud-architecture.cloud-models.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -330,21 +413,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.cloud-architecture.cloud-models.view",
+          "to": "maxim.cloud-architecture.cloud-models.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "cloud-architecture",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.cloud-architecture.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-cloud-architecture-cloud-models.json",
-            "module": "cloud-architecture",
+            "guide": "cloud-architecture/01-CLOUD-MODELS.md",
             "custody": "partial"
           }
         }
@@ -355,13 +429,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-cloud-architecture-cloud-models.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -404,7 +479,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -448,7 +523,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -492,7 +567,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -515,9 +590,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.cloud-architecture.source-corpus.pebble",
+          "to": "maxim.cloud-architecture.compute-patterns.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "cloud-architecture",
             "guide": "cloud-architecture/02-COMPUTE-PATTERNS.md",
@@ -549,7 +624,7 @@
       }
     },
     {
-      "id": "maxim.cloud-architecture.compute-patterns.pebble",
+      "id": "maxim.cloud-architecture.compute-patterns.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -559,21 +634,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.cloud-architecture.compute-patterns.view",
+          "to": "maxim.cloud-architecture.compute-patterns.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "cloud-architecture",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.cloud-architecture.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-cloud-architecture-compute-patterns.json",
-            "module": "cloud-architecture",
+            "guide": "cloud-architecture/02-COMPUTE-PATTERNS.md",
             "custody": "partial"
           }
         }
@@ -584,13 +650,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-cloud-architecture-compute-patterns.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -633,7 +700,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -677,7 +744,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -721,7 +788,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -744,9 +811,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.cloud-architecture.source-corpus.pebble",
+          "to": "maxim.cloud-architecture.storage-patterns.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "cloud-architecture",
             "guide": "cloud-architecture/03-STORAGE-PATTERNS.md",
@@ -778,7 +845,7 @@
       }
     },
     {
-      "id": "maxim.cloud-architecture.storage-patterns.pebble",
+      "id": "maxim.cloud-architecture.storage-patterns.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -788,21 +855,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.cloud-architecture.storage-patterns.view",
+          "to": "maxim.cloud-architecture.storage-patterns.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "cloud-architecture",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.cloud-architecture.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-cloud-architecture-storage-patterns.json",
-            "module": "cloud-architecture",
+            "guide": "cloud-architecture/03-STORAGE-PATTERNS.md",
             "custody": "partial"
           }
         }
@@ -813,13 +871,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-cloud-architecture-storage-patterns.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -862,7 +921,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -906,7 +965,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -950,7 +1009,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -973,9 +1032,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.cloud-architecture.source-corpus.pebble",
+          "to": "maxim.cloud-architecture.networking.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "cloud-architecture",
             "guide": "cloud-architecture/04-NETWORKING.md",
@@ -1007,7 +1066,7 @@
       }
     },
     {
-      "id": "maxim.cloud-architecture.networking.pebble",
+      "id": "maxim.cloud-architecture.networking.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -1017,21 +1076,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.cloud-architecture.networking.view",
+          "to": "maxim.cloud-architecture.networking.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "cloud-architecture",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.cloud-architecture.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-cloud-architecture-networking.json",
-            "module": "cloud-architecture",
+            "guide": "cloud-architecture/04-NETWORKING.md",
             "custody": "partial"
           }
         }
@@ -1042,13 +1092,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-cloud-architecture-networking.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -1091,7 +1142,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -1135,7 +1186,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -1179,7 +1230,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -1202,9 +1253,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.cloud-architecture.source-corpus.pebble",
+          "to": "maxim.cloud-architecture.microservices.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "cloud-architecture",
             "guide": "cloud-architecture/05-MICROSERVICES.md",
@@ -1236,7 +1287,7 @@
       }
     },
     {
-      "id": "maxim.cloud-architecture.microservices.pebble",
+      "id": "maxim.cloud-architecture.microservices.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -1246,21 +1297,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.cloud-architecture.microservices.view",
+          "to": "maxim.cloud-architecture.microservices.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "cloud-architecture",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.cloud-architecture.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-cloud-architecture-microservices.json",
-            "module": "cloud-architecture",
+            "guide": "cloud-architecture/05-MICROSERVICES.md",
             "custody": "partial"
           }
         }
@@ -1271,13 +1313,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-cloud-architecture-microservices.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -1320,7 +1363,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -1364,7 +1407,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -1408,7 +1451,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -1431,9 +1474,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.cloud-architecture.source-corpus.pebble",
+          "to": "maxim.cloud-architecture.serverless.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "cloud-architecture",
             "guide": "cloud-architecture/06-SERVERLESS.md",
@@ -1465,7 +1508,7 @@
       }
     },
     {
-      "id": "maxim.cloud-architecture.serverless.pebble",
+      "id": "maxim.cloud-architecture.serverless.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -1475,21 +1518,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.cloud-architecture.serverless.view",
+          "to": "maxim.cloud-architecture.serverless.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "cloud-architecture",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.cloud-architecture.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-cloud-architecture-serverless.json",
-            "module": "cloud-architecture",
+            "guide": "cloud-architecture/06-SERVERLESS.md",
             "custody": "partial"
           }
         }
@@ -1500,13 +1534,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-cloud-architecture-serverless.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -1549,7 +1584,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -1593,7 +1628,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -1637,7 +1672,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -1660,9 +1695,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.cloud-architecture.source-corpus.pebble",
+          "to": "maxim.cloud-architecture.data-platforms.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "cloud-architecture",
             "guide": "cloud-architecture/07-DATA-PLATFORMS.md",
@@ -1694,7 +1729,7 @@
       }
     },
     {
-      "id": "maxim.cloud-architecture.data-platforms.pebble",
+      "id": "maxim.cloud-architecture.data-platforms.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -1704,21 +1739,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.cloud-architecture.data-platforms.view",
+          "to": "maxim.cloud-architecture.data-platforms.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "cloud-architecture",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.cloud-architecture.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-cloud-architecture-data-platforms.json",
-            "module": "cloud-architecture",
+            "guide": "cloud-architecture/07-DATA-PLATFORMS.md",
             "custody": "partial"
           }
         }
@@ -1729,13 +1755,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-cloud-architecture-data-platforms.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -1778,7 +1805,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -1822,7 +1849,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -1866,7 +1893,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -1889,9 +1916,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.cloud-architecture.source-corpus.pebble",
+          "to": "maxim.cloud-architecture.cost-optimization.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "cloud-architecture",
             "guide": "cloud-architecture/08-COST-OPTIMIZATION.md",
@@ -1923,7 +1950,7 @@
       }
     },
     {
-      "id": "maxim.cloud-architecture.cost-optimization.pebble",
+      "id": "maxim.cloud-architecture.cost-optimization.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -1933,21 +1960,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.cloud-architecture.cost-optimization.view",
+          "to": "maxim.cloud-architecture.cost-optimization.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "cloud-architecture",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.cloud-architecture.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-cloud-architecture-cost-optimization.json",
-            "module": "cloud-architecture",
+            "guide": "cloud-architecture/08-COST-OPTIMIZATION.md",
             "custody": "partial"
           }
         }
@@ -1958,13 +1976,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-cloud-architecture-cost-optimization.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -2007,7 +2026,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -2051,7 +2070,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -2095,7 +2114,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -2118,9 +2137,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.cloud-architecture.source-corpus.pebble",
+          "to": "maxim.cloud-architecture.multi-cloud.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "cloud-architecture",
             "guide": "cloud-architecture/09-MULTI-CLOUD.md",
@@ -2152,7 +2171,7 @@
       }
     },
     {
-      "id": "maxim.cloud-architecture.multi-cloud.pebble",
+      "id": "maxim.cloud-architecture.multi-cloud.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -2162,21 +2181,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.cloud-architecture.multi-cloud.view",
+          "to": "maxim.cloud-architecture.multi-cloud.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "cloud-architecture",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.cloud-architecture.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-cloud-architecture-multi-cloud.json",
-            "module": "cloud-architecture",
+            "guide": "cloud-architecture/09-MULTI-CLOUD.md",
             "custody": "partial"
           }
         }
@@ -2187,13 +2197,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-cloud-architecture-multi-cloud.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -2236,7 +2247,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -2280,7 +2291,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -2324,7 +2335,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"

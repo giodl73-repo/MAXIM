@@ -2,7 +2,7 @@
 tags: [backfill]
 ops: [backfill]
 content_tags: [markdown]
-proof_original: "10-CONSENSUS-THEORY.md"
+mdloom_original: "10-CONSENSUS-THEORY.md"
 ---
 ---
 maxim_schema: maxim.frontmatter.v1
@@ -183,10 +183,10 @@ FLP ESCAPE ROUTES
 │                          │ alone; useful combined with       │
 │                          │ partial synchrony.                │
 ├──────────────────────────┼───────────────────────────────────┤
-│ Failure detectors        │ Chandra-Toueg (1996): weakest     │
-│                          │ failure detector ◇W that solves   │
-│                          │ consensus. Equivalent to partial  │
-│                          │ synchrony in practice.            │
+│ Failure detectors        │ Chandra-Toueg (1996): weakest FD  │
+│                          │ for consensus is ◇W (equiv. Ω).   │
+│                          │ Implements partial synchrony in   │
+│                          │ practice via eventual suspicion.  │
 ├──────────────────────────┼───────────────────────────────────┤
 │ No faults (0 crashes)    │ Trivially solvable — broadcast    │
 │                          │ and wait. Not useful in practice. │
@@ -345,7 +345,7 @@ Define: value v is *chosen at proposal number n* if a quorum of acceptors accept
 **Inductive step**: The proposer for m must complete Phase 1, collecting promises from a quorum Q_m. Since v was chosen at n, a quorum Q_n accepted (n, v). Quorums overlap (both are majorities), so Q_m and Q_n share at least one acceptor, say a. Acceptor a accepted (n, v) and promised to m. In its promise, a reports (n, v) as the highest-numbered accepted proposal. The proposer for m must adopt v (it uses the value from the highest-numbered accepted proposal among promises). Therefore, the proposal for m is (m, v).
 
 ```
-PAXOS SAFETY MDLOOM — QUORUM OVERLAP
+PAXOS SAFETY PROOF — QUORUM OVERLAP
 
    Quorum Q_n (accepted v at n)     Quorum Q_m (promised to m)
    ┌───────────────────────┐       ┌───────────────────────┐

@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: distributed-systems/05-DISTRIBUTED-TXN.md
 canonical_path: distributed-systems/05-DISTRIBUTED-TXN.md
-backsource_ids: [proof-backfill:distributed-systems:05-distributed-txn, git-history:distributed-systems:05-distributed-txn]
+backsource_ids: [mdloom-backfill:distributed-systems:05-distributed-txn, git-history:distributed-systems:05-distributed-txn]
 concepts: [distributed, txn]
 root_concepts: [distributed, txn]
 index_roles: [guide, root-concept]

@@ -4,7 +4,7 @@
   "registry_id": "maxim-genomics-source-corpus",
   "fletches": [
     {
-      "id": "maxim.genomics.source-corpus.pebble",
+      "id": "maxim.genomics.source-corpus.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -14,12 +14,102 @@
       ],
       "edges": [
         {
-          "to": "maxim-genomics-source-corpus",
+          "to": "maxim.genomics.overview.mdport",
           "kind": "derived-from",
-          "label": "MDCROP view recipe",
+          "label": "Full guide MDLOOM Mdport",
           "metadata": {
-            "view": ".mdcrop/views/maxim-genomics-source-corpus.json",
             "module": "genomics",
+            "guide": "genomics/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.genomics.sequencing-tech.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "genomics",
+            "guide": "genomics/01-SEQUENCING-TECH.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.genomics.genome-assembly.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "genomics",
+            "guide": "genomics/02-GENOME-ASSEMBLY.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.genomics.variant-calling.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "genomics",
+            "guide": "genomics/03-VARIANT-CALLING.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.genomics.gene-expression.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "genomics",
+            "guide": "genomics/04-GENE-EXPRESSION.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.genomics.epigenomics.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "genomics",
+            "guide": "genomics/05-EPIGENOMICS.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.genomics.gwas.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "genomics",
+            "guide": "genomics/06-GWAS.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.genomics.crispr.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "genomics",
+            "guide": "genomics/07-CRISPR.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.genomics.bioinformatics-pipeline.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "genomics",
+            "guide": "genomics/08-BIOINFORMATICS-PIPELINE.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.genomics.personalized-medicine.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "genomics",
+            "guide": "genomics/09-PERSONALIZED-MEDICINE.md",
             "custody": "partial"
           }
         }
@@ -35,14 +125,15 @@
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-module",
         "partial-custody"
       ],
       "metadata": {
         "source_repo": "MAXIM",
         "module": "genomics",
-        "distribution": "FLETCH fetch/cache surface for downstream repos",
+        "distribution": "FLETCH full-module publication surface for downstream repos",
         "publication_state": "partial-source-custody"
       }
     },
@@ -57,9 +148,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.genomics.source-corpus.pebble",
+          "to": "maxim.genomics.overview.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "genomics",
             "guide": "genomics/00-OVERVIEW.md",
@@ -91,7 +182,7 @@
       }
     },
     {
-      "id": "maxim.genomics.overview.pebble",
+      "id": "maxim.genomics.overview.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -101,21 +192,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.genomics.overview.view",
+          "to": "maxim.genomics.overview.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "genomics",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.genomics.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-genomics-overview.json",
-            "module": "genomics",
+            "guide": "genomics/00-OVERVIEW.md",
             "custody": "partial"
           }
         }
@@ -126,13 +208,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-genomics-overview.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -175,7 +258,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -219,7 +302,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -263,7 +346,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -286,9 +369,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.genomics.source-corpus.pebble",
+          "to": "maxim.genomics.sequencing-tech.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "genomics",
             "guide": "genomics/01-SEQUENCING-TECH.md",
@@ -320,7 +403,7 @@
       }
     },
     {
-      "id": "maxim.genomics.sequencing-tech.pebble",
+      "id": "maxim.genomics.sequencing-tech.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -330,21 +413,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.genomics.sequencing-tech.view",
+          "to": "maxim.genomics.sequencing-tech.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "genomics",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.genomics.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-genomics-sequencing-tech.json",
-            "module": "genomics",
+            "guide": "genomics/01-SEQUENCING-TECH.md",
             "custody": "partial"
           }
         }
@@ -355,13 +429,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-genomics-sequencing-tech.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -404,7 +479,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -448,7 +523,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -492,7 +567,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -515,9 +590,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.genomics.source-corpus.pebble",
+          "to": "maxim.genomics.genome-assembly.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "genomics",
             "guide": "genomics/02-GENOME-ASSEMBLY.md",
@@ -549,7 +624,7 @@
       }
     },
     {
-      "id": "maxim.genomics.genome-assembly.pebble",
+      "id": "maxim.genomics.genome-assembly.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -559,21 +634,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.genomics.genome-assembly.view",
+          "to": "maxim.genomics.genome-assembly.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "genomics",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.genomics.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-genomics-genome-assembly.json",
-            "module": "genomics",
+            "guide": "genomics/02-GENOME-ASSEMBLY.md",
             "custody": "partial"
           }
         }
@@ -584,13 +650,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-genomics-genome-assembly.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -633,7 +700,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -677,7 +744,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -721,7 +788,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -744,9 +811,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.genomics.source-corpus.pebble",
+          "to": "maxim.genomics.variant-calling.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "genomics",
             "guide": "genomics/03-VARIANT-CALLING.md",
@@ -778,7 +845,7 @@
       }
     },
     {
-      "id": "maxim.genomics.variant-calling.pebble",
+      "id": "maxim.genomics.variant-calling.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -788,21 +855,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.genomics.variant-calling.view",
+          "to": "maxim.genomics.variant-calling.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "genomics",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.genomics.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-genomics-variant-calling.json",
-            "module": "genomics",
+            "guide": "genomics/03-VARIANT-CALLING.md",
             "custody": "partial"
           }
         }
@@ -813,13 +871,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-genomics-variant-calling.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -862,7 +921,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -906,7 +965,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -950,7 +1009,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -973,9 +1032,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.genomics.source-corpus.pebble",
+          "to": "maxim.genomics.gene-expression.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "genomics",
             "guide": "genomics/04-GENE-EXPRESSION.md",
@@ -1007,7 +1066,7 @@
       }
     },
     {
-      "id": "maxim.genomics.gene-expression.pebble",
+      "id": "maxim.genomics.gene-expression.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -1017,21 +1076,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.genomics.gene-expression.view",
+          "to": "maxim.genomics.gene-expression.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "genomics",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.genomics.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-genomics-gene-expression.json",
-            "module": "genomics",
+            "guide": "genomics/04-GENE-EXPRESSION.md",
             "custody": "partial"
           }
         }
@@ -1042,13 +1092,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-genomics-gene-expression.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -1091,7 +1142,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -1135,7 +1186,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -1179,7 +1230,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -1202,9 +1253,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.genomics.source-corpus.pebble",
+          "to": "maxim.genomics.epigenomics.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "genomics",
             "guide": "genomics/05-EPIGENOMICS.md",
@@ -1236,7 +1287,7 @@
       }
     },
     {
-      "id": "maxim.genomics.epigenomics.pebble",
+      "id": "maxim.genomics.epigenomics.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -1246,21 +1297,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.genomics.epigenomics.view",
+          "to": "maxim.genomics.epigenomics.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "genomics",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.genomics.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-genomics-epigenomics.json",
-            "module": "genomics",
+            "guide": "genomics/05-EPIGENOMICS.md",
             "custody": "partial"
           }
         }
@@ -1271,13 +1313,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-genomics-epigenomics.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -1320,7 +1363,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -1364,7 +1407,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -1408,7 +1451,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -1431,9 +1474,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.genomics.source-corpus.pebble",
+          "to": "maxim.genomics.gwas.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "genomics",
             "guide": "genomics/06-GWAS.md",
@@ -1465,7 +1508,7 @@
       }
     },
     {
-      "id": "maxim.genomics.gwas.pebble",
+      "id": "maxim.genomics.gwas.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -1475,21 +1518,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.genomics.gwas.view",
+          "to": "maxim.genomics.gwas.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "genomics",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.genomics.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-genomics-gwas.json",
-            "module": "genomics",
+            "guide": "genomics/06-GWAS.md",
             "custody": "partial"
           }
         }
@@ -1500,13 +1534,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-genomics-gwas.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -1549,7 +1584,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -1593,7 +1628,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -1637,7 +1672,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -1660,9 +1695,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.genomics.source-corpus.pebble",
+          "to": "maxim.genomics.crispr.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "genomics",
             "guide": "genomics/07-CRISPR.md",
@@ -1694,7 +1729,7 @@
       }
     },
     {
-      "id": "maxim.genomics.crispr.pebble",
+      "id": "maxim.genomics.crispr.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -1704,21 +1739,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.genomics.crispr.view",
+          "to": "maxim.genomics.crispr.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "genomics",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.genomics.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-genomics-crispr.json",
-            "module": "genomics",
+            "guide": "genomics/07-CRISPR.md",
             "custody": "partial"
           }
         }
@@ -1729,13 +1755,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-genomics-crispr.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -1778,7 +1805,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -1822,7 +1849,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -1866,7 +1893,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -1889,9 +1916,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.genomics.source-corpus.pebble",
+          "to": "maxim.genomics.bioinformatics-pipeline.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "genomics",
             "guide": "genomics/08-BIOINFORMATICS-PIPELINE.md",
@@ -1923,7 +1950,7 @@
       }
     },
     {
-      "id": "maxim.genomics.bioinformatics-pipeline.pebble",
+      "id": "maxim.genomics.bioinformatics-pipeline.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -1933,21 +1960,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.genomics.bioinformatics-pipeline.view",
+          "to": "maxim.genomics.bioinformatics-pipeline.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "genomics",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.genomics.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-genomics-bioinformatics-pipeline.json",
-            "module": "genomics",
+            "guide": "genomics/08-BIOINFORMATICS-PIPELINE.md",
             "custody": "partial"
           }
         }
@@ -1958,13 +1976,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-genomics-bioinformatics-pipeline.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -2007,7 +2026,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -2051,7 +2070,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -2095,7 +2114,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -2118,9 +2137,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.genomics.source-corpus.pebble",
+          "to": "maxim.genomics.personalized-medicine.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "genomics",
             "guide": "genomics/09-PERSONALIZED-MEDICINE.md",
@@ -2152,7 +2171,7 @@
       }
     },
     {
-      "id": "maxim.genomics.personalized-medicine.pebble",
+      "id": "maxim.genomics.personalized-medicine.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -2162,21 +2181,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.genomics.personalized-medicine.view",
+          "to": "maxim.genomics.personalized-medicine.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "genomics",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.genomics.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-genomics-personalized-medicine.json",
-            "module": "genomics",
+            "guide": "genomics/09-PERSONALIZED-MEDICINE.md",
             "custody": "partial"
           }
         }
@@ -2187,13 +2197,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-genomics-personalized-medicine.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -2236,7 +2247,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -2280,7 +2291,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -2324,7 +2335,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"

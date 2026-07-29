@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: disease/00-OVERVIEW.md
 canonical_path: disease/00-OVERVIEW.md
-backsource_ids: [proof-backfill:disease:00-overview, git-history:disease:00-overview]
+backsource_ids: [mdloom-backfill:disease:00-overview, git-history:disease:00-overview]
 concepts: [overview]
 root_concepts: [overview]
 index_roles: [guide, root-concept]

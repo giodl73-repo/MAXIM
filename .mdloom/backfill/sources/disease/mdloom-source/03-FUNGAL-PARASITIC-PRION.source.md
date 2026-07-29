@@ -2,7 +2,7 @@
 tags: [backfill]
 ops: [backfill]
 content_tags: [markdown]
-proof_original: "03-FUNGAL-PARASITIC-PRION.md"
+mdloom_original: "03-FUNGAL-PARASITIC-PRION.md"
 ---
 ---
 maxim_schema: maxim.frontmatter.v1

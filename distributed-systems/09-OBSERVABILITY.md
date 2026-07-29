@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: distributed-systems/09-OBSERVABILITY.md
 canonical_path: distributed-systems/09-OBSERVABILITY.md
-backsource_ids: [proof-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]
+backsource_ids: [mdloom-backfill:distributed-systems:09-observability, git-history:distributed-systems:09-observability]
 concepts: [observability]
 root_concepts: [observability]
 index_roles: [guide, root-concept]

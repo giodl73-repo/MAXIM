@@ -2,7 +2,7 @@
 tags: [backfill]
 ops: [backfill]
 content_tags: [markdown]
-proof_original: "02-VIRAL.md"
+mdloom_original: "02-VIRAL.md"
 ---
 ---
 maxim_schema: maxim.frontmatter.v1
@@ -101,7 +101,9 @@ ANTIGENIC DRIFT: Point mutations in HA/NA → gradual change → seasonal flu va
 ANTIGENIC SHIFT: Reassortment between human + animal (avian/swine) flu strains
   → New HA/NA combination → no population immunity → PANDEMIC potential
   Requires co-infection of single cell (often pig: receptor for both avian and human strains)
-  1918 H1N1 ("Spanish flu"): ~50M deaths (highest death toll pandemic in history)
+  1918 H1N1 ("Spanish flu"): ~50M deaths (deadliest influenza pandemic; among the
+    highest single-wave death tolls in recorded history — Black Death and Justinianic
+    plague remain higher or comparable depending on estimate window)
   1957 H2N2, 1968 H3N2, 2009 H1N1 (swine) — all shifts
 
 PATHOGENESIS:

@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: disease/04-CANCER.md
 canonical_path: disease/04-CANCER.md
-backsource_ids: [proof-backfill:disease:04-cancer, git-history:disease:04-cancer]
+backsource_ids: [mdloom-backfill:disease:04-cancer, git-history:disease:04-cancer]
 concepts: [cancer]
 root_concepts: [cancer]
 index_roles: [guide, root-concept]

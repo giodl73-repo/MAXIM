@@ -7,8 +7,8 @@
   "frontmatter_contract": ".mdloom/backfill/frontmatter-contract.md",
   "frontmatter_scope": {
     "mode": "module-only",
-    "proof_output_default": "omit-frontmatter",
-    "proof_output_option": "allow-frontmatter-for-metadata-views",
+    "mdloom_output_default": "omit-frontmatter",
+    "mdloom_output_option": "allow-frontmatter-for-metadata-views",
     "required_kind_values": [
       "guide",
       "module-index",
@@ -31,7 +31,7 @@
       "distributed-systems/10-CONSENSUS-THEORY.md"
     ]
   },
-  "proof_scope": {
+  "mdloom_scope": {
     "config": "mdloom.toml",
     "include": [
       "distributed-systems/*.md"
@@ -40,9 +40,10 @@
       "distributed-systems/STATUS.md"
     ]
   },
-  "crop_view": ".crop/views/maxim-distributed-systems-source-corpus.json",
+  "crop_view": ".mdcrop/views/maxim-distributed-systems-source-corpus.json",
   "distribution": {
-    "pebble_pack": ".mdport/packs/maxim-distributed-systems-source-corpus.mdport.json",
+    "mdport_pack": ".mdport/packs/maxim-distributed-systems-source-corpus.mdport.json",
+    "mdport_pack_sections": 211,
     "guide_packs": [
       ".mdport/packs/maxim-distributed-systems-overview.mdport.json",
       ".mdport/packs/maxim-distributed-systems-cap-theorem.mdport.json",
@@ -56,6 +57,19 @@
       ".mdport/packs/maxim-distributed-systems-observability.mdport.json",
       ".mdport/packs/maxim-distributed-systems-consensus-theory.mdport.json"
     ],
+    "guide_pack_sections": {
+      "distributed-systems/00-OVERVIEW.md": 10,
+      "distributed-systems/01-CAP-THEOREM.md": 13,
+      "distributed-systems/02-CONSISTENCY-MODELS.md": 17,
+      "distributed-systems/03-CONSENSUS.md": 22,
+      "distributed-systems/04-REPLICATION.md": 17,
+      "distributed-systems/05-DISTRIBUTED-TXN.md": 18,
+      "distributed-systems/06-DISTRIBUTED-DB.md": 23,
+      "distributed-systems/07-MESSAGE-QUEUES.md": 17,
+      "distributed-systems/08-MICROSERVICES.md": 18,
+      "distributed-systems/09-OBSERVABILITY.md": 17,
+      "distributed-systems/10-CONSENSUS-THEORY.md": 39
+    },
     "fletch_registry": ".fletch/registries/maxim-distributed-systems-source-corpus.json"
   },
   "source_custody": {
@@ -64,7 +78,8 @@
     "notes": [
       "Current MAXIM guide paths are not themselves sufficient backsources.",
       "Backsources can be source notes, cited originals, generated proof artifacts, or reviewed provenance records.",
-      "All 11 guides are partial: MDLOOM literal backfill and git provenance are recorded, but external/authentic factual backsources are still pending.",
+      "MDLOOM literal backfill is recorded for all 11 guides; Git provenance is recorded for 11 guides and pending for 0.",
+      "All 11 guides remain partial because external/authentic factual backsources are still pending.",
       "MDLOOM structured sidecars capture markdown tables plus candidate ASCII tables, charts, and diagrams for quality search/indexing.",
       "Remaps preserve continuity if guide files move after backfill."
     ]
@@ -185,7 +200,8 @@
     "frontmatter-contract-applied",
     "source-custody-partial",
     "proof-module-clean",
-    "crop-pebble-pack-emitted",
+    "crop-views-added",
+    "full-proof-mdport-packs-emitted",
     "fletch-registry-added"
   ]
 }

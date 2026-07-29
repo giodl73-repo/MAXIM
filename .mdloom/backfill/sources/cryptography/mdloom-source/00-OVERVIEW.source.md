@@ -2,7 +2,7 @@
 tags: [backfill]
 ops: [backfill]
 content_tags: [markdown]
-proof_original: "00-OVERVIEW.md"
+mdloom_original: "00-OVERVIEW.md"
 ---
 ---
 maxim_schema: maxim.frontmatter.v1
@@ -382,7 +382,7 @@ SECURITY DEFINITION → WHAT BREAKS WHEN IT'S MISSING:
   EUF-CMA missing → Signature forgery: RSA PKCS#1 v1.5 signature malleability (Bitcoin script bugs)
     Fix: RSA-PSS (sUF-CMA in ROM); Ed25519 (deterministic, no nonce reuse failure)
 
-REDUCTION MDLOOM → CONCRETE PARAMETER CHOICE:
+REDUCTION PROOF → CONCRETE PARAMETER CHOICE:
 
   "AES-128 is IND-CPA secure under PRF assumption" + best known PRF attacks on AES = O(2^128)
     → 128-bit security; adequate for current threat; use AES-256 for post-quantum margin

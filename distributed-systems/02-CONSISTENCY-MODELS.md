@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: distributed-systems/02-CONSISTENCY-MODELS.md
 canonical_path: distributed-systems/02-CONSISTENCY-MODELS.md
-backsource_ids: [proof-backfill:distributed-systems:02-consistency-models, git-history:distributed-systems:02-consistency-models]
+backsource_ids: [mdloom-backfill:distributed-systems:02-consistency-models, git-history:distributed-systems:02-consistency-models]
 concepts: [consistency, models]
 root_concepts: [consistency, models]
 index_roles: [guide, root-concept]

@@ -4,7 +4,7 @@
   "registry_id": "maxim-biology-source-corpus",
   "fletches": [
     {
-      "id": "maxim.biology.source-corpus.pebble",
+      "id": "maxim.biology.source-corpus.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -14,12 +14,72 @@
       ],
       "edges": [
         {
-          "to": "maxim-biology-source-corpus",
+          "to": "maxim.biology.overview.mdport",
           "kind": "derived-from",
-          "label": "MDCROP view recipe",
+          "label": "Full guide MDLOOM Mdport",
           "metadata": {
-            "view": ".mdcrop/views/maxim-biology-source-corpus.json",
             "module": "biology",
+            "guide": "biology/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.biology.molecular-machinery.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "biology",
+            "guide": "biology/01-MOLECULAR-MACHINERY.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.biology.cell-biology.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "biology",
+            "guide": "biology/02-CELL-BIOLOGY.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.biology.genetics.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "biology",
+            "guide": "biology/03-GENETICS.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.biology.evolution.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "biology",
+            "guide": "biology/04-EVOLUTION.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.biology.ecology.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "biology",
+            "guide": "biology/05-ECOLOGY.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.biology.physiology.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "biology",
+            "guide": "biology/06-PHYSIOLOGY.md",
             "custody": "partial"
           }
         }
@@ -35,14 +95,15 @@
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-module",
         "partial-custody"
       ],
       "metadata": {
         "source_repo": "MAXIM",
         "module": "biology",
-        "distribution": "FLETCH fetch/cache surface for downstream repos",
+        "distribution": "FLETCH full-module publication surface for downstream repos",
         "publication_state": "partial-source-custody"
       }
     },
@@ -57,9 +118,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.biology.source-corpus.pebble",
+          "to": "maxim.biology.overview.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "biology",
             "guide": "biology/00-OVERVIEW.md",
@@ -91,7 +152,7 @@
       }
     },
     {
-      "id": "maxim.biology.overview.pebble",
+      "id": "maxim.biology.overview.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -101,21 +162,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.biology.overview.view",
+          "to": "maxim.biology.overview.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "biology",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.biology.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-biology-overview.json",
-            "module": "biology",
+            "guide": "biology/00-OVERVIEW.md",
             "custody": "partial"
           }
         }
@@ -126,13 +178,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-biology-overview.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -175,7 +228,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -219,7 +272,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -263,7 +316,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -286,9 +339,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.biology.source-corpus.pebble",
+          "to": "maxim.biology.molecular-machinery.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "biology",
             "guide": "biology/01-MOLECULAR-MACHINERY.md",
@@ -320,7 +373,7 @@
       }
     },
     {
-      "id": "maxim.biology.molecular-machinery.pebble",
+      "id": "maxim.biology.molecular-machinery.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -330,21 +383,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.biology.molecular-machinery.view",
+          "to": "maxim.biology.molecular-machinery.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "biology",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.biology.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-biology-molecular-machinery.json",
-            "module": "biology",
+            "guide": "biology/01-MOLECULAR-MACHINERY.md",
             "custody": "partial"
           }
         }
@@ -355,13 +399,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-biology-molecular-machinery.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -404,7 +449,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -448,7 +493,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -492,7 +537,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -515,9 +560,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.biology.source-corpus.pebble",
+          "to": "maxim.biology.cell-biology.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "biology",
             "guide": "biology/02-CELL-BIOLOGY.md",
@@ -549,7 +594,7 @@
       }
     },
     {
-      "id": "maxim.biology.cell-biology.pebble",
+      "id": "maxim.biology.cell-biology.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -559,21 +604,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.biology.cell-biology.view",
+          "to": "maxim.biology.cell-biology.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "biology",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.biology.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-biology-cell-biology.json",
-            "module": "biology",
+            "guide": "biology/02-CELL-BIOLOGY.md",
             "custody": "partial"
           }
         }
@@ -584,13 +620,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-biology-cell-biology.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -633,7 +670,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -677,7 +714,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -721,7 +758,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -744,9 +781,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.biology.source-corpus.pebble",
+          "to": "maxim.biology.genetics.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "biology",
             "guide": "biology/03-GENETICS.md",
@@ -778,7 +815,7 @@
       }
     },
     {
-      "id": "maxim.biology.genetics.pebble",
+      "id": "maxim.biology.genetics.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -788,21 +825,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.biology.genetics.view",
+          "to": "maxim.biology.genetics.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "biology",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.biology.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-biology-genetics.json",
-            "module": "biology",
+            "guide": "biology/03-GENETICS.md",
             "custody": "partial"
           }
         }
@@ -813,13 +841,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-biology-genetics.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -862,7 +891,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -906,7 +935,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -950,7 +979,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -973,9 +1002,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.biology.source-corpus.pebble",
+          "to": "maxim.biology.evolution.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "biology",
             "guide": "biology/04-EVOLUTION.md",
@@ -1007,7 +1036,7 @@
       }
     },
     {
-      "id": "maxim.biology.evolution.pebble",
+      "id": "maxim.biology.evolution.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -1017,21 +1046,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.biology.evolution.view",
+          "to": "maxim.biology.evolution.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "biology",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.biology.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-biology-evolution.json",
-            "module": "biology",
+            "guide": "biology/04-EVOLUTION.md",
             "custody": "partial"
           }
         }
@@ -1042,13 +1062,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-biology-evolution.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -1091,7 +1112,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -1135,7 +1156,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -1179,7 +1200,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -1202,9 +1223,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.biology.source-corpus.pebble",
+          "to": "maxim.biology.ecology.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "biology",
             "guide": "biology/05-ECOLOGY.md",
@@ -1236,7 +1257,7 @@
       }
     },
     {
-      "id": "maxim.biology.ecology.pebble",
+      "id": "maxim.biology.ecology.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -1246,21 +1267,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.biology.ecology.view",
+          "to": "maxim.biology.ecology.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "biology",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.biology.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-biology-ecology.json",
-            "module": "biology",
+            "guide": "biology/05-ECOLOGY.md",
             "custody": "partial"
           }
         }
@@ -1271,13 +1283,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-biology-ecology.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -1320,7 +1333,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -1364,7 +1377,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -1408,7 +1421,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -1431,9 +1444,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.biology.source-corpus.pebble",
+          "to": "maxim.biology.physiology.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "biology",
             "guide": "biology/06-PHYSIOLOGY.md",
@@ -1465,7 +1478,7 @@
       }
     },
     {
-      "id": "maxim.biology.physiology.pebble",
+      "id": "maxim.biology.physiology.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -1475,21 +1488,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.biology.physiology.view",
+          "to": "maxim.biology.physiology.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "biology",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.biology.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-biology-physiology.json",
-            "module": "biology",
+            "guide": "biology/06-PHYSIOLOGY.md",
             "custody": "partial"
           }
         }
@@ -1500,13 +1504,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-biology-physiology.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -1549,7 +1554,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -1593,7 +1598,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -1637,7 +1642,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"

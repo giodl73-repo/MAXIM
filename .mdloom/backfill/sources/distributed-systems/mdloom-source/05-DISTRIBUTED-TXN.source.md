@@ -2,7 +2,7 @@
 tags: [backfill]
 ops: [backfill]
 content_tags: [markdown]
-proof_original: "05-DISTRIBUTED-TXN.md"
+mdloom_original: "05-DISTRIBUTED-TXN.md"
 ---
 ---
 maxim_schema: maxim.frontmatter.v1

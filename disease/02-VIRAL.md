@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: disease/02-VIRAL.md
 canonical_path: disease/02-VIRAL.md
-backsource_ids: [proof-backfill:disease:02-viral, git-history:disease:02-viral]
+backsource_ids: [mdloom-backfill:disease:02-viral, git-history:disease:02-viral]
 concepts: [viral]
 root_concepts: [viral]
 index_roles: [guide, root-concept]

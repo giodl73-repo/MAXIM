@@ -30,8 +30,8 @@ updated: null
 | MDLOOM classification | `literal_markdown` |
 | MDLOOM confidence | `high` |
 | Round trip | `passed` |
-| Structured extraction | `1` markdown tables, `12` visual/block candidates |
-| Git provenance | `22751538`, `22d32f93`, `ab7e7c6b`, `c3d7a740`, `79bf1784`, `617a3f37`, `11d204bf` |
+| Structured extraction | `1` markdown tables, `10` visual/block candidates |
+| Git provenance | `2f3b1b08`, `bdee980c`, `22751538`, `22d32f93`, `ab7e7c6b`, `c3d7a740`, `79bf1784`, `617a3f37`, `11d204bf` |
 
 ## Custody note
 

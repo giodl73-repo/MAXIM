@@ -4,7 +4,7 @@
   "registry_id": "maxim-cryptography-source-corpus",
   "fletches": [
     {
-      "id": "maxim.cryptography.source-corpus.pebble",
+      "id": "maxim.cryptography.source-corpus.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -14,12 +14,62 @@
       ],
       "edges": [
         {
-          "to": "maxim-cryptography-source-corpus",
+          "to": "maxim.cryptography.overview.mdport",
           "kind": "derived-from",
-          "label": "MDCROP view recipe",
+          "label": "Full guide MDLOOM Mdport",
           "metadata": {
-            "view": ".mdcrop/views/maxim-cryptography-source-corpus.json",
             "module": "cryptography",
+            "guide": "cryptography/00-OVERVIEW.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.cryptography.symmetric.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "cryptography",
+            "guide": "cryptography/01-SYMMETRIC.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.cryptography.asymmetric.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "cryptography",
+            "guide": "cryptography/02-ASYMMETRIC.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.cryptography.protocols.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "cryptography",
+            "guide": "cryptography/03-PROTOCOLS.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.cryptography.zk-mpc.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "cryptography",
+            "guide": "cryptography/04-ZK-MPC.md",
+            "custody": "partial"
+          }
+        },
+        {
+          "to": "maxim.cryptography.post-quantum.mdport",
+          "kind": "derived-from",
+          "label": "Full guide MDLOOM Mdport",
+          "metadata": {
+            "module": "cryptography",
+            "guide": "cryptography/05-POST-QUANTUM.md",
             "custody": "partial"
           }
         }
@@ -35,14 +85,15 @@
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-module",
         "partial-custody"
       ],
       "metadata": {
         "source_repo": "MAXIM",
         "module": "cryptography",
-        "distribution": "FLETCH fetch/cache surface for downstream repos",
+        "distribution": "FLETCH full-module publication surface for downstream repos",
         "publication_state": "partial-source-custody"
       }
     },
@@ -57,9 +108,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.cryptography.source-corpus.pebble",
+          "to": "maxim.cryptography.overview.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "cryptography",
             "guide": "cryptography/00-OVERVIEW.md",
@@ -91,7 +142,7 @@
       }
     },
     {
-      "id": "maxim.cryptography.overview.pebble",
+      "id": "maxim.cryptography.overview.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -101,21 +152,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.cryptography.overview.view",
+          "to": "maxim.cryptography.overview.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "cryptography",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.cryptography.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-cryptography-overview.json",
-            "module": "cryptography",
+            "guide": "cryptography/00-OVERVIEW.md",
             "custody": "partial"
           }
         }
@@ -126,13 +168,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-cryptography-overview.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -175,7 +218,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -219,7 +262,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -263,7 +306,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -286,9 +329,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.cryptography.source-corpus.pebble",
+          "to": "maxim.cryptography.symmetric.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "cryptography",
             "guide": "cryptography/01-SYMMETRIC.md",
@@ -320,7 +363,7 @@
       }
     },
     {
-      "id": "maxim.cryptography.symmetric.pebble",
+      "id": "maxim.cryptography.symmetric.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -330,21 +373,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.cryptography.symmetric.view",
+          "to": "maxim.cryptography.symmetric.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "cryptography",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.cryptography.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-cryptography-symmetric.json",
-            "module": "cryptography",
+            "guide": "cryptography/01-SYMMETRIC.md",
             "custody": "partial"
           }
         }
@@ -355,13 +389,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-cryptography-symmetric.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -404,7 +439,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -448,7 +483,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -492,7 +527,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -515,9 +550,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.cryptography.source-corpus.pebble",
+          "to": "maxim.cryptography.asymmetric.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "cryptography",
             "guide": "cryptography/02-ASYMMETRIC.md",
@@ -549,7 +584,7 @@
       }
     },
     {
-      "id": "maxim.cryptography.asymmetric.pebble",
+      "id": "maxim.cryptography.asymmetric.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -559,21 +594,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.cryptography.asymmetric.view",
+          "to": "maxim.cryptography.asymmetric.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "cryptography",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.cryptography.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-cryptography-asymmetric.json",
-            "module": "cryptography",
+            "guide": "cryptography/02-ASYMMETRIC.md",
             "custody": "partial"
           }
         }
@@ -584,13 +610,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-cryptography-asymmetric.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -633,7 +660,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -677,7 +704,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -721,7 +748,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -744,9 +771,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.cryptography.source-corpus.pebble",
+          "to": "maxim.cryptography.protocols.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "cryptography",
             "guide": "cryptography/03-PROTOCOLS.md",
@@ -778,7 +805,7 @@
       }
     },
     {
-      "id": "maxim.cryptography.protocols.pebble",
+      "id": "maxim.cryptography.protocols.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -788,21 +815,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.cryptography.protocols.view",
+          "to": "maxim.cryptography.protocols.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "cryptography",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.cryptography.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-cryptography-protocols.json",
-            "module": "cryptography",
+            "guide": "cryptography/03-PROTOCOLS.md",
             "custody": "partial"
           }
         }
@@ -813,13 +831,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-cryptography-protocols.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -862,7 +881,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -906,7 +925,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -950,7 +969,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -973,9 +992,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.cryptography.source-corpus.pebble",
+          "to": "maxim.cryptography.zk-mpc.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "cryptography",
             "guide": "cryptography/04-ZK-MPC.md",
@@ -1007,7 +1026,7 @@
       }
     },
     {
-      "id": "maxim.cryptography.zk-mpc.pebble",
+      "id": "maxim.cryptography.zk-mpc.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -1017,21 +1036,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.cryptography.zk-mpc.view",
+          "to": "maxim.cryptography.zk-mpc.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "cryptography",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.cryptography.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-cryptography-zk-mpc.json",
-            "module": "cryptography",
+            "guide": "cryptography/04-ZK-MPC.md",
             "custody": "partial"
           }
         }
@@ -1042,13 +1052,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-cryptography-zk-mpc.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -1091,7 +1102,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -1135,7 +1146,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -1179,7 +1190,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"
@@ -1202,9 +1213,9 @@
       ],
       "edges": [
         {
-          "to": "maxim.cryptography.source-corpus.pebble",
+          "to": "maxim.cryptography.post-quantum.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "View over canonical guide source",
           "metadata": {
             "module": "cryptography",
             "guide": "cryptography/05-POST-QUANTUM.md",
@@ -1236,7 +1247,7 @@
       }
     },
     {
-      "id": "maxim.cryptography.post-quantum.pebble",
+      "id": "maxim.cryptography.post-quantum.mdport",
       "node_kind": "fletch",
       "shafts": [
         {
@@ -1246,21 +1257,12 @@
       ],
       "edges": [
         {
-          "to": "maxim.cryptography.post-quantum.view",
+          "to": "maxim.cryptography.post-quantum.mdloom-source",
           "kind": "derived-from",
-          "label": "Guide-level MDCROP view recipe",
+          "label": "Full guide MDLOOM publication",
           "metadata": {
             "module": "cryptography",
-            "custody": "partial"
-          }
-        },
-        {
-          "to": "maxim.cryptography.source-corpus.pebble",
-          "kind": "derived-from",
-          "label": "Guide-level MDCROP view",
-          "metadata": {
-            "view": ".mdcrop/views/maxim-cryptography-post-quantum.json",
-            "module": "cryptography",
+            "guide": "cryptography/05-POST-QUANTUM.md",
             "custody": "partial"
           }
         }
@@ -1271,13 +1273,14 @@
         "compression": null,
         "container": null,
         "schema": "mdport.v1",
-        "record_shape": "corpus-slice",
+        "record_shape": "document",
         "preferred_local": ".mdport/packs/maxim-cryptography-post-quantum.mdport.json"
       },
       "tags": [
         "source-corpus",
-        "mdcrop",
-        "pebble",
+        "proof",
+        "mdport",
+        "full-guide",
         "partial-custody",
         "guide"
       ],
@@ -1320,7 +1323,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "source",
         "partial-custody",
         "guide"
@@ -1364,7 +1367,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "tables",
         "partial-custody",
         "guide"
@@ -1408,7 +1411,7 @@
       },
       "tags": [
         "source-corpus",
-        "mdloom",
+        "proof",
         "blocks",
         "partial-custody",
         "guide"

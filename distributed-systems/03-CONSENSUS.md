@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: distributed-systems/03-CONSENSUS.md
 canonical_path: distributed-systems/03-CONSENSUS.md
-backsource_ids: [proof-backfill:distributed-systems:03-consensus, git-history:distributed-systems:03-consensus]
+backsource_ids: [mdloom-backfill:distributed-systems:03-consensus, git-history:distributed-systems:03-consensus]
 concepts: [consensus]
 root_concepts: [consensus]
 index_roles: [guide, root-concept]

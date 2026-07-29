@@ -2,7 +2,7 @@
 tags: [backfill]
 ops: [backfill]
 content_tags: [markdown]
-proof_original: "10-EPIDEMIOLOGY.md"
+mdloom_original: "10-EPIDEMIOLOGY.md"
 ---
 ---
 maxim_schema: maxim.frontmatter.v1

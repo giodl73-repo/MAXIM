@@ -2,7 +2,7 @@
 tags: [backfill]
 ops: [backfill]
 content_tags: [markdown]
-proof_original: "01-CAP-THEOREM.md"
+mdloom_original: "01-CAP-THEOREM.md"
 ---
 ---
 maxim_schema: maxim.frontmatter.v1

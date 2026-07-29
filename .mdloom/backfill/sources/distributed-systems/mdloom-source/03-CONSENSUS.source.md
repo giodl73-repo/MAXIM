@@ -2,7 +2,7 @@
 tags: [backfill]
 ops: [backfill]
 content_tags: [markdown]
-proof_original: "03-CONSENSUS.md"
+mdloom_original: "03-CONSENSUS.md"
 ---
 ---
 maxim_schema: maxim.frontmatter.v1
@@ -207,15 +207,16 @@ Followers redirect clients to leader.
 
 ```
 TIME
-----+------+--------+--------+------+----+------+----->
-   election election  normal  elec  split normal
-    term 1   term 2  term 2  fail  vote  term 4
-         |        |
-       leader   leader
-       elected  elected
+----+-----------+------------+-------------+-----------+------------>
+ term 1        term 2       term 3        term 4
+ election→     leader       split vote    election→
+ leader        serves;      (no leader;   new leader
+              then timeout  term unused)  serves
+                 |                           |
+              leader fails              leader elected
 
 - Time is divided into terms (monotonically increasing integers)
-- Each term begins with an election
+- Each term begins with an election; a term may elect no leader (split vote)
 - At most one leader per term
 - Terms act as logical clocks — stale leaders have old term numbers
 ```

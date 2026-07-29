@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: disease/03-FUNGAL-PARASITIC-PRION.md
 canonical_path: disease/03-FUNGAL-PARASITIC-PRION.md
-backsource_ids: [proof-backfill:disease:03-fungal-parasitic-prion, git-history:disease:03-fungal-parasitic-prion]
+backsource_ids: [mdloom-backfill:disease:03-fungal-parasitic-prion, git-history:disease:03-fungal-parasitic-prion]
 concepts: [fungal, parasitic, prion]
 root_concepts: [fungal, parasitic]
 index_roles: [guide, root-concept]

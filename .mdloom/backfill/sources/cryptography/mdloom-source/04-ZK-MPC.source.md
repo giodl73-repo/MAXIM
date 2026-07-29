@@ -2,7 +2,7 @@
 tags: [backfill]
 ops: [backfill]
 content_tags: [markdown]
-proof_original: "04-ZK-MPC.md"
+mdloom_original: "04-ZK-MPC.md"
 ---
 ---
 maxim_schema: maxim.frontmatter.v1
@@ -44,7 +44,7 @@ updated: null
 │   Schnorr identification (DLP); Pedersen commitment (homomorphic)      │
 │   Fiat-Shamir: interactive → non-interactive (NIZK) via random oracle  │
 │                                                                         │
-│  MDLOOM SYSTEMS FOR CIRCUITS                                             │
+│  PROOF SYSTEMS FOR CIRCUITS                                             │
 │  ┌─────────────────────────────────────────────────────────────────┐    │
 │  │  zkSNARKs (Groth16, Plonk):                                     │    │
 │  │    Succinct (O(1) proof); fast verify; needs trusted setup      │    │
@@ -79,7 +79,7 @@ COMPLEXITY BACKGROUND (MIT TCS bridge):
   IP = PSPACE (Shamir 1992): remarkable — graph non-isomorphism (in coNP \ P believed) has interactive proof!
   MIP (multiple provers): MIP = NEXPTIME; multiple non-communicating provers share no state
 
-INTERACTIVE MDLOOM PROTOCOL:
+INTERACTIVE PROOF PROTOCOL:
   Prover P: computationally unbounded (or efficient for specific relation)
   Verifier V: probabilistic polynomial-time
   Protocol: multiple rounds of challenge-response
@@ -103,7 +103,7 @@ HONEST-VERIFIER vs MALICIOUS-VERIFIER ZK:
   Σ-protocols: typically HVZK; convert to malicious-verifier via compiler (e.g., CDS composition)
   Fiat-Shamir: removes verifier entirely (hash replaces interaction) → NIZK
 
-MDLOOM OF KNOWLEDGE (PoK):
+PROOF OF KNOWLEDGE (PoK):
   Stronger than just proving statement true: prover "knows" a witness
   Knowledge extractor: PPT algorithm E with black-box access to prover that extracts witness
   Special soundness: 2 accepting transcripts with same commitment → extractor works
@@ -157,7 +157,7 @@ PEDERSEN COMMITMENT:
 
   Homomorphic: C(m₁,r₁) + C(m₂,r₂) = C(m₁+m₂, r₁+r₂)
     Enables proofs about sums without revealing values (Confidential Transactions, range proofs)
-  Opening mdloom: Pedersen commitment can be opened via Schnorr PoK of (m, r)
+  Opening proof: Pedersen commitment can be opened via Schnorr PoK of (m, r)
 
 COMPOSITION: CONJUNCTIONS AND DISJUNCTIONS:
   AND of two Σ-protocols: run them in parallel; share challenge
@@ -423,7 +423,7 @@ PRIVATE SET INTERSECTION (PSI):
 ZKROLLUPS (ETHEREUM L2 SCALING):
   Problem: Ethereum L1 ~15 TPS; too slow + expensive for applications
   zkRollup: batch thousands of transactions off-chain; post single SNARK/STARK proof to L1
-    L1 verifies mdloom: O(1) verification regardless of batch size
+    L1 verifies proof: O(1) verification regardless of batch size
     L1 data availability: either post-chain (zk Rollup) or off-chain (Validium)
 
   Proof systems in production (2024):
@@ -483,7 +483,7 @@ ENTERPRISE ZK/MPC APPLICATIONS (non-blockchain):
       Production: Google PAIR (Publisher Advertiser Identity Reconciliation) uses PSI concepts
       Also: Apple's SKAdNetwork uses aggregation; Meta's Private Lift uses MPC
 
-  ZK MDLOOMS FOR COMPLIANCE REPORTING:
+  ZK PROOFS FOR COMPLIANCE REPORTING:
     Classic problem: prove compliance without disclosing sensitive data
     ZK approach: prove a predicate about your data using a ZK circuit
 
@@ -560,7 +560,7 @@ ZK/MPC LIBRARY LANDSCAPE — FROM THEORY TO IMPLEMENTATION:
        signal output c; c <== a * b; }
     2. npm install circom snarkjs; circom circuit.circom --r1cs --wasm
     3. snarkjs groth16 setup circuit.r1cs pot12.ptau circuit_0000.zkey (trusted setup)
-    4. Generate witness + mdloom: snarkjs groth16 prove; verify: snarkjs groth16 verify
+    4. Generate witness + proof: snarkjs groth16 prove; verify: snarkjs groth16 verify
     5. Generate Solidity verifier: snarkjs zkey export solidityverifier
 ```
 
@@ -572,7 +572,7 @@ ZK/MPC LIBRARY LANDSCAPE — FROM THEORY TO IMPLEMENTATION:
 |----------|--------|
 | IP complexity class equals? | PSPACE (Shamir 1992) |
 | ZK simulator paradigm means? | Verifier can simulate interaction without witness → proof reveals nothing |
-| Schnorr mdloom: what does it prove? | Knowledge of x such that y = g^x (discrete log) without revealing x |
+| Schnorr proof: what does it prove? | Knowledge of x such that y = g^x (discrete log) without revealing x |
 | Fiat-Shamir: what does it replace? | Interactive verifier challenge replaced with H(commitment || statement) in ROM |
 | Pedersen commitment: binding vs hiding? | Computationally binding (DL assumption); perfectly hiding |
 | Groth16 proof size? | 3 group elements ≈ 192 bytes; 3 pairing verifications |

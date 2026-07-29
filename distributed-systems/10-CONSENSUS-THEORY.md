@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: distributed-systems/10-CONSENSUS-THEORY.md
 canonical_path: distributed-systems/10-CONSENSUS-THEORY.md
-backsource_ids: [proof-backfill:distributed-systems:10-consensus-theory, git-history:distributed-systems:10-consensus-theory]
+backsource_ids: [mdloom-backfill:distributed-systems:10-consensus-theory, git-history:distributed-systems:10-consensus-theory]
 concepts: [consensus, theory]
 root_concepts: [consensus, theory]
 index_roles: [guide, root-concept]
