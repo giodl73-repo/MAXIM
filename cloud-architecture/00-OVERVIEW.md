@@ -188,7 +188,8 @@ RESERVED CAPACITY:
   Commitment to use (not "pay whether you use it or not")
   Azure Reserved VM Instances: 1 or 3 year, 40-72% discount vs. pay-as-you-go
   Azure Hybrid Benefit: use existing Windows Server/SQL Server licenses in Azure
-  Savings Plans (Azure): flexible usage commitment (not instance-specific)
+  Azure Savings Plan for Compute: flexible usage commitment (not instance-specific;
+    AWS's parallel product is branded "Savings Plans")
 ```
 
 ---

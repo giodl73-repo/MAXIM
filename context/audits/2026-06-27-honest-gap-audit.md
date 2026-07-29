@@ -117,17 +117,15 @@ swapping the exemplar to a genuinely deep guide (e.g. `os/03-LINUX.md`,
 
 ## Known-but-not-fixed (follow-up fact-check wave)
 
-These were flagged by reviewers but not fixed here — lower confidence, or needing
-a domain pass, not single-line edits:
+> **RESOLVED (2026-07-29).** All five leftovers below were fixed on source guides.
+> Derived MDLOOM/MDCROP/MDPORT artifacts for touched modules remain stale until
+> `module_source_backfill.py` is run against a wired PROOF/MDLOOM toolchain.
 
-- `biology/01` Okazaki fragment length (~200 nt quoted for a bacterial replisome
-  section; bacterial fragments are ~1–2 kb).
-- `cryptography/02` OAEP encoding (lines ~124–130) is self-contradictory; needs a
-  correct rewrite of DB/seed masking, plus a broken code-fence near 350–386.
-- `distributed-systems/03` Raft "terms" diagram (lines ~203–215) double-labels
-  term 2, skips term 3, jumps to term 4; split-vote column unnumbered.
-- `genomics/01` Sanger throughput "~1 kb/run" in the comparison table (off ~100×).
-- `disease/02` 1918 flu "highest death toll pandemic in history" overclaim.
+- `biology/01` Okazaki fragment length — bacterial ~1–2 kb vs eukaryotic ~100–200 nt; Pol I/III context clarified.
+- `cryptography/02` OAEP encoding rewritten to RFC 8017 DB/seed mask order; broken KEM-DEM fence repaired.
+- `distributed-systems/03` Raft terms diagram — term 3 split-vote / term 4 recovery labeled cleanly.
+- `genomics/01` Sanger throughput → ~50–100 kb/run (96-cap × ~0.5–1 kb).
+- `disease/02` 1918 flu overclaim → deadliest influenza / among highest single-wave tolls (not absolute history max).
 - General: a numbers-and-proper-nouns fact-check across the library is the single
   highest-value remaining work.
 

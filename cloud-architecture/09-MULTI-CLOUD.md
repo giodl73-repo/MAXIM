@@ -171,7 +171,8 @@ AWS OUTPOSTS:
   AWS manages: hardware, firmware, hypervisor, networking
   You manage: what runs on it
   Same AWS APIs: use same CLI/SDK as cloud, same VPC networking
-  Connected to: AWS region via Direct Connect (required)
+  Connected to: parent AWS region (service link required; Direct Connect recommended,
+    Site-to-Site VPN supported for the service link)
   Billing: monthly subscription (includes hardware, software, support)
 
 OUTPOST CAPABILITIES:
@@ -335,7 +336,7 @@ Kubernetes makes container orchestration portable. The surrounding cloud service
 Multi-cloud adds operational complexity, security surface, and cost. Whether it reduces risk depends on your specific failure scenarios. For most organizations, multi-region single-cloud (with well-architected resilience) reduces actual risk more than multi-cloud at same investment.
 
 **"AWS Outposts is like Azure Stack"**
-Both bring cloud into your datacenter, but the model differs. Outposts: AWS ships and manages hardware; your on-premises is an AWS extension. Azure Stack Hub: Microsoft sells Azure software; you (or an OEM) provide and manage hardware. Azure Stack is more self-contained; Outposts requires ongoing AWS connectivity (Direct Connect required).
+Both bring cloud into your datacenter, but the model differs. Outposts: AWS ships and manages hardware; your on-premises is an AWS extension. Azure Stack Hub: Microsoft sells Azure software; you (or an OEM) provide and manage hardware. Azure Stack is more self-contained; Outposts requires an ongoing service link to the parent AWS region (Direct Connect recommended; Site-to-Site VPN supported).
 
 ---
 

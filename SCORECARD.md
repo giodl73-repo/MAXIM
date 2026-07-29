@@ -151,7 +151,7 @@ Each card has a named archetype (The Architect, The Taxonomist, The Healer, etc.
 | K♣ | C·I | The Architect | 5 | 5 | 5 | 5 | 5 | 5 | **30** | **A** |
 | K♦ | C·II | The Craftsman | 4 | 5 | 4 | 4 | 4 | 4 | **25** | **A** |
 | K♥ | C·III | The Prover | 4 | 5 | 5 | 5 | 5 | 5 | **29** | **A** |
-| K♠ | C·IV | The Sentinel | 2 | 5 | 4 | 3 | 3 | 2 | **19** | **C** |
+| K♠ | C·IV | The Sentinel | 3 | 5 | 5 | 4 | 4 | 4 | **25** | **A** |
 | A♣ | P·I | The Discoverer | 4 | 5 | 5 | 5 | 5 | 5 | **29** | **A** |
 | A♦ | P·II | The Inventor | 2 | 5 | 5 | 4 | 4 | 5 | **25** | **A** |
 | A♥ | P·III | The Visionary | 3 | 5 | 5 | 5 | 5 | 5 | **28** | **A** |
@@ -162,16 +162,16 @@ Each card has a named archetype (The Architect, The Taxonomist, The Healer, etc.
 ## Grade Distribution
 
 ```
- A (25-30)  ████████████████████████████████████████████  42 volumes
+ A (25-30)  █████████████████████████████████████████████  43 volumes
  B (20-24)  █████████  9 volumes
- C (15-19)  █  1 volume
+ C (15-19)  (none)
 
  Perfect 30: 2♣ NW·I · 4♣ MC·I · 4♦ MC·II · 7♥ M·III · Q♣ AC·I · K♣ C·I
 
- Mean: 26.5 / 30     Median: 27 / 30
+ Mean: 26.6 / 30     Median: 27 / 30
 ```
 
-**6 perfect scores.** 42 of 52 volumes grade A. One C (K♠). No D's or F's.
+**6 perfect scores.** 43 of 52 volumes grade A. Zero C/D/F after 2026-07-29 K♠ rescore.
 
 ---
 
@@ -228,10 +228,10 @@ Each card has a named archetype (The Architect, The Taxonomist, The Healer, etc.
 
 | # | Volume | Style Score | Issue | Action |
 |---|--------|-----------|-------|--------|
-| 1 | K♠ C·IV | **3** | No cross-volume integration diagram | Add unified Sentinel diagram showing consensus → authority → trust |
-| 2 | Q♠ AC·IV | **3** | Fashion is market-analysis, not design-method; sports-science missing cheat sheet | Tighten to design principles |
-| 3 | 10♠ LC·IV | **3** | More essayistic/humanistic than chart-driven | Add decision cheat sheets; strengthen ASCII diagram density |
-| 4 | 3♠ ES·IV | **3** | Remote-sensing directory may be thin/missing | Verify remote-sensing content completeness |
+| 1 | Q♠ AC·IV | **3** | Fashion still reads market-heavy vs design-method in places | Keep tightening to design principles |
+| 2 | 10♠ LC·IV | **3** | More essayistic/humanistic than chart-driven | Strengthen ASCII density where thin |
+| 3 | 3♠ ES·IV | **3** | Remote-sensing completeness worth periodic verify | Keep on frontier watch list |
+| — | K♠ C·IV | resolved | Sentinel thesis + triad overviews + constraint stack now present | Rescored to A (25) 2026-07-29 |
 
 ### Length Issues (structural — accept or expand)
 
@@ -239,7 +239,7 @@ Each card has a named archetype (The Architect, The Taxonomist, The Healer, etc.
 |---|--------|-------|--------|
 | 1 | 7♣ M·I | 124 | Accept as thin — content scored 5/5/5 on substance |
 | 2 | 7♦ M·II | 173 | Expand energy-systems to strengthen both length and archetype |
-| 3 | K♠ C·IV | 186 | Frontier dirs grow naturally; also needs depth/archetype work |
+| 3 | K♠ C·IV | ~198 | Acceptable; theory deep-dives (`10-CONSENSUS-THEORY`, `10-THREAT-MODELS`) closed the thin-C gap |
 | 4 | A♦ P·II | 187 | Biographical — accept; deepen explorer technical substrate |
 
 ---
@@ -250,6 +250,7 @@ Each card has a named archetype (The Architect, The Taxonomist, The Healer, etc.
 |------|------|------------------|-------|
 | 2026-02-26 | First | Length, Suit Fit, Cohesion | Metadata-only pass from VOLUMES.md |
 | 2026-02-26 | Second | Style, Depth, Archetype | 13-agent content sweep. All 52 volumes fully scored. |
+| 2026-07-29 | K♠ rescore + fact pass | All six for K♠; targeted fact fixes | Sentinel thesis/triad close structural C; honest-gap leftovers fixed |
 
 ---
 

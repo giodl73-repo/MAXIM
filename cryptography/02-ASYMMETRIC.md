@@ -120,19 +120,27 @@ PKCS#1 v1.5 (the dangerous padding — BLEICHENBACHER 1998):
     DROWN (2016): SSLv2 padding oracle can attack TLS sessions via cross-protocol attack
   Fix: use RSA-OAEP or ECDH (avoid RSA encryption entirely for key exchange)
 
-OAEP (Optimal Asymmetric Encryption Padding — Bellare-Rogaway 1994):
-  Based on two hash/PRF primitives: H: {0,1}* → {0,1}^{hLen}, G: {0,1}^{hLen} → {0,1}^{k-hLen-1}
+OAEP (Optimal Asymmetric Encryption Padding — Bellare-Rogaway 1994; PKCS#1 / RFC 8017):
+  Primitives: Hash; MGF1 (mask generation from Hash); optional label L (often empty)
+  Let k = |n| in octets; hLen = |Hash()|; mLen = |M|
 
-  Encoding (before RSA exponentiation):
-    r ← random {0,1}^{hLen}
-    maskedSeed = seed ⊕ G(r)  where seed = H(label) || 0-padding || 0x01 || message
-    Actually: X = (seed ⊕ MGF(r)) || (r ⊕ MGF(seed))
-    Textbook: m' = X → c = m'^e mod n
+  Encoding (build EM, then c = OS2IP(EM)^e mod n):
+    lHash = Hash(L)
+    PS    = 0x00 octets so that |DB| = k - hLen - 1
+    DB    = lHash || PS || 0x01 || M
+    seed  ← random hLen octets
+    dbMask   = MGF(seed, k - hLen - 1)
+    maskedDB = DB ⊕ dbMask
+    seedMask = MGF(maskedDB, hLen)
+    maskedSeed = seed ⊕ seedMask
+    EM = 0x00 || maskedSeed || maskedDB
+
+  Decoding reverses the masks, checks lHash and the 0x01 separator, then returns M.
+  Wrong ciphertext almost always fails a structural check — no PKCS#1v1.5-style padding oracle.
 
   OAEP security (ROM):
-    IND-CCA2 secure IF RSA is one-way AND H, G are random oracles
-    Reduction: A that breaks IND-CCA2 of OAEP → B that inverts RSA
-    Proof: OAEP structure prevents padding oracle — invalid ciphertext → fails MGF extraction
+    IND-CCA2 secure IF RSA is one-way AND Hash/MGF are modeled as random oracles
+    Reduction: A that breaks IND-CCA2 of RSA-OAEP → B that inverts RSA
 
   RSA-PSS (probabilistic signature scheme):
     Digital signature analog of OAEP; also Bellare-Rogaway
@@ -347,7 +355,6 @@ INSTANTIATIONS:
     More secure than RSA-OAEP in some analyses; less deployment
     Post-quantum threat: broken by Shor's; migrating to HPKE with ML-KEM
 
-```
 HPKE MODES (RFC 9180) — SENDER AUTHENTICATION:
 
   mode_base:    anonymous sender; receiver can't verify who sent
@@ -375,7 +382,6 @@ HPKE MODES (RFC 9180) — SENDER AUTHENTICATION:
     Mode: mode_base (key package public key as receiver; sender = existing group member)
     HPKE info string = group_id || epoch — domain-separates different groups and epochs
     Each group member has a KeyPackage containing their HPKE public key (for leaf key derivation)
-```
 
 FORWARD SECRECY:
   Static RSA/EC key pair: compromise → all past sessions decryptable (long-term threat)

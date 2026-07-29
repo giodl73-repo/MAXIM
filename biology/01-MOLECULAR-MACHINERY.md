@@ -156,10 +156,13 @@ STEPS:
 
 LEADING vs LAGGING STRAND:
   Leading: synthesis continuous (same direction as fork movement)
-  Lagging: synthesis discontinuous → Okazaki fragments (~200 nt each)
-  Okazaki fragments: RNA primer + DNA → RNA removed by RNase H → gaps filled by Pol I → ligase joins
+  Lagging: synthesis discontinuous → Okazaki fragments
+  Bacterial (Pol III/Pol I system above): ~1–2 kb fragments
+  Eukaryotic: ~100–200 nt fragments (more primers; nucleosome-coupled)
+  Okazaki processing: RNA primer + DNA → primer removed (RNase H / Pol I or FEN1) →
+    gaps filled → DNA ligase joins
 
-TELOMERES: repetitive sequences (TTAGGG in humans) at chromosome ends
+TELOMERES (eukaryotes): repetitive sequences (TTAGGG in humans) at chromosome ends
   Problem: lagging strand cannot fully replicate end → shortening
   Solution: Telomerase (reverse transcriptase with RNA template) extends telomeres
   Cancer cells often reactivate telomerase → immortality

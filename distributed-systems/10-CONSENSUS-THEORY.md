@@ -177,10 +177,10 @@ FLP ESCAPE ROUTES
 │                          │ alone; useful combined with       │
 │                          │ partial synchrony.                │
 ├──────────────────────────┼───────────────────────────────────┤
-│ Failure detectors        │ Chandra-Toueg (1996): weakest     │
-│                          │ failure detector ◇W that solves   │
-│                          │ consensus. Equivalent to partial  │
-│                          │ synchrony in practice.            │
+│ Failure detectors        │ Chandra-Toueg (1996): weakest FD  │
+│                          │ for consensus is ◇W (equiv. Ω).   │
+│                          │ Implements partial synchrony in   │
+│                          │ practice via eventual suspicion.  │
 ├──────────────────────────┼───────────────────────────────────┤
 │ No faults (0 crashes)    │ Trivially solvable — broadcast    │
 │                          │ and wait. Not useful in practice. │

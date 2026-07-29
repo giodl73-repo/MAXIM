@@ -141,8 +141,8 @@ RESERVED INSTANCES:
   Instance size flexibility: applies to same family/region
   Azure Hybrid Benefit: add Windows Server / SQL Server license discount
     → 3-year RI + Hybrid Benefit: up to 80% discount vs. on-demand
-  Savings Plans (Azure): flexible RI — any VM size/family, fixed hourly spend commitment
-    Not as deep discount as RI, but flexible across instance types
+  Azure Savings Plan for Compute: flexible commitment — any eligible compute family,
+    fixed hourly spend. Not as deep as Reserved VM Instances, but portable across sizes.
   Use: stable, predictable workloads
 
 SPOT INSTANCES (Azure Spot VMs):

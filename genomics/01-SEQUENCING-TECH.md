@@ -309,7 +309,7 @@ TRADE-OFF TRIANGLE (same as distributed systems):
 |-----------|--------|----------|------------------|-------------|
 | Read length | 600–1,000 bp | 150 bp | 10 kb–4 Mb | 15–25 kb |
 | Accuracy | >99.99% | ~99.9% | ~95–98% raw | >99.9% |
-| Throughput | ~1 kb/run | ~3.2B reads/run | ~290 Gb/run | ~360 Gb/run |
+| Throughput | ~50–100 kb/run (96-cap × ~0.5–1 kb) | ~3.2B reads/run | ~290 Gb/run | ~360 Gb/run |
 | Cost/Gb | ~$500 | ~$6–10 | ~$50–100 | ~$10–20 |
 | Time to result | 4–8 hr | 1–3 days | Real-time | 1–2 days |
 | Detect methylation | No | No (separate assay) | Yes (direct) | Yes (with kinetics) |
