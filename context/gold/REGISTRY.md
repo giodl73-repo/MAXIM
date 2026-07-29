@@ -7,22 +7,50 @@ enters Gold only after mechanical proof, Da Vinci protection where applicable,
 Gold Rubric scoring, adversarial review, and reader-task checks agree. Proof,
 Da Vinci invariants, and Cross-References are prerequisites, not certification.
 
-## Batch Gold Table — Candidate-Hardened (NOT individually panel-certified)
+## Honesty Dashboard (2026-07-29 rescope)
 
-> **Honesty banner (2026-06-27 audit).** This table is mislabeled by its old
-> heading "Current Certified Gold Guides." It does **not** meet the Certified Gold
-> tier defined in *Quality Claim Tiers* below. Evidence: **1,696 of its 1,711 rows
-> carry the identical score 4.6**, the rows are backed by only **258 panel docs**
-> (~6.6 guides per panel — batch wave scores, not per-guide adversarial review),
-> and the table contains **duplicate entries**. Per this registry's own *Reset
-> Audit Summary*, only the **2 pilot-rescore guides** have differentiated,
-> panel-backed Certified Gold evidence; the remainder are **Candidate-Hardened
-> pending panel**. The rows are retained for provenance, not as certification.
-> See `context/audits/2026-06-27-honest-gap-audit.md`.
+| Tier | Count (unique guides) | What it means |
+|---|---:|---|
+| **Certified Gold** | **2** | Reset-era pilot rescore with differentiated scores + reader-task evidence |
+| **Candidate-Hardened** | **~875** | Proof/invariant/wave provenance retained; **not** individually panel-certified |
+| Batch table raw rows | 818 | Includes duplicates; do not quote as a guide count |
+| Historical register raw rows | 893 | Includes duplicates / overlap with batch table |
+| Uniform score stamp | 4.6 on nearly all candidate rows | Signature of wave-level scoring, not per-guide panels |
 
-Certification is frozen to panel-backed claims until the Gold Factory backlog is
-re-audited. A factory wave, cohort wave, proof-clean result, or cross-link polish
-pass does not by itself certify Gold.
+**Do not claim "~1,700 Certified Gold guides."** That figure was a rubber-stamped
+batch table. The honest public claim is: **2 Certified Gold** + a large
+Candidate-Hardened backlog awaiting reset-era panels.
+
+See `context/audits/2026-06-27-honest-gap-audit.md` and
+`context/audits/2026-07-29-gold-registry-rescope.md`.
+
+Certification remains frozen to panel-backed claims. A factory wave, cohort wave,
+proof-clean result, or cross-link polish pass does **not** by itself certify Gold.
+
+## Current Certified Gold
+
+Only these guides meet the Certified Gold tier today:
+
+| Guide | Score | Protected Invariants | Evidence |
+|---|---:|---|---|
+| `computing/01-PACKAGE.md` | 4.8 | `package-stack-landscape` | `context/waves/2026-05-14-pilot-gold-rescore/WAVE.md` |
+| `distributed-systems/03-CONSENSUS.md` | 4.7 | `consensus-algorithm-landscape` | `context/waves/2026-05-14-pilot-gold-rescore/WAVE.md` |
+
+Notes:
+- Pilot R3 promotions (Global Winds, Hydrogen, Pitch) and later cohort promotions
+  remain **Candidate-Hardened** until a reset-era panel produces guide-specific
+  ten-dimension notes, adversarial findings, and reader-task checks.
+- Differentiated non-4.6 scores in the historical register are useful signals, not
+  automatic certification.
+
+## Batch Gold Table — Candidate-Hardened provenance (NOT Certified Gold)
+
+> **Honesty banner (2026-06-27 audit; restated 2026-07-29).** This table was once
+> presented as "Current Certified Gold Guides." It does **not** meet the Certified
+> Gold tier. Evidence: nearly all rows carry the identical score **4.6**, rows are
+> backed by batch panel docs (~6+ guides per panel), and the table contains
+> **duplicate entries** (818 rows → ~801 unique). Rows are retained for provenance
+> and invariant coverage only.
 
 | Guide | Score | Protected Invariants | Evidence |
 |---|---:|---|---|
@@ -849,24 +877,25 @@ pass does not by itself certify Gold.
 
 | Tier | Meaning | Required Evidence | Current Handling |
 |---|---|---|---|
-| Certified Gold | Deep editorial exemplar; one of the best pages in the library | Proof output parsed for `FAIL`, Da Vinci coverage where applicable, ten-dimension rubric notes, adversarial findings, and 3-5 reader-task checks for the specific guide | Listed in Current Certified Gold only |
-| Candidate-Hardened | Mechanically hardened and plausibly strong, but not independently certified | Proof-clean, Cross-References added, invariant registered, and wave evidence exists | Kept in the historical register below; must pass a new panel before Gold |
+| Certified Gold | Deep editorial exemplar; one of the best pages in the library | Proof output parsed for `FAIL`, Da Vinci coverage where applicable, ten-dimension rubric notes, adversarial findings, and 3-5 reader-task checks for the specific guide | **Only** the 2 guides in *Current Certified Gold* above |
+| Candidate-Hardened | Mechanically hardened and plausibly strong, but not independently certified | Proof-clean, Cross-References added, invariant registered, and wave evidence exists | Batch table + historical register; must pass a reset-era panel before Gold |
 | Proof-Clean / Uncertified | Proof passes but no editorial quality claim has been made | Proof command and scope only | Do not enter Gold registry except as a future candidate note |
 | Substantive Repair | Useful guide with known editorial, structural, factual, proof, or diagram defects | BLOCK/WARN findings, proof failures, or scout deferrals | Repair wave before any Gold candidacy |
 
 ## Reset Audit Summary
 
-| Source | Registered Rows | Reset Status | Reason |
+| Source | Unique guides (approx.) | Reset Status | Reason |
 |---|---:|---|---|
-| `2026-05-14-pilot-gold-rescore` | 2 | Certified Gold | Contains differentiated dimension scores and reader-task findings after remediation |
-| Other 2026-05-14 promotion/cohort waves | 75 | Candidate-Hardened pending panel | Evidence is useful, but promotion waves are not a substitute for adversarial guide review |
-| Gold Factory waves | 816 | Candidate-Hardened pending panel | Factory waves emphasize proof, cross-links, and Da Vinci invariants; uniform wave-level scores are not certification |
+| `2026-05-14-pilot-gold-rescore` | 2 | **Certified Gold** | Differentiated dimension scores + reader-task findings after remediation |
+| Other 2026-05-14 promotion/cohort waves | ~75 | Candidate-Hardened pending panel | Useful provenance; not a substitute for adversarial per-guide review |
+| Gold Factory / reset-batch tables | ~800 | Candidate-Hardened pending panel | Proof, cross-links, Da Vinci emphasis; uniform 4.6 wave scores ≠ certification |
+| Deduped candidate universe | ~875 | Candidate-Hardened | Prefer unique-guide counts over raw table rows when quoting status |
 
 ## Historical Promotion Register Under Re-Audit
 
 Rows below are retained as provenance for prior promotion claims and invariant
-coverage. Except for entries also listed in Current Certified Gold, they are
-Candidate-Hardened until a reset-era panel certifies them.
+coverage. **Except for the 2 Current Certified Gold guides**, every row here is
+Candidate-Hardened until a reset-era panel certifies it.
 
 | Guide | Score | Protected Invariants | Evidence |
 |---|---:|---|---|
@@ -1768,7 +1797,7 @@ Candidate-Hardened until a reset-era panel certifies them.
 
 | Guide | Current Tier | Protected Invariants | Next Gate |
 |---|---|---|---|
-| Historical promotion register rows not listed in Current Certified Gold | Candidate-Hardened | See each row above | Run reset-era Gold panel with guide-specific ten-dimension notes, adversarial findings, and reader-task checks |
+| All historical/batch rows except the 2 Certified Gold guides | Candidate-Hardened (~875 unique) | See tables above | Reset-era Gold panel: ten-dimension notes, adversarial findings, reader-task checks **per guide** |
 | Proof-clean guides discovered by future scouts | Proof-Clean / Uncertified | Optional until candidacy | Do not call Gold; nominate only after style-contract and editorial sufficiency scout |
 | Deferred noisy guides from factory scouts | Substantive Repair | None until repaired | Open repair wave, resolve BLOCK/WARN/proof failures, then re-scout |
 
@@ -2690,8 +2719,9 @@ Candidate-Hardened until a reset-era panel certifies them.
    adversarial reviewer lenses.
 3. Record a wave or panel with guide-specific scores, reader tasks, findings,
    reviewer roles, and validation.
-4. Update Current Certified Gold only when the claim is evidence-backed by a
-   reset-era panel; otherwise record the guide as Candidate-Hardened,
-   Proof-Clean / Uncertified, or Substantive Repair.
-5. Do not downgrade silently; if a Gold guide regresses, move it to Candidate with
+4. Update *Current Certified Gold* only when the claim is evidence-backed by a
+   reset-era panel with guide-specific scores; otherwise record Candidate-Hardened,
+   Proof-Clean / Uncertified, or Substantive Repair. Never bulk-promote a wave.
+5. Keep the Honesty Dashboard counts accurate (unique guides, not raw rows).
+6. Do not downgrade silently; if a Gold guide regresses, move it to Candidate with
    a blocker note and cite the wave that found the regression.

@@ -52,9 +52,12 @@ A **self-authored reference library** organized by field. Each field is a subdir
 
 The library is organized into 13 MkDocs sections. Section landing pages live in `sections/`. Full status in `TRACKER.md`. Expansion process in `EXPANSION.md`. Library-level projects (atlas, concept index, reading maps, etc.) in `PROJECTS.md`.
 
-**Complete: 217 directories · 13 sections · ~2,170 content files · ~14,070 pages · 52 bound volumes**
+**Authored: 217 directories · 13 sections · ~2,170 content files · ~14,070 pages · 52 bound volumes**
 *13 sections × 4 volumes = 52 volumes. A deck of cards.*
-All batches 1–13 complete. Full library written, reviewed, and clean.
+Batches 1–13 written. Style/`@editor` graduation is largely clean; do **not** claim
+library-wide Gold certification. Honest Gold status lives in `context/gold/REGISTRY.md`
+(2 Certified Gold; Candidate-Hardened backlog). Prefer numbers/names fact-check waves
+over bulk Gold stamping.
 
 ```
 reference/

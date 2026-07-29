@@ -17,18 +17,19 @@ inflated certification process**, not shallowness.
 
 ## Gap 1 — "Gold certification" is a batch rubber-stamp (most serious)
 
-`context/gold/REGISTRY.md` lists **1,711 guides as Certified Gold; 1,696 (99.1%)
-carry the identical score 4.6**, backed by only **258 panel docs** (~6.6 guides
-per panel), with **duplicate entries** inflating the count (e.g. every
-`abstract-algebra/*` guide is listed twice).
+`context/gold/REGISTRY.md` listed **~1,711 rows as if Certified Gold; ~1,696
+carried the identical score 4.6**, backed by batch panel docs, with **duplicate
+entries** inflating the count.
 
-A real adversarial panel produces a score *distribution*; 1,696 identical 4.6s is
-the signature of a stamp. This contradicts the registry's own stated bar
+A real adversarial panel produces a score *distribution*; identical 4.6s are the
+signature of a stamp. This contradicted the registry's own stated bar
 ("frozen to panel-backed claims… five gates agree").
 
-**Owner decision (not changed here):** re-scope the registry to the genuinely
-panel-reviewed set, or relabel the batch entries "candidate-hardened." Left for
-the owner because it changes the project's self-representation.
+> **RESOLVED (2026-07-29 rescope).** Registry now publishes an Honesty Dashboard
+> and a **Current Certified Gold** set of **2** pilot-rescore guides. Batch and
+> historical tables are explicitly **Candidate-Hardened provenance** (~875 unique
+> guides). README/CLAUDE no longer imply library-wide Gold. See
+> `context/audits/2026-07-29-gold-registry-rescope.md`.
 
 ## Gap 2 — Factual accuracy: confident confabulation of load-bearing specifics
 

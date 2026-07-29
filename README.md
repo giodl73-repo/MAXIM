@@ -45,7 +45,10 @@ Each section has its own landing page with a landscape diagram, directory map, a
 | 12 | Natural World | [`sections/natural-world.md`](sections/natural-world.md) |
 | 13 | People *(the Ace — origin and culmination)* | [`sections/people.md`](sections/people.md) |
 
-All 13 sections are **complete**. Batches 1–13 done; full library reviewed and clean.
+All 13 sections are **authored end-to-end** (batches 1–13). Style/`@editor` graduation
+is largely clean; **factual certification is narrower** — see
+[`context/gold/REGISTRY.md`](context/gold/REGISTRY.md) (2 Certified Gold guides;
+large Candidate-Hardened backlog) and the honest-gap audits under `context/audits/`.
 
 ---
 
